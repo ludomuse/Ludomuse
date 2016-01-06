@@ -17,7 +17,10 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/HelloWorldScene.cpp \
                    ../../Classes/Engine/Source/CKernel.cpp \
                    ../../Classes/Engine/Source/CNode.cpp \
-                   ../../Classes/Engine/Source/CSequenceNode.cpp
+                   ../../Classes/Engine/Source/CSequenceNode.cpp \
+                   ../../Classes/Engine/Source/CInputManager.cpp \
+                   ../../Classes/Engine/Source/CParallelNode.cpp \
+
 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

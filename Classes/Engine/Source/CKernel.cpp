@@ -6,24 +6,22 @@ using namespace cocos2d;
 namespace LM
 {
 
-CKernel::CKernel()
+CKernel::CKernel() : m_oInputManager(*this)
 {
-  m_pEventListener = EventListenerTouchOneByOne::create();
-  m_pEventListener->onTouchBegan = CC_CALLBACK_2(CKernel::OnTouchBegan, this);
-
-  m_oBehaviorTree = new CSequenceNode();
+  // the Behavior Tree is the root node of the tree
+  m_pBehaviorTree = new CSequenceNode();
 }
 
 
-bool CKernel::OnTouchBegan(Touch* touch, Event* event)
+CNode* CKernel::GetBehaviorTree()
 {
-  return m_oBehaviorTree->OnTouchBegan(touch, event);
+  return m_pBehaviorTree;
 }
 
 
 CKernel::~CKernel()
 {
-  delete m_oBehaviorTree;
+  delete m_pBehaviorTree;
 }
 
 } // namespace LM

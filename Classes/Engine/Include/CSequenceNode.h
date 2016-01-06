@@ -12,7 +12,7 @@ class CSequenceNode : public CNode
 
 
  public:
-  virtual bool OnTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) override;
+  virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) override;
 };
 
 } // namespace LM

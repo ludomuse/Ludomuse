@@ -17,7 +17,7 @@ class CParallelNode : public CNode
   /**
    * Forward the OnTouchBegan event to every child node 
    */
-  virtual bool OnTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) override;
+  virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) override;
 };
 
 

@@ -4,6 +4,7 @@
 
 #include "cocos2d.h"
 #include "CNode.h"
+#include "CInputManager.h"
 
 
 namespace LM 
@@ -12,15 +13,13 @@ namespace LM
 class CKernel
 {
  private:
-
-  cocos2d::EventListenerTouchOneByOne* m_pEventListener;
-  CNode* m_oBehaviorTree;
-  
+  CNode* m_pBehaviorTree;
+  CInputManager m_oInputManager;
 
  public:
   CKernel();
   virtual ~CKernel();
-  bool OnTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+  CNode* GetBehaviorTree();
 };
 
 
