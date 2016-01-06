@@ -2,7 +2,9 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
-
+#include "Engine/Include/CKernel.h"
+#include "Modules/Wifi/Include/LmWifiDirectFacade.h"
+#include "Modules/Wifi/Include/LmJniCppFacade.h"
 
 /**
 @brief    The cocos2d Application.
@@ -35,6 +37,27 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
+
+
+ private:
+
+  //********************ATTRIBUTES********************
+
+  LmWifiDirectFacade m_oWifiFacade;
+
+  //handle the good behavior of the game
+  // LmGameManager* m_pLmGameManager;
+  LM::CKernel m_oKernel;
+
+  //this object handle log of user & wifi direct & get info to set after gamanager
+  // LmMenu* m_pLmMenu;
+
+  //********************METHODS********************
+
+  //init paths so the app find good ressources
+  void initPathsForResolution();
+
+  bool init();
 };
 
 #endif // _APP_DELEGATE_H_

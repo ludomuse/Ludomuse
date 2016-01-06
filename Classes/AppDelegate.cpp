@@ -9,6 +9,12 @@ static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
 AppDelegate::AppDelegate() {
+  /*Create the wifi direct
+    and set it in the jni facade (it's like doing a singleton -> all class can now access the wifi
+    trough this the jni facade class)
+  */
+  LmJniCppFacade::setWifiFacade(&m_oWifiFacade);
+  CCLOG("before gamemanager");
 }
 
 AppDelegate::~AppDelegate() 
