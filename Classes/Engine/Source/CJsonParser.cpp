@@ -13,6 +13,8 @@ namespace LM
 
 void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename)
 {
+
+  // init json document
   rapidjson::Document oDocument;
   std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFilename);
 

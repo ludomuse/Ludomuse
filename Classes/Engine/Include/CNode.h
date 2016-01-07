@@ -19,7 +19,7 @@ class CNode
   /// \details constitutes the subtree taking this node as root
   std::vector<CNode*> m_vChildren;
   /// \brief the current child node in the execution process
-  CNode* m_pCurrentNode;
+  int m_iCurrentNode;
 
  public:
   CNode();

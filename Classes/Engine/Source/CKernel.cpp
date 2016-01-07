@@ -30,6 +30,9 @@ CKernel::~CKernel()
 
 void CKernel::Init()
 {
+
+  // CJsonParser::BuildBehaviorTreeFromFile
+
   CSceneNode node;
   node.init();
 

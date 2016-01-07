@@ -4,7 +4,7 @@
 namespace LM
 {
 
-CNode::CNode() : m_pCurrentNode(nullptr)
+CNode::CNode() : m_iCurrentNode(-1)
 {
 }
 
