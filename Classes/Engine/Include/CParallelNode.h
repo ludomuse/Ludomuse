@@ -7,6 +7,9 @@
 namespace LM
 {
 
+/// \class CParallelnode
+/// \ingroup Engine
+/// \brief A node executing its children in parallel 
 class CParallelNode : public CNode
 {
   
@@ -14,9 +17,7 @@ class CParallelNode : public CNode
  public:
   CParallelNode();
 
-  /**
-   * Forward the OnTouchBegan event to every child node 
-   */
+  /// \brief Forward the OnTouchBegan event to every child node 
   virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) override;
 };
 

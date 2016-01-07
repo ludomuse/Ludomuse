@@ -8,17 +8,32 @@
 namespace LM
 {
 
+
+/// \class CNode
+/// \ingroup Engine
+/// \brief A simple node of the BehaviorTree
 class CNode
 {
  protected:
+  /// \brief the list of children of the node
+  /// \details constitutes the subtree taking this node as root
   std::vector<CNode*> m_vChildren;
+  /// \brief the current child node in the execution process
   CNode* m_pCurrentNode;
 
  public:
   CNode();
   virtual ~CNode();
-  virtual bool OnTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) = 0;
-  void AddChild(CNode* a_oChild);
+
+  /// \brief Cocos2d-x Callback called when the screen is touched
+  /// \returns true on success, false otherwise
+  /// \param[in] a_pTouch the cocos2d touch event
+  /// \param[in] a_pEvent the cocos2d event
+  virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) = 0;
+
+  /// \brief add this node as a child in the subtree
+  /// \param[in] a_pChild The child to add
+  void AddChild(CNode* a_pChild);
 };
 
 

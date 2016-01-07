@@ -8,6 +8,7 @@ namespace LM
 
 CInputManager::CInputManager(CKernel& a_rKernel) : m_rKernel(a_rKernel)
 {
+  // create a cocos EventListener and bind touchBegan to InputManager
   m_pEventListener = EventListenerTouchOneByOne::create();
   m_pEventListener->onTouchBegan = CC_CALLBACK_2(CInputManager::OnTouchBegan, this);  
 }

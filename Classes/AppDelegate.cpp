@@ -13,7 +13,8 @@ AppDelegate::AppDelegate() {
     and set it in the jni facade (it's like doing a singleton -> all class can now access the wifi
     trough this the jni facade class)
   */
-  LmJniCppFacade::setWifiFacade(&m_oWifiFacade);
+  // TODO replace with NetworkManager
+  // LmJniCppFacade::setWifiFacade(&m_oWifiFacade);
   CCLOG("before gamemanager");
 }
 

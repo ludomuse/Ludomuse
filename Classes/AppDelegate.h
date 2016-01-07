@@ -3,8 +3,8 @@
 
 #include "cocos2d.h"
 #include "Engine/Include/CKernel.h"
-#include "Modules/Wifi/Include/LmWifiDirectFacade.h"
-#include "Modules/Wifi/Include/LmJniCppFacade.h"
+// #include "Modules/Wifi/Include/LmWifiDirectFacade.h"
+// #include "Modules/Wifi/Include/LmJniCppFacade.h"
 
 /**
 @brief    The cocos2d Application.
@@ -43,7 +43,8 @@ public:
 
   //********************ATTRIBUTES********************
 
-  LmWifiDirectFacade m_oWifiFacade;
+  // TODO : replace with NetworkManager
+  // LmWifiDirectFacade m_oWifiFacade;
 
   //handle the good behavior of the game
   // LmGameManager* m_pLmGameManager;
