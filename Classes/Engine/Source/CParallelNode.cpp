@@ -30,7 +30,8 @@ bool CParallelNode::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 void CParallelNode::Finish()
 {
   // if all the children nodes are finished then finish the parallel node
-  if (++m_iFinishedNodesCount >= m_vChildren.size())
+  m_iFinishedNodesCount++;
+  if (m_iFinishedNodesCount >= m_vChildren.size())
   {
     m_pParent->Finish();
   }

@@ -7,13 +7,20 @@ namespace LM
 {
 
 CSceneNode::CSceneNode()
-{  
+{
+}
+
+Scene* CSceneNode::CreateScene()
+{
   // autoreleased
-  m_pScene = Scene::create();
+  auto m_pScene = Scene::create();
   // autoreleased
-  auto layer = Layer::create();
+  auto layer = CSceneNode::create();
 
   m_pScene->addChild(layer);
+
+  return m_pScene;
+
 }
 
 
@@ -22,7 +29,7 @@ cocos2d::Scene* CSceneNode::GetScene()
   return m_pScene;
 }
 
-bool CSceneNode::Init()
+bool CSceneNode::init()
 {
   if (!cocos2d::Layer::init())
   {
@@ -73,7 +80,7 @@ bool CSceneNode::Init()
 
   // add the sprite as a child to this layer
   this->addChild(sprite, 0);
-    
+  
   return true;
 
 }

@@ -19,13 +19,18 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
  public:
   CSceneNode();
 
+  /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();
   
   /// \brief initialize the scene of the game
-  bool Init();
+  cocos2d::Scene* CreateScene();
+
+  virtual bool init();
 
   // TMP, TODO : remove
   void menuCloseCallback(Ref* pSender);
+
+  CREATE_FUNC(CSceneNode);
 };
 
 } // namespace LM
