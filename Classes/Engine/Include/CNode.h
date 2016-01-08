@@ -18,6 +18,9 @@ class CNode
   /// \brief the list of children of the node
   /// \details constitutes the subtree taking this node as root
   std::vector<CNode*> m_vChildren;
+  /// \brief the parent node in the tree
+  /// \details nullptr if root node
+  CNode* m_pParent;
   /// \brief the current child node in the execution process
   int m_iCurrentNode;
 
@@ -33,7 +36,12 @@ class CNode
 
   /// \brief add this node as a child in the subtree
   /// \param[in] a_pChild The child to add
-  void AddChild(CNode* a_pChild);
+  virtual void AddChild(CNode* a_pChild);
+
+
+  /// \brief call this function to finish the execution of the node
+  virtual void Finish();
+
 };
 
 

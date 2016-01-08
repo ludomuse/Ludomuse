@@ -7,7 +7,7 @@ namespace LM
 {
 
 
-CParallelNode::CParallelNode()
+CParallelNode::CParallelNode() : m_iFinishedNodesCount(0)
 {
   
 }
@@ -23,6 +23,17 @@ bool CParallelNode::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
   }
   // if each child's OnTouchbegan succeeds then success
   return bSuccess;
+}
+
+
+
+void CParallelNode::Finish()
+{
+  // if all the children nodes are finished then finish the parallel node
+  if (++m_iFinishedNodesCount >= m_vChildren.size())
+  {
+    m_pParent->Finish();
+  }
 }
 
 

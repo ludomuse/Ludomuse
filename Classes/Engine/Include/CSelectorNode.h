@@ -10,6 +10,7 @@ class CSelectorNode : public CNode
 {
  private:
   bool SelectCurrentNode(int a_iIndex);
+
 };
 
 } // namespace LM

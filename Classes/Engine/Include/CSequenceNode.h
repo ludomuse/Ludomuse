@@ -18,6 +18,8 @@ class CSequenceNode : public CNode
  public:
   /// \brief forwards the OnTouchBegan event to the currently active child in the sequence
   virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) override;
+
+  virtual void Finish() override;
 };
 
 } // namespace LM
