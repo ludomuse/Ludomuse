@@ -13,6 +13,7 @@ namespace LM
 class CSceneNode : public CParallelNode, public cocos2d::Layer
 {
  private:
+  /// \brief the corresponding cocos scene
   cocos2d::Scene* m_pScene;
   
  public:
