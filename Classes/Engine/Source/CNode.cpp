@@ -19,6 +19,17 @@ void CNode::AddChild(CNode* a_pChild)
 }
 
 
+CNode::Iterator CNode::BeginChild()
+{
+  return m_vChildren.begin();
+}
+
+CNode::Iterator CNode::EndChild()
+{
+  return m_vChildren.end();
+}
+
+
 void CNode::Finish()
 {
   m_pParent->Finish();

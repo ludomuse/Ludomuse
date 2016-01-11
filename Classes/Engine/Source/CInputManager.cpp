@@ -16,7 +16,7 @@ CInputManager::CInputManager(CKernel& a_rKernel) : m_rKernel(a_rKernel)
 
 bool CInputManager::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
-  m_rKernel.GetBehaviorTree()->OnTouchBegan(a_pTouch, a_pEvent);
+  return m_rKernel.GetBehaviorTree()->OnTouchBegan(a_pTouch, a_pEvent);
 }
 
 

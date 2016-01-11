@@ -14,6 +14,10 @@ namespace LM
 /// \brief A simple node of the BehaviorTree
 class CNode
 {
+
+ public:
+  typedef std::vector<CNode*>::iterator Iterator;
+  
  protected:
   /// \brief the list of children of the node
   /// \details constitutes the subtree taking this node as root
@@ -38,6 +42,8 @@ class CNode
   /// \param[in] a_pChild The child to add
   virtual void AddChild(CNode* a_pChild);
 
+  CNode::Iterator BeginChild();
+  CNode::Iterator EndChild();
 
   /// \brief call this function to finish the execution of the node
   virtual void Finish();
