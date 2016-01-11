@@ -7,6 +7,7 @@
 namespace LM
 {
 
+/// \brief The result of the traversal of a node
 enum Result
 {
   RESULT_CONTINUE,
@@ -15,12 +16,15 @@ enum Result
 
 class CVisitor
 {
+  /// \brief the root node of the traversal
   CNode* m_pRootNode;
+  /// \brief the current node of the traversal
   CNode* m_pCurrentNode;
 
   CVisitor();
   virtual ~CVisitor();
 
+  /// \brief Traverse the node to visit it
   void Traverse(CNode* a_pNode);
 
   /// \brief Called when decending to a new Node. Recursion stops on RESULT_PRUNE
