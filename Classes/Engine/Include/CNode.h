@@ -16,12 +16,12 @@ class CNode
 {
 
  public:
-  typedef std::vector<CNode*>::iterator Iterator;
+  typedef std::vector<CNode>::iterator Iterator;
   
  protected:
   /// \brief the list of children of the node
   /// \details constitutes the subtree taking this node as root
-  std::vector<CNode*> m_vChildren;
+  std::vector<CNode> m_vChildren;
   /// \brief the parent node in the tree
   /// \details nullptr if root node
   CNode* m_pParent;
@@ -36,11 +36,11 @@ class CNode
   /// \returns true on success, false otherwise
   /// \param[in] a_pTouch the cocos2d touch event
   /// \param[in] a_pEvent the cocos2d event
-  virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) = 0;
+  virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
   /// \brief add this node as a child in the subtree
   /// \param[in] a_pChild The child to add
-  virtual void AddChild(CNode* a_pChild);
+  virtual void AddChildNode(CNode& a_pChild);
 
   CNode::Iterator BeginChild();
   CNode::Iterator EndChild();
