@@ -14,4 +14,5 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 	return m_pCocosEntity;
 }
 
+
 } // namespace LM

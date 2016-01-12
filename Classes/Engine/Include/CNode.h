@@ -46,6 +46,18 @@ class CNode
   CNode::Iterator BeginChild();
   CNode::Iterator EndChild();
 
+  /// \brief execute for each child node a_fpCallback(a_pChild)
+  virtual void DoForEachChildNode(void (*a_fpCallback)(CNode* a_pChild));
+
+  template<class T>
+  void DoForEachChildNode(T* a_tObject, void (T::* a_fpCallback)(CNode* ))
+  {
+	  for (CNode::Iterator itChild = BeginChild(); itChild != EndChild(); ++itChild)
+	  {
+		  (a_tObject->*a_fpCallback)(*itChild);
+	  }
+  };
+
   /// \brief call this function to finish the execution of the node
   virtual void Finish();
 

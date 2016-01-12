@@ -20,6 +20,8 @@ void CVisitor::Traverse(CNode* a_pNode)
 {
   if (ProcessNodeTopDown(a_pNode) == RESULT_CONTINUE)
   {
+	// do not call object->Traverse but object->CVisitor::Traverse
+	//a_pNode->DoForEachChildNode<CVisitor>(this, &CVisitor::Traverse);
     for (CNode::Iterator itNode = a_pNode->BeginChild();
          itNode != a_pNode->EndChild();
          ++itNode)

@@ -16,16 +16,19 @@ enum Result
 
 class CVisitor
 {
+protected:
   /// \brief the root node of the traversal
   CNode* m_pRootNode;
   /// \brief the current node of the traversal
   CNode* m_pCurrentNode;
 
+  
+public:
   CVisitor();
   virtual ~CVisitor();
 
   /// \brief Traverse the node to visit it
-  void Traverse(CNode* a_pNode);
+  virtual void Traverse(CNode* a_pNode);
 
   /// \brief Called when decending to a new Node. Recursion stops on RESULT_PRUNE
   virtual Result ProcessNodeTopDown(CNode* a_pNode);

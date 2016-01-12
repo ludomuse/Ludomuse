@@ -10,10 +10,9 @@ CNode::CNode() : m_iCurrentNode(-1), m_pParent(nullptr)
 
 CNode::~CNode()
 {
-	for (CNode::Iterator itChild = m_vChildren.begin(); itChild != m_vChildren.end(); ++itChild)
-	{
-		delete *itChild;
-	}
+	DoForEachChildNode([](CNode* a_pChild) {
+		delete a_pChild;
+	});
 }
 
 
@@ -37,6 +36,11 @@ CNode::Iterator CNode::BeginChild()
 CNode::Iterator CNode::EndChild()
 {
   return m_vChildren.end();
+}
+
+void CNode::DoForEachChildNode(void(*a_fpCallback)(CNode* a_pChild))
+{
+	std::for_each(BeginChild(), EndChild(), a_fpCallback);
 }
 
 

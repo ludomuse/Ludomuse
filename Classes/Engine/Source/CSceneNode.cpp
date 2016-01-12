@@ -93,7 +93,13 @@ bool CSceneNode::init()
   
 
   // TODO true solution, uncomment when TreeBuilder is OK
-//  for (CNode::Iterator itChild = m_vChildren)
+  /*DoForEachChildNode([](CNode* a_pChild) {
+	  CEntityNode* pEntity = (CEntityNode*) a_pChild;
+	  if (pEntity) 
+	  {
+		  pEntity->Init();
+	  }
+  });*/
 
   return true;
 

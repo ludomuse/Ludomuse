@@ -3,7 +3,7 @@
 namespace LM
 {
 
-bool CSelectorNode::SelectCurrentNode(int a_iIndex)
+bool CSelectorNode::SelectCurrentNode(unsigned int a_iIndex)
 {
   if (a_iIndex < m_vChildren.size() && a_iIndex >= 0)
   {
