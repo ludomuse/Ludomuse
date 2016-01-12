@@ -18,20 +18,16 @@ CSpriteNode::CSpriteNode(const std::string& a_rFilename,
 
 void CSpriteNode::Init()
 {
-  m_pSprite = Sprite::create(m_sSpriteFilename);
-  m_pSprite->setPosition(Vec2(m_iXPosition, m_iYPosition));
+  m_pCocosEntity = Sprite::create(m_sSpriteFilename);
+  m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
   CSceneNode* pScene = (CSceneNode*) m_pParent;
   if (pScene)
   {
-    pScene->addChild(m_pSprite, 0);    
+    pScene->addChild(m_pCocosEntity, 0);    
   }
 
 }
 
-cocos2d::Sprite* CSpriteNode::operator() ()
-{
-  return m_pSprite;
-}
 
 } // namespace LM

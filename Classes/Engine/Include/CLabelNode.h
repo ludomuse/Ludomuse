@@ -16,7 +16,7 @@ class CLabelNode : public CEntityNode
   std::string m_sFontName;
   int m_iFontSize;
 
-  cocos2d::Label* m_pLabel;
+  //cocos2d::Label* m_pLabel;
 
  public:
   CLabelNode(const std::string& a_rText, const std::string& a_rFontName, int a_iFontSize,
@@ -25,8 +25,6 @@ class CLabelNode : public CEntityNode
   /// \brief init this node
   virtual void Init();
 
-  /// \returns the correspoding cocos2d label
-  cocos2d::Label* operator()();
 };
 
 } // namespace LM

@@ -25,12 +25,12 @@ class CVisitor
   virtual ~CVisitor();
 
   /// \brief Traverse the node to visit it
-  void Traverse(CNode& a_pNode);
+  void Traverse(CNode* a_pNode);
 
   /// \brief Called when decending to a new Node. Recursion stops on RESULT_PRUNE
-  virtual Result ProcessNodeTopDown(CNode& a_pNode);
+  virtual Result ProcessNodeTopDown(CNode* a_pNode);
   /// \brief Called after child node has been processed before going back to parent node
-  virtual void ProcessNodeBottomUp(CNode& a_pNode);
+  virtual void ProcessNodeBottomUp(CNode* a_pNode);
   
 };
 

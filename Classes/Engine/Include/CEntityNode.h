@@ -3,6 +3,7 @@
 
 
 #include "CNode.h"
+#include "cocos2d.h"
 
 namespace LM
 {
@@ -16,11 +17,15 @@ class CEntityNode : public CNode
   /// \brief the %height position on the screen 
   int m_iYPosition;
 
+  cocos2d::Node* m_pCocosEntity;
+
  public:
   CEntityNode(int a_iXPosition, int a_iYPosition);
   
   /// \brief called when the scene is initialized
   virtual void Init() = 0;
+
+  virtual cocos2d::Node* GetCocosEntity();
 };
 
 } // namespace LM

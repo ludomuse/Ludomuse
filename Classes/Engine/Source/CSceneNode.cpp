@@ -71,13 +71,12 @@ bool CSceneNode::init()
   // label->setPosition(Vec2(origin.x + visibleSize.width/2,
   //                         origin.y + visibleSize.height - label->getContentSize().height));
 
-  CLabelNode oLabel("Hello World", "fonts/Marker Felt.ttf", 24,
+  CLabelNode* oLabel = new CLabelNode("Hello World", "fonts/Marker Felt.ttf", 24,
                     origin.x + visibleSize.width/2,
                     origin.y + visibleSize.height/2);
-  //AddChildNode(oLabel);
-  oLabel.Init();
   // add the label as a child to this layer
-  this->addChild(oLabel(), 1);
+  AddChildNode(oLabel);
+  oLabel->Init();
 
   // add "HelloWorld" splash screen"
   // auto sprite = Sprite::create("HelloWorld.png");
@@ -85,15 +84,17 @@ bool CSceneNode::init()
   // position the sprite on the center of the screen
   // sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
-  CSpriteNode oSprite("HelloWorld.png",
+  CSpriteNode* oSprite = new CSpriteNode("HelloWorld.png",
                       origin.x + visibleSize.width/2,
                       origin.y + visibleSize.height/2);
-  //AddChildNode(oSprite);
-  oSprite.Init();
-  CNode test = oSprite;
   // add the sprite as a child to this layer
-  this->addChild(oSprite(), 0);
+  AddChildNode(oSprite);
+  oSprite->Init();
   
+
+  // TODO true solution, uncomment when TreeBuilder is OK
+//  for (CNode::Iterator itChild = m_vChildren)
+
   return true;
 
 }

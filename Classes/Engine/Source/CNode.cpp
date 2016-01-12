@@ -10,6 +10,10 @@ CNode::CNode() : m_iCurrentNode(-1), m_pParent(nullptr)
 
 CNode::~CNode()
 {
+	for (CNode::Iterator itChild = m_vChildren.begin(); itChild != m_vChildren.end(); ++itChild)
+	{
+		delete *itChild;
+	}
 }
 
 
@@ -18,9 +22,9 @@ bool CNode::OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent)
   return true;
 }
 
-void CNode::AddChildNode(CNode& a_pChild)
+void CNode::AddChildNode(CNode* a_pChild)
 {
-  a_pChild.m_pParent = this;
+  a_pChild->m_pParent = this;
   m_vChildren.push_back(a_pChild);
 }
 

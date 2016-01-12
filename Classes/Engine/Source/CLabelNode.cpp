@@ -22,19 +22,15 @@ CLabelNode::CLabelNode(const std::string& a_rText,
 
 void CLabelNode::Init()
 {
-  m_pLabel = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
-  m_pLabel->setPosition(Vec2(m_iXPosition, m_iYPosition));
+  m_pCocosEntity = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
+  m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
   CSceneNode* pScene = (CSceneNode*) m_pParent;
   if (pScene)
   {
-    pScene->addChild(m_pLabel, 0);    
+    pScene->addChild(m_pCocosEntity, 0);    
   }
 }
 
-cocos2d::Label* CLabelNode::operator() ()
-{
-  return m_pLabel;
-}
 
 } // namespace LM

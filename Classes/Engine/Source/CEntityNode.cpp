@@ -9,9 +9,9 @@ CEntityNode::CEntityNode(int a_iXPosition, int a_iYPosition) :
 {
 }
 
-// void CEntityNode::Init()
-// {
-  
-// }
+cocos2d::Node* CEntityNode::GetCocosEntity()
+{
+	return m_pCocosEntity;
+}
 
 } // namespace LM
