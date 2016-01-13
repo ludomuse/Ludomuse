@@ -21,7 +21,7 @@ CLabelNode::CLabelNode(const std::string& a_rText,
 
 void CLabelNode::Init()
 {
-  auto m_pCocosEntity = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
+  m_pCocosEntity = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
   m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
   PopulateParent();

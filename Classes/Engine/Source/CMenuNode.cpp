@@ -28,7 +28,7 @@ void CMenuNode::Init()
 
   m_pMenuItemImage->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
-  auto m_pCocosEntity = Menu::create(m_pMenuItemImage, NULL);
+  m_pCocosEntity = Menu::create(m_pMenuItemImage, NULL);
   m_pCocosEntity->setPosition(Vec2::ZERO);
 
   PopulateParent();
