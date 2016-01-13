@@ -1,5 +1,4 @@
 #include "../Include/CLabelNode.h"
-#include "../Include/CSceneNode.h"
 
 using namespace cocos2d;
 
@@ -25,11 +24,8 @@ void CLabelNode::Init()
   auto m_pCocosEntity = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
   m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
-  CSceneNode* pScene = (CSceneNode*) m_pParent;
-  if (pScene)
-  {
-    pScene->addChild(m_pCocosEntity, 0);    
-  }
+  PopulateParent();
+  
 }
 
 

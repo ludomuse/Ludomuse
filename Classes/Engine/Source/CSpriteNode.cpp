@@ -21,11 +21,7 @@ void CSpriteNode::Init()
   auto m_pCocosEntity = Sprite::create(m_sSpriteFilename);
   m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
-  CSceneNode* pScene = (CSceneNode*) m_pParent;
-  if (pScene)
-  {
-    pScene->addChild(m_pCocosEntity, 0);    
-  }
+  PopulateParent();
 
 }
 

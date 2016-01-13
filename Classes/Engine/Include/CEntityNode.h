@@ -11,7 +11,7 @@ namespace LM
 /// \brief a class representing a physical entity in a scene
 class CEntityNode : public CNode
 {
- protected:
+ protected: // variables
   /// \brief the %width position on the screen
   int m_iXPosition;
   /// \brief the %height position on the screen 
@@ -27,6 +27,12 @@ class CEntityNode : public CNode
 
   /// \returns the cocos2d corresponding entity
   virtual cocos2d::Node* GetCocosEntity();
+
+
+ protected: // methods
+  /// \brief must be called at the end of the Init overloaded
+  ///        function to populate parent class in the tree 
+  virtual void PopulateParent();
 
 };
 

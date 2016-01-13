@@ -1,5 +1,4 @@
 #include "../Include/CMenuNode.h"
-#include "../Include/CSceneNode.h"
 
 using namespace cocos2d;
 
@@ -32,11 +31,7 @@ void CMenuNode::Init()
   auto m_pCocosEntity = Menu::create(m_pMenuItemImage, NULL);
   m_pCocosEntity->setPosition(Vec2::ZERO);
 
-  CSceneNode* pScene = (CSceneNode*) m_pParent;
-  if (pScene)
-  {
-    pScene->addChild(m_pCocosEntity, 0);
-  }
+  PopulateParent();
 }
 
 } // namespace LM
