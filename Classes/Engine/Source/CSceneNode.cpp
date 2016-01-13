@@ -1,7 +1,7 @@
 #include "../Include/CSceneNode.h"
 #include "../Include/CSpriteNode.h"
 #include "../Include/CLabelNode.h"
-
+#include "../Include/CMenuNode.h"
 
 using namespace cocos2d;
 
@@ -46,18 +46,33 @@ bool CSceneNode::init()
   //    you may modify it.
 
   // add a "close" icon to exit the progress. it's an autorelease object
-  auto closeItem = MenuItemImage::create(
-      "CloseNormal.png",
-      "CloseSelected.png",
-      CC_CALLBACK_1(CSceneNode::menuCloseCallback, this));
+  // auto closeItem = MenuItemImage::create(
+  //     "CloseNormal.png",
+  //     "CloseSelected.png",
+  //     CC_CALLBACK_1(CSceneNode::menuCloseCallback, this));
     
-  closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                              origin.y + closeItem->getContentSize().height/2));
+  // closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
+  //                             origin.y + closeItem->getContentSize().height/2));
 
   // create menu, it's an autorelease object
-  auto menu = Menu::create(closeItem, NULL);
-  menu->setPosition(Vec2::ZERO);
-  this->addChild(menu, 1);
+  // auto menu = Menu::create(closeItem, NULL);
+  // menu->setPosition(Vec2::ZERO);
+  // this->addChild(menu, 1);
+
+  
+  CMenuNode* pMenuNode = new CMenuNode("CloseNormal.png",
+                                       "CloseSelected.png",
+                                       [](Ref* pSender){
+                                         Director::getInstance()->end();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+                                         exit(0);
+#endif
+                                       },
+                                       10,
+                                       10);
+
+  AddChildNode(pMenuNode);
+  pMenuNode->Init();
 
   /////////////////////////////
   // 3. add your codes below...

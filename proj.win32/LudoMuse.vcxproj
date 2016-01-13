@@ -150,6 +150,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Engine\Source\CJsonParser.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CKernel.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CLabelNode.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CMenuNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CParallelNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CSceneNode.cpp" />
@@ -167,6 +168,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CJsonParser.h" />
     <ClInclude Include="..\Classes\Engine\Include\CKernel.h" />
     <ClInclude Include="..\Classes\Engine\Include\CLabelNode.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CMenuNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CParallelNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CSceneNode.h" />

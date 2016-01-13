@@ -18,7 +18,7 @@ CSpriteNode::CSpriteNode(const std::string& a_rFilename,
 
 void CSpriteNode::Init()
 {
-  m_pCocosEntity = Sprite::create(m_sSpriteFilename);
+  auto m_pCocosEntity = Sprite::create(m_sSpriteFilename);
   m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
   CSceneNode* pScene = (CSceneNode*) m_pParent;

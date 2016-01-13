@@ -57,6 +57,9 @@
     <ClCompile Include="..\Classes\Engine\Source\CEntityNode.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CMenuNode.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -102,6 +105,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CLabelNode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CMenuNode.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
