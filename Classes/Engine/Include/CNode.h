@@ -43,11 +43,12 @@ class CNode
   /// \param[in] a_pChild The child to add
   virtual void AddChildNode(CNode* a_pChild);
 
-  CNode::Iterator BeginChild();
-  CNode::Iterator EndChild();
+  CNode::Iterator begin();
+  CNode::Iterator end();
 
-  /// \brief execute for each child node a_fpCallback(a_pChild)
-  virtual void DoForEachChildNode(void (*a_fpCallback)(CNode* a_pChild));
+  //// \brief execute for each child node a_fpCallback(a_pChild)
+  // INFO:TMP
+  /*virtual void DoForEachChildNode(void (*a_fpCallback)(CNode* a_pChild));
 
   template<class T>
   void DoForEachChildNode(T* a_tObject, void (T::* a_fpCallback)(CNode* ))
@@ -56,7 +57,7 @@ class CNode
 	  {
 		  (a_tObject->*a_fpCallback)(*itChild);
 	  }
-  };
+  };*/
 
   /// \brief call this function to finish the execution of the node
   virtual void Finish();

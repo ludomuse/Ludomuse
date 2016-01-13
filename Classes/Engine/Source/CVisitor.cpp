@@ -22,11 +22,9 @@ void CVisitor::Traverse(CNode* a_pNode)
   {
 	// do not call object->Traverse but object->CVisitor::Traverse
 	//a_pNode->DoForEachChildNode<CVisitor>(this, &CVisitor::Traverse);
-    for (CNode::Iterator itNode = a_pNode->BeginChild();
-         itNode != a_pNode->EndChild();
-         ++itNode)
+    for (CNode* itNode : *a_pNode)
     {
-      Traverse(*itNode);
+      Traverse(itNode);
     }
     ProcessNodeBottomUp(a_pNode);
   }
