@@ -15,11 +15,11 @@ CSceneNode::CSceneNode()
 Scene* CSceneNode::CreateScene()
 {
   // autoreleased
-  auto m_pScene = Scene::create();
+  m_pScene = Scene::create();
   // autoreleased
-  auto layer = CSceneNode::create();
+  auto oLayer = CSceneNode::create();
 
-  m_pScene->addChild(layer);
+  m_pScene->addChild(oLayer);
 
   return m_pScene;
 
