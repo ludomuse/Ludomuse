@@ -59,15 +59,19 @@ bool CSceneNode::init()
   // menu->setPosition(Vec2::ZERO);
   // this->addChild(menu, 1);
 
+
+  auto lfCallback = [](Ref* pSender) 
+  {
+	  Director::getInstance()->end();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	  exit(0);
+#endif
+
+  };
   
   CMenuNode* pMenuNode = new CMenuNode("CloseNormal.png",
                                        "CloseSelected.png",
-                                       [](Ref* pSender){
-                                         Director::getInstance()->end();
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-                                         exit(0);
-#endif
-                                       },
+                                       lfCallback,
                                        10,
                                        10);
 
