@@ -25,8 +25,9 @@ class CMenuNode : public CEntityNode
   CMenuNode(const std::string& a_rNormalImage,
             const std::string& a_rSelectedImage,
             FPMenuClickedCallback a_fpCallback,
-            int a_iXPosition,
-            int a_iYPosition);
+	        EAnchor a_eAnchor = EAnchor::FLOAT,
+            int a_iXPosition = 0,
+            int a_iYPosition = 0);
   
   virtual void Init();
   

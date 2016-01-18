@@ -72,6 +72,7 @@ bool CSceneNode::init()
   CMenuNode* pMenuNode = new CMenuNode("CloseNormal.png",
                                        "CloseSelected.png",
                                        lfCallback,
+	                                   EAnchor::FLOAT,
                                        10,
                                        10);
 
@@ -91,6 +92,7 @@ bool CSceneNode::init()
   //                         origin.y + visibleSize.height - label->getContentSize().height));
 
   CLabelNode* oLabel = new CLabelNode("Hello World", "fonts/Marker Felt.ttf", 24,
+	                EAnchor::FLOAT,
                     origin.x + visibleSize.width/2,
                     origin.y + visibleSize.height/2);
   // add the label as a child to this layer
@@ -104,6 +106,7 @@ bool CSceneNode::init()
   // sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
   CSpriteNode* oSprite = new CSpriteNode("HelloWorld.png",
+	                  EAnchor::FLOAT,
                       origin.x + visibleSize.width/2,
                       origin.y + visibleSize.height/2);
   // add the sprite as a child to this layer

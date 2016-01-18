@@ -18,7 +18,10 @@ class CSpriteNode : public CEntityNode
   //cocos2d::Sprite* m_pSprite;
 
  public:
-  CSpriteNode(const std::string& a_rFilename, int a_iXPosition, int a_iYPosition);
+	 CSpriteNode(const std::string& a_rFilename,
+		      EAnchor a_eAnchor = EAnchor::FLOAT,
+	          int a_iXPosition = 0, 
+	          int a_iYPosition = 0);
 
   virtual void Init();
 

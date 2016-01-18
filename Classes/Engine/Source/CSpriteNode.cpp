@@ -8,9 +8,10 @@ namespace LM
 
 
 CSpriteNode::CSpriteNode(const std::string& a_rFilename,
+	                     EAnchor a_eAnchor,
                          int a_iXPosition,
                          int a_iYPosition) :
-    CEntityNode(a_iXPosition, a_iYPosition),
+    CEntityNode(a_eAnchor, a_iXPosition, a_iYPosition),
     m_sSpriteFilename(a_rFilename)
 {
   
@@ -19,7 +20,7 @@ CSpriteNode::CSpriteNode(const std::string& a_rFilename,
 void CSpriteNode::Init()
 {
   m_pCocosEntity = Sprite::create(m_sSpriteFilename);
-  m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
+  //m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
   PopulateParent();
 

@@ -21,7 +21,16 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 
   if (m_oDocument.HasMember("app"))
   {
-	  ParseJson<0>(m_oDocument["app"], a_pRoot);
+	  //ParseJsonRoot(m_oDocument["app"], a_pRoot);
+
+	  assert(m_oDocument["app"].HasMember("screens"));
+	  RefJsonNode rScenes = m_oDocument["app"]["screens"];
+	  for (int i = 0; i < rScenes.Size(); ++i)
+	  {
+		// recursively parse all the nodes in the json file
+		// using the specialised template where needed
+	  	ParseJson(rScenes[i], a_pRoot);
+	  }
   }
 }
 

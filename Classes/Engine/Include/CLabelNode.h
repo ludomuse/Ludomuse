@@ -20,7 +20,9 @@ class CLabelNode : public CEntityNode
 
  public:
   CLabelNode(const std::string& a_rText, const std::string& a_rFontName, int a_iFontSize,
-             int a_iXPosition, int a_iYPosition);
+             EAnchor a_eAnchor = EAnchor::FLOAT, 
+	         int a_iXPosition = 0, 
+	         int a_iYPosition = 0);
 
   /// \brief init this node
   virtual void Init();
