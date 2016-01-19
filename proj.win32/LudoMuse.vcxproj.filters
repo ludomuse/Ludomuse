@@ -110,6 +110,9 @@
     <ClInclude Include="..\Classes\Engine\Include\CMenuNode.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CJsonParser_impl.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

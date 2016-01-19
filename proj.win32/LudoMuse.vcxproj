@@ -166,6 +166,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CEntityNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CInputManager.h" />
     <ClInclude Include="..\Classes\Engine\Include\CJsonParser.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CJsonParser_impl.h" />
     <ClInclude Include="..\Classes\Engine\Include\CKernel.h" />
     <ClInclude Include="..\Classes\Engine\Include\CLabelNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CMenuNode.h" />

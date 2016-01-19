@@ -22,107 +22,27 @@ typedef const rapidjson::Value& RefJsonNode;
 class CJsonParser
 {
 private:
+	/// \brief the currently processed json document
 	rapidjson::Document m_oDocument;
 
  public:
+	 /// \brief Build the tree of root a_pRoot from a_sFilename json file
+	 /// \params[in] a_pRoot the root node of the behavior tree
+	 /// \params[in] a_sFilename the filename of the json file to build the tree from
   void BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename);
 
 private:
+	/// \brief recursive Method to parse the json file
+	/// \params[in] a_rJsonNode the json node in the file corresponging to a_pNode in the tree
+	/// \prarams[in] a_pNode the subroot node to build the tree from
 	template <typename T>
 	void ParseJson(RefJsonNode a_rJsonNode, T* a_pNode);
 };
 
 
-//////////////////////////////// templates specializations 
 
-
-/// \brief the specialisation building entities in a entity
-template <>
-void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pNode)
-{
-	assert(a_rJsonNode.HasMember("entities"));
-	RefJsonNode rEntities = a_rJsonNode["entities"];
-	for (int i = 0; i < rEntities.Size(); ++i)
-	{
-		assert(rEntities[i]["object"].IsString());
-		// the object type
-		std::string sType = rEntities[i]["object"].GetString();
-		// the object parameters
-		RefJsonNode rParams = rEntities[i]["params"];
-		if (sType == "Grid")
-		{
-
-		}
-		else if (sType == "Image")
-		{
-			CSpriteNode* pSprite = new CSpriteNode(rParams["source"].GetString(),
-				EAnchor::FLOAT, rParams["x"].GetInt(), rParams["y"].GetInt());
-			a_pNode->AddChildNode(pSprite);
-		}
-		else if (sType == "Info")
-		{
-			std::string sFontName = rParams["font"].GetString();
-			if (sFontName == "")
-			{
-				sFontName = "Default";
-			}
-			CLabelNode* pLabel = new CLabelNode(rParams["content"].GetString(),
-				"", // TODO: FontName
-				EAnchor(rParams["anchor"].GetInt())); // TODO check if constructor with index works
-		}
-		else if (sType == "Input")
-		{
-
-		}
-		else if (sType == "Nav")
-		{
-
-		}
-		else if (sType == "Reward")
-		{
-
-		}
-		else if (sType == "Sound")
-		{
-
-		}
-		else if (sType == "Text")
-		{
-
-		}
-		else if (sType == "Video")
-		{
-
-		}
-		//a_pNode->AddChildNode();
-	}
-}
-
-
-/// \brief the specialisation building a scene
-template <>
-void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode)
-{
-	assert(a_rJsonNode.HasMember("content"));
-	CSceneNode* pSceneNode = new CSceneNode();
-	a_pNode->AddChildNode(pSceneNode);
-	ParseJson(a_rJsonNode["content"], pSceneNode);
-}
-
-
-template <typename T>
-void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
-{
-	// not supposed to be called
-
-	//assert(a_rJsonNode.HasMember("screens"));
-	//RefJsonNode rScenes = a_rJsonNode["screens"];
-	//for (int i = 0; i < rScenes.Size(); ++i)
-	//{
-	//	ParseJson(rScenes[i], (CSceneNode*) a_pNode);
-	//}
-}
-
+// include template implementation and specializations
+#include "CJsonParser_impl.h"
 
 
 } // namespace LM

@@ -1,6 +1,8 @@
 #include "../Include/CEntityNode.h"
 #include "../Include/CSceneNode.h"
 
+using namespace cocos2d;
+
 namespace LM
 {
 
@@ -19,8 +21,57 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 
 void CEntityNode::PopulateParent()
 {
-	// TODO place according to anchor
-  m_pCocosEntity->setPosition(cocos2d::Vec2(m_iXPosition, m_iYPosition));
+
+	Size oVisibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
+	
+	// TODO TEST place according to anchor
+	switch (m_eAnchor)
+	{
+	case LM::CENTER:
+		m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0.5));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width/2, oOrigin.y + oVisibleSize.height/2));
+		break;
+	case LM::BOTTOM_LEFT:
+		m_pCocosEntity->setAnchorPoint(Vec2(0, 0));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y));
+		break;
+	case LM::LEFT:
+		m_pCocosEntity->setAnchorPoint(Vec2(0, 0.5));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y + oVisibleSize.height / 2));
+		break;
+	case LM::TOP_LEFT:
+		m_pCocosEntity->setAnchorPoint(Vec2(0, 1));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y + oVisibleSize.height));
+		break;
+	case LM::TOP:
+		m_pCocosEntity->setAnchorPoint(Vec2(0.5, 1));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width / 2, oOrigin.y + oVisibleSize.height));
+		break;
+	case LM::TOP_RIGHT:
+		m_pCocosEntity->setAnchorPoint(Vec2(1, 1));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y + oVisibleSize.height));
+		break;
+	case LM::RIGHT:
+		m_pCocosEntity->setAnchorPoint(Vec2(1, 0.5));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y + oVisibleSize.height / 2));
+		break;
+	case LM::BOTTOM_RIGHT:
+		m_pCocosEntity->setAnchorPoint(Vec2(1, 0));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y));
+		break;
+	case LM::BOTTOM:
+		m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0));
+		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width / 2, oOrigin.y));
+		break;
+	case LM::FLOAT:
+		m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0.5));
+		m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
+		break;
+	default:
+		break;
+	}
+
 
   CSceneNode* pScene = (CSceneNode*) m_pParent;
   if (pScene)
