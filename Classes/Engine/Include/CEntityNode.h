@@ -22,12 +22,30 @@ namespace LM
 		FLOAT
 	};
 
-	static void IntToAnchor(int a_iIndex)
+	static EAnchor IntToAnchor(int a_iIndex)
 	{
 		switch (a_iIndex)
 		{
+		case 0:
+			return CENTER;
+		case 1:
+			return BOTTOM_LEFT;
+		case 2:
+			return LEFT;
+		case 3:
+			return TOP_LEFT;
+		case 4:
+			return TOP;
+		case 5:
+			return TOP_RIGHT;
+		case 6:
+			return RIGHT;
+		case 7:
+			return BOTTOM_RIGHT;
+		case 8:
+			return BOTTOM;
 		default:
-			break;
+			return FLOAT;
 		}
 	};
 

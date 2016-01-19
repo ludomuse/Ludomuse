@@ -11,7 +11,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 	// the object parameters
 	RefJsonNode rParams = a_rJsonNode["params"];
 
-	CNode* pEntity;
+	CNode* pEntity(nullptr);
 
 	if (sType == "Grid")
 	{
@@ -21,7 +21,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 	else if (sType == "Image")
 	{
 		pEntity = new CSpriteNode(rParams["source"].GetString(),
-			EAnchor::FLOAT, rParams["x"].GetInt(), rParams["y"].GetInt());
+			IntToAnchor(rParams["anchor"].GetInt()), 
+			rParams["x"].GetInt(), rParams["y"].GetInt());
 	}
 
 
@@ -60,11 +61,17 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 		std::string sFontName = rParams["font"].GetString();
 		if (sFontName == "")
 		{
-			sFontName = "Default";
+			sFontName = "fonts/arial.ttf"; 
+		}
+		int iFontSize = rParams["fontSize"].GetInt();
+		if (iFontSize < 1)
+		{
+			iFontSize = 24;
 		}
 		pEntity = new CLabelNode(rParams["content"].GetString(),
-			"", // TODO: FontName
-			EAnchor(rParams["anchor"].GetInt())); // TODO check if constructor with index works
+			sFontName, 
+			iFontSize,
+			IntToAnchor(rParams["anchor"].GetInt()));
 
 	}
 
@@ -74,8 +81,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 	}
 
-
-	a_pSceneNode->AddChildNode(pEntity);
+	if (pEntity != nullptr) {
+		a_pSceneNode->AddChildNode(pEntity);
+	}
 
 }
 

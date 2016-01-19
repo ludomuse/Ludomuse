@@ -1,6 +1,8 @@
 #include "../Include/CEntityNode.h"
 #include "../Include/CSceneNode.h"
 
+#include "cocos2d.h"
+
 using namespace cocos2d;
 
 namespace LM
@@ -25,7 +27,6 @@ void CEntityNode::PopulateParent()
 	Size oVisibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
 	
-	// TODO TEST place according to anchor
 	switch (m_eAnchor)
 	{
 	case LM::CENTER:
@@ -73,7 +74,7 @@ void CEntityNode::PopulateParent()
 	}
 
 
-  CSceneNode* pScene = (CSceneNode*) m_pParent;
+  cocos2d::Scene* pScene = ((CSceneNode*) m_pParent)->GetScene();
   if (pScene)
   {
     pScene->addChild(m_pCocosEntity, 0);

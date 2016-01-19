@@ -79,14 +79,14 @@ bool CSceneNode::init()
 //  oSprite->Init();
   
 
-  // TODO true solution, uncomment when TreeBuilder is OK
-  /*DoForEachChildNode([](CNode* a_pChild) {
-	  CEntityNode* pEntity = (CEntityNode*) a_pChild;
-	  if (pEntity) 
-	  {
-		  pEntity->Init();
-	  }
-  });*/
+  
+  for (CNode* pChildNode : m_vChildren){
+	  CEntityNode* pEntity = (CEntityNode*) pChildNode;
+		  if (pEntity) 
+		  {
+			  pEntity->Init();
+		  }
+  }
 
   return true;
 

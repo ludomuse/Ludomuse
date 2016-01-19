@@ -16,8 +16,7 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
   // init json document
   std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFilename);
 
-  // TODO delete <0> if useless
-  m_oDocument.Parse<0>(sJsonString.c_str());
+  m_oDocument.Parse(sJsonString.c_str());
 
   if (m_oDocument.HasMember("app"))
   {
