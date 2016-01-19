@@ -1,0 +1,57 @@
+{
+    "app" : {
+	"param":"value",
+	"colors":[],
+	"images":[],
+	"videos":[],
+	"sounds":[],
+	"scenes":[
+	    {"screen-1-a"},
+	    {"screen-1-b-player1", "screen-1-b-player2"},
+	    {"screen-1-c-player1", "screen-1-c-player2"},
+	    {"screen-1-d-player1", "screen-1-d-player2"}
+	],
+	"screens": [
+	    {
+		"object": "Image",
+		"params": {
+		    "source": "HelloWorld.png",
+		    "width": "",
+		    "height": "",
+		    "anchor": 0,
+		    "x": 0,
+		    "y": 0
+		}
+	    },
+	    {
+		"object": "Text",
+		"params": {
+		    "content": "",
+		    "width": "100%",
+		    "height": "100%",
+		    "anchor": 0,
+		    "x": 0,
+		    "y": 0,
+		    "color": "",
+		    "cache": {
+			"visible": false,
+			"backgroundColor": "",
+			"backgroundImage": ""
+		    }
+		}
+	    },
+	    {
+		"object": "Nav",
+		"params": {
+		    "content": "",
+		    "normal": "CloseNormal.png",
+		    "selected": "CloseSelected.png"
+		    "anchor": 5,
+		    "x": 0,
+		    "y": 0
+		}
+	    }
+	    
+	]
+    }
+}

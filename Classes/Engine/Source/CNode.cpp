@@ -39,6 +39,12 @@ CNode::Iterator CNode::end()
   return m_vChildren.end();
 }
 
+
+CNode* CNode::operator[](const int i)
+{
+	return m_vChildren[i];
+}
+
 /*void CNode::DoForEachChildNode(void(*a_fpCallback)(CNode* a_pChild))
 {
 	std::for_each(begin(), end(), a_fpCallback);

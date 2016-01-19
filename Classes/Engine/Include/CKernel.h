@@ -5,6 +5,7 @@
 #include "cocos2d.h"
 #include "CNode.h"
 #include "CInputManager.h"
+#include "CJsonParser.h"
 
 
 namespace LM 
@@ -21,6 +22,8 @@ class CKernel
   CNode* m_pBehaviorTree;
   /// \details will forward the inputs to the behavior tree
   CInputManager m_oInputManager;
+
+  CJsonParser m_oJsonParser;
 
  public:
   CKernel();

@@ -46,6 +46,8 @@ class CNode
   CNode::Iterator begin();
   CNode::Iterator end();
 
+  virtual CNode* operator[](const int i);
+
   //// \brief execute for each child node a_fpCallback(a_pChild)
   // INFO:TMP
   /*virtual void DoForEachChildNode(void (*a_fpCallback)(CNode* a_pChild));

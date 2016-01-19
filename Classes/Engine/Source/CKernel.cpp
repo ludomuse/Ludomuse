@@ -33,9 +33,13 @@ void CKernel::Init()
 
   // CJsonParser::BuildBehaviorTreeFromFile
 
-  CSceneNode oNode;
-  Scene* oScene = oNode.CreateScene();
+  //CSceneNode oNode;
+  //Scene* oScene = oNode.CreateScene();
   // node.init();
+	m_oJsonParser.BuildBehaviorTreeFromFile(m_pBehaviorTree, "test.json");
+
+	Scene* oScene = ((CSceneNode *)(*m_pBehaviorTree)[0])->CreateScene();
+
   cocos2d::Director::getInstance()->runWithScene(oScene);
   
 }
