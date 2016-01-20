@@ -37,7 +37,7 @@ bool CSceneNode::init()
   {
     return false;
   }
-//
+//  TODO REMOVE
 //  Size visibleSize = Director::getInstance()->getVisibleSize();
 //  Vec2 origin = Director::getInstance()->getVisibleOrigin();
 //

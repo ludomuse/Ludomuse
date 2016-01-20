@@ -40,7 +40,18 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 	else if (sType == "Nav")
 	{
-
+		auto lambda = [](cocos2d::Ref* pSender)
+		{
+			//m_pKernel->NavNext(pSender);
+			CCLOG("HI");
+		};
+		pEntity = new CMenuNode(
+			rParams["normal"].GetString(),
+			rParams["selected"].GetString(),
+			lambda,
+			IntToAnchor(rParams["anchor"].GetInt()),
+			rParams["x"].GetInt(),
+			rParams["y"].GetInt());
 	}
 
 
@@ -58,10 +69,14 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 	else if (sType == "Text")
 	{
-		std::string sFontName = rParams["font"].GetString();
+		std::string sFontName = "fonts/arial.ttf";
+		if (rParams.HasMember("font"))
+		{
+			std::string sFontName = rParams["font"].GetString();
+		}
 		if (sFontName == "")
 		{
-			sFontName = "fonts/arial.ttf"; 
+			sFontName = "fonts/arial.ttf";
 		}
 		int iFontSize = rParams["fontSize"].GetInt();
 		if (iFontSize < 1)

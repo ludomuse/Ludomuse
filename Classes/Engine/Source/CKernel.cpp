@@ -3,12 +3,16 @@
 
 #include "../Include/CSceneNode.h"
 
+#include "../Include/CInputManager.h"
+#include "../Include/CJsonParser.h"
+
 using namespace cocos2d;
 
 namespace LM
 {
 
-CKernel::CKernel() : m_oInputManager(*this)
+CKernel::CKernel() : m_pInputManager(new CInputManager(this)), 
+				     m_pJsonParser(new CJsonParser(this))
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
@@ -25,6 +29,8 @@ CNode* CKernel::GetBehaviorTree()
 CKernel::~CKernel()
 {
   delete m_pBehaviorTree;
+  delete m_pInputManager;
+  delete m_pJsonParser;
 }
 
 
@@ -36,7 +42,7 @@ void CKernel::Init()
   //CSceneNode oNode;
   //Scene* oScene = oNode.CreateScene();
   // node.init();
-	m_oJsonParser.BuildBehaviorTreeFromFile(m_pBehaviorTree, "test.json");
+	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, "test.json");
 
 	CSceneNode* pFirstScene = ((CSceneNode *)(*m_pBehaviorTree)[0]);
 
@@ -45,6 +51,17 @@ void CKernel::Init()
 
     cocos2d::Director::getInstance()->runWithScene(oScene);
   
+}
+
+
+void CKernel::NavNext(Ref* pSender)
+{
+	CCLOG("HI");
+}
+
+void CKernel::NavPrevious(Ref* pSender)
+{
+
 }
 
 } // namespace LM

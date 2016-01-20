@@ -3,12 +3,11 @@
 
 
 #include "cocos2d.h"
+#include "CKernel.h"
 
 
 namespace LM
 {
-
-class CKernel;
 
 
 /// \class CInputmanager
@@ -18,12 +17,12 @@ class CInputManager
 {
  private:
   /// \brief a reference to the kernel of the engine
-  CKernel& m_rKernel;
+  CKernel* m_pKernel;
   /// \brief listens to cocos2d events
   cocos2d::EventListenerTouchOneByOne* m_pEventListener;
 
  public:
-  CInputManager(CKernel& a_rKernel);
+  CInputManager(CKernel* a_rKernel);
   /// \brief callback called when the user start touching the screen
   /// \details forward the event to the BehaviorTree in the kernel
   /// \returns true on success, false otherwise

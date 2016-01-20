@@ -4,12 +4,13 @@
 
 #include "cocos2d.h"
 #include "CNode.h"
-#include "CInputManager.h"
-#include "CJsonParser.h"
 
 
 namespace LM 
 {
+
+class CInputManager;
+class CJsonParser;
 
 /// \class CKernel
 /// \ingroup Engine
@@ -21,9 +22,9 @@ class CKernel
   /// \details a pointer to the root node of the tree, usually a SequenceNode
   CNode* m_pBehaviorTree;
   /// \details will forward the inputs to the behavior tree
-  CInputManager m_oInputManager;
+  CInputManager* m_pInputManager;
 
-  CJsonParser m_oJsonParser;
+  CJsonParser* m_pJsonParser;
 
  public:
   CKernel();
@@ -32,6 +33,10 @@ class CKernel
   CNode* GetBehaviorTree();
 
   void Init();
+
+  ////////////////// callbacks
+  void NavNext(cocos2d::Ref* pSender);
+  void NavPrevious(cocos2d::Ref* pSender);
 };
 
 

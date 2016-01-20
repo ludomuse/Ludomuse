@@ -6,7 +6,7 @@ using namespace cocos2d;
 namespace LM
 {
 
-CInputManager::CInputManager(CKernel& a_rKernel) : m_rKernel(a_rKernel)
+CInputManager::CInputManager(CKernel* a_pKernel) : m_pKernel(a_pKernel)
 {
   // create a cocos EventListener and bind touchBegan to InputManager
   m_pEventListener = EventListenerTouchOneByOne::create();
@@ -16,7 +16,7 @@ CInputManager::CInputManager(CKernel& a_rKernel) : m_rKernel(a_rKernel)
 
 bool CInputManager::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
-  return m_rKernel.GetBehaviorTree()->OnTouchBegan(a_pTouch, a_pEvent);
+  return m_pKernel->GetBehaviorTree()->OnTouchBegan(a_pTouch, a_pEvent);
 }
 
 

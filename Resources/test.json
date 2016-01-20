@@ -21,11 +21,101 @@
 			    "source": "HelloWorld.png",
 			    "width": "",
 			    "height": "",
+			    "anchor": 0,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"object": "Image",
+			"params": {
+			    "source": "HelloWorld.png",
+			    "width": "",
+			    "height": "",
+			    "anchor": 1,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"object": "Image",
+			"params": {
+			    "source": "HelloWorld.png",
+			    "width": "",
+			    "height": "",
+			    "anchor": 2,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"object": "Image",
+			"params": {
+			    "source": "HelloWorld.png",
+			    "width": "",
+			    "height": "",
+			    "anchor": 3,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"object": "Image",
+			"params": {
+			    "source": "HelloWorld.png",
+			    "width": "",
+			    "height": "",
+			    "anchor": 4,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"object": "Image",
+			"params": {
+			    "source": "HelloWorld.png",
+			    "width": "",
+			    "height": "",
 			    "anchor": 5,
 			    "x": 0,
 			    "y": 0
 			}
 		    },
+		    {
+			"object": "Image",
+			"params": {
+			    "source": "HelloWorld.png",
+			    "width": "",
+			    "height": "",
+			    "anchor": 6,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"object": "Image",
+			"params": {
+			    "source": "HelloWorld.png",
+			    "width": "",
+			    "height": "",
+			    "anchor": 7,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"object": "Image",
+			"params": {
+			    "source": "HelloWorld.png",
+			    "width": "",
+			    "height": "",
+			    "anchor": 8,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+
+
 		    {
 			"object": "Text",
 			"params": {
@@ -51,7 +141,7 @@
 			    "content": "",
 			    "normal": "CloseNormal.png",
 			    "selected": "CloseSelected.png",
-			    "anchor": 5,
+			    "anchor": 2,
 			    "x": 0,
 			    "y": 0
 			}

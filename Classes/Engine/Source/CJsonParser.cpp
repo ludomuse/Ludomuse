@@ -10,6 +10,11 @@ using namespace cocos2d;
 namespace LM
 {
 
+CJsonParser::CJsonParser(CKernel* a_pKernel) : m_pKernel(a_pKernel)
+{
+
+}
+
 void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename)
 {
 

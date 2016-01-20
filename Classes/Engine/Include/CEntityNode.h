@@ -22,6 +22,7 @@ namespace LM
 		FLOAT
 	};
 
+	/// \fn convert a_iIndex to its corresponding EAnchor entity
 	static EAnchor IntToAnchor(int a_iIndex)
 	{
 		switch (a_iIndex)

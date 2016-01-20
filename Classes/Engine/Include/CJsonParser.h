@@ -5,6 +5,7 @@
 #include "../../cocos2d/external/json/document.h"
 
 #include <string>
+#include "CKernel.h"
 #include "CNode.h"
 #include "CSceneNode.h"
 #include "CEntityNode.h"
@@ -25,11 +26,17 @@ private:
 	/// \brief the currently processed json document
 	rapidjson::Document m_oDocument;
 
+	/// \brief a reference pointer to the game kernel
+	CKernel* m_pKernel;
+
  public:
+	 CJsonParser(CKernel* a_pKernel);
+
 	 /// \brief Build the tree of root a_pRoot from a_sFilename json file
 	 /// \params[in] a_pRoot the root node of the behavior tree
 	 /// \params[in] a_sFilename the filename of the json file to build the tree from
   void BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename);
+
 
 private:
 	/// \brief recursive Method to parse the json file
