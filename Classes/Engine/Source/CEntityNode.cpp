@@ -74,7 +74,7 @@ void CEntityNode::PopulateParent()
 	}
 
 
-  cocos2d::Scene* pScene = ((CSceneNode*) m_pParent)->GetScene();
+  cocos2d::Scene* pScene = (dynamic_cast<CSceneNode*>(m_pParent))->GetScene();
   if (pScene)
   {
     pScene->addChild(m_pCocosEntity, 0);

@@ -29,6 +29,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CSpriteNode.cpp \
                    ../../Classes/Engine/Source/CMenuNode.cpp \
                    ../../Classes/Engine/Source/CCallback.cpp \
+                   ../../Classes/Engine/Source/CTransitionVisitor.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmWifiDirectFacade.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmJniJavaFacade.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmJniCppFacade.cpp \

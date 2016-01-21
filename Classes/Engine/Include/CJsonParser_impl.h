@@ -130,7 +130,7 @@ void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 	//RefJsonNode rScenes = a_rJsonNode["screens"];
 	//for (int i = 0; i < rScenes.Size(); ++i)
 	//{
-	//	ParseJson(rScenes[i], (CSceneNode*) a_pNode);
+	//	ParseJson(rScenes[i], dynamic_cast<CSceneNode*>(a_pNode));
 	//}
 }
 

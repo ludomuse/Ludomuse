@@ -5,6 +5,7 @@
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
+#include "../Include/CTransitionVisitor.h"
 
 using namespace cocos2d;
 
@@ -42,7 +43,7 @@ void CKernel::Init()
   // node.init();
 	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, "test.json");
 
-	CSceneNode* pFirstScene = ((CSceneNode *)(*m_pBehaviorTree)[0]);
+	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
 
 	Scene* oScene = pFirstScene->CreateScene();
 	pFirstScene->init();
@@ -54,8 +55,9 @@ void CKernel::Init()
 
 void CKernel::NavNext(Ref* pSender)
 {
-	CCLOG("HI");
-	CCLOG("NAVNEXT");
+	CCLOG("Running TransitionVisitor on the behavior tree");
+	CTransitionVisitor oVisitor;
+	oVisitor.Traverse(m_pBehaviorTree);
 }
 
 void CKernel::NavPrevious(Ref* pSender)

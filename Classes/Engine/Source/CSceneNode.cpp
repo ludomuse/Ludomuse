@@ -81,7 +81,7 @@ bool CSceneNode::init()
 
   
   for (CNode* pChildNode : m_vChildren){
-	  CEntityNode* pEntity = (CEntityNode*) pChildNode;
+	  CEntityNode* pEntity = dynamic_cast<CEntityNode*>(pChildNode);
 		  if (pEntity) 
 		  {
 			  pEntity->Init();
