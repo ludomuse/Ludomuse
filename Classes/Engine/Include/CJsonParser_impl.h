@@ -1,5 +1,7 @@
 //////////////////////////////// templates specializations 
 
+#include "CCallback.h"
+
 /// \brief the specialisation building entities in a entity
 template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pSceneNode)
@@ -40,15 +42,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 	else if (sType == "Nav")
 	{
-		auto lambda = [](cocos2d::Ref* pSender)
-		{
-			//m_pKernel->NavNext(pSender);
-			CCLOG("HI");
-		};
+		// TODO
+		//auto lambda = [this](cocos2d::Ref* pSender)
+		//{
+		//	m_pKernel->NavNext(pSender);
+		//	//CCLOG("HI");
+		//};
 		pEntity = new CMenuNode(
 			rParams["normal"].GetString(),
 			rParams["selected"].GetString(),
-			lambda,
+			CCallback(m_pKernel, &CKernel::NavNext),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			rParams["x"].GetInt(),
 			rParams["y"].GetInt());

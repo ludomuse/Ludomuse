@@ -37,8 +37,6 @@ CKernel::~CKernel()
 void CKernel::Init()
 {
 
-  // CJsonParser::BuildBehaviorTreeFromFile
-
   //CSceneNode oNode;
   //Scene* oScene = oNode.CreateScene();
   // node.init();
@@ -57,6 +55,7 @@ void CKernel::Init()
 void CKernel::NavNext(Ref* pSender)
 {
 	CCLOG("HI");
+	CCLOG("NAVNEXT");
 }
 
 void CKernel::NavPrevious(Ref* pSender)

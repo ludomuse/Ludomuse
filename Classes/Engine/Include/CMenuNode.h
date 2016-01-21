@@ -4,12 +4,13 @@
 #include "cocos2d.h"
 
 #include "CEntityNode.h"
-
+#include "CCallback.h"
 
 namespace LM
 {
 
-typedef void (*FPMenuClickedCallback)(cocos2d::Ref* pSender);
+// TODO
+//typedef void (*FPMenuClickedCallback)(cocos2d::Ref* pSender);
 
 class CMenuNode : public CEntityNode
 {
@@ -17,14 +18,14 @@ class CMenuNode : public CEntityNode
   std::string m_sNormalImage;
   std::string m_sSelectedImage;
 
-  FPMenuClickedCallback m_fpClickedCallback;
+  CCallback m_fpClickedCallback;
   
   cocos2d::MenuItemImage* m_pMenuItemImage;
 
  public:
   CMenuNode(const std::string& a_rNormalImage,
             const std::string& a_rSelectedImage,
-            FPMenuClickedCallback a_fpCallback,
+            CCallback a_fpCallback,
 	        EAnchor a_eAnchor = EAnchor::FLOAT,
             int a_iXPosition = 0,
             int a_iYPosition = 0);

@@ -7,7 +7,7 @@ namespace LM
 
 CMenuNode::CMenuNode(const std::string& a_rNormalImage,
                      const std::string& a_rSelectedImage,
-                     FPMenuClickedCallback a_fpCallback,
+                     CCallback a_fpCallback,
 					 EAnchor a_eAnchor,
                      int a_iXPosition,
                      int a_iYPosition) :
