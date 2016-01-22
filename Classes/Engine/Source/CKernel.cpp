@@ -45,10 +45,10 @@ void CKernel::Init()
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
 
-	Scene* oScene = pFirstScene->CreateScene();
+	Scene* pScene = pFirstScene->CreateScene();
 	pFirstScene->init();
 
-    cocos2d::Director::getInstance()->runWithScene(oScene);
+    cocos2d::Director::getInstance()->runWithScene(pScene);
   
 }
 

@@ -11,7 +11,6 @@ class CTransitionVisitor : public CVisitor
  public:
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
 
-  // virtual void ProcessNodeBottomUp(CNode* a_pNode) override;
 };
 
 

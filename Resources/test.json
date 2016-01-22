@@ -148,6 +148,44 @@
 		    }
 
 		]
+	    },
+
+	    {
+		"scene" : "id",
+		"entities" :
+		[
+		    {
+			"object": "Text",
+			"params": {
+			    "content": "Transition !!",
+				"font" : "",
+				"fontSize" : 24,
+			    "width": "100%",
+			    "height": "100%",
+			    "anchor": 0,
+			    "x": 0,
+			    "y": 0,
+			    "color": "",
+			    "cache": {
+				"visible": false,
+				"backgroundColor": "",
+				"backgroundImage": ""
+			    }
+			}
+		    },
+		    {
+			"object": "Nav",
+			"params": {
+			    "content": "",
+			    "normal": "CloseNormal.png",
+			    "selected": "CloseSelected.png",
+			    "anchor": 2,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+
+		]
 	    }
 	    
 	]
