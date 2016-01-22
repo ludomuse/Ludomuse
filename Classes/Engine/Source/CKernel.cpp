@@ -55,14 +55,14 @@ void CKernel::Init()
 
 void CKernel::NavNext(Ref* pSender)
 {
-	CCLOG("Running TransitionVisitor on the behavior tree");
-	CTransitionVisitor oVisitor;
+	CTransitionVisitor oVisitor(true);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
 void CKernel::NavPrevious(Ref* pSender)
 {
-
+	CTransitionVisitor oVisitor(false);
+	oVisitor.Traverse(m_pBehaviorTree);
 }
 
 } // namespace LM

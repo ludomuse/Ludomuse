@@ -12,21 +12,22 @@ CParallelNode::CParallelNode() : m_iFinishedNodesCount(0)
   
 }
 
-bool CParallelNode::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
-{
-  bool bSuccess = true;
-  CNode::Iterator itChild;
-  // forward the OnTouchBegan event to each child
-  //DoForEachChildNode([&bSuccess, &a_pTouch, &a_pEvent](CNode* a_pChild) {
-	 // bSuccess = bSuccess && a_pChild->OnTouchBegan(a_pTouch, a_pEvent);
-  //});
-  for (CNode* itChild : *this)
-  {
-	  bSuccess = bSuccess && itChild->OnTouchBegan(a_pTouch, a_pEvent);
-  }
-  // if each child's OnTouchbegan succeeds then success
-  return bSuccess;
-}
+// TODO
+//bool CParallelNode::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
+//{
+//  bool bSuccess = true;
+//  CNode::Iterator itChild;
+//  // forward the OnTouchBegan event to each child
+//  //DoForEachChildNode([&bSuccess, &a_pTouch, &a_pEvent](CNode* a_pChild) {
+//	 // bSuccess = bSuccess && a_pChild->OnTouchBegan(a_pTouch, a_pEvent);
+//  //});
+//  for (CNode* itChild : *this)
+//  {
+//	  bSuccess = bSuccess && itChild->OnTouchBegan(a_pTouch, a_pEvent);
+//  }
+//  // if each child's OnTouchbegan succeeds then success
+//  return bSuccess;
+//}
 
 
 

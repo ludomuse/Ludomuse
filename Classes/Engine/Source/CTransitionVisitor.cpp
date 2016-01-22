@@ -9,6 +9,11 @@ using namespace cocos2d;
 namespace LM
 {
 
+CTransitionVisitor::CTransitionVisitor(bool a_bTransitionNext) :
+	m_bTransitionNext(a_bTransitionNext)
+{
+}
+
 Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
 {
   // pSequence is the father node of all the scenes. 
@@ -22,9 +27,19 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
   }
   if (pScene)
   {
-	  pScene->GetScene()->removeAllChildrenWithCleanup(true);
-
-	  if (!pSequence->NextNode())
+	  //pScene->GetScene()->removeAllChildrenWithCleanup(true); // TODO
+	  bool bSceneExists = false;
+	  if (m_bTransitionNext)
+	  {
+		  // if TransitioNext offset of 1 scene 
+		  bSceneExists = pSequence->OffsetCurrentNode(1);
+	  }
+	  else
+	  {
+		  // else return to previous scene
+		  bSceneExists = pSequence->OffsetCurrentNode(-1);
+	  }
+	  if (!bSceneExists)
 	  {
 		  return RESULT_CONTINUE;
 	  }
@@ -34,8 +49,14 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
 		  Scene* pNewScene = pNewSceneNode->CreateScene();
 		  pNewSceneNode->init();
 
-		  Director::getInstance()->replaceScene(
-			  TransitionSlideInR::create(0.5f, pNewScene));
+		  if (m_bTransitionNext)
+		  {
+			  Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+		  }
+		  else
+		  {
+			  Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5, pNewScene));
+		  }
 	  }
       return RESULT_PRUNE;
   }

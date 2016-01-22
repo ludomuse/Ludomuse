@@ -33,11 +33,6 @@ class CNode
   /// \brief delete all the children nodes
   virtual ~CNode();
 
-  /// \brief Cocos2d-x Callback called when the screen is touched
-  /// \returns true on success, false otherwise
-  /// \param[in] a_pTouch the cocos2d touch event
-  /// \param[in] a_pEvent the cocos2d event
-  virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
   /// \brief add this node as a child in the subtree
   /// \param[in] a_pChild The child to add
@@ -63,6 +58,10 @@ class CNode
 
   /// \brief call this function to finish the execution of the node
   virtual void Finish();
+  /// \brief returns the currently executed node in the sequence
+  virtual CNode* GetCurrentNode();
+
+  virtual bool OffsetCurrentNode(int i);
 
 };
 

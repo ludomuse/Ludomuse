@@ -18,8 +18,8 @@ class CParallelNode : public CNode
  public:
   CParallelNode();
 
-  /// \brief Forward the OnTouchBegan event to every child node 
-  virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) override;
+  // TODO /// \brief Forward the OnTouchBegan event to every child node 
+  //virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) override;
   /// \details Finish when all the children nodes are finished
   virtual void Finish() override;
 };

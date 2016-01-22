@@ -4,7 +4,7 @@
 namespace LM
 {
 
-CNode::CNode() : m_iCurrentNode(-1), m_pParent(nullptr)
+CNode::CNode() : m_iCurrentNode(0), m_pParent(nullptr)
 {
 }
 
@@ -17,10 +17,6 @@ CNode::~CNode()
 }
 
 
-bool CNode::OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent)
-{
-  return true;
-}
 
 void CNode::AddChildNode(CNode* a_pChild)
 {
@@ -54,6 +50,22 @@ CNode* CNode::operator[](const int i)
 void CNode::Finish()
 {
   m_pParent->Finish();
+}
+
+CNode* CNode::GetCurrentNode()
+{
+	return m_vChildren[m_iCurrentNode];
+}
+
+bool CNode::OffsetCurrentNode(int i)
+{
+	if (m_iCurrentNode + i < m_vChildren.size())
+	{
+		m_iCurrentNode += i;
+		return true;
+	}
+
+	return false;
 }
 
 } // namespace LM

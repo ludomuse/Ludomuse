@@ -51,7 +51,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 		pEntity = new CMenuNode(
 			rParams["normal"].GetString(),
 			rParams["selected"].GetString(),
-			CCallback(m_pKernel, &CKernel::NavNext),
+			CCallback(m_pKernel, 
+				(std::string(rParams["action"].GetString()) == "next") ?
+								 &CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			rParams["x"].GetInt(),
 			rParams["y"].GetInt());

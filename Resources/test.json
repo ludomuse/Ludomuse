@@ -141,9 +141,12 @@
 			    "content": "",
 			    "normal": "CloseNormal.png",
 			    "selected": "CloseSelected.png",
-			    "anchor": 2,
+			    "action": "next",
+			    "anchor": 7,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+			    "width": 10,
+			    "height": 5
 			}
 		    }
 
@@ -179,9 +182,12 @@
 			    "content": "",
 			    "normal": "CloseNormal.png",
 			    "selected": "CloseSelected.png",
-			    "anchor": 2,
+			    "action": "prev",
+			    "anchor": 1,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+			    "width": 10,
+			    "height": 5
 			}
 		    }
 
