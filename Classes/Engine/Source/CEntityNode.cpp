@@ -76,6 +76,12 @@ void CEntityNode::PopulateParent()
 		break;
 	}
 
+	//int iOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
+	//int iOldHeight = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
+
+	//int iScaleX = m_iWidth / (iOldWidth / oVisibleSize.width);
+	//int iScaleY = m_iHeight / (iOldHeight / oVisibleSize.height);
+
 	//int iScaleX = m_iWidth / m_pCocosEntity->getScaleX();
 	//int iScaleY = m_iHeight / m_pCocosEntity->getScaleY();
 	m_pCocosEntity->setScale(m_iWidth, m_iHeight);
