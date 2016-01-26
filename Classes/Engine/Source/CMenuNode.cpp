@@ -32,14 +32,16 @@ void CMenuNode::Init()
   m_pMenuItemImage->setPosition(Vec2::ZERO);
 
   m_pCocosEntity = Menu::create(m_pMenuItemImage, NULL);
-  //m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
   PopulateParent();
 
   // weird hack because cocos2d::Menu does not use its anchor point
   m_pMenuItemImage->setPosition(m_pCocosEntity->getPosition());
   m_pMenuItemImage->setAnchorPoint(m_pCocosEntity->getAnchorPoint());
+  m_pMenuItemImage->setScale(m_pCocosEntity->getScale());
+  
   m_pCocosEntity->setPosition(Vec2::ZERO);
+  m_pCocosEntity->setScale(1);
 }
 
 } // namespace LM
