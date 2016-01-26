@@ -5,7 +5,6 @@ Debug.win32
 proj.ios_mac
 proj.android-studio
 bin
-CMakeLists.txt
 .cocos-project.json
 proj.android/res/values
 proj.android/res/drawable-mdpi
