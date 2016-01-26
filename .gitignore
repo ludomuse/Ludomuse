@@ -48,6 +48,7 @@ proj.win32/Debug.win32
 proj.win32/LudoMuse.sdf
 proj.win32/res
 proj.win32/LudoMuse.VC.opendb
+proj.win32/LudoMuse.vcxproj.user
 
 LudoMuse.creator.user
 
