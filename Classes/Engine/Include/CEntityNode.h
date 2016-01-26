@@ -62,12 +62,22 @@ class CEntityNode : public CNode
   /// \brief the %height position on the screen 
   int m_iYPosition;
 
+  /// \brief the width of the entity on the screen
+  int m_iWidth;
+  /// \brief the height of the entity on the screen
+  int m_iHeight;
+
+
+  /// \brief the corresponging cocos2d entity 
   cocos2d::Node* m_pCocosEntity;
 
  public:
   CEntityNode(EAnchor a_eAnchor = EAnchor::FLOAT, 
-	          int a_iXPosition = 0, 
-	          int a_iYPosition = 0);
+	  int a_iWidth = 0,
+	  int a_iHeight = 0,
+	  int a_iXPosition = 0,
+      int a_iYPosition = 0
+);
   
   /// \brief called when the scene is initialized
   virtual void Init() = 0;

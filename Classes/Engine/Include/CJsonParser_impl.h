@@ -23,7 +23,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 	else if (sType == "Image")
 	{
 		pEntity = new CSpriteNode(rParams["source"].GetString(),
-			IntToAnchor(rParams["anchor"].GetInt()), 
+			IntToAnchor(rParams["anchor"].GetInt()),
+			rParams["width"].GetInt(), rParams["height"].GetInt(),
 			rParams["x"].GetInt(), rParams["y"].GetInt());
 	}
 
@@ -51,10 +52,12 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 		pEntity = new CMenuNode(
 			rParams["normal"].GetString(),
 			rParams["selected"].GetString(),
-			CCallback(m_pKernel, 
+			CCallback(m_pKernel,
 				(std::string(rParams["action"].GetString()) == "next") ?
-								 &CKernel::NavNext : &CKernel::NavPrevious),
+				&CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
+			rParams["width"].GetInt(),
+			rParams["height"].GetInt(),
 			rParams["x"].GetInt(),
 			rParams["y"].GetInt());
 	}
@@ -91,7 +94,11 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 		pEntity = new CLabelNode(rParams["content"].GetString(),
 			sFontName, 
 			iFontSize,
-			IntToAnchor(rParams["anchor"].GetInt()));
+			IntToAnchor(rParams["anchor"].GetInt()),
+			rParams["width"].GetInt(),
+			rParams["height"].GetInt(),
+			rParams["x"].GetInt(),
+			rParams["y"].GetInt());
 
 	}
 

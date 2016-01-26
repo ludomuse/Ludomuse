@@ -9,9 +9,11 @@ CMenuNode::CMenuNode(const std::string& a_rNormalImage,
                      const std::string& a_rSelectedImage,
                      CCallback a_fpCallback,
 					 EAnchor a_eAnchor,
+					 int a_iWidth,
+					 int a_iHeight,
                      int a_iXPosition,
                      int a_iYPosition) :
-    CEntityNode(a_eAnchor, a_iXPosition, a_iYPosition),
+    CEntityNode(a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition),
     m_sNormalImage(a_rNormalImage),
     m_sSelectedImage(a_rSelectedImage),
     m_fpClickedCallback(a_fpCallback)

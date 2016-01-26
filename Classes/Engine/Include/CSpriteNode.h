@@ -19,7 +19,9 @@ class CSpriteNode : public CEntityNode
 
  public:
 	 CSpriteNode(const std::string& a_rFilename,
-		      EAnchor a_eAnchor = EAnchor::FLOAT,
+			  EAnchor a_eAnchor = EAnchor::FLOAT,
+			  int a_iWidth = 0,
+			  int a_iHieght = 0,
 	          int a_iXPosition = 0, 
 	          int a_iYPosition = 0);
 

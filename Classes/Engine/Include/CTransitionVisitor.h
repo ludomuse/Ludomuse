@@ -6,7 +6,7 @@
 namespace LM
 {
 
-typedef cocos2d::TransitionScene* (*FPTransitionCreate)(float_t, cocos2d::Scene*);
+typedef cocos2d::TransitionScene* (*FPTransitionCreate)(float, cocos2d::Scene*);
 
 class CTransitionVisitor : public CVisitor
 {

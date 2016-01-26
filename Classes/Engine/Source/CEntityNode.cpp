@@ -8,10 +8,13 @@ using namespace cocos2d;
 namespace LM
 {
 
-CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iXPosition, int a_iYPosition) :
+CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
+						 int a_iXPosition, int a_iYPosition) :
     m_eAnchor(a_eAnchor),
 	m_iXPosition(a_iXPosition),
-    m_iYPosition(a_iYPosition)
+    m_iYPosition(a_iYPosition),
+	m_iWidth(a_iWidth),
+	m_iHeight(a_iHeight)
 {
 }
 
@@ -73,6 +76,10 @@ void CEntityNode::PopulateParent()
 		break;
 	}
 
+	//int iScaleX = m_iWidth / m_pCocosEntity->getScaleX();
+	//int iScaleY = m_iHeight / m_pCocosEntity->getScaleY();
+	m_pCocosEntity->setScale(m_iWidth, m_iHeight);
+	//m_pCocosEntity->setContentSize(Size(m_iWidth, m_iHeight));
 
   cocos2d::Scene* pScene = (dynamic_cast<CSceneNode*>(m_pParent))->GetScene();
   if (pScene)

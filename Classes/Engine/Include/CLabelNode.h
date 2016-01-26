@@ -19,8 +19,10 @@ class CLabelNode : public CEntityNode
   //cocos2d::Label* m_pLabel;
 
  public:
-  CLabelNode(const std::string& a_rText, const std::string& a_rFontName, int a_iFontSize,
-             EAnchor a_eAnchor = EAnchor::FLOAT, 
+	 CLabelNode(const std::string& a_rText, const std::string& a_rFontName, int a_iFontSize,
+			 EAnchor a_eAnchor = EAnchor::FLOAT,
+			 int a_iWidth = 0,
+			 int a_iHeight = 0,
 	         int a_iXPosition = 0, 
 	         int a_iYPosition = 0);
 
