@@ -14,7 +14,7 @@
 	"screens": [
 	    {
 		"scene" : "id",
-		"entities" : [
+		"content" : [
 		    {
 			"object": "Image",
 			"params": {
@@ -123,7 +123,8 @@
 				"backgroundImage": ""
 			    }
 			}
-		    },
+		    }],
+		"navigation" : [
 		    {
 			"object": "Nav",
 			"params": {
@@ -144,8 +145,7 @@
 
 	    {
 		"scene" : "id",
-		"entities" :
-		[
+		"content" : [
 		    {
 			"object": "Text",
 			"params": {
@@ -164,7 +164,8 @@
 				"backgroundImage": ""
 			    }
 			}
-		    },
+		    }],
+		"navigation" : [
 		    {
 			"object": "Nav",
 			"params": {
