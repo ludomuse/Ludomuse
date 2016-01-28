@@ -120,7 +120,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -156,7 +156,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -168,7 +168,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -205,7 +205,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -217,7 +217,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -254,7 +254,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -266,7 +266,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -303,7 +303,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -315,7 +315,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -352,7 +352,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -364,7 +364,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -411,7 +411,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -423,7 +423,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -470,7 +470,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -482,7 +482,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -529,7 +529,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -541,7 +541,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -588,7 +588,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -600,7 +600,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -647,7 +647,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -659,7 +659,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -706,7 +706,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -718,7 +718,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -765,7 +765,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -777,7 +777,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -824,7 +824,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -840,7 +840,7 @@
                             "font": "",
                             "fontSize": 24,
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -856,7 +856,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -872,7 +872,7 @@
                             "font": "",
                             "fontSize": 24,
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -888,7 +888,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -904,7 +904,7 @@
                             "font": "",
                             "fontSize": 24,
                             "anchor": 2,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1003,7 +1003,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1019,7 +1019,7 @@
                             "font": "",
                             "fontSize": 24,
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1053,7 +1053,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1069,7 +1069,7 @@
                             "font": "",
                             "fontSize": 24,
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1103,7 +1103,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1115,7 +1115,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1152,7 +1152,7 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1164,7 +1164,7 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1341,7 +1341,7 @@
                         "params": {
                             "content": "Touche le portrait pour écouter Monsieur Louis.",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1599,7 +1599,7 @@
                         "params": {
                             "content": "Placez les bons ingrédients dans le plat.",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1637,7 +1637,7 @@
                         "params": {
                             "content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1761,7 +1761,7 @@
                         "params": {
                             "content": "Attention, vous vous êtes trompé.",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1806,7 +1806,7 @@
                         "params": {
                             "content": "Bravo, vous avez réussi !",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1865,7 +1865,7 @@
                         "params": {
                             "content": "Bravo, tu as réussi !",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1916,7 +1916,7 @@
                         "params": {
                             "content": "Approchez-vous de Monsieur Louis et lisez cet article à voix haute.",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1958,7 +1958,7 @@
                         "params": {
                             "content": "Demande à ton ouvrir de te lire à voix haute son article.",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2003,7 +2003,7 @@
                         "params": {
                             "content": "Nouvel ingrédient dans l'inventaire : le sucre !",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2045,7 +2045,7 @@
                         "params": {
                             "content": "Nouvel ingrédient dans l'inventaire : le sucre !",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2243,7 +2243,7 @@
                         "params": {
                             "content": "Faites glisser les personnages dans la zone de droite pour les donner à Monsieur Louis.",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2325,7 +2325,7 @@
                         "params": {
                             "content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2373,7 +2373,7 @@
                         "params": {
                             "content": "Bravo, la photo est complète !",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2415,7 +2415,7 @@
                         "params": {
                             "content": "Bravo, la photo est complète !",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2494,7 +2494,7 @@
                         "params": {
                             "content": "Nouvel ingrédient dans l'inventaire : le beurre !",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2536,7 +2536,7 @@
                         "params": {
                             "content": "Nouvel ingrédient dans l'inventaire : le beurre !",
                             "anchor": 6,
-                            "icon": "",
+                            "normal": "ui/nav-7.png",
                             "color": "",
                             "backgroundColor": ""
                         }
