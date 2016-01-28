@@ -87,14 +87,14 @@ ceci va créer un projet cocos dans le répertoire personnel (qui contient tous 
 collez ensuite le contenu du projet récupéré depuis fit dedans pour fusionner les projets.
 
 ``
-vagrant$ cp -r /vagrant/* ~/LudoMuse
+vagrant$ cp -r /vagrant/* /vagrant/.* ~/LudoMuse
 ``
 
 /vagrant/ depuis la machine virtuelle est un répertoire partagé qui pointe sur le répertoire clôné depuis git sur votre machine hôte.
 Ensuite recopiez le projet dans le sens inverse pour le remettre dans le répertoire partagé.
 
 ``
-vagrant$ cp -r ~/LudoMuse/* /vagrant/
+vagrant$ cp -r ~/LudoMuse/* ~/LudoMuse/.* /vagrant/
 ``
 
 vous devriez voir les fichiers mis à jour depuis la machine hôte.
