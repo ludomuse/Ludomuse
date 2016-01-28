@@ -35,9 +35,9 @@ copiez tout le contenu du dépôt dans le projet que vous avez créé :
 $ cp -r Ludomuse/* Ludomuse/.* ../LudoMuse/
 ``
 
-vous pouvez supprimer le répertoire tmp `` $ rm -r tmp ``
+vous pouvez supprimer le répertoire tmp `` $ cd ../ && rm -r tmp ``
 
-Il ne reste plus qu'à compiler pour la plateforme de votre choix :
+Il ne reste plus qu'à compiler pour la plateforme de votre choix `` $ cd LudoMuse `` puis :
 
 ``
 $ cocos compile -p <platform>
