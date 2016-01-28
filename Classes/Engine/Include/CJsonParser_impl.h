@@ -140,18 +140,23 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode)
 {
-	assert(a_rJsonNode.HasMember("content"));
 	CSceneNode* pSceneNode = new CSceneNode();
 	a_pNode->AddChildNode(pSceneNode);
-	RefJsonNode rEntities = a_rJsonNode["content"];
-	for (int i = 0; i < rEntities.Size(); ++i)
+	if (a_rJsonNode.HasMember("content"))
 	{
-		ParseJson(rEntities[i], pSceneNode);
+		RefJsonNode rEntities = a_rJsonNode["content"];
+		for (int i = 0; i < rEntities.Size(); ++i)
+		{
+			ParseJson(rEntities[i], pSceneNode);
+		}
 	}
-	RefJsonNode rNavItems = a_rJsonNode["navigation"];
-	for (int i = 0; i < rNavItems.Size(); ++i)
+	if (a_rJsonNode.HasMember("navigation"))
 	{
-		ParseJson(rNavItems[i], pSceneNode);
+		RefJsonNode rNavItems = a_rJsonNode["navigation"];
+		for (int i = 0; i < rNavItems.Size(); ++i)
+		{
+			ParseJson(rNavItems[i], pSceneNode);
+		}
 	}
 }
 
