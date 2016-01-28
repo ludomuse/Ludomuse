@@ -47,6 +47,9 @@ et en remplaçant <platform> par une des plateformes suivantes :
   - win32
   - android
   - linux
+  - 
+
+remplacez compile par run pour lancer directement sur le périphérique.
   
 
 Si vous voulez utiliser la machine Vagrant :
@@ -98,5 +101,14 @@ vous devriez voir les fichiers mis à jour depuis la machine hôte.
 Engin tapez la commande :
 
 ``
-$ cocos compile -p android
+vagrant$ cocos compile -p android
 ``
+
+vous pouvez ensuite déployer sur le périphérique en lançant la commande 
+
+``
+host$ cd bin/debug/android
+host$ adb install -r LudoMuse-debug.apk
+``
+
+vous pouvez ensuite lancer l'application depuis votre périphérique android
