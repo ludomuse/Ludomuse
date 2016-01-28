@@ -16,7 +16,7 @@
 		"scene" : "id",
 		"content" : [
 		    {
-			"object": "Image",
+			"type": "Image",
 			"params": {
 			    "source": "HelloWorld.png",
 			    "width": 2,
@@ -27,7 +27,7 @@
 			}
 		    },
 		    {
-			"object": "Image",
+			"type": "Image",
 			"params": {
 			    "source": "HelloWorld.png",
 			    "width": 1,
@@ -38,7 +38,7 @@
 			}
 		    },
 		    {
-			"object": "Image",
+			"type": "Image",
 			"params": {
 			    "source": "HelloWorld.png",
 			    "width": 1,
@@ -49,7 +49,7 @@
 			}
 		    },
 		    {
-			"object": "Image",
+			"type": "Image",
 			"params": {
 			    "source": "HelloWorld.png",
 			    "width": 1,
@@ -60,7 +60,7 @@
 			}
 		    },
 		    {
-			"object": "Image",
+			"type": "Image",
 			"params": {
 			    "source": "HelloWorld.png",
 			    "width": 1,
@@ -71,18 +71,18 @@
 			}
 		    },
 		    {
-			"object": "Image",
+			"type": "Image",
 			"params": {
 			    "source": "HelloWorld.png",
 			    "width": 1,
 			    "height": 1,
-			    "anchor": 5,
+			    "anchor": 7,
 			    "x": 0,
 			    "y": 0
 			}
 		    },
 		    {
-			"object": "Image",
+			"type": "Image",
 			"params": {
 			    "source": "HelloWorld.png",
 			    "width": 1,
@@ -93,7 +93,7 @@
 			}
 		    },
 		    {
-			"object": "Image",
+			"type": "Image",
 			"params": {
 			    "source": "HelloWorld.png",
 			    "width": 1,
@@ -106,7 +106,7 @@
 
 
 		    {
-			"object": "Text",
+			"type": "Text",
 			"params": {
 			    "content": "Bonjour tout le monde comment ça va ?",
 			    "font" : "",
@@ -126,13 +126,13 @@
 		    }],
 		"navigation" : [
 		    {
-			"object": "Nav",
+			"type": "Nav",
 			"params": {
 			    "content": "",
 			    "normal": "CloseNormal.png",
 			    "selected": "CloseSelected.png",
 			    "action": "next",
-			    "anchor": 7,
+			    "anchor": 5,
 			    "x": 0,
 			    "y": 0,
 			    "width": 5,
@@ -147,7 +147,7 @@
 		"scene" : "id",
 		"content" : [
 		    {
-			"object": "Text",
+			"type": "Text",
 			"params": {
 			    "content": "Transition !!",
 				"font" : "",
@@ -167,13 +167,13 @@
 		    }],
 		"navigation" : [
 		    {
-			"object": "Nav",
+			"type": "Nav",
 			"params": {
 			    "content": "",
 			    "normal": "CloseNormal.png",
 			    "selected": "CloseSelected.png",
 			    "action": "prev",
-			    "anchor": 1,
+			    "anchor": 7,
 			    "x": 0,
 			    "y": 0,
 			    "width": 5,

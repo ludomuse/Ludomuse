@@ -7,13 +7,34 @@ template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pSceneNode)
 {
 
-	assert(a_rJsonNode["object"].IsString());
+	assert(a_rJsonNode["type"].IsString());
 	// the object type
-	std::string sType = a_rJsonNode["object"].GetString();
+	std::string sType = a_rJsonNode["type"].GetString();
 	// the object parameters
 	RefJsonNode rParams = a_rJsonNode["params"];
 
+	int x, y, width, height;
+	if (rParams.HasMember("x")) 
+	{
+		x = rParams["x"].GetInt();
+		y = rParams["y"].GetInt();
+	}
+	else
+	{
+		x = y = 0;
+	}
+	if (rParams.HasMember("width")) 
+	{
+		width = rParams["width"].GetInt();
+		height = rParams["height"].GetInt();
+	}
+	else
+	{
+		width = height = 0;
+	}
+
 	CNode* pEntity(nullptr);
+
 
 	if (sType == "Grid")
 	{
@@ -24,8 +45,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 	{
 		pEntity = new CSpriteNode(rParams["source"].GetString(),
 			IntToAnchor(rParams["anchor"].GetInt()),
-			rParams["width"].GetInt(), rParams["height"].GetInt(),
-			rParams["x"].GetInt(), rParams["y"].GetInt());
+			width, height,
+			x, y);
 	}
 
 
@@ -56,10 +77,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 				(std::string(rParams["action"].GetString()) == "next") ?
 				&CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
-			rParams["width"].GetInt(),
-			rParams["height"].GetInt(),
-			rParams["x"].GetInt(),
-			rParams["y"].GetInt());
+			width,
+			height,
+			x,
+			y);
 	}
 
 
@@ -95,10 +116,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 			sFontName, 
 			iFontSize,
 			IntToAnchor(rParams["anchor"].GetInt()),
-			rParams["width"].GetInt(),
-			rParams["height"].GetInt(),
-			rParams["x"].GetInt(),
-			rParams["y"].GetInt());
+			width,
+			height,
+			x,
+			y);
 
 	}
 

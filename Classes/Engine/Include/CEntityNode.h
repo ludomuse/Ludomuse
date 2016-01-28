@@ -30,21 +30,21 @@ namespace LM
 		case 0:
 			return CENTER;
 		case 1:
-			return BOTTOM_LEFT;
-		case 2:
-			return LEFT;
-		case 3:
 			return TOP_LEFT;
-		case 4:
+		case 2:
 			return TOP;
-		case 5:
+		case 3:
 			return TOP_RIGHT;
-		case 6:
+		case 4:
 			return RIGHT;
-		case 7:
+		case 5:
 			return BOTTOM_RIGHT;
-		case 8:
+		case 6:
 			return BOTTOM;
+		case 7:
+			return BOTTOM_LEFT;
+		case 8:
+			return LEFT;
 		default:
 			return FLOAT;
 		}

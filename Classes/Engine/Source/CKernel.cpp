@@ -41,7 +41,7 @@ void CKernel::Init()
   //CSceneNode oNode;
   //Scene* oScene = oNode.CreateScene();
   // node.init();
-	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, "test.json");
+	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, "Nantes.json");
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
 
