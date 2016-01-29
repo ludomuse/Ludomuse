@@ -38,7 +38,7 @@ void CMenuNode::Init()
   // weird hack because cocos2d::Menu does not use its anchor point
   m_pMenuItemImage->setPosition(m_pCocosEntity->getPosition());
   m_pMenuItemImage->setAnchorPoint(m_pCocosEntity->getAnchorPoint());
-  m_pMenuItemImage->setScale(m_pCocosEntity->getScale());
+  m_pMenuItemImage->setScale(m_pCocosEntity->getScaleX(), m_pCocosEntity->getScaleY());
   
   m_pCocosEntity->setPosition(Vec2::ZERO);
   m_pCocosEntity->setScale(1);

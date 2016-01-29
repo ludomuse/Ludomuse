@@ -24,7 +24,11 @@ CLabelNode::CLabelNode(const std::string& a_rText,
 
 void CLabelNode::Init()
 {
-  m_pCocosEntity = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
+	Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  Label* pLabel = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
+  pLabel->setAlignment(TextHAlignment::CENTER);
+  pLabel->setMaxLineWidth(oVisibleSize.width * (float) m_iWidth / 100.0f);
+  m_pCocosEntity = pLabel;
 
   PopulateParent();
   

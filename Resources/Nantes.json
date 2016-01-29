@@ -119,9 +119,11 @@
                         "type": "Nav",
                         "params": {
                             "content": "Suivant",
+			    "width": 10,
+			    "height": 10,
                             "anchor": 5,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -137,7 +139,7 @@
                             "font": "fonts/arial.ttf",
                             "fontSize": 24,
                             "width": 50,
-                            "height": 100,
+                            "height": 50,
                             "anchor": 4,
                             "color": "",
                             "cache": {
@@ -156,9 +158,11 @@
                         "type": "Nav",
                         "params": {
                             "content": "Suivant",
+			    "width": 10,
+			    "height": 10,
                             "anchor": 5,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -169,6 +173,8 @@
                         "type": "Nav",
                         "params": {
                             "content": "Précédent",
+			    "width": 10,
+			    "height": 10,
                             "anchor": 7,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
@@ -186,8 +192,8 @@
                         "params": {
                             "content": "Durant cette visite, vous êtes un ouvrier de la biscuiterie LU. Votre futur patron et coéquipier sera Monsieur Louis Lefevre-Utile dit « Monsieur Louis ». Votre mission sera de créer un nouveau biscuit Vous allez relever plusieurs défi. Le premier défi : réussir être embauché dans la biscuiterie LU. Écoutez ce que le patron Monsieur Louis vous demande. Bonne chance pour le test d’embauche.",
                             "font": "fonts/arial.ttf",
-                            "fontSize": 24,
-                            "width": 50,
+                            "fontSize": 11,
+                            "width": 40,
                             "height": 100,
                             "anchor": 4,
                             "color": "",
@@ -208,8 +214,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -237,7 +243,7 @@
                         "params": {
                             "content": "Pendant cette visite, tu seras  Monsieur Louis Lefèvre-Utile, le patron de l'entreprise de biscuits LU. Tu as 24 ans. Tu es le directeur d’une entreprise qui a été créée par tes parents.Tout le monde t’appelle Monsieur Louis. Aujourd'hui, tu souhaites créer un nouveau biscuit. Pour le créer, tu vas devoir relever plusieurs défis  avec l'aide de ton ouvrier. À chaque défi relevé, le processus de création de la recette avance !",
                             "font": "fonts/arial.ttf",
-                            "fontSize": 24,
+                            "fontSize": 11,
                             "width": 50,
                             "height": 100,
                             "anchor": 4,
@@ -259,8 +265,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -310,8 +316,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -361,8 +367,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -405,10 +411,10 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "",
+                            "source": "cache/Content/audioHintImage.png",
 			    "anchor": 1,
-                            "width": 0,
-                            "height": 0,
+                            "width": 100,
+                            "height": 100,
                             "x": 50,
                             "y": 0
                         }
@@ -423,8 +429,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -485,8 +491,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -2737,9 +2743,8 @@
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
-                            "normal": "",
-			    "selected": "ui/nav-7.png",
-                            "selected": ""
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5.png"
                         }
                     }
                 ],

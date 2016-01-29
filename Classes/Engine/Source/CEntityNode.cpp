@@ -80,11 +80,11 @@ void CEntityNode::PopulateParent()
 	int iOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
 	int iOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
 
-	int iScaleX = m_iWidth * (iOldWidth / oVisibleSize.width);
-	int iScaleY = m_iHeight * (iOldHeight / oVisibleSize.height);
+	int iScaleX = (float) m_iWidth * ((float) iOldWidth / oVisibleSize.width);
+	int iScaleY = (float) m_iHeight * ((float) iOldHeight / oVisibleSize.height);
 
 	//m_pCocosEntity->setScale(m_iWidth, m_iHeight);
-	m_pCocosEntity->setScale(iScaleX, iScaleY);
+	//m_pCocosEntity->setScale(iScaleX, iScaleY);
 
   cocos2d::Scene* pScene = (dynamic_cast<CSceneNode*>(m_pParent))->GetScene();
   if (pScene)
