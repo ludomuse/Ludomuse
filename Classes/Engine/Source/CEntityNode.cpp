@@ -77,11 +77,14 @@ void CEntityNode::PopulateParent()
 	}
 
 	// TODO
-	int iOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
-	int iOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
+	float iOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
+	float iOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
 
-	int iScaleX = (float) m_iWidth * ((float) iOldWidth / oVisibleSize.width);
-	int iScaleY = (float) m_iHeight * ((float) iOldHeight / oVisibleSize.height);
+	float iNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
+	float iNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+
+	float iScaleX = iNewWidth / iOldWidth;
+	float iScaleY = iNewHeight / iOldHeight;
 
 	//m_pCocosEntity->setScale(m_iWidth, m_iHeight);
 	//m_pCocosEntity->setScale(iScaleX, iScaleY);

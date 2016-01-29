@@ -119,8 +119,8 @@
                         "type": "Nav",
                         "params": {
                             "content": "Suivant",
-			    "width": 10,
-			    "height": 10,
+			    "width": 50,
+			    "height": 50,
                             "anchor": 5,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
