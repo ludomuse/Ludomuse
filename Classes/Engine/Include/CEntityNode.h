@@ -80,7 +80,7 @@ class CEntityNode : public CNode
 );
   
   /// \brief called when the scene is initialized
-  virtual void Init() = 0;
+  //virtual void Init() = 0;
 
   /// \returns the cocos2d corresponding entity
   virtual cocos2d::Node* GetCocosEntity();
@@ -90,6 +90,8 @@ class CEntityNode : public CNode
   /// \brief must be called at the end of the Init overloaded
   ///        function to populate parent class in the tree 
   virtual void PopulateParent(bool a_bDoScaling = true);
+
+  virtual cocos2d::Scene* GetParentScene();
 
 };
 

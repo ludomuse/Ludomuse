@@ -68,4 +68,12 @@ bool CNode::OffsetCurrentNode(int i)
 	return false;
 }
 
+
+void CNode::Init()
+{
+	for (CNode* pChildNode : m_vChildren) {
+		pChildNode->Init();
+	}
+}
+
 } // namespace LM

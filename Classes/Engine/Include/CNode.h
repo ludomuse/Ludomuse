@@ -63,6 +63,8 @@ class CNode
 
   virtual bool OffsetCurrentNode(int i);
 
+  virtual void Init();
+
 };
 
 

@@ -26,6 +26,7 @@ void CSpriteNode::Init()
 
   PopulateParent();
 
+  CNode::Init();
 }
 
 

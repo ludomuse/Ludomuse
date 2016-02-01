@@ -26,12 +26,14 @@ void CLabelNode::Init()
 {
 	Size oVisibleSize = Director::getInstance()->getVisibleSize();
   Label* pLabel = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
-  pLabel->setAlignment(TextHAlignment::CENTER);
-  pLabel->setMaxLineWidth(oVisibleSize.width * (float) m_iWidth / 100.0f);
   m_pCocosEntity = pLabel;
 
-  PopulateParent();
+  PopulateParent(false);
   
+  pLabel->setAlignment(TextHAlignment::CENTER);
+  pLabel->setMaxLineWidth(oVisibleSize.width * (float)m_iWidth / 100.0f);
+
+  CNode::Init();
 }
 
 

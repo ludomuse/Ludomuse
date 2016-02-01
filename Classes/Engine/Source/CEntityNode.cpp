@@ -92,12 +92,30 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 		m_pCocosEntity->setScale(iScaleX, iScaleY);
 
 	}
-  cocos2d::Scene* pScene = (dynamic_cast<CSceneNode*>(m_pParent))->GetScene();
-  if (pScene)
-  {
-    pScene->addChild(m_pCocosEntity, 0);
-  }
+	cocos2d::Scene* pScene = GetParentScene();
+	if (pScene)
+	{
+		pScene->addChild(m_pCocosEntity, 0);
+	}
 
+}
+
+
+Scene* CEntityNode::GetParentScene()
+{
+	CSceneNode* pParentScene = dynamic_cast<CSceneNode*>(m_pParent);
+	if (pParentScene)
+	{
+		return pParentScene->GetScene();
+	}
+	else
+	{
+		CEntityNode* pParentNode = dynamic_cast<CEntityNode*>(m_pParent);
+		if (pParentNode)
+		{
+			return pParentNode->GetParentScene();
+		}
+	}
 }
 
 } // namespace LM

@@ -57,7 +57,7 @@ void CMenuNode::Init()
 
   m_pMenuItemImage->setScale(iScaleX, iScaleY);
 
-
+  CNode::Init();
 }
 
 } // namespace LM

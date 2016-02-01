@@ -81,6 +81,21 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 			height,
 			x,
 			y);
+
+		if (rParams.HasMember("content"))
+		{
+			CLabelNode* pText = new CLabelNode(
+				rParams["content"].GetString(),
+				"fonts/arial.ttf",
+				24,
+				IntToAnchor(rParams["anchor"].GetInt()),
+				width,
+				height,
+				x,
+				y);
+
+			pEntity->AddChildNode(pText);
+		}
 	}
 
 
