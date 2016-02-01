@@ -119,8 +119,8 @@
                         "type": "Nav",
                         "params": {
                             "content": "Suivant",
-			    "width": 50,
-			    "height": 50,
+			    "width": 10,
+			    "height": 10,
                             "anchor": 5,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
@@ -213,6 +213,8 @@
                         "type": "Nav",
                         "params": {
                             "content": "Suivant",
+			    "width": 10,
+			    "height": 10,
                             "anchor": 5,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
@@ -226,6 +228,8 @@
                         "type": "Nav",
                         "params": {
                             "content": "Précédent",
+			    "width": 10,
+			    "height": 10,
                             "anchor": 7,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
@@ -265,6 +269,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
                             "enabled": true,
@@ -278,6 +284,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -316,6 +324,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
                             "enabled": true,
@@ -329,6 +339,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -367,6 +379,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
                             "enabled": true,
@@ -380,6 +394,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -429,6 +445,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
                             "enabled": true,
@@ -442,6 +460,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -491,6 +511,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
                             "enabled": true,
@@ -504,6 +526,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -553,6 +577,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -566,6 +592,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -615,6 +643,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -628,6 +658,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -677,6 +709,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -690,6 +724,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -739,6 +775,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -752,6 +790,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -801,6 +841,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -814,6 +856,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -863,6 +907,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -896,6 +942,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -929,6 +977,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -1046,6 +1096,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -1098,6 +1150,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -1150,6 +1204,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -1163,6 +1219,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -1201,6 +1259,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -1214,6 +1274,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
                             "enabled": true,
@@ -1252,6 +1314,8 @@
                         "params": {
                             "content": "",
                             "anchor": 6,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1266,6 +1330,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1316,6 +1382,8 @@
                         "params": {
                             "content": "",
                             "anchor": 6,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1330,6 +1398,8 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1428,6 +1498,8 @@
                         "params": {
                             "content": "",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1478,6 +1550,8 @@
                         "params": {
                             "content": "",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1492,6 +1566,8 @@
                         "params": {
                             "content": "",
                             "anchor": 6,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1548,6 +1624,8 @@
                         "params": {
                             "content": "",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1598,6 +1676,8 @@
                         "params": {
                             "content": "",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1612,6 +1692,8 @@
                         "params": {
                             "content": "",
                             "anchor": 6,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1821,6 +1903,8 @@
                         "params": {
                             "content": "Rejouer",
                             "anchor": 7,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1930,6 +2014,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
@@ -2028,6 +2114,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -2120,6 +2208,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
@@ -2171,6 +2261,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
@@ -2221,6 +2313,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
@@ -2295,6 +2389,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
@@ -2509,6 +2605,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
@@ -2560,6 +2658,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -2593,6 +2693,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -2638,6 +2740,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -2689,6 +2793,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
@@ -2739,6 +2845,8 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
+			    "width": 10,
+			    "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",

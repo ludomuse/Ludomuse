@@ -33,7 +33,7 @@ void CMenuNode::Init()
 
   m_pCocosEntity = Menu::create(m_pMenuItemImage, NULL);
 
-  PopulateParent();
+  PopulateParent(false);
 
   // weird hack because cocos2d::Menu does not use its anchor point
   m_pMenuItemImage->setPosition(m_pCocosEntity->getPosition());
@@ -42,6 +42,22 @@ void CMenuNode::Init()
   
   m_pCocosEntity->setPosition(Vec2::ZERO);
   m_pCocosEntity->setScale(1);
+
+
+  // Must be done in MenuItemImage for MenuNodes
+  Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  float iOldWidth = m_pMenuItemImage->getBoundingBox().getMaxX() - m_pMenuItemImage->getBoundingBox().getMinX();
+  float iOldHeight = m_pMenuItemImage->getBoundingBox().getMaxY() - m_pMenuItemImage->getBoundingBox().getMinY();
+
+  float iNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
+  float iNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+
+  float iScaleX = iNewWidth / iOldWidth;
+  float iScaleY = iNewHeight / iOldHeight;
+
+  m_pMenuItemImage->setScale(iScaleX, iScaleY);
+
+
 }
 
 } // namespace LM

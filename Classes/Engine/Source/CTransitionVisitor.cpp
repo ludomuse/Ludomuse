@@ -51,11 +51,11 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 		  if (m_bTransitionNext)
 		  {
-			  Director::getInstance()->replaceScene(TransitionSlideInR::create(1.0f, pNewScene));
+			  Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
 		  }
 		  else
 		  {
-			  Director::getInstance()->replaceScene(TransitionSlideInL::create(1.0f, pNewScene));
+			  Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
 		  }
 	  }
       return RESULT_PRUNE;

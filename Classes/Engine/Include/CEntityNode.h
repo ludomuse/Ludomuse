@@ -89,7 +89,7 @@ class CEntityNode : public CNode
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
   ///        function to populate parent class in the tree 
-  virtual void PopulateParent();
+  virtual void PopulateParent(bool a_bDoScaling = true);
 
 };
 

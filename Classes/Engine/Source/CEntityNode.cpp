@@ -1,5 +1,6 @@
 #include "../Include/CEntityNode.h"
 #include "../Include/CSceneNode.h"
+#include "../Include/CMenuNode.h"
 
 #include "cocos2d.h"
 
@@ -24,7 +25,7 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 }
 
 
-void CEntityNode::PopulateParent()
+void CEntityNode::PopulateParent(bool a_bDoScaling)
 {
 
 	Size oVisibleSize = Director::getInstance()->getVisibleSize();
@@ -76,19 +77,21 @@ void CEntityNode::PopulateParent()
 		break;
 	}
 
-	// TODO
-	float iOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
-	float iOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
 
-	float iNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
-	float iNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+	if (a_bDoScaling) {
 
-	float iScaleX = iNewWidth / iOldWidth;
-	float iScaleY = iNewHeight / iOldHeight;
+		float iOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
+		float iOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
 
-	//m_pCocosEntity->setScale(m_iWidth, m_iHeight);
-	//m_pCocosEntity->setScale(iScaleX, iScaleY);
+		float iNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
+		float iNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
 
+		float iScaleX = iNewWidth / iOldWidth;
+		float iScaleY = iNewHeight / iOldHeight;
+
+		m_pCocosEntity->setScale(iScaleX, iScaleY);
+
+	}
   cocos2d::Scene* pScene = (dynamic_cast<CSceneNode*>(m_pParent))->GetScene();
   if (pScene)
   {
