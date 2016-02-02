@@ -5,12 +5,12 @@
 #include "cocos2d.h"
 #include "CNode.h"
 
-
 namespace LM 
 {
 
 class CInputManager;
 class CJsonParser;
+class CNetworkManager;
 
 /// \class CKernel
 /// \ingroup Engine
@@ -23,7 +23,10 @@ class CKernel
   CNode* m_pBehaviorTree;
   /// \details will forward the inputs to the behavior tree
   CInputManager* m_pInputManager;
-
+  /// \details will manage networking events such as direct wifi
+  CNetworkManager* m_pNetworkManager;
+  
+  /// \brief The parser that will build the behavior tree from the json file
   CJsonParser* m_pJsonParser;
 
  public:
@@ -32,11 +35,15 @@ class CKernel
   /// \returns the behavior tree
   CNode* GetBehaviorTree();
 
+  /// \brief Initialize the kernel and the behavior tree
   void Init();
 
   ////////////////// callbacks
   void NavNext(cocos2d::Ref* pSender);
   void NavPrevious(cocos2d::Ref* pSender);
+
+  void SendMessage(cocos2d::Ref* pSender);
+  
 };
 
 
