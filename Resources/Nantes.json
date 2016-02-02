@@ -119,8 +119,8 @@
                         "type": "Nav",
                         "params": {
                             "content": "Suivant",
-			    "width": 10,
-			    "height": 10,
+			    "width": 12,
+			    "height": 7,
                             "anchor": 5,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
@@ -132,6 +132,28 @@
                     }
                 ],
                 "content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/backgroundFactory.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/perso4.png",
+			    "anchor": 7,
+			    "width": 50,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
                     {
                         "type": "Text",
                         "params": {
@@ -158,8 +180,8 @@
                         "type": "Nav",
                         "params": {
                             "content": "Suivant",
-			    "width": 10,
-			    "height": 10,
+			    "width": 12,
+			    "height": 7,
                             "anchor": 5,
                             "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5.png",
@@ -173,8 +195,8 @@
                         "type": "Nav",
                         "params": {
                             "content": "Précédent",
-			    "width": 10,
-			    "height": 10,
+			    "width": 12,
+			    "height": 7,
                             "anchor": 7,
                             "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7.png",
@@ -429,8 +451,8 @@
                         "params": {
                             "source": "cache/Content/audioHintImage.png",
 			    "anchor": 1,
-                            "width": 50,
-                            "height": 50,
+                            "width": 100,
+                            "height": 100,
                             "x": 50,
                             "y": 0
                         }

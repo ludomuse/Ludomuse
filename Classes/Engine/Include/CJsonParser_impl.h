@@ -1,6 +1,7 @@
 //////////////////////////////// templates specializations 
 
 #include "CCallback.h"
+#include "CEntityNode.h"
 
 /// \brief the specialisation building entities in a entity
 template <>
@@ -33,7 +34,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 		width = height = 0;
 	}
 
-	CNode* pEntity(nullptr);
+	CEntityNode* pEntity(nullptr);
 
 
 	if (sType == "Grid")
@@ -89,10 +90,11 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 				"fonts/arial.ttf",
 				24,
 				IntToAnchor(rParams["anchor"].GetInt()),
+				//EAnchor::FLOAT,
 				width,
 				height,
-				x,
-				y);
+				0,
+				0);
 
 			pEntity->AddChildNode(pText);
 		}
@@ -135,6 +137,19 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 			height,
 			x,
 			y);
+
+		if (rParams["cache"]["visible"].GetBool())
+		{
+			CSpriteNode* pSpriteNode = new CSpriteNode(
+				rParams["cache"]["backgroundImage"].GetString(),
+				IntToAnchor(rParams["anchor"].GetInt()),
+				width,
+				height,
+				x,
+				y);
+
+			pEntity->AddChildNode(pSpriteNode);
+		}
 
 	}
 
