@@ -18,7 +18,7 @@ CMenuNode::CMenuNode(const std::string& a_rNormalImage,
     m_sSelectedImage(a_rSelectedImage),
     m_fpClickedCallback(a_fpCallback)
 {
-  
+	CCLOG("grid in construction");
 }
 
 

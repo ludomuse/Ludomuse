@@ -37,19 +37,20 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 	CEntityNode* pEntity(nullptr);
 
 
-	if (sType == "Grid")
+	if (sType == "Grid2")
 	{
-          // pEntity = new CMenuNode(
-          //     rParams["normal"].GetString(),
-          //     rParams["selected"].GetString(),
-          //     CCallback(m_pKernel,
-          //               &CKernel::SendMessage),
-          //     IntToAnchor(rParams["anchor"].GetInt()),
-          //     width,
-          //     height,
-          //     x,
-          //     y);
-          
+		CCLOG("Grid construction");
+           pEntity = new CMenuNode(
+               rParams["normal"].GetString(),
+               rParams["selected"].GetString(),
+               CCallback(m_pKernel,
+                         &CKernel::SendMessage),
+               IntToAnchor(rParams["anchor"].GetInt()),
+               width,
+               height,
+               x,
+               y);
+		   CCLOG("grid constructed");
         }
 
 	else if (sType == "Image")

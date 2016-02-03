@@ -45,7 +45,7 @@ void CKernel::Init()
   //CSceneNode oNode;
   //Scene* oScene = oNode.CreateScene();
   // node.init();
-	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, "Cern.json");
+	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, "Nantes.json");
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
 
@@ -72,6 +72,7 @@ void CKernel::NavPrevious(Ref* pSender)
 
 void CKernel::SendMessage(Ref* pSender)
 {
+	CCLOG("Hello World !");
   m_pNetworkManager->send("Hello World !");
 }
 
