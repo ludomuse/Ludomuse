@@ -4,11 +4,14 @@
 #ifdef TARGET_OS_MAC
 #include "./osx/Include/CNetworkManager.h"
 #elif defined __linux__
-#include "./linux/Include/CNetworkManager.h"
+#include "./android/Include/CNetworkManager.h"
+// #include "./linux/Include/CNetworkManager.h"
 #elif defined _WIN32 | defined _WIN64
 #include "./win/Include/CNetworkManager.h"
 #else // android
 #include "./android/Include/CNetworkManager.h"
 #endif
+
+// #include "./android/Include/CNetworkManager.h"
 
 #endif /* _NETWORKING_H_ */
