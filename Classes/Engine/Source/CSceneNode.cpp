@@ -8,7 +8,7 @@ using namespace cocos2d;
 namespace LM
 {
 
-CSceneNode::CSceneNode()
+CSceneNode::CSceneNode(std::string a_sID) : m_sID(a_sID)
 {
 }
 
@@ -79,6 +79,7 @@ bool CSceneNode::init()
 //  oSprite->Init();
   
 
+  CCLOG("init scene : %s", m_sID);
   
   CNode::Init();
 

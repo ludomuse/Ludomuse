@@ -66,6 +66,9 @@
     <ClCompile Include="..\Classes\Engine\Source\CTransitionVisitor.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Modules\Networking\win\Source\CNetworkManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -123,6 +126,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CTransitionVisitor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Networking\win\Include\CNetworkManager.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

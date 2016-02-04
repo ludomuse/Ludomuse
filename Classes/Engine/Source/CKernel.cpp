@@ -72,8 +72,28 @@ void CKernel::NavPrevious(Ref* pSender)
 
 void CKernel::SendMessage(Ref* pSender)
 {
+	CCLOG("Sending message");
+	m_pNetworkManager->Send("Hello from the other side !");
+}
+
+void CKernel::Connect(Ref* pSender)
+{
 	CCLOG("Hello World !");
-  m_pNetworkManager->send("Hello World !");
+
+	//m_pNetworkManager->Send("Hello World !");
+	m_pNetworkManager->DiscoverPeers();
+}
+
+void CKernel::OnGettingPeers(std::vector<std::string> a_vPeers)
+{
+	CCLOG("connecting to : %s", a_vPeers[0].c_str());
+	m_pNetworkManager->ConnectTo(a_vPeers[0]);
+}
+
+
+void CKernel::LogMessage(const std::string& a_sMessage)
+{
+	CCLOG("Kernel message : %s", a_sMessage.c_str());
 }
 
 } // namespace LM

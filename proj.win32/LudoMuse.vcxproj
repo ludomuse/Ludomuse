@@ -161,6 +161,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Engine\Source\CTransitionVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CVisitor.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Modules\Networking\win\Source\CNetworkManager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +183,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CTransitionVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CVisitor.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Modules\Networking\win\Include\CNetworkManager.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

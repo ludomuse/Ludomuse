@@ -19,7 +19,7 @@ class CNetworkManager : LmWifiObserver
 
   CNetworkManager(CKernel* a_pKernel);
 
-  // virtual void onGettingPeers(std::vector<std::string> peers);
+  virtual void onGettingPeers(std::vector<std::string> a_vPeers);
 
   virtual void onReceiving(std::string s);
 
@@ -37,7 +37,11 @@ class CNetworkManager : LmWifiObserver
 
   // virtual void onReceiving(char c);
 
-  void send(std::string s);
+  void Send(const std::string& s);
+
+  void DiscoverPeers();
+
+  void ConnectTo(const std::string& a_sDeviceName);
   
   // void send(double d);
 

@@ -12,14 +12,37 @@ CNetworkManager::CNetworkManager(CKernel* a_pKernel) : m_pKernel(a_pKernel)
   m_oWifiDirectFacade.addObserver(this);
 }
 
-void CNetworkManager::onReceiving(std::string s)
+
+////////////////////////// Callbacks from WifiObserver
+
+void CNetworkManager::onGettingPeers(std::vector<std::string> a_vPeers)
 {
-  std::cout << s << std::endl;
+  m_pKernel->OnGettingPeers(a_vPeers);
 }
 
-void CNetworkManager::send(std::string s)
+void CNetworkManager::onReceiving(std::string s)
+{
+  m_pKernel->LogMessage(s);
+}
+
+
+
+////////////////////////// forward calls to WifiDirectfacade
+
+void CNetworkManager::Send(const std::string& s)
 {
   m_oWifiDirectFacade.send(s);
+}
+
+
+void CNetworkManager::DiscoverPeers()
+{
+  m_oWifiDirectFacade.discoverPeers();
+}
+
+void CNetworkManager::ConnectTo(const std::string& a_sDeviceName)
+{
+  m_oWifiDirectFacade.connectTo(a_sDeviceName);
 }
 
 
