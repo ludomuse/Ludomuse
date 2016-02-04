@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="100px" >
+
+    <LinearLayout
+        android:id="@+id/linear_layout_toast"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/msg_lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Message : "
+            android:textColor="#0F0" />
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ceci est un message"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/classname_lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Classname : "
+            android:textColor="#0F0" />
+
+        <TextView
+            android:id="@+id/classname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ceci est un classname"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/filename_lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filename : "
+            android:textColor="#0F0" />
+
+        <TextView
+            android:id="@+id/filename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ceci est un filename"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/methodname_lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Methodname : "
+            android:textColor="#0F0" />
+
+        <TextView
+            android:id="@+id/methodname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ceci est un methodname"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/lnumber_lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Line Number : "
+            android:textColor="#0F0" />
+
+        <TextView
+            android:id="@+id/lnumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ceci est un linenumber"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/msgtype_lbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MsgType : "
+            android:textColor="#0F0" />
+
+        <TextView
+            android:id="@+id/msgtype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ceci est un message type"
+            android:textColor="#FFF" />
+    </LinearLayout>
+
+</ScrollView>
