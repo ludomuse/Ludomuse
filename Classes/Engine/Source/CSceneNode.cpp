@@ -79,7 +79,7 @@ bool CSceneNode::init()
 //  oSprite->Init();
   
 
-  CCLOG("init scene : %s", m_sID);
+  CCLOG("init scene : %s", m_sID.c_str());
   
   CNode::Init();
 
