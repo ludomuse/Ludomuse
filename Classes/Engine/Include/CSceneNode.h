@@ -1,6 +1,8 @@
 #ifndef _CSCENE_H_
 #define _CSCENE_H_
 
+#include <string>
+
 #include "CParallelNode.h"
 
 namespace LM
@@ -15,9 +17,12 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
  private:
   /// \brief the corresponding cocos scene
   cocos2d::Scene* m_pScene;
+
+  /// \brief The scene unique ID
+  std::string m_sID;
   
  public:
-  CSceneNode();
+  CSceneNode(std::string a_sID = "none");
 
   /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();

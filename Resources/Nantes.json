@@ -172,18 +172,37 @@
                         }
                     },
 		    {
+			"type": "Grid",
+			"params": {
+			    
+			}
+		    },
+		    {
 			"type": "Grid2",
 			"params": {
 			    "normal": "CloseNormal.png",
 			    "selected": "CloseSelected.png",
-			    "anchor": 0,
-			    "width": 100,
+			    "action": "connect",
+			    "anchor": 8,
+			    "width": 50,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Grid2",
+			"params": {
+			    "normal": "CloseNormal.png",
+			    "selected": "CloseSelected.png",
+			    "anchor": 4,
+			    "action": "test",
+			    "width": 50,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
 			}
 		    }
-
                 ]
             },
             {

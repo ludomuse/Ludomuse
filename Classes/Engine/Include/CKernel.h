@@ -43,7 +43,10 @@ class CKernel
   void NavPrevious(cocos2d::Ref* pSender);
 
   void SendMessage(cocos2d::Ref* pSender);
-  
+  void Connect(cocos2d::Ref* pSender);
+  void OnGettingPeers(std::vector<std::string> a_vPeers);
+
+  void LogMessage(const std::string& a_sMessage);
 };
 
 

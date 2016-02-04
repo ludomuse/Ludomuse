@@ -44,7 +44,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
                rParams["normal"].GetString(),
                rParams["selected"].GetString(),
                CCallback(m_pKernel,
-                         &CKernel::SendMessage),
+				   std::string(rParams["action"].GetString()) == "connect" ?
+                         &CKernel::Connect : &CKernel::SendMessage),
                IntToAnchor(rParams["anchor"].GetInt()),
                width,
                height,
@@ -181,7 +182,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode)
 {
-	CSceneNode* pSceneNode = new CSceneNode();
+	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString());
 	a_pNode->AddChildNode(pSceneNode);
 	if (a_rJsonNode.HasMember("content"))
 	{
