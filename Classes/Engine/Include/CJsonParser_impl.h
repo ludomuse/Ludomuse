@@ -36,8 +36,12 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 	CEntityNode* pEntity(nullptr);
 
+	if (sType == "Grid")
+	{
 
-	if (sType == "Grid2")
+	}
+
+	else if (sType == "Grid2")
 	{
 		CCLOG("Grid construction");
            pEntity = new CMenuNode(
