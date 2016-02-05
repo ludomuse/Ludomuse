@@ -80,16 +80,24 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 
 	if (a_bDoScaling) {
 
-		float iOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
-		float iOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
+		float fNewScale;
 
-		float iNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
-		float iNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+		if (m_iWidth != 0)
+		{
+			float fOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
+			float fNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
+			fNewScale = fNewWidth / fOldWidth;
+		}
+		else 
+		{
+			float fOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
+			float fNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+			fNewScale = fNewHeight / fOldHeight;
+		}
 
-		float iScaleX = iNewWidth / iOldWidth;
-		float iScaleY = iNewHeight / iOldHeight;
 
-		m_pCocosEntity->setScale(iScaleX, iScaleY);
+
+		m_pCocosEntity->setScale(fNewScale);
 
 	}
 	cocos2d::Scene* pScene = GetParentScene();

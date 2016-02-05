@@ -226,7 +226,7 @@
                     {
                         "type": "Nav",
                         "params": {
-                            "content": "Précédent",
+                            "content": "Prècédent",
 			    "width": 12,
 			    "height": 7,
                             "anchor": 7,

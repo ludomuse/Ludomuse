@@ -37,7 +37,7 @@ void CMenuNode::Init()
   // weird hack because cocos2d::Menu does not use its anchor point
   m_pMenuItemImage->setPosition(m_pCocosEntity->getPosition());
   m_pMenuItemImage->setAnchorPoint(m_pCocosEntity->getAnchorPoint());
-  m_pMenuItemImage->setScale(m_pCocosEntity->getScaleX(), m_pCocosEntity->getScaleY());
+  m_pMenuItemImage->setScale(m_pCocosEntity->getScale());
   
   m_pCocosEntity->setPosition(Vec2::ZERO);
   m_pCocosEntity->setScale(1);
@@ -45,16 +45,22 @@ void CMenuNode::Init()
 
   // Must be done in MenuItemImage for MenuNodes
   Size oVisibleSize = Director::getInstance()->getVisibleSize();
-  float iOldWidth = m_pMenuItemImage->getBoundingBox().getMaxX() - m_pMenuItemImage->getBoundingBox().getMinX();
-  float iOldHeight = m_pMenuItemImage->getBoundingBox().getMaxY() - m_pMenuItemImage->getBoundingBox().getMinY();
 
-  float iNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
-  float iNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+  float fNewScale;
 
-  float iScaleX = iNewWidth / iOldWidth;
-  float iScaleY = iNewHeight / iOldHeight;
-
-  m_pMenuItemImage->setScale(iScaleX, iScaleY);
+  if (m_iWidth != 0)
+  {
+	  float fOldWidth = m_pMenuItemImage->getBoundingBox().getMaxX() - m_pMenuItemImage->getBoundingBox().getMinX();
+	  float fNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
+	  fNewScale = fNewWidth / fOldWidth;
+  }
+  else
+  {
+	  float fOldHeight = m_pMenuItemImage->getBoundingBox().getMaxY() - m_pMenuItemImage->getBoundingBox().getMinY();
+	  float fNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+	  fNewScale = fNewHeight / fOldHeight;
+  }
+  m_pMenuItemImage->setScale(fNewScale);
 
   CNode::Init();
 }
