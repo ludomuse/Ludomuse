@@ -93,6 +93,10 @@ class CEntityNode : public CNode
 
   virtual cocos2d::Scene* GetParentScene();
 
+  virtual cocos2d::Size GetParentVisibleSize();
+
+  virtual cocos2d::Vec2 GetParentOrigin();
+
 };
 
 } // namespace LM

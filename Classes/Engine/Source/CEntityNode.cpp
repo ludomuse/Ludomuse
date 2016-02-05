@@ -126,4 +126,14 @@ Scene* CEntityNode::GetParentScene()
 	}
 }
 
+Size CEntityNode::GetParentVisibleSize()
+{
+	// TODO
+}
+
+Vec2 CEntityNode::GetParentOrigin()
+{
+	// TODO
+}
+
 } // namespace LM

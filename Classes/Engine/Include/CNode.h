@@ -38,6 +38,7 @@ class CNode
   /// \param[in] a_pChild The child to add
   virtual void AddChildNode(CNode* a_pChild);
 
+  // begin and en in order to iterate node through foreach loop
   CNode::Iterator begin();
   CNode::Iterator end();
 
