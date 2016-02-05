@@ -16,10 +16,16 @@ class CLabelNode : public CEntityNode
   std::string m_sFontName;
   int m_iFontSize;
 
+  /// \brief font color : "r,g,b,a"
+  std::string m_sFontColor;
+
   //cocos2d::Label* m_pLabel;
 
  public:
-	 CLabelNode(const std::string& a_rText, const std::string& a_rFontName, int a_iFontSize,
+	 CLabelNode(const std::string& a_rText, 
+			 const std::string& a_rFontName, 
+		     int a_iFontSize,
+		     const std::string& a_rFontColor,
 			 EAnchor a_eAnchor = EAnchor::FLOAT,
 			 int a_iWidth = 0,
 			 int a_iHeight = 0,

@@ -211,7 +211,7 @@
                     {
                         "type": "Nav",
                         "params": {
-                            "content": "Suivant",
+                            "content": "Suivant >",
 			    "width": 12,
 			    "height": 7,
                             "anchor": 5,
@@ -226,7 +226,7 @@
                     {
                         "type": "Nav",
                         "params": {
-                            "content": "Prècédent",
+                            "content": "< Prècédent",
 			    "width": 12,
 			    "height": 7,
                             "anchor": 7,

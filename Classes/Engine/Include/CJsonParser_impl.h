@@ -109,6 +109,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 				sText.c_str(),
 				"fonts/Open_Sans/OpenSans-Bold.ttf",
 				24,
+				rParams["color"].GetString(),
 				IntToAnchor(rParams["anchor"].GetInt()),
 				//EAnchor::FLOAT,
 				width,
@@ -150,8 +151,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 			iFontSize = 24;
 		}
 		pEntity = new CLabelNode(rParams["content"].GetString(),
-			sFontName, 
+			sFontName,
 			iFontSize,
+			rParams["color"].GetString(),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
