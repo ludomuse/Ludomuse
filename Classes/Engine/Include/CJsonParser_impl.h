@@ -3,6 +3,8 @@
 #include "CCallback.h"
 #include "CEntityNode.h"
 
+#include <algorithm>
+
 /// \brief the specialisation building entities in a entity
 template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pSceneNode)
@@ -101,9 +103,11 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 		if (rParams.HasMember("content"))
 		{
+			std::string sText(rParams["content"].GetString());
+			std::transform(sText.begin(), sText.end(), sText.begin(), ::toupper);
 			CLabelNode* pText = new CLabelNode(
-				rParams["content"].GetString(),
-				"fonts/arial.ttf",
+				sText.c_str(),
+				"fonts/Open_Sans/OpenSans-Bold.ttf",
 				24,
 				IntToAnchor(rParams["anchor"].GetInt()),
 				//EAnchor::FLOAT,
@@ -131,14 +135,14 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 	else if (sType == "Text")
 	{
-		std::string sFontName = "fonts/arial.ttf";
+		std::string sFontName = "";
 		if (rParams.HasMember("font"))
 		{
 			std::string sFontName = rParams["font"].GetString();
 		}
-		if (sFontName == "")
+		if (sFontName == "") // apply default font
 		{
-			sFontName = "fonts/arial.ttf";
+			sFontName = "fonts/Open_Sans/OpenSans-Regular.ttf";
 		}
 		int iFontSize = rParams["fontSize"].GetInt();
 		if (iFontSize < 1)
