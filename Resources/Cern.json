@@ -6,14 +6,14 @@
     "sounds": [],
     "screens": [
       {
-        "scene": "screen-0-a-player1",
+        "scene": "screen-0",
         "navigation": [
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "content": "ENTREZ",
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -28,20 +28,81 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/Musee.jpg",
+              "source": "cache/Intro.png",
               "anchor": 8,
-              "width": 40,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-0-a-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/white.png",
+              "anchor": 8,
+              "width": 100,
               "height": 100,
               "x": 0,
               "y": 0
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/Intro2.png",
+              "anchor": 2,
+              "width": 0,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+          "Information":[
+          {
             "type": "Text",
             "params": {
               "content": "Bienvenue au musée Cernushi   Sur les pas d'Henri Cernushi",
               "fontSize": 30,
-              "width": 40,
+              "width": 50,
               "height": 100,
               "anchor": 4,
               "color": "",
@@ -61,8 +122,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -76,8 +137,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -92,20 +153,33 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/Musee.jpg",
+              "source": "cache/white.png",
               "anchor": 8,
-              "width": 40,
+              "width": 100,
               "height": 100,
               "x": 0,
               "y": 0
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/Intro2.png",
+              "anchor": 2,
+              "width": 0,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+          "Information":[
+          {
             "type": "Text",
             "params": {
               "content": "Bienvenue au musée Cernushi   Sur les pas d'Henri Cernushi",
               "fontSize": 30,
-              "width": 40,
+              "width": 50,
               "height": 100,
               "anchor": 4,
               "color": "",
@@ -125,8 +199,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -140,8 +214,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -157,11 +231,38 @@
             "type": "Image",
             "params": {
               "source": "cache/PlanSalle1.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 60,
+              "height": 0,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous dans la salle Shang. Rendez-vous devant l’objet la Tigresse",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -173,8 +274,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -188,8 +289,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -206,10 +307,37 @@
             "params": {
               "source": "cache/Musee1.jpg",
               "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "width": 0,
+              "height": 80,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous dans la salle Shang. Rendez-vous devant l’objet en photo la tigresse",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -221,8 +349,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -236,8 +364,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -254,8 +382,19 @@
             "params": {
               "source": "cache/PlanSalle1.jpg",
               "anchor": 0,
-              "width": 100,
+              "width": 0,
               "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -269,8 +408,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -284,8 +423,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -302,8 +441,19 @@
             "params": {
               "source": "cache/Musee2.jpg",
               "anchor": 0,
-              "width": 100,
+              "width": 0,
               "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -317,8 +467,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -332,8 +482,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -350,7 +500,7 @@
             "params": {
               "source": "cache/background1CERN.png",
               "anchor": 0,
-              "width": 100,
+              "width": 0,
               "height": 100,
               "x": 0,
               "y": 0
@@ -361,7 +511,7 @@
             "params": {
               "source": "cache/perso1Homme.png",
               "anchor": 5,
-              "width": 50,
+              "width": 0,
               "height": 50,
               "x": 0,
               "y": 0
@@ -372,7 +522,7 @@
             "params": {
               "source": "cache/carte1.JPG",
               "anchor": 1,
-              "width": 30,
+              "width": 0,
               "height": 40,
               "x": 0,
               "y": 0
@@ -383,8 +533,19 @@
             "params": {
               "source": "cache/Statuette1.jpg",
               "anchor": 7,
-              "width": 20,
+              "width": 0,
               "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -393,10 +554,10 @@
             "type": "Text",
             "params": {
               "content": "Rencontre avec un marchand. «  Nĭmen Hăo, xian sheng, xiăo Haĭzi , je suis marchand. bienvenue dans ma boutique : tu tombes bien ! j’ai un problème avec un objet dont la magie me dépasse ! Peux-tu t’en occuper en trouvant quels animaux se cachent ?",
-              "fontSize": 24,
-              "width": 40,
+              "fontSize": 18,
+              "width": 60,
               "height": 100,
-              "anchor": 0,
+              "anchor": 6,
               "color": "",
               "cache": {
                 "visible": false,
@@ -414,8 +575,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -429,8 +590,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -447,7 +608,7 @@
             "params": {
               "source": "cache/background1CERN.png",
               "anchor": 0,
-              "width": 100,
+              "width": 0,
               "height": 100,
               "x": 0,
               "y": 0
@@ -458,7 +619,7 @@
             "params": {
               "source": "cache/perso1Homme.png",
               "anchor": 5,
-              "width": 50,
+              "width": 0,
               "height": 50,
               "x": 0,
               "y": 0
@@ -469,7 +630,7 @@
             "params": {
               "source": "cache/carte1.JPG",
               "anchor": 1,
-              "width": 30,
+              "width": 0,
               "height": 40,
               "x": 0,
               "y": 0
@@ -480,8 +641,19 @@
             "params": {
               "source": "cache/Statuette1.jpg",
               "anchor": 7,
-              "width": 20,
+              "width": 0,
               "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -491,7 +663,7 @@
             "params": {
               "content": "Rencontre avec un marchand. «  Nĭmen Hăo, xian sheng, xiăo Haĭzi , je suis marchand. bienvenue dans ma boutique : tu tombes bien ! j’ai un problème avec un objet dont la magie me dépasse ! Peux-tu t’en occuper en trouvant quels animaux se cachent ?",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
               "color": "",
@@ -517,8 +689,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -532,8 +704,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -568,11 +740,22 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
               "content": "Regardez bien l'objet il a l'air possédé par un démon. Pouvez-vous trouver le statège pour le rendre moins effrayant ?",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
               "color": "",
@@ -592,8 +775,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -607,8 +790,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -647,7 +830,7 @@
             "params": {
               "content": "Regarde bien l'objet il a l'air possédé par un démon. Peux-tu trouver le statège pour le rendre moins effrayant ?",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
               "color": "",
@@ -667,8 +850,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -682,8 +865,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -808,8 +991,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -823,8 +1006,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -905,8 +1088,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -920,8 +1103,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -949,7 +1132,7 @@
             "params": {
               "content": "Bravo ! Pour affronter la suite de votre voyage je donne au jeune explorateur cette amulette en forme de tigre. Ce tigre pourra vous protéger pour la suite de vos aventures",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 2,
               "color": "",
@@ -969,8 +1152,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -984,8 +1167,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1013,7 +1196,7 @@
             "params": {
               "content": "Bravo ! Pour affronter la suite de votre voyage je te donne cette amulette en forme de tigre. Ce tigre pourra te protéger pour la suite de tes aventures ",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 2,
               "color": "",
@@ -1033,8 +1216,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1048,8 +1231,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1119,8 +1302,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1134,8 +1317,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1211,8 +1394,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1226,8 +1409,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1286,8 +1469,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1301,8 +1484,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1361,8 +1544,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1376,8 +1559,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1478,8 +1661,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1493,8 +1676,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1575,8 +1758,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1590,8 +1773,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1639,8 +1822,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1654,8 +1837,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1703,8 +1886,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1718,8 +1901,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1789,8 +1972,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1804,8 +1987,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1875,8 +2058,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1890,8 +2073,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1923,8 +2106,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1938,8 +2121,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1971,8 +2154,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1986,8 +2169,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2019,8 +2202,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2034,8 +2217,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2067,8 +2250,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2082,8 +2265,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2153,8 +2336,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2168,8 +2351,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2245,8 +2428,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2260,8 +2443,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2320,8 +2503,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2335,8 +2518,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2395,8 +2578,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2410,8 +2593,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2481,8 +2664,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2496,8 +2679,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2567,8 +2750,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2582,8 +2765,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2631,8 +2814,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2646,8 +2829,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2695,8 +2878,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2710,8 +2893,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2781,8 +2964,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2796,8 +2979,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2873,8 +3056,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2888,8 +3071,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2937,8 +3120,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2952,8 +3135,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3001,8 +3184,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3016,8 +3199,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3102,8 +3285,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3117,8 +3300,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3203,8 +3386,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3218,8 +3401,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3267,8 +3450,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3282,8 +3465,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3331,8 +3514,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3346,8 +3529,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3417,8 +3600,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3432,8 +3615,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3503,8 +3686,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3518,8 +3701,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3551,8 +3734,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3566,8 +3749,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3599,8 +3782,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3614,8 +3797,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3647,8 +3830,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3662,8 +3845,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3695,8 +3878,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3710,8 +3893,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3792,8 +3975,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3895,8 +4078,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3910,8 +4093,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3992,8 +4175,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4007,8 +4190,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4089,8 +4272,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4104,8 +4287,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4153,8 +4336,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4168,8 +4351,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4217,8 +4400,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4232,8 +4415,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4303,8 +4486,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4318,8 +4501,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4389,8 +4572,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4404,8 +4587,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4420,7 +4603,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/Musee5.jpg",
+              "source": "cache/PlanSalle1.jpg",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -4437,8 +4620,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4452,8 +4635,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4485,8 +4668,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4500,8 +4683,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4533,8 +4716,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4548,8 +4731,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4581,8 +4764,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4678,8 +4861,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4693,8 +4876,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4781,8 +4964,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4796,8 +4979,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4878,8 +5061,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4893,8 +5076,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4981,8 +5164,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4996,8 +5179,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5045,8 +5228,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5060,8 +5243,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5109,8 +5292,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5124,8 +5307,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5195,8 +5378,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5210,8 +5393,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5281,8 +5464,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5296,8 +5479,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5345,8 +5528,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5360,8 +5543,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5409,8 +5592,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5424,200 +5607,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/PlanSalle1.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-h-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Musee1.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-i-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/PlanSalle1.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-i-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/PlanSalle1.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-j-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5652,9 +5643,402 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/demon1.jpg",
+              "anchor": 7,
+              "width": 30,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/carte2.jpg",
+              "anchor": 1,
+              "width": 40,
+              "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
-              "content": "Bienvenue ! ",
+              "content": "Retourne devant la vitrine et regarde le grand personnage à l’intérieur. Il s’agit d’un être fantastique debout sur le démon qu’il a combattu.  A ton avis est-ce que ce personnage est fort ou en colère?",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-4-h-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background3CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso3Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/demon1.jpg",
+              "anchor": 7,
+              "width": 30,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/carte2.jpg",
+              "anchor": 1,
+              "width": 40,
+              "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Retourne devant la vitrine et regarde le grand personnage à l’intérieur. Il s’agit d’un être fantastique debout sur le démon qu’il a combattu.  A ton avis est-ce que ce personnage est fort ou en colère?",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Sound",
+            "params": {
+              "source": ""
+            }
+          }
+        ]
+      },
+      
+      {
+        "scene": "screen-4-i-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Text",
+            "params": {
+              "content": "Sélectionnez et envoyez à votre coéquipier les éléments de l’armure du gardien de votre choix.",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "couvre-chef Phénix",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 2,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "éléments d’armure",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 4,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "ceinture avec monstre",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 6,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "jambières",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 8,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "jambières",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 4,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-4-i-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/demon1.jpg",
+              "anchor": 0,
+              "width": 50,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-4-j-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background3CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso3Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barque1.png",
+              "anchor": 7,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Je vois que vous avez une belle collection d’objets chinois, ne repartez pas en France avant d’être passés au Japon!Je sais qu’il existe des bateaux qui partent du port de Pékin?  et font une escale au port de Tokyo.",
               "fontSize": 24,
               "width": 40,
               "height": 100,
@@ -5676,8 +6060,8 @@
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5691,1003 +6075,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 70,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bienvenue ! ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-k-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Consigne : ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-k-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Consigne : ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-l-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/sistre1.jpg",
-              "anchor": 8,
-              "width": 40,
-              "height": 40,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/demon1.jpg",
-              "anchor": 2,
-              "width": 40,
-              "height": 40,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/oreiller1.jpg",
-              "anchor": 4,
-              "width": 40,
-              "height": 40,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/miroir1.jpg",
-              "anchor": 6,
-              "width": 40,
-              "height": 40,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-l-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/sistre1.jpg",
-              "anchor": 8,
-              "width": 40,
-              "height": 40,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/demon1.jpg",
-              "anchor": 2,
-              "width": 40,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/oreiller1.jpg",
-              "anchor": 4,
-              "width": 40,
-              "height": 40,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/miroir1.jpg",
-              "anchor": 6,
-              "width": 40,
-              "height": 40,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-m-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/demon1.jpg",
-              "anchor": 0,
-              "width": 50,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-m-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/demon1.jpg",
-              "anchor": 0,
-              "width": 50,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-n-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 70,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bienvenue ! ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-n-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 70,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bienvenue ! ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-o-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Consigne : ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-o-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Consigne : ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-p-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "défi : ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-p-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "défi : ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-q-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Récompense : ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-q-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Récompense : ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-4-r-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 12,
-              "height": 7,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -6731,18 +6120,34 @@
               "x": 0,
               "y": 0
             }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Je vois que vous avez une belle collection d’objets chinois, ne repartez pas en France avant d’êtrepassés au Japon ! Il vous faudra prendre le bateau.",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
           }
         ]
       },
       {
-        "scene": "screen-4-r-player2",
+        "scene": "screen-5-a-player1",
         "navigation": [
           {
             "type": "Nav",
             "params": {
               "content": "Suivant",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -6756,8 +6161,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 10,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -6772,7 +6177,199 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background3CERN.png",
+              "source": "cache/PlanSalle1.jpg",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-a-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Musee9.jpg",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-b-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/PlanSalle2.jpg",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-b-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Musee10.jpg",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-c-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -6783,7 +6380,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/perso3Homme.png",
+              "source": "cache/perso4Homme.png",
               "anchor": 5,
               "width": 70,
               "height": 50,
@@ -6794,12 +6391,1132 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/barque1.png",
+              "source": "cache/Statuette4.jpg",
               "anchor": 7,
+              "width": 30,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/carte2.jpg",
+              "anchor": 1,
+              "width": 40,
+              "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze? ",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-c-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
               "width": 70,
               "height": 50,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Statuette4.jpg",
+              "anchor": 7,
+              "width": 30,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/carte2.jpg",
+              "anchor": 1,
+              "width": 40,
+              "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": " Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze?",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-d-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Statuette4.jpg",
+              "anchor": 7,
+              "width": 30,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Il s'agit de Bouddha,  c’est un ancien prince qui a renoncé à sa richesse pour se détacher des choses matérielles pour atteindre l’éveil... Regarde sa main levée, il montre par ce geste qu’il nous enseigne la sagesse. Veux-tu essayer de méditer avec moi?",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-d-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Statuette4.jpg",
+              "anchor": 7,
+              "width": 30,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "« Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze?",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-e-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/bouddha1.JPG",
+              "anchor": 5,
+              "width": 0,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-e-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/bouddha1.JPG",
+              "anchor": 5,
+              "width": 0,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-f-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo ! vous avez montré beaucoup de sagesse et vous vous êtes approchés de létat d'éveil, vous avez remporté une fleur de lotus",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-f-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Tu as montré beaucoup de sagesse et tu t’es approché de l'état d'éveil, je t’offre cette fleur de lotus.",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-g-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Pourquoi un lotus? Parce que le Bouddha est assis sur un lotus et qu’il ressemble au lotus qui pousse dans la boue mais devient une belle fleur blanche.",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-g-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Pourquoi un lotus? Parce que le Bouddha est assis sur un lotus et qu’il ressemble au lotus qui pousse dans la boue mais devient une belle fleur blanche",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-h-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Statuette4.jpg",
+              "anchor": 7,
+              "width": 0,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo vous avez reçu l’enseignement du Bouddha, J’ai le plaisir de vous offrir, au nom du monastère,la statue de Bouddha.",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 4,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-h-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Statuette4.jpg",
+              "anchor": 7,
+              "width": 0,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo vous avez reçu l’enseignement du Bouddha, rapportez ce Bouddha en France, vos amis pourront ainsi l’admirer!",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 4,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-i-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/bateau1.png",
+              "anchor": 7,
+              "width": 30,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Vous avez réuni une belle collection d’objets! Quel voyage! Que de rencontres... Il est temps de revenir en France ... Embarquons!",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-5-i-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background4CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso4Homme.png",
+              "anchor": 5,
+              "width": 70,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/bateau1.png",
+              "anchor": 7,
+              "width": 30,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Vous avez réuni une belle collection d’objets! Quel voyage! Que de rencontres... Il est temps de revenir en France ... Embarquons!",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-6-a-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Musee.jpg",
+              "anchor": 8,
+              "width": 40,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Il est temps pour moi de vous laisser rentrer chez vous maintenant que vous êtes chargés d'atouts et d'oeuvres à présenter à vos amis et collaborateurs. En espérant vous revoir très prochainement pour un autre voyage ! Le mettrez-vous au centre d'une salle dédiée comme l'a fait Monsieur Cernuschi ? nous vous souhaitons un très bon retour en France !",
+              "fontSize": 30,
+              "width": 40,
+              "height": 100,
+              "anchor": 4,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-6-a-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Suivant",
+              "width": 0,
+              "height": 10,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next"
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "content": "Précédent",
+              "width": 0,
+              "height": 10,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Musee.jpg",
+              "anchor": 8,
+              "width": 40,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Il est temps pour moi de vous laisser rentrer chez vous maintenant que vous êtes chargés d'atouts et d'oeuvres à présenter à vos amis et collaborateurs. En espérant vous revoir très prochainement pour un autre voyage ! Le mettrez-vous au centre d'une salle dédiée comme l'a fait Monsieur Cernuschi ? nous vous souhaitons un très bon retour en France !",
+              "fontSize": 30,
+              "width": 40,
+              "height": 100,
+              "anchor": 4,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
