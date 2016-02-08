@@ -16,7 +16,7 @@
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -44,12 +44,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -59,12 +59,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -121,12 +121,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -136,12 +136,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -198,12 +198,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -213,12 +213,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -241,10 +241,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/barre.png",
+              "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -253,7 +253,7 @@
             "type": "Text",
             "params": {
               "content": "Rendez-vous dans la salle Shang. Rendez-vous devant l’objet la Tigresse",
-              "fontSize": 24,
+              "fontSize": 20,
               "width": 60,
               "height": 100,
               "anchor": 6,
@@ -273,12 +273,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -288,12 +288,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -306,9 +306,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Musee1.jpg",
-              "anchor": 2,
+              "anchor": 0,
               "width": 0,
-              "height": 80,
+              "height": 100,
               "x": 0,
               "y": 0
             }
@@ -316,10 +316,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/barre.png",
+              "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -328,11 +328,11 @@
             "type": "Text",
             "params": {
               "content": "Rendez-vous dans la salle Shang. Rendez-vous devant l’objet en photo la tigresse",
-              "fontSize": 24,
+              "fontSize": 20,
               "width": 60,
               "height": 100,
               "anchor": 6,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -348,12 +348,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -363,12 +363,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -391,10 +391,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/barre.png",
+              "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -407,12 +407,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -422,12 +422,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -450,10 +450,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/barre.png",
+              "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -466,12 +466,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -481,12 +481,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -542,10 +542,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/barre.png",
+              "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -557,8 +557,8 @@
               "fontSize": 18,
               "width": 60,
               "height": 100,
-              "anchor": 6,
-              "color": "",
+              "anchor": 4,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -967,14 +967,25 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "ui/info-2.png",
+              "anchor": 2,
+              "width": 0,
+              "height": 13,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
               "content": "Glisser les photos vers les bons animaux",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
-              "anchor": 0,
-              "color": "",
+              "anchor": 2,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
