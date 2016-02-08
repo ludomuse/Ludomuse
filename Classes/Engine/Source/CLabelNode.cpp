@@ -38,11 +38,12 @@ void CLabelNode::Init()
 
 
   std::vector<int> oRGBAValues;
+  std::string sValue;
   std::istringstream oStream(m_sFontColor);
-  while (std::getline(oStream, m_sFontColor, ','))
+
+  while (std::getline(oStream, sValue, ','))
   {
-	  int iValue;
-	  oStream >> iValue;
+	  int iValue = atoi(sValue.c_str());
 	  oRGBAValues.push_back(iValue);
   }
 

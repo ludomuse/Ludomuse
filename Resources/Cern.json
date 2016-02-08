@@ -257,7 +257,7 @@
               "width": 60,
               "height": 100,
               "anchor": 6,
-              "color": "0,0,0,0",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -5785,7 +5785,7 @@
           }
         ]
       },
-      
+
       {
         "scene": "screen-4-i-player1",
         "navigation": [
