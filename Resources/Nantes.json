@@ -174,11 +174,27 @@
                     {
                         "type": "Grid",
                         "params": {
-                            "anchor": 0
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/Content/audioHintImage.png",
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 50,
+                                        "y": 0
+                                    }
+                                }
+
+                            ]
                         }
                     },
                     {
-                        "type": "Grid2",
+                        "type": "Dummy",
                         "params": {
                             "normal": "CloseNormal.png",
                             "selected": "CloseSelected.png",
@@ -191,7 +207,7 @@
                         }
                     },
                     {
-                        "type": "Grid2",
+                        "type": "Dummy",
                         "params": {
                             "normal": "CloseNormal.png",
                             "selected": "CloseSelected.png",
@@ -1133,6 +1149,7 @@
                     {
                         "type": "Grid",
                         "params": {
+                            "anchor": 0,
                             "id": "main-grid",
                             "cols": 2,
                             "rows": 2,
@@ -1858,6 +1875,7 @@
                     {
                         "type": "Grid",
                         "params": {
+                            "anchor": 0,
                             "id": "main-grid",
                             "cols": 2,
                             "rows": 2,
@@ -2485,6 +2503,7 @@
                     {
                         "type": "Grid",
                         "params": {
+                            "anchor": 0,
                             "id": "main-grid",
                             "cols": 2,
                             "rows": 2,
@@ -2573,6 +2592,7 @@
                     {
                         "type": "Grid",
                         "params": {
+                            "anchor": 0,
                             "id": "main-grid",
                             "cols": 2,
                             "rows": 2,

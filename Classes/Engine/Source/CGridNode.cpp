@@ -15,8 +15,9 @@ CGridNode::CGridNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight, int a_iXPos
 
 void CGridNode::Init()
 {
-  PopulateParent();
-  CNode::Init();
+	m_pCocosEntity = Node::create();
+	PopulateParent();
+	CNode::Init();
 }
 
 

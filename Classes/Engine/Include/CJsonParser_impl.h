@@ -39,12 +39,12 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 
 	if (sType == "Grid")
 	{
-		/*pEntity = new CGridNode(
+		pEntity = new CGridNode(
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
 			x,
-			y);*/
+			y);
 	}
 
 	else if (sType == "Grid2")
@@ -189,7 +189,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 	// recursively parse children
 	if (rParams.HasMember("children"))
 	{
-		RefJsonNode rEntities = a_rJsonNode["children"];
+		RefJsonNode rEntities = rParams["children"];
 		for (int i = 0; i < rEntities.Size(); ++i)
 		{
 			ParseJson(rEntities[i], pEntity);
