@@ -257,7 +257,7 @@
               "width": 60,
               "height": 100,
               "anchor": 6,
-              "color": "",
+              "color": "0,0,0,0",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -306,7 +306,7 @@
             "type": "Image",
             "params": {
               "source": "cache/Musee1.jpg",
-              "anchor": 0,
+              "anchor": 2,
               "width": 0,
               "height": 80,
               "x": 0,
