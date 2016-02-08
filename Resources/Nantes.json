@@ -257,12 +257,35 @@
                 ],
                 "information": [],
                 "content": [
+                  
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/background1LU.png",
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/perso1left.png",
+                            "anchor": 8,
+                            "width": 0,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
                     {
                         "type": "Text",
                         "params": {
                             "content": "Durant cette visite, vous êtes un ouvrier de la biscuiterie LU. Votre futur patron et coéquipier sera Monsieur Louis Lefevre-Utile dit « Monsieur Louis ». Votre mission sera de créer un nouveau biscuit Vous allez relever plusieurs défi. Le premier défi : réussir être embauché dans la biscuiterie LU. Écoutez ce que le patron Monsieur Louis vous demande. Bonne chance pour le test d’embauche.",
                             "font": "fonts/arial.ttf",
-                            "fontSize": 11,
+                            "fontSize": 24,
                             "width": 40,
                             "height": 100,
                             "anchor": 4,
@@ -313,11 +336,33 @@
                 "information": [],
                 "content": [
                     {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/background1LU.png",
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/perso1left.png",
+                            "anchor": 8,
+                            "width": 0,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
                         "type": "Text",
                         "params": {
                             "content": "Pendant cette visite, tu seras  Monsieur Louis Lefèvre-Utile, le patron de l'entreprise de biscuits LU. Tu as 24 ans. Tu es le directeur d’une entreprise qui a été créée par tes parents.Tout le monde t’appelle Monsieur Louis. Aujourd'hui, tu souhaites créer un nouveau biscuit. Pour le créer, tu vas devoir relever plusieurs défis  avec l'aide de ton ouvrier. À chaque défi relevé, le processus de création de la recette avance !",
                             "font": "fonts/arial.ttf",
-                            "fontSize": 11,
+                            "fontSize":24,
                             "width": 50,
                             "height": 100,
                             "anchor": 4,
