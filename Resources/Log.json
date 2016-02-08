@@ -1,0 +1,326 @@
+{
+  "id": "log-1",
+  "navigation": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Nav",
+        "params": {
+          "content": "Démarrer",
+          "width": 18,
+          "height": 13,
+          "anchor": 5,
+          "normal": "ui/nav-5.png",
+          "selected": "ui/nav-5.png",
+          "enabled": true,
+          "color": "",
+          "backgroundColor": "",
+          "action": "next"
+        }
+      }
+    ]
+  },
+  "information": {
+    "template": "",
+    "entities": []
+  },
+  "content": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Image",
+        "params": {
+          "source": "",
+          "width": "",
+          "height": "",
+          "x": "",
+          "y": ""
+        }
+      }
+    ]
+  }
+},
+
+
+{
+  "id": "log-2",
+  "navigation": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Nav",
+        "params": {
+          "content": "Suivant",
+          "width": 18,
+          "height": 13,
+          "anchor": 5,
+          "normal": "ui/nav-5.png",
+          "selected": "ui/nav-5.png",
+          "enabled": true,
+          "color": "",
+          "backgroundColor": "",
+          "action": "next"
+        }
+      }
+    ]
+  },
+  "information": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Info",
+        "params": {
+          "content": "Étape 1 : Quel est ton nom ?",
+          "anchor": 2,
+          "icon": "",
+          "color": "",
+          "backgroundColor": ""
+        }
+      }
+    ]
+  },
+  "content": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Grid",
+        "params": {
+          "id": "main-grid",
+          "cols": 2,
+          "rows": 2,
+          "snap": false,
+          "alignItems": "center"
+        }
+      },
+      {
+        "type": "Input",
+        "params": {
+          "content": "",
+          "placeholder": "Entre ton nom de joueur",
+          "grid": "main-grid",
+          "colspan": 2
+        }
+      },
+      {
+        "type": "Image",
+        "params": {
+          "source": "ui/man.png",
+          "width": "",
+          "height": "",
+          "x": "",
+          "y": "",
+          "grid": "main-grid"
+        }
+      },
+      {
+        "type": "Image",
+        "params": {
+          "source": "ui/woman.png",
+          "width": "",
+          "height": "",
+          "x": "",
+          "y": "",
+          "grid": "main-grid"
+        }
+      }
+    ]
+  }
+},
+
+
+{
+  "id": "log-3",
+  "navigation": {
+    "template": "",
+    "entities": [
+
+      {
+        "type": "Nav",
+        "params": {
+          "content": "Suivant",
+          "width": 18,
+          "height": 13,
+          "anchor": 5,
+          "normal": "ui/nav-5.png",
+          "selected": "ui/nav-5.png",
+          "enabled": true,
+          "color": "",
+          "backgroundColor": "",
+          "action": "next"
+        }
+      },
+
+      {
+        "type": "Nav",
+        "params": {
+          "content": "Précédent",
+          "width": 18,
+          "height": 13,
+          "anchor": 7,
+          "normal": "ui/nav-7.png",
+          "selected": "ui/nav-7.png",
+          "enabled": true,
+          "color": "",
+          "backgroundColor": "",
+          "action": "next"
+        }
+      }
+    ]
+  },
+  "information": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Info",
+        "params": {
+          "content": "Étape 2 : Quel est ton profil ?",
+          "anchor": 2,
+          "icon": "",
+          "color": "",
+          "backgroundColor": ""
+        }
+      }
+    ]
+  },
+  "content": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Grid",
+        "params": {
+          "id": "main-grid",
+          "cols": 2,
+          "rows": 1,
+          "snap": false,
+          "alignItems": "center"
+        }
+      },
+      {
+        "type": "Image",
+        "params": {
+          "source": "ui/profil-grand.png",
+          "width": "",
+          "height": "",
+          "x": "",
+          "y": "",
+          "grid": "main-grid"
+        }
+      },
+      {
+        "type": "Image",
+        "params": {
+          "source": "ui/profil-petit.png",
+          "width": "",
+          "height": "",
+          "x": "",
+          "y": "",
+          "grid": "main-grid"
+        }
+      }
+    ]
+  }
+},
+
+
+{
+  "id": "log-4",
+  "navigation": {
+    "template": "",
+    "entities": [
+
+      {
+        "type": "Nav",
+        "params": {
+          "content": "Prêt !",
+          "width": 18,
+          "height": 13,
+          "anchor": 5,
+          "normal": "ui/nav-5.png",
+          "selected": "ui/nav-5.png",
+          "enabled": true,
+          "color": "",
+          "backgroundColor": "",
+          "action": "next"
+        }
+      },
+
+      {
+        "type": "Nav",
+        "params": {
+          "content": "Précédent",
+          "width": 18,
+          "height": 13,
+          "anchor": 7,
+          "normal": "ui/nav-7.png",
+          "selected": "ui/nav-7.png",
+          "enabled": true,
+          "color": "",
+          "backgroundColor": "",
+          "action": "next"
+        }
+      }
+    ]
+  },
+  "information": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Info",
+        "params": {
+          "content": "Étape 3 : Avec qui veux-tu jouer ?",
+          "anchor": 2,
+          "icon": "",
+          "color": "",
+          "backgroundColor": ""
+        }
+      }
+    ]
+  },
+  "content": {
+    "template": "",
+    "entities": [
+      {
+        "type": "Grid",
+        "params": {
+          "id": "main-grid",
+          "cols": 2,
+          "rows": 2,
+          "snap": false,
+          "alignItems": "center"
+        }
+      },
+
+      {
+        "type":"Text",
+        "params":{
+          "content":"Jouer avec Baba",
+          "grid":"main-grid"
+        }
+      },
+      
+      {
+        "type":"Text",
+        "params":{
+          "content":"Jouer avec Christophe",
+          "grid":"main-grid"
+        }
+      },
+      
+      {
+        "type":"Text",
+        "params":{
+          "content":"Jouer avec Aliénor",
+          "grid":"main-grid"
+        }
+      },
+      
+      {
+        "type":"Text",
+        "params":{
+          "content":"Jouer avec Matteo",
+          "grid":"main-grid"
+        }
+      }
+    ]
+  }
+}
