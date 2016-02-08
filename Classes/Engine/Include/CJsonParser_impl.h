@@ -154,6 +154,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		{
 			iFontSize = 24;
 		}
+
 		pEntity = new CLabelNode(rParams["content"].GetString(),
 			sFontName,
 			iFontSize,
