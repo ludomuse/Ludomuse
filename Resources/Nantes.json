@@ -118,12 +118,12 @@
                     {
                         "type": "Nav",
                         "params": {
-                            "content": "Suivant",
-			    "width": 12,
-			    "height": 7,
+                            "content": "SUIVANT",
+                            "width": 18,
+                            "height": 13,
                             "anchor": 5,
-                            "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -132,28 +132,28 @@
                     }
                 ],
                 "content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/backgroundFactory.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso4.png",
-			    "anchor": 7,
-			    "width": 50,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/backgroundFactory.png",
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/perso4.png",
+                            "anchor": 7,
+                            "width": 50,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
                     {
                         "type": "Text",
                         "params": {
@@ -171,38 +171,38 @@
                             }
                         }
                     },
-		    {
-			"type": "Grid",
-			"params": {
-			    "anchor": 0
-			}
-		    },
-		    {
-			"type": "Grid2",
-			"params": {
-			    "normal": "CloseNormal.png",
-			    "selected": "CloseSelected.png",
-			    "action": "connect",
-			    "anchor": 8,
-			    "width": 50,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Grid2",
-			"params": {
-			    "normal": "CloseNormal.png",
-			    "selected": "CloseSelected.png",
-			    "anchor": 4,
-			    "action": "test",
-			    "width": 50,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    }
+                    {
+                        "type": "Grid",
+                        "params": {
+                            "anchor": 0
+                        }
+                    },
+                    {
+                        "type": "Grid2",
+                        "params": {
+                            "normal": "CloseNormal.png",
+                            "selected": "CloseSelected.png",
+                            "action": "connect",
+                            "anchor": 8,
+                            "width": 50,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Grid2",
+                        "params": {
+                            "normal": "CloseNormal.png",
+                            "selected": "CloseSelected.png",
+                            "anchor": 4,
+                            "action": "test",
+                            "width": 50,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    }
                 ]
             },
             {
@@ -211,12 +211,12 @@
                     {
                         "type": "Nav",
                         "params": {
-                            "content": "Suivant >",
-			    "width": 12,
-			    "height": 7,
+                            "content": "SUIVANT",
+                            "width": 18,
+                            "height": 13,
                             "anchor": 5,
-                            "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -226,12 +226,12 @@
                     {
                         "type": "Nav",
                         "params": {
-                            "content": "< Prècédent",
-			    "width": 12,
-			    "height": 7,
+                            "content": "PRÉCÉDENT",
+                            "width": 18,
+                            "height": 13,
                             "anchor": 7,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -266,12 +266,12 @@
                     {
                         "type": "Nav",
                         "params": {
-                            "content": "Suivant",
-			    "width": 10,
-			    "height": 10,
+                            "content": "SUIVANT",
+                            "width": 18,
+                            "height": 13,
                             "anchor": 5,
-                            "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -281,12 +281,12 @@
                     {
                         "type": "Nav",
                         "params": {
-                            "content": "Précédent",
-			    "width": 10,
-			    "height": 10,
+                            "content": "PRÉCÉDENT",
+                            "width": 18,
+                            "height": 13,
                             "anchor": 7,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -323,10 +323,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -338,10 +338,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -378,10 +378,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -393,10 +393,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -433,10 +433,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -448,10 +448,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -482,7 +482,7 @@
                         "type": "Image",
                         "params": {
                             "source": "cache/Content/audioHintImage.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 100,
                             "height": 100,
                             "x": 50,
@@ -499,10 +499,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -514,10 +514,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -548,7 +548,7 @@
                         "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 50,
@@ -565,10 +565,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -580,10 +580,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -614,7 +614,7 @@
                         "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 50,
@@ -631,10 +631,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -646,10 +646,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -680,7 +680,7 @@
                         "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 50,
@@ -697,10 +697,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -712,10 +712,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -746,7 +746,7 @@
                         "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 50,
@@ -763,10 +763,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -778,10 +778,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -812,7 +812,7 @@
                         "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 50,
@@ -829,10 +829,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -844,10 +844,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -878,7 +878,7 @@
                         "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 50,
@@ -895,10 +895,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -910,10 +910,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -944,7 +944,7 @@
                         "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 50,
@@ -961,10 +961,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -980,8 +980,8 @@
                             "font": "fonts/arial.ttf",
                             "fontSize": 24,
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -996,10 +996,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1015,8 +1015,8 @@
                             "font": "fonts/arial.ttf",
                             "fontSize": 24,
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1031,10 +1031,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1050,8 +1050,8 @@
                             "font": "fonts/arial.ttf",
                             "fontSize": 24,
                             "anchor": 2,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1150,10 +1150,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1169,8 +1169,8 @@
                             "font": "fonts/arial.ttf",
                             "fontSize": 24,
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1204,10 +1204,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1223,8 +1223,8 @@
                             "font": "fonts/arial.ttf",
                             "fontSize": 24,
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1258,10 +1258,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1273,10 +1273,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1313,10 +1313,10 @@
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1328,10 +1328,10 @@
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "width": 10,
+                            "height": 10,
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -1364,34 +1364,32 @@
                 "scene": "screen-2-a-player1",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "",
                             "anchor": 6,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "pause",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     },
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "prev",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -1399,7 +1397,7 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Approchez-vous du grand portrait de Monsieur Louis. Il est impressionnant, vous ne trouvez pas ?",
                             "font": "fonts/arial.ttf",
@@ -1416,10 +1414,10 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1432,34 +1430,32 @@
                 "scene": "screen-2-a-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "",
                             "anchor": 6,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "pause",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     },
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Précédent",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "prev",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -1467,7 +1463,7 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Montre ton portrait peint à ton ouvrier.",
                             "font": "fonts/arial.ttf",
@@ -1484,10 +1480,10 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1502,10 +1498,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1519,12 +1515,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Touche le portrait pour écouter Monsieur Louis.",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1532,10 +1528,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1548,18 +1544,17 @@
                 "scene": "screen-2-c-player1",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "prev",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -1567,10 +1562,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1578,7 +1573,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Monsieur Louis vous interroge : « Connaissez-vous l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
                             "font": "fonts/arial.ttf",
@@ -1600,34 +1595,32 @@
                 "scene": "screen-2-c-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "prev",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     },
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "",
                             "anchor": 6,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "pause",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -1635,10 +1628,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1646,7 +1639,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Monsieur Louis interroge son ouvrier : « connais-tu l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
                             "font": "fonts/arial.ttf",
@@ -1663,7 +1656,7 @@
                         }
                     },
                     {
-			"type": "Sound",
+                        "type": "Sound",
                         "params": {
                             "source": ""
                         }
@@ -1674,18 +1667,17 @@
                 "scene": "screen-2-d-player1",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "prev",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -1693,10 +1685,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1704,7 +1696,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Pour découvrir la recette des biscuits de mer vous devez choisir de faire glisser de la zone de partage(en forme de petit beurre) au plat les ingrédients qui conviennent à la recette.",
                             "font": "fonts/arial.ttf",
@@ -1726,34 +1718,32 @@
                 "scene": "screen-2-d-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "prev",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     },
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "",
                             "anchor": 6,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "pause",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -1761,10 +1751,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1772,7 +1762,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Faites glisser les différents ingrédients : farine, beurre, eau, vanille œuf, sucre dans la zone de partage en forme de petit beurre. Ton ouvrier doit déterminer si ces ingrédients sont présents dans les biscuits de mer. Ces biscuits avaient l’avantage de se conserver longtemps mais ils n’étaient pas très bons !",
                             "font": "fonts/arial.ttf",
@@ -1789,7 +1779,7 @@
                         }
                     },
                     {
-			"type": "Sound",
+                        "type": "Sound",
                         "params": {
                             "source": ""
                         }
@@ -1801,12 +1791,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Placez les bons ingrédients dans le plat.",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1814,10 +1804,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "Plat.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -1825,10 +1815,10 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "DropZone.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 30,
                             "height": 0,
                             "x": 70,
@@ -1842,12 +1832,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1855,10 +1845,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "DropZone.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 30,
                             "height": 0,
                             "x": 70,
@@ -1866,7 +1856,7 @@
                         }
                     },
                     {
-			"type": "Grid",
+                        "type": "Grid",
                         "params": {
                             "id": "main-grid",
                             "cols": 2,
@@ -1876,7 +1866,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Farine",
                             "font": "fonts/arial.ttf",
@@ -1894,7 +1884,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Beurre",
                             "font": "fonts/arial.ttf",
@@ -1912,7 +1902,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Eau",
                             "font": "fonts/arial.ttf",
@@ -1930,7 +1920,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Sucre",
                             "font": "fonts/arial.ttf",
@@ -1953,30 +1943,29 @@
                 "scene": "screen-2-f",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Rejouer",
                             "anchor": 7,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "prev",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
                 ],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Attention, vous vous êtes trompé.",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -1984,10 +1973,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 50,
                             "height": 0,
                             "x": 50,
@@ -1995,7 +1984,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Attention, rejoue !",
                             "font": "fonts/arial.ttf",
@@ -2018,12 +2007,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Bravo, vous avez réussi !",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2031,10 +2020,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2042,7 +2031,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Bravo, vous avez trouvé les deux ingrédients qui entrent dans la recette des biscuits de mer. Écoutez Monsieur Louis, il va vous raconter ce qui s’est passé ensuite.",
                             "font": "fonts/arial.ttf",
@@ -2064,30 +2053,29 @@
                 "scene": "screen-2-g-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
                 ],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Bravo, tu as réussi !",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2095,10 +2083,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2106,7 +2094,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Bravo ! Écoute l’explication pour renseigner ton ouvrier.",
                             "font": "fonts/arial.ttf",
@@ -2123,7 +2111,7 @@
                         }
                     },
                     {
-			"type": "Sound",
+                        "type": "Sound",
                         "params": {
                             "source": ""
                         }
@@ -2135,12 +2123,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Approchez-vous de Monsieur Louis et lisez cet article à voix haute.",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2148,10 +2136,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2164,30 +2152,29 @@
                 "scene": "screen-2-h-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
                 ],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Demande à ton ouvrir de te lire à voix haute son article.",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2195,10 +2182,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2206,7 +2193,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Pour poursuivre la formation de ton ouvrier, fais-lui lire un article de presse. Celui-ci pourra être lu quand les deux tablettes seront côte-à-côte.",
                             "font": "fonts/arial.ttf",
@@ -2229,12 +2216,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Nouvel ingrédient dans l'inventaire : le sucre !",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2242,10 +2229,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2258,30 +2245,29 @@
                 "scene": "screen-2-i-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
                 ],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Nouvel ingrédient dans l'inventaire : le sucre !",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2289,10 +2275,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2300,7 +2286,7 @@
                         }
                     },
                     {
-			"type": "Sound",
+                        "type": "Sound",
                         "params": {
                             "source": ""
                         }
@@ -2311,18 +2297,17 @@
                 "scene": "screen-2-j-player1",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -2330,10 +2315,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2341,7 +2326,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
                             "font": "fonts/arial.ttf",
@@ -2363,18 +2348,17 @@
                 "scene": "screen-2-j-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -2382,10 +2366,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2393,7 +2377,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
                             "font": "fonts/arial.ttf",
@@ -2417,7 +2401,7 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Vous allez maintenant découvrir vos collègues grâce un jeu.Règle du jeu : Faites glisser les personnages un par un dans la zone de partage en forme de petit beurre pour les envoyer à Monsieur Louis. Il va les replacer au bon endroit et va vous indiquer les noms de métiers.",
                             "font": "fonts/arial.ttf",
@@ -2439,18 +2423,17 @@
                 "scene": "screen-3-a-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -2458,7 +2441,7 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Voici une manière originale de présenter ces collègues à ton ouvrier ! Règle du jeu : Lorsque l’ouvrier t’envoie un détail dans la zone de partage (en forme de petit beurre) replace le au bon endroit.",
                             "font": "fonts/arial.ttf",
@@ -2475,7 +2458,7 @@
                         }
                     },
                     {
-			"type": "Sound",
+                        "type": "Sound",
                         "params": {
                             "source": ""
                         }
@@ -2487,12 +2470,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Faites glisser les personnages dans la zone de droite pour les donner à Monsieur Louis.",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2500,7 +2483,7 @@
                 ],
                 "content": [
                     {
-			"type": "Grid",
+                        "type": "Grid",
                         "params": {
                             "id": "main-grid",
                             "cols": 2,
@@ -2510,10 +2493,10 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2522,22 +2505,10 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
-                            "width": 0,
-                            "height": 0,
-                            "x": 0,
-                            "y": 0,
-                            "grid": "main-grid"
-                        }
-                    },
-		    {
-			"type": "Image",
-                        "params": {
-                            "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2546,10 +2517,10 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2558,10 +2529,22 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
+                        "params": {
+                            "source": "",
+                            "anchor": 1,
+                            "width": 0,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0,
+                            "grid": "main-grid"
+                        }
+                    },
+                    {
+                        "type": "Image",
                         "params": {
                             "source": "DropZone.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 30,
                             "height": 0,
                             "x": 70,
@@ -2575,12 +2558,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2588,7 +2571,7 @@
                 ],
                 "content": [
                     {
-			"type": "Grid",
+                        "type": "Grid",
                         "params": {
                             "id": "main-grid",
                             "cols": 2,
@@ -2598,10 +2581,10 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "DropZone.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 30,
                             "height": 0,
                             "x": 70,
@@ -2609,10 +2592,10 @@
                         }
                     },
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "PersonnelLu.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2626,12 +2609,12 @@
                 "navigation": [],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Bravo, la photo est complète !",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2639,10 +2622,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "PersonnelLuEntier.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2655,30 +2638,29 @@
                 "scene": "screen-3-c-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
                 ],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Bravo, la photo est complète !",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2686,10 +2668,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "PersonnelLuEntier.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2697,7 +2679,7 @@
                         }
                     },
                     {
-			"type": "Sound",
+                        "type": "Sound",
                         "params": {
                             "source": ""
                         }
@@ -2708,18 +2690,17 @@
                 "scene": "screen-3-d",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -2727,10 +2708,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "PersonnelLuEntierAnnote.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2743,30 +2724,29 @@
                 "scene": "screen-3-e-player1",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
                 ],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Nouvel ingrédient dans l'inventaire : le beurre !",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2774,10 +2754,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "VictoireBeurre.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2790,30 +2770,29 @@
                 "scene": "screen-3-e-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
                 ],
                 "information": [
                     {
-			"type": "Info",
+                        "type": "Info",
                         "params": {
                             "content": "Nouvel ingrédient dans l'inventaire : le beurre !",
                             "anchor": 6,
-                            "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+                            "normal": "ui/Nav-7-scaled.png",
+                            "selected": "ui/Nav-7-scaled-active.png",
                             "color": "",
                             "backgroundColor": ""
                         }
@@ -2821,10 +2800,10 @@
                 ],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "VictoireBeurre.png",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2832,7 +2811,7 @@
                         }
                     },
                     {
-			"type": "Sound",
+                        "type": "Sound",
                         "params": {
                             "source": ""
                         }
@@ -2843,18 +2822,17 @@
                 "scene": "screen-3-f-player1",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
                             "normal": "",
-			    "selected": "ui/nav-7.png",
                             "selected": ""
                         }
                     }
@@ -2862,10 +2840,10 @@
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
@@ -2873,7 +2851,7 @@
                         }
                     },
                     {
-			"type": "Text",
+                        "type": "Text",
                         "params": {
                             "content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
                             "font": "fonts/arial.ttf",
@@ -2895,28 +2873,28 @@
                 "scene": "screen-3-f-player2",
                 "navigation": [
                     {
-			"type": "Nav",
+                        "type": "Nav",
                         "params": {
                             "content": "Suivant",
                             "anchor": 5,
-			    "width": 10,
-			    "height": 10,
+                            "width": 10,
+                            "height": 10,
                             "enabled": false,
                             "color": "",
                             "backgroundColor": "",
                             "action": "next",
-                            "normal": "ui/nav-5.png",
-                            "selected": "ui/nav-5.png"
+                            "normal": "ui/Nav-5-scaled.png",
+                            "selected": "ui/Nav-5-scaled-active.png"
                         }
                     }
                 ],
                 "information": [],
                 "content": [
                     {
-			"type": "Image",
+                        "type": "Image",
                         "params": {
                             "source": "",
-			    "anchor": 1,
+                            "anchor": 1,
                             "width": 0,
                             "height": 0,
                             "x": 0,
