@@ -26,7 +26,8 @@ CLabelNode::CLabelNode(const std::string& a_rText,
 
 void CLabelNode::Init()
 {
-	Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  // Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  Size oVisibleSize = GetParentVisibleSize();
   Label* pLabel = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
   m_pCocosEntity = pLabel;
 

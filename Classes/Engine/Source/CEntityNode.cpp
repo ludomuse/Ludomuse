@@ -28,8 +28,10 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 void CEntityNode::PopulateParent(bool a_bDoScaling)
 {
 
-	Size oVisibleSize = Director::getInstance()->getVisibleSize();
-	Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
+	// Size oVisibleSize = Director::getInstance()->getVisibleSize();
+	// Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
+  Size oVisibleSize = GetParentVisibleSize();
+  Vec2 oOrigin = GetParentOrigin();
 	
 	switch (m_eAnchor)
 	{
@@ -128,12 +130,26 @@ Scene* CEntityNode::GetParentScene()
 
 Size CEntityNode::GetParentVisibleSize()
 {
-	// TODO
+
+  CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
+  if (pParentEntity)
+  {
+    return pParentEntity->GetParentVisibleSize();
+  }
+  
+  return Director::getInstance()->getVisibleSize();
+  
 }
 
 Vec2 CEntityNode::GetParentOrigin()
 {
-	// TODO
+  CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
+  if (pParentEntity)
+  {
+    return pParentEntity->GetParentOrigin();
+  }
+
+  return Director::getInstance()->getVisibleOrigin();
 }
 
 } // namespace LM

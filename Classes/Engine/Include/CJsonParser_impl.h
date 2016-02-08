@@ -1,13 +1,12 @@
 //////////////////////////////// templates specializations 
 
 #include "CCallback.h"
-#include "CEntityNode.h"
 
 #include <algorithm>
 
-/// \brief the specialisation building entities in a entity
-template <>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pSceneNode)
+/// \brief the specialisation building entities in a scene or subentities
+template <typename T>
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 {
 
 	assert(a_rJsonNode["type"].IsString());
@@ -40,7 +39,12 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 	if (sType == "Grid")
 	{
-
+		/*pEntity = new CGridNode(
+			IntToAnchor(rParams["anchor"].GetInt()),
+			width,
+			height,
+			x,
+			y);*/
 	}
 
 	else if (sType == "Grid2")
@@ -181,8 +185,18 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CSceneNode* a_pScene
 
 	}
 
+	// recursively parse children
+	if (rParams.HasMember("children"))
+	{
+		RefJsonNode rEntities = a_rJsonNode["children"];
+		for (int i = 0; i < rEntities.Size(); ++i)
+		{
+			ParseJson(rEntities[i], pEntity);
+		}
+	}
+
 	if (pEntity != nullptr) {
-		a_pSceneNode->AddChildNode(pEntity);
+		a_pNode->AddChildNode(pEntity);
 	}
 
 }
@@ -213,16 +227,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode)
 }
 
 
-template <typename T>
-void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
-{
-	// not supposed to be called
-
-	//assert(a_rJsonNode.HasMember("screens"));
-	//RefJsonNode rScenes = a_rJsonNode["screens"];
-	//for (int i = 0; i < rScenes.Size(); ++i)
-	//{
-	//	ParseJson(rScenes[i], dynamic_cast<CSceneNode*>(a_pNode));
-	//}
-}
+//template <typename T>
+//void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
+//{
+//	// not supposed to be called
+//
+//	//assert(a_rJsonNode.HasMember("screens"));
+//	//RefJsonNode rScenes = a_rJsonNode["screens"];
+//	//for (int i = 0; i < rScenes.Size(); ++i)
+//	//{
+//	//	ParseJson(rScenes[i], dynamic_cast<CSceneNode*>(a_pNode));
+//	//}
+//}
 

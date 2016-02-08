@@ -44,7 +44,8 @@ void CMenuNode::Init()
 
 
   // Must be done in MenuItemImage for MenuNodes
-  Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  // Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  Size oVisibleSize = GetParentVisibleSize();
 
   float fNewScale;
 

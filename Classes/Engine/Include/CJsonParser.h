@@ -12,6 +12,7 @@
 #include "CSpriteNode.h"
 #include "CMenuNode.h"
 #include "CLabelNode.h"
+#include "CGridNode.h"
 
 namespace LM
 {

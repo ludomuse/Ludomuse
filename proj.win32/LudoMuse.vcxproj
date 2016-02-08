@@ -147,6 +147,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CCallback.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CEntityNode.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CGridNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CInputManager.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CJsonParser.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CKernel.cpp" />
@@ -168,6 +169,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\Engine\Include\CCallback.h" />
     <ClInclude Include="..\Classes\Engine\Include\CEntityNode.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CGridNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CInputManager.h" />
     <ClInclude Include="..\Classes\Engine\Include\CJsonParser.h" />
     <ClInclude Include="..\Classes\Engine\Include\CJsonParser_impl.h" />
