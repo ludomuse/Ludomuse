@@ -112,7 +112,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 			CLabelNode* pText = new CLabelNode(
 				sText.c_str(),
 				"fonts/Open_Sans/OpenSans-Bold.ttf",
-				24,
+				20,
 				rParams["color"].GetString(),
 				IntToAnchor(rParams["anchor"].GetInt()),
 				//EAnchor::FLOAT,
