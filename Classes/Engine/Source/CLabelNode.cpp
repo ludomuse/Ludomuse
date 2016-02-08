@@ -9,6 +9,7 @@ namespace LM
 CLabelNode::CLabelNode(const std::string& a_rText,
                        const std::string& a_rFontName,
                        int a_iFontSize,
+					   const std::string& a_sFontColor,
 					   EAnchor a_eAnchor,
 					   int a_iWidth,
 					   int a_iHeight,
@@ -17,14 +18,16 @@ CLabelNode::CLabelNode(const std::string& a_rText,
     CEntityNode(a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition),
     m_sText(a_rText),
     m_sFontName(a_rFontName),
-    m_iFontSize(a_iFontSize)
+    m_iFontSize(a_iFontSize),
+	m_sFontColor(a_sFontColor)
 {
 }
 
 
 void CLabelNode::Init()
 {
-	Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  // Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  Size oVisibleSize = GetParentVisibleSize();
   Label* pLabel = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
   m_pCocosEntity = pLabel;
 
@@ -33,6 +36,20 @@ void CLabelNode::Init()
   pLabel->setAlignment(TextHAlignment::CENTER);
   pLabel->setMaxLineWidth(oVisibleSize.width * (float)m_iWidth / 100.0f);
 
+
+  std::vector<int> oRGBAValues;
+  std::istringstream oStream(m_sFontColor);
+  while (std::getline(oStream, m_sFontColor, ','))
+  {
+	  int iValue;
+	  oStream >> iValue;
+	  oRGBAValues.push_back(iValue);
+  }
+
+  if (oRGBAValues.size() >= 4) // if color is not properly set, do nothing
+  {
+	  pLabel->setTextColor(Color4B(oRGBAValues[0], oRGBAValues[1], oRGBAValues[2], oRGBAValues[3]));
+  }
   CNode::Init();
 }
 

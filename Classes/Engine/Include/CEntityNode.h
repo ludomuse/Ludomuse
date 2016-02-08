@@ -88,10 +88,15 @@ class CEntityNode : public CNode
 
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
-  ///        function to populate parent class in the tree 
+  ///        function to populate parent class in the tree
+  /// \param[in] a_bDoScaling if the function must handle the scaling or not
   virtual void PopulateParent(bool a_bDoScaling = true);
 
   virtual cocos2d::Scene* GetParentScene();
+
+  virtual cocos2d::Size GetParentVisibleSize();
+
+  virtual cocos2d::Vec2 GetParentOrigin();
 
 };
 
