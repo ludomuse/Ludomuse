@@ -145,7 +145,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		std::string sFontName = "";
 		if (rParams.HasMember("font"))
 		{
-			std::string sFontName = rParams["font"].GetString();
+			sFontName = rParams["font"].GetString();
 		}
 		if (sFontName == "") // apply default font
 		{
