@@ -66,4 +66,17 @@ void CMenuNode::Init()
   CNode::Init();
 }
 
+Size CMenuNode::GetVisibleSize()
+{
+	//return m_pMenuItemImage->getContentSize();
+	return Director::getInstance()->getVisibleSize();
+}
+
+Vec2 CMenuNode::GetOrigin()
+{
+	//Rect oBoundingBox = m_pMenuItemImage->getBoundingBox();
+	//return Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
+	return Director::getInstance()->getVisibleOrigin();
+}
+
 } // namespace LM

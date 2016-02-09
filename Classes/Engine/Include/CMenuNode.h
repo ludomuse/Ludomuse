@@ -32,8 +32,12 @@ class CMenuNode : public CEntityNode
             int a_iXPosition = 0,
             int a_iYPosition = 0);
   
-  virtual void Init();
+  virtual void Init() override;
   
+  virtual cocos2d::Size GetVisibleSize() override;
+
+  virtual cocos2d::Vec2 GetOrigin() override;
+
 };
 
 } // namespace LM
