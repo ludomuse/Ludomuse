@@ -243,8 +243,8 @@
             "params": {
               "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -252,8 +252,8 @@
           {
             "type": "Text",
             "params": {
-              "content": "Rendez-vous dans la salle Shang.",
-              "fontSize": 24,
+              "content": "Rendez-vous dans la salle Shang.\r\nRendez-vous devant l’objet la Tigresse"
+              "fontSize": 20,
               "width": 60,
               "height": 100,
               "anchor": 6,
@@ -306,9 +306,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Musee1.jpg",
-              "anchor": 2,
+              "anchor": 0,
               "width": 0,
-              "height": 90,
+              "height": 100,
               "x": 0,
               "y": 0
             }
@@ -316,10 +316,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/barre.png",
+              "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -327,8 +327,8 @@
           {
             "type": "Text",
             "params": {
-              "content": "Rendez-vous devant l’objet la Tigresse",
-              "fontSize": 24,
+              "content": "Rendez-vous dans la salle Shang.\r\nRendez-vous devant l’objet en photo la tigresse",
+              "fontSize": 20,
               "width": 60,
               "height": 100,
               "anchor": 6,
@@ -391,10 +391,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/barre.png",
+              "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -468,8 +468,8 @@
             "params": {
               "source": "ui/info-6.png",
               "anchor": 6,
-              "width": 65,
-              "height": 0,
+              "width": 0,
+              "height": 13,
               "x": 0,
               "y": 0
             }
@@ -605,7 +605,7 @@
               "fontSize": 24,
               "width": 60,
               "height": 100,
-              "anchor": 6,
+              "anchor": 4,
               "color": "0,0,0,255",
               "cache": {
                 "visible": false,
@@ -1070,7 +1070,7 @@
               "fontSize": 24,
               "width": 60,
               "height": 100,
-              "anchor": 6,
+              "anchor": 2,
               "color": "0,0,0,255",
               "cache": {
                 "visible": false,
