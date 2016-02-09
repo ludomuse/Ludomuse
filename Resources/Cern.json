@@ -16,7 +16,7 @@
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -29,8 +29,8 @@
             "type": "Image",
             "params": {
               "source": "cache/Intro.png",
-              "anchor": 8,
-              "width": 100,
+              "anchor": 0,
+              "width": 0,
               "height": 100,
               "x": 0,
               "y": 0
@@ -44,12 +44,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -59,12 +59,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -100,7 +100,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "Bienvenue au musée Cernushi   Sur les pas d'Henri Cernushi",
+              "content": "Bienvenue au musée Cernushi\r\nSur les pas d'Henri Cernushi",
               "fontSize": 30,
               "width": 50,
               "height": 100,
@@ -121,12 +121,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Suivant",
+              "content": "SUIVANT",
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -136,12 +136,12 @@
           {
             "type": "Nav",
             "params": {
-              "content": "Précédent",
+              "content": "PRÉCÉDENT",
               "width": 0,
               "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
               "enabled": true,
               "color": "",
               "backgroundColor": "",
@@ -177,7 +177,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "Bienvenue au musée Cernushi   Sur les pas d'Henri Cernushi",
+              "content": "Bienvenue au musée Cernushi\r\nSur les pas d'Henri Cernushi",
               "fontSize": 30,
               "width": 50,
               "height": 100,
