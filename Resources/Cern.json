@@ -47,8 +47,8 @@
             "type": "Image",
             "params": {
               "source": "cache/Intro.png",
-              "anchor": 8,
-              "width": 100,
+              "anchor": 0,
+              "width": 0,
               "height": 100,
               "x": 0,
               "y": 0
@@ -118,7 +118,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "Bienvenue au musée Cernushi   Sur les pas d'Henri Cernushi",
+              "content": "Bienvenue au musée Cernushi\r\nSur les pas d'Henri Cernushi",
               "fontSize": 30,
               "width": 50,
               "height": 100,
@@ -195,7 +195,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "Bienvenue au musée Cernushi   Sur les pas d'Henri Cernushi",
+              "content": "Bienvenue au musée Cernushi\r\nSur les pas d'Henri Cernushi",
               "fontSize": 30,
               "width": 50,
               "height": 100,
@@ -250,8 +250,8 @@
             "params": {
               "source": "cache/PlanSalle1.jpg",
               "anchor": 2,
-              "width": 60,
-              "height": 0,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
             }
@@ -270,7 +270,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "Rendez-vous dans la salle Shang. Rendez-vous devant l’objet la Tigresse",
+              "content": "Rendez-vous dans la salle Shang.\r\nRendez-vous devant l’objet la Tigresse",
               "fontSize": 20,
               "width": 60,
               "height": 100,
@@ -345,7 +345,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "Rendez-vous dans la salle Shang. Rendez-vous devant l’objet en photo la tigresse",
+              "content": "Rendez-vous dans la salle Shang.\r\nRendez-vous devant l’objet en photo la tigresse",
               "fontSize": 20,
               "width": 60,
               "height": 100,
@@ -401,7 +401,7 @@
               "source": "cache/PlanSalle1.jpg",
               "anchor": 0,
               "width": 0,
-              "height": 100,
+              "height": 90,
               "x": 0,
               "y": 0
             }
@@ -415,6 +415,22 @@
               "height": 13,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous dans la salle Shang.",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -475,6 +491,22 @@
               "x": 0,
               "y": 0
             }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous devant l’objet en photo la tigresse",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
           }
         ]
       },
@@ -530,7 +562,7 @@
               "source": "cache/perso1Homme.png",
               "anchor": 5,
               "width": 0,
-              "height": 50,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -538,10 +570,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte1.JPG",
+              "source": "cache/carte1.png",
               "anchor": 1,
               "width": 0,
-              "height": 40,
+              "height": 20,
               "x": 0,
               "y": 0
             }
@@ -550,7 +582,7 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette1.jpg",
-              "anchor": 7,
+              "anchor": 8,
               "width": 0,
               "height": 40,
               "x": 0,
@@ -571,8 +603,24 @@
           {
             "type": "Text",
             "params": {
-              "content": "Rencontre avec un marchand. «  Nĭmen Hăo, xian sheng, xiăo Haĭzi , je suis marchand. bienvenue dans ma boutique : tu tombes bien ! j’ai un problème avec un objet dont la magie me dépasse ! Peux-tu t’en occuper en trouvant quels animaux se cachent ?",
-              "fontSize": 18,
+              "content": "Nĭmen Hăo, xian sheng, xiăo Haĭzi , je suis marchand. Bienvenue dans ma boutique : tu tombes bien ! j’ai un problème avec un objet dont la magie me dépasse ! Peux-tu t’en occuper en trouvant quels animaux se cachent ?",
+              "fontSize": 22,
+              "width": 60,
+              "height": 100,
+              "anchor": 0,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bienvenue à Shanghai - Salle Shang",
+              "fontSize": 24,
               "width": 60,
               "height": 100,
               "anchor": 4,
@@ -638,7 +686,7 @@
               "source": "cache/perso1Homme.png",
               "anchor": 5,
               "width": 0,
-              "height": 50,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -646,10 +694,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte1.JPG",
+              "source": "cache/carte1.png",
               "anchor": 1,
               "width": 0,
-              "height": 40,
+              "height": 20,
               "x": 0,
               "y": 0
             }
@@ -658,7 +706,7 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette1.jpg",
-              "anchor": 7,
+              "anchor": 8,
               "width": 0,
               "height": 40,
               "x": 0,
@@ -679,12 +727,28 @@
           {
             "type": "Text",
             "params": {
-              "content": "Rencontre avec un marchand. «  Nĭmen Hăo, xian sheng, xiăo Haĭzi , je suis marchand. bienvenue dans ma boutique : tu tombes bien ! j’ai un problème avec un objet dont la magie me dépasse ! Peux-tu t’en occuper en trouvant quels animaux se cachent ?",
-              "fontSize": 24,
+              "content": "Nĭmen Hăo, xian sheng, xiăo Haĭzi , je suis marchand. Bienvenue dans ma boutique : tu tombes bien ! j’ai un problème avec un objet dont la magie me dépasse ! Peux-tu t’en occuper en trouvant quels animaux se cachent ?",
+              "fontSize": 22,
               "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bienvenue à Shanghai - Salle Shang",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -751,8 +815,8 @@
             "params": {
               "source": "cache/perso1Homme.png",
               "anchor": 5,
-              "width": 50,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -776,7 +840,7 @@
               "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -794,7 +858,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -809,7 +873,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -837,8 +901,19 @@
             "params": {
               "source": "cache/perso1Homme.png",
               "anchor": 5,
-              "width": 50,
-              "height": 50,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -851,7 +926,7 @@
               "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -869,7 +944,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -884,7 +959,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -901,8 +976,8 @@
             "params": {
               "source": "cache/Statue1.jpg",
               "anchor": 1,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -912,8 +987,8 @@
             "params": {
               "source": "cache/Statue2.jpg",
               "anchor": 2,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -923,8 +998,8 @@
             "params": {
               "source": "cache/Statue3.jpg",
               "anchor": 3,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -934,8 +1009,8 @@
             "params": {
               "source": "cache/Statue4.jpg",
               "anchor": 4,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -944,9 +1019,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Statue5.jpg",
-              "anchor": 5,
-              "width": 20,
-              "height": 20,
+              "anchor": 0,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -955,9 +1030,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Statue6.jpg",
-              "anchor": 6,
-              "width": 20,
-              "height": 20,
+              "anchor": 5,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -967,8 +1042,8 @@
             "params": {
               "source": "cache/Statue7.jpg",
               "anchor": 7,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -978,8 +1053,19 @@
             "params": {
               "source": "cache/Statue8.jpg",
               "anchor": 8,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -1021,7 +1107,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1036,7 +1122,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1052,9 +1138,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Cerf1.jpg",
-              "anchor": 1,
-              "width": 20,
-              "height": 20,
+              "anchor": 8,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -1064,8 +1150,8 @@
             "params": {
               "source": "cache/Vipere1.jpg",
               "anchor": 3,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -1074,9 +1160,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Dragon1.jpg",
-              "anchor": 5,
-              "width": 20,
-              "height": 20,
+              "anchor": 4,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -1085,9 +1171,20 @@
             "type": "Image",
             "params": {
               "source": "cache/Elephant1.jpg",
-              "anchor": 7,
-              "width": 20,
-              "height": 20,
+              "anchor": 1,
+              "width": 0,
+              "height": 30,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -1097,10 +1194,10 @@
             "params": {
               "content": "Glisser les photos vers les bons animaux",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
-              "anchor": 0,
-              "color": "",
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1118,7 +1215,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1133,7 +1230,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1150,8 +1247,19 @@
             "params": {
               "source": "cache/AmuletteTigre.png",
               "anchor": 0,
-              "width": 30,
+              "width": 0,
               "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -1161,10 +1269,26 @@
             "params": {
               "content": "Bravo ! Pour affronter la suite de votre voyage je donne au jeune explorateur cette amulette en forme de tigre. Ce tigre pourra vous protéger pour la suite de vos aventures",
               "fontSize": 24,
-              "width": 60,
+              "width": 80,
               "height": 100,
               "anchor": 2,
               "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo ! Vous remportez un nouvel objet à ajouter à votre inventaire",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1182,7 +1306,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1197,7 +1321,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1214,8 +1338,19 @@
             "params": {
               "source": "cache/AmuletteTigre.png",
               "anchor": 0,
-              "width": 30,
+              "width": 0,
               "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -1225,10 +1360,26 @@
             "params": {
               "content": "Bravo ! Pour affronter la suite de votre voyage je te donne cette amulette en forme de tigre. Ce tigre pourra te protéger pour la suite de tes aventures ",
               "fontSize": 24,
-              "width": 60,
+              "width": 80,
               "height": 100,
               "anchor": 2,
               "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo ! Tu remporte un nouvel objet à ajouter à ton inventaire",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1246,7 +1397,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1261,7 +1412,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1299,9 +1450,20 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette2.JPG",
-              "anchor": 7,
+              "anchor": 8,
               "width": 20,
               "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -1314,7 +1476,7 @@
               "width": 40,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1332,7 +1494,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1347,7 +1509,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1385,9 +1547,20 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette2.JPG",
-              "anchor": 7,
+              "anchor": 8,
               "width": 20,
               "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -1400,7 +1573,7 @@
               "width": 40,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1424,7 +1597,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1439,7 +1612,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1474,6 +1647,17 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
               "content": " Attention, vous êtes prêts ? L’explorateur aussi ?...",
@@ -1481,7 +1665,7 @@
               "width": 40,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1499,7 +1683,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1514,7 +1698,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1549,6 +1733,17 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
               "content": "Attention tu es en compétition avec ton ami collectionneur.",
@@ -1556,7 +1751,7 @@
               "width": 40,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1574,7 +1769,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1589,7 +1784,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1608,7 +1803,7 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 2,
+              "anchor": 1,
               "color": "",
               "cache": {
                 "visible": false,
@@ -1624,7 +1819,7 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 4,
+              "anchor": 3,
               "color": "",
               "cache": {
                 "visible": false,
@@ -1640,7 +1835,7 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 6,
+              "anchor": 4,
               "color": "",
               "cache": {
                 "visible": false,
@@ -1666,14 +1861,41 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
               "content": " C’est parti ! Quel est l'animal caché ? avec des phrases de sages pour aider la découverte : On a toujours besoin de plus petit que soit",
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 0,
+              "anchor": 2,
               "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Question N°1",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1691,7 +1913,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1706,7 +1928,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1723,8 +1945,8 @@
             "params": {
               "source": "cache/Fish1.png",
               "anchor": 1,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -1734,8 +1956,8 @@
             "params": {
               "source": "cache/Ours1.jpg",
               "anchor": 3,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -1744,9 +1966,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Lion1.png",
-              "anchor": 5,
-              "width": 20,
-              "height": 20,
+              "anchor": 4,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -1755,9 +1977,20 @@
             "type": "Image",
             "params": {
               "source": "cache/Hippo1.jpg",
-              "anchor": 7,
-              "width": 20,
-              "height": 20,
+              "anchor": 8,
+              "width": 0,
+              "height": 30,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -1769,8 +2002,24 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 0,
+              "anchor": 2,
               "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Question N°1",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1788,7 +2037,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1803,7 +2052,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1827,14 +2076,41 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
               "content": "Tout cela est bel et bien, Vous êtes tellement téméraire que je vous offre la Tigresse ",
               "fontSize": 24,
-              "width": 40,
+              "width": 80,
               "height": 100,
               "anchor": 2,
               "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo ! Vous remportez un nouvel objet à ajouter à votre inventaire !",
+              "fontSize": 24,
+              "width": 50,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1852,7 +2128,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1867,7 +2143,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1891,14 +2167,41 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
               "content": "Tout cela est bel et bien, Vous êtes tellement téméraire que je vous offre la Tigresse ",
               "fontSize": 24,
-              "width": 40,
+              "width": 80,
               "height": 100,
               "anchor": 2,
               "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo ! Vous remportez un nouvel objet à ajouter à votre inventaire !",
+              "fontSize": 24,
+              "width": 50,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -1916,7 +2219,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -1931,7 +2234,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -1959,8 +2262,8 @@
             "params": {
               "source": "cache/perso1Homme.png",
               "anchor": 5,
-              "width": 50,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -1970,8 +2273,19 @@
             "params": {
               "source": "cache/Cheval1.png",
               "anchor": 7,
-              "width": 50,
-              "height": 50,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -1981,10 +2295,10 @@
             "params": {
               "content": " Vous trouverez un moyen de transport pour Nankin au bout de la rue !",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -2002,7 +2316,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2017,7 +2331,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2045,8 +2359,8 @@
             "params": {
               "source": "cache/perso1Homme.png",
               "anchor": 5,
-              "width": 50,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -2056,8 +2370,19 @@
             "params": {
               "source": "cache/Cheval1.png",
               "anchor": 7,
-              "width": 50,
-              "height": 50,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -2067,10 +2392,10 @@
             "params": {
               "content": " Vous trouverez un moyen de transport pour Nankin au bout de la rue !",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -2088,7 +2413,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2103,7 +2428,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2119,11 +2444,38 @@
             "type": "Image",
             "params": {
               "source": "cache/PlanSalle2.jpg",
-              "anchor": 0,
-              "width": 100,
+              "anchor": 2,
+              "width": 0,
               "height": 100,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous vers la salle suivante",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -2136,7 +2488,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2151,7 +2503,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2167,11 +2519,38 @@
             "type": "Image",
             "params": {
               "source": "cache/Musee3.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous vers la salle suivante",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -2184,7 +2563,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2199,7 +2578,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2215,11 +2594,38 @@
             "type": "Image",
             "params": {
               "source": "cache/PlanSalle2.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous vers la salle suivante",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -2232,7 +2638,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2247,7 +2653,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2263,11 +2669,38 @@
             "type": "Image",
             "params": {
               "source": "cache/Musee4.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous vers la salle suivante",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -2280,7 +2713,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2295,7 +2728,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2323,8 +2756,8 @@
             "params": {
               "source": "cache/perso2Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -2332,10 +2765,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte2.jpg",
+              "source": "cache/carte2.png",
               "anchor": 1,
-              "width": 40,
-              "height": 40,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -2345,10 +2778,37 @@
             "params": {
               "content": "Chers amis soyez les bienvenus à Nankin. Je sais que vous vous intéressez à la Chine et à son histoire… moi même je collectionne des objets antiques et archaïques. L’époque des Zhou, entre le IIIe et le Xes. Avant J.C Une passion nait...",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bienvenue à Nankin - Salle Zhou",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -2366,7 +2826,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2381,7 +2841,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2409,8 +2869,8 @@
             "params": {
               "source": "cache/perso2Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -2418,10 +2878,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte2.jpg",
+              "source": "cache/carte2.png",
               "anchor": 1,
-              "width": 40,
-              "height": 40,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -2431,10 +2891,37 @@
             "params": {
               "content": "Chers amis soyez les bienvenus à Nankin. Je sais que vous vous intéressez à la Chine et à son histoire… moi même je collectionne des objets antiques et archaïques. L’époque des Zhou, entre le IIIe et le Xes. Avant J.C Une passion nait...",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bienvenue à Nankin - Salle Zhou",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -2458,7 +2945,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2473,7 +2960,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2501,8 +2988,19 @@
             "params": {
               "source": "cache/perso2Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -2510,12 +3008,28 @@
           {
             "type": "Text",
             "params": {
-              "content": "je dois vous laisser un moment ! Initiez-vous avec mes collections, et amusez-vous à retrouver les ambiances sonores : celui qui aura le plus de point gagnera",
+              "content": "Défi N°2",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Je dois vous laisser un moment ! Initiez-vous avec mes collections, et amusez-vous à retrouver les ambiances sonores : celui qui aura le plus de point gagnera",
+              "fontSize": 24,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -2533,7 +3047,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2548,7 +3062,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2576,8 +3090,19 @@
             "params": {
               "source": "cache/perso2Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -2585,12 +3110,28 @@
           {
             "type": "Text",
             "params": {
-              "content": "je dois vous laisser un moment ! Initiez-vous avec mes collections, et amusez-vous à retrouver les ambiances sonores : celui qui aura le plus de point gagnera",
+              "content": "Défi N°2",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Je dois vous laisser un moment ! Initiez-vous avec mes collections, et amusez-vous à retrouver les ambiances sonores : celui qui aura le plus de point gagnera",
+              "fontSize": 24,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -2608,7 +3149,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2623,7 +3164,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2640,8 +3181,8 @@
             "params": {
               "source": "cache/Epee1.jpg",
               "anchor": 1,
-              "width": 20,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -2651,8 +3192,8 @@
             "params": {
               "source": "cache/Cloche1.jpg",
               "anchor": 3,
-              "width": 20,
-              "height": 40,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -2661,11 +3202,38 @@
             "type": "Image",
             "params": {
               "source": "cache/Tripode1.jpg",
-              "anchor": 7,
-              "width": 20,
-              "height": 30,
+              "anchor": 2,
+              "width": 0,
+              "height": 40,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Écoutez les sons - Associez les sons avec les objets sur votre tablette ou celle de votre coéquipier!",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           },
           {
@@ -2694,7 +3262,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2709,7 +3277,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2726,8 +3294,8 @@
             "params": {
               "source": "cache/Epee1.jpg",
               "anchor": 1,
-              "width": 20,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -2737,8 +3305,8 @@
             "params": {
               "source": "cache/Cloche1.jpg",
               "anchor": 3,
-              "width": 20,
-              "height": 40,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -2747,11 +3315,38 @@
             "type": "Image",
             "params": {
               "source": "cache/Tripode1.jpg",
-              "anchor": 7,
-              "width": 20,
-              "height": 30,
+              "anchor": 2,
+              "width": 0,
+              "height": 40,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Écoutez les sons - Associez les sons avec les objets sur votre tablette ou celle de votre coéquipier!",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           },
           {
@@ -2780,7 +3375,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2795,7 +3390,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2812,8 +3407,19 @@
             "params": {
               "source": "cache/Masque1.png",
               "anchor": 0,
-              "width": 60,
+              "width": 0,
               "height": 80,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -2821,9 +3427,25 @@
           {
             "type": "Text",
             "params": {
+              "content": "Bravo, vous connaissez les secrets des bronzes Zhou ! Vous avez gagné ce masque TAOTIE qui vous protégera.",
+              "fontSize": 22,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
               "content": "Vous semblez vraiment vous intéresser à la Chine. Ce masque Taotie vous protégera pendant votre voyage",
               "fontSize": 24,
-              "width": 40,
+              "width": 80,
               "height": 100,
               "anchor": 2,
               "color": "",
@@ -2844,7 +3466,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2859,7 +3481,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2876,8 +3498,19 @@
             "params": {
               "source": "cache/Masque1.png",
               "anchor": 0,
-              "width": 60,
+              "width": 0,
               "height": 80,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -2885,9 +3518,25 @@
           {
             "type": "Text",
             "params": {
-              "content": "Vous semblez vraiment vous intéresser à la Chine. Ce masque Taotie vous protégera pendant votre voyage",
-              "fontSize": 24,
-              "width": 40,
+              "content": "Bravo, vous connaissez les secrets des bronzes Zhou ! Vous avez gagné ce masque TAOTIE qui vous protégera.",
+              "fontSize": 22,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Tu sembles vraiment t'intéresser à la Chine. Ce masque Taotie te protégera pendant ton voyage",
+              "fontSize": 22,
+              "width": 80,
               "height": 100,
               "anchor": 2,
               "color": "",
@@ -2908,7 +3557,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -2923,7 +3572,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -2951,8 +3600,8 @@
             "params": {
               "source": "cache/perso2Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -2961,9 +3610,20 @@
             "type": "Image",
             "params": {
               "source": "cache/Pot1.jpg",
-              "anchor": 7,
-              "width": 30,
+              "anchor": 8,
+              "width": 0,
               "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -2973,10 +3633,10 @@
             "params": {
               "content": "mais vous n'avez pas encore découvert le plus grand de tous! ..Vous avez remarqué cet énorme récipient en bronze ? Il s’agit du plus grand bassin de ce type qui existe.",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -2994,7 +3654,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3009,7 +3669,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3037,8 +3697,8 @@
             "params": {
               "source": "cache/perso2Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -3047,9 +3707,20 @@
             "type": "Image",
             "params": {
               "source": "cache/Pot1.jpg",
-              "anchor": 7,
-              "width": 30,
+              "anchor": 8,
+              "width": 0,
               "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3059,10 +3730,10 @@
             "params": {
               "content": "mais vous n'avez pas encore découvert le plus grand de tous! ...Tu as remarqué cet énorme récipient en bronze au milieu de la pièce. Personne n’est sûr de ce à quoi il servait. On sait qu’il contenait un liquide",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -3086,7 +3757,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3101,7 +3772,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3116,10 +3787,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background2CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3127,11 +3798,75 @@
           {
             "type": "Text",
             "params": {
-              "content": "Consigne",
+              "content": "Question N°2",
+              "fontSize": 22,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Sélectionnez ce que pouvait contenir le bassin",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 2,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Eau",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 8,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Alcool",
               "fontSize": 24,
               "width": 40,
               "height": 100,
               "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Boue",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 4,
               "color": "",
               "cache": {
                 "visible": false,
@@ -3150,7 +3885,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3165,7 +3900,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3180,10 +3915,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background2CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3191,11 +3926,75 @@
           {
             "type": "Text",
             "params": {
-              "content": "Consigne",
+              "content": "Question N°2",
+              "fontSize": 22,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Sélectionne ce que contenait le grand bassin en bronze",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 2,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Eau",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 8,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Viande",
               "fontSize": 24,
               "width": 40,
               "height": 100,
               "anchor": 0,
+              "color": "",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Herbe",
+              "fontSize": 24,
+              "width": 40,
+              "height": 100,
+              "anchor": 4,
               "color": "",
               "cache": {
                 "visible": false,
@@ -3214,7 +4013,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3229,7 +4028,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3242,61 +4041,51 @@
         ],
         "content": [
           {
-            "type": "Text",
+            "type": "Image",
             "params": {
-              "content": "Sélectionnez ce que pouvait contenir le bassin",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
+              "source": "cache/Pot1.jpg",
               "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "width": 0,
+              "height": 70,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
             }
           },
           {
             "type": "Text",
             "params": {
-              "content": "Eau",
+              "content": "Bravo ! Vous remportez un nouvel objet à ajouter à votre inventaire",
               "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 2,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Alcool",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 4,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Boue",
-              "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo vous avez remporté le bassin Jian de l’époque de la Dynastie des Zhou",
+              "fontSize": 24,
+              "width": 80,
+              "height": 100,
+              "anchor": 2,
               "color": "",
               "cache": {
                 "visible": false,
@@ -3315,7 +4104,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3330,7 +4119,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3343,61 +4132,51 @@
         ],
         "content": [
           {
-            "type": "Text",
+            "type": "Image",
             "params": {
-              "content": "Sélectionne ce que contenait le grand bassin en bronze",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
+              "source": "cache/Pot1.jpg",
               "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "width": 0,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
             }
           },
           {
             "type": "Text",
             "params": {
-              "content": "Eau",
+              "content": "Bravo ! Tu remportes un nouvel objet à ajouter à ton inventaire",
               "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 2,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Viande",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 4,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Herbe",
-              "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bravo tu as remporté le bassin Jian de l’époque de la Dynastie des Zhou",
+              "fontSize": 24,
+              "width": 80,
+              "height": 100,
+              "anchor": 2,
               "color": "",
               "cache": {
                 "visible": false,
@@ -3416,7 +4195,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3431,7 +4210,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3446,10 +4225,43 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/Pot1.jpg",
+              "source": "cache/background2CERN.png",
               "anchor": 0,
-              "width": 60,
-              "height": 80,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso2Homme.png",
+              "anchor": 5,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Porteur1.png",
+              "anchor": 7,
+              "width": 0,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3457,12 +4269,28 @@
           {
             "type": "Text",
             "params": {
-              "content": "Bravo vous avez remporté le bassin Jian de l’époque de la Dynastie des Zhou",
+              "content": "Moyen de transport",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 6,
-              "color": "",
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Je suis heureux de vous offrir ce bassin...qui m’encombrait un peu. Vous ne pourrez pas l’emporter seuls !  Prenez un pousse-pousse pour continuer votre voyage. Je vous conseille de rencontrer des artisans à Suzhou !",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 0,
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -3480,7 +4308,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3495,7 +4323,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3510,10 +4338,43 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/Pot1.jpg",
+              "source": "cache/background2CERN.png",
               "anchor": 0,
-              "width": 60,
-              "height": 80,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/perso2Homme.png",
+              "anchor": 5,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Porteur1.png",
+              "anchor": 7,
+              "width": 0,
+              "height": 50,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3521,87 +4382,17 @@
           {
             "type": "Text",
             "params": {
-              "content": "Bravo vous avez remporté le bassin Jian de l’époque de la Dynastie des Zhou",
+              "content": "Moyen de transport",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 6,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
                 "backgroundImage": ""
               }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-2-k-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 0,
-              "height": 10,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 0,
-              "height": 10,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background2CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso2Homme.png",
-              "anchor": 5,
-              "width": 70,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Porteur1.png",
-              "anchor": 7,
-              "width": 60,
-              "height": 60,
-              "x": 0,
-              "y": 0
             }
           },
           {
@@ -3609,96 +4400,10 @@
             "params": {
               "content": "Je suis heureux de vous offrir ce bassin...qui m’encombrait un peu. Vous ne pourrez pas l’emporter seuls !  Prenez un pousse-pousse pour continuer votre voyage. Je vous conseille de rencontrer des artisans à Suzhou !",
               "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-2-k-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Suivant",
-              "width": 0,
-              "height": 10,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next"
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "content": "Précédent",
-              "width": 0,
-              "height": 10,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev"
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/background2CERN.png",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso2Homme.png",
-              "anchor": 5,
-              "width": 70,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Porteur1.png",
-              "anchor": 7,
               "width": 60,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Je suis heureux de vous offrir ce bassin...qui m’encombrait un peu. Vous ne pourrez pas l’emporter seuls !  Prenez un pousse-pousse pour continuer votre voyage. Je vous conseille de rencontrer des artisans à Suzhou !",
-              "fontSize": 24,
-              "width": 40,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -3716,7 +4421,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3731,7 +4436,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3747,11 +4452,38 @@
             "type": "Image",
             "params": {
               "source": "cache/PlanSalle2.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous vers la salle suivante",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -3764,7 +4496,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3779,7 +4511,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3795,11 +4527,38 @@
             "type": "Image",
             "params": {
               "source": "cache/Musee3.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous devant la tour de plaisance",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -3812,7 +4571,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3827,7 +4586,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3843,11 +4602,38 @@
             "type": "Image",
             "params": {
               "source": "cache/PlanSalle2.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous vers la salle suivante",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -3860,7 +4646,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3875,7 +4661,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3891,11 +4677,38 @@
             "type": "Image",
             "params": {
               "source": "cache/Musee4.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-­vous devant la tour de plaisance",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -3908,7 +4721,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -3923,7 +4736,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -3951,8 +4764,8 @@
             "params": {
               "source": "cache/perso1Homme.png",
               "anchor": 5,
-              "width": 50,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -3960,10 +4773,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte1.JPG",
+              "source": "cache/carte3.png",
               "anchor": 1,
-              "width": 30,
-              "height": 40,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -3972,9 +4785,20 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette3.jpg",
-              "anchor": 7,
-              "width": 20,
+              "anchor": 8,
+              "width": 0,
               "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3982,12 +4806,28 @@
           {
             "type": "Text",
             "params": {
-              "content": "Nǐ hǎo, bonjour étrangers, je suis potier. Bienvenue à Suzhou etdans cet atelier de céramique [...] Aujourd’hui je dois terminer un objet destiné à mettre dans la tombe d’un défunt important[...]  Voulez-vous terminer de monter la tour avec moi ?",
+              "content": "Bienvenue à Suzhou - Salle Han",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Ni hao, bonjour étrangers, je suis potier. Bienvenue à Suzhou etdans cet atelier de céramique [...] Aujourd’hui je dois terminer un objet destiné à mettre dans la tombe d’un défunt important[...]  Voulez-vous terminer de monter la tour avec moi ?",
+              "fontSize": 24,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -4005,7 +4845,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4019,8 +4859,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4048,8 +4888,8 @@
             "params": {
               "source": "cache/perso1Homme.png",
               "anchor": 5,
-              "width": 50,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -4057,10 +4897,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte1.JPG",
+              "source": "cache/carte3.png",
               "anchor": 1,
-              "width": 30,
-              "height": 40,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -4069,9 +4909,20 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette3.jpg",
-              "anchor": 7,
-              "width": 20,
+              "anchor": 8,
+              "width": 0,
               "height": 40,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -4079,12 +4930,28 @@
           {
             "type": "Text",
             "params": {
-              "content": "Nǐ hǎo, bonjour étrangers, je suis potier. Bienvenue à Suzhou etdans cet atelier de céramique [...] Aujourd’hui je dois terminer un objet destiné à mettre dans la tombe d’un défunt important[...]  Voulez-vous terminer de monter la tour avec moi ?",
+              "content": "Bienvenue à Suzhou - Salle Han",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Nǐ hǎo, bonjour étrangers, je suis potier. Bienvenue à Suzhou et dans cet atelier de céramique [...] Aujourd’hui je dois terminer un objet destiné à mettre dans la tombe d’un défunt important[...]  Voulez-vous terminer de monter la tour avec moi ?",
+              "fontSize": 24,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -4108,7 +4975,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4123,7 +4990,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4140,8 +5007,8 @@
             "params": {
               "source": "cache/Statuette3a.png",
               "anchor": 1,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -4151,8 +5018,8 @@
             "params": {
               "source": "cache/Statuette3b.png",
               "anchor": 3,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -4161,9 +5028,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette3c.png",
-              "anchor": 5,
-              "width": 20,
-              "height": 20,
+              "anchor": 4,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -4172,11 +5039,38 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette3d.png",
-              "anchor": 7,
-              "width": 20,
-              "height": 20,
+              "anchor": 8,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Défi N°3",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           },
           {
@@ -4205,7 +5099,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4220,7 +5114,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4237,8 +5131,8 @@
             "params": {
               "source": "cache/Statuette3a.png",
               "anchor": 1,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -4248,8 +5142,8 @@
             "params": {
               "source": "cache/Statuette3b.png",
               "anchor": 3,
-              "width": 20,
-              "height": 20,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -4258,9 +5152,9 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette3c.png",
-              "anchor": 5,
-              "width": 20,
-              "height": 20,
+              "anchor": 4,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
             }
@@ -4269,11 +5163,38 @@
             "type": "Image",
             "params": {
               "source": "cache/Statuette3d.png",
-              "anchor": 7,
-              "width": 20,
-              "height": 20,
+              "anchor": 8,
+              "width": 0,
+              "height": 30,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Défi N°3",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           },
           {
@@ -4283,7 +5204,7 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 0,
+              "anchor": 1,
               "color": "",
               "cache": {
                 "visible": false,
@@ -4302,7 +5223,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4317,7 +5238,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4334,8 +5255,19 @@
             "params": {
               "source": "cache/Statuette3.jpg",
               "anchor": 0,
-              "width": 50,
-              "height": 100,
+              "width": 0,
+              "height": 70,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -4343,11 +5275,27 @@
           {
             "type": "Text",
             "params": {
+              "content": "Bravo ! Vous remportez un nouvel objet à ajouter à votre inventaire !",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
               "content": "C’est ça ! Bravo ! merci de votre aide...je vous offre cette tour de plaisance en céramique, je trouverai le temps d’en faire une autre pour le client.",
               "fontSize": 24,
-              "width": 40,
+              "width": 80,
               "height": 100,
-              "anchor": 0,
+              "anchor": 2,
               "color": "",
               "cache": {
                 "visible": false,
@@ -4366,7 +5314,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4381,7 +5329,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4398,8 +5346,19 @@
             "params": {
               "source": "cache/Statuette3.jpg",
               "anchor": 0,
-              "width": 50,
-              "height": 100,
+              "width": 0,
+              "height": 70,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -4407,11 +5366,27 @@
           {
             "type": "Text",
             "params": {
-              "content": "C’est ça ! Bravo ! merci de votre aide...je vous offre cette tour de plaisance en céramique, je trouverai le temps d’en faire une autre pour le client.",
+              "content": "Bravo ! Tu remportes un nouvel objet à ajouter à ton inventaire !",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
-              "anchor": 0,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "C’est ça ! Bravo ! merci de ton aide...je t'offre cette tour de plaisance en céramique, je trouverai le temps d’en faire une autre pour le client.",
+              "fontSize": 24,
+              "width": 80,
+              "height": 100,
+              "anchor": 2,
               "color": "",
               "cache": {
                 "visible": false,
@@ -4430,7 +5405,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4445,7 +5420,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4473,8 +5448,8 @@
             "params": {
               "source": "cache/perso2Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -4484,8 +5459,19 @@
             "params": {
               "source": "cache/Porteur1.png",
               "anchor": 7,
-              "width": 60,
-              "height": 60,
+              "width": 0,
+              "height": 80,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -4493,12 +5479,28 @@
           {
             "type": "Text",
             "params": {
+              "content": "Moyen de Transport",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
               "content": "Si vous aimez rencontrer des artisans comme moi, je vous conseille de rendre visite à mon ami peintre à Pékin! Prenez une voiture à porteur pour sortir de la ville.",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -4516,7 +5518,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4531,7 +5533,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4559,8 +5561,8 @@
             "params": {
               "source": "cache/perso2Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -4570,8 +5572,19 @@
             "params": {
               "source": "cache/Porteur1.png",
               "anchor": 7,
-              "width": 60,
-              "height": 60,
+              "width": 0,
+              "height": 80,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -4579,12 +5592,28 @@
           {
             "type": "Text",
             "params": {
+              "content": "Moyen de Transport",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
               "content": "Si vous aimez rencontrer des artisans comme moi, je vous conseille de rendre visite à mon ami peintre à Pékin! Prenez une voiture à porteur pour sortir de la ville.",
               "fontSize": 24,
-              "width": 40,
+              "width": 60,
               "height": 100,
               "anchor": 0,
-              "color": "",
+              "color": "0,0,0,255",
               "cache": {
                 "visible": false,
                 "backgroundColor": "",
@@ -4602,7 +5631,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4617,7 +5646,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4633,11 +5662,38 @@
             "type": "Image",
             "params": {
               "source": "cache/PlanSalle1.jpg",
-              "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "anchor": 2,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous vers la salle suivante",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -4650,7 +5706,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4665,7 +5721,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4682,10 +5738,37 @@
             "params": {
               "source": "cache/Musee5.jpg",
               "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez­-vous dans la salle Tang derrière la vitrine avec l’objet “Gardien de tombe”",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -4698,7 +5781,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4713,7 +5796,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4730,10 +5813,37 @@
             "params": {
               "source": "cache/PlanSalle2.jpg",
               "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez-vous vers la salle suivante",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -4746,7 +5856,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4761,7 +5871,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4778,10 +5888,37 @@
             "params": {
               "source": "cache/Musee6.jpg",
               "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "width": 0,
+              "height": 90,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Rendez­-vous dans la salle Tang derrière la vitrine avec l’objet “Gardien de tombe”",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           }
         ]
@@ -4794,7 +5931,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4808,8 +5945,8 @@
             "type": "Nav",
             "params": {
               "content": "Précédent",
-              "width": 12,
-              "height": 7,
+              "width": 0,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4837,8 +5974,8 @@
             "params": {
               "source": "cache/perso3Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -4848,7 +5985,7 @@
             "params": {
               "source": "cache/demon1.jpg",
               "anchor": 7,
-              "width": 30,
+              "width": 0,
               "height": 50,
               "x": 0,
               "y": 0
@@ -4857,12 +5994,39 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte2.jpg",
+              "source": "cache/carte4.png",
               "anchor": 1,
-              "width": 40,
-              "height": 40,
+              "width": 0,
+              "height": 20,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bienvenue à Pékin - Salle Tang",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           },
           {
@@ -4891,7 +6055,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -4906,7 +6070,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -4934,8 +6098,8 @@
             "params": {
               "source": "cache/perso3Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -4945,7 +6109,7 @@
             "params": {
               "source": "cache/demon1.jpg",
               "anchor": 7,
-              "width": 30,
+              "width": 0,
               "height": 50,
               "x": 0,
               "y": 0
@@ -4954,12 +6118,39 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte2.jpg",
+              "source": "cache/carte4.png",
               "anchor": 1,
-              "width": 30,
-              "height": 30,
+              "width": 0,
+              "height": 20,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bienvenue à Pékin - Salle Tang",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           },
           {
@@ -4994,7 +6185,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5009,7 +6200,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5037,8 +6228,8 @@
             "params": {
               "source": "cache/perso3Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -5048,7 +6239,7 @@
             "params": {
               "source": "cache/demon1.jpg",
               "anchor": 7,
-              "width": 30,
+              "width": 0,
               "height": 50,
               "x": 0,
               "y": 0
@@ -5057,12 +6248,39 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte2.jpg",
+              "source": "cache/carte4.png",
               "anchor": 1,
-              "width": 40,
-              "height": 40,
+              "width": 0,
+              "height": 20,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bienvenue à Pékin - Salle Tang",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           },
           {
@@ -5091,7 +6309,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5106,7 +6324,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -5134,8 +6352,8 @@
             "params": {
               "source": "cache/perso3Homme.png",
               "anchor": 5,
-              "width": 70,
-              "height": 50,
+              "width": 0,
+              "height": 60,
               "x": 0,
               "y": 0
             }
@@ -5145,7 +6363,7 @@
             "params": {
               "source": "cache/demon1.jpg",
               "anchor": 7,
-              "width": 30,
+              "width": 0,
               "height": 50,
               "x": 0,
               "y": 0
@@ -5154,12 +6372,39 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/carte2.jpg",
+              "source": "cache/carte4.png",
               "anchor": 1,
-              "width": 40,
-              "height": 40,
+              "width": 0,
+              "height": 20,
               "x": 0,
               "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/barre.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Text",
+            "params": {
+              "content": "Bienvenue à Pékin - Salle Tang",
+              "fontSize": 24,
+              "width": 60,
+              "height": 100,
+              "anchor": 6,
+              "color": "0,0,0,255",
+              "cache": {
+                "visible": false,
+                "backgroundColor": "",
+                "backgroundImage": ""
+              }
             }
           },
           {
@@ -5194,7 +6439,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -5209,7 +6454,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
