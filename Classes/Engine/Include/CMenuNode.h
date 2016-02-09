@@ -18,6 +18,9 @@ class CMenuNode : public CEntityNode
   std::string m_sNormalImage;
   std::string m_sSelectedImage;
 
+  cocos2d::Size m_oSize;
+  cocos2d::Vec2 m_oOrigin;
+
   CCallback m_fpClickedCallback;
   
   cocos2d::MenuItemImage* m_pMenuItemImage;
