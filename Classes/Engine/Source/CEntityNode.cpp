@@ -134,7 +134,7 @@ Size CEntityNode::GetParentVisibleSize()
   CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
   if (pParentEntity)
   {
-    return pParentEntity->GetParentVisibleSize();
+    return pParentEntity->GetVisibleSize();
   }
   
   return Director::getInstance()->getVisibleSize();
@@ -146,14 +146,14 @@ Vec2 CEntityNode::GetParentOrigin()
   CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
   if (pParentEntity)
   {
-    return pParentEntity->GetParentOrigin();
+    return pParentEntity->GetOrigin();
   }
 
   return Director::getInstance()->getVisibleOrigin();
 }
 
 
-Size CEntityNode::GetVsisibleSize()
+Size CEntityNode::GetVisibleSize()
 {
 	return m_pCocosEntity->getContentSize();
 }

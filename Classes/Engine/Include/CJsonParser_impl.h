@@ -40,6 +40,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 	if (sType == "Grid")
 	{
 		pEntity = new CGridNode(
+			rParams["rows"].GetInt(),
+			rParams["cols"].GetInt(),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
