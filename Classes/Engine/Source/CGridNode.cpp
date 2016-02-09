@@ -48,13 +48,20 @@ Vec2 CGridNode::GetOrigin()
 	Vec2 oNodeOrigin = Vec2(oGridOrigin.x + m_iColIndex * GetVisibleSize().width,
 		oGridOrigin.y + m_iRowIndex * GetVisibleSize().height);
 
-	if (m_iColIndex < m_iCols)
+	if (m_iColIndex < m_iCols - 1)
 	{
 		m_iColIndex++;
 	}
-	else if (m_iRowIndex < m_iRows)
+	else
 	{
 		m_iRowIndex++;
+		m_iColIndex = 0;
+	}
+
+	/// TODO : WARNING may bug with incomplete grids
+	if (m_iRowIndex >= m_iRows)
+	{
+		m_iRowIndex = 0;
 	}
 
 	return oNodeOrigin;
