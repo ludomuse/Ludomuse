@@ -9,6 +9,7 @@ namespace LM
 CLabelNode::CLabelNode(const std::string& a_rText,
                        const std::string& a_rFontName,
                        int a_iFontSize,
+					   const std::string& a_sTextAlign,
 					   const std::string& a_sFontColor,
 					   EAnchor a_eAnchor,
 					   int a_iWidth,
@@ -19,6 +20,7 @@ CLabelNode::CLabelNode(const std::string& a_rText,
     m_sText(a_rText),
     m_sFontName(a_rFontName),
     m_iFontSize(a_iFontSize),
+	m_sTextAlign(a_sTextAlign),
 	m_sFontColor(a_sFontColor)
 {
 }
@@ -34,7 +36,19 @@ void CLabelNode::Init()
   // Size oVisibleSize = Director::getInstance()->getVisibleSize();
   Size oVisibleSize = GetParentVisibleSize();
 
-  pLabel->setAlignment(TextHAlignment::CENTER);
+  if (m_sTextAlign == "left")
+  {
+	  pLabel->setAlignment(TextHAlignment::LEFT);
+  }
+  else if (m_sTextAlign == "right")
+  {
+	  pLabel->setAlignment(TextHAlignment::RIGHT);
+  }
+  else
+  {
+	  pLabel->setAlignment(TextHAlignment::CENTER);
+  }
+
   pLabel->setMaxLineWidth(oVisibleSize.width * (float)m_iWidth / 100.0f);
 
 

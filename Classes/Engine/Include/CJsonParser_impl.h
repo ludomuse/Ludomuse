@@ -115,6 +115,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 				sText.c_str(),
 				"fonts/Open_Sans/OpenSans-Bold.ttf",
 				20,
+				"center",
 				rParams["color"].GetString(),
 				IntToAnchor(rParams["anchor"].GetInt()),
 				//EAnchor::FLOAT,
@@ -156,10 +157,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		{
 			iFontSize = 24;
 		}
+		std::string sTextAlign = "center";
+		if (rParams.HasMember("textAlign"))
+		{
+			sTextAlign = rParams["textAlign"].GetString();
+		}
 
 		pEntity = new CLabelNode(rParams["content"].GetString(),
 			sFontName,
 			iFontSize,
+			sTextAlign,
 			rParams["color"].GetString(),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
