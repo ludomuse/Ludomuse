@@ -6,8 +6,12 @@ using namespace cocos2d;
 namespace LM
 {
 
-CGridNode::CGridNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight, int a_iXPosition, int a_iYPosition) :
-    CEntityNode(a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition)
+	CGridNode::CGridNode(int a_iRows, int a_iCols, EAnchor a_eAnchor, int a_iWidth, int a_iHeight, int a_iXPosition, int a_iYPosition) :
+		CEntityNode(a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition),
+		m_iRows(a_iRows),
+		m_iCols(a_iCols),
+		m_iColIndex(0),
+		m_iRowIndex(0)
 {
   
 }
@@ -16,20 +20,44 @@ CGridNode::CGridNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight, int a_iXPos
 void CGridNode::Init()
 {
 	m_pCocosEntity = Node::create();
-	PopulateParent();
+	PopulateParent(false);
+
+	Size oVisibleSize = GetParentVisibleSize();
+
+	float fNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
+	float fNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+
+	m_pCocosEntity->setContentSize(Size(fNewWidth, fNewHeight));
+
+
 	CNode::Init();
 }
 
 
-Size CGridNode::GetParentVisibleSize()
+Size CGridNode::GetVisibleSize()
 {
-  return m_pCocosEntity->getContentSize();
+	Size oGridSize = CEntityNode::GetVisibleSize();
+	return Size(oGridSize.width / m_iCols, oGridSize.height / m_iRows);
 }
 
-Vec2 CGridNode::GetParentOrigin()
+Vec2 CGridNode::GetOrigin()
 {
-  Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
-  return Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
+	Vec2 oGridOrigin = CEntityNode::GetOrigin();
+
+	// return the origin of the cell of the grid for the item
+	Vec2 oNodeOrigin = Vec2(oGridOrigin.x + m_iColIndex * GetVisibleSize().width,
+		oGridOrigin.y + m_iRowIndex * GetVisibleSize().height);
+
+	if (m_iColIndex < m_iCols)
+	{
+		m_iColIndex++;
+	}
+	else if (m_iRowIndex < m_iRows)
+	{
+		m_iRowIndex++;
+	}
+
+	return oNodeOrigin;
 }
 
 } // namespace LM
