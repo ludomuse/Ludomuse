@@ -42,6 +42,7 @@ build
 *.lib
 *.exe
 *.sdf
+*.orig
 
 cocos2d
 proj.win32/Debug.win32
