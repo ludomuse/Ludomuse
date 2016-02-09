@@ -8,6 +8,7 @@
 #include "../../Modules/Networking/Networking.h"
 
 
+#include <fstream>
 
 using namespace cocos2d;
 
@@ -41,11 +42,11 @@ CKernel::~CKernel()
 
 void CKernel::Init()
 {
-
+	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
   //CSceneNode oNode;
   //Scene* oScene = oNode.CreateScene();
   // node.init();
-	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, "Cern.json");
+	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
 
