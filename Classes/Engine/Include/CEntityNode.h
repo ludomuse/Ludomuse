@@ -98,6 +98,10 @@ class CEntityNode : public CNode
 
   virtual cocos2d::Vec2 GetParentOrigin();
 
+  virtual cocos2d::Size GetVsisibleSize();
+
+  virtual cocos2d::Vec2 GetOrigin();
+
 };
 
 } // namespace LM

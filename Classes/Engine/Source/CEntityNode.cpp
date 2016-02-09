@@ -152,4 +152,16 @@ Vec2 CEntityNode::GetParentOrigin()
   return Director::getInstance()->getVisibleOrigin();
 }
 
+
+Size CEntityNode::GetVsisibleSize()
+{
+	return m_pCocosEntity->getContentSize();
+}
+
+Vec2 CEntityNode::GetOrigin()
+{
+	Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
+	return Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
+}
+
 } // namespace LM
