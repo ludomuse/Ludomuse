@@ -63,7 +63,24 @@ void CMenuNode::Init()
   }
   m_pMenuItemImage->setScale(fNewScale);
 
+
+  // calculate the size and origin of the widget
+  Rect oBoundingBox = m_pMenuItemImage->getBoundingBox();
+  m_oSize = Size(oBoundingBox.getMaxX() - oBoundingBox.getMinX(),
+	  oBoundingBox.getMaxY() - oBoundingBox.getMinY());
+  m_oOrigin = Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
+
   CNode::Init();
+}
+
+Size CMenuNode::GetVisibleSize()
+{
+	return m_oSize;
+}
+
+Vec2 CMenuNode::GetOrigin()
+{
+	return m_oOrigin;
 }
 
 } // namespace LM

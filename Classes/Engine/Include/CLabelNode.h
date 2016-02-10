@@ -15,6 +15,7 @@ class CLabelNode : public CEntityNode
   std::string m_sText;
   std::string m_sFontName;
   int m_iFontSize;
+  std::string m_sTextAlign;
 
   /// \brief font color : "r,g,b,a"
   std::string m_sFontColor;
@@ -25,6 +26,7 @@ class CLabelNode : public CEntityNode
 	 CLabelNode(const std::string& a_rText, 
 			 const std::string& a_rFontName, 
 		     int a_iFontSize,
+		     const std::string& a_sTextAlign,
 		     const std::string& a_rFontColor,
 			 EAnchor a_eAnchor = EAnchor::FLOAT,
 			 int a_iWidth = 0,
