@@ -223,7 +223,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode)
 	if (a_rJsonNode.HasMember("information"))
 	{
 		RefJsonNode rInfoItems = a_rJsonNode["information"];
-		for (int i = 0; i < rInfoItems.Size(), ++i)
+		for (int i = 0; i < rInfoItems.Size(); ++i)
 		{
 			ParseJson(rInfoItems[i], pSceneNode);
 		}
