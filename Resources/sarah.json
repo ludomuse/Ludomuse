@@ -54,6 +54,17 @@
               "x": 0,
               "y": 0
             }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "ui/info-2.png",
+              "anchor": 2,
+              "width": 0,
+              "height": 13,
+              "x": 0,
+              "y": 0
+            }
           }
         ]
       }
