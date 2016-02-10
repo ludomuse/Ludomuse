@@ -155,7 +155,7 @@
             }
           }
         ],
-          "Information":[
+          "information":[
           {
             "type": "Text",
             "params": {
@@ -272,7 +272,7 @@
             }
           }
         ],
-          "Information":[
+          "information":[
           {
             "type": "Text",
             "params": {
