@@ -1105,7 +1105,7 @@
           {
             "type": "Info",
             "params": {
-              "source": "cache/info-6.png",
+              "source": "ui/info-6.png",
               "anchor": 6,
               "width": 0,
               "height": 13,
