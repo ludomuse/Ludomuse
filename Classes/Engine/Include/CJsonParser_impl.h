@@ -49,6 +49,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 			y);
 	}
 
+	else if (sType == "Group")
+	{
+		pEntity = new CGroupNode(
+			IntToAnchor(rParams["anchor"].GetInt()),
+			width,
+			height,
+			x,
+			y);
+	}
+
 	else if (sType == "Grid2")
 	{
 		CCLOG("Grid construction");
