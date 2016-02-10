@@ -914,15 +914,15 @@
             "type":"Group",
             "params":{
               "anchor":0,
-              "width":100,
+              "width":50,
               "height":74,
               "children":[
                 {
                   "type":"Group",
                   "params":{
-                    "anchor":6,
+                    "anchor":5,
                     "height":50,
-                    "width":100,
+                    "width":50,
                     "backgroundColor":"255,255,255,100",
                     "children":[
                       {
