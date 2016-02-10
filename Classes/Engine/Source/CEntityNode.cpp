@@ -155,7 +155,10 @@ Vec2 CEntityNode::GetParentOrigin()
 
 Size CEntityNode::GetVisibleSize()
 {
-	return m_pCocosEntity->getContentSize();
+	//return m_pCocosEntity->getContentSize();
+	Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
+	return Size(oBoundingBox.getMaxX() - oBoundingBox.getMinX(),
+		oBoundingBox.getMaxY() - oBoundingBox.getMinY());
 }
 
 Vec2 CEntityNode::GetOrigin()
