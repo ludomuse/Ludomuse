@@ -1,0 +1,62 @@
+{
+  "app": {
+    "colors": [],
+    "images": [],
+    "videos": [],
+    "sounds": [],
+    "screens": [
+      {
+        "scene": "screen-0",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "ENTREZ",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/info-1.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

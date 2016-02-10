@@ -2056,7 +2056,7 @@
             "type": "Text",
             "params": {
               "content": " C’est parti ! Quel est l'animal caché ? avec des phrases de sages pour aider la découverte : On a toujours besoin de plus petit que soit",
-              "fontSize": 24,
+              "fontSize": 22,
               "width": 60,
               "height": 100,
               "anchor": 2,
@@ -4934,7 +4934,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "Rendez-­vous devant la tour de plaisance",
+              "content": "Rendez-vous­ devant la tour de plaisance",
               "fontSize": 24,
               "width": 60,
               "height": 100,
@@ -7447,6 +7447,17 @@
             }
           },
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/info-1.png",
+              "anchor": 6,
+              "width": 65,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Text",
             "params": {
               "content": "Retourne devant la vitrine et regarde le grand personnage à l’intérieur. Il s’agit d’un être fantastique debout sur le démon qu’il a combattu.  A ton avis est-ce que ce personnage est fort ou en colère?",
@@ -7675,7 +7686,7 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 1,
+              "anchor": 8,
               "color": "",
               "cache": {
                 "visible": false,
@@ -7691,7 +7702,7 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 3,
+              "anchor": 0,
               "color": "",
               "cache": {
                 "visible": false,
@@ -7723,7 +7734,7 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 0,
+              "anchor": 1,
               "color": "",
               "cache": {
                 "visible": false,
@@ -7739,7 +7750,7 @@
               "fontSize": 24,
               "width": 40,
               "height": 100,
-              "anchor": 8,
+              "anchor": 3,
               "color": "",
               "cache": {
                 "visible": false,
@@ -7789,7 +7800,7 @@
             "type": "Image",
             "params": {
               "source": "cache/demon1.jpg",
-              "anchor": 0,
+              "anchor": 2,
               "width": 0,
               "height": 90,
               "x": 0,
@@ -7833,7 +7844,7 @@
             "params": {
               "content": "Suivant",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5.png",
@@ -7848,7 +7859,7 @@
             "params": {
               "content": "Précédent",
               "width": 0,
-              "height": 10,
+              "height": 13,
               "anchor": 7,
               "normal": "ui/nav-7.png",
               "selected": "ui/nav-7.png",
@@ -7957,6 +7968,17 @@
           }
         ],
         "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background3CERN.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
           {
             "type": "Image",
             "params": {
@@ -8382,7 +8404,7 @@
               "source": "cache/carte5.png",
               "anchor": 1,
               "width": 0,
-              "height": 30,
+              "height": 20,
               "x": 0,
               "y": 0
             }
@@ -8506,7 +8528,7 @@
               "source": "cache/carte5.png",
               "anchor": 1,
               "width": 0,
-              "height": 30,
+              "height": 20,
               "x": 0,
               "y": 0
             }
@@ -8654,7 +8676,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "Il s'agit de Bouddha,  c’est un ancien prince qui a renoncé à sa richesse pour se détacher des choses matérielles pour atteindre l’éveil... Regarde sa main levée, il montre par ce geste qu’il nous enseigne la sagesse. Veux-tu essayer de méditer avec moi?",
+              "content": "Il s'agit de Bouddha, c’est un ancien prince qui a renoncé à sa richesse pour se détacher des choses matérielles pour atteindre l’éveil... Regarde sa main levée, il montre par ce geste qu’il nous enseigne la sagesse. Veux-tu essayer de méditer avec moi?",
               "fontSize": 24,
               "width": 40,
               "height": 100,
@@ -8767,7 +8789,7 @@
           {
             "type": "Text",
             "params": {
-              "content": "« Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze?",
+              "content": "Il s'agit de Bouddha, c’est un ancien prince qui a renoncé à sa richesse pour se détacher des choses matérielles pour atteindre l’éveil... Regarde sa main levée, il montre par ce geste qu’il nous enseigne la sagesse. Veux-tu essayer de méditer avec moi?",
               "fontSize": 24,
               "width": 40,
               "height": 100,
@@ -8820,7 +8842,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/bouddha1.JPG",
+              "source": "cache/bouddha1.png",
               "anchor": 2,
               "width": 0,
               "height": 90,
@@ -8828,28 +8850,7 @@
               "y": 0
             }
           },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/info-1.png",
-              "anchor": 6,
-              "width": 65,
-              "height": 0,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/info-2.png",
-              "anchor": 2,
-              "width": 0,
-              "height": 13,
-              "x": 0,
-              "y": 0
-            }
-          },
+          
           {
             "type": "Text",
             "params": {
@@ -8922,7 +8923,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/bouddha1.JPG",
+              "source": "cache/bouddha1.png",
               "anchor": 2,
               "width": 0,
               "height": 90,
@@ -9351,7 +9352,7 @@
         ]
       },
       {
-        "scene": "screen-5-h-player1",
+        "scene": "screen-5-h-player2",
         "navigation": [
           {
             "type": "Nav",
