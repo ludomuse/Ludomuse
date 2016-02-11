@@ -51,12 +51,18 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 
 	else if (sType == "Group")
 	{
+		std::string sBackgroundSource = "";
+		if (rParams.HasMember("source"))
+		{
+			sBackgroundSource = rParams["source"].GetString();
+		}
 		pEntity = new CGroupNode(
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
 			x,
-			y);
+			y,
+			sBackgroundSource);
 	}
 
 	else if (sType == "Grid2")

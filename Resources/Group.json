@@ -134,9 +134,10 @@
                 {
                   "type":"Group",
                   "params":{
-                    "anchor":6,
+                    "anchor":5,
                     "height":50,
                     "width":80,
+                    "source": "cache/Statuette1.jpg",
                     "backgroundColor":"255,255,255,100",
                     "children":[
                       {
@@ -188,7 +189,7 @@
                         "params": {
                           "content": "Nĭmen Hăo, xian sheng, xiăo Haĭzi , je suis marchand. Bienvenue dans ma boutique : tu tombes bien ! J’ai un problème avec un objet dont la magie me dépasse ! Peux-tu t’en occuper en trouvant quels animaux se cachent ?",
                           "fontSize": 22,
-                          "width": 100,
+                          "width": 80,
                           "height": 100,
                           "textAlign":"left",
                           "anchor": 0,
