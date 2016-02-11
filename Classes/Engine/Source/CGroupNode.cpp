@@ -12,7 +12,7 @@ CGroupNode::CGroupNode(EAnchor a_eAnchor,
                        int a_iHeight,
                        int a_iXPosition,
                        int a_iYPosition) :
-    CEntityNode(a_eAnchor, a_iWidth, a_iWidth, a_iXPosition, a_iYPosition)
+    CEntityNode(a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition)
 {
   
 }
