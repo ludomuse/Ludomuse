@@ -5,8 +5,12 @@
 #include "../../cocos2d/external/json/document.h"
 
 #include <string>
+#include <algorithm>
+
+#include "CCallback.h"
 #include "CKernel.h"
 #include "CNode.h"
+#include "CSequenceNode.h"
 #include "CSceneNode.h"
 #include "CEntityNode.h"
 #include "CSpriteNode.h"

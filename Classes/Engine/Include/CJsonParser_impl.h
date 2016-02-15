@@ -1,8 +1,5 @@
 //////////////////////////////// templates specializations 
 
-#include "CCallback.h"
-
-#include <algorithm>
 
 /// \brief the specialisation building entities in a scene or subentities
 template <typename T>
@@ -65,7 +62,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 			sBackgroundSource);
 	}
 
-	else if (sType == "Grid2")
+	// dummy element to test Wifi Direct
+	else if (sType == "Dummy")
 	{
 		CCLOG("Grid construction");
            pEntity = new CMenuNode(
@@ -80,7 +78,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
                x,
                y);
 		   CCLOG("grid constructed");
-        }
+    }
 
 	else if (sType == "Image" || sType == "Info")
 	{
@@ -117,25 +115,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 			x,
 			y);
 
-		if (rParams.HasMember("content"))
-		{
-			std::string sText(rParams["content"].GetString());
-			std::transform(sText.begin(), sText.end(), sText.begin(), ::toupper);
-			CLabelNode* pText = new CLabelNode(
-				sText.c_str(),
-				"fonts/Open_Sans/OpenSans-Bold.ttf",
-				20,
-				"center",
-				rParams["color"].GetString(),
-				IntToAnchor(rParams["anchor"].GetInt()),
-				//EAnchor::FLOAT,
-				width,
-				height,
-				0,
-				0);
-
-			pEntity->AddChildNode(pText);
-		}
 	}
 
 
@@ -184,19 +163,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 			x,
 			y);
 
-		if (rParams["cache"]["visible"].GetBool())
-		{
-			CSpriteNode* pSpriteNode = new CSpriteNode(
-				rParams["cache"]["backgroundImage"].GetString(),
-				IntToAnchor(rParams["anchor"].GetInt()),
-				width,
-				height,
-				x,
-				y);
-
-			pEntity->AddChildNode(pSpriteNode);
-		}
-
 	}
 
 
@@ -204,6 +170,15 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 	{
 
 	}
+
+
+	// check listeners
+	if (rParams.HasMember("listeners"))
+	{
+
+	}
+
+
 
 	// recursively parse children
 	if (rParams.HasMember("children"))
@@ -213,6 +188,27 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		{
 			ParseJson(rEntities[i], pEntity);
 		}
+	}
+	else if (rParams.HasMember("children-active") && rParams.HasMember("children-inactive"))
+	{
+		CSequenceNode* pSequence = new CSequenceNode();
+		CGroupNode* pActive = new CGroupNode();
+		CGroupNode* pInactive = new CGroupNode();
+		pSequence->AddChildNode(pInactive);
+		pSequence->AddChildNode(pActive);
+
+		RefJsonNode rActiveEntities = rParams["children-active"];
+		for (int i = 0; i < rActiveEntities.Size(); ++i)
+		{
+			ParseJson(rActiveEntities[i], pActive);
+		}
+		RefJsonNode rInactiveEntities = rParams["children-inactive"];
+		for (int i = 0; i < rInactiveEntities.Size(); ++i)
+		{
+			ParseJson(rInactiveEntities[i], pInactive);
+		}
+
+		pEntity->AddChildNode(pSequence);
 	}
 
 	if (pEntity != nullptr) {
