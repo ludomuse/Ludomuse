@@ -8,21 +8,31 @@
 namespace LM
 {
 
-
-typedef  void (CKernel::* FPKernelCallback)(cocos2d::Ref* pSender);
-
-
+template <class T>
 class CCallback
 {
 
+typedef  void (T::* fpMemberCallback)(cocos2d::Ref* pSender);
+
+
 private:
-  CKernel* m_pKernel;
-  FPKernelCallback m_pCallback;
+  T* m_pCallee;
+  fpMemberCallback m_pCallback;
 
 
 public:
-  CCallback(CKernel* a_pKernel, FPKernelCallback a_pCallback);
-  void operator()(cocos2d::Ref* a_pSender);
+	CCallback(T* a_pCallee, fpMemberCallback a_pCallback) :
+		m_pCallee(a_pCallee),
+		m_pCallback(a_pCallback)
+	{
+
+	}
+
+
+	void operator()(cocos2d::Ref* a_pSender)
+	{
+		(m_pCallee->*m_pCallback)(a_pSender);
+	}
   
 };
 

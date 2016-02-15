@@ -69,7 +69,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
            pEntity = new CMenuNode(
                rParams["normal"].GetString(),
                rParams["selected"].GetString(),
-               CCallback(m_pKernel,
+               CCallback<CKernel>(m_pKernel,
 				   std::string(rParams["action"].GetString()) == "connect" ?
                          &CKernel::Connect : &CKernel::SendMessage),
                IntToAnchor(rParams["anchor"].GetInt()),
@@ -106,7 +106,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		pEntity = new CMenuNode(
 			rParams["normal"].GetString(),
 			rParams["selected"].GetString(),
-			CCallback(m_pKernel,
+			CCallback<CKernel>(m_pKernel,
 				(std::string(rParams["action"].GetString()) == "next") ?
 				&CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
@@ -175,7 +175,11 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 	// check listeners
 	if (rParams.HasMember("listeners"))
 	{
+		RefJsonNode rListeners = rParams["listeners"];
+		for (int i = 0; i < rListeners.Size(); ++i)
+		{
 
+		}
 	}
 
 

@@ -21,14 +21,14 @@ class CMenuNode : public CEntityNode
   cocos2d::Size m_oSize;
   cocos2d::Vec2 m_oOrigin;
 
-  CCallback m_fpClickedCallback;
+  CCallback<CKernel> m_fpClickedCallback;
   
   cocos2d::MenuItemImage* m_pMenuItemImage;
 
  public:
   CMenuNode(const std::string& a_rNormalImage,
             const std::string& a_rSelectedImage,
-            CCallback a_fpCallback,
+            CCallback<CKernel> a_fpCallback,
 	        EAnchor a_eAnchor = EAnchor::FLOAT,
 			int a_iWidth = 0,
 			int a_iHeight = 0,
