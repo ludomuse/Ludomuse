@@ -42,6 +42,10 @@ class CKernel
   void NavNext(cocos2d::Ref* pSender);
   void NavPrevious(cocos2d::Ref* pSender);
 
+  bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
+
+  void GotoScreenID(const std::string& a_rID);
+
   void SendMessage(cocos2d::Ref* pSender);
   void Connect(cocos2d::Ref* pSender);
   void OnGettingPeers(std::vector<std::string> a_vPeers);

@@ -69,7 +69,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
            pEntity = new CMenuNode(
                rParams["normal"].GetString(),
                rParams["selected"].GetString(),
-               CCallback<CKernel>(m_pKernel,
+               CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
 				   std::string(rParams["action"].GetString()) == "connect" ?
                          &CKernel::Connect : &CKernel::SendMessage),
                IntToAnchor(rParams["anchor"].GetInt()),
@@ -106,7 +106,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		pEntity = new CMenuNode(
 			rParams["normal"].GetString(),
 			rParams["selected"].GetString(),
-			CCallback<CKernel>(m_pKernel,
+			CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
 				(std::string(rParams["action"].GetString()) == "next") ?
 				&CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
@@ -178,7 +178,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		RefJsonNode rListeners = rParams["listeners"];
 		for (int i = 0; i < rListeners.Size(); ++i)
 		{
-			pEntity.AddListener(rListeners[i].GetString());
+			CCallback<CKernel, const std::string&> oCallback(m_pKernel, &CKernel::GotoScreenID);
+			pEntity->AddListener(rListeners[i].GetString(), oCallback);
 		}
 	}
 

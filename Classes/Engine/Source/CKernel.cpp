@@ -71,6 +71,18 @@ void CKernel::NavPrevious(Ref* pSender)
 }
 
 
+bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
+{
+
+}
+
+
+void CKernel::GotoScreenID(const std::string& a_rID)
+{
+	LogMessage("GotoScreenID : " + a_rID);
+}
+
+
 void CKernel::SendMessage(Ref* pSender)
 {
 	CCLOG("Sending message");

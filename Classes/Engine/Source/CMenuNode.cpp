@@ -7,7 +7,7 @@ namespace LM
 
 CMenuNode::CMenuNode(const std::string& a_rNormalImage,
                      const std::string& a_rSelectedImage,
-                     CCallback<CKernel> a_fpCallback,
+                     CCallback<CKernel, cocos2d::Ref*> a_fpCallback,
 					 EAnchor a_eAnchor,
 					 int a_iWidth,
 					 int a_iHeight,

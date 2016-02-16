@@ -8,11 +8,11 @@
 namespace LM
 {
 
-template <class T>
+template <class T, typename Arg>
 class CCallback
 {
 
-typedef  void (T::* fpMemberCallback)(cocos2d::Ref* pSender);
+typedef  void (T::* fpMemberCallback)(Arg pSender);
 
 
 private:
@@ -29,7 +29,7 @@ public:
 	}
 
 
-	void operator()(cocos2d::Ref* a_pSender)
+	void operator()(Arg a_pSender)
 	{
 		(m_pCallee->*m_pCallback)(a_pSender);
 	}

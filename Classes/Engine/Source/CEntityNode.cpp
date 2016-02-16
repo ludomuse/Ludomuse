@@ -25,15 +25,15 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 }
 
 
-void CEntityNode::AddListener(const std::string& a_rEvent)
+void CEntityNode::AddListener(const std::string& a_rEvent, const CCallback<CKernel, const std::string& >& a_rCallback)
 {
-	m_vListeners.insert(a_rEvent);
+	m_mListeners.insert(std::pair<std::string, CCallback<CKernel, const std::string&> >(a_rEvent, a_rCallback));
 }
 
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
-	std::set<std::string>::iterator it = m_vListeners.find(a_rEvent);
-	return (it != m_vListeners.end());
+	std::map<std::string, CCallback<CKernel, const std::string&> >::iterator it = m_mListeners.find(a_rEvent);
+	return (it != m_mListeners.end());
 }
 
 
