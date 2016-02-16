@@ -2,6 +2,7 @@
 #include "../Include/CSequenceNode.h"
 #include "../Include/CSceneNode.h"
 #include "../Include/CTransitionVisitor.h"
+#include "../Include/CTouchBeganVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
@@ -73,7 +74,9 @@ void CKernel::NavPrevious(Ref* pSender)
 
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
-
+	CTouchBeganVisitor oVisistor;
+	oVisistor.Traverse(m_pBehaviorTree);
+	return true;
 }
 
 

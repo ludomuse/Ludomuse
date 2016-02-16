@@ -28,8 +28,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CLabelNode.cpp \
                    ../../Classes/Engine/Source/CSpriteNode.cpp \
                    ../../Classes/Engine/Source/CMenuNode.cpp \
-                   ../../Classes/Engine/Source/CCallback.cpp \
                    ../../Classes/Engine/Source/CTransitionVisitor.cpp \
+                   ../../Classes/Engine/Source/CTouchBeganVisitor.cpp \
                    ../../Classes/Engine/Source/CGroupNode.cpp \
                    ../../Classes/Engine/Source/CGridNode.cpp \
                    ../../Classes/Modules/Networking/android/Source/CNetworkManager.cpp \

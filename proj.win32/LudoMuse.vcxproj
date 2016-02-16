@@ -145,7 +145,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\Engine\Source\CCallback.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CEntityNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CGridNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CGroupNode.cpp" />
@@ -160,6 +159,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Engine\Source\CSelectorNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CSequenceNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CSpriteNode.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CTouchBeganVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CTransitionVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CVisitor.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
@@ -184,6 +184,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CSelectorNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CSequenceNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CSpriteNode.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CTouchBeganVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CTransitionVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CVisitor.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />

@@ -60,9 +60,6 @@
     <ClCompile Include="..\Classes\Engine\Source\CMenuNode.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CCallback.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Engine\Source\CTransitionVisitor.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -73,6 +70,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Engine\Source\CGroupNode.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CTouchBeganVisitor.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -141,6 +141,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CGroupNode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CTouchBeganVisitor.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
