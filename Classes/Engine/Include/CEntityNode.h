@@ -5,6 +5,8 @@
 #include "CNode.h"
 #include "cocos2d.h"
 
+#include <set>
+
 namespace LM
 {
 
@@ -67,6 +69,8 @@ class CEntityNode : public CNode
   /// \brief the height of the entity on the screen
   int m_iHeight;
 
+  /// \brief the events the entity is listening to
+  std::set<std::string> m_vListeners;
 
   /// \brief the corresponging cocos2d entity 
   cocos2d::Node* m_pCocosEntity;
@@ -85,6 +89,11 @@ class CEntityNode : public CNode
   /// \returns the cocos2d corresponding entity
   virtual cocos2d::Node* GetCocosEntity();
 
+  /// \brief subscribe the entity to a_rEvent
+  void AddListener(const std::string& a_rEvent);
+
+  /// \brief checks if the entity is listening to 
+  bool IsListeningTo(const std::string& a_rEvent);
 
  protected: // methods
   /// \brief must be called at the end of the Init overloaded

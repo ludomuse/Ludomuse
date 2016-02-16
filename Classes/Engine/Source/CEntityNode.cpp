@@ -25,6 +25,18 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 }
 
 
+void CEntityNode::AddListener(const std::string& a_rEvent)
+{
+	m_vListeners.insert(a_rEvent);
+}
+
+bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
+{
+	std::set<std::string>::iterator it = m_vListeners.find(a_rEvent);
+	return (it != m_vListeners.end());
+}
+
+
 void CEntityNode::PopulateParent(bool a_bDoScaling)
 {
 

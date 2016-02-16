@@ -178,7 +178,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		RefJsonNode rListeners = rParams["listeners"];
 		for (int i = 0; i < rListeners.Size(); ++i)
 		{
-
+			pEntity.AddListener(rListeners[i].GetString());
 		}
 	}
 
