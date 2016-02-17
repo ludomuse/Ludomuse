@@ -12,6 +12,8 @@ class CTouchBeganVisitor : public CVisitor
  public:
   CTouchBeganVisitor();
 
+
+  virtual void Traverse(CNode* a_pNode);
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
   
   

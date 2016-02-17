@@ -37,6 +37,12 @@ bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 }
 
 
+void CEntityNode::Dispatch(const std::string& a_rEvent)
+{
+	std::map<std::string, CCallback<CKernel, const std::string&> >::iterator it = m_mListeners.find(a_rEvent);
+	it->second(a_rEvent);
+}
+
 void CEntityNode::PopulateParent(bool a_bDoScaling)
 {
 

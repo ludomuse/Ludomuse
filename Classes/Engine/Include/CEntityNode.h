@@ -96,6 +96,9 @@ class CEntityNode : public CNode
   /// \brief checks if the entity is listening to 
   bool IsListeningTo(const std::string& a_rEvent);
 
+  /// \brief dispatch this event to the entity
+  void Dispatch(const std::string& a_rEvent);
+
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
   ///        function to populate parent class in the tree

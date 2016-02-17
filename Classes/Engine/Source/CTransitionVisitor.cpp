@@ -27,7 +27,6 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
   }
   if (pScene)
   {
-	  //pScene->GetScene()->removeAllChildrenWithCleanup(true); // TODO
 	  bool bSceneExists = false;
 	  if (m_bTransitionNext)
 	  {
