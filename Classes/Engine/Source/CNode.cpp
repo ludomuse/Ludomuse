@@ -69,6 +69,11 @@ bool CNode::OffsetCurrentNode(int i)
 }
 
 
+std::vector<CNode*> CNode::GetChildren()
+{
+	return m_vChildren;
+}
+
 void CNode::Init()
 {
 	for (CNode* pChildNode : m_vChildren) {

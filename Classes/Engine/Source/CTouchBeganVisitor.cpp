@@ -26,10 +26,22 @@ void CTouchBeganVisitor::Traverse(CNode* a_pNode)
     if (pEntity || pScene)
     {
       // TODO : traverse in decreasing order of z-index
-      for (CNode* itNode : *a_pNode)
-      {
-        Traverse(itNode);
-      }
+		std::vector<CNode*> oNodes = a_pNode->GetChildren();
+		//std::sort(oNodes.begin(), oNodes.end(), [](CNode* pLeftNode, CNode* pRightNode) {
+		//	CEntityNode* pLeftEntity = dynamic_cast<CEntityNode*>(pLeftNode);
+		//	CEntityNode* pRightEntity = dynamic_cast<CEntityNode*>(pRightNode);
+		//	if (pRightEntity && pLeftEntity)
+		//	{
+		//		int iLeftOrder = pLeftEntity->GetCocosEntity()->getLocalZOrder();
+		//		int iRightOrder = pRightEntity->GetCocosEntity()->getLocalZOrder();
+		//		return  iLeftOrder > iRightOrder;					
+		//	}
+		//	return true;
+		//});
+		for (int i = oNodes.size() - 1; i >= 0; --i)
+		{
+			Traverse(oNodes[i]);
+		}
     }
     else
     {
@@ -48,16 +60,19 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
   if (pEntity)
   {
-    if (pEntity->IsListeningTo("Touch"))
+
+    // Check if the entity intersects the touch event
+    Vec2 oTouchLocation = m_pTouch->getLocationInView();
+    Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+    if (oBoundingBox.containsPoint(oTouchLocation))
     {
-		Vec2 oTouchLocation = m_pTouch->getLocationInView();
-		Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-		if (oBoundingBox.containsPoint(oTouchLocation))
-		{
-			// if the Touch event intersects this element then dispatch event
-			pEntity->Dispatch("Touch");
-			return RESULT_PRUNE;
-		}
+      // if so and if listenning to touch, dispatch the event to the entity
+      if (pEntity->IsListeningTo("Touch"))
+      {
+        pEntity->Dispatch("Touch");
+		return RESULT_PRUNE;
+      }
+      
     }
   }
   

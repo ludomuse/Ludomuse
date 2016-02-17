@@ -122,8 +122,8 @@
                             "width": 18,
                             "height": 13,
                             "anchor": 5,
-                            "normal": "ui/Nav-5-scaled.png",
-                            "selected": "ui/Nav-5-scaled-active.png",
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
@@ -222,12 +222,23 @@
                                         "height": 100,
                                         "x": 0,
                                         "y": 0,
-					"listeners": [
-					    "Touch"
-					]
+                                        "listeners": [
+                                            "Touch"
+                                        ]
                                     }
                                 }
                             ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/audioHintImage.png",
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
                         }
                     }
                 ]
