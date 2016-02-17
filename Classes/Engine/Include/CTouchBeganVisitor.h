@@ -3,14 +3,19 @@
 
 #include "CVisitor.h"
 
+#include "cocos2d.h"
+
 namespace LM
 {
 
 class CTouchBeganVisitor : public CVisitor
 {  
-
+ private:
+  cocos2d::Touch* m_pTouch;
+  cocos2d::Event* m_pEvent;
+  
  public:
-  CTouchBeganVisitor();
+  CTouchBeganVisitor(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
 
   virtual void Traverse(CNode* a_pNode);

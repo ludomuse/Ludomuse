@@ -74,7 +74,7 @@ void CKernel::NavPrevious(Ref* pSender)
 
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
-	CTouchBeganVisitor oVisistor;
+	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent);
 	oVisistor.Traverse(m_pBehaviorTree);
 	return true;
 }
