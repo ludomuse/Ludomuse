@@ -2,6 +2,7 @@
 
 #include "../Include/CEntityNode.h"
 #include "../Include/CSceneNode.h"
+#include "../Include/CMenuNode.h"
 
 
 using namespace cocos2d;
@@ -12,7 +13,8 @@ namespace LM
 
 CTouchBeganVisitor::CTouchBeganVisitor(Touch* a_pTouch, Event* a_pEvent) :
     m_pTouch(a_pTouch),
-    m_pEvent(a_pEvent)
+    m_pEvent(a_pEvent),
+	m_bStopVisiting(false)
 {
 }
 
@@ -40,6 +42,9 @@ void CTouchBeganVisitor::Traverse(CNode* a_pNode)
 		//});
 		for (int i = oNodes.size() - 1; i >= 0; --i)
 		{
+			// stop traversing the tree
+			if (m_bStopVisiting) return;
+			
 			Traverse(oNodes[i]);
 		}
     }
@@ -48,7 +53,8 @@ void CTouchBeganVisitor::Traverse(CNode* a_pNode)
       Traverse(a_pNode->GetCurrentNode());
     }
 
-    ProcessNodeBottomUp(a_pNode);
+	ProcessNodeBottomUp(a_pNode);
+
   }
 }
 
@@ -57,8 +63,8 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 {
   
   CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
-
-  if (pEntity)
+  CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(a_pNode);
+  if (pEntity && !pMenuNode)
   {
 
     // Check if the entity intersects the touch event
@@ -77,6 +83,24 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
   }
   
   return RESULT_CONTINUE;
+}
+
+Result CTouchBeganVisitor::ProcessNodeBottomUp(CNode* a_pNode)
+{
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
+	CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(a_pNode);
+	// MenuNode gets a special treatment because it is not well managed by cocos
+	// (GetCocosEntity does not return the right thing)
+	if (pEntity && !pMenuNode)
+	{
+		Vec2 oToucheLocation = m_pTouch->getLocationInView();
+		Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+		if (oBoundingBox.containsPoint(oToucheLocation))
+		{
+			m_bStopVisiting = true;
+			return RESULT_STOP;
+		}
+	}
 }
 
 

@@ -73,6 +73,7 @@ void CMenuNode::Init()
   CNode::Init();
 }
 
+
 Size CMenuNode::GetVisibleSize()
 {
 	return m_oSize;
