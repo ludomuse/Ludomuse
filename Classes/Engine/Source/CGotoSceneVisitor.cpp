@@ -1,5 +1,6 @@
 #include "../Include/CGotoSceneVisitor.h"
 #include "../Include/CSceneNode.h"
+#include "../Include/CSequenceNode.h"
 
 #include "cocos2d.h"
 
@@ -22,6 +23,8 @@ Result CGotoSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
   {
     if (pSceneNode->GetSceneID() == m_sSceneID)
     {
+		CSequenceNode* pSequence = dynamic_cast<CSequenceNode*>(pSceneNode->GetParent());
+		pSequence->SetCurrentNode(pSceneNode);
       Scene* pNewScene = pSceneNode->CreateScene();
       pSceneNode->init();
 
