@@ -68,7 +68,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
   {
 
     // Check if the entity intersects the touch event
-    Vec2 oTouchLocation = m_pTouch->getLocationInView();
+	  Vec2 oTouchLocation = m_pTouch->getStartLocation();
     Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
     if (oBoundingBox.containsPoint(oTouchLocation))
     {
@@ -93,9 +93,9 @@ Result CTouchBeganVisitor::ProcessNodeBottomUp(CNode* a_pNode)
 	// (GetCocosEntity does not return the right thing)
 	if (pEntity && !pMenuNode)
 	{
-		Vec2 oToucheLocation = m_pTouch->getLocationInView();
+		Vec2 oTouchLocation = m_pTouch->getLocation();
 		Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-		if (oBoundingBox.containsPoint(oToucheLocation))
+		if (oBoundingBox.containsPoint(oTouchLocation))
 		{
 			m_bStopVisiting = true;
 			return RESULT_STOP;
