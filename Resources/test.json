@@ -223,7 +223,13 @@
                                         "x": 0,
                                         "y": 0,
                                         "listeners": [
-                                            "Touch"
+                                            {
+                                                "type": "Touch",
+                                                "params" : {
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-1-a"
+                                                }
+                                            }
                                         ]
                                     }
                                 }

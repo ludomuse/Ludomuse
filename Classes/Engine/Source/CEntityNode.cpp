@@ -25,21 +25,21 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 }
 
 
-void CEntityNode::AddListener(const std::string& a_rEvent, const CCallback<CKernel, const std::string& >& a_rCallback)
+void CEntityNode::AddListener(const std::string& a_rEvent, const CCallback<CKernel, std::string >& a_rCallback)
 {
-	m_mListeners.insert(std::pair<std::string, CCallback<CKernel, const std::string&> >(a_rEvent, a_rCallback));
+	m_mListeners.insert(std::pair<std::string, CCallback<CKernel, std::string> >(a_rEvent, a_rCallback));
 }
 
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
-	std::map<std::string, CCallback<CKernel, const std::string&> >::iterator it = m_mListeners.find(a_rEvent);
+	std::map<std::string, CCallback<CKernel, std::string> >::iterator it = m_mListeners.find(a_rEvent);
 	return (it != m_mListeners.end());
 }
 
 
 void CEntityNode::Dispatch(const std::string& a_rEvent)
 {
-	std::map<std::string, CCallback<CKernel, const std::string&> >::iterator it = m_mListeners.find(a_rEvent);
+	std::map<std::string, CCallback<CKernel, std::string> >::iterator it = m_mListeners.find(a_rEvent);
 	it->second(a_rEvent);
 }
 

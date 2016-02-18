@@ -44,7 +44,7 @@ class CKernel
 
   bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
-  void GotoScreenID(const std::string& a_rID);
+  void GotoScreenID(std::string a_rID);
 
   void SendMessage(cocos2d::Ref* pSender);
   void Connect(cocos2d::Ref* pSender);

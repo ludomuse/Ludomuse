@@ -178,8 +178,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		RefJsonNode rListeners = rParams["listeners"];
 		for (int i = 0; i < rListeners.Size(); ++i)
 		{
-			CCallback<CKernel, const std::string&> oCallback(m_pKernel, &CKernel::GotoScreenID);
-			pEntity->AddListener(rListeners[i].GetString(), oCallback);
+			ParseCallback(rListeners[i], pEntity);
 		}
 	}
 

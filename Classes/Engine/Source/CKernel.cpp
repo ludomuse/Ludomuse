@@ -80,7 +80,7 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 }
 
 
-void CKernel::GotoScreenID(const std::string& a_rID)
+void CKernel::GotoScreenID(std::string a_rID)
 {
 	LogMessage("GotoScreenID : " + a_rID);
 }

@@ -71,7 +71,7 @@ class CEntityNode : public CNode
   int m_iHeight;
 
   /// \brief the events the entity is listening to
-  std::map<std::string, CCallback<CKernel, const std::string&> > m_mListeners;
+  std::map<std::string, CCallback<CKernel, std::string> > m_mListeners;
 
   /// \brief the corresponging cocos2d entity 
   cocos2d::Node* m_pCocosEntity;
@@ -91,7 +91,7 @@ class CEntityNode : public CNode
   virtual cocos2d::Node* GetCocosEntity();
 
   /// \brief subscribe the entity to a_rEvent
-  void AddListener(const std::string& a_rEvent, const CCallback<CKernel, const std::string&>& a_rCallback);
+  void AddListener(const std::string& a_rEvent, const CCallback<CKernel, std::string>& a_rCallback);
 
   /// \brief checks if the entity is listening to 
   bool IsListeningTo(const std::string& a_rEvent);

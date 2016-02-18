@@ -39,5 +39,22 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 }
 
 
+void CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
+{
+
+	std::string sType = a_rListener["type"].GetString();
+
+	if (sType == "Touch")
+	{
+		std::string sCallbackString = a_rListener["params"]["callback"].GetString();
+		if (sCallbackString == "GotoSceneID")
+		{
+			CCallback<CKernel, std::string> oCallback(m_pKernel, &CKernel::GotoScreenID, a_rListener["params"]["arg"].GetString());
+			a_pEntity->AddListener(sType, oCallback);
+		}
+	}
+
+}
+
 
 } // namespace LM
