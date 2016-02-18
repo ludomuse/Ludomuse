@@ -3,6 +3,7 @@
 #include "../Include/CSceneNode.h"
 #include "../Include/CTransitionVisitor.h"
 #include "../Include/CTouchBeganVisitor.h"
+#include "../Include/CGotoSceneVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
@@ -83,6 +84,9 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 void CKernel::GotoScreenID(std::string a_rID)
 {
 	LogMessage("GotoScreenID : " + a_rID);
+	CGotoSceneVisitor oVisitor(a_rID);
+	oVisitor.Traverse(m_pBehaviorTree);
+
 }
 
 

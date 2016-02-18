@@ -146,6 +146,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CEntityNode.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CGotoSceneVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CGridNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CGroupNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CInputManager.cpp" />
@@ -170,6 +171,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\Engine\Include\CCallback.h" />
     <ClInclude Include="..\Classes\Engine\Include\CEntityNode.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CGotoSceneVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CGridNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CGroupNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CInputManager.h" />

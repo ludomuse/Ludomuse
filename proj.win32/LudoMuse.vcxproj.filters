@@ -75,6 +75,9 @@
     <ClCompile Include="..\Classes\Engine\Source\CTouchBeganVisitor.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CGotoSceneVisitor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -144,6 +147,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CTouchBeganVisitor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CGotoSceneVisitor.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

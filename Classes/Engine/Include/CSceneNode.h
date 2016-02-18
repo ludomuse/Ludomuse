@@ -32,8 +32,7 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
 
   virtual bool init();
 
-  // TMP, TODO : remove
-  void menuCloseCallback(Ref* pSender);
+  const std::string& GetSceneID() const;
 
   CREATE_FUNC(CSceneNode);
 };
