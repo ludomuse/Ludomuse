@@ -28,7 +28,7 @@ Result CGotoSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
       Scene* pNewScene = pSceneNode->CreateScene();
       pSceneNode->init();
 
-      Director::getInstance()->replaceScene(TransitionPageTurn::create(1.5f, pNewScene, false));
+      Director::getInstance()->replaceScene(TransitionShrinkGrow::create(1.5f, pNewScene));
       return RESULT_PRUNE;
     }
   }
