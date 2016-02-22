@@ -5,6 +5,10 @@
 #include "cocos2d.h"
 #include "CNode.h"
 
+
+#include "../Include/CValidateSceneVisitor.h"
+
+
 namespace LM 
 {
 
@@ -44,7 +48,9 @@ class CKernel
 
   bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
-  void GotoScreenID(std::string a_rID);
+  void GotoScreenID(std::string a_sID);
+
+  void ValidateScene(SValidateSceneArgs a_oArgs);
 
   void SendMessage(cocos2d::Ref* pSender);
   void Connect(cocos2d::Ref* pSender);

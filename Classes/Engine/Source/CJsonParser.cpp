@@ -4,6 +4,7 @@
 #include "../../cocos2d/external/json/filestream.h"
 #include "../../cocos2d/external/json/stringbuffer.h"
 
+#include "../Include/CValidateSceneVisitor.h"
 
 using namespace cocos2d;
 
@@ -43,14 +44,29 @@ void CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 {
 
 	std::string sType = a_rListener["type"].GetString();
+	std::string sCallbackString = a_rListener["params"]["callback"].GetString();
 
 	if (sType == "Touch")
 	{
-		std::string sCallbackString = a_rListener["params"]["callback"].GetString();
 		if (sCallbackString == "GotoSceneID")
 		{
 			CCallback<CKernel, std::string> oCallback(m_pKernel, &CKernel::GotoScreenID, a_rListener["params"]["arg"].GetString());
 			a_pEntity->AddListener(sType, oCallback);
+		}
+		else if (sCallbackString == "ValidateScene")
+		{
+			CCallback<CKernel, SValidateSceneArgs> oCallback(m_pKernel, &CKernel::ValidateScene,
+				SValidateSceneArgs(a_rListener["params"]["arg"].GetBool(), a_pEntity));
+			//a_pEntity->AddListener(sType, oCallback);
+		}
+	}
+	else if (sType == "Validate")
+	{
+		if (sCallbackString == "show")
+		{
+			a_pEntity->SetVisible(false);
+			CCallback<Node, bool> oCallback(a_pEntity->GetCocosEntity(), &Node::setVisible, true);
+			//a_pEntity->AddListener(sType, oCallback);
 		}
 	}
 

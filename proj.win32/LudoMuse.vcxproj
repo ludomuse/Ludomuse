@@ -162,6 +162,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Engine\Source\CSpriteNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CTouchBeganVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CTransitionVisitor.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CValidateSceneVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CVisitor.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\Classes\Modules\Networking\win\Source\CNetworkManager.cpp" />
@@ -188,6 +189,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CSpriteNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CTouchBeganVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CTransitionVisitor.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CValidateSceneVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CVisitor.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\Modules\Networking\win\Include\CNetworkManager.h" />

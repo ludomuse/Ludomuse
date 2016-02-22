@@ -81,12 +81,19 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 }
 
 
-void CKernel::GotoScreenID(std::string a_rID)
+void CKernel::GotoScreenID(std::string a_sID)
 {
-	LogMessage("GotoScreenID : " + a_rID);
-	CGotoSceneVisitor oVisitor(a_rID);
+	LogMessage("GotoScreenID : " + a_sID);
+	CGotoSceneVisitor oVisitor(a_sID);
 	oVisitor.Traverse(m_pBehaviorTree);
 
+}
+
+void CKernel::ValidateScene(SValidateSceneArgs a_oArgs)
+{
+	LogMessage("ValidateScene : " + a_oArgs.bValidate);
+	CValidateSceneVisitor oVisitor(a_oArgs);
+	oVisitor.Traverse(m_pBehaviorTree);
 }
 
 

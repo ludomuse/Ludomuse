@@ -127,15 +127,7 @@
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
-                            "action": "next",
-                            "listeners": [
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "show"
-                                    }
-                                }
-                            ]
+                            "action": "next"
                         }
                     }
                 ],
@@ -176,8 +168,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": true
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-1-a"
                                                 }
                                             }
                                         ]
@@ -198,8 +190,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-2-a"
                                                 }
                                             }
                                         ]                                        
@@ -220,8 +212,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-3-a"
                                                 }
                                             }
                                         ]
@@ -242,8 +234,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-4-a"
                                                 }
                                             }
                                         ]
@@ -317,8 +309,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": true                                                
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-1-a"
                                                 }
                                             }
                                         ]
@@ -339,8 +331,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-2-a"
                                                 }
                                             }
                                         ]                                        
@@ -361,8 +353,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-3-a"
                                                 }
                                             }
                                         ]
@@ -383,8 +375,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-4-a"
                                                 }
                                             }
                                         ]
@@ -457,8 +449,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": true                                                
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-1-a"
                                                 }
                                             }
                                         ]
@@ -479,8 +471,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-2-a"
                                                 }
                                             }
                                         ]                                        
@@ -501,8 +493,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-3-a"
                                                 }
                                             }
                                         ]
@@ -523,8 +515,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-4-a"
                                                 }
                                             }
                                         ]
@@ -593,8 +585,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": true                                                
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-1-a"
                                                 }
                                             }
                                         ]
@@ -615,8 +607,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-2-a"
                                                 }
                                             }
                                         ]                                        
@@ -637,8 +629,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-3-a"
                                                 }
                                             }
                                         ]
@@ -659,8 +651,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params" : {
-                                                    "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "callback": "GotoSceneID",
+                                                    "arg": "screen-4-a"
                                                 }
                                             }
                                         ]
