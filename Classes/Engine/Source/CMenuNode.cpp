@@ -86,7 +86,8 @@ Vec2 CMenuNode::GetOrigin()
 
 Node* CMenuNode::GetCocosEntity()
 {
-	return m_pMenuItemImage;
+	//return m_pMenuItemImage;
+	return m_pCocosEntity;
 }
 
 } // namespace LM

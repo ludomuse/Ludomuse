@@ -3,25 +3,22 @@
 
 #include "CVisitor.h"
 
+#include "CCallback.h"
+
 namespace LM
 {
-
-struct SValidateSceneArgs
-{
-  bool bValidate;
-  CNode* pSender;
-
-  SValidateSceneArgs(bool a_bValidate, CNode* a_pSender);
-};
 
 class CValidateSceneVisitor : public CVisitor
 {
 
  private:
-  SValidateSceneArgs m_oArgs;
+	 bool m_bValidate;
+	 CNode* m_pSender;
 
  public:
-  CValidateSceneVisitor(SValidateSceneArgs a_oArgs);
+  CValidateSceneVisitor(const CEvent& a_rEvent);
+
+  virtual void Traverse(CNode* a_pNode);
 
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
   

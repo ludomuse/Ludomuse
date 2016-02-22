@@ -30,6 +30,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CMenuNode.cpp \
                    ../../Classes/Engine/Source/CTransitionVisitor.cpp \
                    ../../Classes/Engine/Source/CTouchBeganVisitor.cpp \
+                   ../../Classes/Engine/Source/CGotoSceneVisitor.cpp \
+                   ../../Classes/Engine/Source/CValidateSceneVisitor.cpp \
                    ../../Classes/Engine/Source/CGroupNode.cpp \
                    ../../Classes/Engine/Source/CGridNode.cpp \
                    ../../Classes/Modules/Networking/android/Source/CNetworkManager.cpp \

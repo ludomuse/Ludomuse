@@ -50,14 +50,15 @@ void CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	{
 		if (sCallbackString == "GotoSceneID")
 		{
-			CCallback<CKernel, std::string> oCallback(m_pKernel, &CKernel::GotoScreenID, a_rListener["params"]["arg"].GetString());
+			CEventCallback oCallback(m_pKernel, &CKernel::GotoScreenID, 
+				CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 			a_pEntity->AddListener(sType, oCallback);
 		}
 		else if (sCallbackString == "ValidateScene")
 		{
-			CCallback<CKernel, SValidateSceneArgs> oCallback(m_pKernel, &CKernel::ValidateScene,
-				SValidateSceneArgs(a_rListener["params"]["arg"].GetBool(), a_pEntity));
-			//a_pEntity->AddListener(sType, oCallback);
+			CEventCallback oCallback(m_pKernel, &CKernel::ValidateScene,
+				CEvent(a_pEntity, sCallbackString, a_rListener["params"]["arg"].GetBool()));
+			a_pEntity->AddListener(sType, oCallback);
 		}
 	}
 	else if (sType == "Validate")
@@ -65,8 +66,9 @@ void CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 		if (sCallbackString == "show")
 		{
 			a_pEntity->SetVisible(false);
-			CCallback<Node, bool> oCallback(a_pEntity->GetCocosEntity(), &Node::setVisible, true);
-			//a_pEntity->AddListener(sType, oCallback);
+			CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible, 
+				CEvent(a_pEntity, sCallbackString, true));
+			a_pEntity->AddListener(sType, oCallback);
 		}
 	}
 
