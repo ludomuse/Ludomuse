@@ -12,7 +12,7 @@ class CGotoSceneVisitor : public CVisitor
   std::string m_sSceneID;
 
  public:
-  CGotoSceneVisitor(const std::string& a_sSceneID);
+  CGotoSceneVisitor(const std::string& a_rSceneID);
 
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
 };
