@@ -41,6 +41,8 @@ class CMenuNode : public CEntityNode
 
   virtual cocos2d::Vec2 GetOrigin() override;
 
+  virtual cocos2d::Node* GetCocosEntity() override;
+
 };
 
 } // namespace LM

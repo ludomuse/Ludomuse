@@ -4,6 +4,7 @@
 #include "../Include/CTransitionVisitor.h"
 #include "../Include/CTouchBeganVisitor.h"
 #include "../Include/CGotoSceneVisitor.h"
+#include "../Include/CValidateSceneVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
@@ -81,12 +82,28 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 }
 
 
-void CKernel::GotoScreenID(std::string a_rID)
+void CKernel::GotoScreenID(CEvent a_oEvent)
 {
-	LogMessage("GotoScreenID : " + a_rID);
-	CGotoSceneVisitor oVisitor(a_rID);
+	LogMessage("GotoScreenID : " + a_oEvent.m_sStringValue);
+	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue);
 	oVisitor.Traverse(m_pBehaviorTree);
 
+}
+
+void CKernel::ValidateScene(CEvent a_oEvent)
+{
+	LogMessage("ValidateScene : " + a_oEvent.m_bBoolValue);
+	CValidateSceneVisitor oVisitor(a_oEvent);
+	oVisitor.Traverse(m_pBehaviorTree);
+}
+
+void CKernel::SetNodeVisible(CEvent a_oEvent)
+{
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	if (pEntity)
+	{
+		pEntity->GetCocosEntity()->setVisible(a_oEvent.m_bBoolValue);
+	}
 }
 
 

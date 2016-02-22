@@ -70,8 +70,10 @@ class CEntityNode : public CNode
   /// \brief the height of the entity on the screen
   int m_iHeight;
 
+  bool m_bVisible;
+
   /// \brief the events the entity is listening to
-  std::map<std::string, CCallback<CKernel, std::string> > m_mListeners;
+  std::map<std::string, CEventCallback> m_mListeners;
 
   /// \brief the corresponging cocos2d entity 
   cocos2d::Node* m_pCocosEntity;
@@ -91,13 +93,16 @@ class CEntityNode : public CNode
   virtual cocos2d::Node* GetCocosEntity();
 
   /// \brief subscribe the entity to a_rEvent
-  void AddListener(const std::string& a_rEvent, const CCallback<CKernel, std::string>& a_rCallback);
+  void AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback);
 
   /// \brief checks if the entity is listening to 
   bool IsListeningTo(const std::string& a_rEvent);
 
   /// \brief dispatch this event to the entity
   void Dispatch(const std::string& a_rEvent);
+
+  virtual void SetVisible(bool a_bVisible);
+
 
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
@@ -114,6 +119,7 @@ class CEntityNode : public CNode
   virtual cocos2d::Size GetVisibleSize();
 
   virtual cocos2d::Vec2 GetOrigin();
+
 
 };
 

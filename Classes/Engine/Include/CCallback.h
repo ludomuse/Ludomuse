@@ -8,6 +8,27 @@
 namespace LM
 {
 
+
+struct CEvent
+{
+
+public:
+	CNode* m_pSender;
+	std::string m_sStringValue;
+	bool m_bBoolValue;
+	int m_iIntValue;
+
+	CEvent(CNode* a_pSender = nullptr, std::string a_sStringValue = "", bool a_bBoolValue = true, int a_iIntValue = 0) :
+		m_pSender(a_pSender),
+		m_sStringValue(a_sStringValue),
+		m_bBoolValue(a_bBoolValue),
+		m_iIntValue(a_iIntValue)
+	{
+
+	}
+
+};
+
 template <class T, typename Arg>
 class CCallback
 {
@@ -43,6 +64,7 @@ public:
   
 };
 
+typedef CCallback<CKernel, CEvent> CEventCallback;
 
 } // namespace LM
 

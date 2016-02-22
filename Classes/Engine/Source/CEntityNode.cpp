@@ -15,7 +15,8 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 	m_iXPosition(a_iXPosition),
     m_iYPosition(a_iYPosition),
 	m_iWidth(a_iWidth),
-	m_iHeight(a_iHeight)
+	m_iHeight(a_iHeight),
+	m_bVisible(true)
 {
 }
 
@@ -25,21 +26,21 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 }
 
 
-void CEntityNode::AddListener(const std::string& a_rEvent, const CCallback<CKernel, std::string >& a_rCallback)
+void CEntityNode::AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback)
 {
-	m_mListeners.insert(std::pair<std::string, CCallback<CKernel, std::string> >(a_rEvent, a_rCallback));
+	m_mListeners.insert(std::pair<std::string, CEventCallback>(a_rEvent, a_rCallback));
 }
 
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
-	std::map<std::string, CCallback<CKernel, std::string> >::iterator it = m_mListeners.find(a_rEvent);
+	std::map<std::string, CEventCallback>::iterator it = m_mListeners.find(a_rEvent);
 	return (it != m_mListeners.end());
 }
 
 
 void CEntityNode::Dispatch(const std::string& a_rEvent)
 {
-	std::map<std::string, CCallback<CKernel, std::string> >::iterator it = m_mListeners.find(a_rEvent);
+	std::map<std::string, CEventCallback>::iterator it = m_mListeners.find(a_rEvent);
 	it->second();
 }
 
@@ -126,6 +127,8 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 		pScene->addChild(m_pCocosEntity, 0);
 	}
 
+
+	m_pCocosEntity->setVisible(m_bVisible);
 }
 
 
@@ -183,6 +186,11 @@ Vec2 CEntityNode::GetOrigin()
 {
 	Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
 	return Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
+}
+
+void CEntityNode::SetVisible(bool a_bVisible)
+{
+	m_bVisible = a_bVisible;
 }
 
 } // namespace LM

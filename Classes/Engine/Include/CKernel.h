@@ -5,12 +5,14 @@
 #include "cocos2d.h"
 #include "CNode.h"
 
+
 namespace LM 
 {
 
 class CInputManager;
 class CJsonParser;
 class CNetworkManager;
+struct CEvent;
 
 /// \class CKernel
 /// \ingroup Engine
@@ -44,7 +46,11 @@ class CKernel
 
   bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
-  void GotoScreenID(std::string a_rID);
+  void GotoScreenID(CEvent a_oEvent);
+
+  void ValidateScene(CEvent a_oEvent);
+
+  void SetNodeVisible(CEvent a_oEvent);
 
   void SendMessage(cocos2d::Ref* pSender);
   void Connect(cocos2d::Ref* pSender);

@@ -23,7 +23,7 @@ CMenuNode::CMenuNode(const std::string& a_rNormalImage,
 
 void CMenuNode::Init()
 {
-  auto m_pMenuItemImage = MenuItemImage::create(
+  m_pMenuItemImage = MenuItemImage::create(
       m_sNormalImage,
       m_sSelectedImage,
       m_fpClickedCallback);
@@ -82,6 +82,12 @@ Size CMenuNode::GetVisibleSize()
 Vec2 CMenuNode::GetOrigin()
 {
 	return m_oOrigin;
+}
+
+Node* CMenuNode::GetCocosEntity()
+{
+	//return m_pMenuItemImage;
+	return m_pCocosEntity;
 }
 
 } // namespace LM

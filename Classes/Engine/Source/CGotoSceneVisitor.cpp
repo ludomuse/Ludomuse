@@ -9,8 +9,8 @@ using namespace cocos2d;
 namespace LM
 {
 
-CGotoSceneVisitor::CGotoSceneVisitor(const std::string& a_sSceneID) :
-    m_sSceneID(a_sSceneID)
+CGotoSceneVisitor::CGotoSceneVisitor(const std::string& a_rSceneID) :
+    m_sSceneID(a_rSceneID)
 {
   
 }
