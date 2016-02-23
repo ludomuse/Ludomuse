@@ -66,6 +66,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 		CEventCallback oCallback(m_pKernel, nullptr);
 		a_pEntity->AddListener(sType, oCallback);
 	}
+	else if (sType == "Drop")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::ValidateScene,
+			CEvent(a_pEntity, sCallbackString, a_rListener["params"]["arg"].GetBool()));
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else if (sType == "Validate")
 	{
 		if (sCallbackString == "show")

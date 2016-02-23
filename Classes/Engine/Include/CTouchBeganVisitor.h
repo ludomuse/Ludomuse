@@ -39,7 +39,7 @@ class CTouchBeganVisitor : public CVisitor
   bool OnTouchEnd(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
   bool OnTouchMove(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
-private:
+protected:
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
   virtual Result ProcessNodeBottomUp(CNode* a_pNode) override;
   

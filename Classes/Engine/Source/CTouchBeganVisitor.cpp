@@ -43,9 +43,10 @@ void CTouchBeganVisitor::Traverse(CNode* a_pNode)
       Traverse(a_pNode->GetCurrentNode());
     }
 
-	ProcessNodeBottomUp(a_pNode);
-
   }
+
+  ProcessNodeBottomUp(a_pNode);
+
 }
 
 
@@ -83,7 +84,12 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			CEntityNode* pDropEntity = m_pKernel->FindEntity(a_pTouch, "Drop");
 			if (pDropEntity)
 			{
+				pDropEntity->Dispatch("Drop");
 
+				auto oFadeOut = FadeOut::create(1.0f);
+				auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
+
+				pEntity->GetCocosEntity()->runAction(oSequence);
 			}
 			else
 			{
@@ -193,8 +199,6 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 Result CTouchBeganVisitor::ProcessNodeBottomUp(CNode* a_pNode)
 {
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
-	// MenuNode gets a special treatment because it is not well managed by cocos
-	// (GetCocosEntity does not return the right thing)
 	if (pEntity)
 	{
 		Vec2 oTouchLocation = m_pTouch->getLocation();

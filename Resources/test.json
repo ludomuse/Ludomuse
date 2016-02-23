@@ -232,10 +232,10 @@
                                         "color": "",
                                         "listeners": [
                                             {
-                                                "type": "Touch",
+                                                "type": "Drop",
                                                 "params" : {
                                                     "callback": "ValidateScene",
-                                                    "arg": false
+                                                    "arg": true
                                                 }
                                             }
                                         ]

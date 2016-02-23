@@ -5,6 +5,7 @@
 #include "../Include/CTouchBeganVisitor.h"
 #include "../Include/CGotoSceneVisitor.h"
 #include "../Include/CValidateSceneVisitor.h"
+#include "../Include/CFindEntityVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
@@ -114,8 +115,8 @@ void CKernel::SetNodeVisible(CEvent a_oEvent)
 CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 {
 	CEntityNode* pEntity = nullptr;
-	//CFindEntityVisitor oVisitor(a_pTouch, pEntity, a_sEvent);
-	//oVisitor.Traverse(m_pBehaviorTree);
+	CFindEntityVisitor oVisitor(a_pTouch, &pEntity, a_sEvent);
+	oVisitor.Traverse(m_pBehaviorTree);
 	return pEntity;
 }
 
