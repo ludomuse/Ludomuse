@@ -6,8 +6,11 @@
 
 #include "cocos2d.h"
 
+
 namespace LM
 {
+
+
 
 class CTouchBeganVisitor : public CVisitor
 {  
@@ -16,6 +19,9 @@ class CTouchBeganVisitor : public CVisitor
   cocos2d::Event* m_pEvent;
 
   CEntityNode* m_pTouchBeganEntity;
+  cocos2d::Vec2 m_oEntityPosition;
+  float m_fEntityScale;
+
   std::string m_sListenEvent;
 
   bool m_bStopVisiting;

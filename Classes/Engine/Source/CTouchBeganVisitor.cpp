@@ -65,6 +65,12 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 		else if (m_sListenEvent == "Move")
 		{
 			// Traverse the tree to find a drop area
+
+			auto oMoveTo = MoveTo::create(0.5, m_oEntityPosition);
+			m_pTouchBeganEntity->GetCocosEntity()->runAction(oMoveTo);
+			
+			auto oScaleTo = ScaleTo::create(0.5, m_fEntityScale);
+			m_pTouchBeganEntity->GetCocosEntity()->runAction(oScaleTo);
 		}
 	}
 	return true;
@@ -80,7 +86,9 @@ bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 		}
 		else if (m_sListenEvent == "Move")
 		{
-			m_pTouchBeganEntity->GetCocosEntity()->setPosition(a_pTouch->getLocation());
+			Vec2 oMoveVector = a_pTouch->getLocation() - a_pTouch->getPreviousLocation();
+			Vec2 oEntityLocation = m_pTouchBeganEntity->GetCocosEntity()->getPosition();
+			m_pTouchBeganEntity->GetCocosEntity()->setPosition(oEntityLocation + oMoveVector);
 		}
 	}
 	return true;
@@ -110,7 +118,15 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 	  {
 		  m_pTouchBeganEntity = pEntity;
 		  m_sListenEvent = "Move";
-		  m_pTouchBeganEntity->GetCocosEntity()->setScale(1.2f);
+		  m_oEntityPosition = m_pTouchBeganEntity->GetCocosEntity()->getPosition();
+		  m_fEntityScale = m_pTouchBeganEntity->GetCocosEntity()->getScale();
+
+		  auto oScaleTo1 = ScaleTo::create(0.05f, 2 * m_fEntityScale);
+		  auto oScaleTo2 = ScaleTo::create(0.1f, 1.5 * m_fEntityScale);
+
+		  auto oSequence = Sequence::create(oScaleTo1, oScaleTo2, nullptr);
+
+		  m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
 		  return RESULT_PRUNE;
 	  }
       
