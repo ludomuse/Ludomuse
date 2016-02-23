@@ -29,6 +29,8 @@ class CInputManager
   /// \param[in] a_pTouch the touch event
   /// \param[in] a_pEvent the cocos Event corresponding to this touch
   bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
+
+  cocos2d::EventListenerTouchOneByOne* GetEventListener();
 };
 
 } // namespace LM

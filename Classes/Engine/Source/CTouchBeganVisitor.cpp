@@ -1,6 +1,5 @@
 #include "../Include/CTouchBeganVisitor.h"
 
-#include "../Include/CEntityNode.h"
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
 
@@ -14,7 +13,8 @@ namespace LM
 CTouchBeganVisitor::CTouchBeganVisitor(Touch* a_pTouch, Event* a_pEvent) :
     m_pTouch(a_pTouch),
     m_pEvent(a_pEvent),
-	m_bStopVisiting(false)
+	m_bStopVisiting(false),
+	m_pTouchBeganEntity(nullptr)
 {
 }
 
@@ -27,19 +27,8 @@ void CTouchBeganVisitor::Traverse(CNode* a_pNode)
     CSceneNode* pScene = dynamic_cast<CSceneNode*>(a_pNode);
     if (pEntity || pScene)
     {
-      // TODO : traverse in decreasing order of z-index
+      // traverse in decreasing order of z-index
 		std::vector<CNode*> oNodes = a_pNode->GetChildren();
-		//std::sort(oNodes.begin(), oNodes.end(), [](CNode* pLeftNode, CNode* pRightNode) {
-		//	CEntityNode* pLeftEntity = dynamic_cast<CEntityNode*>(pLeftNode);
-		//	CEntityNode* pRightEntity = dynamic_cast<CEntityNode*>(pRightNode);
-		//	if (pRightEntity && pLeftEntity)
-		//	{
-		//		int iLeftOrder = pLeftEntity->GetCocosEntity()->getLocalZOrder();
-		//		int iRightOrder = pRightEntity->GetCocosEntity()->getLocalZOrder();
-		//		return  iLeftOrder > iRightOrder;					
-		//	}
-		//	return true;
-		//});
 		for (int i = oNodes.size() - 1; i >= 0; --i)
 		{
 			// stop traversing the tree
@@ -59,6 +48,22 @@ void CTouchBeganVisitor::Traverse(CNode* a_pNode)
 }
 
 
+bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
+{
+	if (m_pTouchBeganEntity)
+	{
+		CCLOG("TouchEnd");
+		Vec2 oTouchLocation = a_pTouch->getLocation();
+		Rect oBoundingBox = m_pTouchBeganEntity->GetCocosEntity()->getBoundingBox();
+		if (oBoundingBox.containsPoint(oTouchLocation))
+		{
+			m_pTouchBeganEntity->Dispatch(m_sListenEvent);
+		}
+	}
+	return true;
+}
+
+
 Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 {
   
@@ -74,8 +79,9 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
       // if so and if listenning to touch, dispatch the event to the entity
       if (pEntity->IsListeningTo("Touch"))
       {
-        pEntity->Dispatch("Touch");
-		return RESULT_PRUNE;
+		  m_pTouchBeganEntity = pEntity;
+		  m_sListenEvent = "Touch";
+		  return RESULT_PRUNE;
       }
       
     }

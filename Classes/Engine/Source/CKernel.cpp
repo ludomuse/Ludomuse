@@ -78,6 +78,10 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
 	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent);
 	oVisistor.Traverse(m_pBehaviorTree);
+
+	EventListenerTouchOneByOne* pEventListener = m_pInputManager->GetEventListener();
+	pEventListener->onTouchEnded = CC_CALLBACK_2(CTouchBeganVisitor::OnTouchEnd, oVisistor);
+
 	return true;
 }
 

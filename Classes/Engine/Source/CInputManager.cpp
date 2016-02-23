@@ -12,8 +12,8 @@ CInputManager::CInputManager(CKernel* a_pKernel) : m_pKernel(a_pKernel)
   m_pEventListener = EventListenerTouchOneByOne::create();
   m_pEventListener->onTouchBegan = CC_CALLBACK_2(CInputManager::OnTouchBegan, this);
 
-  auto pEventDispatecher = Director::getInstance()->getEventDispatcher();
-  pEventDispatecher->addEventListenerWithFixedPriority(m_pEventListener, 1);
+  auto pEventDispatcher = Director::getInstance()->getEventDispatcher();
+  pEventDispatcher->addEventListenerWithFixedPriority(m_pEventListener, 1);
 }
 
 
@@ -25,5 +25,10 @@ bool CInputManager::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 	return true;
 }
 
+
+EventListenerTouchOneByOne* CInputManager::GetEventListener()
+{
+	return m_pEventListener;
+}
 
 } // namespace LM
