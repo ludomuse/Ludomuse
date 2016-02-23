@@ -61,6 +61,11 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			a_pEntity->AddListener(sType, oCallback);
 		}
 	}
+	else if (sType == "Move")
+	{
+		CEventCallback oCallback(m_pKernel, nullptr);
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else if (sType == "Validate")
 	{
 		if (sCallbackString == "show")

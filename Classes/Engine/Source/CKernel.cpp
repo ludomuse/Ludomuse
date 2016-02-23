@@ -81,6 +81,7 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 
 	EventListenerTouchOneByOne* pEventListener = m_pInputManager->GetEventListener();
 	pEventListener->onTouchEnded = CC_CALLBACK_2(CTouchBeganVisitor::OnTouchEnd, oVisistor);
+	pEventListener->onTouchMoved = CC_CALLBACK_2(CTouchBeganVisitor::OnTouchMove, oVisistor);
 
 	return true;
 }

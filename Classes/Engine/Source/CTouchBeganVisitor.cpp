@@ -52,12 +52,35 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
 	if (m_pTouchBeganEntity)
 	{
-		CCLOG("TouchEnd");
-		Vec2 oTouchLocation = a_pTouch->getLocation();
-		Rect oBoundingBox = m_pTouchBeganEntity->GetCocosEntity()->getBoundingBox();
-		if (oBoundingBox.containsPoint(oTouchLocation))
+		if (m_sListenEvent == "Touch")
 		{
-			m_pTouchBeganEntity->Dispatch(m_sListenEvent);
+			CCLOG("TouchEnd");
+			Vec2 oTouchLocation = a_pTouch->getLocation();
+			Rect oBoundingBox = m_pTouchBeganEntity->GetCocosEntity()->getBoundingBox();
+			if (oBoundingBox.containsPoint(oTouchLocation))
+			{
+				m_pTouchBeganEntity->Dispatch(m_sListenEvent);
+			}
+		}
+		else if (m_sListenEvent == "Move")
+		{
+			// Traverse the tree to find a drop area
+		}
+	}
+	return true;
+}
+
+bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
+{
+	if (m_pTouchBeganEntity)
+	{
+		if (m_sListenEvent == "Touch")
+		{
+			// if listen to touch change the entity when leaving it
+		}
+		else if (m_sListenEvent == "Move")
+		{
+			m_pTouchBeganEntity->GetCocosEntity()->setPosition(a_pTouch->getLocation());
 		}
 	}
 	return true;
@@ -76,13 +99,20 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
     if (oBoundingBox.containsPoint(oTouchLocation))
     {
-      // if so and if listenning to touch, dispatch the event to the entity
+      // if so and if listenning to touch/move, store the entity
       if (pEntity->IsListeningTo("Touch"))
       {
 		  m_pTouchBeganEntity = pEntity;
 		  m_sListenEvent = "Touch";
 		  return RESULT_PRUNE;
       }
+	  else if (pEntity->IsListeningTo("Move"))
+	  {
+		  m_pTouchBeganEntity = pEntity;
+		  m_sListenEvent = "Move";
+		  m_pTouchBeganEntity->GetCocosEntity()->setScale(1.2f);
+		  return RESULT_PRUNE;
+	  }
       
     }
   }
