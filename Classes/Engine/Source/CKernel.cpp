@@ -76,7 +76,7 @@ void CKernel::NavPrevious(Ref* pSender)
 
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
-	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent);
+	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
 	oVisistor.Traverse(m_pBehaviorTree);
 
 	EventListenerTouchOneByOne* pEventListener = m_pInputManager->GetEventListener();
@@ -109,6 +109,14 @@ void CKernel::SetNodeVisible(CEvent a_oEvent)
 	{
 		pEntity->Show(a_oEvent.m_bBoolValue);
 	}
+}
+
+CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
+{
+	CEntityNode* pEntity = nullptr;
+	//CFindEntityVisitor oVisitor(a_pTouch, pEntity, a_sEvent);
+	//oVisitor.Traverse(m_pBehaviorTree);
+	return pEntity;
 }
 
 

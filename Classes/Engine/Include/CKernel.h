@@ -13,6 +13,7 @@ class CInputManager;
 class CJsonParser;
 class CNetworkManager;
 struct CEvent;
+class CEntityNode;
 
 /// \class CKernel
 /// \ingroup Engine
@@ -51,6 +52,8 @@ class CKernel
   void ValidateScene(CEvent a_oEvent);
 
   void SetNodeVisible(CEvent a_oEvent);
+
+  CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_sEvent);
 
   void SendMessage(cocos2d::Ref* pSender);
   void Connect(cocos2d::Ref* pSender);

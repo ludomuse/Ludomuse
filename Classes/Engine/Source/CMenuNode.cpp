@@ -86,8 +86,13 @@ Vec2 CMenuNode::GetOrigin()
 
 Node* CMenuNode::GetCocosEntity()
 {
-	//return m_pMenuItemImage;
-	return m_pCocosEntity;
+	return m_pMenuItemImage;
+}
+
+void CMenuNode::Show(bool a_bVisible)
+{
+	m_pCocosEntity->setVisible(true);
+	CEntityNode::Show();
 }
 
 } // namespace LM

@@ -43,6 +43,8 @@ class CMenuNode : public CEntityNode
 
   virtual cocos2d::Node* GetCocosEntity() override;
 
+  virtual void Show(bool a_bVisible) override;
+
 };
 
 } // namespace LM

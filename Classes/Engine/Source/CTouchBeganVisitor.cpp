@@ -10,11 +10,12 @@ using namespace cocos2d;
 namespace LM
 {
 
-CTouchBeganVisitor::CTouchBeganVisitor(Touch* a_pTouch, Event* a_pEvent) :
+	CTouchBeganVisitor::CTouchBeganVisitor(Touch* a_pTouch, Event* a_pEvent, CKernel* a_pKernel) :
     m_pTouch(a_pTouch),
     m_pEvent(a_pEvent),
 	m_bStopVisiting(false),
-	m_pTouchBeganEntity(nullptr)
+	m_pTouchBeganEntity(nullptr),
+	m_pKernel(a_pKernel)
 {
 }
 
@@ -52,6 +53,8 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
 	if (m_pTouchBeganEntity)
 	{
+
+		// must release the entity at the end of the sequence, after animations have ended
 		CEntityNode* pEntity = m_pTouchBeganEntity;
 		auto fpReleaseEntity = CallFunc::create([pEntity]() {
 			CEntityNode::Release(pEntity);
@@ -59,7 +62,6 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 
 		if (m_sListenEvent == "Touch")
 		{
-			CCLOG("TouchEnd");
 			Vec2 oTouchLocation = a_pTouch->getLocation();
 			Rect oBoundingBox = m_pTouchBeganEntity->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
@@ -78,17 +80,25 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 		else if (m_sListenEvent == "Move")
 		{
 			// Traverse the tree to find a drop area
+			CEntityNode* pDropEntity = m_pKernel->FindEntity(a_pTouch, "Drop");
+			if (pDropEntity)
+			{
 
-			// if not intersecting a drop area :
-			auto oMoveTo = MoveTo::create(0.5, m_oEntityPosition);
-			auto oMoveToEase = EaseOut::create(oMoveTo->clone(), 0.5);
-			
-			auto oScaleTo = ScaleTo::create(0.5, m_fEntityScale);
+			}
+			else
+			{
+				// if not intersecting a drop area :
+				auto oMoveTo = MoveTo::create(0.5, m_oEntityPosition);
+				auto oMoveToEase = EaseOut::create(oMoveTo->clone(), 0.5);
 
-			auto oSpawn = Spawn::createWithTwoActions(oMoveTo, oScaleTo);
-			auto oSequence = Sequence::create(oSpawn, fpReleaseEntity, nullptr);
+				auto oScaleTo = ScaleTo::create(0.5, m_fEntityScale);
 
-			m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
+				auto oSpawn = Spawn::createWithTwoActions(oMoveTo, oScaleTo);
+				auto oSequence = Sequence::create(oSpawn, fpReleaseEntity, nullptr);
+
+				m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
+
+			}
 
 		}
 	}
@@ -183,10 +193,9 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 Result CTouchBeganVisitor::ProcessNodeBottomUp(CNode* a_pNode)
 {
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
-	CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(a_pNode);
 	// MenuNode gets a special treatment because it is not well managed by cocos
 	// (GetCocosEntity does not return the right thing)
-	if (pEntity && !pMenuNode)
+	if (pEntity)
 	{
 		Vec2 oTouchLocation = m_pTouch->getLocation();
 		Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
