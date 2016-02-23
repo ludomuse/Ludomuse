@@ -193,4 +193,17 @@ void CEntityNode::SetVisible(bool a_bVisible)
 	m_bVisible = a_bVisible;
 }
 
+void CEntityNode::Show(bool a_bVisible)
+{
+	GetCocosEntity()->setVisible(a_bVisible);
+	for (CNode* itNode : *this)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			pEntity->Show(a_bVisible);
+		}
+	}
+}
+
 } // namespace LM

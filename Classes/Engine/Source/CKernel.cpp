@@ -102,7 +102,7 @@ void CKernel::SetNodeVisible(CEvent a_oEvent)
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
 	{
-		pEntity->GetCocosEntity()->setVisible(a_oEvent.m_bBoolValue);
+		pEntity->Show(a_oEvent.m_bBoolValue);
 	}
 }
 

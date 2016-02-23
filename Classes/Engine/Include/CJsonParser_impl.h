@@ -3,7 +3,7 @@
 
 /// \brief the specialisation building entities in a scene or subentities
 template <typename T>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible)
 {
 
 	assert(a_rJsonNode["type"].IsString());
@@ -171,18 +171,17 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 
 	}
 
-
 	// check listeners
 	if (rParams.HasMember("listeners"))
 	{
 		RefJsonNode rListeners = rParams["listeners"];
 		for (int i = 0; i < rListeners.Size(); ++i)
 		{
-			ParseCallback(rListeners[i], pEntity);
+			a_bNodeVisible = ParseCallback(rListeners[i], pEntity) && a_bNodeVisible;
 		}
 	}
 
-
+	pEntity->SetVisible(a_bNodeVisible);
 
 	// recursively parse children
 	if (rParams.HasMember("children"))
@@ -190,7 +189,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		RefJsonNode rEntities = rParams["children"];
 		for (int i = 0; i < rEntities.Size(); ++i)
 		{
-			ParseJson(rEntities[i], pEntity);
+			ParseJson(rEntities[i], pEntity, a_bNodeVisible);
 		}
 	}
 	else if (rParams.HasMember("children-active") && rParams.HasMember("children-inactive"))
@@ -204,12 +203,12 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		RefJsonNode rActiveEntities = rParams["children-active"];
 		for (int i = 0; i < rActiveEntities.Size(); ++i)
 		{
-			ParseJson(rActiveEntities[i], pActive);
+			ParseJson(rActiveEntities[i], pActive, a_bNodeVisible);
 		}
 		RefJsonNode rInactiveEntities = rParams["children-inactive"];
 		for (int i = 0; i < rInactiveEntities.Size(); ++i)
 		{
-			ParseJson(rInactiveEntities[i], pInactive);
+			ParseJson(rInactiveEntities[i], pInactive, a_bNodeVisible);
 		}
 
 		pEntity->AddChildNode(pSequence);
@@ -224,7 +223,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 
 /// \brief the specialisation building a scene
 template <>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode)
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
 {
 	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString());
 	a_pNode->AddChildNode(pSceneNode);

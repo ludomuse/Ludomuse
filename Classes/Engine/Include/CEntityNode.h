@@ -103,6 +103,8 @@ class CEntityNode : public CNode
 
   virtual void SetVisible(bool a_bVisible);
 
+  virtual void Show(bool a_bVisible = true);
+
 
  protected: // methods
   /// \brief must be called at the end of the Init overloaded

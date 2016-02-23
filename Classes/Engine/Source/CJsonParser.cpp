@@ -40,7 +40,7 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 }
 
 
-void CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
+bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 {
 
 	std::string sType = a_rListener["type"].GetString();
@@ -65,13 +65,13 @@ void CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	{
 		if (sCallbackString == "show")
 		{
-			a_pEntity->SetVisible(false);
 			CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible, 
 				CEvent(a_pEntity, sCallbackString, true));
 			a_pEntity->AddListener(sType, oCallback);
+			return false;
 		}
 	}
-
+	return true;
 }
 
 

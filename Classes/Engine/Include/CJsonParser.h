@@ -48,9 +48,9 @@ private:
 	/// \params[in] a_rJsonNode the json node in the file corresponging to a_pNode in the tree
 	/// \prarams[in] a_pNode the subroot node to build the tree from
 	template <typename T>
-	void ParseJson(RefJsonNode a_rJsonNode, T* a_pNode);
+	void ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible = true);
 
-	void ParseCallback(RefJsonNode a_rJsonNode, CEntityNode* a_pEntity);
+	bool ParseCallback(RefJsonNode a_rJsonNode, CEntityNode* a_pEntity);
 };
 
 
