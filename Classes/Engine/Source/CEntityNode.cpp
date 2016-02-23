@@ -16,7 +16,8 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
     m_iYPosition(a_iYPosition),
 	m_iWidth(a_iWidth),
 	m_iHeight(a_iHeight),
-	m_bVisible(true)
+	m_bVisible(true),
+	m_bLocked(false)
 {
 }
 
@@ -205,5 +206,26 @@ void CEntityNode::Show(bool a_bVisible)
 		}
 	}
 }
+
+bool CEntityNode::IsLocked()
+{
+	return m_bLocked;
+}
+
+bool CEntityNode::Lock(CEntityNode* a_pEntity)
+{
+	if (!a_pEntity->IsLocked())
+	{
+		a_pEntity->m_bLocked = true;
+		return true;
+	}
+	return false;
+}
+
+void CEntityNode::Release(CEntityNode* a_pEntity)
+{
+	a_pEntity->m_bLocked = false;
+}
+
 
 } // namespace LM

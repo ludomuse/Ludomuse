@@ -52,6 +52,11 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
 	if (m_pTouchBeganEntity)
 	{
+		CEntityNode* pEntity = m_pTouchBeganEntity;
+		auto fpReleaseEntity = CallFunc::create([pEntity]() {
+			CEntityNode::Release(pEntity);
+		});
+
 		if (m_sListenEvent == "Touch")
 		{
 			CCLOG("TouchEnd");
@@ -63,19 +68,28 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			}
 
 			auto oTintTo = TintTo::create(0.0f, 255.0f, 255.0f, 255.0f);
-			m_pTouchBeganEntity->GetCocosEntity()->runAction(oTintTo);
+
+			auto oSequence = Sequence::create(oTintTo, fpReleaseEntity, nullptr);
+
+			m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
+
 
 		}
 		else if (m_sListenEvent == "Move")
 		{
 			// Traverse the tree to find a drop area
 
+			// if not intersecting a drop area :
 			auto oMoveTo = MoveTo::create(0.5, m_oEntityPosition);
 			auto oMoveToEase = EaseOut::create(oMoveTo->clone(), 0.5);
-			m_pTouchBeganEntity->GetCocosEntity()->runAction(oMoveToEase);
 			
 			auto oScaleTo = ScaleTo::create(0.5, m_fEntityScale);
-			m_pTouchBeganEntity->GetCocosEntity()->runAction(oScaleTo);
+
+			auto oSpawn = Spawn::createWithTwoActions(oMoveTo, oScaleTo);
+			auto oSequence = Sequence::create(oSpawn, fpReleaseEntity, nullptr);
+
+			m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
+
 		}
 	}
 	return true;
@@ -123,11 +137,14 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     // Check if the entity intersects the touch event
 	  Vec2 oTouchLocation = m_pTouch->getStartLocation();
     Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-    if (oBoundingBox.containsPoint(oTouchLocation))
+    if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked())
     {
       // if so and if listenning to touch/move, store the entity
       if (pEntity->IsListeningTo("Touch"))
       {
+
+		  CEntityNode::Lock(pEntity);
+
 		  m_pTouchBeganEntity = pEntity;
 		  m_sListenEvent = "Touch";
 
@@ -138,6 +155,9 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
       }
 	  else if (pEntity->IsListeningTo("Move"))
 	  {
+
+		  CEntityNode::Lock(pEntity);
+
 		  m_pTouchBeganEntity = pEntity;
 		  m_sListenEvent = "Move";
 		  m_oEntityPosition = m_pTouchBeganEntity->GetCocosEntity()->getPosition();

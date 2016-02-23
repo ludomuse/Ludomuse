@@ -72,6 +72,8 @@ class CEntityNode : public CNode
 
   bool m_bVisible;
 
+  bool m_bLocked;
+
   /// \brief the events the entity is listening to
   std::map<std::string, CEventCallback> m_mListeners;
 
@@ -105,6 +107,11 @@ class CEntityNode : public CNode
 
   virtual void Show(bool a_bVisible = true);
 
+  virtual bool IsLocked();
+
+  static bool Lock(CEntityNode* a_pEntity);
+
+  static void Release(CEntityNode* a_pEntity);
 
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
