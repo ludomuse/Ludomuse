@@ -185,7 +185,7 @@
                                         "height": 100,
                                         "x": 0,
                                         "y": 0,
-                                        "color": "",
+                                        "color": "255,0,0,255",
                                         "listeners": [
                                             {
                                                 "type": "Touch",

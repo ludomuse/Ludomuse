@@ -61,13 +61,18 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			{
 				m_pTouchBeganEntity->Dispatch(m_sListenEvent);
 			}
+
+			auto oTintTo = TintTo::create(0.0f, 255.0f, 255.0f, 255.0f);
+			m_pTouchBeganEntity->GetCocosEntity()->runAction(oTintTo);
+
 		}
 		else if (m_sListenEvent == "Move")
 		{
 			// Traverse the tree to find a drop area
 
 			auto oMoveTo = MoveTo::create(0.5, m_oEntityPosition);
-			m_pTouchBeganEntity->GetCocosEntity()->runAction(oMoveTo);
+			auto oMoveToEase = EaseOut::create(oMoveTo->clone(), 0.5);
+			m_pTouchBeganEntity->GetCocosEntity()->runAction(oMoveToEase);
 			
 			auto oScaleTo = ScaleTo::create(0.5, m_fEntityScale);
 			m_pTouchBeganEntity->GetCocosEntity()->runAction(oScaleTo);
@@ -83,6 +88,19 @@ bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 		if (m_sListenEvent == "Touch")
 		{
 			// if listen to touch change the entity when leaving it
+			Vec2 oTouchLocation = m_pTouch->getLocation();
+			Rect oBoundingBox = m_pTouchBeganEntity->GetCocosEntity()->getBoundingBox();
+			if (oBoundingBox.containsPoint(oTouchLocation))
+			{
+				auto oTintTo = TintTo::create(0.0f, 120.0f, 120.0f, 120.0f);
+				m_pTouchBeganEntity->GetCocosEntity()->runAction(oTintTo);
+			}
+			else
+			{
+				auto oTintTo = TintTo::create(0.0f, 255.0f, 255.0f, 255.0f);
+				m_pTouchBeganEntity->GetCocosEntity()->runAction(oTintTo);
+			}
+
 		}
 		else if (m_sListenEvent == "Move")
 		{
@@ -112,6 +130,10 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
       {
 		  m_pTouchBeganEntity = pEntity;
 		  m_sListenEvent = "Touch";
+
+		  auto oTintTo = TintTo::create(0.0f, 120.0f, 120.0f, 120.0f);
+		  m_pTouchBeganEntity->GetCocosEntity()->runAction(oTintTo);
+
 		  return RESULT_PRUNE;
       }
 	  else if (pEntity->IsListeningTo("Move"))
@@ -121,10 +143,12 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 		  m_oEntityPosition = m_pTouchBeganEntity->GetCocosEntity()->getPosition();
 		  m_fEntityScale = m_pTouchBeganEntity->GetCocosEntity()->getScale();
 
-		  auto oScaleTo1 = ScaleTo::create(0.05f, 2 * m_fEntityScale);
+		  auto oScaleTo1 = ScaleTo::create(0.1f, 2 * m_fEntityScale);
+		  auto oEaseOutBack1 = EaseBackOut::create(oScaleTo1);
+
 		  auto oScaleTo2 = ScaleTo::create(0.1f, 1.5 * m_fEntityScale);
 
-		  auto oSequence = Sequence::create(oScaleTo1, oScaleTo2, nullptr);
+		  auto oSequence = Sequence::create(oEaseOutBack1, oScaleTo2, nullptr);
 
 		  m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
 		  return RESULT_PRUNE;
