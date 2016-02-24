@@ -63,7 +63,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	}
 
 	// dummy element to test Wifi Direct
-	else if (sType == "Dummy")
+	/*else if (sType == "Dummy")
 	{
 		CCLOG("Grid construction");
            pEntity = new CMenuNode(
@@ -78,7 +78,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
                x,
                y);
 		   CCLOG("grid constructed");
-    }
+    }*/
 
 	else if (sType == "Image" || sType == "Info")
 	{

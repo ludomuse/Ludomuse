@@ -47,9 +47,7 @@ CKernel::~CKernel()
 void CKernel::Init()
 {
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
-  //CSceneNode oNode;
-  //Scene* oScene = oNode.CreateScene();
-  // node.init();
+
 	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
@@ -58,7 +56,6 @@ void CKernel::Init()
 	pFirstScene->init();
 
     cocos2d::Director::getInstance()->runWithScene(pScene);
-  
 }
 
 
@@ -127,7 +124,7 @@ void CKernel::SendMessage(Ref* pSender)
 	m_pNetworkManager->Send("Hello from the other side !");
 }
 
-void CKernel::Connect(Ref* pSender)
+void CKernel::GetPeers(Ref* pSender)
 {
 	CCLOG("Hello World !");
 
@@ -135,10 +132,15 @@ void CKernel::Connect(Ref* pSender)
 	m_pNetworkManager->DiscoverPeers();
 }
 
-void CKernel::OnGettingPeers(std::vector<std::string> a_vPeers)
+void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 {
-	CCLOG("connecting to : %s", a_vPeers[0].c_str());
-	m_pNetworkManager->ConnectTo(a_vPeers[0]);
+	
+}
+
+void CKernel::Connect(const std::string& a_sPeer)
+{
+	//LogMessage("connecting to : %s", a_sPeer.c_str());
+	m_pNetworkManager->ConnectTo(a_sPeer);
 }
 
 
