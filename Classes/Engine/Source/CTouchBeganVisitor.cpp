@@ -94,10 +94,10 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			else
 			{
 				// if not intersecting a drop area :
-				auto oMoveTo = MoveTo::create(0.5, m_oEntityPosition);
+				auto oMoveTo = MoveTo::create(0.25, m_oEntityPosition);
 				auto oMoveToEase = EaseOut::create(oMoveTo->clone(), 0.5);
 
-				auto oScaleTo = ScaleTo::create(0.5, m_fEntityScale);
+				auto oScaleTo = ScaleTo::create(0.25, m_fEntityScale);
 
 				auto oSpawn = Spawn::createWithTwoActions(oMoveTo, oScaleTo);
 				auto oSequence = Sequence::create(oSpawn, fpReleaseEntity, nullptr);
