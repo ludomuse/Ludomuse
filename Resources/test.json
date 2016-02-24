@@ -176,64 +176,91 @@
                             "height": 50,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Scène 1",
-                                        "fontSize": 24,
-                                        "anchor": 0,
                                         "width": 100,
                                         "height": 100,
-                                        "x": 0,
-                                        "y": 0,
-                                        "color": "255,0,0,255",
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": true
+                                                }
+                                            }
+                                        ],
+                                        "children": [
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Scène 1",
+                                                    "fontSize": 24,
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "color": "255,0,0,255"
                                                 }
                                             }
                                         ]
                                     }
                                 },
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Scène 2",
-                                        "fontSize": 24,
-                                        "anchor": 0,
                                         "width": 100,
                                         "height": 100,
-                                        "x": 0,
-                                        "y": 0,
-                                        "color": "",
+                                        "children": [
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Scène 2",
+                                                    "fontSize": 24,
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "color": ""
+                                                }
+                                            }
+                                        ],
                                         "listeners": [
                                             {
                                                 "type": "Move",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": false
                                                 }
                                             }
-                                        ]                                        
+                                        ]
                                     }
                                 },
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Scène 3",
-                                        "fontSize": 24,
-                                        "anchor": 0,
                                         "width": 100,
                                         "height": 100,
-                                        "x": 0,
-                                        "y": 0,
-                                        "color": "",
+                                        "children": [
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Scène 3",
+                                                    "fontSize": 24,
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "color": ""
+                                                }
+                                            }
+                                        ],
                                         "listeners": [
                                             {
                                                 "type": "Drop",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": true
                                                 }
@@ -242,20 +269,29 @@
                                     }
                                 },
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Scène 4",
-                                        "fontSize": 24,
-                                        "anchor": 0,
                                         "width": 100,
                                         "height": 100,
-                                        "x": 0,
-                                        "y": 0,
-                                        "color": "",
+                                        "children": [
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Scène 4",
+                                                    "fontSize": 24,
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "color": ""
+                                                }
+                                            }
+                                        ],
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": false
                                                 }
@@ -268,13 +304,6 @@
                     }
                 ]
             },
-
-
-
-
-
-
-
             {
                 "scene": "screen-2-a",
                 "navigation": [
@@ -299,7 +328,6 @@
                                     }
                                 }
                             ]
-
                         }
                     }
                 ],
@@ -339,9 +367,9 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
-                                                    "arg": false                                                
+                                                    "arg": false
                                                 }
                                             }
                                         ]
@@ -361,12 +389,12 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": true
                                                 }
                                             }
-                                        ]                                        
+                                        ]
                                     }
                                 },
                                 {
@@ -383,7 +411,7 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": false
                                                 }
@@ -405,7 +433,7 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": false
                                                 }
@@ -418,12 +446,6 @@
                     }
                 ]
             },
-
-
-
-
-
-
             {
                 "scene": "screen-3-a",
                 "navigation": [
@@ -448,7 +470,6 @@
                                     }
                                 }
                             ]
-
                         }
                     }
                 ],
@@ -488,9 +509,9 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
-                                                    "arg": false                                                
+                                                    "arg": false
                                                 }
                                             }
                                         ]
@@ -510,12 +531,12 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": false
                                                 }
                                             }
-                                        ]                                        
+                                        ]
                                     }
                                 },
                                 {
@@ -532,7 +553,7 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": true
                                                 }
@@ -554,7 +575,7 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": false
                                                 }
@@ -567,8 +588,6 @@
                     }
                 ]
             },
-
-
             {
                 "scene": "screen-4-a",
                 "navigation": [
@@ -593,7 +612,6 @@
                                     }
                                 }
                             ]
-
                         }
                     }
                 ],
@@ -633,9 +651,9 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
-                                                    "arg": false                                                
+                                                    "arg": false
                                                 }
                                             }
                                         ]
@@ -655,12 +673,12 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": false
                                                 }
                                             }
-                                        ]                                        
+                                        ]
                                     }
                                 },
                                 {
@@ -677,7 +695,7 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": false
                                                 }
@@ -699,7 +717,7 @@
                                         "listeners": [
                                             {
                                                 "type": "Touch",
-                                                "params" : {
+                                                "params": {
                                                     "callback": "ValidateScene",
                                                     "arg": true
                                                 }
@@ -712,8 +730,6 @@
                     }
                 ]
             }
-
-
         ]
     }
 }
