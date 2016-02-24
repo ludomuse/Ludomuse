@@ -70,11 +70,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 				m_pTouchBeganEntity->Dispatch(m_sListenEvent);
 			}
 
-			auto oTintTo = TintTo::create(0.0f, 255.0f, 255.0f, 255.0f);
-
-			auto oSequence = Sequence::create(oTintTo, fpReleaseEntity, nullptr);
-
-			m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
+			TouchStop(m_pTouchBeganEntity);
 
 
 		}
@@ -85,25 +81,13 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			if (pDropEntity)
 			{
 				pDropEntity->Dispatch("Drop");
-
-				auto oFadeOut = FadeOut::create(1.0f);
-				auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
-
-				pEntity->GetCocosEntity()->runAction(oSequence);
+				
+				DropEntity(pEntity);
 			}
 			else
 			{
 				// if not intersecting a drop area :
-				auto oMoveTo = MoveTo::create(0.25, m_oEntityPosition);
-				auto oMoveToEase = EaseOut::create(oMoveTo->clone(), 0.5);
-
-				auto oScaleTo = ScaleTo::create(0.25, m_fEntityScale);
-
-				auto oSpawn = Spawn::createWithTwoActions(oMoveTo, oScaleTo);
-				auto oSequence = Sequence::create(oSpawn, fpReleaseEntity, nullptr);
-
-				m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
-
+				MoveEntityBack(m_pTouchBeganEntity);
 			}
 
 		}
@@ -118,28 +102,149 @@ bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 		if (m_sListenEvent == "Touch")
 		{
 			// if listen to touch change the entity when leaving it
-			Vec2 oTouchLocation = m_pTouch->getLocation();
+			Vec2 oTouchLocation = a_pTouch->getLocation();
 			Rect oBoundingBox = m_pTouchBeganEntity->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
-				auto oTintTo = TintTo::create(0.0f, 120.0f, 120.0f, 120.0f);
-				m_pTouchBeganEntity->GetCocosEntity()->runAction(oTintTo);
+				TouchMoveIn(m_pTouchBeganEntity);
 			}
 			else
 			{
-				auto oTintTo = TintTo::create(0.0f, 255.0f, 255.0f, 255.0f);
-				m_pTouchBeganEntity->GetCocosEntity()->runAction(oTintTo);
+				TouchMoveOut(m_pTouchBeganEntity);
 			}
-
 		}
 		else if (m_sListenEvent == "Move")
 		{
-			Vec2 oMoveVector = a_pTouch->getLocation() - a_pTouch->getPreviousLocation();
-			Vec2 oEntityLocation = m_pTouchBeganEntity->GetCocosEntity()->getPosition();
-			m_pTouchBeganEntity->GetCocosEntity()->setPosition(oEntityLocation + oMoveVector);
+			MoveEntity(a_pTouch, m_pTouchBeganEntity);
 		}
 	}
 	return true;
+}
+
+
+
+
+
+void CTouchBeganVisitor::MoveEntity(Touch* a_pTouch, CEntityNode* a_pEntity)
+{
+	Vec2 oMoveVector = a_pTouch->getLocation() - a_pTouch->getPreviousLocation();
+	Vec2 oEntityLocation = a_pEntity->GetCocosEntity()->getPosition();
+	a_pEntity->GetCocosEntity()->setPosition(oEntityLocation + oMoveVector);
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			MoveEntity(a_pTouch, pEntity);
+		}
+	}
+}
+
+
+
+void CTouchBeganVisitor::TouchMoveOut(CEntityNode* a_pEntity)
+{
+
+	auto oTintTo = TintTo::create(0.0f, 255.0f, 255.0f, 255.0f);
+	a_pEntity->GetCocosEntity()->runAction(oTintTo);
+
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			TouchMoveOut(pEntity);
+		}
+	}
+}
+
+void CTouchBeganVisitor::TouchMoveIn(CEntityNode* a_pEntity)
+{
+	auto oTintTo = TintTo::create(0.0f, 120.0f, 120.0f, 120.0f);
+	a_pEntity->GetCocosEntity()->runAction(oTintTo);
+
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			TouchMoveIn(pEntity);
+		}
+	}
+}
+
+
+void CTouchBeganVisitor::TouchStop(CEntityNode* a_pEntity)
+{
+
+	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
+		CEntityNode::Release(a_pEntity);
+	});
+
+	auto oTintTo = TintTo::create(0.0f, 255.0f, 255.0f, 255.0f);
+	auto oSequence = Sequence::create(oTintTo, fpReleaseEntity, nullptr);
+
+	a_pEntity->GetCocosEntity()->runAction(oSequence);
+
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			TouchStop(pEntity);
+		}
+	}
+}
+
+
+void CTouchBeganVisitor::MoveEntityBack(CEntityNode* a_pEntity)
+{
+
+	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
+		CEntityNode::Release(a_pEntity);
+	});
+	auto oMoveTo = MoveTo::create(0.25, a_pEntity->GetEntityStartLocation());
+	auto oMoveToEase = EaseOut::create(oMoveTo->clone(), 0.5);
+
+	auto oScaleTo = ScaleTo::create(0.25, a_pEntity->GetEntityStartScale());
+
+	auto oSpawn = Spawn::createWithTwoActions(oMoveTo, oScaleTo);
+	auto oSequence = Sequence::create(oSpawn, fpReleaseEntity, nullptr);
+
+	a_pEntity->GetCocosEntity()->runAction(oSequence);
+
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			MoveEntityBack(pEntity);
+		}
+	}
+}
+
+
+
+void CTouchBeganVisitor::DropEntity(CEntityNode* a_pEntity)
+{
+
+	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
+		CEntityNode::Release(a_pEntity);
+	});
+
+	auto oFadeOut = FadeOut::create(1.0f);
+	auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
+
+	a_pEntity->GetCocosEntity()->runAction(oSequence);
+
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			DropEntity(pEntity);
+		}
+	}
 }
 
 
@@ -159,34 +264,21 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
       if (pEntity->IsListeningTo("Touch"))
       {
 
-		  CEntityNode::Lock(pEntity);
-
 		  m_pTouchBeganEntity = pEntity;
 		  m_sListenEvent = "Touch";
 
-		  auto oTintTo = TintTo::create(0.0f, 120.0f, 120.0f, 120.0f);
-		  m_pTouchBeganEntity->GetCocosEntity()->runAction(oTintTo);
+		  StartTouch(m_pTouchBeganEntity);
 
 		  return RESULT_PRUNE;
       }
 	  else if (pEntity->IsListeningTo("Move"))
 	  {
 
-		  CEntityNode::Lock(pEntity);
-
 		  m_pTouchBeganEntity = pEntity;
 		  m_sListenEvent = "Move";
-		  m_oEntityPosition = m_pTouchBeganEntity->GetCocosEntity()->getPosition();
-		  m_fEntityScale = m_pTouchBeganEntity->GetCocosEntity()->getScale();
 
-		  auto oScaleTo1 = ScaleTo::create(0.1f, 2 * m_fEntityScale);
-		  auto oEaseOutBack1 = EaseBackOut::create(oScaleTo1);
+		  StartMove(m_pTouchBeganEntity);
 
-		  auto oScaleTo2 = ScaleTo::create(0.1f, 1.5 * m_fEntityScale);
-
-		  auto oSequence = Sequence::create(oEaseOutBack1, oScaleTo2, nullptr);
-
-		  m_pTouchBeganEntity->GetCocosEntity()->runAction(oSequence);
 		  return RESULT_PRUNE;
 	  }
       
@@ -195,6 +287,48 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
   
   return RESULT_CONTINUE;
 }
+
+
+void CTouchBeganVisitor::StartTouch(CEntityNode* a_pEntity)
+{
+	CEntityNode::Lock(a_pEntity);
+
+	auto oTintTo = TintTo::create(0.0f, 120.0f, 120.0f, 120.0f);
+	a_pEntity->GetCocosEntity()->runAction(oTintTo);
+
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			StartTouch(pEntity);
+		}
+	}
+}
+
+void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
+{
+	CEntityNode::Lock(a_pEntity);
+
+	auto oScaleTo1 = ScaleTo::create(0.1f, 2 * a_pEntity->GetEntityStartScale());
+	auto oEaseOutBack1 = EaseBackOut::create(oScaleTo1);
+
+	auto oScaleTo2 = ScaleTo::create(0.1f, 1.5 * a_pEntity->GetEntityStartScale());
+
+	auto oSequence = Sequence::create(oEaseOutBack1, oScaleTo2, nullptr);
+
+	a_pEntity->GetCocosEntity()->runAction(oSequence);
+
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			StartMove(pEntity);
+		}
+	}
+}
+
 
 Result CTouchBeganVisitor::ProcessNodeBottomUp(CNode* a_pNode)
 {

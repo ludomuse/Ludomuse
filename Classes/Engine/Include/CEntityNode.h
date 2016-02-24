@@ -70,6 +70,10 @@ class CEntityNode : public CNode
   /// \brief the height of the entity on the screen
   int m_iHeight;
 
+  cocos2d::Vec2 m_oEntityStartLocation;
+
+  float m_fEntityStartScale;
+
   bool m_bVisible;
 
   bool m_bLocked;
@@ -108,6 +112,10 @@ class CEntityNode : public CNode
   virtual void Show(bool a_bVisible = true);
 
   virtual bool IsLocked();
+
+  virtual cocos2d::Vec2 GetEntityStartLocation();
+
+  virtual float GetEntityStartScale();
 
   static bool Lock(CEntityNode* a_pEntity);
 

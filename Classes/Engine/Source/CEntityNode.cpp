@@ -130,6 +130,9 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 
 
 	m_pCocosEntity->setVisible(m_bVisible);
+
+	m_oEntityStartLocation = m_pCocosEntity->getPosition();
+	m_fEntityStartScale = m_pCocosEntity->getScale();
 }
 
 
@@ -212,11 +215,29 @@ bool CEntityNode::IsLocked()
 	return m_bLocked;
 }
 
+Vec2 CEntityNode::GetEntityStartLocation()
+{
+	return m_oEntityStartLocation;
+}
+
+float CEntityNode::GetEntityStartScale()
+{
+	return m_fEntityStartScale;
+}
+
 bool CEntityNode::Lock(CEntityNode* a_pEntity)
 {
 	if (!a_pEntity->IsLocked())
 	{
 		a_pEntity->m_bLocked = true;
+		for (CNode* itNode : *a_pEntity)
+		{
+			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+			if (pEntity)
+			{
+				CEntityNode::Lock(pEntity);
+			}
+		}
 		return true;
 	}
 	return false;
@@ -225,6 +246,14 @@ bool CEntityNode::Lock(CEntityNode* a_pEntity)
 void CEntityNode::Release(CEntityNode* a_pEntity)
 {
 	a_pEntity->m_bLocked = false;
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			CEntityNode::Release(pEntity);
+		}
+	}
 }
 
 

@@ -21,8 +21,6 @@ class CTouchBeganVisitor : public CVisitor
   CKernel* m_pKernel;
 
   CEntityNode* m_pTouchBeganEntity;
-  cocos2d::Vec2 m_oEntityPosition;
-  float m_fEntityScale;
 
   std::string m_sListenEvent;
 
@@ -43,7 +41,16 @@ protected:
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
   virtual Result ProcessNodeBottomUp(CNode* a_pNode) override;
   
-  
+
+  // entities actions
+  virtual void MoveEntity(cocos2d::Touch* a_pTouch, CEntityNode* a_pEntity);
+  virtual void TouchMoveOut(CEntityNode* a_pEntity);
+  virtual void TouchMoveIn(CEntityNode* a_pEntity);
+  virtual void TouchStop(CEntityNode* a_pEntity);
+  virtual void MoveEntityBack(CEntityNode* a_pEntity);
+  virtual void DropEntity(CEntityNode* a_pEntity);
+  virtual void StartTouch(CEntityNode* a_pEntity);
+  virtual void StartMove(CEntityNode* a_pEntity);
 };
 
 } // namespace LM

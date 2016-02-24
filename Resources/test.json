@@ -356,6 +356,15 @@
                             "anchor": 0,
                             "width": 50,
                             "height": 50,
+                            "listeners": [
+                                {
+                                    "type": "Move",
+                                    "params": {
+                                        "callback": "ValidateScene",
+                                        "arg": false
+                                    }
+                                }
+                            ],
                             "children": [
                                 {
                                     "type": "Text",
