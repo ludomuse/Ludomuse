@@ -44,44 +44,37 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 {
 
 	std::string sType = a_rListener["type"].GetString();
-	std::string sCallbackString = a_rListener["params"]["callback"].GetString();
 
-	if (sType == "Touch")
+	std::string sCallbackString = "";
+
+	if (a_rListener["params"].HasMember("callback"));
+		sCallbackString = a_rListener["params"]["callback"].GetString();
+
+	if (sCallbackString == "GotoSceneID")
 	{
-		if (sCallbackString == "GotoSceneID")
-		{
-			CEventCallback oCallback(m_pKernel, &CKernel::GotoScreenID, 
-				CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
-			a_pEntity->AddListener(sType, oCallback);
-		}
-		else if (sCallbackString == "ValidateScene")
-		{
-			CEventCallback oCallback(m_pKernel, &CKernel::ValidateScene,
-				CEvent(a_pEntity, sCallbackString, a_rListener["params"]["arg"].GetBool()));
-			a_pEntity->AddListener(sType, oCallback);
-		}
-	}
-	else if (sType == "Move")
-	{
-		CEventCallback oCallback(m_pKernel, nullptr);
+		CEventCallback oCallback(m_pKernel, &CKernel::GotoScreenID, 
+			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
-	else if (sType == "Drop")
+	else if (sCallbackString == "ValidateScene")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::ValidateScene,
 			CEvent(a_pEntity, sCallbackString, a_rListener["params"]["arg"].GetBool()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
-	else if (sType == "Validate")
+	if (sCallbackString == "show")
 	{
-		if (sCallbackString == "show")
-		{
-			CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible, 
-				CEvent(a_pEntity, sCallbackString, true));
-			a_pEntity->AddListener(sType, oCallback);
-			return false;
-		}
+		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible,
+			CEvent(a_pEntity, sCallbackString, true));
+		a_pEntity->AddListener(sType, oCallback);
+		return false;
 	}
+	else
+	{
+		CEventCallback oCallback(m_pKernel, nullptr);
+		a_pEntity->AddListener(sType, oCallback);
+	}
+
 	return true;
 }
 

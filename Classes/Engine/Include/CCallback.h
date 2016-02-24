@@ -59,7 +59,8 @@ public:
 
 	void operator()()
 	{
-		(m_pCallee->*m_pCallback)(m_oArgument);
+		if (m_pCallback && m_pCallee)
+			(m_pCallee->*m_pCallback)(m_oArgument);
 	}
   
 };
