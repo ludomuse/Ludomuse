@@ -9,17 +9,76 @@
 namespace LM
 {
 
+
+template <typename T>
+class Desc {
+	T** m_pPointer;
+	int* m_iCount;
+
+public:
+	Desc(T* a_pPointer = nullptr)
+	{
+		m_pPointer = new T*();
+		m_iCount = new int();
+
+		*m_pPointer = a_pPointer;
+		*m_iCount = 1;
+	}
+
+
+	Desc(const Desc& m_rCopyFrom)
+	{
+		m_pPointer = m_rCopyFrom.m_pPointer;
+		m_iCount = m_rCopyFrom.m_iCount;
+
+		++(*m_iCount);
+	}
+
+	~Desc()
+	{
+		--(*m_iCount);
+		if (*m_iCount <= 0)
+			delete m_pPointer;
+	}
+
+
+	//T* operator->() 
+	//{
+	//	return *m_pPointer;
+	//}
+
+	//T* operator*()
+	//{
+	//	return *m_pPointer;
+	//}
+
+	void Set(T* a_pNewValue)
+	{
+		*m_pPointer = a_pNewValue;
+	}
+
+	T* Get()
+	{
+		return *m_pPointer;
+	}
+
+
+	bool IsValid()
+	{
+		return *m_pPointer;
+	}
+};
+
 class CFindEntityVisitor : public CVisitor
 {
- private:
-  cocos2d::Touch* m_pTouch;
+ protected:
   std::string m_sEvent;
-  CEntityNode** m_pEntityToFind;
+  Desc<CEntityNode> m_pEntityToFind;
 
   bool m_bStopVisiting;
 
  public:
-  CFindEntityVisitor(cocos2d::Touch* a_pTouch, CEntityNode** a_pEntity,
+  CFindEntityVisitor(Desc<CEntityNode> a_pEntity,
                      const std::string& a_sEvent);
 
 
@@ -29,6 +88,22 @@ class CFindEntityVisitor : public CVisitor
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
   virtual Result ProcessNodeBottomUp(CNode* a_pNode) override;
   
+};
+
+
+
+
+class CFindEntityTouchVisitor : public CFindEntityVisitor
+{
+protected:
+	cocos2d::Touch* m_pTouch;
+
+
+public:
+	CFindEntityTouchVisitor(cocos2d::Touch* a_pTouch, Desc<CEntityNode> a_pEntity,
+		const std::string& a_sEvent);
+
+	virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
 };
 
 } // namespace LM

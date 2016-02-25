@@ -7,12 +7,17 @@ namespace LM
 {
 
 
-CFindEntityVisitor::CFindEntityVisitor(Touch* a_pTouch, CEntityNode** a_pEntity,
+CFindEntityVisitor::CFindEntityVisitor(Desc<CEntityNode> a_pEntity, const std::string& a_sEvent) :
+	m_sEvent(a_sEvent),
+	m_pEntityToFind(a_pEntity),
+	m_bStopVisiting(false)
+{
+}
+
+CFindEntityTouchVisitor::CFindEntityTouchVisitor(Touch* a_pTouch, Desc<CEntityNode> a_pEntity,
                                        const std::string& a_sEvent) :
-    m_pTouch(a_pTouch),
-    m_pEntityToFind(a_pEntity),
-    m_sEvent(a_sEvent),
-    m_bStopVisiting(false)
+	CFindEntityVisitor(a_pEntity, a_sEvent),
+    m_pTouch(a_pTouch)
 {
   
 }
@@ -58,6 +63,22 @@ void CFindEntityVisitor::Traverse(CNode* a_pNode)
 
 Result CFindEntityVisitor::ProcessNodeTopDown(CNode* a_pNode)
 {
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
+	if (pEntity)
+	{
+		
+		if (pEntity->IsListeningTo(m_sEvent))
+		{
+			m_pEntityToFind.Set(pEntity);
+			return RESULT_PRUNE;
+		}
+	}
+
+	return RESULT_CONTINUE;
+}
+
+Result CFindEntityTouchVisitor::ProcessNodeTopDown(CNode* a_pNode)
+{
   CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
   if (pEntity)
   {
@@ -68,10 +89,14 @@ Result CFindEntityVisitor::ProcessNodeTopDown(CNode* a_pNode)
     {
       if (pEntity->IsListeningTo(m_sEvent))
       {
-        *m_pEntityToFind = pEntity;
+        m_pEntityToFind.Set(pEntity);
         return RESULT_PRUNE;
       }
     }
+	else
+	{
+		return RESULT_PRUNE;
+	}
   }
 
   return RESULT_CONTINUE;
@@ -82,7 +107,7 @@ Result CFindEntityVisitor::ProcessNodeTopDown(CNode* a_pNode)
 Result CFindEntityVisitor::ProcessNodeBottomUp(CNode* a_pNode)
 {
 
-  if (*m_pEntityToFind)
+  if (m_pEntityToFind.IsValid())
   {
     m_bStopVisiting = true;
     return RESULT_STOP;

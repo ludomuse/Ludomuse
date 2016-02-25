@@ -116,10 +116,10 @@ void CKernel::SetNodeVisible(CEvent a_oEvent)
 
 CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 {
-	CEntityNode* pEntity = nullptr;
-	CFindEntityVisitor oVisitor(a_pTouch, &pEntity, a_sEvent);
+	Desc<CEntityNode> pEntity;
+	CFindEntityTouchVisitor oVisitor(a_pTouch, pEntity, a_sEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
-	return pEntity;
+	return pEntity.Get();
 }
 
 

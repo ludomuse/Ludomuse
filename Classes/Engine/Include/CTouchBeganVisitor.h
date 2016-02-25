@@ -1,7 +1,7 @@
 #ifndef _CTOUCHBEGANVISITOR_H_
 #define _CTOUCHBEGANVISITOR_H_
 
-#include "CVisitor.h"
+#include "CFindEntityVisitor.h"
 #include "CEntityNode.h"
 
 #include "cocos2d.h"
@@ -12,15 +12,12 @@ namespace LM
 
 
 
-class CTouchBeganVisitor : public CVisitor
+class CTouchBeganVisitor : public CFindEntityTouchVisitor
 {  
  private:
-  cocos2d::Touch* m_pTouch;
   cocos2d::Event* m_pEvent;
 
   CKernel* m_pKernel;
-
-  CEntityNode* m_pTouchBeganEntity;
 
   std::string m_sListenEvent;
 
@@ -29,17 +26,12 @@ class CTouchBeganVisitor : public CVisitor
  public:
   CTouchBeganVisitor(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent, CKernel* a_pKernel);
 
-
-  virtual void Traverse(CNode* a_pNode);
-
-
   // callbacks
   bool OnTouchEnd(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
   bool OnTouchMove(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
 protected:
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
-  virtual Result ProcessNodeBottomUp(CNode* a_pNode) override;
   
 
   // entities actions

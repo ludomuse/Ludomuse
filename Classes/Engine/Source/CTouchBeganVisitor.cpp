@@ -11,52 +11,21 @@ namespace LM
 {
 
 	CTouchBeganVisitor::CTouchBeganVisitor(Touch* a_pTouch, Event* a_pEvent, CKernel* a_pKernel) :
-    m_pTouch(a_pTouch),
-    m_pEvent(a_pEvent),
-	m_bStopVisiting(false),
-	m_pTouchBeganEntity(nullptr),
-	m_pKernel(a_pKernel)
+		CFindEntityTouchVisitor(a_pTouch, Desc<CEntityNode>(), "Touch"),
+	    m_pEvent(a_pEvent),
+		m_pKernel(a_pKernel)
 {
 }
 
-
-void CTouchBeganVisitor::Traverse(CNode* a_pNode)
-{
-  if (ProcessNodeTopDown(a_pNode) == RESULT_CONTINUE)
-  {
-    CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
-    CSceneNode* pScene = dynamic_cast<CSceneNode*>(a_pNode);
-    if (pEntity || pScene)
-    {
-      // traverse in decreasing order of z-index
-		std::vector<CNode*> oNodes = a_pNode->GetChildren();
-		for (int i = oNodes.size() - 1; i >= 0; --i)
-		{
-			// stop traversing the tree
-			if (m_bStopVisiting) return;
-			
-			Traverse(oNodes[i]);
-		}
-    }
-    else
-    {
-      Traverse(a_pNode->GetCurrentNode());
-    }
-
-  }
-
-  ProcessNodeBottomUp(a_pNode);
-
-}
 
 
 bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
-	if (m_pTouchBeganEntity)
+	if (m_pEntityToFind.IsValid())
 	{
 
 		// must release the entity at the end of the sequence, after animations have ended
-		CEntityNode* pEntity = m_pTouchBeganEntity;
+		CEntityNode* pEntity = m_pEntityToFind.Get();
 		auto fpReleaseEntity = CallFunc::create([pEntity]() {
 			CEntityNode::Release(pEntity);
 		});
@@ -64,13 +33,13 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 		if (m_sListenEvent == "Touch")
 		{
 			Vec2 oTouchLocation = a_pTouch->getLocation();
-			Rect oBoundingBox = m_pTouchBeganEntity->GetCocosEntity()->getBoundingBox();
+			Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
-				m_pTouchBeganEntity->Dispatch(m_sListenEvent);
+				pEntity->Dispatch(m_sListenEvent);
 			}
 
-			TouchStop(m_pTouchBeganEntity);
+			TouchStop(pEntity);
 
 
 		}
@@ -87,7 +56,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			else
 			{
 				// if not intersecting a drop area :
-				MoveEntityBack(m_pTouchBeganEntity);
+				MoveEntityBack(pEntity);
 			}
 
 		}
@@ -97,25 +66,25 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 
 bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 {
-	if (m_pTouchBeganEntity)
+	if (m_pEntityToFind.IsValid())
 	{
 		if (m_sListenEvent == "Touch")
 		{
 			// if listen to touch change the entity when leaving it
 			Vec2 oTouchLocation = a_pTouch->getLocation();
-			Rect oBoundingBox = m_pTouchBeganEntity->GetCocosEntity()->getBoundingBox();
+			Rect oBoundingBox = m_pEntityToFind.Get()->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
-				TouchMoveIn(m_pTouchBeganEntity);
+				TouchMoveIn(m_pEntityToFind.Get());
 			}
 			else
 			{
-				TouchMoveOut(m_pTouchBeganEntity);
+				TouchMoveOut(m_pEntityToFind.Get());
 			}
 		}
 		else if (m_sListenEvent == "Move")
 		{
-			MoveEntity(a_pTouch, m_pTouchBeganEntity);
+			MoveEntity(a_pTouch, m_pEntityToFind.Get());
 		}
 	}
 	return true;
@@ -264,25 +233,29 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
       if (pEntity->IsListeningTo("Touch"))
       {
 
-		  m_pTouchBeganEntity = pEntity;
+		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Touch";
 
-		  StartTouch(m_pTouchBeganEntity);
+		  StartTouch(m_pEntityToFind.Get());
 
 		  return RESULT_PRUNE;
       }
 	  else if (pEntity->IsListeningTo("Move"))
 	  {
 
-		  m_pTouchBeganEntity = pEntity;
+		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Move";
 
-		  StartMove(m_pTouchBeganEntity);
+		  StartMove(m_pEntityToFind.Get());
 
 		  return RESULT_PRUNE;
 	  }
       
     }
+	else
+	{
+		return RESULT_PRUNE;
+	}
   }
   
   return RESULT_CONTINUE;
@@ -330,17 +303,6 @@ void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 }
 
 
-Result CTouchBeganVisitor::ProcessNodeBottomUp(CNode* a_pNode)
-{
-
-	if (m_pTouchBeganEntity)
-	{
-		m_bStopVisiting = true;
-		return RESULT_STOP;
-	}
-
-	return RESULT_CONTINUE;
-}
 
 
 } // namespace LM
