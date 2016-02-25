@@ -35,6 +35,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CFindEntityVisitor.cpp \
                    ../../Classes/Engine/Source/CGroupNode.cpp \
                    ../../Classes/Engine/Source/CGridNode.cpp \
+                   ../../Classes/Engine/Source/CPeerNode.cpp \
                    ../../Classes/Modules/Networking/android/Source/CNetworkManager.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmWifiDirectFacade.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmJniJavaFacade.cpp \

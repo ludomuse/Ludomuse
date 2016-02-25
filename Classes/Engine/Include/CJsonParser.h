@@ -17,6 +17,7 @@
 #include "CMenuNode.h"
 #include "CLabelNode.h"
 #include "CGridNode.h"
+#include "CPeerNode.h"
 
 namespace LM
 {

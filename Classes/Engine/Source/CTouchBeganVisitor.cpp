@@ -332,17 +332,14 @@ void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 
 Result CTouchBeganVisitor::ProcessNodeBottomUp(CNode* a_pNode)
 {
-	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
-	if (pEntity)
+
+	if (m_pTouchBeganEntity)
 	{
-		Vec2 oTouchLocation = m_pTouch->getLocation();
-		Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-		if (oBoundingBox.containsPoint(oTouchLocation))
-		{
-			m_bStopVisiting = true;
-			return RESULT_STOP;
-		}
+		m_bStopVisiting = true;
+		return RESULT_STOP;
 	}
+
+	return RESULT_CONTINUE;
 }
 
 

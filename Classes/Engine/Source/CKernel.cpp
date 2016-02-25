@@ -131,15 +131,16 @@ void CKernel::SendMessage(Ref* pSender)
 
 void CKernel::GetPeers()
 {
-	CCLOG("Hello World !");
-
-	//m_pNetworkManager->Send("Hello World !");
 	m_pNetworkManager->DiscoverPeers();
 }
 
 void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 {
-	
+	CCLOG("peers : ");
+	for (const std::string& itString : a_vPeers)
+	{
+		CCLOG("found peer : %s", itString.c_str());
+	}
 }
 
 void CKernel::Connect(const std::string& a_sPeer)

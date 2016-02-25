@@ -1,6 +1,8 @@
 #include "../Include/CPeerNode.h"
 #include "../Include/CLabelNode.h"
 
+#include "../Include/CJsonParser.h"
+
 #include "cocos2d.h"
 
 namespace LM
@@ -23,8 +25,20 @@ CPeerNode::CPeerNode(CKernel* a_pKernel,
 
 void CPeerNode::Init()
 {
-  CGridNode::Init();
-  m_pKernel->GetPeers();
+	ClearChildren();
+
+	CGridNode::Init();
+	m_pKernel->GetPeers();
+}
+
+
+void CPeerNode::ClearChildren()
+{
+	for (CNode* itNode : m_vChildren)
+	{
+		delete itNode;
+	}
+	m_vChildren.clear();
 }
 
 
@@ -33,12 +47,7 @@ void CPeerNode::AddPeers(const std::vector<std::string>& a_vPeers)
   // UnInit all children from scene
   UnInit();
   // delete nodes from memory
-  for (CNode* itNode : m_vChildren)
-  {
-    delete itNode;
-  }
-
-  m_vChildren.clear();
+  ClearChildren();
 
   int i = 0;
   // add new children

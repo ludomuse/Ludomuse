@@ -171,6 +171,19 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	}
 
+
+	else if (sType == "Peers")
+	{
+		pEntity = new CPeerNode(m_pKernel,
+			rParams["children"][0],
+			IntToAnchor(rParams["anchor"].GetInt()),
+			width,
+			height,
+			x,
+			y);
+	}
+
+
 	// check listeners
 	if (rParams.HasMember("listeners"))
 	{
