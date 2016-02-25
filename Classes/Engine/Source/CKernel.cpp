@@ -35,6 +35,11 @@ CNode* CKernel::GetBehaviorTree()
 }
 
 
+CJsonParser* CKernel::GetJsonParser()
+{
+	return m_pJsonParser;
+}
+
 CKernel::~CKernel()
 {
   delete m_pBehaviorTree;
@@ -124,7 +129,7 @@ void CKernel::SendMessage(Ref* pSender)
 	m_pNetworkManager->Send("Hello from the other side !");
 }
 
-void CKernel::GetPeers(Ref* pSender)
+void CKernel::GetPeers()
 {
 	CCLOG("Hello World !");
 

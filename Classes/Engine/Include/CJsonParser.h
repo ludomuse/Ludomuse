@@ -43,7 +43,6 @@ private:
   void BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename);
 
 
-private:
 	/// \brief recursive Method to parse the json file
 	/// \params[in] a_rJsonNode the json node in the file corresponging to a_pNode in the tree
 	/// \prarams[in] a_pNode the subroot node to build the tree from

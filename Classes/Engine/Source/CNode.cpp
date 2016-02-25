@@ -94,8 +94,17 @@ CNode* CNode::GetParent()
 
 void CNode::Init()
 {
-	for (CNode* pChildNode : m_vChildren) {
+	for (CNode* pChildNode : m_vChildren) 
+	{
 		pChildNode->Init();
+	}
+}
+
+void CNode::UnInit()
+{
+	for (CNode* pChildNode : m_vChildren)
+	{
+		pChildNode->UnInit();
 	}
 }
 

@@ -21,6 +21,14 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 {
 }
 
+
+void CEntityNode::UnInit()
+{
+	m_pCocosEntity->release();
+	CNode::UnInit();
+}
+
+
 cocos2d::Node* CEntityNode::GetCocosEntity()
 {
 	return m_pCocosEntity;

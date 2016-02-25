@@ -38,6 +38,8 @@ class CKernel
   /// \returns the behavior tree
   CNode* GetBehaviorTree();
 
+  CJsonParser* GetJsonParser();
+
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 
@@ -56,7 +58,7 @@ class CKernel
   CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_sEvent);
 
   void SendMessage(cocos2d::Ref* pSender);
-  void GetPeers(cocos2d::Ref* pSender);
+  void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
   void Connect(const std::string& a_sPeer);
 

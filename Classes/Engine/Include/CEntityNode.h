@@ -94,6 +94,7 @@ class CEntityNode : public CNode
   
   /// \brief called when the scene is initialized
   //virtual void Init() = 0;
+  virtual void UnInit() override;
 
   /// \returns the cocos2d corresponding entity
   virtual cocos2d::Node* GetCocosEntity();

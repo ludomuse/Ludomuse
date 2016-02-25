@@ -60,6 +60,8 @@ class CNode
 
   virtual void Init();
 
+  virtual void UnInit();
+
 };
 
 
