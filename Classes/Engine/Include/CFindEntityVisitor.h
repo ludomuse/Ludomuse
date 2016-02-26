@@ -13,44 +13,37 @@ namespace LM
 template <typename T>
 class Desc {
 	T** m_pPointer;
-	int* m_iCount;
+	int* m_iRefCount;
 
 public:
 	Desc(T* a_pPointer = nullptr)
 	{
 		m_pPointer = new T*();
-		m_iCount = new int();
+		m_iRefCount = new int();
 
 		*m_pPointer = a_pPointer;
-		*m_iCount = 1;
+		*m_iRefCount = 1;
 	}
 
 
 	Desc(const Desc& m_rCopyFrom)
 	{
 		m_pPointer = m_rCopyFrom.m_pPointer;
-		m_iCount = m_rCopyFrom.m_iCount;
+		m_iRefCount = m_rCopyFrom.m_iRefCount;
 
-		++(*m_iCount);
+		++(*m_iRefCount);
 	}
 
 	~Desc()
 	{
-		--(*m_iCount);
-		if (*m_iCount <= 0)
+		--(*m_iRefCount);
+		if (*m_iRefCount <= 0)
+		{
 			delete m_pPointer;
+			delete m_iRefCount;
+		}
 	}
 
-
-	//T* operator->() 
-	//{
-	//	return *m_pPointer;
-	//}
-
-	//T* operator*()
-	//{
-	//	return *m_pPointer;
-	//}
 
 	void Set(T* a_pNewValue)
 	{
