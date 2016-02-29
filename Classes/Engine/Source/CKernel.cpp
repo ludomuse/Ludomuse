@@ -155,7 +155,6 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 		if (pPeerNode)
 		{
 			ON_CC_THREAD(CPeerNode::AddPeers, pPeerNode, a_vPeers);
-			//pPeerNode->AddPeers(a_vPeers);
 		}
 	}
 }
@@ -174,6 +173,7 @@ void CKernel::Connect(CEvent a_oEvent)
 			if (pLabel)
 			{
 				m_pNetworkManager->ConnectTo(pLabel->getString());
+				CCLOG("CKernel::Connect to %s", pLabel->getString().c_str());
 			}
 		}
 	}
