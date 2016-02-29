@@ -14,6 +14,11 @@
 
 #include <fstream>
 
+
+#define ON_CC_THREAD(FUN, OBJ, ...) 	Director::getInstance()->getScheduler()->performFunctionInCocosThread(\
+										std::bind(&FUN, OBJ, ##__VA_ARGS__));
+
+
 using namespace cocos2d;
 
 namespace LM
@@ -149,7 +154,8 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 		CPeerNode* pPeerNode = static_cast<CPeerNode*>(pEntity.Get());
 		if (pPeerNode)
 		{
-			pPeerNode->AddPeers(a_vPeers);
+			ON_CC_THREAD(CPeerNode::AddPeers, pPeerNode, a_vPeers);
+			//pPeerNode->AddPeers(a_vPeers);
 		}
 	}
 }

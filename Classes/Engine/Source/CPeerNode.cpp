@@ -45,11 +45,13 @@ void CPeerNode::ClearChildren()
 void CPeerNode::AddPeers(const std::vector<std::string>& a_vPeers)
 {
   // UnInit all children from scene
-  UnInit();
+	for (CNode* itNode : m_vChildren)
+	{
+		itNode->UnInit();
+	}
   // delete nodes from memory
   ClearChildren();
 
-  int i = 0;
   // add new children
   for (const std::string& sPeer : a_vPeers)
   {
@@ -59,12 +61,15 @@ void CPeerNode::AddPeers(const std::vector<std::string>& a_vPeers)
     
 
     // go down in the child find a Label and replace its text with sPeer
-    ReplaceLabelValue(m_vChildren[i++], sPeer);
-
   }
 
   // finally initialize entities in the scene
   CGridNode::Init();
+
+  for (int i = 0; i < a_vPeers.size(); ++i)
+  {
+	  ReplaceLabelValue(m_vChildren[i], a_vPeers[i]);
+  }
 }
 
 
