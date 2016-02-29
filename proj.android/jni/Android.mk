@@ -33,6 +33,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CGotoSceneVisitor.cpp \
                    ../../Classes/Engine/Source/CValidateSceneVisitor.cpp \
                    ../../Classes/Engine/Source/CFindEntityVisitor.cpp \
+                   ../../Classes/Engine/Source/CFindEntityTouchVisitor.cpp \
                    ../../Classes/Engine/Source/CGroupNode.cpp \
                    ../../Classes/Engine/Source/CGridNode.cpp \
                    ../../Classes/Engine/Source/CPeerNode.cpp \

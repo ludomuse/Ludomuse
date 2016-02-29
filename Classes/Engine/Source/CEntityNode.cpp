@@ -17,7 +17,9 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 	m_iWidth(a_iWidth),
 	m_iHeight(a_iHeight),
 	m_bVisible(true),
-	m_bLocked(false)
+	m_bLocked(false),
+	m_fEntityStartScale(0),
+	m_pCocosEntity(nullptr)
 {
 }
 

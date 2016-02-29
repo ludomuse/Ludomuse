@@ -497,6 +497,15 @@
                             "anchor": 0,
                             "width": 50,
                             "height": 50,
+                            "listeners" : [
+                                {
+                                    "type": "Peers",
+                                    "params": {
+                                        "callback" :"BuildPeerNodes",
+                                        "arg": ""
+                                    }
+                                }
+                            ],
                             "children": [
                                 {
                                     "type": "Group",

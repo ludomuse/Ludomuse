@@ -141,6 +141,17 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 	{
 		CCLOG("found peer : %s", itString.c_str());
 	}
+	Desc<CEntityNode> pEntity;
+	CFindEntityVisitor oVisitor(pEntity, "Peers");
+	oVisitor.Traverse(m_pBehaviorTree);
+	if (pEntity.IsValid())
+	{
+		CPeerNode* pPeerNode = static_cast<CPeerNode*>(pEntity.Get());
+		if (pPeerNode)
+		{
+			pPeerNode->AddPeers(a_vPeers);
+		}
+	}
 }
 
 void CKernel::Connect(const std::string& a_sPeer)

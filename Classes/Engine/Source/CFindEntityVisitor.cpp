@@ -7,20 +7,13 @@ namespace LM
 {
 
 
-CFindEntityVisitor::CFindEntityVisitor(Desc<CEntityNode> a_pEntity, const std::string& a_sEvent) :
+CFindEntityVisitor::CFindEntityVisitor(const Desc<CEntityNode>& a_pEntity, const std::string& a_sEvent) :
 	m_sEvent(a_sEvent),
 	m_pEntityToFind(a_pEntity),
 	m_bStopVisiting(false)
 {
 }
 
-CFindEntityTouchVisitor::CFindEntityTouchVisitor(Touch* a_pTouch, Desc<CEntityNode> a_pEntity,
-                                       const std::string& a_sEvent) :
-	CFindEntityVisitor(a_pEntity, a_sEvent),
-    m_pTouch(a_pTouch)
-{
-  
-}
 
 
 void CFindEntityVisitor::Traverse(CNode* a_pNode)
@@ -76,32 +69,6 @@ Result CFindEntityVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 	return RESULT_CONTINUE;
 }
-
-Result CFindEntityTouchVisitor::ProcessNodeTopDown(CNode* a_pNode)
-{
-  CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
-  if (pEntity)
-  {
-    Vec2 oTouchLocation = m_pTouch->getLocation();
-    Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-
-    if (oBoundingBox.containsPoint(oTouchLocation))
-    {
-      if (pEntity->IsListeningTo(m_sEvent))
-      {
-        m_pEntityToFind.Set(pEntity);
-        return RESULT_PRUNE;
-      }
-    }
-	else
-	{
-		return RESULT_PRUNE;
-	}
-  }
-
-  return RESULT_CONTINUE;
-}
-
 
 
 Result CFindEntityVisitor::ProcessNodeBottomUp(CNode* a_pNode)

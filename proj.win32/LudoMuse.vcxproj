@@ -146,6 +146,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CEntityNode.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CFindEntityTouchVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CFindEntityVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CGotoSceneVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CGridNode.cpp" />
@@ -174,6 +175,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\Engine\Include\CCallback.h" />
     <ClInclude Include="..\Classes\Engine\Include\CEntityNode.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityTouchVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CFindEntityVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CGotoSceneVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CGridNode.h" />
@@ -197,6 +199,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CVisitor.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\Modules\Networking\win\Include\CNetworkManager.h" />
+    <ClInclude Include="..\Classes\Modules\Util\Include\Desc.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

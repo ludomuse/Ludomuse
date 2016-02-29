@@ -1,7 +1,7 @@
 #ifndef _CTOUCHBEGANVISITOR_H_
 #define _CTOUCHBEGANVISITOR_H_
 
-#include "CFindEntityVisitor.h"
+#include "CFindEntityTouchVisitor.h"
 #include "CEntityNode.h"
 
 #include "cocos2d.h"

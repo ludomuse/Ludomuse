@@ -59,7 +59,7 @@ void CPeerNode::AddPeers(const std::vector<std::string>& a_vPeers)
     
 
     // go down in the child find a Label and replace its text with sPeer
-    ReplaceLabelValue(m_vChildren[i], sPeer);
+    ReplaceLabelValue(m_vChildren[i++], sPeer);
 
   }
 
@@ -76,7 +76,10 @@ bool CPeerNode::ReplaceLabelValue(CNode* a_pNode, const std::string& a_sPeerName
 	  cocos2d::Label* pLabel = dynamic_cast<cocos2d::Label*>(pLabelNode->GetCocosEntity());
 	  if (pLabel)
 	  {
+		  CCLOG("old text : %s", pLabel->getString().c_str());
 		  pLabel->setString(a_sPeerName);
+		  CCLOG("string : %s", a_sPeerName.c_str());
+		  CCLOG("new text : %s", pLabel->getString().c_str());
 	  }
     return true;
   }
@@ -84,7 +87,7 @@ bool CPeerNode::ReplaceLabelValue(CNode* a_pNode, const std::string& a_sPeerName
   {
     for (CNode* itNode : *a_pNode)
     {
-      if (! ReplaceLabelValue(itNode, a_sPeerName))
+      if (ReplaceLabelValue(itNode, a_sPeerName))
         break;
     }
   }
