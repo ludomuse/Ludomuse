@@ -60,7 +60,7 @@ class CKernel
   void SendMessage(cocos2d::Ref* pSender);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
-  void Connect(const std::string& a_sPeer);
+  void Connect(CEvent a_oEvent);
 
   void LogMessage(const std::string& a_sMessage);
 };

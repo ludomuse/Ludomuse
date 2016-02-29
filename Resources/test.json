@@ -517,7 +517,7 @@
                                             {
                                                 "type": "Touch",
                                                 "params": {
-                                                    "callback": "ValidateScene",
+                                                    "callback": "ConnectPeer",
                                                     "arg": false
                                                 }
                                             }
@@ -544,7 +544,16 @@
                                                     "height": 100,
                                                     "x": 0,
                                                     "y": 0,
-                                                    "color": ""
+                                                    "color": "",
+                                                    "listeners" : [
+                                                        {
+                                                            "type": "GetText",
+                                                            "params": {
+                                                                "callback" : "",
+                                                                "arg": ""
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             }
 

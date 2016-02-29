@@ -160,10 +160,23 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 	}
 }
 
-void CKernel::Connect(const std::string& a_sPeer)
+void CKernel::Connect(CEvent a_oEvent)
 {
-	//LogMessage("connecting to : %s", a_sPeer.c_str());
-	m_pNetworkManager->ConnectTo(a_sPeer);
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	if (pEntity)
+	{
+		Desc<CEntityNode> pLabelEntity;
+		CFindEntityVisitor oVisitor(pLabelEntity, "GetText");
+		oVisitor.Traverse(pEntity);
+		if (pLabelEntity.IsValid())
+		{
+			Label* pLabel = dynamic_cast<Label*>(pLabelEntity.Get()->GetCocosEntity());
+			if (pLabel)
+			{
+				m_pNetworkManager->ConnectTo(pLabel->getString());
+			}
+		}
+	}
 }
 
 
