@@ -33,6 +33,7 @@ class CKernel
   CJsonParser* m_pJsonParser;
 
   std::map<int, std::vector<std::string> > m_mScenesID;
+  int m_iPlayerID;
 
  public:
   CKernel();
@@ -43,6 +44,10 @@ class CKernel
   CJsonParser* GetJsonParser();
 
   void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
+
+  bool PlayerHasScene(const std::string& a_sSceneID);
+
+  void SetPlayerID(int a_iPlayerID);
 
   /// \brief Initialize the kernel and the behavior tree
   void Init();
@@ -59,7 +64,7 @@ class CKernel
 
   void SetNodeVisible(CEvent a_oEvent);
 
-  CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_sEvent);
+  CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_rEvent);
 
   void SendMessage(cocos2d::Ref* pSender);
   void GetPeers();

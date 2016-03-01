@@ -27,7 +27,8 @@ namespace LM
 CKernel::CKernel() : m_pInputManager(new CInputManager(this)), 
                      m_pJsonParser(new CJsonParser(this)),
                      m_pNetworkManager(new CNetworkManager(this)),
-					 m_pBehaviorTree(new CSequenceNode())
+					 m_pBehaviorTree(new CSequenceNode()),
+					 m_iPlayerID(0)
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
@@ -53,9 +54,30 @@ CJsonParser* CKernel::GetJsonParser()
 	return m_pJsonParser;
 }
 
-void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_sSceneID)
+void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 {
-	m_mScenesID[a_iPlayerID].push_back(a_sSceneID);
+	m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
+}
+
+bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
+{
+	std::vector<std::string>::iterator itSceneID;
+	for (itSceneID = m_mScenesID[m_iPlayerID].begin();
+			itSceneID != m_mScenesID[m_iPlayerID].end();
+			++itSceneID)
+	{
+		if (*itSceneID == a_rSceneID)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void CKernel::SetPlayerID(int a_iPlayerID)
+{
+	m_iPlayerID = a_iPlayerID;
 }
 
 void CKernel::Init()
@@ -75,13 +97,13 @@ void CKernel::Init()
 
 void CKernel::NavNext(Ref* pSender)
 {
-	CTransitionVisitor oVisitor(true);
+	CTransitionVisitor oVisitor(this, true);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
 void CKernel::NavPrevious(Ref* pSender)
 {
-	CTransitionVisitor oVisitor(false);
+	CTransitionVisitor oVisitor(this, false);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
