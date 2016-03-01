@@ -75,11 +75,6 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 	return false;
 }
 
-void CKernel::SetPlayerID(int a_iPlayerID)
-{
-	m_iPlayerID = a_iPlayerID;
-}
-
 void CKernel::Init()
 {
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
@@ -144,6 +139,12 @@ void CKernel::SetNodeVisible(CEvent a_oEvent)
 		pEntity->Show(a_oEvent.m_bBoolValue);
 	}
 }
+
+void CKernel::SetPlayerID(CEvent a_oEvent)
+{
+	m_iPlayerID = a_oEvent.m_iIntValue;
+}
+
 
 CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 {

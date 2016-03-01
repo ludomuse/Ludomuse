@@ -50,6 +50,7 @@ private:
 	template <typename T>
 	void ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible = true);
 
+	/// returns true if the callback change the visibility of the node to hidden
 	bool ParseCallback(RefJsonNode a_rJsonNode, CEntityNode* a_pEntity);
 };
 

@@ -47,8 +47,6 @@ class CKernel
 
   bool PlayerHasScene(const std::string& a_sSceneID);
 
-  void SetPlayerID(int a_iPlayerID);
-
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 
@@ -63,6 +61,8 @@ class CKernel
   void ValidateScene(CEvent a_oEvent);
 
   void SetNodeVisible(CEvent a_oEvent);
+
+  void SetPlayerID(CEvent a_oEvent);
 
   CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_rEvent);
 
