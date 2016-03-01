@@ -26,11 +26,19 @@ namespace LM
 
 CKernel::CKernel() : m_pInputManager(new CInputManager(this)), 
                      m_pJsonParser(new CJsonParser(this)),
-                     m_pNetworkManager(new CNetworkManager(this))
+                     m_pNetworkManager(new CNetworkManager(this)),
+					 m_pBehaviorTree(new CSequenceNode())
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
-  m_pBehaviorTree = new CSequenceNode();
+}
+
+CKernel::~CKernel()
+{
+	delete m_pBehaviorTree;
+	delete m_pInputManager;
+	delete m_pNetworkManager;
+	delete m_pJsonParser;
 }
 
 
@@ -45,14 +53,10 @@ CJsonParser* CKernel::GetJsonParser()
 	return m_pJsonParser;
 }
 
-CKernel::~CKernel()
+void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_sSceneID)
 {
-  delete m_pBehaviorTree;
-  delete m_pInputManager;
-  delete m_pNetworkManager;
-  delete m_pJsonParser;
+	m_mScenesID[a_iPlayerID].push_back(a_sSceneID);
 }
-
 
 void CKernel::Init()
 {

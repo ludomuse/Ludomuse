@@ -32,6 +32,8 @@ class CKernel
   /// \brief The parser that will build the behavior tree from the json file
   CJsonParser* m_pJsonParser;
 
+  std::map<int, std::vector<std::string> > m_mScenesID;
+
  public:
   CKernel();
   virtual ~CKernel();
@@ -39,6 +41,8 @@ class CKernel
   CNode* GetBehaviorTree();
 
   CJsonParser* GetJsonParser();
+
+  void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
 
   /// \brief Initialize the kernel and the behavior tree
   void Init();
