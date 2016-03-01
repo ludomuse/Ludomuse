@@ -116,33 +116,33 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 }
 
 
-void CKernel::GotoScreenID(CEvent a_oEvent)
+void CKernel::GotoScreenID(CEvent a_rEvent)
 {
-	LogMessage("GotoScreenID : " + a_oEvent.m_sStringValue);
-	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue);
+	LogMessage("GotoScreenID : " + a_rEvent.m_sStringValue);
+	CGotoSceneVisitor oVisitor(a_rEvent.m_sStringValue);
 	oVisitor.Traverse(m_pBehaviorTree);
 
 }
 
-void CKernel::ValidateScene(CEvent a_oEvent)
+void CKernel::ValidateScene(CEvent a_rEvent)
 {
-	LogMessage("ValidateScene : " + a_oEvent.m_bBoolValue);
-	CValidateSceneVisitor oVisitor(a_oEvent);
+	LogMessage("ValidateScene : " + a_rEvent.m_bBoolValue);
+	CValidateSceneVisitor oVisitor(a_rEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
-void CKernel::SetNodeVisible(CEvent a_oEvent)
+void CKernel::SetNodeVisible(CEvent a_rEvent)
 {
-	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_rEvent.m_pSender);
 	if (pEntity)
 	{
-		pEntity->Show(a_oEvent.m_bBoolValue);
+		pEntity->Show(a_rEvent.m_bBoolValue);
 	}
 }
 
-void CKernel::SetPlayerID(CEvent a_oEvent)
+void CKernel::SetPlayerID(CEvent a_rEvent)
 {
-	m_iPlayerID = a_oEvent.m_iIntValue;
+	m_iPlayerID = a_rEvent.m_iIntValue;
 }
 
 
@@ -155,10 +155,10 @@ CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 }
 
 
-void CKernel::SendMessage(Ref* pSender)
+void CKernel::SendNetworkMessage(CEvent a_rEvent)
 {
-	CCLOG("Sending message");
-	m_pNetworkManager->Send("Hello from the other side !");
+	CCLOG("Sending message %s", a_rEvent.m_sStringValue.c_str());
+	m_pNetworkManager->Send(a_rEvent.m_sStringValue);
 }
 
 void CKernel::GetPeers()
@@ -186,9 +186,9 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 	}
 }
 
-void CKernel::Connect(CEvent a_oEvent)
+void CKernel::Connect(CEvent a_rEvent)
 {
-	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_rEvent.m_pSender);
 	if (pEntity)
 	{
 		Desc<CEntityNode> pLabelEntity;
@@ -200,7 +200,7 @@ void CKernel::Connect(CEvent a_oEvent)
 			if (pLabel)
 			{
 				m_pNetworkManager->ConnectTo(pLabel->getString());
-				CCLOG("CKernel::Connect to %s", pLabel->getString().c_str());
+				m_pNetworkManager->Send("connection:establish");
 			}
 		}
 	}

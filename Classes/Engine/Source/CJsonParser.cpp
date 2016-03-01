@@ -90,6 +90,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			CEvent(a_pEntity, sCallbackString, true, a_rListener["params"]["arg"].GetInt()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
+	else if (sCallbackString == "SendMessage")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::SendNetworkMessage,
+			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else
 	{
 		CEventCallback oCallback(m_pKernel, nullptr);

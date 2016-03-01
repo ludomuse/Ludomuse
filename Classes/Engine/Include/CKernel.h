@@ -56,20 +56,20 @@ class CKernel
 
   bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
-  void GotoScreenID(CEvent a_oEvent);
+  void GotoScreenID(CEvent a_rEvent);
 
-  void ValidateScene(CEvent a_oEvent);
+  void ValidateScene(CEvent a_rEvent);
 
-  void SetNodeVisible(CEvent a_oEvent);
+  void SetNodeVisible(CEvent a_rEvent);
 
-  void SetPlayerID(CEvent a_oEvent);
+  void SetPlayerID(CEvent a_rEvent);
 
   CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_rEvent);
 
-  void SendMessage(cocos2d::Ref* pSender);
+  void SendNetworkMessage(CEvent a_rEvent);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
-  void Connect(CEvent a_oEvent);
+  void Connect(CEvent a_rEvent);
 
   void LogMessage(const std::string& a_sMessage);
 };
