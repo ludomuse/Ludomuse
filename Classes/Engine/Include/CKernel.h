@@ -43,36 +43,43 @@ class CKernel
 
   CJsonParser* GetJsonParser();
 
+  /// \biref Add the m_sSceneID to a_iPlayerID
   void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
 
+  /// \brief checks if the current player has this scene in his list
   bool PlayerHasScene(const std::string& a_sSceneID);
 
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 
-  ////////////////// callbacks
-  void NavNext(cocos2d::Ref* pSender);
-  void NavPrevious(cocos2d::Ref* pSender);
+  /// \brief find the CEntityNode under the a_pTouch touch event and listening to a_rEvent
+  /// \returns the found entity, nullptr otherwise
+  CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_rEvent);
+  void LogMessage(const std::string& a_sMessage);
 
+
+  ////////////////// input callbacks
   bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
+
+  ////////////////// json callbacks
+  /// \brief go to the next scene in the tree
+  void NavNext(cocos2d::Ref* pSender);
+  /// \brief go to the previous scene in the tree
+  void NavPrevious(cocos2d::Ref* pSender);
+
   void GotoScreenID(CEvent a_rEvent);
-
   void ValidateScene(CEvent a_rEvent);
-
   void SetNodeVisible(CEvent a_rEvent);
-
   void SetPlayerID(CEvent a_rEvent);
-
-  CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_rEvent);
-
   void SendNetworkMessage(CEvent a_rEvent);
+  void Connect(CEvent a_rEvent);
+
+
+  //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
-  void Connect(CEvent a_rEvent);
-
-  void LogMessage(const std::string& a_sMessage);
 };
 
 
