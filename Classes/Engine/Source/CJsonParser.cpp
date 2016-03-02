@@ -77,7 +77,7 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			CEvent(a_pEntity));
 		a_pEntity->AddListener(sType, oCallback);
 	}
-	else if (sCallbackString == "show")
+	else if (sCallbackString == "Show")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible,
 			CEvent(a_pEntity, sCallbackString, true));

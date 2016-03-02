@@ -9,10 +9,11 @@
                 "screen-1-a"
             ],
             [
+                "screen-3-a",
                 "screen-3-a"
             ],
             [
-                "screen-2-a",
+                "screen-4-a",
                 "screen-4-a"
             ],
             [
@@ -139,7 +140,7 @@
                                 {
                                     "type": "Validate",
                                     "params": {
-                                        "callback": "show"
+                                        "callback": "Show"
                                     }
                                 }
                             ],
@@ -473,15 +474,7 @@
                             "enabled": true,
                             "color": "",
                             "backgroundColor": "",
-                            "action": "next",
-                            "listeners": [
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "show"
-                                    }
-                                }
-                            ]
+                            "action": "next"
                         }
                     }
                 ],
@@ -593,7 +586,7 @@
                                 {
                                     "type": "Validate",
                                     "params": {
-                                        "callback": "show"
+                                        "callback": "Show"
                                     }
                                 }
                             ]
@@ -669,6 +662,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
+                                        "id": "scene3Text",
                                         "content": "Scène 3",
                                         "fontSize": 24,
                                         "anchor": 0,
@@ -679,9 +673,9 @@
                                         "color": "",
                                         "listeners": [
                                             {
-                                                "type": "Touch",
+                                                "type": "Show",
                                                 "params": {
-                                                    "callback": "ValidateScene",
+                                                    "callback": "Show",
                                                     "arg": false
                                                 }
                                             }
@@ -703,8 +697,8 @@
                                             {
                                                 "type": "Touch",
                                                 "params": {
-                                                    "callback": "ValidateScene",
-                                                    "arg": true
+                                                    "callback": "SendMessage",
+                                                    "arg": "screen-4-a:Show:scene3Text"
                                                 }
                                             }
                                         ]

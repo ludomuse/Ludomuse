@@ -1,5 +1,6 @@
 #include "../Include/CDispatchMessageVisitor.h"
 #include "../Include/CSceneNode.h"
+#include "../Include/CEntityNode.h"
 
 namespace LM
 {
@@ -14,7 +15,7 @@ CDispatchMessageVisitor::CDispatchMessageVisitor(const std::string& a_rMessage) 
   int iFoundNext = m_sMessage.find_first_of(':');
   while (iFoundNext != std::string::npos)
   {
-    m_vSplittedMessage.push_back(m_sMessage.substr(iFoundFirst, iFoundNext));
+    m_vSplittedMessage.push_back(m_sMessage.substr(iFoundFirst, iFoundNext - iFoundFirst));
     iFoundFirst = iFoundNext + 1;
     iFoundNext = m_sMessage.find_first_of(':', iFoundFirst);
   }
@@ -32,9 +33,22 @@ Result CDispatchMessageVisitor::ProcessNodeTopDown(CNode* a_pNode)
     {
       return RESULT_PRUNE;
     }
-
-    
+    return RESULT_CONTINUE;
   }
+
+  CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
+  if (pEntity)
+  {
+    if (pEntity->IsListeningTo(m_vSplittedMessage[1]) &&
+        pEntity->GetID() == m_vSplittedMessage[2])
+    {
+      pEntity->Dispatch(m_vSplittedMessage[1]);
+	  return RESULT_PRUNE;
+    }
+	return RESULT_CONTINUE;
+  }
+
+
 }
 
 

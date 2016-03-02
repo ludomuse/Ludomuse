@@ -10,7 +10,7 @@ namespace LM
 {
 
 CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
-						 int a_iXPosition, int a_iYPosition) :
+						 int a_iXPosition, int a_iYPosition, const std::string& a_sID) :
     m_eAnchor(a_eAnchor),
 	m_iXPosition(a_iXPosition),
     m_iYPosition(a_iYPosition),
@@ -18,6 +18,7 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 	m_iHeight(a_iHeight),
 	m_bVisible(true),
 	m_bLocked(false),
+	m_sID(a_sID),
 	m_fEntityStartScale(0),
 	m_pCocosEntity(nullptr)
 {
@@ -210,6 +211,16 @@ void CEntityNode::SetVisible(bool a_bVisible)
 bool CEntityNode::IsVisible()
 {
 	return m_bVisible;
+}
+
+std::string CEntityNode::GetID()
+{
+	return m_sID;
+}
+
+void CEntityNode::SetID(const std::string& a_rID)
+{
+	m_sID = a_rID;
 }
 
 void CEntityNode::Show(bool a_bVisible)

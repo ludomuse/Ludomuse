@@ -13,6 +13,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	RefJsonNode rParams = a_rJsonNode["params"];
 
 	int x, y, width, height;
+	std::string id;
 	if (rParams.HasMember("x")) 
 	{
 		x = rParams["x"].GetInt();
@@ -228,6 +229,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	}
 
 	if (pEntity != nullptr) {
+		if (rParams.HasMember("id"))
+		{
+			pEntity->SetID(rParams["id"].GetString());
+		}
 		a_pNode->AddChildNode(pEntity);
 	}
 

@@ -78,6 +78,8 @@ class CEntityNode : public CNode
 
   bool m_bLocked;
 
+  std::string m_sID;
+
   /// \brief the events the entity is listening to
   std::map<std::string, CEventCallback> m_mListeners;
 
@@ -85,11 +87,12 @@ class CEntityNode : public CNode
   cocos2d::Node* m_pCocosEntity;
 
  public:
-  CEntityNode(EAnchor a_eAnchor = EAnchor::FLOAT, 
-	  int a_iWidth = 0,
-	  int a_iHeight = 0,
-	  int a_iXPosition = 0,
-      int a_iYPosition = 0
+	 CEntityNode(EAnchor a_eAnchor = EAnchor::FLOAT,
+		 int a_iWidth = 0,
+		 int a_iHeight = 0,
+		 int a_iXPosition = 0,
+		 int a_iYPosition = 0,
+		 const std::string& a_sID = ""
 );
   
   /// \brief called when the scene is initialized
@@ -112,6 +115,9 @@ class CEntityNode : public CNode
   virtual void SetVisible(bool a_bVisible);
 
   virtual bool IsVisible();
+
+  virtual std::string GetID();
+  virtual void SetID(const std::string& a_rID);
 
   /// \change the visibility
   /// \param[in] a_bVisible true to show the item
