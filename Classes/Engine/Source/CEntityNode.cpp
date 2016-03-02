@@ -207,8 +207,14 @@ void CEntityNode::SetVisible(bool a_bVisible)
 	m_bVisible = a_bVisible;
 }
 
+bool CEntityNode::IsVisible()
+{
+	return m_bVisible;
+}
+
 void CEntityNode::Show(bool a_bVisible)
 {
+	m_bVisible = a_bVisible;
 	GetCocosEntity()->setVisible(a_bVisible);
 	for (CNode* itNode : *this)
 	{

@@ -108,8 +108,13 @@ class CEntityNode : public CNode
   /// \brief dispatch this event to the entity
   void Dispatch(const std::string& a_rEvent);
 
+  /// \brief set the visibility on StartUp 
   virtual void SetVisible(bool a_bVisible);
 
+  virtual bool IsVisible();
+
+  /// \change the visibility
+  /// \param[in] a_bVisible true to show the item
   virtual void Show(bool a_bVisible = true);
 
   virtual bool IsLocked();

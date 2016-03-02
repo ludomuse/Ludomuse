@@ -78,11 +78,7 @@ bool CPeerNode::ReplaceLabelValue(CNode* a_pNode, const std::string& a_sPeerName
   CLabelNode* pLabelNode = dynamic_cast<CLabelNode*>(a_pNode);
   if (pLabelNode)
   {
-	  cocos2d::Label* pLabel = dynamic_cast<cocos2d::Label*>(pLabelNode->GetCocosEntity());
-	  if (pLabel)
-	  {
-		  pLabel->setString(a_sPeerName);
-	  }
+	  pLabelNode->SetText(a_sPeerName);
     return true;
   }
   else
