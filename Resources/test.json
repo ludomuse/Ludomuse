@@ -678,6 +678,13 @@
                                                     "callback": "Show",
                                                     "arg": false
                                                 }
+                                            },
+                                            {
+                                                "type": "Move",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": false
+                                                }
                                             }
                                         ]
                                     }

@@ -227,7 +227,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     // Check if the entity intersects the touch event
 	  Vec2 oTouchLocation = m_pTouch->getStartLocation();
     Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-    if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked())
+    if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
       // if so and if listenning to touch/move, store the entity
       if (pEntity->IsListeningTo("Touch"))
