@@ -6,6 +6,7 @@
 #include "../Include/CGotoSceneVisitor.h"
 #include "../Include/CValidateSceneVisitor.h"
 #include "../Include/CFindEntityVisitor.h"
+#include "../Include/CDispatchMessageVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
@@ -159,6 +160,12 @@ void CKernel::SendNetworkMessage(CEvent a_rEvent)
 {
 	CCLOG("Sending message %s", a_rEvent.m_sStringValue.c_str());
 	m_pNetworkManager->Send(a_rEvent.m_sStringValue);
+}
+
+void CKernel::OnReceivingMessage(const std::string& a_rMessage)
+{
+	CDispatchMessageVisitor oVisitor(a_rMessage);
+	oVisitor.Traverse(m_pBehaviorTree);
 }
 
 void CKernel::GetPeers()

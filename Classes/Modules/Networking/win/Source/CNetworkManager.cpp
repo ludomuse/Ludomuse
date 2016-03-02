@@ -13,6 +13,7 @@ CNetworkManager::CNetworkManager(CKernel* a_pKernel) : m_pKernel(a_pKernel)
 void CNetworkManager::Send(const std::string& s)
 {
   std::cout << "send message " << s << std::endl;
+  m_pKernel->OnReceivingMessage(s);
 }
 
 void CNetworkManager::DiscoverPeers()

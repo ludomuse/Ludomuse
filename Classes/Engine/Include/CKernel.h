@@ -67,6 +67,7 @@ class CKernel
   CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_rEvent);
 
   void SendNetworkMessage(CEvent a_rEvent);
+  void OnReceivingMessage(const std::string& a_rMessage);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
   void Connect(CEvent a_rEvent);
