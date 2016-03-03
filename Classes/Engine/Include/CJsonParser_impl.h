@@ -83,6 +83,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "Image" || sType == "Info")
 	{
+		bool _info = sType == "Info";
 		pEntity = new CSpriteNode(rParams["source"].GetString(),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width, height,
@@ -142,7 +143,12 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		{
 			sFontName = "fonts/Open_Sans/OpenSans-Regular.ttf";
 		}
-		int iFontSize = rParams["fontSize"].GetInt();
+
+		int iFontSize = 24;
+		if (rParams.HasMember("fontSize"))
+		{
+			iFontSize = rParams["fontSize"].GetInt();
+		}
 		if (iFontSize < 1)
 		{
 			iFontSize = 24;
@@ -153,11 +159,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			sTextAlign = rParams["textAlign"].GetString();
 		}
 
+		std::string sColor = "";
+		if (rParams.HasMember("color"))
+		{
+			sColor = rParams["color"].GetString();
+		}
 		pEntity = new CLabelNode(rParams["content"].GetString(),
 			sFontName,
 			iFontSize,
 			sTextAlign,
-			rParams["color"].GetString(),
+			sColor,
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
@@ -195,7 +206,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		}
 	}
 
-	pEntity->SetVisible(a_bNodeVisible);
+	if (pEntity)
+		pEntity->SetVisible(a_bNodeVisible);
 
 	// recursively parse children
 	if (rParams.HasMember("children"))

@@ -1669,21 +1669,14 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Ton coéquipier a trouvé la bonne réponse !",
+			    "font": "fonts/arial.ttf",
+			    "fontSize": 24,
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Ton coéquipier a trouvé la bonne réponse !",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -2101,19 +2094,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Touche le portrait pour écouter Monsieur Louis.",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Touche le portrait pour écouter Monsieur Louis.",				
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -2477,19 +2463,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Placez les bons ingrédients dans le plat.",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Placez les bons ingrédients dans le plat.",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -2556,20 +2535,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			    
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -2632,57 +2603,83 @@
 		    {
 			"type": "Grid",
 			"params": {
+			    "id": "main-grid",
 			    "cols": 2,
 			    "rows": 2,
+			    "snap": false,
+			    "alignItems": "center"
+			}
+		    },
+		    {
+			"type": "Text",
+			"params": {
+			    "content": "Farine",
+			    "font": "fonts/arial.ttf",
+			    "fontSize": 24,
+			    "width": 100,
+			    "height": 100,
 			    "anchor": 0,
-			    "alignItems": "center",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Farine",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
-					"height": 100,
-					"anchor": 0
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Beurre",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
-					"height": 100,
-					"anchor": 0
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Eau",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
-					"height": 100,
-					"anchor": 0
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Sucre",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
-					"height": 100,
-					"anchor": 0
-				    }
-				}
-
-			    ]
+			    "color": "",
+			    "cache": {
+				"visible": false,
+				"backgroundColor": "",
+				"backgroundImage": ""
+			    },
+			    "grid": "main-grid"
+			}
+		    },
+		    {
+			"type": "Text",
+			"params": {
+			    "content": "Beurre",
+			    "font": "fonts/arial.ttf",
+			    "fontSize": 24,
+			    "width": 100,
+			    "height": 100,
+			    "anchor": 0,
+			    "color": "",
+			    "cache": {
+				"visible": false,
+				"backgroundColor": "",
+				"backgroundImage": ""
+			    },
+			    "grid": "main-grid"
+			}
+		    },
+		    {
+			"type": "Text",
+			"params": {
+			    "content": "Eau",
+			    "font": "fonts/arial.ttf",
+			    "fontSize": 24,
+			    "width": 100,
+			    "height": 100,
+			    "anchor": 0,
+			    "color": "",
+			    "cache": {
+				"visible": false,
+				"backgroundColor": "",
+				"backgroundImage": ""
+			    },
+			    "grid": "main-grid"
+			}
+		    },
+		    {
+			"type": "Text",
+			"params": {
+			    "content": "Sucre",
+			    "font": "fonts/arial.ttf",
+			    "fontSize": 24,
+			    "width": 100,
+			    "height": 100,
+			    "anchor": 0,
+			    "color": "",
+			    "cache": {
+				"visible": false,
+				"backgroundColor": "",
+				"backgroundImage": ""
+			    },
+			    "grid": "main-grid"
 			}
 		    }
 		]
@@ -2725,18 +2722,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Attention, vous vous êtes trompé.",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Attention, vous vous êtes trompé.",					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -2920,19 +2911,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Bravo, tu as réussi !",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, tu as réussi !",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -3022,19 +3006,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Approchez-vous de Monsieur Louis et lisez cet article à voix haute.",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Approchez-vous de Monsieur Louis et lisez cet article à voix haute.",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -3101,19 +3078,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Demande à ton ouvrir de te lire à voix haute son article.",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Demande à ton ouvrir de te lire à voix haute son article.",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -3197,19 +3167,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Nouvel ingrédient dans l'inventaire : le sucre !",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -3276,20 +3239,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Nouvel ingrédient dans l'inventaire : le sucre !",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -3676,19 +3631,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Faites glisser les personnages dans la zone de droite pour les donner à Monsieur Louis.",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Faites glisser les personnages dans la zone de droite pour les donner à Monsieur Louis.",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -3718,57 +3666,59 @@
 		    {
 			"type": "Grid",
 			"params": {
+			    "id": "main-grid",
 			    "cols": 2,
 			    "rows": 2,
-			    "anchor": 0,
-			    "alignItems": "center",
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "cache/rightSpotImage.png",
-					"anchor": 1,
-					"width": 10,
-					"height": 10,
-					"x": 0,
-					"y": 0
-				    }
-				},
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "cache/rightSpotImage.png",
-					"anchor": 1,
-					"width": 10,
-					"height": 10,
-					"x": 0,
-					"y": 0
-				    }
-				},
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "cache/rightSpotImage.png",
-					"anchor": 1,
-					"width": 10,
-					"height": 10,
-					"x": 0,
-					"y": 0
-				    }
-				},
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "cache/rightSpotImage.png",
-					"anchor": 1,
-					"width": 10,
-					"height": 10,
-					"x": 0,
-					"y": 0
-				    }
-				}
-
-			    ]
+			    "snap": false,
+			    "alignItems": "center"
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/rightSpotImage.png",
+			    "anchor": 1,
+			    "width": 10,
+			    "height": 10,
+			    "x": 0,
+			    "y": 0,
+			    "grid": "main-grid"
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/rightSpotImage.png",
+			    "anchor": 1,
+			    "width": 10,
+			    "height": 10,
+			    "x": 0,
+			    "y": 0,
+			    "grid": "main-grid"
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/rightSpotImage.png",
+			    "anchor": 1,
+			    "width": 10,
+			    "height": 10,
+			    "x": 0,
+			    "y": 0,
+			    "grid": "main-grid"
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/rightSpotImage.png",
+			    "anchor": 1,
+			    "width": 10,
+			    "height": 10,
+			    "x": 0,
+			    "y": 0,
+			    "grid": "main-grid"
 			}
 		    }
 		]
@@ -3811,19 +3761,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -3864,9 +3807,10 @@
 		    {
 			"type": "Grid",
 			"params": {
+			    "id": "main-grid",
 			    "cols": 2,
 			    "rows": 2,
-			    "anchor": 0,
+			    "snap": false,
 			    "alignItems": "center"
 			}
 		    }
@@ -3910,20 +3854,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Bravo, la photo est complète !",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, la photo est complète !",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -3979,19 +3915,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Bravo, la photo est complète !",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, la photo est complète !",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -4119,19 +4048,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Nouvel ingrédient dans l'inventaire : le beurre !",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le beurre !",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
@@ -4198,20 +4120,12 @@
 		    {
 			"type": "Info",
 			"params": {
-			    "source": "ui/info-6.png",
+			    "content": "Nouvel ingrédient dans l'inventaire : le beurre !",
 			    "anchor": 6,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le beurre !",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7.png",
+			    "color": "",
+			    "backgroundColor": ""
 			}
 		    }
 		],
