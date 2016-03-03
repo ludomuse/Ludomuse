@@ -269,6 +269,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 			ParseJson(rNavItems[i], pSceneNode);
 		}
 	}
+	if (a_rJsonNode.HasMember("synced"))
+	{
+		pSceneNode->SetSynced(a_rJsonNode["synced"].GetBool());
+	}
 }
 
 

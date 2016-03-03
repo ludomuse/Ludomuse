@@ -20,6 +20,9 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
 
   /// \brief The scene unique ID
   std::string m_sID;
+
+  bool m_bIsSynced;
+
   
  public:
   CSceneNode(std::string a_sID = "none");
@@ -33,6 +36,10 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
   virtual bool init();
 
   const std::string& GetSceneID() const;
+
+  void SetSynced(bool a_bIsSynced);
+
+  bool IsSynced();
 
   CREATE_FUNC(CSceneNode);
 };
