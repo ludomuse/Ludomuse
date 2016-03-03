@@ -11,6 +11,7 @@
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
 #include "../../Modules/Networking/Networking.h"
+#include "../../Modules/Util/Include/Util.h"
 
 
 #include <fstream>
@@ -29,7 +30,8 @@ CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
                      m_pJsonParser(new CJsonParser(this)),
                      m_pNetworkManager(new CNetworkManager(this)),
 					 m_pBehaviorTree(new CSequenceNode()),
-					 m_iPlayerID(0)
+					 m_iPlayerID(0),
+					 m_bCoopWaiting(false)
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
@@ -175,8 +177,20 @@ void CKernel::SendNetworkMessage(CEvent a_oEvent)
 
 void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 {
-	CDispatchMessageVisitor oVisitor(a_rMessage);
-	oVisitor.Traverse(m_pBehaviorTree);
+	std::string sKernel = "kernel";
+	if (a_rMessage.substr(0, sKernel.size()) == sKernel)
+	{
+		std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
+		if (vSplittedMessage[1] == "waiting")
+		{
+			m_bCoopWaiting = true;
+		}
+	}
+	else
+	{
+		CDispatchMessageVisitor oVisitor(a_rMessage);
+		oVisitor.Traverse(m_pBehaviorTree);
+	}
 }
 
 void CKernel::GetPeers()

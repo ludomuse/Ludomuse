@@ -35,6 +35,8 @@ class CKernel
   std::map<int, std::vector<std::string> > m_mScenesID;
   int m_iPlayerID;
 
+  bool m_bCoopWaiting;
+
  public:
   CKernel();
   virtual ~CKernel();

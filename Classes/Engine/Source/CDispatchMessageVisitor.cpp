@@ -2,6 +2,8 @@
 #include "../Include/CSceneNode.h"
 #include "../Include/CEntityNode.h"
 
+#include "../../Modules/Util/Include/Util.h"
+
 namespace LM
 {
 
@@ -10,16 +12,7 @@ CDispatchMessageVisitor::CDispatchMessageVisitor(const std::string& a_rMessage) 
     m_sMessage(a_rMessage)
 {
 
-  // split string
-  int iFoundFirst = 0;
-  int iFoundNext = m_sMessage.find_first_of(':');
-  while (iFoundNext != std::string::npos)
-  {
-    m_vSplittedMessage.push_back(m_sMessage.substr(iFoundFirst, iFoundNext - iFoundFirst));
-    iFoundFirst = iFoundNext + 1;
-    iFoundNext = m_sMessage.find_first_of(':', iFoundFirst);
-  }
-  m_vSplittedMessage.push_back(m_sMessage.substr(iFoundFirst, m_sMessage.size()));
+	m_vSplittedMessage = StringSplit(a_rMessage);
 }
 
 

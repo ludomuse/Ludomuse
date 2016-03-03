@@ -42,6 +42,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmWifiDirectFacade.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmJniJavaFacade.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmJniCppFacade.cpp \
+                   ../../Classes/Modules/Util/Source/Util.cpp
 
 
 

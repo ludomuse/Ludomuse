@@ -93,6 +93,9 @@
     <ClCompile Include="..\Classes\Engine\Source\CDispatchMessageVisitor.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Modules\Util\Source\Util.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -183,6 +186,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CDispatchMessageVisitor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Util\Include\Util.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
