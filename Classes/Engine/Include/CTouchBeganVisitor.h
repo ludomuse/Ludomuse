@@ -40,7 +40,6 @@ protected:
   virtual void TouchMoveIn(CEntityNode* a_pEntity);
   virtual void TouchStop(CEntityNode* a_pEntity);
   virtual void MoveEntityBack(CEntityNode* a_pEntity);
-  virtual void DropEntity(CEntityNode* a_pEntity);
   virtual void StartTouch(CEntityNode* a_pEntity);
   virtual void StartMove(CEntityNode* a_pEntity);
 };

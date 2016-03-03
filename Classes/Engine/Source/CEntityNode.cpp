@@ -252,6 +252,29 @@ float CEntityNode::GetEntityStartScale()
 	return m_fEntityStartScale;
 }
 
+
+void CEntityNode::Fade()
+{
+	auto fpReleaseEntity = CallFunc::create([this]() {
+		CEntityNode::Release(this);
+	});
+
+	auto oFadeOut = FadeOut::create(1.0f);
+	auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
+
+	GetCocosEntity()->runAction(oSequence);
+
+	for (CNode* itNode : m_vChildren)
+	{
+		CEntityNode* pChildEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pChildEntity)
+		{
+			pChildEntity->Fade();
+		}
+	}
+}
+
+
 bool CEntityNode::Lock(CEntityNode* a_pEntity)
 {
 	if (!a_pEntity->IsLocked())

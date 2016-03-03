@@ -117,33 +117,44 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 }
 
 
-void CKernel::GotoScreenID(CEvent a_rEvent)
+void CKernel::GotoScreenID(CEvent a_oEvent)
 {
-	LogMessage("GotoScreenID : " + a_rEvent.m_sStringValue);
-	CGotoSceneVisitor oVisitor(a_rEvent.m_sStringValue);
+	LogMessage("GotoScreenID : " + a_oEvent.m_sStringValue);
+	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue);
 	oVisitor.Traverse(m_pBehaviorTree);
 
 }
 
-void CKernel::ValidateScene(CEvent a_rEvent)
+void CKernel::ValidateScene(CEvent a_oEvent)
 {
-	LogMessage("ValidateScene : " + a_rEvent.m_bBoolValue);
-	CValidateSceneVisitor oVisitor(a_rEvent);
+	LogMessage("ValidateScene : " + a_oEvent.m_bBoolValue);
+	CValidateSceneVisitor oVisitor(a_oEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
-void CKernel::SetNodeVisible(CEvent a_rEvent)
+void CKernel::SetNodeVisible(CEvent a_oEvent)
 {
-	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_rEvent.m_pSender);
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
 	{
-		pEntity->Show(a_rEvent.m_bBoolValue);
+		pEntity->Show(a_oEvent.m_bBoolValue);
 	}
 }
 
-void CKernel::SetPlayerID(CEvent a_rEvent)
+void CKernel::FadeEntity(CEvent a_oEvent)
 {
-	m_iPlayerID = a_rEvent.m_iIntValue;
+
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+
+	if (pEntity)
+	{
+		pEntity->Fade();
+	}
+}
+
+void CKernel::SetPlayerID(CEvent a_oEvent)
+{
+	m_iPlayerID = a_oEvent.m_iIntValue;
 }
 
 
@@ -156,10 +167,10 @@ CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 }
 
 
-void CKernel::SendNetworkMessage(CEvent a_rEvent)
+void CKernel::SendNetworkMessage(CEvent a_oEvent)
 {
-	CCLOG("Sending message %s", a_rEvent.m_sStringValue.c_str());
-	m_pNetworkManager->Send(a_rEvent.m_sStringValue);
+	CCLOG("Sending message %s", a_oEvent.m_sStringValue.c_str());
+	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
 }
 
 void CKernel::OnReceivingMessage(const std::string& a_rMessage)
@@ -193,9 +204,9 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 	}
 }
 
-void CKernel::Connect(CEvent a_rEvent)
+void CKernel::Connect(CEvent a_oEvent)
 {
-	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_rEvent.m_pSender);
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
 	{
 		Desc<CEntityNode> pLabelEntity;

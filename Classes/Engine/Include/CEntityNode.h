@@ -129,6 +129,9 @@ class CEntityNode : public CNode
 
   virtual float GetEntityStartScale();
 
+  virtual void Fade();
+
+  ////////////////////////// Static methods
   static bool Lock(CEntityNode* a_pEntity);
 
   static void Release(CEntityNode* a_pEntity);

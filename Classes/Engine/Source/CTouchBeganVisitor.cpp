@@ -50,8 +50,15 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			if (pDropEntity)
 			{
 				pDropEntity->Dispatch("Drop");
-				
-				DropEntity(pEntity);
+				if (pEntity->IsListeningTo("Droped"))
+				{
+					// entity must be released after the Droped event 
+					pEntity->Dispatch("Droped");
+				}
+				else
+				{
+					CEntityNode::Release(pEntity);
+				}
 			}
 			else
 			{
@@ -192,29 +199,6 @@ void CTouchBeganVisitor::MoveEntityBack(CEntityNode* a_pEntity)
 	}
 }
 
-
-
-void CTouchBeganVisitor::DropEntity(CEntityNode* a_pEntity)
-{
-
-	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
-		CEntityNode::Release(a_pEntity);
-	});
-
-	auto oFadeOut = FadeOut::create(1.0f);
-	auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
-
-	a_pEntity->GetCocosEntity()->runAction(oSequence);
-
-	for (CNode* itNode : *a_pEntity)
-	{
-		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-		if (pEntity)
-		{
-			DropEntity(pEntity);
-		}
-	}
-}
 
 
 Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)

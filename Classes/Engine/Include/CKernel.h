@@ -71,6 +71,7 @@ class CKernel
   void GotoScreenID(CEvent a_rEvent);
   void ValidateScene(CEvent a_rEvent);
   void SetNodeVisible(CEvent a_rEvent);
+  void FadeEntity(CEvent a_rEvent);
   void SetPlayerID(CEvent a_rEvent);
   void SendNetworkMessage(CEvent a_rEvent);
   void Connect(CEvent a_rEvent);
@@ -80,6 +81,7 @@ class CKernel
   void OnReceivingMessage(const std::string& a_rMessage);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
+
 };
 
 
