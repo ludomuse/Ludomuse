@@ -1815,7 +1815,7 @@
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
-					"width": 80,
+					"width": 60,
 					"height": 100,
 					"color": "0,0,0,255"
 				    }
@@ -3331,7 +3331,7 @@
 					"content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
 					"color": "0,0,0,255",
 					"anchor": 0,
-					"width": 80,
+					"width": 60,
 					"height": 100
 				    }
 				}
@@ -3386,7 +3386,7 @@
 				    "params": {
 					"source": "cache/flour.png",
 					"anchor": 0,
-					"width": 60,
+					"width": 40,
 					"height": 100,
 					"x": 0,
 					"y": 0,
@@ -3425,7 +3425,7 @@
 				    "params": {
 					"source": "cache/butter.png",
 					"anchor": 0,
-					"width": 60,
+					"width": 40,
 					"height": 100,
 					"x": 0,
 					"y": 0,
@@ -3464,7 +3464,7 @@
 				    "params": {
 					"source": "cache/butter.png",
 					"anchor": 0,
-					"width": 60,
+					"width": 40,
 					"height": 100,
 					"x": 0,
 					"y": 0,
@@ -3503,7 +3503,7 @@
 				    "params": {
 					"source": "cache/sugar.png",
 					"anchor": 0,
-					"width": 60,
+					"width": 40,
 					"height": 100,
 					"x": 0,
 					"y": 0,
@@ -4097,10 +4097,10 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Demande à ton ouvrir de te lire à voix haute son article.",
+					"content": "Demande à ton ouvrier de te lire à voix haute son article.",
 					"color": "0,0,0,255",
 					"anchor": 0,
-					"width": 80,
+					"width": 60,
 					"height": 100
 				    }
 				}
@@ -5004,7 +5004,7 @@
 					"content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
 					"color": "0,0,0,255",
 					"anchor": 0,
-					"width": 80,
+					"width": 60,
 					"height": 100
 				    }
 				}
