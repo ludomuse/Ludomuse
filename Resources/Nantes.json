@@ -289,7 +289,7 @@
 				    "type": "Text",
 				    "params": {
 					"content": "Durant cette visite, vous êtes un ouvrier de la biscuiterie LU. Votre futur patron et coéquipier sera Monsieur Louis Lefevre-Utile dit « Monsieur Louis ». Votre mission sera de créer un nouveau biscuit Vous allez relever plusieurs défi. Le premier défi : réussir être embauché dans la biscuiterie LU. Écoutez ce que le patron Monsieur Louis vous demande. Bonne chance pour le test d’embauche.",
-					"fontSize": 22,
+					"fontSize": 20,
 					"width": 80,
 					"height": 100,
 					"anchor": 0
@@ -1716,6 +1716,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -1757,14 +1765,14 @@
 			"type": "Info",
 			"params": {
 			    "source": "ui/info-6.png",
-			    "anchor": 2,
+			    "anchor": 6,
 			    "width": 0,
 			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Demande à ton ouvrier combien de marche il a compté",
+					"content": "Demande à ton ouvrier combien de marches il a compté",
 					"color": "0,0,0,255",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
@@ -1798,69 +1806,8 @@
 			    "width": 100,
 			    "height": 20,
 			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/answerBackground.png",
-			    "anchor": 0,
-			    "width": 40,
-			    "height": 20,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/answerBackground.png",
-			    "anchor": 0,
-			    "width": 40,
-			    "height": 20,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/answerBackground.png",
-			    "anchor": 0,
-			    "width": 40,
-			    "height": 20,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/answerBackground.png",
-			    "anchor": 0,
-			    "width": 40,
-			    "height": 20,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 2,
-			    "width": 50,
-			    "height": 100,
+			    "y": 0,
 			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
 				{
 				    "type": "Text",
 				    "params": {
@@ -1869,91 +1816,158 @@
 					"fontSize": 24,
 					"anchor": 0,
 					"width": 80,
-					"height": 100
+					"height": 100,
+					"color": "0,0,0,255"
 				    }
 				}
-				
+
 			    ]
 			}
 		    },
+
 		    {
 			"type": "Grid",
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
 			    "anchor": 0,
-			    "alignItems": "center",
+			    "width": 50,
+			    "height": 40,
 			    "children": [
 				{
-				    "type": "Text",
+				    "type": "Image",
 				    "params": {
-					"content": "84 marches",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
+					"source": "cache/answerBackground.png",
+					"anchor": 6,
+					"width": 80,
 					"height": 100,
-					"anchor": 0,
-					"color": "",
-					"cache": {
-					    "visible": false,
-					    "backgroundColor": "",
-					    "backgroundImage": ""
-					},
-					"grid": "main-grid"
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": false
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "84",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
 				    }
 				},
 				{
-				    "type": "Text",
+				    "type": "Image",
 				    "params": {
-					"content": "66 marches",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
+					"source": "cache/answerBackground.png",
+					"anchor": 6,
+					"width": 80,
 					"height": 100,
-					"anchor": 0,
-					"color": "",
-					"cache": {
-					    "visible": false,
-					    "backgroundColor": "",
-					    "backgroundImage": ""
-					},
-					"grid": "main-grid"
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": false
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "66",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
 				    }
 				},
 				{
-				    "type": "Text",
+				    "type": "Image",
 				    "params": {
-					"content": "70 marches",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
+					"source": "cache/answerBackground.png",
+					"anchor": 6,
+					"width": 80,
 					"height": 100,
-					"anchor": 0,
-					"color": "",
-					"cache": {
-					    "visible": false,
-					    "backgroundColor": "",
-					    "backgroundImage": ""
-					},
-					"grid": "main-grid"
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": false
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "70",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
 				    }
 				},
 				{
-				    "type": "Text",
+				    "type": "Image",
 				    "params": {
-					"content": "72 marches",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
+					"source": "cache/answerBackground.png",
+					"anchor": 6,
+					"width": 80,
 					"height": 100,
-					"anchor": 0,
-					"color": "",
-					"cache": {
-					    "visible": false,
-					    "backgroundColor": "",
-					    "backgroundImage": ""
-					},
-					"grid": "main-grid"
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": true
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "72",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
 				    }
 				}
 				
@@ -2055,15 +2069,6 @@
 			    "width": 100,
 			    "height": 100,
 			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
 				{
 				    "type": "Text",
 				    "params": {
@@ -3355,40 +3360,15 @@
 			    "width": 30,
 			    "height": 100,
 			    "x": 70,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/flour.png",
-			    "anchor": 1,
-			    "width": 20,
-			    "height": 20,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/butter.png",
-			    "anchor": 7,
-			    "width": 20,
-			    "height": 20,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 8,
-			    "width": 20,
-			    "height": 20,
-			    "x": 0,
-			    "y": 0
+			    "y": 0,
+			    "listeners": [
+				{
+				    "type": "Drop",
+				    "params": {
+					"callback": ""
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
@@ -3396,51 +3376,165 @@
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
-			    "anchor": 0,
+			    "anchor": 8,
+			    "width": 60,
+			    "height": 80,
 			    "alignItems": "center",
 			    "children": [
 				{
-				    "type": "Text",
+				    "type": "Image",
 				    "params": {
-					"content": "Farine",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
+					"source": "cache/flour.png",
+					"anchor": 0,
+					"width": 60,
 					"height": 100,
-					"anchor": 0
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Farine",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
 				    }
 				},
 				{
-				    "type": "Text",
+				    "type": "Image",
 				    "params": {
-					"content": "Beurre",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
+					"source": "cache/butter.png",
+					"anchor": 0,
+					"width": 60,
 					"height": 100,
-					"anchor": 0
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Beurre",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
 				    }
 				},
 				{
-				    "type": "Text",
+				    "type": "Image",
 				    "params": {
-					"content": "Eau",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
+					"source": "cache/butter.png",
+					"anchor": 0,
+					"width": 60,
 					"height": 100,
-					"anchor": 0
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Eau",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
 				    }
 				},
 				{
-				    "type": "Text",
+				    "type": "Image",
 				    "params": {
-					"content": "Sucre",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"width": 100,
+					"source": "cache/sugar.png",
+					"anchor": 0,
+					"width": 60,
 					"height": 100,
-					"anchor": 0
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Sucre",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
 				    }
 				}
 
@@ -3560,8 +3654,15 @@
 			    "width": 50,
 			    "height": 100,
 			    "children": [
-				
-
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
 				{
 				    "type": "Text",
 				    "params": {
@@ -3903,7 +4004,7 @@
 					"content": "Approchez-vous de Monsieur Louis et lisez cet article à voix haute.",
 					"color": "0,0,0,255",
 					"anchor": 0,
-					"width": 80,
+					"width": 60,
 					"height": 100
 				    }
 				}
@@ -4751,7 +4852,7 @@
 					"content": "Faites glisser les personnages dans la zone de droite pour les donner à Monsieur Louis.",
 					"color": "0,0,0,255",
 					"anchor": 0,
-					"width": 80,
+					"width": 60,
 					"height": 100
 				    }
 				}
@@ -5201,8 +5302,15 @@
 			    "width": 50,
 			    "height": 100,
 			    "children": [
-				
-
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
 				{
 				    "type": "Text",
 				    "params": {
