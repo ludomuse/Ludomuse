@@ -12,25 +12,20 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	// the object parameters
 	RefJsonNode rParams = a_rJsonNode["params"];
 
-	int x, y, width, height;
+	int x = 0, y = 0, width = 0, height = 0;
 	std::string id;
-	if (rParams.HasMember("x")) 
+	if (rParams.HasMember("x") && rParams.HasMember("y")) 
 	{
 		x = rParams["x"].GetInt();
 		y = rParams["y"].GetInt();
 	}
-	else
-	{
-		x = y = 0;
-	}
 	if (rParams.HasMember("width")) 
 	{
 		width = rParams["width"].GetInt();
-		height = rParams["height"].GetInt();
 	}
-	else
+	if (rParams.HasMember("height"))
 	{
-		width = height = 0;
+		height = rParams["height"].GetInt();
 	}
 
 	CEntityNode* pEntity(nullptr);

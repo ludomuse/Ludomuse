@@ -118,16 +118,24 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
-			    "width": 12,
+			    "width": 15,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
 			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Commencer",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -148,27 +156,41 @@
 			"params": {
 			    "source": "cache/perso4.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bienvenue !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
-			    "width": 50,
-			    "height": 50,
 			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 30,
+					"height": 20
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bienvenue !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"width": 50,
+					"height": 50,
+					"anchor": 0,
+					"color": ""
+				    }
+				}
+			    ]
 			}
 		    }
 		]
@@ -179,31 +201,47 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
 			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
 			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -225,29 +263,42 @@
 			"params": {
 			    "source": "cache/perso1left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Durant cette visite, vous êtes un ouvrier de la biscuiterie LU. Votre futur patron et coéquipier sera Monsieur Louis Lefevre-Utile dit « Monsieur Louis ». Votre mission sera de créer un nouveau biscuit Vous allez relever plusieurs défi. Le premier défi : réussir être embauché dans la biscuiterie LU. Écoutez ce que le patron Monsieur Louis vous demande. Bonne chance pour le test d’embauche.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 11,
-			    "width": 40,
-			    "height": 100,
 			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 50
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Durant cette visite, vous êtes un ouvrier de la biscuiterie LU. Votre futur patron et coéquipier sera Monsieur Louis Lefevre-Utile dit « Monsieur Louis ». Votre mission sera de créer un nouveau biscuit Vous allez relever plusieurs défi. Le premier défi : réussir être embauché dans la biscuiterie LU. Écoutez ce que le patron Monsieur Louis vous demande. Bonne chance pour le test d’embauche.",
+					"fontSize": 22,
+					"width": 80,
+					"height": 100,
+					"anchor": 0
+				    }
+				}			
+			    ]
 			}
 		    }
+		    
 		]
 	    },
 	    {
@@ -256,31 +307,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -292,9 +357,7 @@
 			    "source": "cache/background1LU.png",
 			    "anchor": 0,
 			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
+			    "height": 100
 			}
 		    },
 		    {
@@ -302,27 +365,39 @@
 			"params": {
 			    "source": "cache/perso1left.png",
 			    "anchor": 7,
-			    "width": 50,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
+			    "width": 0,
+			    "height": 100
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Pendant cette visite, tu seras  Monsieur Louis Lefèvre-Utile, le patron de l'entreprise de biscuits LU. Tu as 24 ans. Tu es le directeur d’une entreprise qui a été créée par tes parents.Tout le monde t’appelle Monsieur Louis. Aujourd'hui, tu souhaites créer un nouveau biscuit. Pour le créer, tu vas devoir relever plusieurs défis  avec l'aide de ton ouvrier. À chaque défi relevé, le processus de création de la recette avance !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 11,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Pendant cette visite, tu seras  Monsieur Louis Lefèvre-Utile, le patron de l'entreprise de biscuits LU. Tu as 24 ans. Tu es le directeur d’une entreprise qui a été créée par tes parents.Tout le monde t’appelle Monsieur Louis. Aujourd'hui, tu souhaites créer un nouveau biscuit. Pour le créer, tu vas devoir relever plusieurs défis  avec l'aide de ton ouvrier. À chaque défi relevé, le processus de création de la recette avance !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 22,
+					"width": 80,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+		
+			    ]
 			}
 		    }
 		]
@@ -333,31 +408,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -379,29 +468,43 @@
 			"params": {
 			    "source": "cache/perso3.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Ecoutez ce que Monsieur Louis vous demande. Attention, c’est un test d’embauche ! Vous devez le réussir pour rejoindre l’entreprise",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
-			    "width": 40,
-			    "height": 100,
 			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 50
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Ecoutez ce que Monsieur Louis vous demande. Attention, c’est un test d’embauche ! Vous devez le réussir pour rejoindre l’entreprise",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"width": 80,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+			    ]
 			}
 		    }
+
 		]
 	    },
 	    {
@@ -410,31 +513,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -456,7 +573,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -487,31 +604,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -533,7 +664,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -564,31 +695,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -610,7 +755,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -641,31 +786,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -687,7 +846,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -718,31 +877,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -764,7 +937,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -795,31 +968,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -841,7 +1028,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -872,31 +1059,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -918,7 +1119,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -949,31 +1150,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -995,7 +1210,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1026,31 +1241,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1072,7 +1301,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1103,31 +1332,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1181,7 +1424,7 @@
 			"params": {
 			    "source": "cache/perso1.png",
 			    "anchor": 5,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1212,31 +1455,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1291,7 +1548,7 @@
 			"params": {
 			    "source": "cache/perso3right.png",
 			    "anchor": 5,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1322,31 +1579,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1549,31 +1820,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1637,31 +1922,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1724,31 +2023,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1770,7 +2083,7 @@
 			"params": {
 			    "source": "cache/perso1.png",
 			    "anchor": 5,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1801,31 +2114,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1847,7 +2174,7 @@
 			"params": {
 			    "source": "cache/perso1.png",
 			    "anchor": 5,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1878,31 +2205,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -1924,7 +2265,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1955,31 +2296,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2001,7 +2356,7 @@
 			"params": {
 			    "source": "cache/perso1left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -2032,31 +2387,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2069,31 +2438,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2125,31 +2508,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2171,7 +2568,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -2202,31 +2599,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2248,7 +2659,7 @@
 			"params": {
 			    "source": "cache/perso1left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -2285,31 +2696,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2331,7 +2756,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -2362,31 +2787,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2408,7 +2847,7 @@
 			"params": {
 			    "source": "cache/perso1left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -2445,31 +2884,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2524,31 +2977,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2693,31 +3160,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Rejouer",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Rejouer",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2768,7 +3249,7 @@
 			"params": {
 			    "source": "cache/perso3right.png",
 			    "anchor": 5,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -2799,31 +3280,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2857,7 +3352,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -2888,31 +3383,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -2953,7 +3462,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -2990,31 +3499,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3055,7 +3578,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -3069,31 +3592,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3134,7 +3671,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -3165,31 +3702,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3244,31 +3795,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3330,31 +3895,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3376,7 +3955,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -3407,31 +3986,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3453,7 +4046,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -3484,31 +4077,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3530,7 +4137,7 @@
 			"params": {
 			    "source": "cache/perso6.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -3561,31 +4168,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3607,7 +4228,7 @@
 			"params": {
 			    "source": "cache/perso6.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -3644,31 +4265,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3779,31 +4414,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3878,31 +4527,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3947,31 +4610,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -4021,31 +4698,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -4087,31 +4778,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -4166,31 +4871,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -4252,31 +4971,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -4298,7 +5031,7 @@
 			"params": {
 			    "source": "cache/perso2left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -4329,31 +5062,45 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Suivant",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "next"
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
 			"params": {
-			    "content": "Précédent",
 			    "width": 12,
 			    "height": 7,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "enabled": true,
-			    "color": "",
-			    "backgroundColor": "",
-			    "action": "prev"
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -4375,7 +5122,7 @@
 			"params": {
 			    "source": "cache/perso1left.png",
 			    "anchor": 7,
-			    "width": 50,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
