@@ -118,8 +118,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 15,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -201,8 +201,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -224,8 +224,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -307,8 +307,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -329,8 +329,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -408,8 +408,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -430,8 +430,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -513,8 +513,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -535,8 +535,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -604,8 +604,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -626,8 +626,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -671,20 +671,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Passez cette porte. Au pied de l’escalier, commencez à compter les marches à haute voix. Puis passez à l’écran suivant.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Passez cette porte. Au pied de l’escalier, commencez à compter les marches à haute voix. Puis passez à l’écran suivant.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -695,8 +709,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -717,8 +731,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -762,20 +776,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Quand tu es au pied de l’escalier, rappelle à ton ouvrier qu’il doit commencer à compter les marches. Vérifie que ton ouvrier est derrière toi et qu’il accomplie sa mission puis passe à l’écran suivant.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Quand tu es au pied de l’escalier, rappelle à ton ouvrier qu’il doit commencer à compter les marches. Vérifie que ton ouvrier est derrière toi et qu’il accomplie sa mission puis passe à l’écran suivant.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -786,8 +814,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -808,8 +836,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -853,20 +881,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Quand vous arrivez à cet endroit, arrêtez-vous. Prenez maintenant le petit escalier à droite tout en continuant à compter. Passez à l’écran suivant.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Quand vous arrivez à cet endroit, arrêtez-vous. Prenez maintenant le petit escalier à droite tout en continuant à compter. Passez à l’écran suivant.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -877,8 +919,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -899,8 +941,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -944,20 +986,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Quand tu arrives à cet endroit, arrête-toi. Tu dois prendre maintenant ce petit escalier. Indique à ton ouvrier qu’il doit continuer à compter les marches puis passe à l’écran suivant.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Quand tu arrives à cet endroit, arrête-toi. Tu dois prendre maintenant ce petit escalier. Indique à ton ouvrier qu’il doit continuer à compter les marches puis passe à l’écran suivant.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -968,8 +1024,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -990,8 +1046,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1035,20 +1091,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Quand vous arrivez à cet endroit, vous avez déjà monté 38 marches. Maintenant, prenez l’escalier en colimaçon. Un dernier petit effort ! Continuez à compter les marches. Passe à l’écran suivant",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Quand vous arrivez à cet endroit, vous avez déjà monté 38 marches. Maintenant, prenez l’escalier en colimaçon. Un dernier petit effort ! Continuez à compter les marches. Passe à l’écran suivant",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -1059,8 +1129,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -1081,8 +1151,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1126,20 +1196,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Quand tu arrives à cet endroit, arrête-toi. Tu dois prendre maintenant ce tout petit escalier. Précise à ton ouvrier que c’est le dernier effort à fournir, vous êtes presque arrivés ! Passe à l’écran suivant.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Quand tu arrives à cet endroit, arrête-toi. Tu dois prendre maintenant ce tout petit escalier. Précise à ton ouvrier que c’est le dernier effort à fournir, vous êtes presque arrivés ! Passe à l’écran suivant.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -1150,8 +1234,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -1172,8 +1256,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1217,20 +1301,35 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Entrez dans la salle !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Entrez dans la salle !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
+
 			}
 		    }
 		]
@@ -1241,8 +1340,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -1263,8 +1362,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1308,20 +1407,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Entre dans la salle ! Tu es maintenant dans ton entreprise.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Entre dans la salle ! Tu es maintenant dans ton entreprise.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -1332,8 +1445,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -1354,8 +1467,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1380,11 +1493,14 @@
 			"params": {
 			    "source" : "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Réponds à la question de M. Louis",
+					"color": "0,0,0,255",
 					"font": "fonts/arial.ttf",
 					"anchor": 0,
 					"fontSize": 24,
@@ -1413,7 +1529,7 @@
 			"params": {
 			    "source": "cache/cookie.png",
 			    "anchor": 0,
-			    "width": 100,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1431,20 +1547,26 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Réponds à la question de M. Louis",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 8,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				
+
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Réponds à la question de M. Louis",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		]
@@ -1455,8 +1577,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -1477,8 +1599,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1503,11 +1625,14 @@
 			"params": {
 			    "source" : "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Attention, rejoue !",	
+					"content": "Attention, rejoue !",
+					"color": "0,0,0,255",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -1537,7 +1662,7 @@
 			"params": {
 			    "source": "cache/cookie.png",
 			    "anchor": 0,
-			    "width": 100,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -1555,20 +1680,26 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Attention, rejoue !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 8,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				
+
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Attention, rejoue !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		]
@@ -1579,8 +1710,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -1601,8 +1732,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1627,11 +1758,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 2,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Demande à ton ouvrier combien de marche il a compté",
+					"color": "0,0,0,255",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -1712,20 +1846,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Demande à ton ouvrier combien de marche il a compté",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 2,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 2,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Demande à ton ouvrier combien de marche il a compté",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    },
 		    {
@@ -1820,8 +1968,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -1842,8 +1990,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1868,14 +2016,17 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Tu as trouvé la bonne réponse !",
+					"color": "0,0,0,255",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
-					"anchor": 6,
+					"anchor": 0,
 					"width":80,
 					"height": 100
 				    }
@@ -1898,20 +2049,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Félicitation, vous avez été embauché dans l'entreprise Lu !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 0,
 			    "width": 100,
 			    "height": 100,
-			    "anchor": 0,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Félicitation, vous avez été embauché dans l'entreprise Lu !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -1922,8 +2087,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -1944,8 +2109,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -1970,11 +2135,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Ton coéquipier a trouvé la bonne réponse !",
+					"color": "0,0,0,255",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -1999,20 +2167,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bravo, tu as un nouvel ouvrier dans ton équipe !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 0,
 			    "width": 100,
 			    "height": 100,
-			    "anchor": 0,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, tu as un nouvel ouvrier dans ton équipe !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -2023,8 +2205,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2045,8 +2227,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2090,20 +2272,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bien, maintenant que tu es embauché, nous pouvons continuer.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 8,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bien, maintenant que tu es embauché, nous pouvons continuer.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -2114,8 +2310,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2136,8 +2332,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2181,20 +2377,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bien, maintenant que tu as un nouvel ouvrier, nous allons pouvoir commencer la nouvelle recette !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 8,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bien, maintenant que tu as un nouvel ouvrier, nous allons pouvoir commencer la nouvelle recette !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -2205,8 +2415,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2227,8 +2437,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2272,20 +2482,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Approchez-vous du grand portrait de Monsieur Louis. Il est impressionnant, vous ne trouvez pas ?",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Approchez-vous du grand portrait de Monsieur Louis. Il est impressionnant, vous ne trouvez pas ?",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -2296,8 +2520,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2318,8 +2542,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2363,20 +2587,26 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Montre ton portrait peint à ton ouvrier.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				
+
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Montre ton portrait peint à ton ouvrier.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		]
@@ -2387,8 +2617,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2409,8 +2639,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2438,8 +2668,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2460,8 +2690,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2486,11 +2716,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Touche le portrait pour écouter Monsieur Louis.",				
+					"content": "Touche le portrait pour écouter Monsieur Louis.",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -2508,8 +2741,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2530,8 +2763,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2575,20 +2808,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Monsieur Louis vous interroge : « Connaissez-vous l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Monsieur Louis vous interroge : « Connaissez-vous l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -2599,8 +2846,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2621,8 +2868,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2666,20 +2913,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Monsieur Louis interroge son ouvrier : « connais-tu l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Monsieur Louis interroge son ouvrier : « connais-tu l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    },
 		    {
@@ -2696,8 +2957,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2718,8 +2979,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2763,20 +3024,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Pour découvrir la recette des biscuits de mer vous devez choisir de faire glisser de la zone de partage(en forme de petit beurre) au plat les ingrédients qui conviennent à la recette.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Pour découvrir la recette des biscuits de mer vous devez choisir de faire glisser de la zone de partage(en forme de petit beurre) au plat les ingrédients qui conviennent à la recette.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -2787,8 +3062,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2809,8 +3084,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2854,20 +3129,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Faites glisser les différents ingrédients : farine, beurre, eau, vanille œuf, sucre dans la zone de partage en forme de petit beurre. Ton ouvrier doit déterminer si ces ingrédients sont présents dans les biscuits de mer. Ces biscuits avaient l’avantage de se conserver longtemps mais ils n’étaient pas très bons !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Faites glisser les différents ingrédients : farine, beurre, eau, vanille œuf, sucre dans la zone de partage en forme de petit beurre. Ton ouvrier doit déterminer si ces ingrédients sont présents dans les biscuits de mer. Ces biscuits avaient l’avantage de se conserver longtemps mais ils n’étaient pas très bons !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    },
 		    {
@@ -2884,8 +3173,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2906,8 +3195,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -2932,11 +3221,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Placez les bons ingrédients dans le plat.",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -2977,8 +3269,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -2999,8 +3291,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3025,11 +3317,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -3160,8 +3455,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -3182,8 +3477,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3208,11 +3503,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Attention, vous vous êtes trompé.",					"anchor": 0,
+					"color": "0,0,0,255",
 					"width": 80,
 					"height": 100
 				    }
@@ -3238,7 +3536,7 @@
 			"params": {
 			    "source": "cache/cookie.png",
 			    "anchor": 0,
-			    "width": 100,
+			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
@@ -3256,20 +3554,26 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Attention, rejoue !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 8,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				
+
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Attention, rejoue !",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		]
@@ -3280,8 +3584,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -3302,8 +3606,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3324,14 +3628,26 @@
 		],
 		"information": [
 		    {
-			"type": "Text",
+			"type": "Info",
 			"params": {
-			    "content": "Bravo, vous avez réussi !",
+			    "source": "ui/info-6.png",
 			    "anchor": 6,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7.png",
-			    "color": "",
-			    "backgroundColor": ""
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, vous avez réussi !",
+					"anchor": 0,
+					"color": "0,0,0,255",
+					"normal": "ui/nav-7.png",
+					"selected": "ui/nav-7.png",
+					"color": "",
+					"backgroundColor": ""
+				    }
+				}
+			    ]
 			}
 		    }
 		],
@@ -3359,20 +3675,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bravo, vous avez trouvé les deux ingrédients qui entrent dans la recette des biscuits de mer. Écoutez Monsieur Louis, il va vous raconter ce qui s’est passé ensuite.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, vous avez trouvé les deux ingrédients qui entrent dans la recette des biscuits de mer. Écoutez Monsieur Louis, il va vous raconter ce qui s’est passé ensuite.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -3383,8 +3713,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -3405,8 +3735,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3431,11 +3761,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Bravo, tu as réussi !",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -3469,20 +3802,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bravo ! Écoute l’explication pour renseigner ton ouvrier.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo ! Écoute l’explication pour renseigner ton ouvrier.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    },
 		    {
@@ -3499,8 +3846,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -3521,8 +3868,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3547,11 +3894,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Approchez-vous de Monsieur Louis et lisez cet article à voix haute.",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -3592,8 +3942,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -3614,8 +3964,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3640,11 +3990,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Demande à ton ouvrir de te lire à voix haute son article.",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -3678,20 +4031,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Pour poursuivre la formation de ton ouvrier, fais-lui lire un article de presse. Celui-ci pourra être lu quand les deux tablettes seront côte-à-côte.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Pour poursuivre la formation de ton ouvrier, fais-lui lire un article de presse. Celui-ci pourra être lu quand les deux tablettes seront côte-à-côte.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -3702,8 +4069,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -3724,8 +4091,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3750,11 +4117,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -3795,8 +4165,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -3817,8 +4187,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3843,11 +4213,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -3895,8 +4268,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -3917,8 +4290,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -3962,20 +4335,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -3986,8 +4373,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4008,8 +4395,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4053,20 +4440,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -4077,8 +4478,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4099,8 +4500,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4144,20 +4545,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Vous allez maintenant découvrir vos collègues grâce un jeu.Règle du jeu : Faites glisser les personnages un par un dans la zone de partage en forme de petit beurre pour les envoyer à Monsieur Louis. Il va les replacer au bon endroit et va vous indiquer les noms de métiers.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Vous allez maintenant découvrir vos collègues grâce un jeu.Règle du jeu : Faites glisser les personnages un par un dans la zone de partage en forme de petit beurre pour les envoyer à Monsieur Louis. Il va les replacer au bon endroit et va vous indiquer les noms de métiers.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -4168,8 +4583,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4190,8 +4605,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4235,20 +4650,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Voici une manière originale de présenter ces collègues à ton ouvrier ! Règle du jeu : Lorsque l’ouvrier t’envoie un détail dans la zone de partage (en forme de petit beurre) replace le au bon endroit.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Voici une manière originale de présenter ces collègues à ton ouvrier ! Règle du jeu : Lorsque l’ouvrier t’envoie un détail dans la zone de partage (en forme de petit beurre) replace le au bon endroit.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    },
 		    {
@@ -4265,8 +4694,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4287,8 +4716,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4313,11 +4742,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Faites glisser les personnages dans la zone de droite pour les donner à Monsieur Louis.",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -4414,8 +4846,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4436,8 +4868,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4462,11 +4894,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -4527,8 +4962,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4549,8 +4984,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4575,11 +5010,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Bravo, la photo est complète !",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -4610,8 +5048,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4632,8 +5070,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4658,11 +5096,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Bravo, la photo est complète !",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -4698,8 +5139,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4720,8 +5161,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4754,20 +5195,26 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "dirigeants ouvrières pâtissiers menuisiers",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				
+
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "dirigeants ouvrières pâtissiers menuisiers",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
 			}
 		    }
 		]
@@ -4778,8 +5225,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4800,8 +5247,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4826,11 +5273,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Nouvel ingrédient dans l'inventaire : le beurre !",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -4871,8 +5321,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4893,8 +5343,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -4919,11 +5369,14 @@
 			"params": {
 			    "source": "ui/info-6.png",
 			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
 			    "children": [
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Nouvel ingrédient dans l'inventaire : le beurre !",
+					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
 					"height": 100
@@ -4971,8 +5424,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -4993,8 +5446,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -5038,20 +5491,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]
@@ -5062,8 +5529,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
@@ -5084,8 +5551,8 @@
 		    {
 			"type": "Nav",
 			"params": {
-			    "width": 12,
-			    "height": 7,
+			    "width": 0,
+			    "height": 13,
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
@@ -5129,20 +5596,34 @@
 			}
 		    },
 		    {
-			"type": "Text",
+			"type": "Group",
 			"params": {
-			    "content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+				
+			    ]
 			}
 		    }
 		]

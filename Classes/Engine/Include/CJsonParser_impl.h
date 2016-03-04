@@ -78,7 +78,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "Image" || sType == "Info")
 	{
-		bool _info = sType == "Info";
 		pEntity = new CSpriteNode(rParams["source"].GetString(),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width, height,
