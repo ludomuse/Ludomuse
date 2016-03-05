@@ -1,2 +1,2 @@
-export cmd=bash
-javaw -jar LudoMuseDebug.jar
+alias cmd.exe='bash'
+java -jar LudoMuseDebug.jar
