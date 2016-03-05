@@ -9,23 +9,63 @@ namespace LM
 {
 
 
-typedef  void (CKernel::* FPKernelCallback)(cocos2d::Ref* pSender);
+struct CEvent
+{
 
+public:
+	CNode* m_pSender;
+	std::string m_sStringValue;
+	bool m_bBoolValue;
+	int m_iIntValue;
 
+	CEvent(CNode* a_pSender = nullptr, std::string a_sStringValue = "", bool a_bBoolValue = true, int a_iIntValue = 0) :
+		m_pSender(a_pSender),
+		m_sStringValue(a_sStringValue),
+		m_bBoolValue(a_bBoolValue),
+		m_iIntValue(a_iIntValue)
+	{
+
+	}
+
+};
+
+template <class T, typename Arg>
 class CCallback
 {
 
+typedef  void (T::* fpMemberCallback)(Arg pSender);
+
+
 private:
-  CKernel* m_pKernel;
-  FPKernelCallback m_pCallback;
+  T* m_pCallee;
+  fpMemberCallback m_pCallback;
+  Arg m_oArgument;
 
 
 public:
-  CCallback(CKernel* a_pKernel, FPKernelCallback a_pCallback);
-  void operator()(cocos2d::Ref* a_pSender);
+	CCallback(T* a_pCallee, fpMemberCallback a_pCallback, Arg a_oArgument = Arg()) :
+		m_pCallee(a_pCallee),
+		m_pCallback(a_pCallback),
+		m_oArgument(a_oArgument)
+	{
+
+	}
+
+
+	void operator()(Arg a_pSender)
+	{
+		(m_pCallee->*m_pCallback)(a_pSender);
+	}
+
+	void operator()()
+	{
+		if (m_pCallback && m_pCallee)
+			(m_pCallee->*m_pCallback)(m_oArgument);
+	}
   
 };
 
+typedef CCallback<CKernel, CEvent> CEventCallback;
 
 } // namespace LM
 

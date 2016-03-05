@@ -10,20 +10,51 @@ namespace LM
 {
 
 CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
-						 int a_iXPosition, int a_iYPosition) :
+						 int a_iXPosition, int a_iYPosition, const std::string& a_sID) :
     m_eAnchor(a_eAnchor),
 	m_iXPosition(a_iXPosition),
     m_iYPosition(a_iYPosition),
 	m_iWidth(a_iWidth),
-	m_iHeight(a_iHeight)
+	m_iHeight(a_iHeight),
+	m_bVisible(true),
+	m_bLocked(false),
+	m_sID(a_sID),
+	m_fEntityStartScale(0),
+	m_pCocosEntity(nullptr)
 {
 }
+
+
+void CEntityNode::UnInit()
+{
+	m_pCocosEntity->release();
+	CNode::UnInit();
+}
+
 
 cocos2d::Node* CEntityNode::GetCocosEntity()
 {
 	return m_pCocosEntity;
 }
 
+
+void CEntityNode::AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback)
+{
+	m_mListeners.insert(std::pair<std::string, CEventCallback>(a_rEvent, a_rCallback));
+}
+
+bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
+{
+	std::map<std::string, CEventCallback>::iterator it = m_mListeners.find(a_rEvent);
+	return (it != m_mListeners.end());
+}
+
+
+void CEntityNode::Dispatch(const std::string& a_rEvent)
+{
+	std::map<std::string, CEventCallback>::iterator it = m_mListeners.find(a_rEvent);
+	it->second();
+}
 
 void CEntityNode::PopulateParent(bool a_bDoScaling)
 {
@@ -108,6 +139,11 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 		pScene->addChild(m_pCocosEntity, 0);
 	}
 
+
+	m_pCocosEntity->setVisible(m_bVisible);
+
+	m_oEntityStartLocation = m_pCocosEntity->getPosition();
+	m_fEntityStartScale = m_pCocosEntity->getScale();
 }
 
 
@@ -166,5 +202,109 @@ Vec2 CEntityNode::GetOrigin()
 	Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
 	return Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
 }
+
+void CEntityNode::SetVisible(bool a_bVisible)
+{
+	m_bVisible = a_bVisible;
+}
+
+bool CEntityNode::IsVisible()
+{
+	return m_bVisible;
+}
+
+std::string CEntityNode::GetID()
+{
+	return m_sID;
+}
+
+void CEntityNode::SetID(const std::string& a_rID)
+{
+	m_sID = a_rID;
+}
+
+void CEntityNode::Show(bool a_bVisible)
+{
+	m_bVisible = a_bVisible;
+	GetCocosEntity()->setVisible(a_bVisible);
+	for (CNode* itNode : *this)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			pEntity->Show(a_bVisible);
+		}
+	}
+}
+
+bool CEntityNode::IsLocked()
+{
+	return m_bLocked;
+}
+
+Vec2 CEntityNode::GetEntityStartLocation()
+{
+	return m_oEntityStartLocation;
+}
+
+float CEntityNode::GetEntityStartScale()
+{
+	return m_fEntityStartScale;
+}
+
+
+void CEntityNode::Fade()
+{
+	auto fpReleaseEntity = CallFunc::create([this]() {
+		CEntityNode::Release(this);
+	});
+
+	auto oFadeOut = FadeOut::create(1.0f);
+	auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
+
+	GetCocosEntity()->runAction(oSequence);
+
+	for (CNode* itNode : m_vChildren)
+	{
+		CEntityNode* pChildEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pChildEntity)
+		{
+			pChildEntity->Fade();
+		}
+	}
+}
+
+
+bool CEntityNode::Lock(CEntityNode* a_pEntity)
+{
+	if (!a_pEntity->IsLocked())
+	{
+		a_pEntity->m_bLocked = true;
+		for (CNode* itNode : *a_pEntity)
+		{
+			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+			if (pEntity)
+			{
+				CEntityNode::Lock(pEntity);
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+void CEntityNode::Release(CEntityNode* a_pEntity)
+{
+	a_pEntity->m_bLocked = false;
+	for (CNode* itNode : *a_pEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			CEntityNode::Release(pEntity);
+		}
+	}
+}
+
 
 } // namespace LM

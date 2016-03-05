@@ -19,9 +19,9 @@ class CNetworkManager : LmWifiObserver
 
   CNetworkManager(CKernel* a_pKernel);
 
-  virtual void onGettingPeers(std::vector<std::string> a_vPeers);
+  virtual void onGettingPeers(std::vector<std::string> a_vPeers) override;
 
-  virtual void onReceiving(std::string s);
+  virtual void onReceiving(std::string s) override;
 
   // virtual void onReceiving(int i);
 

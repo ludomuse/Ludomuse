@@ -1,6 +1,7 @@
 #include "../Include/CTransitionVisitor.h"
 #include "../Include/CSceneNode.h"
 #include "../Include/CSequenceNode.h"
+#include "../Include/CKernel.h"
 
 #include "cocos2d.h"
 
@@ -9,8 +10,9 @@ using namespace cocos2d;
 namespace LM
 {
 
-CTransitionVisitor::CTransitionVisitor(bool a_bTransitionNext) :
-	m_bTransitionNext(a_bTransitionNext)
+CTransitionVisitor::CTransitionVisitor(CKernel* a_pKernel, bool a_bTransitionNext) :
+	m_bTransitionNext(a_bTransitionNext),
+	m_pKernel(a_pKernel)
 {
 }
 
@@ -27,40 +29,50 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
   }
   if (pScene)
   {
-	  //pScene->GetScene()->removeAllChildrenWithCleanup(true); // TODO
-	  bool bSceneExists = false;
-	  if (m_bTransitionNext)
-	  {
-		  // if TransitioNext offset of 1 scene 
-		  bSceneExists = pSequence->OffsetCurrentNode(1);
-	  }
-	  else
-	  {
-		  // else return to previous scene
-		  bSceneExists = pSequence->OffsetCurrentNode(-1);
-	  }
-	  if (!bSceneExists)
-	  {
-		  return RESULT_CONTINUE;
-	  }
-	  CSceneNode* pNewSceneNode = dynamic_cast<CSceneNode*>(pSequence->GetCurrentNode());
-	  if (pNewSceneNode)
-	  {
-		  Scene* pNewScene = pNewSceneNode->CreateScene();
-		  pNewSceneNode->init();
-
-		  if (m_bTransitionNext)
-		  {
-			  Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
-		  }
-		  else
-		  {
-			  Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
-		  }
-	  }
-      return RESULT_PRUNE;
+	  GotoScene(pSequence);
   }
+  return RESULT_PRUNE;
 }
 
+
+void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
+{
+	bool bSceneExists = false;
+	if (m_bTransitionNext)
+	{
+		// if TransitioNext offset of 1 scene 
+		bSceneExists = a_pSequence->OffsetCurrentNode(1);
+	}
+	else
+	{
+		// else return to previous scene
+		bSceneExists = a_pSequence->OffsetCurrentNode(-1);
+	}
+	if (!bSceneExists)
+	{
+		return;
+	}
+	CSceneNode* pNewSceneNode = dynamic_cast<CSceneNode*>(a_pSequence->GetCurrentNode());
+	if (!m_pKernel->PlayerHasScene(pNewSceneNode->GetSceneID()))
+	{
+		GotoScene(a_pSequence);
+		return;
+	}
+	else if (pNewSceneNode)
+	{
+		Scene* pNewScene = pNewSceneNode->CreateScene();
+		pNewSceneNode->init();
+
+		if (m_bTransitionNext)
+		{
+			Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+		}
+		else
+		{
+			Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
+		}
+	}
+
+}
 
 } // namespace LM

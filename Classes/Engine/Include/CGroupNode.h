@@ -15,9 +15,9 @@ private:
 	std::string m_sBackgroundSource;
 
  public:
-  CGroupNode(EAnchor a_eAnchor,
-                    int a_iWidth,
-                    int a_iHeight,
+  CGroupNode(EAnchor a_eAnchor = EAnchor::CENTER,
+                    int a_iWidth = 100,
+                    int a_iHeight = 100,
                     int a_iXPosition = 0,
                     int a_iYPosition = 0,
 	  const std::string& a_rBackgroundSource = "");

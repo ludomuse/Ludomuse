@@ -7,7 +7,7 @@ namespace LM
 
 CMenuNode::CMenuNode(const std::string& a_rNormalImage,
                      const std::string& a_rSelectedImage,
-                     CCallback a_fpCallback,
+                     CCallback<CKernel, cocos2d::Ref*> a_fpCallback,
 					 EAnchor a_eAnchor,
 					 int a_iWidth,
 					 int a_iHeight,
@@ -23,7 +23,7 @@ CMenuNode::CMenuNode(const std::string& a_rNormalImage,
 
 void CMenuNode::Init()
 {
-  auto m_pMenuItemImage = MenuItemImage::create(
+  m_pMenuItemImage = MenuItemImage::create(
       m_sNormalImage,
       m_sSelectedImage,
       m_fpClickedCallback);
@@ -73,6 +73,7 @@ void CMenuNode::Init()
   CNode::Init();
 }
 
+
 Size CMenuNode::GetVisibleSize()
 {
 	return m_oSize;
@@ -81,6 +82,17 @@ Size CMenuNode::GetVisibleSize()
 Vec2 CMenuNode::GetOrigin()
 {
 	return m_oOrigin;
+}
+
+Node* CMenuNode::GetCocosEntity()
+{
+	return m_pMenuItemImage;
+}
+
+void CMenuNode::Show(bool a_bVisible)
+{
+	m_pCocosEntity->setVisible(true);
+	CEntityNode::Show();
 }
 
 } // namespace LM

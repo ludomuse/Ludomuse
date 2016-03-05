@@ -28,14 +28,21 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CLabelNode.cpp \
                    ../../Classes/Engine/Source/CSpriteNode.cpp \
                    ../../Classes/Engine/Source/CMenuNode.cpp \
-                   ../../Classes/Engine/Source/CCallback.cpp \
                    ../../Classes/Engine/Source/CTransitionVisitor.cpp \
+                   ../../Classes/Engine/Source/CTouchBeganVisitor.cpp \
+                   ../../Classes/Engine/Source/CGotoSceneVisitor.cpp \
+                   ../../Classes/Engine/Source/CValidateSceneVisitor.cpp \
+                   ../../Classes/Engine/Source/CFindEntityVisitor.cpp \
+                   ../../Classes/Engine/Source/CFindEntityTouchVisitor.cpp \
+                   ../../Classes/Engine/Source/CDispatchMessageVisitor.cpp \
                    ../../Classes/Engine/Source/CGroupNode.cpp \
                    ../../Classes/Engine/Source/CGridNode.cpp \
+                   ../../Classes/Engine/Source/CPeerNode.cpp \
                    ../../Classes/Modules/Networking/android/Source/CNetworkManager.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmWifiDirectFacade.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmJniJavaFacade.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmJniCppFacade.cpp \
+                   ../../Classes/Modules/Util/Source/Util.cpp
 
 
 

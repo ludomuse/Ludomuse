@@ -2,13 +2,24 @@
 #include "../Include/CSequenceNode.h"
 #include "../Include/CSceneNode.h"
 #include "../Include/CTransitionVisitor.h"
+#include "../Include/CTouchBeganVisitor.h"
+#include "../Include/CGotoSceneVisitor.h"
+#include "../Include/CValidateSceneVisitor.h"
+#include "../Include/CFindEntityVisitor.h"
+#include "../Include/CDispatchMessageVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
 #include "../../Modules/Networking/Networking.h"
+#include "../../Modules/Util/Include/Util.h"
 
 
 #include <fstream>
+
+
+#define ON_CC_THREAD(FUN, OBJ, ...) 	Director::getInstance()->getScheduler()->performFunctionInCocosThread(\
+										std::bind(&FUN, OBJ, ##__VA_ARGS__));
+
 
 using namespace cocos2d;
 
@@ -17,11 +28,21 @@ namespace LM
 
 CKernel::CKernel() : m_pInputManager(new CInputManager(this)), 
                      m_pJsonParser(new CJsonParser(this)),
-                     m_pNetworkManager(new CNetworkManager(this))
+                     m_pNetworkManager(new CNetworkManager(this)),
+					 m_pBehaviorTree(new CSequenceNode()),
+					 m_iPlayerID(1),
+					 m_bCoopWaiting(false)
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
-  m_pBehaviorTree = new CSequenceNode();
+}
+
+CKernel::~CKernel()
+{
+	delete m_pBehaviorTree;
+	delete m_pInputManager;
+	delete m_pNetworkManager;
+	delete m_pJsonParser;
 }
 
 
@@ -31,21 +52,36 @@ CNode* CKernel::GetBehaviorTree()
 }
 
 
-CKernel::~CKernel()
+CJsonParser* CKernel::GetJsonParser()
 {
-  delete m_pBehaviorTree;
-  delete m_pInputManager;
-  delete m_pNetworkManager;
-  delete m_pJsonParser;
+	return m_pJsonParser;
 }
 
+void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
+{
+	m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
+}
+
+bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
+{
+	std::vector<std::string>::iterator itSceneID;
+	for (itSceneID = m_mScenesID[m_iPlayerID].begin();
+			itSceneID != m_mScenesID[m_iPlayerID].end();
+			++itSceneID)
+	{
+		if (*itSceneID == a_rSceneID)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
 
 void CKernel::Init()
 {
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
-  //CSceneNode oNode;
-  //Scene* oScene = oNode.CreateScene();
-  // node.init();
+
 	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
@@ -54,41 +90,152 @@ void CKernel::Init()
 	pFirstScene->init();
 
     cocos2d::Director::getInstance()->runWithScene(pScene);
-  
 }
 
 
 void CKernel::NavNext(Ref* pSender)
 {
-	CTransitionVisitor oVisitor(true);
+	CTransitionVisitor oVisitor(this, true);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
 void CKernel::NavPrevious(Ref* pSender)
 {
-	CTransitionVisitor oVisitor(false);
+	CTransitionVisitor oVisitor(this, false);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
 
-void CKernel::SendMessage(Ref* pSender)
+bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
-	CCLOG("Sending message");
-	m_pNetworkManager->Send("Hello from the other side !");
+	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
+	oVisistor.Traverse(m_pBehaviorTree);
+
+	EventListenerTouchOneByOne* pEventListener = m_pInputManager->GetEventListener();
+	pEventListener->onTouchEnded = CC_CALLBACK_2(CTouchBeganVisitor::OnTouchEnd, oVisistor);
+	pEventListener->onTouchMoved = CC_CALLBACK_2(CTouchBeganVisitor::OnTouchMove, oVisistor);
+
+	return true;
 }
 
-void CKernel::Connect(Ref* pSender)
-{
-	CCLOG("Hello World !");
 
-	//m_pNetworkManager->Send("Hello World !");
+void CKernel::GotoScreenID(CEvent a_oEvent)
+{
+	LogMessage("GotoScreenID : " + a_oEvent.m_sStringValue);
+	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue);
+	oVisitor.Traverse(m_pBehaviorTree);
+
+}
+
+void CKernel::ValidateScene(CEvent a_oEvent)
+{
+	LogMessage("ValidateScene : " + a_oEvent.m_bBoolValue);
+	CValidateSceneVisitor oVisitor(a_oEvent);
+	oVisitor.Traverse(m_pBehaviorTree);
+}
+
+void CKernel::SetNodeVisible(CEvent a_oEvent)
+{
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	if (pEntity)
+	{
+		pEntity->Show(a_oEvent.m_bBoolValue);
+	}
+}
+
+void CKernel::FadeEntity(CEvent a_oEvent)
+{
+
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+
+	if (pEntity)
+	{
+		pEntity->Fade();
+	}
+}
+
+void CKernel::SetPlayerID(CEvent a_oEvent)
+{
+	m_iPlayerID = a_oEvent.m_iIntValue;
+}
+
+
+CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
+{
+	Desc<CEntityNode> pEntity;
+	CFindEntityTouchVisitor oVisitor(a_pTouch, pEntity, a_sEvent);
+	oVisitor.Traverse(m_pBehaviorTree);
+	return pEntity.Get();
+}
+
+
+void CKernel::SendNetworkMessage(CEvent a_oEvent)
+{
+	CCLOG("Sending message %s", a_oEvent.m_sStringValue.c_str());
+	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
+}
+
+void CKernel::OnReceivingMessage(const std::string& a_rMessage)
+{
+	std::string sKernel = "kernel";
+	if (a_rMessage.substr(0, sKernel.size()) == sKernel)
+	{
+		std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
+		if (vSplittedMessage[1] == "waiting")
+		{
+			m_bCoopWaiting = true;
+		}
+	}
+	else
+	{
+		CDispatchMessageVisitor oVisitor(a_rMessage);
+		oVisitor.Traverse(m_pBehaviorTree);
+	}
+}
+
+void CKernel::GetPeers()
+{
 	m_pNetworkManager->DiscoverPeers();
 }
 
-void CKernel::OnGettingPeers(std::vector<std::string> a_vPeers)
+void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 {
-	CCLOG("connecting to : %s", a_vPeers[0].c_str());
-	m_pNetworkManager->ConnectTo(a_vPeers[0]);
+	CCLOG("peers : ");
+	for (const std::string& itString : a_vPeers)
+	{
+		CCLOG("found peer : %s", itString.c_str());
+	}
+	Desc<CEntityNode> pEntity;
+	CFindEntityVisitor oVisitor(pEntity, "Peers");
+	oVisitor.Traverse(m_pBehaviorTree);
+	if (pEntity.IsValid())
+	{
+		CPeerNode* pPeerNode = static_cast<CPeerNode*>(pEntity.Get());
+		if (pPeerNode)
+		{
+			ON_CC_THREAD(CPeerNode::AddPeers, pPeerNode, a_vPeers);
+		}
+	}
+}
+
+void CKernel::Connect(CEvent a_oEvent)
+{
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	if (pEntity)
+	{
+		Desc<CEntityNode> pLabelEntity;
+		CFindEntityVisitor oVisitor(pLabelEntity, "GetText");
+		oVisitor.Traverse(pEntity);
+		if (pLabelEntity.IsValid())
+		{
+			Label* pLabel = dynamic_cast<Label*>(pLabelEntity.Get()->GetCocosEntity());
+			if (pLabel)
+			{
+				m_pNetworkManager->ConnectTo(pLabel->getString());
+				m_pNetworkManager->Send("connection:establish");
+			}
+		}
+	}
 }
 
 

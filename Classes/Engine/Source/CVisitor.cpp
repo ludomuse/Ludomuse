@@ -34,9 +34,9 @@ Result CVisitor::ProcessNodeTopDown(CNode* a_pNode)
   return RESULT_CONTINUE;
 }
 
-void CVisitor::ProcessNodeBottomUp(CNode* a_pNode)
+Result CVisitor::ProcessNodeBottomUp(CNode* a_pNode)
 {
-  
+	return RESULT_CONTINUE;
 }
 
 

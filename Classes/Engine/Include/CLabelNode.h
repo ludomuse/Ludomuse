@@ -37,6 +37,8 @@ class CLabelNode : public CEntityNode
   /// \brief init this node
   virtual void Init();
 
+  virtual void SetText(const std::string& a_rText);
+
 };
 
 } // namespace LM

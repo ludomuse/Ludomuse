@@ -8,7 +8,7 @@ using namespace cocos2d;
 namespace LM
 {
 
-CSceneNode::CSceneNode(std::string a_sID) : m_sID(a_sID)
+CSceneNode::CSceneNode(std::string a_sID) : m_sID(a_sID), m_bIsSynced(false)
 {
 }
 
@@ -88,13 +88,30 @@ bool CSceneNode::init()
 }
 
 
-void CSceneNode::menuCloseCallback(Ref* pSender)
-{
-  Director::getInstance()->end();
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-  exit(0);
-#endif
+const std::string& CSceneNode::GetSceneID() const
+{
+	return m_sID;
 }
+
+void CSceneNode::SetSynced(bool a_bIsSynced)
+{
+	m_bIsSynced = a_bIsSynced;
+}
+
+bool CSceneNode::IsSynced()
+{
+	return m_bIsSynced;
+}
+
+// TODO REMOVE
+//void CSceneNode::menuCloseCallback(Ref* pSender)
+//{
+//  Director::getInstance()->end();
+//
+//#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//  exit(0);
+//#endif
+//}
 
 } // namespace LM
