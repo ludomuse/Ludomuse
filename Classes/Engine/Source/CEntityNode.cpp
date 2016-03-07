@@ -53,6 +53,16 @@ void CEntityNode::AddListener(const std::string& a_rEvent, const CEventCallback&
 	}
 }
 
+void CEntityNode::DisableEvent(const std::string& a_rEvent)
+{
+	m_oDisabledEvents.insert(a_rEvent);
+}
+
+void CEntityNode::EnableEvent(const std::string& a_rEvent)
+{
+	m_oDisabledEvents.erase(a_rEvent);
+}
+
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
 	std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
@@ -62,10 +72,16 @@ bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 
 void CEntityNode::Dispatch(const std::string& a_rEvent)
 {
-	std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
-	for (CEventCallback oCallback : it->second)
+	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
 	{
-		oCallback();
+		std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
+		if (it != m_mListeners.end())
+		{
+			for (CEventCallback oCallback : it->second)
+			{
+				oCallback();
+			}
+		}
 	}
 }
 

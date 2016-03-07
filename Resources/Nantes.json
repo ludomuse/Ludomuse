@@ -3552,6 +3552,7 @@
 		    },
 		    {
 			"type": "Image",
+			"id": "dropArea",
 			"params": {
 			    "source": "cache/sendingArea.png",
 			    "anchor": 4,
@@ -3600,6 +3601,13 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "Fade"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea:Drop"
 						}
 					    },
 					    {

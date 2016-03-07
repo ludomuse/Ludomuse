@@ -7,6 +7,7 @@
 #include "../Include/CValidateSceneVisitor.h"
 #include "../Include/CFindEntityVisitor.h"
 #include "../Include/CDispatchMessageVisitor.h"
+#include "../Include//CFindEntityFromIDVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
@@ -30,7 +31,7 @@ CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
                      m_pJsonParser(new CJsonParser(this)),
                      m_pNetworkManager(new CNetworkManager(this)),
 					 m_pBehaviorTree(new CSequenceNode()),
-					 m_iPlayerID(0),
+					 m_iPlayerID(1),
 					 m_bCoopWaiting(false)
 {
   // the BehaviorTree member of the kernel
@@ -234,6 +235,21 @@ void CKernel::Connect(CEvent a_oEvent)
 				m_pNetworkManager->ConnectTo(pLabel->getString());
 				m_pNetworkManager->Send("connection:establish");
 			}
+		}
+	}
+}
+
+void CKernel::DisableEvent(CEvent a_rEvent)
+{
+	// string value should be build : "targetID:Event"
+	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
+	if (vArgs.size() > 1) {
+		Desc<CEntityNode> pEntity;
+		CFindEntityFromIDVisitor oVisitor(pEntity, vArgs[0]);
+		oVisitor.Traverse(m_pBehaviorTree);
+		if (pEntity.IsValid())
+		{
+			pEntity.Get()->DisableEvent(vArgs[1]);
 		}
 	}
 }

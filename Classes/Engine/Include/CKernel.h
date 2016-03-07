@@ -77,6 +77,7 @@ class CKernel
   void SetPlayerID(CEvent a_rEvent);
   void SendNetworkMessage(CEvent a_rEvent);
   void Connect(CEvent a_rEvent);
+  void DisableEvent(CEvent a_rEvent);
 
 
   //////////////// network callbacks

@@ -147,6 +147,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CDispatchMessageVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CEntityNode.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CFindEntityFromIDVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CFindEntityTouchVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CFindEntityVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CGotoSceneVisitor.cpp" />
@@ -178,6 +179,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CCallback.h" />
     <ClInclude Include="..\Classes\Engine\Include\CDispatchMessageVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CEntityNode.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromIDVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CFindEntityTouchVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CFindEntityVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CGotoSceneVisitor.h" />
