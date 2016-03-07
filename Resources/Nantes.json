@@ -3257,6 +3257,7 @@
 		    },
 		    {
 			"type": "Image",
+			"id": "dropArea1",
 			"params": {
 			    "source": "cache/sendingArea.png",
 			    "anchor": 4,
@@ -3552,7 +3553,7 @@
 		    },
 		    {
 			"type": "Image",
-			"id": "dropArea",
+			"id": "dropArea2",
 			"params": {
 			    "source": "cache/sendingArea.png",
 			    "anchor": 4,
@@ -3607,7 +3608,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "DisableEvent",
-						    "arg": "dropArea:Drop"
+						    "arg": "dropArea2:Drop"
 						}
 					    },
 					    {

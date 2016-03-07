@@ -65,8 +65,11 @@ void CEntityNode::EnableEvent(const std::string& a_rEvent)
 
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
-	std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
-	return (it != m_mListeners.end());
+	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
+	{
+		std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
+		return (it != m_mListeners.end());
+	}
 }
 
 
