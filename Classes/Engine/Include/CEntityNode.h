@@ -81,7 +81,7 @@ class CEntityNode : public CNode
   std::string m_sID;
 
   /// \brief the events the entity is listening to
-  std::map<std::string, CEventCallback> m_mListeners;
+  std::map<std::string, std::vector<CEventCallback>> m_mListeners;
 
   /// \brief the corresponging cocos2d entity 
   cocos2d::Node* m_pCocosEntity;
