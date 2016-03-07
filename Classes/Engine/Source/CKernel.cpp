@@ -30,7 +30,7 @@ CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
                      m_pJsonParser(new CJsonParser(this)),
                      m_pNetworkManager(new CNetworkManager(this)),
 					 m_pBehaviorTree(new CSequenceNode()),
-					 m_iPlayerID(1),
+					 m_iPlayerID(0),
 					 m_bCoopWaiting(false)
 {
   // the BehaviorTree member of the kernel
