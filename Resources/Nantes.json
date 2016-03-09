@@ -4147,6 +4147,13 @@
 					    {
 						"type": "Droped",
 						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea2:Drop"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
 						    "callback": "SendMessage",
 						    "arg": "screen-2-e-player1:Show:butter"
 						}
@@ -4191,6 +4198,13 @@
 						    "callback": "Fade"
 						}
 					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea2:Drop"
+						}
+					    },					    
 					    {
 						"type": "Droped",
 						"params": {
@@ -4239,6 +4253,13 @@
 						    "callback": "Fade"
 						}
 					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea2:Drop"
+						}
+					    },					    
 					    {
 						"type": "Droped",
 						"params": {
