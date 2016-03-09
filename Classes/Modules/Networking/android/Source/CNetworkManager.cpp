@@ -23,7 +23,7 @@ void CNetworkManager::onGettingPeers(std::vector<std::string> a_vPeers)
 void CNetworkManager::onReceiving(std::string s)
 {
 	m_pKernel->OnReceivingMessage(s);
-  m_pKernel->LogMessage(s);
+  m_pKernel->LogMessage(s.c_str());
 }
 
 

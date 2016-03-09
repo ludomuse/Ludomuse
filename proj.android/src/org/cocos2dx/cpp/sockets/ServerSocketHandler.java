@@ -828,7 +828,7 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 		catch (IOException e1)
 		{
 			DebugManager.print(ServerSocketHandler.getTag()
-					+ "server.accept() failed",
+					+ "server.accept() failed" + e1,
 					WifiDirectManager.DEBUGGER_CHANNEL);
 		}
 		DebugManager.print(ServerSocketHandler.getTag()

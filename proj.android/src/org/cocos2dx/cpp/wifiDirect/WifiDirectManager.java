@@ -1061,7 +1061,6 @@ public class WifiDirectManager {
 	
 	private void onConnect()
 	{
-
 		/*DebugManager.print("peer mac = " + peerMacAddress, DEBUGGER_CHANNEL);
 		String myIpv6Address = SocketHandler.getMyIpAddress(peerMacAddress);
 		String peerIpv6Address = SocketHandler.getPeerIpAddress(peerMacAddress);//SocketHandler.generateIpv6FromMacAddress(peerMacAddress, true);
