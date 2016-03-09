@@ -393,7 +393,7 @@
 						"type": "Touch",
 						"params": {
 						    "callback": "SetPlayerID",
-						    "arg": 1
+						    "arg": 0
 						}
 					    },
 					    {
@@ -447,7 +447,7 @@
 						"type": "Touch",
 						"params": {
 						    "callback": "SetPlayerID",
-						    "arg": 0
+						    "arg": 1
 						}
 					    },
 					    {
