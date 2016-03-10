@@ -60,7 +60,7 @@ public:
 	void operator()(CEntityNode* pTarget = nullptr)
 	{
 		if (m_pCallback && m_pCallee)
-			(m_pCallee->*m_pCallback)(m_oArgument, nullptr);
+			(m_pCallee->*m_pCallback)(m_oArgument, pTarget);
 	}
   
 };
