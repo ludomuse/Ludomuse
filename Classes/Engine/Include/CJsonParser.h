@@ -5,14 +5,19 @@
 #include "../../cocos2d/external/json/document.h"
 
 #include <string>
+#include <algorithm>
+
+#include "CCallback.h"
 #include "CKernel.h"
 #include "CNode.h"
+#include "CSequenceNode.h"
 #include "CSceneNode.h"
 #include "CEntityNode.h"
 #include "CSpriteNode.h"
 #include "CMenuNode.h"
 #include "CLabelNode.h"
 #include "CGridNode.h"
+#include "CPeerNode.h"
 
 namespace LM
 {
@@ -39,12 +44,14 @@ private:
   void BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename);
 
 
-private:
 	/// \brief recursive Method to parse the json file
 	/// \params[in] a_rJsonNode the json node in the file corresponging to a_pNode in the tree
 	/// \prarams[in] a_pNode the subroot node to build the tree from
 	template <typename T>
-	void ParseJson(RefJsonNode a_rJsonNode, T* a_pNode);
+	void ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible = true);
+
+	/// returns true if the callback change the visibility of the node to hidden
+	bool ParseCallback(RefJsonNode a_rJsonNode, CEntityNode* a_pEntity);
 };
 
 

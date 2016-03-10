@@ -70,4 +70,14 @@ void CLabelNode::Init()
 }
 
 
+void CLabelNode::SetText(const std::string& a_rText)
+{
+	m_sText = a_rText;
+	Label* pLabel = dynamic_cast<Label*>(m_pCocosEntity);
+	if (pLabel)
+	{
+		pLabel->setString(m_sText);
+	}
+}
+
 } // namespace LM

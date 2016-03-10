@@ -69,10 +69,42 @@ bool CNode::OffsetCurrentNode(int i)
 }
 
 
+bool CNode::SetCurrentNode(CNode* a_pNode)
+{
+	for (int i = 0; i < m_vChildren.size(); ++i)
+	{
+		if (a_pNode == m_vChildren[i])
+		{
+			m_iCurrentNode = i;
+			return true;
+		}
+	}
+	return false;
+}
+
+std::vector<CNode*> CNode::GetChildren()
+{
+	return m_vChildren;
+}
+
+CNode* CNode::GetParent()
+{
+	return m_pParent;
+}
+
 void CNode::Init()
 {
-	for (CNode* pChildNode : m_vChildren) {
+	for (CNode* pChildNode : m_vChildren) 
+	{
 		pChildNode->Init();
+	}
+}
+
+void CNode::UnInit()
+{
+	for (CNode* pChildNode : m_vChildren)
+	{
+		pChildNode->UnInit();
 	}
 }
 

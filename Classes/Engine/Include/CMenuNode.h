@@ -21,14 +21,14 @@ class CMenuNode : public CEntityNode
   cocos2d::Size m_oSize;
   cocos2d::Vec2 m_oOrigin;
 
-  CCallback m_fpClickedCallback;
+  CCallback<CKernel, cocos2d::Ref*> m_fpClickedCallback;
   
   cocos2d::MenuItemImage* m_pMenuItemImage;
 
  public:
   CMenuNode(const std::string& a_rNormalImage,
             const std::string& a_rSelectedImage,
-            CCallback a_fpCallback,
+            CCallback<CKernel, cocos2d::Ref*> a_fpCallback,
 	        EAnchor a_eAnchor = EAnchor::FLOAT,
 			int a_iWidth = 0,
 			int a_iHeight = 0,
@@ -40,6 +40,10 @@ class CMenuNode : public CEntityNode
   virtual cocos2d::Size GetVisibleSize() override;
 
   virtual cocos2d::Vec2 GetOrigin() override;
+
+  virtual cocos2d::Node* GetCocosEntity() override;
+
+  virtual void Show(bool a_bVisible) override;
 
 };
 

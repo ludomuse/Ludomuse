@@ -3,7 +3,10 @@
 
 
 #include "CNode.h"
+#include "CCallback.h"
 #include "cocos2d.h"
+
+#include <map>
 
 namespace LM
 {
@@ -67,24 +70,77 @@ class CEntityNode : public CNode
   /// \brief the height of the entity on the screen
   int m_iHeight;
 
+  cocos2d::Vec2 m_oEntityStartLocation;
+
+  float m_fEntityStartScale;
+
+  bool m_bVisible;
+
+  bool m_bLocked;
+
+  std::string m_sID;
+
+  /// \brief the events the entity is listening to
+  std::map<std::string, std::vector<CEventCallback>> m_mListeners;
+
+  std::set<std::string> m_oDisabledEvents;
 
   /// \brief the corresponging cocos2d entity 
   cocos2d::Node* m_pCocosEntity;
 
  public:
-  CEntityNode(EAnchor a_eAnchor = EAnchor::FLOAT, 
-	  int a_iWidth = 0,
-	  int a_iHeight = 0,
-	  int a_iXPosition = 0,
-      int a_iYPosition = 0
+	 CEntityNode(EAnchor a_eAnchor = EAnchor::FLOAT,
+		 int a_iWidth = 0,
+		 int a_iHeight = 0,
+		 int a_iXPosition = 0,
+		 int a_iYPosition = 0,
+		 const std::string& a_sID = ""
 );
   
   /// \brief called when the scene is initialized
   //virtual void Init() = 0;
+  virtual void UnInit() override;
 
   /// \returns the cocos2d corresponding entity
   virtual cocos2d::Node* GetCocosEntity();
 
+  /// \brief subscribe the entity to a_rEvent
+  void AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback);
+
+  void DisableEvent(const std::string& a_rEvent);
+
+  void EnableEvent(const std::string& a_rEvent);
+
+  /// \brief checks if the entity is listening to 
+  bool IsListeningTo(const std::string& a_rEvent);
+
+  /// \brief dispatch this event to the entity
+  void Dispatch(const std::string& a_rEvent);
+
+  /// \brief set the visibility on StartUp 
+  virtual void SetVisible(bool a_bVisible);
+
+  virtual bool IsVisible();
+
+  virtual std::string GetID();
+  virtual void SetID(const std::string& a_rID);
+
+  /// \change the visibility
+  /// \param[in] a_bVisible true to show the item
+  virtual void Show(bool a_bVisible = true);
+
+  virtual bool IsLocked();
+
+  virtual cocos2d::Vec2 GetEntityStartLocation();
+
+  virtual float GetEntityStartScale();
+
+  virtual void Fade();
+
+  ////////////////////////// Static methods
+  static bool Lock(CEntityNode* a_pEntity);
+
+  static void Release(CEntityNode* a_pEntity);
 
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
@@ -101,6 +157,7 @@ class CEntityNode : public CNode
   virtual cocos2d::Size GetVisibleSize();
 
   virtual cocos2d::Vec2 GetOrigin();
+
 
 };
 

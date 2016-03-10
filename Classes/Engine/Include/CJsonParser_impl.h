@@ -1,12 +1,9 @@
 //////////////////////////////// templates specializations 
 
-#include "CCallback.h"
-
-#include <algorithm>
 
 /// \brief the specialisation building entities in a scene or subentities
 template <typename T>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible)
 {
 
 	assert(a_rJsonNode["type"].IsString());
@@ -15,24 +12,20 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 	// the object parameters
 	RefJsonNode rParams = a_rJsonNode["params"];
 
-	int x, y, width, height;
-	if (rParams.HasMember("x")) 
+	int x = 0, y = 0, width = 0, height = 0;
+	std::string id;
+	if (rParams.HasMember("x") && rParams.HasMember("y")) 
 	{
 		x = rParams["x"].GetInt();
 		y = rParams["y"].GetInt();
 	}
-	else
-	{
-		x = y = 0;
-	}
 	if (rParams.HasMember("width")) 
 	{
 		width = rParams["width"].GetInt();
-		height = rParams["height"].GetInt();
 	}
-	else
+	if (rParams.HasMember("height"))
 	{
-		width = height = 0;
+		height = rParams["height"].GetInt();
 	}
 
 	CEntityNode* pEntity(nullptr);
@@ -49,13 +42,30 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 			y);
 	}
 
-	else if (sType == "Grid2")
+	else if (sType == "Group")
+	{
+		std::string sBackgroundSource = "";
+		if (rParams.HasMember("source"))
+		{
+			sBackgroundSource = rParams["source"].GetString();
+		}
+		pEntity = new CGroupNode(
+			IntToAnchor(rParams["anchor"].GetInt()),
+			width,
+			height,
+			x,
+			y,
+			sBackgroundSource);
+	}
+
+	// dummy element to test Wifi Direct
+	/*else if (sType == "Dummy")
 	{
 		CCLOG("Grid construction");
            pEntity = new CMenuNode(
                rParams["normal"].GetString(),
                rParams["selected"].GetString(),
-               CCallback(m_pKernel,
+               CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
 				   std::string(rParams["action"].GetString()) == "connect" ?
                          &CKernel::Connect : &CKernel::SendMessage),
                IntToAnchor(rParams["anchor"].GetInt()),
@@ -64,7 +74,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
                x,
                y);
 		   CCLOG("grid constructed");
-        }
+    }*/
 
 	else if (sType == "Image" || sType == "Info")
 	{
@@ -92,7 +102,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		pEntity = new CMenuNode(
 			rParams["normal"].GetString(),
 			rParams["selected"].GetString(),
-			CCallback(m_pKernel,
+			CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
 				(std::string(rParams["action"].GetString()) == "next") ?
 				&CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
@@ -101,25 +111,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 			x,
 			y);
 
-		if (rParams.HasMember("content"))
-		{
-			std::string sText(rParams["content"].GetString());
-			std::transform(sText.begin(), sText.end(), sText.begin(), ::toupper);
-			CLabelNode* pText = new CLabelNode(
-				sText.c_str(),
-				"fonts/Open_Sans/OpenSans-Bold.ttf",
-				20,
-				"center",
-				rParams["color"].GetString(),
-				IntToAnchor(rParams["anchor"].GetInt()),
-				//EAnchor::FLOAT,
-				width,
-				height,
-				0,
-				0);
-
-			pEntity->AddChildNode(pText);
-		}
 	}
 
 
@@ -146,7 +137,12 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 		{
 			sFontName = "fonts/Open_Sans/OpenSans-Regular.ttf";
 		}
-		int iFontSize = rParams["fontSize"].GetInt();
+
+		int iFontSize = 24;
+		if (rParams.HasMember("fontSize"))
+		{
+			iFontSize = rParams["fontSize"].GetInt();
+		}
 		if (iFontSize < 1)
 		{
 			iFontSize = 24;
@@ -157,29 +153,21 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 			sTextAlign = rParams["textAlign"].GetString();
 		}
 
+		std::string sColor = "";
+		if (rParams.HasMember("color"))
+		{
+			sColor = rParams["color"].GetString();
+		}
 		pEntity = new CLabelNode(rParams["content"].GetString(),
 			sFontName,
 			iFontSize,
 			sTextAlign,
-			rParams["color"].GetString(),
+			sColor,
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
 			x,
 			y);
-
-		if (rParams["cache"]["visible"].GetBool())
-		{
-			CSpriteNode* pSpriteNode = new CSpriteNode(
-				rParams["cache"]["backgroundImage"].GetString(),
-				IntToAnchor(rParams["anchor"].GetInt()),
-				width,
-				height,
-				x,
-				y);
-
-			pEntity->AddChildNode(pSpriteNode);
-		}
 
 	}
 
@@ -189,17 +177,68 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 
 	}
 
+
+	else if (sType == "Peers")
+	{
+		pEntity = new CPeerNode(m_pKernel,
+			rParams["children"][0],
+			IntToAnchor(rParams["anchor"].GetInt()),
+			width,
+			height,
+			x,
+			y);
+	}
+
+
+	// check listeners
+	if (rParams.HasMember("listeners"))
+	{
+		RefJsonNode rListeners = rParams["listeners"];
+		for (int i = 0; i < rListeners.Size(); ++i)
+		{
+			a_bNodeVisible = ParseCallback(rListeners[i], pEntity) && a_bNodeVisible;
+		}
+	}
+
+	if (pEntity)
+		pEntity->SetVisible(a_bNodeVisible);
+
 	// recursively parse children
 	if (rParams.HasMember("children"))
 	{
 		RefJsonNode rEntities = rParams["children"];
 		for (int i = 0; i < rEntities.Size(); ++i)
 		{
-			ParseJson(rEntities[i], pEntity);
+			ParseJson(rEntities[i], pEntity, a_bNodeVisible);
 		}
+	}
+	else if (rParams.HasMember("children-active") && rParams.HasMember("children-inactive"))
+	{
+		CSequenceNode* pSequence = new CSequenceNode();
+		CGroupNode* pActive = new CGroupNode();
+		CGroupNode* pInactive = new CGroupNode();
+		pSequence->AddChildNode(pInactive);
+		pSequence->AddChildNode(pActive);
+
+		RefJsonNode rActiveEntities = rParams["children-active"];
+		for (int i = 0; i < rActiveEntities.Size(); ++i)
+		{
+			ParseJson(rActiveEntities[i], pActive, a_bNodeVisible);
+		}
+		RefJsonNode rInactiveEntities = rParams["children-inactive"];
+		for (int i = 0; i < rInactiveEntities.Size(); ++i)
+		{
+			ParseJson(rInactiveEntities[i], pInactive, a_bNodeVisible);
+		}
+
+		pEntity->AddChildNode(pSequence);
 	}
 
 	if (pEntity != nullptr) {
+		if (a_rJsonNode.HasMember("id"))
+		{
+			pEntity->SetID(a_rJsonNode["id"].GetString());
+		}
 		a_pNode->AddChildNode(pEntity);
 	}
 
@@ -208,7 +247,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode)
 
 /// \brief the specialisation building a scene
 template <>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode)
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
 {
 	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString());
 	a_pNode->AddChildNode(pSceneNode);
@@ -235,6 +274,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode)
 		{
 			ParseJson(rNavItems[i], pSceneNode);
 		}
+	}
+	if (a_rJsonNode.HasMember("synced"))
+	{
+		pSceneNode->SetSynced(a_rJsonNode["synced"].GetBool());
 	}
 }
 

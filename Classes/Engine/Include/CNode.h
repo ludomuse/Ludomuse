@@ -44,27 +44,23 @@ class CNode
 
   virtual CNode* operator[](const int i);
 
-  //// \brief execute for each child node a_fpCallback(a_pChild)
-  // INFO:TMP
-  /*virtual void DoForEachChildNode(void (*a_fpCallback)(CNode* a_pChild));
-
-  template<class T>
-  void DoForEachChildNode(T* a_tObject, void (T::* a_fpCallback)(CNode* ))
-  {
-	  for (CNode::Iterator itChild = BeginChild(); itChild != EndChild(); ++itChild)
-	  {
-		  (a_tObject->*a_fpCallback)(*itChild);
-	  }
-  };*/
 
   /// \brief call this function to finish the execution of the node
   virtual void Finish();
   /// \brief returns the currently executed node in the sequence
   virtual CNode* GetCurrentNode();
 
+  virtual std::vector<CNode*> GetChildren();
+
+  virtual CNode* GetParent();
+
   virtual bool OffsetCurrentNode(int i);
 
+  virtual bool SetCurrentNode(CNode* a_pNode);
+
   virtual void Init();
+
+  virtual void UnInit();
 
 };
 
