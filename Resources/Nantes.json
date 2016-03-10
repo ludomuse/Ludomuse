@@ -3749,9 +3749,10 @@
 			    "width": 30,
 			    "listeners": [
 				{
-				    "type": "Anchor",
+				    "type": "Drop",
 				    "params": {
-					"callback": ""
+					"callback": "SendMessage",
+					"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
 				    }
 				}
 			    ]
@@ -4070,6 +4071,13 @@
 				    "type": "Drop",
 				    "params": {
 					"callback": ""
+				    }
+				},
+				{
+				    "type": "DropEnabledBack",
+				    "params": {
+					"callback": "EnableEvent",
+					"arg": "dropArea2:Drop"
 				    }
 				}
 			    ]
