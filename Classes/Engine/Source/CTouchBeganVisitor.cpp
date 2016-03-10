@@ -60,6 +60,10 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 					CEntityNode::Release(pEntity);
 				}
 			}
+			else if (pDropEntity = m_pKernel->FindEntity(a_pTouch, "Anchor"))
+			{
+				AnchorEntity(pEntity, pDropEntity);
+			}
 			else
 			{
 				// if not intersecting a drop area :
@@ -287,6 +291,33 @@ void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 }
 
 
+void CTouchBeganVisitor::AnchorEntity(CEntityNode* a_pAnchoredEntity, CEntityNode* a_pAnchor)
+{
+	Node* pAnchoredEntity = a_pAnchoredEntity->GetCocosEntity();
+	Node* pAnchor = a_pAnchor->GetCocosEntity();
 
+	Vec2 oAnchorPoint = pAnchor->getAnchorPoint();
+	pAnchor->setAnchorPoint(Vec2(0.5f, 0.5f));
+	Vec2 oLocation = pAnchor->getPosition();
+	pAnchor->setAnchorPoint(oAnchorPoint);
+
+	pAnchoredEntity->setAnchorPoint(Vec2(0.5f, 0.5f));
+	pAnchoredEntity->setPosition(oLocation);
+
+	auto oScaleTo = ScaleTo::create(0.25, pAnchor->getScale() * 80.0 / 100.0);
+	pAnchoredEntity->runAction(oScaleTo);
+
+	a_pAnchoredEntity->Dispatch("Anchored");
+	a_pAnchor->Dispatch("Anchor");
+
+	for (CNode* itNode : *a_pAnchoredEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			AnchorEntity(pEntity, a_pAnchor);
+		}
+	}
+}
 
 } // namespace LM

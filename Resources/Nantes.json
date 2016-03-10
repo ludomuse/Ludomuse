@@ -3743,6 +3743,22 @@
 		    },
 		    {
 			"type": "Image",
+			"params": {
+			    "source": "ui/cache-noir-70.png",
+			    "anchor": 0,
+			    "width": 30,
+			    "listeners": [
+				{
+				    "type": "Anchor",
+				    "params": {
+					"callback": ""
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Image",
 			"id": "dropArea1",
 			"params": {
 			    "source": "cache/sendingArea.png",

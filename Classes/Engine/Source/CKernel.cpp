@@ -255,6 +255,21 @@ void CKernel::DisableEvent(CEvent a_rEvent)
 }
 
 
+void CKernel::EnableEvent(CEvent a_rEvent)
+{
+	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
+	if (vArgs.size() > 1)
+	{
+		Desc<CEntityNode> pEntity;
+		CFindEntityFromIDVisitor oVisitor(pEntity, vArgs[0]);
+		oVisitor.Traverse(m_pBehaviorTree);
+		if (pEntity.IsValid())
+		{
+			pEntity.Get()->EnableEvent(vArgs[1]);
+		}
+	}
+}
+
 void CKernel::LogMessage(const std::string& a_sMessage)
 {
 	CCLOG("Kernel message : %s", a_sMessage.c_str());
