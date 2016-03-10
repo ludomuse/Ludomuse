@@ -73,7 +73,7 @@ bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 }
 
 
-void CEntityNode::Dispatch(const std::string& a_rEvent)
+void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget)
 {
 	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
 	{
@@ -82,7 +82,7 @@ void CEntityNode::Dispatch(const std::string& a_rEvent)
 		{
 			for (CEventCallback oCallback : it->second)
 			{
-				oCallback();
+				oCallback(a_pTarget);
 			}
 		}
 	}
