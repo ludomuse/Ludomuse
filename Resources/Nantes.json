@@ -594,7 +594,7 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/background1lu.png",
+			    "source": "cache/background1LU.png",
 			    "anchor": 0,
 			    "width": 100,
 			    "height": 100
@@ -3761,7 +3761,7 @@
 					"children": [
 					    {
 						"type": "Image",
-						"id": "flour",
+						"id": "flour1",
 						"params": {
 						    "source": "cache/flour.png",
 						    "anchor": 0,
@@ -3808,7 +3808,7 @@
 					    },
 					    {
 						"type": "Image",
-						"id": "butter",
+						"id": "butter1",
 						"params": {
 						    "source": "cache/butter.png",
 						    "anchor": 0,
@@ -3855,6 +3855,7 @@
 					    },
 					    {
 						"type": "Image",
+						"id": "water1",
 						"params": {
 						    "source": "cache/butter.png",
 						    "anchor": 0,
@@ -3901,6 +3902,7 @@
 					    },
 					    {
 						"type": "Image",
+						"id": "sugar1",
 						"params": {
 						    "source": "cache/sugar.png",
 						    "anchor": 0,
@@ -4101,7 +4103,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:flour"
+						    "arg": "screen-2-e-player1:Show:flour1"
 						}
 					    }
 					],
@@ -4155,7 +4157,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:butter"
+						    "arg": "screen-2-e-player1:Show:butter1"
 						}
 					    }
 					],
@@ -4209,7 +4211,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:water"
+						    "arg": "screen-2-e-player1:Show:water1"
 						}
 					    }
 
@@ -4264,7 +4266,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:sugar"
+						    "arg": "screen-2-e-player1:Show:sugar1"
 						}
 					    }
 
