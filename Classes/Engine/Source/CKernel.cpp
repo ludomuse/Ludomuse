@@ -94,13 +94,13 @@ void CKernel::Init()
 }
 
 
-void CKernel::NavNext(Ref* pSender)
+void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
 	CTransitionVisitor oVisitor(this, true);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
-void CKernel::NavPrevious(Ref* pSender)
+void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
 	CTransitionVisitor oVisitor(this, false);
 	oVisitor.Traverse(m_pBehaviorTree);
@@ -120,7 +120,7 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 }
 
 
-void CKernel::GotoScreenID(CEvent a_oEvent)
+void CKernel::GotoScreenID(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	LogMessage("GotoScreenID : " + a_oEvent.m_sStringValue);
 	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue);
@@ -128,14 +128,14 @@ void CKernel::GotoScreenID(CEvent a_oEvent)
 
 }
 
-void CKernel::ValidateScene(CEvent a_oEvent)
+void CKernel::ValidateScene(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	LogMessage("ValidateScene : " + a_oEvent.m_bBoolValue);
 	CValidateSceneVisitor oVisitor(a_oEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
 
-void CKernel::SetNodeVisible(CEvent a_oEvent)
+void CKernel::SetNodeVisible(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
@@ -144,7 +144,7 @@ void CKernel::SetNodeVisible(CEvent a_oEvent)
 	}
 }
 
-void CKernel::FadeEntity(CEvent a_oEvent)
+void CKernel::FadeEntity(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
@@ -155,7 +155,7 @@ void CKernel::FadeEntity(CEvent a_oEvent)
 	}
 }
 
-void CKernel::SetPlayerID(CEvent a_oEvent)
+void CKernel::SetPlayerID(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	m_iPlayerID = a_oEvent.m_iIntValue;
 }
@@ -170,7 +170,7 @@ CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 }
 
 
-void CKernel::SendNetworkMessage(CEvent a_oEvent)
+void CKernel::SendNetworkMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("Sending message %s", a_oEvent.m_sStringValue.c_str());
 	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
@@ -219,7 +219,7 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 	}
 }
 
-void CKernel::Connect(CEvent a_oEvent)
+void CKernel::Connect(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
@@ -239,7 +239,7 @@ void CKernel::Connect(CEvent a_oEvent)
 	}
 }
 
-void CKernel::DisableEvent(CEvent a_rEvent)
+void CKernel::DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	// string value should be build : "targetID:Event"
 	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
@@ -255,7 +255,7 @@ void CKernel::DisableEvent(CEvent a_rEvent)
 }
 
 
-void CKernel::EnableEvent(CEvent a_rEvent)
+void CKernel::EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
 	if (vArgs.size() > 1)

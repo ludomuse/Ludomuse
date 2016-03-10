@@ -33,7 +33,7 @@ template <class T, typename Arg>
 class CCallback
 {
 
-typedef  void (T::* fpMemberCallback)(Arg pSender);
+typedef  void (T::* fpMemberCallback)(Arg pSender, CEntityNode* pTarget);
 
 
 private:
@@ -52,15 +52,15 @@ public:
 	}
 
 
-	void operator()(Arg a_pSender)
+	void operator()(Arg a_pSender, CEntityNode* pTarget = nullptr)
 	{
-		(m_pCallee->*m_pCallback)(a_pSender);
+		(m_pCallee->*m_pCallback)(a_pSender, pTarget);
 	}
 
 	void operator()()
 	{
 		if (m_pCallback && m_pCallee)
-			(m_pCallee->*m_pCallback)(m_oArgument);
+			(m_pCallee->*m_pCallback)(m_oArgument, nullptr);
 	}
   
 };
