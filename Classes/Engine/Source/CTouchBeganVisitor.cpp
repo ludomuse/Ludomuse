@@ -49,11 +49,11 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			CEntityNode* pDropEntity = m_pKernel->FindEntity(a_pTouch, "Drop");
 			if (pDropEntity)
 			{
-				pDropEntity->Dispatch("Drop");
+				pDropEntity->Dispatch("Drop", pEntity);
 				if (pEntity->IsListeningTo("Droped"))
 				{
 					// entity must be released after the Droped event 
-					pEntity->Dispatch("Droped");
+					pEntity->Dispatch("Droped", pDropEntity);
 				}
 				else
 				{
@@ -307,8 +307,8 @@ void CTouchBeganVisitor::AnchorEntity(CEntityNode* a_pAnchoredEntity, CEntityNod
 	auto oScaleTo = ScaleTo::create(0.25, pAnchor->getScale() * 80.0 / 100.0);
 	pAnchoredEntity->runAction(oScaleTo);
 
-	a_pAnchoredEntity->Dispatch("Anchored");
-	a_pAnchor->Dispatch("Anchor");
+	a_pAnchoredEntity->Dispatch("Anchored", a_pAnchor);
+	a_pAnchor->Dispatch("Anchor", a_pAnchoredEntity);
 
 	for (CNode* itNode : *a_pAnchoredEntity)
 	{

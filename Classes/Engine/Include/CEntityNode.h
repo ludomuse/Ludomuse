@@ -115,7 +115,7 @@ class CEntityNode : public CNode
   bool IsListeningTo(const std::string& a_rEvent);
 
   /// \brief dispatch this event to the entity
-  void Dispatch(const std::string& a_rEvent);
+  void Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget = nullptr);
 
   /// \brief set the visibility on StartUp 
   virtual void SetVisible(bool a_bVisible);
