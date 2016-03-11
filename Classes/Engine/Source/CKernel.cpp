@@ -270,6 +270,40 @@ void CKernel::EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
 	}
 }
 
+
+void CKernel::AnchorEntity(CEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	std::string sExpectedID = a_rEvent.m_sStringValue;
+
+	CNode* pAnchoredNode = a_rEvent.m_pSender;
+	CEntityNode* pAnchoredEntity = dynamic_cast<CEntityNode*>(pAnchoredEntity);
+	if (pAnchoredEntity && (sExpectedID == pAnchoredEntity->GetID()) && a_pTarget)
+	{
+		Node* pAnchored = pAnchoredEntity->GetCocosEntity();
+		Node* pAnchor = a_pTarget->GetCocosEntity();
+
+		Vec2 oAnchorPoint = pAnchor->getAnchorPoint();
+		pAnchor->setAnchorPoint(Vec2(0.5f, 0.5f));
+		Vec2 oLocation = pAnchor->getPosition();
+		pAnchor->setAnchorPoint(oAnchorPoint);
+
+		pAnchored->setAnchorPoint(Vec2(0.5f, 0.5f));
+		pAnchored->setPosition(oLocation);
+
+		auto oScaleTo = ScaleTo::create(0.25, pAnchor->getScale() * 80.0 / 100.0);
+		pAnchored->runAction(oScaleTo);
+
+		for (CNode* itNode : *pAnchoredEntity)
+		{
+			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+			if (pEntity)
+			{
+				AnchorEntity(pEntity, a_pTarget);
+			}
+		}
+	}
+}
+
 void CKernel::LogMessage(const std::string& a_sMessage)
 {
 	CCLOG("Kernel message : %s", a_sMessage.c_str());

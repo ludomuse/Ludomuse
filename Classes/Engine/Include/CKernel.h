@@ -79,7 +79,7 @@ class CKernel
   void Connect(CEvent a_rEvent, CEntityNode* a_pTarget);
   void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
-
+  void AnchorEntity(CEvent a_rEvent, CEntityNode* a_pTarget);
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
