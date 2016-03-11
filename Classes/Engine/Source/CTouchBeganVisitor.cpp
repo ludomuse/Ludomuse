@@ -49,16 +49,20 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			CEntityNode* pDropEntity = m_pKernel->FindEntity(a_pTouch, "Drop");
 			if (pDropEntity)
 			{
-				pDropEntity->Dispatch("Drop");
+				pDropEntity->Dispatch("Drop", pEntity);
 				if (pEntity->IsListeningTo("Droped"))
 				{
 					// entity must be released after the Droped event 
-					pEntity->Dispatch("Droped");
+					pEntity->Dispatch("Droped", pDropEntity);
 				}
 				else
 				{
 					CEntityNode::Release(pEntity);
 				}
+			}
+			else if (pDropEntity = m_pKernel->FindEntity(a_pTouch, "Anchor"))
+			{
+				AnchorEntity(pEntity, pDropEntity);
 			}
 			else
 			{
@@ -287,6 +291,33 @@ void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 }
 
 
+void CTouchBeganVisitor::AnchorEntity(CEntityNode* a_pAnchoredEntity, CEntityNode* a_pAnchor)
+{
+	Node* pAnchoredEntity = a_pAnchoredEntity->GetCocosEntity();
+	Node* pAnchor = a_pAnchor->GetCocosEntity();
 
+	Vec2 oAnchorPoint = pAnchor->getAnchorPoint();
+	pAnchor->setAnchorPoint(Vec2(0.5f, 0.5f));
+	Vec2 oLocation = pAnchor->getPosition();
+	pAnchor->setAnchorPoint(oAnchorPoint);
+
+	pAnchoredEntity->setAnchorPoint(Vec2(0.5f, 0.5f));
+	pAnchoredEntity->setPosition(oLocation);
+
+	auto oScaleTo = ScaleTo::create(0.25, pAnchor->getScale() * 80.0 / 100.0);
+	pAnchoredEntity->runAction(oScaleTo);
+
+	a_pAnchoredEntity->Dispatch("Anchored", a_pAnchor);
+	a_pAnchor->Dispatch("Anchor", a_pAnchoredEntity);
+
+	for (CNode* itNode : *a_pAnchoredEntity)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			AnchorEntity(pEntity, a_pAnchor);
+		}
+	}
+}
 
 } // namespace LM

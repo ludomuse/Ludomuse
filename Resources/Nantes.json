@@ -3743,6 +3743,23 @@
 		    },
 		    {
 			"type": "Image",
+			"params": {
+			    "source": "ui/cache-noir-70.png",
+			    "anchor": 0,
+			    "width": 30,
+			    "listeners": [
+				{
+				    "type": "Drop",
+				    "params": {
+					"callback": "SendMessage",
+					"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Image",
 			"id": "dropArea1",
 			"params": {
 			    "source": "cache/sendingArea.png",
@@ -4054,6 +4071,13 @@
 				    "type": "Drop",
 				    "params": {
 					"callback": ""
+				    }
+				},
+				{
+				    "type": "DropEnabledBack",
+				    "params": {
+					"callback": "EnableEvent",
+					"arg": "dropArea2:Drop"
 				    }
 				}
 			    ]

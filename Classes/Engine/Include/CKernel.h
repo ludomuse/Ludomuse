@@ -66,18 +66,19 @@ class CKernel
 
   ////////////////// json callbacks
   /// \brief go to the next scene in the tree
-  void NavNext(cocos2d::Ref* pSender);
+  void NavNext(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
   /// \brief go to the previous scene in the tree
-  void NavPrevious(cocos2d::Ref* pSender);
+  void NavPrevious(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
 
-  void GotoScreenID(CEvent a_rEvent);
-  void ValidateScene(CEvent a_rEvent);
-  void SetNodeVisible(CEvent a_rEvent);
-  void FadeEntity(CEvent a_rEvent);
-  void SetPlayerID(CEvent a_rEvent);
-  void SendNetworkMessage(CEvent a_rEvent);
-  void Connect(CEvent a_rEvent);
-  void DisableEvent(CEvent a_rEvent);
+  void GotoScreenID(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void ValidateScene(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void SetNodeVisible(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void FadeEntity(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void SetPlayerID(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void SendNetworkMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void Connect(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
 
 
   //////////////// network callbacks
