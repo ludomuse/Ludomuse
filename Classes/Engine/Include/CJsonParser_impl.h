@@ -235,9 +235,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	}
 
 	if (pEntity != nullptr) {
-		if (rParams.HasMember("id"))
+		if (a_rJsonNode.HasMember("id"))
 		{
-			pEntity->SetID(rParams["id"].GetString());
+			pEntity->SetID(a_rJsonNode["id"].GetString());
 		}
 		a_pNode->AddChildNode(pEntity);
 	}

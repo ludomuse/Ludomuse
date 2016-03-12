@@ -6,7 +6,16 @@
 	"sounds": [],
 	"scenes": [
 	    [
+		"screen-1-a",
 		"screen-1-a"
+	    ],
+	    [
+		"screen-playerid",
+		"screen-playerid"
+	    ],
+	    [
+		"screen-peers",
+		"screen-peers"
 	    ],
 	    [
 		"screen-1-b-player1",
@@ -68,6 +77,7 @@
 		"screen-2-e-player2"
 	    ],
 	    [
+		"screen-2-f",
 		"screen-2-f"
 	    ],
 	    [
@@ -193,6 +203,482 @@
 			    ]
 			}
 		    }
+		]
+	    },
+	    {
+		"scene": "screen-playerid",
+		"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "enabled": true,
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show",
+					"arg": true
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "enabled": true,
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 6,
+			    "source": "ui/info-6.png",
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Choisis si tu auras le rôle du grand ou le rôle du petit durant le jeu.",
+						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+						    "fontSize": 20,
+						    "textAlign": "center",
+						    "width": 80,
+						    "anchor": 4,
+						    "color": "0,0,0,255"
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Info",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 2,
+			    "source": "ui/info-2.png",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "étape 2 : Quel est ton profil ?",
+					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+					"fontSize": 20,
+					"textAlign": "center",
+					"width": 80,
+					"anchor": 0,
+					"color": "0,0,0,255"
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Grid",
+			"params": {
+			    "rows": 1,
+			    "cols": 2,
+			    "anchor": 0,
+			    "width": 80,
+			    "height": 50,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-50.png",
+					"anchor": 2,
+					"width": 80,
+					"height": 80,
+					"children": [
+					    {
+						"type" :"Group",
+						"params": {
+						    "anchor": 0,
+						    "width" : 80,
+						    "height": 80,
+						    "children": [
+							{
+							    "type": "Image",
+							    "params": {
+								"source": "ui/Assets/PNG/Assets-07.png",
+								"anchor": 0,
+								"width": 0,
+								"height": 60
+							    }
+							},
+							{
+							    "type" :"Text",
+							    "params": {
+								"content": "JE SUIS UN GRAND !",
+								"anchor": 6,
+								"width": 100
+							    }
+							}
+						    ]
+						}
+					    }
+					],
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "SetPlayerID",
+						    "arg": 0
+						}
+					    },
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": true
+						}
+					    }
+					]
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-50.png",
+					"anchor": 2,
+					"width": 80,
+					"height": 80,
+					"children": [
+					    {
+						"type" :"Group",
+						"params": {
+						    "anchor": 0,
+						    "width" : 80,
+						    "height": 80,
+						    "children": [
+							{
+							    "type": "Image",
+							    "params": {
+								"source": "ui/Assets/PNG/Assets-08.png",
+								"anchor": 0,
+								"width": 0,
+								"height": 40
+							    }
+							},
+							{
+							    "type": "Text",
+							    "params": {
+								"content": "JE SUIS UN PETIT !",
+								"width": 100,
+								"anchor": 6
+							    }
+							}
+						    ]
+						}
+					    }
+					],
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "SetPlayerID",
+						    "arg": 1
+						}
+					    },
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": true
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+		]
+	    },
+	    {
+		"scene": "screen-peers",
+		"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "enabled": true,
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "enabled": true,
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 6,
+			    "source": "ui/info-6.png",
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-04.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Nous recherchons les partenaires de jeu autour de toi, cela ne prendra qu'un instant...",
+						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+						    "fontSize": 20,
+						    "textAlign": "center",
+						    "width": 80,
+						    "anchor": 4,
+						    "color": "0,0,0,255"
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Info",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 2,
+			    "source": "ui/info-2.png",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "étape 3 : Avec qui veux-tu jouer ?",
+					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+					"fontSize": 20,
+					"textAlign": "center",
+					"width": 80,
+					"anchor": 0,
+					"color": "0,0,0,255"
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100
+			}
+		    },
+		    {
+                        "type": "Peers",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "listeners" : [
+                                {
+                                    "type": "Peers",
+                                    "params": {
+                                        "callback" :"BuildPeerNodes"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "type": "Group",
+                                    "params": {
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ConnectPeer",
+                                                    "arg": false
+                                                }
+                                            },
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": true
+						}
+					    }
+                                        ],
+                                        "children": [
+                                            {
+                                                "type": "Image",
+                                                "params": {
+                                                    "source": "ui/cache-noir-70.png",
+                                                    "anchor": 0,
+                                                    "width": 80,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Scène 1",
+                                                    "fontSize": 24,
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "color": "",
+                                                    "listeners" : [
+                                                        {
+                                                            "type": "GetText",
+                                                            "params": {
+                                                                "callback" : "",
+                                                                "arg": ""
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+
+                                        ]
+                                    }
+
+                                }
+                            ]
+                        }
+                    }
 		]
 	    },
 	    {
@@ -3258,12 +3744,230 @@
 		    {
 			"type": "Image",
 			"params": {
+			    "source": "ui/cache-noir-70.png",
+			    "anchor": 0,
+			    "width": 30,
+			    "listeners": [
+				{
+				    "type": "Drop",
+				    "params": {
+					"callback": "SendMessage",
+					"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Image",
+			"id": "dropArea1",
+			"params": {
 			    "source": "cache/sendingArea.png",
 			    "anchor": 4,
 			    "width": 30,
 			    "height": 100,
 			    "x": 70,
-			    "y": 0
+			    "y": 0,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 4,
+					"width": 100,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"id": "flour1",
+						"params": {
+						    "source": "cache/flour.png",
+						    "anchor": 0,
+						    "width": 40,
+						    "height": 100,
+						    "x": 0,
+						    "y": 0,
+						    "listeners": [
+							{
+							    "type": "Move",
+							    "params": {
+								"callback": ""
+							    }
+							},
+							{
+							    "type": "Droped",
+							    "params": {
+								"callback": "Fade"
+							    }
+							},
+							{
+							    "type": "Show",
+							    "params": {
+								"callback": "Show",
+								"arg": false
+							    }
+							}
+						    ],
+						    "children": [
+							{
+							    "type": "Text",
+							    "params": {
+								"content": "Farine",
+								"font": "fonts/arial.ttf",
+								"fontSize": 24,
+								"color": "0,0,0,255",
+								"width": 100,
+								"height": 100,
+								"anchor": 0
+							    }
+							}
+						    ]
+						}
+					    },
+					    {
+						"type": "Image",
+						"id": "butter1",
+						"params": {
+						    "source": "cache/butter.png",
+						    "anchor": 0,
+						    "width": 40,
+						    "height": 100,
+						    "x": 0,
+						    "y": 0,
+						    "listeners": [
+							{
+							    "type": "Move",
+							    "params": {
+								"callback": ""
+							    }
+							},
+							{
+							    "type": "Droped",
+							    "params": {
+								"callback": "Fade"
+							    }
+							},
+							{
+							    "type": "Show",
+							    "params": {
+								"callback": "Show",
+								"arg": false
+							    }
+							}
+						    ],
+						    "children": [
+							{
+							    "type": "Text",
+							    "params": {
+								"content": "Beurre",
+								"font": "fonts/arial.ttf",
+								"fontSize": 24,
+								"color": "0,0,0,255",
+								"width": 100,
+								"height": 100,
+								"anchor": 0
+							    }
+							}
+						    ]
+						}
+					    },
+					    {
+						"type": "Image",
+						"id": "water1",
+						"params": {
+						    "source": "cache/butter.png",
+						    "anchor": 0,
+						    "width": 40,
+						    "height": 100,
+						    "x": 0,
+						    "y": 0,
+						    "listeners": [
+							{
+							    "type": "Move",
+							    "params": {
+								"callback": ""
+							    }
+							},
+							{
+							    "type": "Droped",
+							    "params": {
+								"callback": "Fade"
+							    }
+							},
+							{
+							    "type": "Show",
+							    "params": {
+								"callback": "Show",
+								"arg": false
+							    }
+							}
+						    ],
+						    "children": [
+							{
+							    "type": "Text",
+							    "params": {
+								"content": "Eau",
+								"font": "fonts/arial.ttf",
+								"fontSize": 24,
+								"color": "0,0,0,255",
+								"width": 100,
+								"height": 100,
+								"anchor": 0
+							    }
+							}
+						    ]
+						}
+					    },
+					    {
+						"type": "Image",
+						"id": "sugar1",
+						"params": {
+						    "source": "cache/sugar.png",
+						    "anchor": 0,
+						    "width": 40,
+						    "height": 100,
+						    "x": 0,
+						    "y": 0,
+						    "listeners": [
+							{
+							    "type": "Move",
+							    "params": {
+								"callback": ""
+							    }
+							},
+							{
+							    "type": "Droped",
+							    "params": {
+								"callback": "Fade"
+							    }
+							},
+							{
+							    "type": "Show",
+							    "params": {
+								"callback": "Show",
+								"arg": false
+							    }
+							}
+						    ],
+						    "children": [
+							{
+							    "type": "Text",
+							    "params": {
+								"content": "Sucre",
+								"font": "fonts/arial.ttf",
+								"fontSize": 24,
+								"color": "0,0,0,255",
+								"width": 100,
+								"height": 100,
+								"anchor": 0
+							    }
+							}
+						    ]
+						}
+					    }
+					]
+				    }
+				}
+			    ]
 			}
 		    }
 		]
@@ -3354,6 +4058,7 @@
 		    },
 		    {
 			"type": "Image",
+			"id": "dropArea2",
 			"params": {
 			    "source": "cache/sendingArea.png",
 			    "anchor": 4,
@@ -3366,6 +4071,13 @@
 				    "type": "Drop",
 				    "params": {
 					"callback": ""
+				    }
+				},
+				{
+				    "type": "DropEnabledBack",
+				    "params": {
+					"callback": "EnableEvent",
+					"arg": "dropArea2:Drop"
 				    }
 				}
 			    ]
@@ -3383,6 +4095,7 @@
 			    "children": [
 				{
 				    "type": "Image",
+				    "id": "flour",
 				    "params": {
 					"source": "cache/flour.png",
 					"anchor": 0,
@@ -3401,6 +4114,20 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "Fade"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea2:Drop"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-2-e-player1:Show:flour1"
 						}
 					    }
 					],
@@ -3422,6 +4149,7 @@
 				},
 				{
 				    "type": "Image",
+				    "id": "butter",
 				    "params": {
 					"source": "cache/butter.png",
 					"anchor": 0,
@@ -3440,6 +4168,20 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "Fade"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea2:Drop"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-2-e-player1:Show:butter1"
 						}
 					    }
 					],
@@ -3461,6 +4203,7 @@
 				},
 				{
 				    "type": "Image",
+				    "id": "water",
 				    "params": {
 					"source": "cache/butter.png",
 					"anchor": 0,
@@ -3480,7 +4223,22 @@
 						"params": {
 						    "callback": "Fade"
 						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea2:Drop"
+						}
+					    },					    
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-2-e-player1:Show:water1"
+						}
 					    }
+
 					],
 					"children": [
 					    {
@@ -3500,6 +4258,7 @@
 				},
 				{
 				    "type": "Image",
+				    "id": "sugar",
 				    "params": {
 					"source": "cache/sugar.png",
 					"anchor": 0,
@@ -3519,7 +4278,22 @@
 						"params": {
 						    "callback": "Fade"
 						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea2:Drop"
+						}
+					    },					    
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-2-e-player1:Show:sugar1"
+						}
 					    }
+
 					],
 					"children": [
 					    {

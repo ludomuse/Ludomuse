@@ -40,20 +40,52 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
 
 void CEntityNode::AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback)
 {
-	m_mListeners.insert(std::pair<std::string, CEventCallback>(a_rEvent, a_rCallback));
+	std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
+	if (it != m_mListeners.end())
+	{
+		it->second.push_back(a_rCallback);
+	}
+	else
+	{
+		std::vector<CEventCallback> oCallbacks;
+		oCallbacks.push_back(a_rCallback);
+		m_mListeners.insert(std::pair<std::string, std::vector<CEventCallback>>(a_rEvent, oCallbacks));
+	}
+}
+
+void CEntityNode::DisableEvent(const std::string& a_rEvent)
+{
+	m_oDisabledEvents.insert(a_rEvent);
+}
+
+void CEntityNode::EnableEvent(const std::string& a_rEvent)
+{
+	m_oDisabledEvents.erase(a_rEvent);
 }
 
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
-	std::map<std::string, CEventCallback>::iterator it = m_mListeners.find(a_rEvent);
-	return (it != m_mListeners.end());
+	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
+	{
+		std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
+		return (it != m_mListeners.end());
+	}
 }
 
 
-void CEntityNode::Dispatch(const std::string& a_rEvent)
+void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget)
 {
-	std::map<std::string, CEventCallback>::iterator it = m_mListeners.find(a_rEvent);
-	it->second();
+	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
+	{
+		std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
+		if (it != m_mListeners.end())
+		{
+			for (CEventCallback oCallback : it->second)
+			{
+				oCallback(a_pTarget);
+			}
+		}
+	}
 }
 
 void CEntityNode::PopulateParent(bool a_bDoScaling)

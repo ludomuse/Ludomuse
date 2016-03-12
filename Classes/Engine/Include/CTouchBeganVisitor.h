@@ -42,6 +42,7 @@ protected:
   virtual void MoveEntityBack(CEntityNode* a_pEntity);
   virtual void StartTouch(CEntityNode* a_pEntity);
   virtual void StartMove(CEntityNode* a_pEntity);
+  virtual void AnchorEntity(CEntityNode* a_pAnchoredEntity, CEntityNode* a_pAnchor);
 };
 
 } // namespace LM

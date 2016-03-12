@@ -81,7 +81,9 @@ class CEntityNode : public CNode
   std::string m_sID;
 
   /// \brief the events the entity is listening to
-  std::map<std::string, CEventCallback> m_mListeners;
+  std::map<std::string, std::vector<CEventCallback>> m_mListeners;
+
+  std::set<std::string> m_oDisabledEvents;
 
   /// \brief the corresponging cocos2d entity 
   cocos2d::Node* m_pCocosEntity;
@@ -105,11 +107,15 @@ class CEntityNode : public CNode
   /// \brief subscribe the entity to a_rEvent
   void AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback);
 
+  void DisableEvent(const std::string& a_rEvent);
+
+  void EnableEvent(const std::string& a_rEvent);
+
   /// \brief checks if the entity is listening to 
   bool IsListeningTo(const std::string& a_rEvent);
 
   /// \brief dispatch this event to the entity
-  void Dispatch(const std::string& a_rEvent);
+  void Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget = nullptr);
 
   /// \brief set the visibility on StartUp 
   virtual void SetVisible(bool a_bVisible);
