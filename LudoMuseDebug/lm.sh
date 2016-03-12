@@ -1,2 +1,2 @@
-alias cmd.exe='bash'
+#! /bin/env bash
 java -jar LudoMuseDebug.jar
