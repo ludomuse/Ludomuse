@@ -35,10 +35,22 @@ void CEntityNode::UnInit()
 
 void CEntityNode::Revert(bool a_bVisible)
 {
-	//Show(a_bVisible);
+	Show(a_bVisible);
 	CCLOG("reverting : %s", m_sID.c_str());
+        CCLOG("xposition : %f", m_oEntityStartLocation.x);
+        CCLOG("yposition : %f", m_oEntityStartLocation.y);
+        CCLOG("old scale : %f", m_pCocosEntity->getScale());
+        CCLOG("new scale : %f", m_fEntityStartScale);
 	m_pCocosEntity->setPosition(m_oEntityStartLocation);
 	m_pCocosEntity->setScale(m_fEntityStartScale/m_pCocosEntity->getScale());
+        for (CNode* itNode : m_vChildren)
+        {
+          CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+          if (pEntity)
+          {
+            pEntity->Revert(a_bVisible);
+          }
+        }
 }
 
 
