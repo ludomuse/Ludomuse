@@ -12,3 +12,4 @@ LudoMuse
 assert
 cocos
 FINISHING
+debug

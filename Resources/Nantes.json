@@ -5537,7 +5537,7 @@
 				{
 				    "type": "Image",
 				    "params": {
-					"source": "cache/rightSpotImage.png",
+					"source": "cache/Puzzle1.png",
 					"anchor": 1,
 					"width": 10,
 					"height": 10,
@@ -5548,7 +5548,7 @@
 				{
 				    "type": "Image",
 				    "params": {
-					"source": "cache/rightSpotImage.png",
+					"source": "cache/Puzzle2.png",
 					"anchor": 1,
 					"width": 10,
 					"height": 10,
@@ -5559,7 +5559,7 @@
 				{
 				    "type": "Image",
 				    "params": {
-					"source": "cache/rightSpotImage.png",
+					"source": "cache/Puzzle3.png",
 					"anchor": 1,
 					"width": 10,
 					"height": 10,
@@ -5570,7 +5570,7 @@
 				{
 				    "type": "Image",
 				    "params": {
-					"source": "cache/rightSpotImage.png",
+					"source": "cache/Puzzle4.png",
 					"anchor": 1,
 					"width": 10,
 					"height": 10,
@@ -5700,10 +5700,10 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/rightSpotImage.png",
+			    "source": "cache/Puzzle.png",
 			    "anchor": 8,
-			    "width": 40,
-			    "height": 40,
+			    "width": 0,
+			    "height": 70,
 			    "x": 70,
 			    "y": 0
 			}
