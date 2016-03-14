@@ -3714,10 +3714,10 @@
 			    "width": 30,
 			    "listeners": [
 				{
-				    "type": "Drop",
+				    "type": "Anchor",
 				    "params": {
-					"callback": "SendMessage",
-					"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
+					"callback": "AnchorEntity",
+					"arg": "flour1"
 				    }
 				}
 			    ]
