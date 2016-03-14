@@ -150,17 +150,17 @@
 		    }
 		],
 		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/backgroundFactory.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
+      {
+    "type": "Image",
+    "params": {
+        "source": "cache/backgroundFactory.png",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "x": 0,
+        "y": 0
+    }
+      },
 		    {
 			"type": "Image",
 			"params": {
@@ -355,7 +355,7 @@
 				{
 				    "type": "Image",
 				    "params": {
-					"source": "ui/cache-noir-50.png",
+					"source": "ui/cache-blanc-50.png",
 					"anchor": 2,
 					"width": 80,
 					"height": 80,
@@ -381,7 +381,8 @@
 							    "params": {
 								"content": "JE SUIS UN GRAND !",
 								"anchor": 6,
-								"width": 100
+								"width": 100,
+                "color": "0,0,0,255"
 							    }
 							}
 						    ]
@@ -409,7 +410,7 @@
 				{
 				    "type": "Image",
 				    "params": {
-					"source": "ui/cache-noir-50.png",
+					"source": "ui/cache-blanc-50.png",
 					"anchor": 2,
 					"width": 80,
 					"height": 80,
@@ -435,6 +436,7 @@
 							    "params": {
 								"content": "JE SUIS UN PETIT !",
 								"width": 100,
+                "color": "0,0,0,255",
 								"anchor": 6
 							    }
 							}
@@ -780,11 +782,11 @@
 					"height": 100,
 					"anchor": 0
 				    }
-				}			
+				}
 			    ]
 			}
 		    }
-		    
+
 		]
 	    },
 	    {
@@ -882,7 +884,7 @@
 					"anchor": 0
 				    }
 				}
-		
+
 			    ]
 			}
 		    }
@@ -1065,7 +1067,23 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
+      "type": "Group",
+      "params": {
+          "anchor": 4,
+          "width": 50,
+          "height": 100,
+          "children": [
+        {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+          "width": 100,
+          "height": 50
+            }
+        },
+        {
 			"type": "Text",
 			"params": {
 			    "content": "Demande à haute voix à ton ouvrier « Suis moi et compte les marches jusqu’à la salle 23. »",
@@ -1073,7 +1091,7 @@
 			    "fontSize": 24,
 			    "width": 50,
 			    "height": 100,
-			    "anchor": 4,
+          "anchor": 0,
 			    "color": "",
 			    "cache": {
 				"visible": false,
@@ -1082,6 +1100,9 @@
 			    }
 			}
 		    }
+          ]
+      }
+    }
 		]
 	    },
 	    {
@@ -1145,11 +1166,11 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
+			    "source": "cache/Escalier1.JPG",
+			    "anchor": 8,
 			    "width": 0,
 			    "height": 100,
 			    "x": 0,
@@ -1183,7 +1204,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -1253,8 +1274,8 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
+			    "source": "cache/Escalier1.JPG",
+			    "anchor": 8,
 			    "width": 0,
 			    "height": 100,
 			    "x": 0,
@@ -1288,7 +1309,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -1355,11 +1376,11 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
+			    "source": "cache/Escalier2.JPG",
+			    "anchor": 8,
 			    "width": 0,
 			    "height": 100,
 			    "x": 0,
@@ -1393,7 +1414,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -1460,17 +1481,17 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
+			    "source": "cache/Escalier2.JPG",
+			    "anchor": 8,
 			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
 			}
-		    },
+    },
 		    {
 			"type": "Group",
 			"params": {
@@ -1498,7 +1519,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -1565,17 +1586,17 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
+			    "source": "cache/Escalier3.JPG",
+			    "anchor": 8,
 			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
 			}
-		    },
+    },
 		    {
 			"type": "Group",
 			"params": {
@@ -1595,7 +1616,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand vous arrivez à cet endroit, vous avez déjà monté 38 marches. Maintenant, prenez l’escalier en colimaçon. Un dernier petit effort ! Continuez à compter les marches. Passe à l’écran suivant",
+					"content": "Quand vous arrivez à cet endroit, vous avez déjà monté 38 marches. Maintenant, prenez l’escalier en colimaçon. Un dernier petit effort ! Continuez à compter les marches. Passez à l’écran suivant",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -1603,7 +1624,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -1670,17 +1691,17 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
+			    "source": "cache/Escalier3.JPG",
+			    "anchor": 8,
 			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
 			}
-		    },
+    },
 		    {
 			"type": "Group",
 			"params": {
@@ -1708,7 +1729,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -1775,17 +1796,17 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
+			    "source": "cache/Escalier4.JPG",
+			    "anchor": 8,
 			    "width": 0,
 			    "height": 100,
 			    "x": 0,
 			    "y": 0
 			}
-		    },
+    },
 		    {
 			"type": "Group",
 			"params": {
@@ -1793,7 +1814,7 @@
 			    "width": 50,
 			    "height": 100,
 			    "children": [
-				
+
 				{
 				    "type": "Image",
 				    "params": {
@@ -1881,11 +1902,11 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
+			    "source": "cache/Escalier4.JPG",
+			    "anchor": 8,
 			    "width": 0,
 			    "height": 100,
 			    "x": 0,
@@ -1919,7 +1940,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -2039,145 +2060,12 @@
 			    "width": 50,
 			    "height": 100,
 			    "children": [
-				
+
 
 				{
 				    "type": "Text",
 				    "params": {
 					"content": "Réponds à la question de M. Louis",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-1-h-player1-fail",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source" : "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Attention, rejoue !",
-					"color": "0,0,0,255",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100,
-					"color": ""
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background4LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/cookie.png",
-			    "anchor": 0,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso3right.png",
-			    "anchor": 5,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 8,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				
-
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Attention, rejoue !",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2255,6 +2143,22 @@
 			    "width": 0,
 			    "height": 13,
 			    "children": [
+            {
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+          "type": "Image",
+          "params": {
+              "source": "ui/Assets/PNG/Assets-03.png",
+              "anchor": 8,
+              "width": 0,
+              "height": 80
+          }
+            },
 				{
 				    "type": "Text",
 				    "params": {
@@ -2265,13 +2169,15 @@
 					"anchor": 0,
 					"width": 80,
 					"height": 100
-					
 				    }
 				}
-			    ]
-			}
-		    }
-		],
+		  ]
+			  }
+		}
+	    ]
+  }
+}
+],
 		"content": [
 		    {
 			"type": "Image",
@@ -2456,7 +2362,7 @@
 					]
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -2530,7 +2436,7 @@
 					"width":80,
 					"height": 100
 				    }
-				    
+
 				}
 			    ]
 			}
@@ -2566,7 +2472,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -2684,7 +2590,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -2789,7 +2695,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -2894,7 +2800,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -2999,7 +2905,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -3084,8 +2990,15 @@
 			    "width": 50,
 			    "height": 100,
 			    "children": [
-				
-
+            {
+                "type": "Image",
+                "params": {
+              "source": "ui/cache-noir-70.png",
+              "anchor": 4,
+              "width": 100,
+              "height": 100
+                }
+            },
 				{
 				    "type": "Text",
 				    "params": {
@@ -3151,7 +3064,19 @@
 		    }
 		],
 		"information": [],
-		"content": []
+		"content": [
+      {
+    "type": "Image",
+    "params": {
+        "source": "cache/Portrait.png",
+        "anchor": 2,
+        "width": 0,
+        "height": 90,
+        "x": 0,
+        "y": 0
+    }
+      }
+    ]
 	    },
 	    {
 		"scene": "screen-2-b-player2",
@@ -3210,21 +3135,61 @@
 			    "width": 0,
 			    "height": 13,
 			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Touche le portrait pour écouter Monsieur Louis.",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": []
+            {
+          "type": "Group",
+          "params": {
+        "anchor": 0,
+        "width": 60,
+        "height": 100,
+        "children": [
+            {
+          "type": "Image",
+          "params": {
+              "source": "ui/Assets/PNG/Assets-03.png",
+              "anchor": 8,
+              "width": 0,
+              "height": 80
+          }
+            },
+            {
+          "type": "Image",
+          "params": {
+              "source": "ui/Assets/PNG/Assets-06.png",
+              "anchor": 4,
+              "width": 0,
+              "height": 80
+          }
+            },
+            {
+              "type": "Text",
+              "params": {
+            "content": "Touche le portrait pour écouter Monsieur Louis.",
+            "color": "0,0,0,255",
+            "anchor": 0,
+            "width": 80,
+            "height": 100
+          }
+            }
+        ]
+          }
+      }
+		]
+  }
+}
+],
+		"content": [
+      {
+    "type": "Image",
+    "params": {
+        "source": "cache/Portrait.png",
+        "anchor": 2,
+        "width": 0,
+        "height": 90,
+        "x": 0,
+        "y": 0
+    }
+      }
+    ]
 	    },
 	    {
 		"scene": "screen-2-c-player1",
@@ -3325,7 +3290,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -3430,7 +3395,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    },
@@ -3541,7 +3506,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -3646,7 +3611,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    },
@@ -4021,29 +3986,50 @@
 		    }
 		],
 		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 60,
-					"height": 100
-				    }
-				}
-			    ]
-			    
-			}
-		    }
-		],
+      {
+    "type": "Info",
+    "params": {
+        "source": "ui/info-6.png",
+        "anchor": 6,
+        "width": 0,
+        "height": 13,
+        "children": [
+          {
+        "type": "Group",
+        "params": {
+      "anchor": 0,
+      "width": 60,
+      "height": 100,
+      "children": [
+          {
+        "type": "Image",
+        "params": {
+            "source": "ui/Assets/PNG/Assets-03.png",
+            "anchor": 8,
+            "width": 0,
+            "height": 80
+        }
+          },
+          {
+  				    "type": "Text",
+  				    "params": {
+  					"content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
+  					"color": "0,0,0,255",
+            "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+						"fontSize": 20,
+						"textAlign": "center",
+  					"anchor": 0,
+  					"width": 80,
+  					"height": 100
+  				    }
+  				}
+      ]
+          }
+        }
+      ]
+    }
+  }
+],
 		"content": [
 		    {
 			"type": "Image",
@@ -4230,7 +4216,7 @@
 						    "callback": "DisableEvent",
 						    "arg": "dropArea2:Drop"
 						}
-					    },					    
+					    },
 					    {
 						"type": "Droped",
 						"params": {
@@ -4285,7 +4271,7 @@
 						    "callback": "DisableEvent",
 						    "arg": "dropArea2:Drop"
 						}
-					    },					    
+					    },
 					    {
 						"type": "Droped",
 						"params": {
@@ -4312,142 +4298,6 @@
 				    }
 				}
 
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-2-f",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Rejouer",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Attention, vous vous êtes trompé.",					"anchor": 0,
-					"color": "0,0,0,255",
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background4LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/cookie.png",
-			    "anchor": 0,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso3right.png",
-			    "anchor": 5,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 8,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Attention, rejoue !",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
 			    ]
 			}
 		    }
@@ -4576,7 +4426,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -4639,6 +4489,22 @@
 			    "width": 0,
 			    "height": 13,
 			    "children": [
+            {
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+          "type": "Image",
+          "params": {
+              "source": "ui/Assets/PNG/Assets-06.png",
+              "anchor": 4,
+              "width": 0,
+              "height": 80
+          }
+            },
 				{
 				    "type": "Text",
 				    "params": {
@@ -4652,7 +4518,10 @@
 			    ]
 			}
 		    }
-		],
+		]
+  }
+}
+],
 		"content": [
 		    {
 			"type": "Image",
@@ -4703,7 +4572,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    },
@@ -4932,7 +4801,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -5236,7 +5105,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -5341,7 +5210,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -5446,7 +5315,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -5551,7 +5420,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    },
@@ -5763,29 +5632,48 @@
 			}
 		    }
 		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 60,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
+    "information": [
+      {
+    "type": "Info",
+    "params": {
+        "source": "ui/info-6.png",
+        "anchor": 6,
+        "width": 0,
+        "height": 13,
+        "children": [
+          {
+        "type": "Group",
+        "params": {
+      "anchor": 0,
+      "width": 60,
+      "height": 100,
+      "children": [
+          {
+        "type": "Image",
+        "params": {
+            "source": "ui/Assets/PNG/Assets-03.png",
+            "anchor": 8,
+            "width": 0,
+            "height": 80
+        }
+          },
+          {
+  				    "type": "Text",
+  				    "params": {
+  					"content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
+  					"color": "0,0,0,255",
+  					"anchor": 0,
+  					"width": 80,
+  					"height": 100
+  				    }
+  				}
+      ]
+          }
+        }
+      ]
+    }
+  }
+],
 		"content": [
 		    {
 			"type": "Image",
@@ -6399,7 +6287,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
@@ -6504,7 +6392,7 @@
 					"height": 100
 				    }
 				}
-				
+
 			    ]
 			}
 		    }
