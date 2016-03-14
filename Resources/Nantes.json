@@ -3812,6 +3812,13 @@
 								"callback": "Show",
 								"arg": false
 							    }
+							},
+							{
+							    "type": "AnchoredFailed",
+							    "params": {
+								"callback": "SendMessage",
+								"arg": "screen-2-e-player2:ReturnElement:flour"
+							    }
 							}
 						    ],
 						    "children": [
@@ -3858,6 +3865,13 @@
 							    "params": {
 								"callback": "Show",
 								"arg": false
+							    }
+							},
+							{
+							    "type": "AnchoredFailed",
+							    "params": {
+								"callback": "SendMessage",
+								"arg": "screen-2-e-player2:ReturnElement:butter"
 							    }
 							}
 						    ],
@@ -3906,6 +3920,13 @@
 								"callback": "Show",
 								"arg": false
 							    }
+							},
+							{
+							    "type": "AnchoredFailed",
+							    "params": {
+								"callback": "SendMessage",
+								"arg": "screen-2-e-player2:ReturnElement:water"
+							    }
 							}
 						    ],
 						    "children": [
@@ -3952,6 +3973,13 @@
 							    "params": {
 								"callback": "Show",
 								"arg": false
+							    }
+							},
+							{
+							    "type": "AnchoredFailed",
+							    "params": {
+								"callback": "SendMessage",
+								"arg": "screen-2-e-player2:ReturnElement:sugar"
 							    }
 							}
 						    ],
@@ -4136,6 +4164,12 @@
 						    "callback": "SendMessage",
 						    "arg": "screen-2-e-player1:Show:flour1"
 						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
+						}
 					    }
 					],
 					"children": [
@@ -4189,6 +4223,12 @@
 						"params": {
 						    "callback": "SendMessage",
 						    "arg": "screen-2-e-player1:Show:butter1"
+						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
 						}
 					    }
 					],
@@ -4244,6 +4284,12 @@
 						    "callback": "SendMessage",
 						    "arg": "screen-2-e-player1:Show:water1"
 						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
+						}
 					    }
 
 					],
@@ -4298,6 +4344,12 @@
 						"params": {
 						    "callback": "SendMessage",
 						    "arg": "screen-2-e-player1:Show:sugar1"
+						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
 						}
 					    }
 

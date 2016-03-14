@@ -84,6 +84,13 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 		a_pEntity->AddListener(sType, oCallback);
 		return false;
 	}
+	else if (sCallbackString == "ShowBack")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible,
+			CEvent(a_pEntity, sCallbackString, true));
+		a_pEntity->AddListener(sType, oCallback);
+		return true;
+	}
 	else if (sCallbackString == "SetPlayerID")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::SetPlayerID,

@@ -290,7 +290,7 @@ void CKernel::AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pAnchoredEnti
 			CCLOG("put anchored entity back");
 			a_pAnchoredEntity->Revert();
 			CEntityNode::Release(a_pAnchoredEntity);
-			SendNetworkMessage(CEvent(pAnchorEntity, "screen-2-e-player2:ShowEntities"), a_pAnchoredEntity);
+			a_pAnchoredEntity->Dispatch("AnchoredFailed");
 		}
 	}
 }
