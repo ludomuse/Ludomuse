@@ -32,6 +32,16 @@ void CEntityNode::UnInit()
 }
 
 
+
+void CEntityNode::Revert(bool a_bVisible)
+{
+	//Show(a_bVisible);
+	CCLOG("reverting : %s", m_sID.c_str());
+	m_pCocosEntity->setPosition(m_oEntityStartLocation);
+	m_pCocosEntity->setScale(m_fEntityStartScale/m_pCocosEntity->getScale());
+}
+
+
 cocos2d::Node* CEntityNode::GetCocosEntity()
 {
 	return m_pCocosEntity;
@@ -257,6 +267,9 @@ void CEntityNode::SetID(const std::string& a_rID)
 
 void CEntityNode::Show(bool a_bVisible)
 {
+	if (GetID() != "" && a_bVisible)
+		CCLOG("Showing entity : %s", GetID().c_str());
+
 	m_bVisible = a_bVisible;
 	GetCocosEntity()->setVisible(a_bVisible);
 	for (CNode* itNode : *this)
@@ -289,6 +302,7 @@ void CEntityNode::Fade()
 {
 	auto fpReleaseEntity = CallFunc::create([this]() {
 		CEntityNode::Release(this);
+		this->Revert();
 	});
 
 	auto oFadeOut = FadeOut::create(1.0f);

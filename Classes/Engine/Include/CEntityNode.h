@@ -101,6 +101,8 @@ class CEntityNode : public CNode
   //virtual void Init() = 0;
   virtual void UnInit() override;
 
+  virtual void Revert(bool a_bVisible = false);
+
   /// \returns the cocos2d corresponding entity
   virtual cocos2d::Node* GetCocosEntity();
 

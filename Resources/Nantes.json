@@ -3754,6 +3754,13 @@
 					"callback": "AnchorEntity",
 					"arg": "flour1"
 				    }
+				},
+				{
+					"type": "Anchor",
+					"params": {
+						"callback": "SendMessage",
+						"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
+					}
 				}
 			    ]
 			}

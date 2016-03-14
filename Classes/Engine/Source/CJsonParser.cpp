@@ -116,7 +116,7 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	}
 	else if (sCallbackString == "AnchorEntity")
 	{
-		CEventCallback oCallback(m_pKernel, &CKernel::AnchorEntity,
+		CEventCallback oCallback(m_pKernel, &CKernel::AnchorEntityCallback,
 			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}

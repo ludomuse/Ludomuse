@@ -79,12 +79,16 @@ class CKernel
   void Connect(CEvent a_rEvent, CEntityNode* a_pTarget);
   void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void AnchorEntity(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
+
+
+private:
+	void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
 
 };
 

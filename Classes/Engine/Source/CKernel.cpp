@@ -122,7 +122,7 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 
 void CKernel::GotoScreenID(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	LogMessage("GotoScreenID : " + a_oEvent.m_sStringValue);
+	CCLOG("GotoScreenID : %s", a_oEvent.m_sStringValue.c_str());
 	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue);
 	oVisitor.Traverse(m_pBehaviorTree);
 
@@ -130,7 +130,7 @@ void CKernel::GotoScreenID(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::ValidateScene(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	LogMessage("ValidateScene : " + a_oEvent.m_bBoolValue);
+	CCLOG("ValidateScene : %b", a_oEvent.m_bBoolValue);
 	CValidateSceneVisitor oVisitor(a_oEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
@@ -190,7 +190,7 @@ void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 	else
 	{
 		CDispatchMessageVisitor oVisitor(a_rMessage);
-		oVisitor.Traverse(m_pBehaviorTree);
+		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pBehaviorTree);
 	}
 }
 
@@ -271,37 +271,57 @@ void CKernel::EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
 }
 
 
-void CKernel::AnchorEntity(CEvent a_rEvent, CEntityNode* a_pTarget)
+void CKernel::AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pAnchoredEntity)
 {
 	std::string sExpectedID = a_rEvent.m_sStringValue;
-
-	CNode* pAnchoredNode = a_rEvent.m_pSender;
-	CEntityNode* pAnchoredEntity = dynamic_cast<CEntityNode*>(pAnchoredEntity);
-	if (pAnchoredEntity && (sExpectedID == pAnchoredEntity->GetID()) && a_pTarget)
+	CCLOG("AnchorEntity callback : %s", sExpectedID.c_str());
+	CNode* pAnchorNode = a_rEvent.m_pSender;
+	CEntityNode* pAnchorEntity = dynamic_cast<CEntityNode*>(pAnchorNode);
+	if (pAnchorEntity)
 	{
-		Node* pAnchored = pAnchoredEntity->GetCocosEntity();
-		Node* pAnchor = a_pTarget->GetCocosEntity();
-
-		Vec2 oAnchorPoint = pAnchor->getAnchorPoint();
-		pAnchor->setAnchorPoint(Vec2(0.5f, 0.5f));
-		Vec2 oLocation = pAnchor->getPosition();
-		pAnchor->setAnchorPoint(oAnchorPoint);
-
-		pAnchored->setAnchorPoint(Vec2(0.5f, 0.5f));
-		pAnchored->setPosition(oLocation);
-
-		auto oScaleTo = ScaleTo::create(0.25, pAnchor->getScale() * 80.0 / 100.0);
-		pAnchored->runAction(oScaleTo);
-
-		for (CNode* itNode : *pAnchoredEntity)
+		CCLOG("pAnchoredEntity ID : %s", a_pAnchoredEntity->GetID().c_str());
+		CCLOG("expected ID : %s", sExpectedID.c_str());
+		if (a_pAnchoredEntity && sExpectedID == a_pAnchoredEntity->GetID())
 		{
-			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-			if (pEntity)
-			{
-				AnchorEntity(pEntity, a_pTarget);
-			}
+			AnchorEntity(pAnchorEntity, a_pAnchoredEntity);
+		}
+		else {
+			// put entity back
+			CCLOG("put anchored entity back");
+			a_pAnchoredEntity->Revert();
+			CEntityNode::Release(a_pAnchoredEntity);
+			SendNetworkMessage(CEvent(pAnchorEntity, "screen-2-e-player2:ShowEntities"), a_pAnchoredEntity);
 		}
 	}
+}
+
+void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity)
+{
+	CCLOG("Tests passed");
+	Node* pAnchor = a_pAnchorEntity->GetCocosEntity();
+	Node* pAnchored = a_pAnchoredEntity->GetCocosEntity();
+
+	Vec2 oAnchorPoint = pAnchor->getAnchorPoint();
+	pAnchor->setAnchorPoint(Vec2(0.5f, 0.5f));
+	Vec2 oLocation = pAnchor->getPosition();
+	pAnchor->setAnchorPoint(oAnchorPoint);
+
+	pAnchored->setAnchorPoint(Vec2(0.5f, 0.5f));
+	pAnchored->setPosition(oLocation);
+
+	auto oScaleTo = ScaleTo::create(0.25, pAnchor->getScale());
+	pAnchored->runAction(oScaleTo);
+
+	for (CNode* itNode : *a_pAnchoredEntity)
+	{
+		CCLOG("Child node");
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity)
+		{
+			AnchorEntity(a_pAnchorEntity, pEntity);
+		}
+	}
+
 }
 
 void CKernel::LogMessage(const std::string& a_sMessage)
