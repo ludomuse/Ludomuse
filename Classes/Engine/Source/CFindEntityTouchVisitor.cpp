@@ -6,7 +6,7 @@ namespace LM
 {
 
 
-CFindEntityTouchVisitor::CFindEntityTouchVisitor(Touch* a_pTouch, const Desc<CEntityNode>& a_pEntity,
+CFindEntityTouchVisitor::CFindEntityTouchVisitor(Touch* a_pTouch, const Desc<CNode>& a_pEntity,
                                        const std::string& a_sEvent) :
 	CFindEntityVisitor(a_pEntity, a_sEvent),
     m_pTouch(a_pTouch)

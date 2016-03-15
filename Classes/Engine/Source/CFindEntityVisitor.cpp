@@ -7,7 +7,7 @@ namespace LM
 {
 
 
-CFindEntityVisitor::CFindEntityVisitor(const Desc<CEntityNode>& a_pEntity, const std::string& a_sEvent) :
+CFindEntityVisitor::CFindEntityVisitor(const Desc<CNode>& a_pEntity, const std::string& a_sEvent) :
 	m_sEvent(a_sEvent),
 	m_pEntityToFind(a_pEntity),
 	m_bStopVisiting(false)

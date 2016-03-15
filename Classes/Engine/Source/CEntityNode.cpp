@@ -337,7 +337,7 @@ void CEntityNode::Fade()
 
 void CEntityNode::FadeIn()
 {
-	auto oFadeIn = FadeIn::create(0.0f);
+	auto oFadeIn = FadeIn::create(0.5f);
 
 	m_pCocosEntity->runAction(oFadeIn);
 

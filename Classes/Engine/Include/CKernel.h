@@ -72,6 +72,7 @@ class CKernel
 
   void GotoScreenID(CEvent a_rEvent, CEntityNode* a_pTarget);
   void ValidateScene(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void Validate(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SetNodeVisible(CEvent a_rEvent, CEntityNode* a_pTarget);
   void FadeEntity(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SetPlayerID(CEvent a_rEvent, CEntityNode* a_pTarget);
