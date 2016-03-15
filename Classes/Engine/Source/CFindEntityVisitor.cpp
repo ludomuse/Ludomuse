@@ -45,7 +45,9 @@ void CFindEntityVisitor::Traverse(CNode* a_pNode)
     }
     else
     {
-      Traverse(a_pNode->GetCurrentNode());
+		CNode* pTraverse = a_pNode->GetCurrentNode();
+		if (pTraverse)
+			Traverse(pTraverse);
     }
 
   }
