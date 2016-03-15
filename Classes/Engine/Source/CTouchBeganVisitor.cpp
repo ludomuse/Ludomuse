@@ -294,8 +294,8 @@ void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 void CTouchBeganVisitor::AnchorEntity(CEntityNode* a_pAnchoredEntity, CEntityNode* a_pAnchor)
 {
 
-	a_pAnchoredEntity->Dispatch("Anchored", a_pAnchor);
 	a_pAnchor->Dispatch("Anchor", a_pAnchoredEntity);
+	a_pAnchoredEntity->Dispatch("Anchored", a_pAnchor);
 }
 
 } // namespace LM

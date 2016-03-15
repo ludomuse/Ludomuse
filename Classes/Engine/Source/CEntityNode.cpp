@@ -42,7 +42,7 @@ void CEntityNode::Revert(bool a_bVisible)
         CCLOG("old scale : %f", m_pCocosEntity->getScale());
         CCLOG("new scale : %f", m_fEntityStartScale);
 	m_pCocosEntity->setPosition(m_oEntityStartLocation);
-	m_pCocosEntity->setScale(m_fEntityStartScale/m_pCocosEntity->getScale());
+	m_pCocosEntity->setScale(m_fEntityStartScale);
         for (CNode* itNode : m_vChildren)
         {
           CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
@@ -283,7 +283,8 @@ void CEntityNode::Show(bool a_bVisible)
 		CCLOG("Showing entity : %s", GetID().c_str());
 
 	m_bVisible = a_bVisible;
-	GetCocosEntity()->setVisible(a_bVisible);
+	m_pCocosEntity->setVisible(a_bVisible);
+	
 	for (CNode* itNode : *this)
 	{
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
@@ -292,6 +293,8 @@ void CEntityNode::Show(bool a_bVisible)
 			pEntity->Show(a_bVisible);
 		}
 	}
+
+	FadeIn();
 }
 
 bool CEntityNode::IsLocked()
@@ -320,7 +323,7 @@ void CEntityNode::Fade()
 	auto oFadeOut = FadeOut::create(1.0f);
 	auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
 
-	GetCocosEntity()->runAction(oSequence);
+	m_pCocosEntity->runAction(oSequence);
 
 	for (CNode* itNode : m_vChildren)
 	{
@@ -328,6 +331,22 @@ void CEntityNode::Fade()
 		if (pChildEntity)
 		{
 			pChildEntity->Fade();
+		}
+	}
+}
+
+void CEntityNode::FadeIn()
+{
+	auto oFadeIn = FadeIn::create(0.0f);
+
+	m_pCocosEntity->runAction(oFadeIn);
+
+	for (CNode* itNode : m_vChildren)
+	{
+		CEntityNode* pChildEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pChildEntity)
+		{
+			pChildEntity->FadeIn();
 		}
 	}
 }

@@ -139,6 +139,8 @@ class CEntityNode : public CNode
 
   virtual void Fade();
 
+  virtual void FadeIn();
+
   ////////////////////////// Static methods
   static bool Lock(CEntityNode* a_pEntity);
 
