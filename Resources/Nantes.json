@@ -3645,6 +3645,14 @@
 					"height": 100
 				    }
 				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
 			    ]
 			}
 		    },
@@ -3667,6 +3675,24 @@
 					"height": 100
 				    }
 				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ]
+
+			}
+		    },
+		    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"flour1",
+				"water1"
 			    ]
 			}
 		    }
@@ -3714,14 +3740,7 @@
 			    "width": 30,
 			    "listeners": [
 				{
-				    "type": "Anchor",
-				    "params": {
-					"callback": "AnchorEntity",
-					"arg": "flour1"
-				    }
-				},
-				{
-					"type": "Anchor",
+					"type": "Drop",
 					"params": {
 						"callback": "SendMessage",
 						"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
@@ -3769,6 +3788,13 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "Fade"
+							    }
+							},
+							{
+							    "type": "Droped",
+							    "params": {
+								"callback": "Validate",
+								"arg": "flour1"
 							    }
 							},
 							{
@@ -3833,7 +3859,7 @@
 							    }
 							},
 							{
-							    "type": "AnchoredFailed",
+							    "type": "Droped",
 							    "params": {
 								"callback": "SendMessage",
 								"arg": "screen-2-e-player2:ReturnElement:butter"
@@ -3877,6 +3903,13 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "Fade"
+							    }
+							},
+							{
+							    "type": "Droped",
+							    "params": {
+								"callback": "Validate",
+								"arg": "water1"
 							    }
 							},
 							{
@@ -3941,7 +3974,7 @@
 							    }
 							},
 							{
-							    "type": "AnchoredFailed",
+							    "type": "Droped",
 							    "params": {
 								"callback": "SendMessage",
 								"arg": "screen-2-e-player2:ReturnElement:sugar"

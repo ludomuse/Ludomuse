@@ -118,7 +118,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		CValidator* oValidator = new CValidator(m_pKernel);
 		for (int i = 0; i < rParams["ids"].Size(); ++i)
 		{
-			oValidator->AddID(rParams[i].GetString());
+			oValidator->AddID(rParams["ids"][i].GetString());
 		}
 
 		a_pNode->AddChildNode(oValidator);
