@@ -5,12 +5,13 @@ true
 --packageName--
 com.IHMTEK.LudoMuse
 --apkPath--
-C:/WORKSPACE/LudoMuse/proj.android/bin/LudoMuse-debug.apk
+../proj.android/bin/LudoMuse-debug.apk
 --projectPath--
-C:/WORKSPACE/LudoMuse
+../
 --tags--
 debug
 LUDOSERVER
 LUDOCLIENT
 LudoMuse
 FINISHING
+debug
