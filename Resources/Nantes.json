@@ -5531,16 +5531,18 @@
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
-			    "anchor": 0,
+          "width": 50,
+          "height": 50,
+			    "anchor": 8,
 			    "alignItems": "center",
 			    "children": [
 				{
 				    "type": "Image",
 				    "params": {
 					"source": "cache/Puzzle1.png",
-					"anchor": 1,
-					"width": 10,
-					"height": 10,
+					"anchor": 0,
+					"width": 0,
+					"height": 100,
 					"x": 0,
 					"y": 0
 				    }
@@ -5549,9 +5551,9 @@
 				    "type": "Image",
 				    "params": {
 					"source": "cache/Puzzle2.png",
-					"anchor": 1,
-					"width": 10,
-					"height": 10,
+					"anchor": 0,
+					"width": 0,
+					"height": 100,
 					"x": 0,
 					"y": 0
 				    }
@@ -5560,9 +5562,9 @@
 				    "type": "Image",
 				    "params": {
 					"source": "cache/Puzzle3.png",
-					"anchor": 1,
-					"width": 10,
-					"height": 10,
+					"anchor": 0,
+					"width": 0,
+					"height": 100,
 					"x": 0,
 					"y": 0
 				    }
@@ -5571,9 +5573,9 @@
 				    "type": "Image",
 				    "params": {
 					"source": "cache/Puzzle4.png",
-					"anchor": 1,
-					"width": 10,
-					"height": 10,
+					"anchor": 0,
+					"width": 0,
+					"height": 100,
 					"x": 0,
 					"y": 0
 				    }
@@ -5945,8 +5947,8 @@
 		    }
 		],
 		"information": [],
-		"content": [
-		    {
+    "content": [
+			{
 			"type": "Image",
 			"params": {
 			    "source": "cache/rightSpotImage.png",
@@ -5957,37 +5959,127 @@
 			    "y": 0
 			}
 		    },
-		    {
-			"type": "Group",
+        {
+      "type": "Group",
+      "params": {
+          "anchor": 1,
+          "width": 40,
+          "height": 40,
+					"children": [
+        {
+			"type": "Image",
 			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
 					"source": "ui/cache-noir-70.png",
 					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "dirigeants ouvrières pâtissiers menuisiers",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
+          "width": 40,
+          "height": 30
 				}
-			    ]
-			}
-		    }
-		]
+			},
+        {
+      "type": "Text",
+      "params": {
+      "content": "Dirigeants",
+			"font": "fonts/arial.ttf",
+      "fontSize": 24,
+      "width": 100,
+      "height": 100,
+      "anchor": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+        "type": "Group",
+        "params": {
+            "anchor": 5,
+            "width": 40,
+            "height": 40,
+  					"children": [
+          {
+  			"type": "Image",
+  			"params": {
+  					"source": "ui/cache-noir-70.png",
+  					"anchor": 0,
+            "width": 40,
+            "height": 30
+  				}
+  			},
+          {
+        "type": "Text",
+        "params": {
+        "content": "Menuisiers",
+  			"font": "fonts/arial.ttf",
+        "fontSize": 24,
+        "width": 100,
+        "height": 100,
+        "anchor": 0
+                    }
+                  }
+                ]
+              }
+            },
+            {
+          "type": "Group",
+          "params": {
+              "anchor": 6,
+              "width": 40,
+              "height": 40,
+    					"children": [
+            {
+    			"type": "Image",
+    			"params": {
+    					"source": "ui/cache-noir-70.png",
+    					"anchor": 0,
+              "width": 40,
+              "height": 30
+    				}
+    			},
+            {
+          "type": "Text",
+          "params": {
+          "content": "Pâtissiers",
+    			"font": "fonts/arial.ttf",
+          "fontSize": 24,
+          "width": 100,
+          "height": 100,
+          "anchor": 0
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+            "type": "Group",
+            "params": {
+                "anchor": 7,
+                "width": 40,
+                "height": 40,
+      					"children": [
+              {
+      			"type": "Image",
+      			"params": {
+      					"source": "ui/cache-noir-70.png",
+      					"anchor": 0,
+      					"width": 40,
+      					"height": 30
+      				}
+      			},
+              {
+            "type": "Text",
+            "params": {
+            "content": "Ouvrières",
+      			"font": "fonts/arial.ttf",
+            "fontSize": 24,
+            "width": 100,
+            "height": 100,
+            "anchor": 0
+                        }
+                      }
+                    ]
+                  }
+                }
+        ]
 	    },
 	    {
 		"scene": "screen-3-e-player1",
@@ -6397,7 +6489,139 @@
 			}
 		    }
 		]
-	    }
-	]
-    }
+  },
+  {
+  "scene": "screen-4-a-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-a-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-b-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-b-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-c-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-c-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-d-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-d-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-e-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-e-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-f-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-f-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-g-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-g-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-h-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-h-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-i-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-i-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-j-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-j-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-k-player1",
+  "navigation": [],
+  "information": [],
+  "content": []
+  },
+  {
+  "scene": "screen-4-k-player2",
+  "navigation": [],
+  "information": [],
+  "content": []
+  }
+    ]
+  }
 }

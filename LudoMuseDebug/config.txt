@@ -1,3 +1,7 @@
+--usb--
+true
+%192.168.1.19
+%192.168.1.11
 --packageName--
 com.IHMTEK.LudoMuse
 --apkPath--
@@ -9,7 +13,5 @@ debug
 LUDOSERVER
 LUDOCLIENT
 LudoMuse
-assert
-cocos
 FINISHING
 debug
