@@ -80,6 +80,11 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 	return false;
 }
 
+int CKernel::GetCurrentPlayer()
+{
+	return m_iPlayerID;
+}
+
 void CKernel::Init()
 {
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");

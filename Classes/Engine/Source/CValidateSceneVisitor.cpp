@@ -57,7 +57,8 @@ Result CValidateSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
     }
     else if (pEntity->IsListeningTo("Validate") && m_bValidate)
     {
-      // CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(pEntity);      
+      // CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(pEntity); 
+		CCLOG("CValidateSceneVisitor::ProcessNodeTopDown");
       pEntity->Dispatch("Validate");
       return RESULT_PRUNE;
     }
