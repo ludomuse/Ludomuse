@@ -18,6 +18,7 @@
 #include "CLabelNode.h"
 #include "CGridNode.h"
 #include "CPeerNode.h"
+#include "CValidator.h"
 
 namespace LM
 {

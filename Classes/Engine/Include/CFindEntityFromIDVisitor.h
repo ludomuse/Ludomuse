@@ -12,7 +12,7 @@ class CFindEntityFromIDVisitor : public CFindEntityVisitor
   std::string m_sID;
   
  public:
-  CFindEntityFromIDVisitor(const Desc<CEntityNode>& a_pEntity, const std::string& a_sID);
+  CFindEntityFromIDVisitor(const Desc<CNode>& a_pEntity, const std::string& a_sID);
   virtual Result ProcessNodeTopDown(CNode* a_pNode);
 };
 

@@ -1,0 +1,17 @@
+--usb--
+true
+%192.168.1.19
+%192.168.1.11
+--packageName--
+com.IHMTEK.LudoMuse
+--apkPath--
+../proj.android/bin/LudoMuse-debug.apk
+--projectPath--
+../
+--tags--
+debug
+LUDOSERVER
+LUDOCLIENT
+LudoMuse
+FINISHING
+debug

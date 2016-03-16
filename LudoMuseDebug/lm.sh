@@ -1,2 +1,2 @@
-export cmd=bash
-javaw -jar LudoMuseDebug.jar
+#! /usr/bin/env bash
+java -jar LudoMuseDebug.jar

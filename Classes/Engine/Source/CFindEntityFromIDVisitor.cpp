@@ -3,7 +3,7 @@
 namespace LM
 {
 
-CFindEntityFromIDVisitor::CFindEntityFromIDVisitor(const Desc<CEntityNode>& a_pEntity, const std::string& a_sID) :
+CFindEntityFromIDVisitor::CFindEntityFromIDVisitor(const Desc<CNode>& a_pEntity, const std::string& a_sID) :
     CFindEntityVisitor(a_pEntity, ""),
     m_sID(a_sID)
 {

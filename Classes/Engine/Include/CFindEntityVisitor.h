@@ -16,12 +16,12 @@ class CFindEntityVisitor : public CVisitor
 {
  protected:
   std::string m_sEvent;
-  Desc<CEntityNode> m_pEntityToFind;
+  Desc<CNode> m_pEntityToFind;
 
   bool m_bStopVisiting;
 
  public:
-  CFindEntityVisitor(const Desc<CEntityNode>& a_pEntity,
+  CFindEntityVisitor(const Desc<CNode>& a_pEntity,
                      const std::string& a_sEvent);
 
 

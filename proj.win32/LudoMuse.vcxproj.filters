@@ -99,6 +99,9 @@
     <ClCompile Include="..\Classes\Engine\Source\CFindEntityFromIDVisitor.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CValidator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -195,6 +198,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromIDVisitor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CValidator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromTypeVisitor.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

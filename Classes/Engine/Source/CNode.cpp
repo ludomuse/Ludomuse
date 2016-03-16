@@ -54,7 +54,10 @@ void CNode::Finish()
 
 CNode* CNode::GetCurrentNode()
 {
-	return m_vChildren[m_iCurrentNode];
+	if (m_iCurrentNode >= 0 && m_iCurrentNode < m_vChildren.size())
+		return m_vChildren[m_iCurrentNode];
+
+	return nullptr;
 }
 
 bool CNode::OffsetCurrentNode(int i)

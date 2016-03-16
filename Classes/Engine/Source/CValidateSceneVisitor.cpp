@@ -2,6 +2,7 @@
 #include "../Include/CEntityNode.h"
 #include "../Include/CMenuNode.h"
 #include "../Include/CSceneNode.h"
+#include "../Include/CValidator.h"
 
 namespace LM
 {
@@ -21,7 +22,8 @@ void CValidateSceneVisitor::Traverse(CNode* a_pNode)
 	{
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
 		CSceneNode* pScene = dynamic_cast<CSceneNode*>(a_pNode);
-		if (pEntity || pScene)
+		CValidator* pValidator = dynamic_cast<CValidator*>(a_pNode);
+		if (pEntity || pScene || pValidator)
 		{
 			for (CNode* itNode : *a_pNode)
 			{
@@ -57,7 +59,8 @@ Result CValidateSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
     }
     else if (pEntity->IsListeningTo("Validate") && m_bValidate)
     {
-      // CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(pEntity);      
+      // CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(pEntity); 
+		CCLOG("CValidateSceneVisitor::ProcessNodeTopDown %s", pEntity->GetID().c_str());
       pEntity->Dispatch("Validate");
       return RESULT_PRUNE;
     }

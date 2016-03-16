@@ -51,6 +51,8 @@ class CKernel
   /// \brief checks if the current player has this scene in his list
   bool PlayerHasScene(const std::string& a_sSceneID);
 
+  int GetCurrentPlayer();
+
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 
@@ -72,6 +74,7 @@ class CKernel
 
   void GotoScreenID(CEvent a_rEvent, CEntityNode* a_pTarget);
   void ValidateScene(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void Validate(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SetNodeVisible(CEvent a_rEvent, CEntityNode* a_pTarget);
   void FadeEntity(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SetPlayerID(CEvent a_rEvent, CEntityNode* a_pTarget);
@@ -79,12 +82,16 @@ class CKernel
   void Connect(CEvent a_rEvent, CEntityNode* a_pTarget);
   void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
-
+  void AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
+
+
+private:
+	void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
 
 };
 

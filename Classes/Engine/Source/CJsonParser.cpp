@@ -71,6 +71,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			CEvent(a_pEntity, sCallbackString, a_rListener["params"]["arg"].GetBool()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
+	else if (sCallbackString == "Validate")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::Validate,
+			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else if (sCallbackString == "ConnectPeer")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::Connect,
@@ -83,6 +89,13 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			CEvent(a_pEntity, sCallbackString, true));
 		a_pEntity->AddListener(sType, oCallback);
 		return false;
+	}
+	else if (sCallbackString == "ShowBack")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible,
+			CEvent(a_pEntity, sCallbackString, true));
+		a_pEntity->AddListener(sType, oCallback);
+		return true;
 	}
 	else if (sCallbackString == "SetPlayerID")
 	{
@@ -111,6 +124,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	else if (sCallbackString == "EnableEvent")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::EnableEvent,
+			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+		a_pEntity->AddListener(sType, oCallback);
+	}
+	else if (sCallbackString == "AnchorEntity")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::AnchorEntityCallback,
 			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
