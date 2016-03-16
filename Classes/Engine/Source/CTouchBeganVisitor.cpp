@@ -11,7 +11,7 @@ namespace LM
 {
 
 	CTouchBeganVisitor::CTouchBeganVisitor(Touch* a_pTouch, Event* a_pEvent, CKernel* a_pKernel) :
-		CFindEntityTouchVisitor(a_pTouch, Desc<CEntityNode>(), "Touch"),
+		CFindEntityTouchVisitor(a_pTouch, Desc<CNode>(), "Touch"),
 	    m_pEvent(a_pEvent),
 		m_pKernel(a_pKernel)
 {
@@ -25,7 +25,10 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 	{
 
 		// must release the entity at the end of the sequence, after animations have ended
-		CEntityNode* pEntity = m_pEntityToFind.Get();
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(m_pEntityToFind.Get());
+		if (!pEntity)
+			return false;
+
 		auto fpReleaseEntity = CallFunc::create([pEntity]() {
 			CEntityNode::Release(pEntity);
 		});
@@ -79,23 +82,27 @@ bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 {
 	if (m_pEntityToFind.IsValid())
 	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(m_pEntityToFind.Get());
+		if (!pEntity) return false;
+
 		if (m_sListenEvent == "Touch")
 		{
 			// if listen to touch change the entity when leaving it
 			Vec2 oTouchLocation = a_pTouch->getLocation();
-			Rect oBoundingBox = m_pEntityToFind.Get()->GetCocosEntity()->getBoundingBox();
+
+			Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
-				TouchMoveIn(m_pEntityToFind.Get());
+				TouchMoveIn(pEntity);
 			}
 			else
 			{
-				TouchMoveOut(m_pEntityToFind.Get());
+				TouchMoveOut(pEntity);
 			}
 		}
 		else if (m_sListenEvent == "Move")
 		{
-			MoveEntity(a_pTouch, m_pEntityToFind.Get());
+			MoveEntity(a_pTouch, pEntity);
 		}
 	}
 	return true;
@@ -224,7 +231,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Touch";
 
-		  StartTouch(m_pEntityToFind.Get());
+		  StartTouch(pEntity);
 
 		  return RESULT_PRUNE;
       }
@@ -234,7 +241,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Move";
 
-		  StartMove(m_pEntityToFind.Get());
+		  StartMove(pEntity);
 
 		  return RESULT_PRUNE;
 	  }

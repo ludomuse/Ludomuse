@@ -113,6 +113,17 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	}
 
+	else if (sType == "Validator")
+	{
+		CValidator* oValidator = new CValidator(m_pKernel);
+		for (int i = 0; i < rParams["ids"].Size(); ++i)
+		{
+			oValidator->AddID(rParams["ids"][i].GetString());
+		}
+
+		a_pNode->AddChildNode(oValidator);
+	}
+
 
 	else if (sType == "Reward")
 	{

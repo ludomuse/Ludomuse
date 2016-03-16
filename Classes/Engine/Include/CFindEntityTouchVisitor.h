@@ -14,7 +14,7 @@ protected:
 
 
 public:
-	CFindEntityTouchVisitor(cocos2d::Touch* a_pTouch, const Desc<CEntityNode>& a_pEntity,
+	CFindEntityTouchVisitor(cocos2d::Touch* a_pTouch, const Desc<CNode>& a_pEntity,
 		const std::string& a_sEvent);
 
 	virtual Result ProcessNodeTopDown(CNode* a_pNode) override;

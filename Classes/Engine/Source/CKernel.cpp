@@ -130,9 +130,25 @@ void CKernel::GotoScreenID(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::ValidateScene(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("ValidateScene : %b", a_oEvent.m_bBoolValue);
+	CCLOG("ValidateScene ");
 	CValidateSceneVisitor oVisitor(a_oEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
+}
+
+void CKernel::Validate(CEvent a_oEvent, CEntityNode* a_pTarget)
+{
+	// find CValidator element in tree and validator->Validate(a_oEvent.m_sStringValue);
+	Desc<CNode> pNode;
+	CFindEntityVisitor oVisitor(pNode, "Validate");
+	oVisitor.Traverse(m_pBehaviorTree);
+	if (pNode.IsValid())
+	{
+		CValidator* pValidator = static_cast<CValidator*>(pNode.Get());
+		if (pValidator)
+		{
+			ON_CC_THREAD(CValidator::Validate, pValidator, a_oEvent.m_sStringValue);
+		}
+	}
 }
 
 void CKernel::SetNodeVisible(CEvent a_oEvent, CEntityNode* a_pTarget)
@@ -163,10 +179,10 @@ void CKernel::SetPlayerID(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 {
-	Desc<CEntityNode> pEntity;
+	Desc<CNode> pEntity;
 	CFindEntityTouchVisitor oVisitor(a_pTouch, pEntity, a_sEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
-	return pEntity.Get();
+	return dynamic_cast<CEntityNode*>(pEntity.Get());
 }
 
 
@@ -206,7 +222,7 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 	{
 		CCLOG("found peer : %s", itString.c_str());
 	}
-	Desc<CEntityNode> pEntity;
+	Desc<CNode> pEntity;
 	CFindEntityVisitor oVisitor(pEntity, "Peers");
 	oVisitor.Traverse(m_pBehaviorTree);
 	if (pEntity.IsValid())
@@ -224,16 +240,19 @@ void CKernel::Connect(CEvent a_oEvent, CEntityNode* a_pTarget)
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
 	{
-		Desc<CEntityNode> pLabelEntity;
-		CFindEntityVisitor oVisitor(pLabelEntity, "GetText");
+		Desc<CNode> pLabelDesc;
+		CFindEntityVisitor oVisitor(pLabelDesc, "GetText");
 		oVisitor.Traverse(pEntity);
-		if (pLabelEntity.IsValid())
+		if (pLabelDesc.IsValid())
 		{
-			Label* pLabel = dynamic_cast<Label*>(pLabelEntity.Get()->GetCocosEntity());
-			if (pLabel)
-			{
-				m_pNetworkManager->ConnectTo(pLabel->getString());
-				m_pNetworkManager->Send("connection:establish");
+			CEntityNode* pLabelEntity = dynamic_cast<CEntityNode*>(pLabelDesc.Get());
+			if (pLabelEntity) {
+				Label* pLabel = dynamic_cast<Label*>(pLabelEntity->GetCocosEntity());
+				if (pLabel)
+				{
+					m_pNetworkManager->ConnectTo(pLabel->getString());
+					m_pNetworkManager->Send("connection:establish");
+				}
 			}
 		}
 	}
@@ -244,12 +263,14 @@ void CKernel::DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
 	// string value should be build : "targetID:Event"
 	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
 	if (vArgs.size() > 1) {
-		Desc<CEntityNode> pEntity;
-		CFindEntityFromIDVisitor oVisitor(pEntity, vArgs[0]);
+		Desc<CNode> pNode;
+		CFindEntityFromIDVisitor oVisitor(pNode, vArgs[0]);
 		oVisitor.Traverse(m_pBehaviorTree);
-		if (pEntity.IsValid())
+		if (pNode.IsValid())
 		{
-			pEntity.Get()->DisableEvent(vArgs[1]);
+			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(pNode.Get());
+			if (pEntity)
+				pEntity->DisableEvent(vArgs[1]);
 		}
 	}
 }
@@ -260,12 +281,14 @@ void CKernel::EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
 	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
 	if (vArgs.size() > 1)
 	{
-		Desc<CEntityNode> pEntity;
-		CFindEntityFromIDVisitor oVisitor(pEntity, vArgs[0]);
+		Desc<CNode> pNode;
+		CFindEntityFromIDVisitor oVisitor(pNode, vArgs[0]);
 		oVisitor.Traverse(m_pBehaviorTree);
-		if (pEntity.IsValid())
+		if (pNode.IsValid())
 		{
-			pEntity.Get()->EnableEvent(vArgs[1]);
+			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(pNode.Get());
+			if (pEntity)
+				pEntity->EnableEvent(vArgs[1]);
 		}
 	}
 }
