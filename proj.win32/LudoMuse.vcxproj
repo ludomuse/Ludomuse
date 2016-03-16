@@ -181,6 +181,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CDispatchMessageVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CEntityNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromIDVisitor.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromTypeVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CFindEntityTouchVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CFindEntityVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CGotoSceneVisitor.h" />

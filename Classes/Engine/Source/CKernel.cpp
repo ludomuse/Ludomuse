@@ -7,7 +7,8 @@
 #include "../Include/CValidateSceneVisitor.h"
 #include "../Include/CFindEntityVisitor.h"
 #include "../Include/CDispatchMessageVisitor.h"
-#include "../Include//CFindEntityFromIDVisitor.h"
+#include "../Include/CFindEntityFromIDVisitor.h"
+#include "../Include/CFindEntityFromTypeVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
@@ -130,7 +131,7 @@ void CKernel::GotoScreenID(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::ValidateScene(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("ValidateScene ");
+	CCLOG("CKernel::ValidateScene");
 	CValidateSceneVisitor oVisitor(a_oEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
@@ -139,8 +140,9 @@ void CKernel::Validate(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	// find CValidator element in tree and validator->Validate(a_oEvent.m_sStringValue);
 	Desc<CNode> pNode;
-	CFindEntityVisitor oVisitor(pNode, "Validate");
+	CFindEntityFromTypeVisitor<CValidator> oVisitor(pNode);
 	oVisitor.Traverse(m_pBehaviorTree);
+	CCLOG("CKernel::Validate");
 	if (pNode.IsValid())
 	{
 		CValidator* pValidator = static_cast<CValidator*>(pNode.Get());
