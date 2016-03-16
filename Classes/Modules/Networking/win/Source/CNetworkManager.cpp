@@ -69,7 +69,8 @@ void* ServerWaitMessages(void* networkManager)
 	// Accept a client socket
 	nm->ClientSocket = accept(nm->ListenSocket, NULL, NULL);
 	if (nm->ClientSocket == INVALID_SOCKET) {
-		printf("accept failed: %d\n", WSAGetLastError());
+		int i = WSAGetLastError();
+		printf("accept failed: %d\n", i);
 		closesocket(nm->ListenSocket);
 		WSACleanup();
 		return NULL;
@@ -159,7 +160,8 @@ void CNetworkManager::DiscoverPeers()
 
 	  iResult = bind(ListenSocket, result->ai_addr, (int)result->ai_addrlen);
 	  if (iResult == SOCKET_ERROR) {
-		  printf("bind failed with error: %d\n", WSAGetLastError());
+		  int i = WSAGetLastError();
+		  printf("bind failed with error: %d\n", i);
 		  freeaddrinfo(result);
 		  closesocket(ListenSocket);
 		  WSACleanup();
