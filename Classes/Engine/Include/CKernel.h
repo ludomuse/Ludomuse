@@ -51,6 +51,8 @@ class CKernel
   /// \brief checks if the current player has this scene in his list
   bool PlayerHasScene(const std::string& a_sSceneID);
 
+  int GetCurrentPlayer();
+
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 

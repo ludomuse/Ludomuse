@@ -203,6 +203,9 @@
     <ClInclude Include="..\Classes\Engine\Include\CValidator.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromTypeVisitor.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

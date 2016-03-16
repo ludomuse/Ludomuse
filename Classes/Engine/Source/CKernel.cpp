@@ -7,7 +7,8 @@
 #include "../Include/CValidateSceneVisitor.h"
 #include "../Include/CFindEntityVisitor.h"
 #include "../Include/CDispatchMessageVisitor.h"
-#include "../Include//CFindEntityFromIDVisitor.h"
+#include "../Include/CFindEntityFromIDVisitor.h"
+#include "../Include/CFindEntityFromTypeVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CJsonParser.h"
@@ -79,6 +80,11 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 	return false;
 }
 
+int CKernel::GetCurrentPlayer()
+{
+	return m_iPlayerID;
+}
+
 void CKernel::Init()
 {
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
@@ -130,17 +136,19 @@ void CKernel::GotoScreenID(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::ValidateScene(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("ValidateScene ");
+	CCLOG("CKernel::ValidateScene");
 	CValidateSceneVisitor oVisitor(a_oEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
+	CCLOG("Scene validated successfully");
 }
 
 void CKernel::Validate(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	// find CValidator element in tree and validator->Validate(a_oEvent.m_sStringValue);
 	Desc<CNode> pNode;
-	CFindEntityVisitor oVisitor(pNode, "Validate");
+	CFindEntityFromTypeVisitor<CValidator> oVisitor(pNode);
 	oVisitor.Traverse(m_pBehaviorTree);
+	CCLOG("CKernel::Validate");
 	if (pNode.IsValid())
 	{
 		CValidator* pValidator = static_cast<CValidator*>(pNode.Get());
@@ -153,6 +161,7 @@ void CKernel::Validate(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::SetNodeVisible(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
+	CCLOG("CKernel::SetNodeVisible");
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
 	{
