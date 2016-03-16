@@ -139,6 +139,7 @@ void CKernel::ValidateScene(CEvent a_oEvent, CEntityNode* a_pTarget)
 	CCLOG("CKernel::ValidateScene");
 	CValidateSceneVisitor oVisitor(a_oEvent);
 	oVisitor.Traverse(m_pBehaviorTree);
+	CCLOG("Scene validated successfully");
 }
 
 void CKernel::Validate(CEvent a_oEvent, CEntityNode* a_pTarget)
@@ -160,6 +161,7 @@ void CKernel::Validate(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::SetNodeVisible(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
+	CCLOG("CKernel::SetNodeVisible");
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
 	{

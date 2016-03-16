@@ -3628,6 +3628,7 @@
 		"navigation": [
 		    {
 			"type": "Nav",
+			"id": "navNext",
 			"params": {
 			    "width": 0,
 			    "height": 13,
@@ -3658,6 +3659,7 @@
 		    },
 		    {
 			"type": "Nav",
+			"id":"navPrev",
 			"params": {
 			    "width": 0,
 			    "height": 13,

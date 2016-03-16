@@ -36,7 +36,8 @@ void CEntityNode::UnInit()
 void CEntityNode::Revert(bool a_bVisible)
 {
 	Show(a_bVisible);
-	CCLOG("reverting : %s", m_sID.c_str());
+	if (m_sID != "")
+		CCLOG("reverting : %s", m_sID.c_str());
 	m_pCocosEntity->setPosition(m_oEntityStartLocation);
 	m_pCocosEntity->setScale(m_fEntityStartScale);
         for (CNode* itNode : m_vChildren)
@@ -100,6 +101,7 @@ void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget)
 		{
 			for (CEventCallback oCallback : it->second)
 			{
+				CCLOG("CEntity::Dispatch : Calling callback %s on entity %s", a_rEvent.c_str(), m_sID.c_str());
 				oCallback(a_pTarget);
 			}
 		}
@@ -333,6 +335,7 @@ void CEntityNode::Fade()
 
 void CEntityNode::FadeIn()
 {
+	CCLOG("CEntityNode::FadeIn %s", m_sID.c_str());
 	auto oFadeIn = FadeIn::create(0.5f);
 
 	m_pCocosEntity->runAction(oFadeIn);
