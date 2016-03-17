@@ -199,7 +199,7 @@ void CKernel::SetPlayerName(CEvent a_rEvent, CEntityNode* a_pTarget)
 		if (pBox)
 		{
 			m_pLocalPlayer->m_sName = pBox->getText();
-			CCLOG("Player name set to %s", m_pLocalPlayer->m_sName);
+			CCLOG("Player name set to %s", m_pLocalPlayer->m_sName.c_str());
 		}
 	}
 }
