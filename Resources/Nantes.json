@@ -430,26 +430,11 @@
   				    }
   				},
           {
-              "type": "Image",
+              "type": "EditBox",
               "params": {
-            "source": "ui/cache-blanc-50.png",
             "anchor": 2,
             "width": 60,
-            "height": 30,
-            "children": [
-              {
-                "type": "Text",
-    						"params": {
-    						    "content": "Nom de Joueur",
-    						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-    						    "fontSize": 20,
-    						    "textAlign": "center",
-    						    "width": 60,
-    						    "anchor": 0,
-    						    "color": "0,0,0,255"
-                  }
-              }
-  					]
+            "height": 30
               }
           }
   			    ]
