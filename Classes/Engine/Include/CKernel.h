@@ -80,6 +80,7 @@ class CKernel
   void SetNodeVisible(CEvent a_rEvent, CEntityNode* a_pTarget);
   void FadeEntity(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SetPlayerID(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void SetPlayerName(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SendNetworkMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
   void Connect(CEvent a_rEvent, CEntityNode* a_pTarget);
   void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);

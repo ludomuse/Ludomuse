@@ -15,6 +15,7 @@
 #include "../../Modules/Networking/Networking.h"
 #include "../../Modules/Util/Include/Util.h"
 
+#include "ui/CocosGUI.h"
 
 #include <fstream>
 
@@ -184,6 +185,22 @@ void CKernel::FadeEntity(CEvent a_oEvent, CEntityNode* a_pTarget)
 void CKernel::SetPlayerID(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
+}
+
+void CKernel::SetPlayerName(CEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	Desc<CNode> pNode;
+	CFindEntityFromIDVisitor oVisitor(pNode, a_rEvent.m_sStringValue);
+	oVisitor.Traverse(m_pBehaviorTree);
+	CEditBoxNode* pEntity = dynamic_cast<CEditBoxNode*>(pNode.Get());
+	if (pEntity)
+	{
+		cocos2d::ui::EditBox* pBox = dynamic_cast<cocos2d::ui::EditBox*>(pEntity->GetCocosEntity());
+		if (pBox)
+		{
+			m_pLocalPlayer->m_sName = pBox->getText();
+		}
+	}
 }
 
 
