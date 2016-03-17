@@ -65,7 +65,7 @@ void LmWifiDirectFacade::onReceiving(char c)
 	FORWARD(onReceiving(c));
 }
 
-void LmWifiDirectFacade::onReceivingByte(byte b)
+void LmWifiDirectFacade::onReceivingByte(lmByte b)
 {
 	FORWARD(onReceivingByte(b));
 }
@@ -127,7 +127,7 @@ void LmWifiDirectFacade::send(char c)
 	LmJniJavaFacade::send(c);
 }
 
-void LmWifiDirectFacade::sendByte(byte b)
+void LmWifiDirectFacade::sendByte(lmByte b)
 {
 	CCLOG("sending byte");
 	LmJniJavaFacade::sendByte(b);
@@ -192,7 +192,7 @@ void LmWifiDirectFacade::group(int size, SEND_F* send_functions, void** params)
 			send(PTR_TO_OBJ(param, char));
 			break;
 			case SEND_BYTE:
-			sendByte(PTR_TO_OBJ(param, byte));
+			sendByte(PTR_TO_OBJ(param, lmByte));
 			break;
 			case SEND_LONG:
 			send(PTR_TO_OBJ(param, long));

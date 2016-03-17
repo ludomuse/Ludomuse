@@ -27,6 +27,7 @@ namespace LM
 	virtual void readOn(bytes* msg) override
 	{
 		*msg >> m_iPlayerID;
+		CCLOG("SUser::readOn %d", m_iPlayerID);
 		*msg >> m_sName;
 		int i;
 		*msg >> i;

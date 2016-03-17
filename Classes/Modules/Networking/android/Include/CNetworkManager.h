@@ -23,6 +23,8 @@ class CNetworkManager : LmWifiObserver
 
   virtual void onReceiving(std::string s) override;
 
+  void onReceivingMsg(bytes byteArray) override;
+
   // virtual void onReceiving(int i);
 
   // virtual void onReceiving(bool b);
@@ -51,7 +53,7 @@ class CNetworkManager : LmWifiObserver
 
   // void sendByte(byte b);
 
-  void sendBytes(bytes bytes);
+  void Send(bytes bytes);
 
 
 };

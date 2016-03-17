@@ -27,6 +27,10 @@ void CNetworkManager::onReceiving(std::string s)
 }
 
 
+void CNetworkManager::onReceivingMsg(bytes byteArray)
+{
+	m_pKernel->OnReceiving(byteArray);
+}
 
 ////////////////////////// forward calls to WifiDirectfacade
 

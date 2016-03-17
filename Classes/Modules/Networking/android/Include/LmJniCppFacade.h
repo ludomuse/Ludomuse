@@ -108,7 +108,7 @@ public:
 	}
 
 	inline static lmByte toCObject(jbyte b) {
-		return (byte) b;
+		return (lmByte) b;
 	}
 
 	inline static bytes toCObject(jbyteArray byteArray, JNIEnv* env) {
