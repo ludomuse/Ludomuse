@@ -105,7 +105,7 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	}
 	else  if (sCallbackString == "SetPlayerName")
 	{
-		CEventCallback oCallback(m_pKernel, &CKernel::SetPlayerID,
+		CEventCallback oCallback(m_pKernel, &CKernel::SetPlayerName,
 			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}

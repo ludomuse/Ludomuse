@@ -245,7 +245,7 @@
 				    }
 				},
 				{
-				    "type": "Validate",
+				    "type": "Validated",
 				    "params": {
 					"callback": "SetPlayerName",
 					"arg": "nameBox"

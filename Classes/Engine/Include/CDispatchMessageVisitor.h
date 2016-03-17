@@ -15,6 +15,8 @@ class CDispatchMessageVisitor : public CVisitor
  public:
   CDispatchMessageVisitor(const std::string& a_rMessage);
 
+  virtual void Traverse(CNode* a_pNode) override;
+
   virtual Result ProcessNodeTopDown(CNode* a_pNode);
 };
 

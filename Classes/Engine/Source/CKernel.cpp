@@ -104,6 +104,8 @@ void CKernel::Init()
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
+	CDispatchMessageVisitor oMessageVisitor("Validated");
+	oMessageVisitor.Traverse(m_pBehaviorTree);
 	CTransitionVisitor oVisitor(this, true);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
