@@ -45,7 +45,6 @@ CKernel::~CKernel()
 	delete m_pInputManager;
 	delete m_pNetworkManager;
 	delete m_pJsonParser;
-	delete m_pDistantPlayer;
 	delete m_pLocalPlayer;
 }
 
