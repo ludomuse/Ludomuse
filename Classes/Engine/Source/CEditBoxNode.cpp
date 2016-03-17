@@ -22,13 +22,16 @@ CEditBoxNode::CEditBoxNode(EAnchor a_eAnchor,
 
 void CEditBoxNode::Init()
 {
-	Size l_oVisibleSize = Director::getInstance()->getVisibleSize();
-	Point l_oOrigin = Director::getInstance()->getVisibleOrigin();
-	ui::EditBox* pBox = ui::EditBox::create(Size(1,
-		l_oVisibleSize.height * 0.1),
-		ui::Scale9Sprite::create("Ludomuse/Content/textfieldBackground.png"));
+  Size l_oVisibleSize = Director::getInstance()->getVisibleSize();
+  Point l_oOrigin = Director::getInstance()->getVisibleOrigin();
+  ui::EditBox* pBox = ui::EditBox::create(Size(1,
+                                               l_oVisibleSize.height * 0.1),
+                                          ui::Scale9Sprite::create("Ludomuse/Content/textfieldBackground.png"));
   pBox->setPlaceHolder("Nom de joueur");
 
+
+  m_pCocosEntity = pBox;
+  
   PopulateParent();
 
   CNode::Init();
