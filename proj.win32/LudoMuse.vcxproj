@@ -206,6 +206,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CValidateSceneVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CValidator.h" />
     <ClInclude Include="..\Classes\Engine\Include\CVisitor.h" />
+    <ClInclude Include="..\Classes\Engine\Include\SUser.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\Modules\Networking\win\Include\CNetworkManager.h" />
     <ClInclude Include="..\Classes\Modules\Util\Include\Desc.h" />

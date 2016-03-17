@@ -32,11 +32,11 @@ CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
                      m_pJsonParser(new CJsonParser(this)),
                      m_pNetworkManager(new CNetworkManager(this)),
 					 m_pBehaviorTree(new CSequenceNode()),
-					 m_iPlayerID(1),
 					 m_bCoopWaiting(false)
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
+	m_oLocalPlayer.m_iPlayerID = 1;
 }
 
 CKernel::~CKernel()
@@ -67,8 +67,8 @@ void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 {
 	std::vector<std::string>::iterator itSceneID;
-	for (itSceneID = m_mScenesID[m_iPlayerID].begin();
-			itSceneID != m_mScenesID[m_iPlayerID].end();
+	for (itSceneID = m_mScenesID[m_oLocalPlayer.m_iPlayerID].begin();
+			itSceneID != m_mScenesID[m_oLocalPlayer.m_iPlayerID].end();
 			++itSceneID)
 	{
 		if (*itSceneID == a_rSceneID)
@@ -82,7 +82,7 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 
 int CKernel::GetCurrentPlayer()
 {
-	return m_iPlayerID;
+	return m_oLocalPlayer.m_iPlayerID;
 }
 
 void CKernel::Init()
@@ -182,7 +182,7 @@ void CKernel::FadeEntity(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::SetPlayerID(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	m_iPlayerID = a_oEvent.m_iIntValue;
+	m_oLocalPlayer.m_iPlayerID = a_oEvent.m_iIntValue;
 }
 
 
