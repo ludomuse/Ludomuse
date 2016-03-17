@@ -9,7 +9,7 @@
 		"screen-1-a",
 		"screen-1-a"
 	    ],
-      [
+	    [
 		"screen-login",
 		"screen-login"
 	    ],
@@ -21,7 +21,7 @@
 		"screen-peers",
 		"screen-peers"
 	    ],
-      [
+	    [
 		"screen-board",
 		"screen-board"
 	    ],
@@ -158,17 +158,17 @@
 		    }
 		],
 		"content": [
-      {
-    "type": "Image",
-    "params": {
-        "source": "cache/backgroundFactory.png",
-        "anchor": 0,
-        "width": 100,
-        "height": 100,
-        "x": 0,
-        "y": 0
-    }
-      },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/backgroundFactory.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
 		    {
 			"type": "Image",
 			"params": {
@@ -213,9 +213,9 @@
 		    }
 		]
 	    },
-      {
+	    {
 		"scene": "screen-login",
-    "navigation": [
+		"navigation": [
 		    {
 			"type": "Nav",
 			"params": {
@@ -243,6 +243,13 @@
 				    "params": {
 					"callback": "Show"
 				    }
+				},
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "SetPlayerName",
+					"arg": "nameBox"
+				    }
 				}
 			    ]
 			}
@@ -268,10 +275,10 @@
 				    }
 				}
 			    ]
-      }
-        }
-      ],
-      "information": [
+			}
+		    }
+		],
+		"information": [
   		    {
   			"type": "Info",
   			"params": {
@@ -338,7 +345,7 @@
   			}
   		    }
   		],
-      "content": [
+		"content": [
   		    {
   			"type": "Image",
   			"params": {
@@ -365,15 +372,15 @@
   					"width": 40,
   					"height": 30,
   					"children": [
-              {
-                  "type": "Image",
-                  "params": {
-                "source": "ui/Assets/PNG/Assets-01.png",
-                "anchor": 0,
-                "width": 0,
-                "height": 50
-                  }
-              }
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-01.png",
+						    "anchor": 0,
+						    "width": 0,
+						    "height": 50
+						}
+					    }
   					],
   					"listeners": [
   					    {
@@ -401,15 +408,15 @@
   					"width": 40,
   					"height": 30,
   					"children": [
-              {
-                  "type": "Image",
-                  "params": {
-                "source": "ui/Assets/PNG/Assets-02.png",
-                "anchor": 0,
-                "width": 0,
-                "height": 50
-                  }
-              }
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-02.png",
+						    "anchor": 0,
+						    "width": 0,
+						    "height": 50
+						}
+					    }
   					],
   					"listeners": [
   					    {
@@ -429,20 +436,21 @@
   					]
   				    }
   				},
-          {
-              "type": "EditBox",
-              "params": {
-            "anchor": 2,
-            "width": 60,
-            "height": 30
-              }
-          }
+				{
+				    "type": "EditBox",
+				    "id": "nameBox",
+				    "params": {
+					"anchor": 2,
+					"width": 60,
+					"height": 30
+				    }
+				}
   			    ]
   			}
-      }
-  		]
-      },
-      {
+		    }
+		]
+	    },
+	    {
 		"scene": "screen-playerid",
 		"navigation": [
 		    {
@@ -619,7 +627,7 @@
 								"content": "JE SUIS UN GRAND !",
 								"anchor": 6,
 								"width": 100,
-                "color": "0,0,0,255"
+								"color": "0,0,0,255"
 							    }
 							}
 						    ]
@@ -673,7 +681,7 @@
 							    "params": {
 								"content": "JE SUIS UN PETIT !",
 								"width": 100,
-                "color": "0,0,0,255",
+								"color": "0,0,0,255",
 								"anchor": 6
 							    }
 							}
@@ -920,9 +928,9 @@
                     }
 		]
 	    },
-      {
+	    {
 		"scene": "screen-board",
-    "navigation": [
+		"navigation": [
 		    {
 			"type": "Nav",
 			"params": {
@@ -967,10 +975,10 @@
 				    }
 				}
 			    ]
-      }
-        }
-      ],
-      "information": [
+			}
+		    }
+		],
+		"information": [
   		    {
   			"type": "Info",
   			"params": {
@@ -979,23 +987,23 @@
   			    "anchor": 6,
   			    "source": "ui/info-6.png",
   			    "children": [
-  					    {
-  						"type": "Text",
-  						"params": {
-  						    "content": "Trouvez tous les ingrédients de la recette de LU !",
-  						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-  						    "fontSize": 20,
-  						    "textAlign": "center",
-  						    "width": 80,
-  						    "anchor": 0,
-  						    "color": "0,0,0,255"
-  						}
-  					    }
+  				{
+  				    "type": "Text",
+  				    "params": {
+  					"content": "Trouvez tous les ingrédients de la recette de LU !",
+  					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+  					"fontSize": 20,
+  					"textAlign": "center",
+  					"width": 80,
+  					"anchor": 0,
+  					"color": "0,0,0,255"
+  				    }
+  				}
   			    ]
   			}
   		    }
   		],
-      "content": [
+		"content": [
   		    {
   			"type": "Image",
   			"params": {
@@ -1023,98 +1031,98 @@
   					"anchor": 0,
   					"width": 100,
   					"height": 100
-  				  }
-        },
-          {
-              "type": "Image",
-              "params": {
-          "source": "cache/Quest.png",
-          "anchor": 0,
-          "width": 100,
-          "height": 100
-            }
-        },
-          {
-            "type": "Image",
-            "params": {
-          "source": "cache/Quest.png",
-          "anchor": 0,
-          "width": 100,
-          "height": 100
-            }
-        },
-          {
-            "type": "Image",
-            "params": {
-          "source": "cache/Quest.png",
-          "anchor": 0,
-          "width": 100,
-          "height": 100
-            }
-        },
-          {
-            "type": "Image",
-            "params": {
-          "source": "cache/Quest.png",
-          "anchor": 0,
-          "width": 100,
-          "height": 100,
-          "children": [
-            {
-              "type": "Image",
-              "params": {
-                "source":"cache/QuestWheat.png",
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-              }
-            }
-          ]
-            }
-        },
-          {
-            "type": "Image",
-            "params": {
-          "source": "cache/Quest.png",
-          "anchor": 0,
-          "width": 100,
-          "height": 100,
-          "children": [
-            {
-              "type": "Image",
-              "params": {
-                "source":"cache/QuestSugar.png",
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-              }
-            }
-          ]
-            }
-        },
-          {
-            "type": "Image",
-            "params": {
-          "source": "cache/Quest.png",
-          "anchor": 0,
-          "width": 100,
-          "height": 100
-          }
-        },
-          {
-          "type": "Image",
-          "params": {
-          "source": "cache/Quest.png",
-          "anchor": 0,
-          "width": 100,
-          "height": 100
-          }
-          }
-          ]
-        }
-          }
-        ]
-      },
+  				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Quest.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Quest.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Quest.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Quest.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source":"cache/QuestWheat.png",
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    }
+					]
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Quest.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source":"cache/QuestSugar.png",
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    }
+					]
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Quest.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Quest.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		]
+	    },
 	    {
 		"scene": "screen-1-b-player1",
 		"navigation": [
@@ -1499,42 +1507,42 @@
 			    "y": 0
 			}
 		    },
-        {
-      "type": "Group",
-      "params": {
-          "anchor": 4,
-          "width": 50,
-          "height": 100,
-          "children": [
-        {
-            "type": "Image",
-            "params": {
-          "source": "ui/cache-noir-70.png",
-          "anchor": 0,
-          "width": 100,
-          "height": 50
-            }
-        },
-        {
-			"type": "Text",
+		    {
+			"type": "Group",
 			"params": {
-			    "content": "Demande à haute voix à ton ouvrier « Suis moi et compte les marches jusqu’à la salle 23. »",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
+			    "anchor": 4,
 			    "width": 50,
 			    "height": 100,
-          "anchor": 0,
-			    "color": "",
-			    "cache": {
-				"visible": false,
-				"backgroundColor": "",
-				"backgroundImage": ""
-			    }
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 50
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Demande à haute voix à ton ouvrier « Suis moi et compte les marches jusqu’à la salle 23. »",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"width": 50,
+					"height": 100,
+					"anchor": 0,
+					"color": "",
+					"cache": {
+					    "visible": false,
+					    "backgroundColor": "",
+					    "backgroundImage": ""
+					}
+				    }
+				}
+			    ]
 			}
 		    }
-          ]
-      }
-    }
 		]
 	    },
 	    {
@@ -1598,7 +1606,7 @@
 			    "y": 0
 			}
 		    },
-        {
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Escalier1.JPG",
@@ -1808,7 +1816,7 @@
 			    "y": 0
 			}
 		    },
-        {
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Escalier2.JPG",
@@ -1913,7 +1921,7 @@
 			    "y": 0
 			}
 		    },
-        {
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Escalier2.JPG",
@@ -1923,7 +1931,7 @@
 			    "x": 0,
 			    "y": 0
 			}
-    },
+		    },
 		    {
 			"type": "Group",
 			"params": {
@@ -2018,7 +2026,7 @@
 			    "y": 0
 			}
 		    },
-        {
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Escalier3.JPG",
@@ -2028,7 +2036,7 @@
 			    "x": 0,
 			    "y": 0
 			}
-    },
+		    },
 		    {
 			"type": "Group",
 			"params": {
@@ -2123,7 +2131,7 @@
 			    "y": 0
 			}
 		    },
-        {
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Escalier3.JPG",
@@ -2133,7 +2141,7 @@
 			    "x": 0,
 			    "y": 0
 			}
-    },
+		    },
 		    {
 			"type": "Group",
 			"params": {
@@ -2228,7 +2236,7 @@
 			    "y": 0
 			}
 		    },
-        {
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Escalier4.JPG",
@@ -2238,7 +2246,7 @@
 			    "x": 0,
 			    "y": 0
 			}
-    },
+		    },
 		    {
 			"type": "Group",
 			"params": {
@@ -2334,7 +2342,7 @@
 			    "y": 0
 			}
 		    },
-        {
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Escalier4.JPG",
@@ -2575,7 +2583,7 @@
 			    "width": 0,
 			    "height": 13,
 			    "children": [
-            {
+				{
 				    "type": "Group",
 				    "params": {
 					"anchor": 0,
@@ -2583,33 +2591,33 @@
 					"height": 100,
 					"children": [
 					    {
-          "type": "Image",
-          "params": {
-              "source": "ui/Assets/PNG/Assets-03.png",
-              "anchor": 8,
-              "width": 0,
-              "height": 80
-          }
-            },
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Demande à ton ouvrier combien de marches il a compté",
-					"color": "0,0,0,255",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Demande à ton ouvrier combien de marches il a compté",
+						    "color": "0,0,0,255",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "anchor": 0,
+						    "width": 80,
+						    "height": 100
+						}
+					    }
+					]
 				    }
 				}
-		  ]
-			  }
-		}
-	    ]
-  }
-}
-],
+			    ]
+			}
+		    }
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -3422,15 +3430,15 @@
 			    "width": 50,
 			    "height": 100,
 			    "children": [
-            {
-                "type": "Image",
-                "params": {
-              "source": "ui/cache-noir-70.png",
-              "anchor": 4,
-              "width": 100,
-              "height": 100
-                }
-            },
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 4,
+					"width": 100,
+					"height": 100
+				    }
+				},
 				{
 				    "type": "Text",
 				    "params": {
@@ -3497,18 +3505,18 @@
 		],
 		"information": [],
 		"content": [
-      {
-    "type": "Image",
-    "params": {
-        "source": "cache/Portrait.png",
-        "anchor": 2,
-        "width": 0,
-        "height": 90,
-        "x": 0,
-        "y": 0
-    }
-      }
-    ]
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Portrait.png",
+			    "anchor": 2,
+			    "width": 0,
+			    "height": 90,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-2-b-player2",
@@ -3567,61 +3575,61 @@
 			    "width": 0,
 			    "height": 13,
 			    "children": [
-            {
-          "type": "Group",
-          "params": {
-        "anchor": 0,
-        "width": 60,
-        "height": 100,
-        "children": [
-            {
-          "type": "Image",
-          "params": {
-              "source": "ui/Assets/PNG/Assets-03.png",
-              "anchor": 8,
-              "width": 0,
-              "height": 80
-          }
-            },
-            {
-          "type": "Image",
-          "params": {
-              "source": "ui/Assets/PNG/Assets-06.png",
-              "anchor": 4,
-              "width": 0,
-              "height": 80
-          }
-            },
-            {
-              "type": "Text",
-              "params": {
-            "content": "Touche le portrait pour écouter Monsieur Louis.",
-            "color": "0,0,0,255",
-            "anchor": 0,
-            "width": 80,
-            "height": 100
-          }
-            }
-        ]
-          }
-      }
-		]
-  }
-}
-],
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-06.png",
+						    "anchor": 4,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Touche le portrait pour écouter Monsieur Louis.",
+						    "color": "0,0,0,255",
+						    "anchor": 0,
+						    "width": 80,
+						    "height": 100
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"content": [
-      {
-    "type": "Image",
-    "params": {
-        "source": "cache/Portrait.png",
-        "anchor": 2,
-        "width": 0,
-        "height": 90,
-        "x": 0,
-        "y": 0
-    }
-      }
-    ]
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Portrait.png",
+			    "anchor": 2,
+			    "width": 0,
+			    "height": 90,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-2-c-player1",
@@ -4174,11 +4182,11 @@
 			    "width": 30,
 			    "listeners": [
 				{
-					"type": "Drop",
-					"params": {
-						"callback": "SendMessage",
-						"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
-					}
+				    "type": "Drop",
+				    "params": {
+					"callback": "SendMessage",
+					"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
+				    }
 				}
 			    ]
 			}
@@ -4488,50 +4496,50 @@
 		    }
 		],
 		"information": [
-      {
-    "type": "Info",
-    "params": {
-        "source": "ui/info-6.png",
-        "anchor": 6,
-        "width": 0,
-        "height": 13,
-        "children": [
-          {
-        "type": "Group",
-        "params": {
-      "anchor": 0,
-      "width": 60,
-      "height": 100,
-      "children": [
-          {
-        "type": "Image",
-        "params": {
-            "source": "ui/Assets/PNG/Assets-03.png",
-            "anchor": 8,
-            "width": 0,
-            "height": 80
-        }
-          },
-          {
-  				    "type": "Text",
-  				    "params": {
-  					"content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
-  					"color": "0,0,0,255",
-            "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-						"fontSize": 20,
-						"textAlign": "center",
-  					"anchor": 0,
-  					"width": 80,
-  					"height": 100
-  				    }
-  				}
-      ]
-          }
-        }
-      ]
-    }
-  }
-],
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+  						"type": "Text",
+  						"params": {
+  						    "content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
+  						    "color": "0,0,0,255",
+						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+						    "fontSize": 20,
+						    "textAlign": "center",
+  						    "anchor": 0,
+  						    "width": 80,
+  						    "height": 100
+  						}
+  					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -5015,7 +5023,7 @@
 			    "width": 0,
 			    "height": 13,
 			    "children": [
-            {
+				{
 				    "type": "Group",
 				    "params": {
 					"anchor": 0,
@@ -5023,31 +5031,31 @@
 					"height": 100,
 					"children": [
 					    {
-          "type": "Image",
-          "params": {
-              "source": "ui/Assets/PNG/Assets-06.png",
-              "anchor": 4,
-              "width": 0,
-              "height": 80
-          }
-            },
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, tu as réussi !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-06.png",
+						    "anchor": 4,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Bravo, tu as réussi !",
+						    "color": "0,0,0,255",
+						    "anchor": 0,
+						    "width": 80,
+						    "height": 100
+						}
+					    }
+					]
 				    }
 				}
 			    ]
 			}
 		    }
-		]
-  }
-}
-],
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -6057,8 +6065,8 @@
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
-          "width": 50,
-          "height": 50,
+			    "width": 50,
+			    "height": 50,
 			    "anchor": 8,
 			    "alignItems": "center",
 			    "children": [
@@ -6160,48 +6168,48 @@
 			}
 		    }
 		],
-    "information": [
-      {
-    "type": "Info",
-    "params": {
-        "source": "ui/info-6.png",
-        "anchor": 6,
-        "width": 0,
-        "height": 13,
-        "children": [
-          {
-        "type": "Group",
-        "params": {
-      "anchor": 0,
-      "width": 60,
-      "height": 100,
-      "children": [
-          {
-        "type": "Image",
-        "params": {
-            "source": "ui/Assets/PNG/Assets-03.png",
-            "anchor": 8,
-            "width": 0,
-            "height": 80
-        }
-          },
-          {
-  				    "type": "Text",
-  				    "params": {
-  					"content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
-  					"color": "0,0,0,255",
-  					"anchor": 0,
-  					"width": 80,
-  					"height": 100
-  				    }
-  				}
-      ]
-          }
-        }
-      ]
-    }
-  }
-],
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+  						"type": "Text",
+  						"params": {
+  						    "content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
+  						    "color": "0,0,0,255",
+  						    "anchor": 0,
+  						    "width": 80,
+  						    "height": 100
+  						}
+  					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -6473,8 +6481,8 @@
 		    }
 		],
 		"information": [],
-    "content": [
-			{
+		"content": [
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/rightSpotImage.png",
@@ -6485,127 +6493,127 @@
 			    "y": 0
 			}
 		    },
-        {
-      "type": "Group",
-      "params": {
-          "anchor": 1,
-          "width": 40,
-          "height": 40,
-					"children": [
-        {
-			"type": "Image",
+		    {
+			"type": "Group",
 			"params": {
+			    "anchor": 1,
+			    "width": 40,
+			    "height": 40,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
 					"source": "ui/cache-noir-70.png",
 					"anchor": 0,
-          "width": 40,
-          "height": 30
+					"width": 40,
+					"height": 30
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Dirigeants",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"width": 100,
+					"height": 100,
+					"anchor": 0
+				    }
 				}
-			},
-        {
-      "type": "Text",
-      "params": {
-      "content": "Dirigeants",
-			"font": "fonts/arial.ttf",
-      "fontSize": 24,
-      "width": 100,
-      "height": 100,
-      "anchor": 0
-                  }
-                }
-              ]
-            }
-          },
-          {
-        "type": "Group",
-        "params": {
-            "anchor": 5,
-            "width": 40,
-            "height": 40,
-  					"children": [
-          {
-  			"type": "Image",
-  			"params": {
+			    ]
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 5,
+			    "width": 40,
+			    "height": 40,
+  			    "children": [
+				{
+  				    "type": "Image",
+  				    "params": {
   					"source": "ui/cache-noir-70.png",
   					"anchor": 0,
-            "width": 40,
-            "height": 30
-  				}
-  			},
-          {
-        "type": "Text",
-        "params": {
-        "content": "Menuisiers",
-  			"font": "fonts/arial.ttf",
-        "fontSize": 24,
-        "width": 100,
-        "height": 100,
-        "anchor": 0
-                    }
-                  }
-                ]
-              }
-            },
-            {
-          "type": "Group",
-          "params": {
-              "anchor": 6,
-              "width": 40,
-              "height": 40,
-    					"children": [
-            {
-    			"type": "Image",
-    			"params": {
+					"width": 40,
+					"height": 30
+  				    }
+  				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Menuisiers",
+  					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"width": 100,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 6,
+			    "width": 40,
+			    "height": 40,
+    			    "children": [
+				{
+    				    "type": "Image",
+    				    "params": {
     					"source": "ui/cache-noir-70.png",
     					"anchor": 0,
-              "width": 40,
-              "height": 30
-    				}
-    			},
-            {
-          "type": "Text",
-          "params": {
-          "content": "Pâtissiers",
-    			"font": "fonts/arial.ttf",
-          "fontSize": 24,
-          "width": 100,
-          "height": 100,
-          "anchor": 0
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-            "type": "Group",
-            "params": {
-                "anchor": 7,
-                "width": 40,
-                "height": 40,
-      					"children": [
-              {
-      			"type": "Image",
-      			"params": {
+					"width": 40,
+					"height": 30
+    				    }
+    				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Pâtissiers",
+    					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"width": 100,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 7,
+			    "width": 40,
+			    "height": 40,
+      			    "children": [
+				{
+      				    "type": "Image",
+      				    "params": {
       					"source": "ui/cache-noir-70.png",
       					"anchor": 0,
       					"width": 40,
       					"height": 30
-      				}
-      			},
-              {
-            "type": "Text",
-            "params": {
-            "content": "Ouvrières",
-      			"font": "fonts/arial.ttf",
-            "fontSize": 24,
-            "width": 100,
-            "height": 100,
-            "anchor": 0
-                        }
-                      }
-                    ]
-                  }
-                }
-        ]
+      				    }
+      				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Ouvrières",
+      					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"width": 100,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+			    ]
+			}
+                    }
+		]
 	    },
 	    {
 		"scene": "screen-3-e-player1",
@@ -7015,139 +7023,139 @@
 			}
 		    }
 		]
-  },
-  {
-  "scene": "screen-4-a-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-a-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-b-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-b-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-c-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-c-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-d-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-d-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-e-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-e-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-f-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-f-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-g-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-g-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-h-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-h-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-i-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-i-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-j-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-j-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-k-player1",
-  "navigation": [],
-  "information": [],
-  "content": []
-  },
-  {
-  "scene": "screen-4-k-player2",
-  "navigation": [],
-  "information": [],
-  "content": []
-  }
-    ]
-  }
+	    },
+	    {
+		"scene": "screen-4-a-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-a-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-b-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-b-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-c-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-c-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-d-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-d-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-e-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-e-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-f-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-f-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-g-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-g-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-h-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-h-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-i-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-i-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-j-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-j-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-k-player1",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    },
+	    {
+		"scene": "screen-4-k-player2",
+		"navigation": [],
+		"information": [],
+		"content": []
+	    }
+	]
+    }
 }
