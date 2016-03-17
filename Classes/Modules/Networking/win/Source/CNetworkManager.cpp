@@ -57,6 +57,11 @@ void CNetworkManager::Send(const std::string& s)
   }
 }
 
+void CNetworkManager::Send(const bytes& b)
+{
+
+}
+
 
 
 void* ServerWaitMessages(void* networkManager)

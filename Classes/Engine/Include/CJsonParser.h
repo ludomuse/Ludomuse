@@ -19,6 +19,7 @@
 #include "CGridNode.h"
 #include "CPeerNode.h"
 #include "CValidator.h"
+#include "CEditBoxNode.h"
 
 namespace LM
 {

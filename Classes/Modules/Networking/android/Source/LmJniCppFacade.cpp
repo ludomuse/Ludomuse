@@ -101,10 +101,10 @@ WIFIFACADE->onReceivingFile(
 }
 
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_onReceivingByte(
-	JNIEnv* env, jobject thiz, jbyte byte)
+	JNIEnv* env, jobject thiz, jbyte lmByte)
 {
 WIFIFACADE->onReceivingByte(
-		LmJniCppFacade::toCObject(byte));
+		LmJniCppFacade::toCObject(lmByte));
 }
 
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_onReceivingChar(

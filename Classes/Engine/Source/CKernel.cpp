@@ -28,12 +28,12 @@ using namespace cocos2d;
 namespace LM
 {
 
-CKernel::CKernel() : m_pInputManager(new CInputManager(this)), 
-                     m_pJsonParser(new CJsonParser(this)),
-                     m_pNetworkManager(new CNetworkManager(this)),
-					 m_pBehaviorTree(new CSequenceNode()),
-					 m_iPlayerID(1),
-					 m_bCoopWaiting(false)
+	CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
+		m_pJsonParser(new CJsonParser(this)),
+		m_pNetworkManager(new CNetworkManager(this)),
+		m_pBehaviorTree(new CSequenceNode()),
+		m_bCoopWaiting(false),
+		m_pLocalPlayer(new SUser())
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
@@ -45,6 +45,8 @@ CKernel::~CKernel()
 	delete m_pInputManager;
 	delete m_pNetworkManager;
 	delete m_pJsonParser;
+	delete m_pDistantPlayer;
+	delete m_pLocalPlayer;
 }
 
 
@@ -67,8 +69,8 @@ void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 {
 	std::vector<std::string>::iterator itSceneID;
-	for (itSceneID = m_mScenesID[m_iPlayerID].begin();
-			itSceneID != m_mScenesID[m_iPlayerID].end();
+	for (itSceneID = m_mScenesID[m_pLocalPlayer->m_iPlayerID].begin();
+			itSceneID != m_mScenesID[m_pLocalPlayer->m_iPlayerID].end();
 			++itSceneID)
 	{
 		if (*itSceneID == a_rSceneID)
@@ -82,7 +84,7 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 
 int CKernel::GetCurrentPlayer()
 {
-	return m_iPlayerID;
+	return m_pLocalPlayer->m_iPlayerID;
 }
 
 void CKernel::Init()
@@ -182,7 +184,7 @@ void CKernel::FadeEntity(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::SetPlayerID(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	m_iPlayerID = a_oEvent.m_iIntValue;
+	m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
 }
 
 
@@ -217,6 +219,13 @@ void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 		CDispatchMessageVisitor oVisitor(a_rMessage);
 		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pBehaviorTree);
 	}
+}
+
+void CKernel::OnReceiving(bytes a_rByteArray)
+{
+	CCLOG("On Receiving MSg");
+	a_rByteArray >> &m_pDistantPlayer;
+	CCLOG("Distant player : %d", m_pDistantPlayer->m_iPlayerID);
 }
 
 void CKernel::GetPeers()
@@ -260,7 +269,11 @@ void CKernel::Connect(CEvent a_oEvent, CEntityNode* a_pTarget)
 				if (pLabel)
 				{
 					m_pNetworkManager->ConnectTo(pLabel->getString());
-					m_pNetworkManager->Send("connection:establish");
+					//m_pNetworkManager->Send("connection:establish");
+					bytes b;
+					b << '0' << *m_pLocalPlayer;
+					CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
+					m_pNetworkManager->Send(b);
 				}
 			}
 		}

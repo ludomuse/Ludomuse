@@ -27,12 +27,21 @@ void CNetworkManager::onReceiving(std::string s)
 }
 
 
+void CNetworkManager::onReceivingMsg(bytes byteArray)
+{
+	m_pKernel->OnReceiving(byteArray);
+}
 
 ////////////////////////// forward calls to WifiDirectfacade
 
 void CNetworkManager::Send(const std::string& s)
 {
   m_oWifiDirectFacade.send(s);
+}
+
+void CNetworkManager::Send(bytes b)
+{
+	m_oWifiDirectFacade.sendBytes(b);
 }
 
 

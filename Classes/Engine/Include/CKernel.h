@@ -4,6 +4,7 @@
 
 #include "cocos2d.h"
 #include "CNode.h"
+#include "SUser.h"
 
 
 namespace LM 
@@ -33,7 +34,8 @@ class CKernel
   CJsonParser* m_pJsonParser;
 
   std::map<int, std::vector<std::string> > m_mScenesID;
-  int m_iPlayerID;
+  SUser* m_pLocalPlayer;
+  SUser* m_pDistantPlayer;
 
   bool m_bCoopWaiting;
 
@@ -86,6 +88,7 @@ class CKernel
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
+  void OnReceiving(bytes byteArray);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
 

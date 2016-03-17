@@ -107,13 +107,13 @@ public:
 		return (long) l;
 	}
 
-	inline static byte toCObject(jbyte b) {
-		return (byte) b;
+	inline static lmByte toCObject(jbyte b) {
+		return (lmByte) b;
 	}
 
 	inline static bytes toCObject(jbyteArray byteArray, JNIEnv* env) {
 		jboolean isCopy;
-		byte* data = (byte*) env->GetByteArrayElements(byteArray, &isCopy);
+		lmByte* data = (lmByte*) env->GetByteArrayElements(byteArray, &isCopy);
 		int len = env->GetArrayLength(byteArray);
 		return bytes(data, len);
 	}

@@ -183,6 +183,12 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	}
 
 
+	else if (sType == "EditBox")
+	{
+		pEntity = new CEditBoxNode(IntToAnchor(rParams["anchor"].GetInt()),
+			width, height, x, y);
+	}
+
 	else if (sType == "Video")
 	{
 

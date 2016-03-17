@@ -60,7 +60,7 @@ void LmJniJavaFacade::callJavaMethod(const char* name, void* arg,
 	} else if (param == PARAM_BYTE) {
 
 		method.env->CallStaticVoidMethod(method.classID, method.methodID,
-				toJByte(PTR_TO_OBJ(arg, byte)));
+				toJByte(PTR_TO_OBJ(arg, lmByte)));
 	} else if (param == PARAM_BYTES) {
 
 		method.env->CallStaticVoidMethod(method.classID, method.methodID,
@@ -108,7 +108,7 @@ void LmJniJavaFacade::setServerTempFileName(std::string name)
 	callJavaMethod("setServerTempFileName", (void*) &name, PARAM_STRING);
 }
 
-void LmJniJavaFacade::sendByte(byte b)
+void LmJniJavaFacade::sendByte(lmByte b)
 {
 	callJavaMethod("sendByte", (void*) &b, PARAM_BYTE);
 }

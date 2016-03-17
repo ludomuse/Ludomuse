@@ -31,7 +31,7 @@ private:
 
 	static void setServerTempFileName(std::string name);
 
-	static void sendByte(byte b);
+	static void sendByte(lmByte b);
 
 	static void sendBytes(bytes byte);
 
@@ -69,7 +69,7 @@ private:
 		return (jlong) l;
 	}
 
-	inline static jbyte toJByte(byte b) {
+	inline static jbyte toJByte(lmByte b) {
 		return (jbyte) b;
 	}
 
