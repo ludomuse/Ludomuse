@@ -16,7 +16,7 @@
 
 #define WR_PRIM(X) 		void write(X v)\
 						{\
-							byte* rep = alloc(sizeof(X));\
+							lmByte* rep = alloc(sizeof(X));\
 							memcpy(rep, &v, sizeof(X));\
 							write(rep, sizeof(X));\
 							del(rep);\
@@ -24,7 +24,7 @@
 
 #define RD_PRIM(X, Y) 	X Y()\
 						{\
-							byte* rep = readBytes(sizeof(X));\
+							lmByte* rep = readBytes(sizeof(X));\
 							X res = 0;\
 							memcpy(&res, rep, sizeof(X));\
 							return res;\
@@ -42,7 +42,7 @@
 							return *this;\
 						}
 
-typedef char byte;
+typedef char lmByte;
 
 class bytes;
 class LmSerializable {
@@ -54,7 +54,7 @@ class LmSerializable {
 class bytes {
 
 	private:
-		byte* data;
+		lmByte* data;
 		int writeCursor;
 		int readCursor;
 		int size;
@@ -65,7 +65,7 @@ class bytes {
 		{
 			if (this->size >= size || size == 0)
 				return;
-			byte* newBytes = alloc(size);
+			lmByte* newBytes = alloc(size);
 			if (data != 0)
 				memcpy(newBytes, data, getLen());
 			del(data);
@@ -96,14 +96,14 @@ class bytes {
 			error = true;
 		}
 
-		void del(byte* data)
+		void del(lmByte* data)
 		{
 			//free(data);
 		}
 
-		byte* alloc(int size)
+		lmByte* alloc(int size)
 		{
-			return (byte*) malloc(size * sizeof(byte));
+			return (lmByte*) malloc(size * sizeof(lmByte));
 		}
 
 	public:
@@ -163,7 +163,7 @@ class bytes {
 			}
 		}
 
-		bytes(byte* dataBytes, int len)
+		bytes(lmByte* dataBytes, int len)
 		{
 			init();
 			write(dataBytes, len);
@@ -194,7 +194,7 @@ class bytes {
 			write(array.data, array.getLen());
 		}
 
-		void write(const byte* str, int len)
+		void write(const lmByte* str, int len)
 		{
 			clearError();
 			if (len == 0)
@@ -216,7 +216,7 @@ class bytes {
 		{
 			int len = str.length();
 			std::vector<char> vect(str.begin(), str.end());
-			byte* data = &vect[0];
+			lmByte* data = &vect[0];
 			write(len);
 			write(data, len);
 		}
@@ -236,10 +236,10 @@ class bytes {
 
 		void writeChar(char c)
 		{
-			write((byte) c);
+			write((lmByte) c);
 		}
 
-		void write(byte b)
+		void write(lmByte b)
 		{
 			increase(1);
 			data[writeCursor] = b;
@@ -249,11 +249,11 @@ class bytes {
 		void write(bool b)
 		{
 			CCLOG("writting bool");
-			write(b ? (byte) 1 : (byte) 0);
+			write(b ? (lmByte) 1 : (lmByte) 0);
 			CCLOG("writting bool ok");
 		}
 
-		byte* readBytes(int size)
+		lmByte* readBytes(int size)
 		{
 			clearError();
 			if (getSize() == 0 || readCursor + size > getSize())
@@ -261,13 +261,13 @@ class bytes {
 				setError();
 				return 0;
 			}
-			byte* res = alloc(size);
+			lmByte* res = alloc(size);
 			memcpy(res, (void*) &(data[readCursor]), size);
 			readCursor += size;
 			return res;
 		}
 
-		byte readByte()
+		lmByte readByte()
 		{
 			clearError();
 			if (getSize() == 0 || readCursor > getSize())
@@ -275,7 +275,7 @@ class bytes {
 				setError();
 				return 0;
 			}
-			byte res = data[readCursor];
+			lmByte res = data[readCursor];
 			readCursor++;
 			return res;
 		}
@@ -294,7 +294,7 @@ class bytes {
 		{
 			int len = readInt();
 			CCLOG("string size = %d", size);
-			byte* array = readBytes(len);
+			lmByte* array = readBytes(len);
 			CCLOG("string read  correctly ! %s", array);
 			return std::string(array, len);
 		}
@@ -323,7 +323,7 @@ class bytes {
 			return res;
 		}
 
-		const byte* toByteArray()
+		const lmByte* toByteArray()
 		{
 			return data;
 		}
@@ -365,7 +365,7 @@ class bytes {
 
 		OP_IN(double)
 
-		OP_IN(byte)
+		OP_IN(lmByte)
 
 		/*bytes& operator<<(byte value)
 		{
@@ -391,7 +391,7 @@ class bytes {
 
 		OP_OUT(bool, readBool())
 
-		OP_OUT(byte, readByte())
+		OP_OUT(lmByte, readByte())
 
 		OP_OUT(long, readLong())
 

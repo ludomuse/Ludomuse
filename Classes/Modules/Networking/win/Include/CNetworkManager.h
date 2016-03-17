@@ -28,6 +28,7 @@ class CNetworkManager
   ~CNetworkManager();
   
   void Send(const std::string& s);
+  void Send(const bytes& b);
   void DiscoverPeers();
   void ConnectTo(const std::string& a_sDeviceName);
   

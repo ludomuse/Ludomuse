@@ -21,7 +21,7 @@
 #include "LmBytesMessage.h"
 #include "LmJniJavaFacade.h"
 
-typedef byte event;
+typedef lmByte event;
 
 struct LmEvent
 {

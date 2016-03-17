@@ -35,6 +35,11 @@ void CNetworkManager::Send(const std::string& s)
   m_oWifiDirectFacade.send(s);
 }
 
+void CNetworkManager::Send(bytes b)
+{
+	m_oWifiDirectFacade.sendBytes(b);
+}
+
 
 void CNetworkManager::DiscoverPeers()
 {

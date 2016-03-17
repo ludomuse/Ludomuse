@@ -51,7 +51,7 @@ class CNetworkManager : LmWifiObserver
 
   // void sendByte(byte b);
 
-  // void sendBytes(bytes bytes);
+  void sendBytes(bytes bytes);
 
 
 };

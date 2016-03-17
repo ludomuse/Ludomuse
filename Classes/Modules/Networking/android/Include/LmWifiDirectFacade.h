@@ -54,7 +54,7 @@ class LmWifiDirectFacade
 
 		void onReceiving(char c);
 
-		void onReceivingByte(byte b);
+		void onReceivingByte(lmByte b);
 
 		void onReceiving(bytes byteArray);
 
@@ -82,7 +82,7 @@ class LmWifiDirectFacade
 
 		void send(char c);
 
-		void sendByte(byte b);
+		void sendByte(lmByte b);
 
 		void sendBytes(bytes bytes);
 

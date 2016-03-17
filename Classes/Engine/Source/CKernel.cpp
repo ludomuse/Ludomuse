@@ -261,6 +261,9 @@ void CKernel::Connect(CEvent a_oEvent, CEntityNode* a_pTarget)
 				{
 					m_pNetworkManager->ConnectTo(pLabel->getString());
 					m_pNetworkManager->Send("connection:establish");
+					bytes b;
+					b << m_oLocalPlayer;
+					m_pNetworkManager->Send(b);
 				}
 			}
 		}
