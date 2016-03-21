@@ -339,8 +339,7 @@ void CKernel::AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pAnchoredEnti
 {
 	std::string sExpectedID = a_rEvent.m_sStringValue;
 	CCLOG("AnchorEntity callback : %s", sExpectedID.c_str());
-	CNode* pAnchorNode = a_rEvent.m_pSender;
-	CEntityNode* pAnchorEntity = dynamic_cast<CEntityNode*>(pAnchorNode);
+	CEntityNode* pAnchorEntity = dynamic_cast<CEntityNode*>(a_rEvent.m_pSender);
 	if (pAnchorEntity)
 	{
 		CCLOG("pAnchoredEntity ID : %s", a_pAnchoredEntity->GetID().c_str());
@@ -373,8 +372,9 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 	pAnchored->setAnchorPoint(Vec2(0.5f, 0.5f));
 	pAnchored->setPosition(oLocation);
 
-	auto oScaleTo = ScaleTo::create(0.25, pAnchor->getScale());
-	pAnchored->runAction(oScaleTo);
+	float x = pAnchor->getScale() / a_pAnchoredEntity->GetCocosEntity()->getScale();
+	auto oScaleBy = ScaleBy::create(0.25, x);
+	pAnchored->runAction(oScaleBy);
 
 	for (CNode* itNode : *a_pAnchoredEntity)
 	{

@@ -63,10 +63,10 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 					CEntityNode::Release(pEntity);
 				}
 			}
-			else if (pDropEntity = m_pKernel->FindEntity(a_pTouch, "Anchor"))
-			{
-				AnchorEntity(pEntity, pDropEntity);
-			}
+			//else if (pDropEntity = m_pKernel->FindEntity(a_pTouch, "Anchor"))
+			//{
+			//	AnchorEntity(pEntity, pDropEntity);
+			//}
 			else
 			{
 				// if not intersecting a drop area :
@@ -298,11 +298,11 @@ void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 }
 
 
-void CTouchBeganVisitor::AnchorEntity(CEntityNode* a_pAnchoredEntity, CEntityNode* a_pAnchor)
-{
-
-	a_pAnchor->Dispatch("Anchor", a_pAnchoredEntity);
-	a_pAnchoredEntity->Dispatch("Anchored", a_pAnchor);
-}
+//void CTouchBeganVisitor::AnchorEntity(CEntityNode* a_pAnchoredEntity, CEntityNode* a_pAnchor)
+//{
+//
+//	a_pAnchor->Dispatch("Anchor", a_pAnchoredEntity);
+//	a_pAnchoredEntity->Dispatch("Anchored", a_pAnchor);
+//}
 
 } // namespace LM
