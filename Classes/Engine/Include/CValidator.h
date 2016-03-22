@@ -3,12 +3,11 @@
 
 #include <set>
 #include "CKernel.h"
-#include "CEntityNode.h"
 
 namespace LM
 {
 
-class CValidator : public CEntityNode
+class CValidator : public CNode
 {
  private:
   CKernel* m_pKernel;

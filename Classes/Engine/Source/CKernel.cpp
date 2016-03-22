@@ -232,6 +232,10 @@ void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 		{
 			m_bCoopWaiting = true;
 		}
+		else if (vSplittedMessage[1] == "Validate")
+		{
+			ValidateScene(CEvent(), nullptr);
+		}
 	}
 	else
 	{
