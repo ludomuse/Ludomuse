@@ -372,9 +372,15 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 	pAnchored->setAnchorPoint(Vec2(0.5f, 0.5f));
 	pAnchored->setPosition(oLocation);
 
-	float x = pAnchor->getScale() / a_pAnchoredEntity->GetCocosEntity()->getScale();
-	auto oScaleBy = ScaleBy::create(0.25, x);
+
+	float fOldWidth = pAnchored->getBoundingBox().getMaxX() - pAnchored->getBoundingBox().getMinX();
+	float fNewWidth = pAnchor->getBoundingBox().getMaxX() - pAnchor->getBoundingBox().getMinX();
+	float fNewScale = fNewWidth / fOldWidth;
+
+
+	auto oScaleBy = ScaleBy::create(0.25, fNewScale);
 	pAnchored->runAction(oScaleBy);
+
 
 	for (CNode* itNode : *a_pAnchoredEntity)
 	{

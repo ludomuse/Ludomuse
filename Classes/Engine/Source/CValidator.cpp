@@ -6,6 +6,9 @@ namespace LM
 
 CValidator::CValidator(CKernel* a_pKernel) : m_pKernel(a_pKernel)
 {
+	CEventCallback oCallback(m_pKernel, &CKernel::ValidateScene,
+		CEvent(this, "Validate", true));
+	AddListener("Validate", oCallback);
 }
 
 void CValidator::AddID(const std::string& a_sID)
