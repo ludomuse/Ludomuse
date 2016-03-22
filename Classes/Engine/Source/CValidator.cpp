@@ -25,6 +25,7 @@ void CValidator::Validate(const std::string& a_sID)
   if (m_oIDs.size() == 0)
   {
     m_pKernel->ValidateScene(CEvent(), nullptr);
+	m_pKernel->SendNetworkMessage("kernel:Validate");
   }
 }
 
