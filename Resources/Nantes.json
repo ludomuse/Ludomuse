@@ -2391,6 +2391,7 @@
 		"navigation": [
 		    {
 			"type": "Nav",
+      "id": "next",
 			"params": {
 			    "width": 0,
 			    "height": 13,
@@ -2408,11 +2409,20 @@
 				    	"height": 100
 				    }
 				}
-			    ]
+      ],
+      "listeners": [
+        {
+          "type": "Validate",
+          "params": {
+            "callback": "Show"
+          }
+        }
+      ]
 			}
 		    },
 		    {
 			"type": "Nav",
+      "id": "prev",
 			"params": {
 			    "width": 0,
 			    "height": 13,
@@ -2430,9 +2440,24 @@
 				    	"height": 100
 				    }
 				}
-			    ]
+      ],
+      "listeners": [
+        {
+          "type": "Validate",
+          "params": {
+            "callback": "Show"
+          }
+        }
+      ]
 			}
-		    }
+    },
+    {
+      "type": "Validator",
+      "id": "v1",
+      "params": {
+        "ids": "dummy"
+      }
+    }
 		],
 		"information": [
 		    {
@@ -2560,6 +2585,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					  "callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -2682,7 +2715,7 @@
 						    "callback": "ValidateScene",
 						    "arg": false
 						}
-					    }
+          }
 					],
 					"children": [
 					    {
@@ -2784,7 +2817,15 @@
 						    "callback": "ValidateScene",
 						    "arg": true
 						}
-					    }
+          },
+          {
+            "type": "Touch",
+            "params":
+            {
+              "callback": "SendMessage",
+              "arg": "screen-1-h-player1:Validate:v1"
+            }
+          }
 					],
 					"children": [
 					    {
