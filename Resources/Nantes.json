@@ -4275,13 +4275,6 @@
 								"callback": "Show",
 								"arg": false
 							    }
-							},
-							{
-							    "type": "AnchoredFailed",
-							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-2-e-player2:ReturnElement:flour"
-							    }
 							}
 						    ],
 						    "children": [
@@ -4334,7 +4327,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "SendMessage",
-								"arg": ""
+								"arg": "screen-2-e-player2:ReturnElement:butter"
 							    }
 							}
 						    ],
@@ -4389,13 +4382,6 @@
 							    "params": {
 								"callback": "Show",
 								"arg": false
-							    }
-							},
-							{
-							    "type": "AnchoredFailed",
-							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-2-e-player2:ReturnElement:water"
 							    }
 							}
 						    ],
