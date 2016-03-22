@@ -2391,6 +2391,7 @@
 		"navigation": [
 		    {
 			"type": "Nav",
+			"id": "next",
 			"params": {
 			    "width": 0,
 			    "height": 13,
@@ -2408,11 +2409,20 @@
 				    	"height": 100
 				    }
 				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
 			    ]
 			}
 		    },
 		    {
 			"type": "Nav",
+			"id": "prev",
 			"params": {
 			    "width": 0,
 			    "height": 13,
@@ -2428,6 +2438,14 @@
 				    	"anchor": 0,
 				    	"width": 100,
 				    	"height": 100
+				    }
+				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
 				    }
 				}
 			    ]
@@ -2534,7 +2552,7 @@
 				{
 				    "type": "Validate",
 				    "params": {
-					  "callback": "Show"
+					"callback": "Show"
 				    }
 				}
 			    ],
@@ -2560,6 +2578,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -2784,6 +2810,14 @@
 						    "callback": "ValidateScene",
 						    "arg": true
 						}
+					    },
+					    {
+						"type": "Touch",
+						"params":
+						{
+						    "callback": "SendMessage",
+						    "arg": "kernel:Validate"
+						}
 					    }
 					],
 					"children": [
@@ -3003,17 +3037,17 @@
 			    "y": 0
 			}
 		    },
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, tu as un nouvel ouvrier dans ton équipe !",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
+		    {
+			"type": "Text",
+			"params": {
+			    "content": "Bravo, tu as un nouvel ouvrier dans ton équipe !",
+			    "font": "fonts/arial.ttf",
+			    "fontSize": 24,
+			    "anchor": 0,
+			    "width": 80,
+			    "height": 100
+			}
+		    }
 		]
 	    },
 	    {
@@ -3501,36 +3535,36 @@
 	    {
 		"scene": "screen-2-b-player2",
 		"navigation": [
-      {
-    "type": "Nav",
-    "params": {
-        "width": 0,
-        "height": 13,
-        "anchor": 5,
-        "normal": "ui/nav-5.png",
-        "selected": "ui/nav-5-active.png",
-        "action": "next",
-        "listeners": [
-      {
-          "type": "Validate",
-          "params": {
-          "callback": "Show"
-          }
-      }
-        ],
-        "children": [
-      {
-          "type": "Text",
-          "params": {
-        "content": "Suivant",
-            "anchor": 0,
-            "width": 100,
-            "height": 100
-          }
-      }
-        ]
-    }
-      },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
 		    {
 			"type": "Nav",
 			"params": {
@@ -3615,15 +3649,15 @@
 			    "height": 90,
 			    "x": 0,
 			    "y": 0,
-          "listeners": [
-              {
-            "type": "Touch",
-            "params": {
-                "callback": "ValidateScene",
-                "arg": true
-            }
-              }
-          ]
+			    "listeners": [
+				{
+				    "type": "Touch",
+				    "params": {
+					"callback": "ValidateScene",
+					"arg": true
+				    }
+				}
+			    ]
 			}
 		    }
 		]
@@ -6047,7 +6081,7 @@
 		    },
 		    {
 			"type": "Image",
-      "id": "dropArea1",
+			"id": "dropArea1",
 			"params": {
 			    "source": "cache/sendingArea.png",
 			    "anchor": 4,
@@ -6055,7 +6089,7 @@
 			    "height": 100,
 			    "x": 70,
 			    "y": 0,
-          "listeners": [
+			    "listeners": [
 				{
 				    "type": "Drop",
 				    "params": {
@@ -6084,7 +6118,7 @@
 			    "children": [
 				{
 				    "type": "Image",
-            "id":"Puzzle1",
+				    "id":"Puzzle1",
 				    "params": {
 					"source": "cache/Puzzle1.png",
 					"anchor": 0,
@@ -6092,45 +6126,45 @@
 					"height": 80,
 					"x": 0,
 					"y": 0,
-          "listeners": [
-            {
-              "type": "Move",
-              "params": {
-                "callback": ""
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "Fade"
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "DisableEvent",
-                "arg": "dropArea1:Drop"
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "SendMessage",
-                "arg": "screen-3-b-player2:Show:PuzzleA"
-              }
-            },
-            {
-              "type": "ReturnElement",
-              "params": {
-                "callback": "ShowBack"
-              }
-            }
-          ]
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea1:Drop"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-3-b-player2:Show:PuzzleA"
+						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
+						}
+					    }
+					]
 				    }
 				},
-        {
+				{
 				    "type": "Image",
-            "id":"Puzzle2",
+				    "id":"Puzzle2",
 				    "params": {
 					"source": "cache/Puzzle2.png",
 					"anchor": 0,
@@ -6138,45 +6172,45 @@
 					"height": 80,
 					"x": 0,
 					"y": 0,
-          "listeners": [
-            {
-              "type": "Move",
-              "params": {
-                "callback": ""
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "Fade"
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "DisableEvent",
-                "arg": "dropArea1:Drop"
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "SendMessage",
-                "arg": "screen-3-b-player2:Show:PuzzleB"
-              }
-            },
-            {
-              "type": "ReturnElement",
-              "params": {
-                "callback": "ShowBack"
-              }
-            }
-          ]
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea1:Drop"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-3-b-player2:Show:PuzzleB"
+						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
+						}
+					    }
+					]
 				    }
 				},
-        {
+				{
 				    "type": "Image",
-            "id":"Puzzle3",
+				    "id":"Puzzle3",
 				    "params": {
 					"source": "cache/Puzzle3.png",
 					"anchor": 0,
@@ -6184,45 +6218,45 @@
 					"height": 80,
 					"x": 0,
 					"y": 0,
-          "listeners": [
-            {
-              "type": "Move",
-              "params": {
-                "callback": ""
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "Fade"
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "DisableEvent",
-                "arg": "dropArea1:Drop"
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "SendMessage",
-                "arg": "screen-3-b-player2:Show:PuzzleC"
-              }
-            },
-            {
-              "type": "ReturnElement",
-              "params": {
-                "callback": "ShowBack"
-              }
-            }
-          ]
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea1:Drop"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-3-b-player2:Show:PuzzleC"
+						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
+						}
+					    }
+					]
 				    }
 				},
-        {
+				{
 				    "type": "Image",
-            "id":"Puzzle4",
+				    "id":"Puzzle4",
 				    "params": {
 					"source": "cache/Puzzle4.png",
 					"anchor": 0,
@@ -6230,40 +6264,40 @@
 					"height": 80,
 					"x": 0,
 					"y": 0,
-          "listeners": [
-            {
-              "type": "Move",
-              "params": {
-                "callback": ""
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "Fade"
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "DisableEvent",
-                "arg": "dropArea1:Drop"
-              }
-            },
-            {
-              "type": "Droped",
-              "params": {
-                "callback": "SendMessage",
-                "arg": "screen-3-b-player2:Show:PuzzleD"
-              }
-            },
-            {
-              "type": "ReturnElement",
-              "params": {
-                "callback": "ShowBack"
-              }
-            }
-          ]
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea1:Drop"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-3-b-player2:Show:PuzzleD"
+						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
+						}
+					    }
+					]
 				    }
 				}
 			    ]
@@ -6342,8 +6376,8 @@
 			    "ids": [
 				"PuzzleA",
 				"PuzzleB",
-        "PuzzleC",
-        "PuzzleD"
+				"PuzzleC",
+				"PuzzleD"
 			    ]
 			}
 		    }
@@ -6402,7 +6436,7 @@
 			    "y": 0
 			}
 		    },
-        {
+		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Puzzle.png",
@@ -6411,246 +6445,246 @@
 			    "height": 80,
 			    "x": 0,
 			    "y": 0,
-          "children": [
-		    {
-			"type": "Grid",
-			"params": {
-			    "cols": 5,
-			    "rows": 4,
-			    "anchor": 0,
-          "width": 100,
-          "height": 100,
-          "children": [
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100,
-                "listeners": [
-                  {
-                    "type": "Drop",
-                    "params": {
-                  "callback": "AnchorEntity",
-                  "arg": "PuzzleB"
-                    }
-                  },
-                  {
-  				          "type": "Drop",
-  				          "params": {
-  					      "callback": "SendMessage",
-  					      "arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+			    "children": [
+				{
+				    "type": "Grid",
+				    "params": {
+					"cols": 5,
+					"rows": 4,
+					"anchor": 0,
+					"width": 100,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+						    "listeners": [
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "PuzzleB"
+							    }
+							},
+							{
+  							    "type": "Drop",
+  							    "params": {
+  								"callback": "SendMessage",
+  								"arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+							    }
+							}
+						    ]
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+						    "listeners": [
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "PuzzleC"
+							    }
+							},
+							{
+  							    "type": "Drop",
+  							    "params": {
+  								"callback": "SendMessage",
+  								"arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+							    }
+							}
+						    ]
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+						    "listeners": [
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "PuzzleD"
+							    }
+							},
+							{
+  							    "type": "Drop",
+  							    "params": {
+  								"callback": "SendMessage",
+  								"arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+							    }
+							}
+						    ]
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },{
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+						    "listeners": [
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "PuzzleA"
+							    }
+							},
+							{
+  							    "type": "Drop",
+  							    "params": {
+  								"callback": "SendMessage",
+  								"arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+							    }
+							}
+						    ]
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    }
+					]
 				    }
 				}
-                ]
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100,
-                "listeners": [
-                  {
-                    "type": "Drop",
-                    "params": {
-                  "callback": "AnchorEntity",
-                  "arg": "PuzzleC"
-                    }
-                  },
-                  {
-  				          "type": "Drop",
-  				          "params": {
-  					      "callback": "SendMessage",
-  					      "arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
-				    }
-				}
-                ]
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100,
-                "listeners": [
-                  {
-                    "type": "Drop",
-                    "params": {
-                  "callback": "AnchorEntity",
-                  "arg": "PuzzleD"
-                    }
-                  },
-                  {
-  				          "type": "Drop",
-  				          "params": {
-  					      "callback": "SendMessage",
-  					      "arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
-				    }
-				}
-                ]
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },{
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100,
-                "listeners": [
-                  {
-                    "type": "Drop",
-                    "params": {
-                  "callback": "AnchorEntity",
-                  "arg": "PuzzleA"
-                    }
-                  },
-                  {
-  				          "type": "Drop",
-  				          "params": {
-  					      "callback": "SendMessage",
-  					      "arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
-				    }
-				}
-                ]
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            },
-            {
-              "type": "Group",
-              "params": {
-                "anchor": 0,
-                "width": 100,
-                "height": 100
-                }
-            }
-          ]
+			    ]
 			}
-		    }
-      ]
-    }
-  },
-        {
+		    },
+		    {
 			"type": "Image",
 			"id": "dropArea2",
 			"params": {
@@ -6661,197 +6695,197 @@
 			    "x": 70,
 			    "y": 0,
 			    "children": [
+				{
+				    "type": "Image",
+				    "id": "PuzzleA",
+				    "params": {
+					"source": "cache/Puzzle1.png",
+					"anchor": 0,
+					"width": 40,
+					"height": 100,
+					"x": 0,
+					"y": 0,
+					"listeners": [
 					    {
-						"type": "Image",
-						"id": "PuzzleA",
+						"type": "Move",
 						"params": {
-						    "source": "cache/Puzzle1.png",
-						    "anchor": 0,
-						    "width": 40,
-						    "height": 100,
-						    "x": 0,
-						    "y": 0,
-						    "listeners": [
-							{
-							    "type": "Move",
-							    "params": {
-								"callback": ""
-							    }
-							},
-							{
-							    "type": "Droped",
-							    "params": {
-								"callback": "Anchored"
-							    }
-							},
-							{
-							    "type": "Droped",
-							    "params": {
-								"callback": "Validate",
-								"arg": "PuzzleA"
-							    }
-							},
-							{
-							    "type": "Show",
-							    "params": {
-								"callback": "Show",
-								"arg": false
-							    }
-							},
-							{
-							    "type": "AnchoredFailed",
-							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-3-b-player1:ReturnElement:Puzzle1"
-							    }
-							}
-						    ]
+						    "callback": ""
 						}
 					    },
 					    {
-						"type": "Image",
-						"id": "PuzzleB",
+						"type": "Droped",
 						"params": {
-						    "source": "cache/Puzzle2.png",
-						    "anchor": 0,
-						    "width": 40,
-						    "height": 100,
-						    "x": 0,
-						    "y": 0,
-						    "listeners": [
-							{
-							    "type": "Move",
-							    "params": {
-								"callback": ""
-							    }
-							},
-							{
-							    "type": "Droped",
-							    "params": {
-								"callback": "Anchored"
-							    }
-							},
-							{
-							    "type": "Droped",
-							    "params": {
-								"callback": "Validate",
-								"arg": "PuzzleB"
-							    }
-							},
-							{
-							    "type": "Show",
-							    "params": {
-								"callback": "Show",
-								"arg": false
-							    }
-							},
-							{
-							    "type": "AnchoredFailed",
-							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-3-b-player1:ReturnElement:Puzzle2"
-							    }
-							}
-						    ]
+						    "callback": "Anchored"
 						}
 					    },
-              {
-						"type": "Image",
-						"id": "PuzzleC",
+					    {
+						"type": "Droped",
 						"params": {
-						    "source": "cache/Puzzle3.png",
-						    "anchor": 0,
-						    "width": 40,
-						    "height": 100,
-						    "x": 0,
-						    "y": 0,
-						    "listeners": [
-							{
-							    "type": "Move",
-							    "params": {
-								"callback": ""
-							    }
-							},
-							{
-							    "type": "Droped",
-							    "params": {
-								"callback": "Anchored"
-							    }
-							},
-							{
-							    "type": "Droped",
-							    "params": {
-								"callback": "Validate",
-								"arg": "PuzzleC"
-							    }
-							},
-							{
-							    "type": "Show",
-							    "params": {
-								"callback": "Show",
-								"arg": false
-							    }
-							},
-							{
-							    "type": "AnchoredFailed",
-							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-3-b-player1:ReturnElement:Puzzle3"
-							    }
-							}
-						    ]
+						    "callback": "Validate",
+						    "arg": "PuzzleA"
 						}
 					    },
-              {
-						"type": "Image",
-						"id": "PuzzleD",
+					    {
+						"type": "Show",
 						"params": {
-						    "source": "cache/Puzzle4.png",
-						    "anchor": 0,
-						    "width": 40,
-						    "height": 100,
-						    "x": 0,
-						    "y": 0,
-						    "listeners": [
-							{
-							    "type": "Move",
-							    "params": {
-								"callback": ""
-							    }
-							},
-							{
-							    "type": "Droped",
-							    "params": {
-								"callback": "Anchored"
-							    }
-							},
-							{
-							    "type": "Droped",
-							    "params": {
-								"callback": "Validate",
-								"arg": "PuzzleD"
-							    }
-							},
-							{
-							    "type": "Show",
-							    "params": {
-								"callback": "Show",
-								"arg": false
-							    }
-							},
-							{
-							    "type": "AnchoredFailed",
-							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-3-b-player1:ReturnElement:Puzzle4"
-							    }
-							}
-						    ]
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle1"
 						}
 					    }
 					]
 				    }
+				},
+				{
+				    "type": "Image",
+				    "id": "PuzzleB",
+				    "params": {
+					"source": "cache/Puzzle2.png",
+					"anchor": 0,
+					"width": 40,
+					"height": 100,
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "PuzzleB"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle2"
+						}
+					    }
+					]
+				    }
+				},
+				{
+				    "type": "Image",
+				    "id": "PuzzleC",
+				    "params": {
+					"source": "cache/Puzzle3.png",
+					"anchor": 0,
+					"width": 40,
+					"height": 100,
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "PuzzleC"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle3"
+						}
+					    }
+					]
+				    }
+				},
+				{
+				    "type": "Image",
+				    "id": "PuzzleD",
+				    "params": {
+					"source": "cache/Puzzle4.png",
+					"anchor": 0,
+					"width": 40,
+					"height": 100,
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "PuzzleD"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle4"
+						}
+					    }
+					]
+				    }
+				}
+			    ]
 			}
+		    }
 		]
 	    },
 	    {
