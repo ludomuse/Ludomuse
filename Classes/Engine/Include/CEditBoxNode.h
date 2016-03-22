@@ -10,7 +10,7 @@ namespace LM
 class CEditBoxNode : public CEntityNode
 {
  public:
-  CEditBoxNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight, int a_iXPosition, int a_iYPosition);
+  CEditBoxNode(EAnchor a_eAnchor = EAnchor::CENTER, int a_iWidth = 100, int a_iHeight = 0, int a_iXPosition = 0, int a_iYPosition = 0);
   virtual void Init() override;
 };
 

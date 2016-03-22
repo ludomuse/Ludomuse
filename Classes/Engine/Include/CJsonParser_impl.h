@@ -185,8 +185,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "EditBox")
 	{
-		pEntity = new CEditBoxNode(IntToAnchor(rParams["anchor"].GetInt()),
-			width, height, x, y);
+		pEntity = new CSpriteNode("ui/textfieldBackground.png", EAnchor::CENTER, width, height, x, y);
+		CEditBoxNode* pEditBox = new CEditBoxNode(IntToAnchor(rParams["anchor"].GetInt()), 100);
+		pEntity->AddChildNode(pEditBox);
 	}
 
 	else if (sType == "Video")

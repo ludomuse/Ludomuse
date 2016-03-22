@@ -1,0 +1,13 @@
+<type>(web/api/admin-<component>): <subject>
+
+# More detailed explanatory text, if necessary.  Wrap it to
+# about 72 characters.  Please make sure to put some
+# effort in to making this descriptive enough for others
+# to read and understand.
+
+
+[QA]:
+Has unit tests:  
+Reviewed by:
+
+[GITHUB TICKETS]:

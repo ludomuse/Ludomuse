@@ -1,5 +1,5 @@
 #include "../Include/CEditBoxNode.h"
-
+#include "../Include/CSpriteNode.h"
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
@@ -27,7 +27,7 @@ void CEditBoxNode::Init()
                                                l_oVisibleSize.height / 5.0f),
                                           ui::Scale9Sprite::create("Ludomuse/Content/textfieldBackground.png"));
   pBox->setPlaceHolder("Nom de joueur");
-
+  pBox->setText("User");
   pBox->setFontSize(24);
   pBox->setFontName("fonts/Open_Sans/OpenSans-Bold.ttf");
   pBox->setFontColor(Color3B::BLACK);
