@@ -8061,12 +8061,12 @@
     },
     {
 				    "type": "Image",
-				    "id":"TourLU",
+				    "id":"TourLU1",
 				    "params": {
 					"source": "cache/TourLU.png",
 					"anchor": 0,
 					"width": 0,
-					"height": 50,
+					"height": 40,
 					"x": 0,
 					"y": 0,
 					"listeners": [
@@ -8093,7 +8093,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-4-b-player2:Show:TourLU"
+						    "arg": "screen-4-b-player2:Show:TourLUA"
 						}
 					    },
 					    {
@@ -8176,7 +8176,7 @@
 			"type": "Validator",
 			"params": {
 			    "ids": [
-				"TourLU"
+				"TourLUA"
 			    ]
 			}
 		    }
@@ -8322,14 +8322,14 @@
 							    "type": "Drop",
 							    "params": {
 								"callback": "AnchorEntity",
-								"arg": "TourLU"
+								"arg": "TourLUA"
 							    }
 							},
 							{
   							    "type": "Drop",
   							    "params": {
   								"callback": "SendMessage",
-  								"arg": "screen-4-b-player1:DropEnabledBack:dropArea2"
+  								"arg": "screen-4-b-player1:DropEnabledBack:dropArea1"
 							    }
 							}
 						    ]
@@ -8370,12 +8370,12 @@
   			    "children": [
   				{
   				    "type": "Image",
-  				    "id": "TourLU",
+  				    "id": "TourLUA",
   				    "params": {
   					"source": "cache/TourLU.png",
   					"anchor": 0,
-  					"width": 100,
-  					"height": 60,
+  					"width": 0,
+  					"height": 40,
   					"x": 0,
   					"y": 0,
   					"listeners": [
@@ -8395,7 +8395,7 @@
   						"type": "Droped",
   						"params": {
   						    "callback": "Validate",
-  						    "arg": "TourLU"
+  						    "arg": "TourLUA"
   						}
   					    },
   					    {
@@ -8404,14 +8404,14 @@
   						    "callback": "Show",
   						    "arg": false
   						}
-  					    },
-  					    {
-  						"type": "AnchoredFailed",
-  						"params": {
-  						    "callback": "SendMessage",
-  						    "arg": "screen-4-b-player1:ReturnElement:TourLU"
-  						}
-  					    }
+            },
+            {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-b-player1:ReturnElement:TourLU1"
+						}
+					    }
   					]
   				    }
   				}
@@ -8422,109 +8422,2176 @@
   	    },
 	    {
 		"scene": "screen-4-c-player1",
-		"navigation": [],
-		"information": [],
-		"content": []
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+          "children": [
+				  {
+						"type": "Text",
+						"params": {
+						    "content": "Approchez les tablettes l’une de l’autre et comparez les deux images.",
+						    "color": "0,0,0,255",
+						    "anchor": 0,
+                "fontSize": 20,
+						    "width": 60,
+						    "height": 100
+						}
+					    }
+            ]
+			}
+		    }
+		],
+		"content": [
+      {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background3LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+        {
+			"type": "Image",
+			"params": {
+			    "source": "cache/TourLU.png",
+			    "anchor": 0,
+			    "width": 0,
+			    "height": 70,
+          "x": 0,
+					"y": 0
+			}
+		    }
+    ]
 	    },
 	    {
 		"scene": "screen-4-c-player2",
-		"navigation": [],
-		"information": [],
-		"content": []
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-06.png",
+						    "anchor": 4,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Approchez les tablettes l’une de l’autre et comparez les deux images.",
+						    "color": "0,0,0,255",
+                "fontSize": 20,
+						    "anchor": 0,
+						    "width": 80,
+						    "height": 100
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background3LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Maquette.png",
+			    "anchor": 8,
+			    "width": 0,
+			    "height": 50,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 4,
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Une partie de l'usine existe toujours. Elle se trouve en face du château. Cet emplacement n’a pas été choisi au hasard par monsieur Louis. L’usine se situe près de la gare et de La Loire. Les marchandises œufs, farine, sucre, beurre, vanille nécessaires à la fabrication des biscuits arrivent facilement dans l’usine. Une fois les biscuits fabriquées ils sont  envoyés dans toute la France.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 20,
+					"anchor": 0,
+					"width": 90,
+					"height": 100
+				    }
+				}
+
+			    ]
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-d-player1",
-		"navigation": [],
-		"information": [],
-		"content": []
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+          "children": [
+				  {
+						"type": "Text",
+						"params": {
+						    "content": "Observez la maquette et la photo.",
+						    "color": "0,0,0,255",
+						    "anchor": 0,
+                "fontSize": 20,
+						    "width": 60,
+						    "height": 100
+						}
+					    }
+            ]
+			}
+		    }
+		],
+		"content": [
+      {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background3LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+        {
+			"type": "Image",
+			"params": {
+			    "source": "cache/TourLU.png",
+			    "anchor": 0,
+			    "width": 0,
+			    "height": 70,
+          "x": 0,
+					"y": 0
+			}
+		    }
+    ]
 	    },
 	    {
 		"scene": "screen-4-d-player2",
-		"navigation": [],
-		"information": [],
-		"content": []
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Observe la maquette et la photo qui apparait sur l’autre tablette. ",
+						    "color": "0,0,0,255",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 20,
+						    "anchor": 0,
+						    "width": 80,
+						    "height": 100
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background4LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/questionBackground.png",
+			    "anchor": 2,
+			    "width": 100,
+			    "height": 20,
+			    "x": 0,
+			    "y": 0,
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Indique à ton ouvrier quels sont les deux éléments qui ont disparus aujourd ’hui",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"color": "0,0,0,255"
+				    }
+				}
+
+			    ]
+			}
+		    },
+
+		    {
+			"type": "Grid",
+			"params": {
+			    "cols": 2,
+			    "rows": 2,
+			    "anchor": 0,
+			    "width": 50,
+			    "height": 40,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/answerBackground.png",
+					"anchor": 6,
+					"width": 80,
+					"height": 100,
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": true
+						}
+          },
+          {
+						"type": "Touch",
+						"params":
+						{
+						    "callback": "SendMessage",
+						    "arg": "kernel:Validate"
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "La Loire",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/answerBackground.png",
+					"anchor": 6,
+					"width": 80,
+					"height": 100,
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": false
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "La gare",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/answerBackground.png",
+					"anchor": 6,
+					"width": 80,
+					"height": 100,
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": false
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Le chateau",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
+				    }
+				},
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "cache/answerBackground.png",
+					"anchor": 6,
+					"width": 80,
+					"height": 100,
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": true
+						}
+					    },
+					    {
+						"type": "Touch",
+						"params":
+						{
+						    "callback": "SendMessage",
+						    "arg": "kernel:Validate"
+						}
+					    }
+					],
+					"children": [
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Une tour",
+						    "font": "fonts/arial.ttf",
+						    "fontSize": 24,
+						    "color": "0,0,0,255",
+						    "width": 100,
+						    "height": 100,
+						    "anchor": 0
+						}
+					    }
+					]
+				    }
+				}
+
+			    ]
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-e-player1",
-		"navigation": [],
-		"information": [],
-		"content": []
-	    },
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+          "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Faites glisser dans la zone de partage chaque étape.",
+					"color": "0,0,0,255",
+					"anchor": 0,
+					"width": 60,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+      ]
+    }
+  }
+		],
+    "content": [
+      {
+    "type": "Image",
+    "params": {
+        "source": "cache/background3LU.png",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "x": 0,
+        "y": 0
+    }
+      },
+      {
+    "type": "Image",
+    "id": "dropArea1",
+    "params": {
+        "source": "cache/sendingArea.png",
+        "anchor": 4,
+        "width": 30,
+        "height": 100,
+        "x": 70,
+        "y": 0,
+        "listeners": [
+      {
+          "type": "Drop",
+          "params": {
+        "callback": ""
+          }
+      },
+      {
+          "type": "DropEnabledBack",
+          "params": {
+        "callback": "EnableEvent",
+        "arg": "dropArea1:Drop"
+          }
+      }
+        ]
+    }
+      },
+      {
+    "type": "Grid",
+    "params": {
+        "cols": 2,
+        "rows": 2,
+        "width": 50,
+        "height": 50,
+        "anchor": 8,
+        "alignItems": "center",
+        "children": [
+          {
+			"type": "Group",
+			"params": {
+			    "anchor": 0,
+			    "width": 90,
+			    "height": 100,
+  			    "children": [
+				{
+  				    "type": "Image",
+  				    "params": {
+  					"source": "ui/cache-noir-70.png",
+  					"anchor": 0,
+					"width": 100,
+					"height": 100
+  				    }
+  				},
+          {
+              "type": "Text",
+              "id":"Answer1",
+              "params": {
+            "content": "Mise en boite des biscuits",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "fontSize": 22
+          }
+        }
+      ],
+            "listeners": [
+                {
+              "type": "Move",
+              "params": {
+                  "callback": ""
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "Fade"
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "DisableEvent",
+                  "arg": "dropArea1:Drop"
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "SendMessage",
+                  "arg": "screen-4-e-player2:Show:Answer1"
+              }
+                },
+                {
+              "type": "ReturnElement",
+              "params": {
+                  "callback": "ShowBack"
+              }
+                }
+            ]
+			}
+		    },
+        {
+    "type": "Group",
+    "params": {
+        "anchor": 0,
+        "width": 90,
+        "height": 100,
+          "children": [
+      {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+        "width": 100,
+        "height": 100
+            }
+        },
+        {
+          "type": "Text",
+          "id":"Answer2",
+          "params": {
+        "content": "Préparation des caisses en bois pour les expéditions",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "fontSize": 22
+      }
+    }
+  ],
+        "listeners": [
+            {
+          "type": "Move",
+          "params": {
+              "callback": ""
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "Fade"
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "DisableEvent",
+              "arg": "dropArea1:Drop"
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-e-player2:Show:Answer2"
+          }
+            },
+            {
+          "type": "ReturnElement",
+          "params": {
+              "callback": "ShowBack"
+          }
+      }
+    ]
+        }
+          },
+          {
+          "type": "Group",
+          "params": {
+          "anchor": 0,
+          "width": 90,
+          "height": 100,
+            "children": [
+          {
+              "type": "Image",
+              "params": {
+            "source": "ui/cache-noir-70.png",
+            "anchor": 0,
+          "width": 100,
+          "height": 100
+              }
+          },
+          {
+              "type": "Text",
+              "id":"Answer3",
+              "params": {
+            "content": "Préparation des pâtes",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "fontSize": 22
+          }
+        }
+      ],
+            "listeners": [
+                {
+              "type": "Move",
+              "params": {
+                  "callback": ""
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "Fade"
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "DisableEvent",
+                  "arg": "dropArea1:Drop"
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "SendMessage",
+                  "arg": "screen-4-e-player2:Show:Answer3"
+              }
+                },
+                {
+              "type": "ReturnElement",
+              "params": {
+                  "callback": "ShowBack"
+              }
+          }
+        ]
+    }
+  },
+      {
+      "type": "Group",
+      "params": {
+      "anchor": 0,
+      "width": 90,
+      "height": 100,
+        "children": [
+      {
+          "type": "Image",
+          "params": {
+        "source": "ui/cache-noir-70.png",
+        "anchor": 0,
+      "width": 100,
+      "height": 100
+          }
+      },
+      {
+          "type": "Text",
+          "id":"Answer4",
+          "params": {
+        "content": "Cuisson des biscuits",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "fontSize": 22
+      }
+    }
+  ],
+        "listeners": [
+            {
+          "type": "Move",
+          "params": {
+              "callback": ""
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "Fade"
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "DisableEvent",
+              "arg": "dropArea1:Drop"
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-e-player2:Show:Answer4"
+          }
+            },
+            {
+          "type": "ReturnElement",
+          "params": {
+              "callback": "ShowBack"
+          }
+      }
+    ]
+        }
+    }
+          ]
+    }
+  }
+      ]
+    },
 	    {
 		"scene": "screen-4-e-player2",
-		"navigation": [],
-		"information": [],
-		"content": []
+    "navigation": [
+		    {
+			"type": "Nav",
+			"id": "navNext",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"id":"navPrev",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"Answer1",
+				"Answer2",
+				"Answer3",
+				"Answer4"
+			    ]
+			}
+		    }
+		],
+    "information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 6,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+  						"type": "Text",
+  						"params": {
+  						    "content": "Classe dans le bon ordre les étapes de fabrication d’un biscuit",
+  						    "color": "0,0,0,255",
+  						    "anchor": 0,
+  						    "width": 80,
+  						    "height": 100
+  						}
+  					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background3LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+    },
+    {
+			"type": "Image",
+			"params": {
+        "source": "ui/cache-blanc-50.png",
+			    "anchor": 8,
+			    "width": 0,
+			    "height": 60,
+			    "x": 0,
+			    "y": 0,
+          "children": [
+				{
+				    "type": "Grid",
+				    "params": {
+					"cols": 2,
+					"rows": 2,
+					"anchor": 0,
+					"width": 100,
+					"height": 100,
+					"children": [
+            {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+                "children": [
+                  {
+  						"type": "Text",
+  						"params": {
+  						    "content": "3",
+                  "color": "0,0,0,255",
+                  "fontSize": 30,
+  						    "anchor": 0,
+  						    "width": 100,
+  						    "height": 100
+  						}
+  					    }
+                ],
+						    "listeners": [
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "Answer3"
+							    }
+							},
+							{
+  							    "type": "Drop",
+  							    "params": {
+  								"callback": "SendMessage",
+  								"arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
+							    }
+							}
+						    ]
+						}
+          },
+          {
+          "type": "Group",
+          "params": {
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "children": [
+                {
+            "type": "Text",
+            "params": {
+                "content": "4",
+                "color": "0,0,0,255",
+                "fontSize": 30,
+                "anchor": 0,
+                "width": 100,
+                "height": 100
+            }
+              }
+              ],
+              "listeners": [
+            {
+                "type": "Drop",
+                "params": {
+              "callback": "AnchorEntity",
+              "arg": "Answer4"
+                }
+            },
+            {
+                  "type": "Drop",
+                  "params": {
+                "callback": "SendMessage",
+                "arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
+                }
+            }
+              ]
+          }
+        },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "children": [
+              {
+          "type": "Text",
+          "params": {
+              "content": "1",
+              "color": "0,0,0,255",
+              "fontSize": 30,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+            ],
+            "listeners": [
+          {
+              "type": "Drop",
+              "params": {
+            "callback": "AnchorEntity",
+            "arg": "Answer1"
+              }
+          },
+          {
+                "type": "Drop",
+                "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
+              }
+          }
+            ]
+        }
+      },
+      {
+      "type": "Group",
+      "params": {
+          "anchor": 0,
+          "width": 100,
+          "height": 100,
+          "children": [
+            {
+        "type": "Text",
+        "params": {
+            "content": "2",
+            "color": "0,0,0,255",
+            "fontSize": 30,
+            "anchor": 0,
+            "width": 100,
+            "height": 100
+        }
+          }
+          ],
+          "listeners": [
+        {
+            "type": "Drop",
+            "params": {
+          "callback": "AnchorEntity",
+          "arg": "Answer2"
+            }
+        },
+        {
+              "type": "Drop",
+              "params": {
+            "callback": "SendMessage",
+            "arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
+            }
+        }
+          ]
+      }
+        }
+					]
+				    }
+				}
+      ]
+    }
+  },
+  {
+			"type": "Image",
+			"id": "dropArea2",
+			"params": {
+			    "source": "cache/sendingArea.png",
+			    "anchor": 4,
+			    "width": 30,
+			    "height": 100,
+			    "x": 70,
+			    "y": 0,
+			    "children": [
+            {
+                "type": "Text",
+                "id":"Answer1",
+                "params": {
+              "content": "Mise en boite des biscuits",
+              "anchor": 0,
+              "width": 0,
+              "height": 80,
+              "x": 0,
+              "y": 0,
+              "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "Answer1"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-e-player1:ReturnElement:Answer1"
+						}
+					    }
+					]
+				    }
+				},
+        {
+            "type": "Text",
+            "id":"Answer2",
+            "params": {
+          "content": "Préparation des caisses en bois pour les expéditions",
+          "anchor": 0,
+          "width": 0,
+          "height": 80,
+          "x": 0,
+          "y": 0,
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "Answer2"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-e-player1:ReturnElement:Answer2"
+						}
+					    }
+					]
+				    }
+				},
+        {
+            "type": "Text",
+            "id":"Answer3",
+            "params": {
+          "content": "Préparation des pâtes",
+          "anchor": 0,
+          "width": 0,
+          "height": 80,
+          "x": 0,
+          "y": 0,
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "Answer3"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-e-player1:ReturnElement:Answer3"
+						}
+					    }
+					]
+				    }
+				},
+        {
+            "type": "Text",
+            "id":"Answer4",
+            "params": {
+          "content": "Cuisson des biscuits",
+          "anchor": 0,
+          "width": 0,
+          "height": 80,
+          "x": 0,
+          "y": 0,
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "Answer4"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-e-player1:ReturnElement:Answer4"
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+]
 	    },
 	    {
 		"scene": "screen-4-f-player1",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-f-player2",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-g-player1",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-g-player2",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-h-player1",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-h-player2",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-i-player1",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-i-player2",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-j-player1",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-j-player2",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-k-player1",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    },
 	    {
 		"scene": "screen-4-k-player2",
-		"navigation": [],
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
 		"content": []
 	    }
