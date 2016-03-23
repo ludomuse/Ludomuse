@@ -127,7 +127,51 @@
 	    [
 		"screen-3-f-player1",
 		"screen-3-f-player2"
-	    ]
+      ],
+      [
+		"screen-4-a-player1",
+		"screen-4-a-player2"
+	    ],
+	    [
+		"screen-4-b-player1",
+		"screen-4-b-player2"
+	    ],
+	    [
+		"screen-4-c-player1",
+		"screen-4-c-player2"
+      ],
+      [
+		"screen-4-d-player1",
+		"screen-4-d-player2"
+	    ],
+	    [
+		"screen-4-e-player1",
+		"screen-4-e-player2"
+	    ],
+	    [
+		"screen-4-f-player1",
+		"screen-4-f-player2"
+      ],
+      [
+		"screen-4-g-player1",
+		"screen-4-g-player2"
+	    ],
+	    [
+		"screen-4-h-player1",
+		"screen-4-h-player2"
+	    ],
+	    [
+		"screen-4-i-player1",
+		"screen-4-i-player2"
+      ],
+      [
+    "screen-4-j-player1",
+    "screen-4-j-player2"
+      ],
+      [
+    "screen-4-k-player1",
+    "screen-4-k-player2"
+      ]
 	],
 	"screens": [
 	    {
@@ -3491,7 +3535,15 @@
 				    	"height": 100
 				    }
 				}
-			    ]
+      ],
+      "listeners": [
+  {
+      "type": "Validate",
+      "params": {
+    "callback": "Show"
+      }
+  }
+    ]
 			}
 		    },
 		    {
@@ -3513,7 +3565,15 @@
 				    	"height": 100
 				    }
 				}
-			    ]
+      ],
+      "listeners": [
+  {
+      "type": "Validate",
+      "params": {
+    "callback": "Show"
+      }
+  }
+    ]
 			}
 		    }
 		],
@@ -3526,8 +3586,8 @@
 			    "anchor": 2,
 			    "width": 0,
 			    "height": 90,
-			    "x": 0,
-			    "y": 0
+          "x": 0,
+					"y": 0
 			}
 		    }
 		]
@@ -3544,14 +3604,6 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -3562,7 +3614,15 @@
 					"height": 100
 				    }
 				}
-			    ]
+      ],
+      "listeners": [
+    {
+        "type": "Validate",
+        "params": {
+      "callback": "Show"
+        }
+    }
+      ]
 			}
 		    },
 		    {
@@ -3584,7 +3644,15 @@
 				    	"height": 100
 				    }
 				}
-			    ]
+      ],
+      "listeners": [
+    {
+        "type": "Validate",
+        "params": {
+      "callback": "Show"
+        }
+    }
+      ]
 			}
 		    }
 		],
@@ -3649,15 +3717,23 @@
 			    "height": 90,
 			    "x": 0,
 			    "y": 0,
-			    "listeners": [
-				{
-				    "type": "Touch",
-				    "params": {
-					"callback": "ValidateScene",
-					"arg": true
-				    }
-				}
-			    ]
+          "listeners": [
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": true
+						}
+					    },
+					    {
+						"type": "Touch",
+						"params":
+						{
+						    "callback": "SendMessage",
+						    "arg": "kernel:Validate"
+						}
+					    }
+					]
 			}
 		    }
 		]
@@ -7645,28 +7721,705 @@
 	    },
 	    {
 		"scene": "screen-4-a-player1",
-		"navigation": [],
+		"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "enabled": true,
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "enabled": true,
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
-		"content": []
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/perso1left.png",
+			    "anchor": 7,
+			    "width": 0,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 4,
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 50
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "« Vous allez maintenant découvrir l’usine » Regardez la photo qui apparait sur votre écran…il s’agit d’une tour de l’usine. Pouvez-vous la retrouver sur la maquette ?",
+					"fontSize": 24,
+					"width": 80,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+			    ]
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-a-player2",
-		"navigation": [],
+		"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "enabled": true,
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "enabled": true,
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
 		"information": [],
-		"content": []
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/perso1left.png",
+			    "anchor": 7,
+			    "width": 0,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 4,
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 50
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Aide ton ouvrier à prendre des  repères dans l’usine. Pour cela utilise la maquette fabriquée par Paul Duchesne et qui te sert à faire la promotion de ton entreprise. ",
+					"fontSize": 24,
+					"width": 80,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+			    ]
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-b-player1",
-		"navigation": [],
-		"information": [],
-		"content": []
-	    },
+    "navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "information": [
+      {
+    "type": "Info",
+    "params": {
+        "source": "ui/info-6.png",
+        "anchor": 6,
+        "width": 0,
+        "height": 13,
+        "children": [
+      {
+          "type": "Group",
+          "params": {
+        "anchor": 0,
+        "width": 60,
+        "height": 100,
+        "children": [
+            {
+          "type": "Image",
+          "params": {
+              "source": "ui/Assets/PNG/Assets-03.png",
+              "anchor": 8,
+              "width": 0,
+              "height": 80
+          }
+            },
+      {
+          "type": "Text",
+          "params": {
+        "content": "Faites glisser la photo dans la zone de partage et montre à Monsieur Louis où cette tour se situe.",
+        "color": "0,0,0,255",
+        "fontSize": 20,
+        "anchor": 0,
+        "width": 80,
+        "height": 100
+          }
+      }
+        ]
+    }
+      }
+    ]
+  }
+}
+  ],
+  "content": [
+      {
+    "type": "Image",
+    "params": {
+        "source": "cache/background3LU.png",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "x": 0,
+        "y": 0
+    }
+      },
+      {
+			"type": "Image",
+			"id": "dropArea1",
+			"params": {
+			    "source": "cache/sendingArea.png",
+			    "anchor": 4,
+			    "width": 30,
+			    "height": 100,
+			    "x": 70,
+			    "y": 0,
+			    "listeners": [
+				{
+				    "type": "Drop",
+				    "params": {
+					"callback": ""
+				    }
+				},
+				{
+				    "type": "DropEnabledBack",
+				    "params": {
+					"callback": "EnableEvent",
+					"arg": "dropArea1:Drop"
+				    }
+				}
+			    ]
+			}
+    },
+    {
+				    "type": "Image",
+				    "id":"TourLU",
+				    "params": {
+					"source": "cache/TourLU.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 50,
+					"x": 0,
+					"y": 0,
+					"listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "Fade"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "DisableEvent",
+						    "arg": "dropArea1:Drop"
+						}
+					    },
+					    {
+						"type": "Droped",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-b-player2:Show:TourLU"
+						}
+					    },
+					    {
+						"type": "ReturnElement",
+						"params": {
+						    "callback": "ShowBack"
+						}
+					    }
+					]
+				    }
+				}
+      ]
+    },
 	    {
 		"scene": "screen-4-b-player2",
-		"navigation": [],
-		"information": [],
-		"content": []
-	    },
+    "navigation": [
+		    {
+			"type": "Nav",
+			"id": "navNext",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"id":"navPrev",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"TourLU"
+			    ]
+			}
+		    }
+		],
+    "information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+  						"type": "Text",
+  						"params": {
+  						    "content": "Lorsque ton ouvrier t’envoie le détail dans la zone de partage, demande lui de te montrer où cette tour se situe",
+  						    "color": "0,0,0,255",
+                  "fontSize": 20,
+  						    "anchor": 0,
+  						    "width": 80,
+  						    "height": 100
+  						}
+  					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+    "content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background3LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Maquette.png",
+			    "anchor": 8,
+			    "width": 0,
+			    "height": 70,
+			    "x": 0,
+			    "y": 0,
+			    "children": [
+				{
+				    "type": "Grid",
+				    "params": {
+					"cols": 5,
+					"rows": 2,
+					"anchor": 0,
+					"width": 100,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+						    "listeners": [
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "TourLU"
+							    }
+							},
+							{
+  							    "type": "Drop",
+  							    "params": {
+  								"callback": "SendMessage",
+  								"arg": "screen-4-b-player1:DropEnabledBack:dropArea2"
+							    }
+							}
+						    ]
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+					    {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    },
+        {
+  			"type": "Image",
+  			"id": "dropArea2",
+  			"params": {
+  			    "source": "cache/sendingArea.png",
+  			    "anchor": 4,
+  			    "width": 30,
+  			    "height": 100,
+  			    "x": 70,
+  			    "y": 0,
+  			    "children": [
+  				{
+  				    "type": "Image",
+  				    "id": "TourLU",
+  				    "params": {
+  					"source": "cache/TourLU.png",
+  					"anchor": 0,
+  					"width": 100,
+  					"height": 60,
+  					"x": 0,
+  					"y": 0,
+  					"listeners": [
+  					    {
+  						"type": "Move",
+  						"params": {
+  						    "callback": ""
+  						}
+  					    },
+  					    {
+  						"type": "Droped",
+  						"params": {
+  						    "callback": "Anchored"
+  						}
+  					    },
+  					    {
+  						"type": "Droped",
+  						"params": {
+  						    "callback": "Validate",
+  						    "arg": "TourLU"
+  						}
+  					    },
+  					    {
+  						"type": "Show",
+  						"params": {
+  						    "callback": "Show",
+  						    "arg": false
+  						}
+  					    },
+  					    {
+  						"type": "AnchoredFailed",
+  						"params": {
+  						    "callback": "SendMessage",
+  						    "arg": "screen-4-b-player1:ReturnElement:TourLU"
+  						}
+  					    }
+  					]
+  				    }
+  				}
+  			    ]
+  			}
+  		    }
+  		]
+  	    },
 	    {
 		"scene": "screen-4-c-player1",
 		"navigation": [],
