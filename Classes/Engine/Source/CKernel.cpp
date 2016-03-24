@@ -87,6 +87,13 @@ int CKernel::GetCurrentPlayer()
 	return m_pLocalPlayer->m_iPlayerID;
 }
 
+
+void CKernel::SendNetworkMessage(const std::string& a_rMessage)
+{
+        m_pNetworkManager->Send(a_rMessage);
+}
+
+
 void CKernel::Init()
 {
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");

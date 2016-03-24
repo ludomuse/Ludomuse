@@ -55,6 +55,8 @@ class CKernel
 
   int GetCurrentPlayer();
 
+  void SendNetworkMessage(const std::string& a_rMessage);
+
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 
