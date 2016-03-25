@@ -7719,7 +7719,7 @@
 		    }
 		]
 	    },
-	    {
+      {
 		"scene": "screen-4-a-player1",
 		"navigation": [
 		    {
@@ -8740,7 +8740,7 @@
       {
 			"type": "Image",
 			"params": {
-			    "source": "cache/background3LU.png",
+			    "source": "cache/background4LU.png",
 			    "anchor": 0,
 			    "width": 100,
 			    "height": 100,
@@ -9498,14 +9498,6 @@
 					"height": 100
 				    }
 				}
-			    ],
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
 			    ]
 			}
 		    },
@@ -9527,14 +9519,6 @@
 					"anchor": 0,
 					"width": 100,
 					"height": 100
-				    }
-				}
-			    ],
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
 				    }
 				}
 			    ]
@@ -10103,8 +10087,106 @@
 			}
 		    }
 		],
-		"information": [],
-		"content": []
+		"information": [
+      {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+  						"type": "Text",
+  						"params": {
+                "content": "Sur votre écran apparait différents ateliers. Observez les.",
+  						    "color": "0,0,0,255",
+                  "fontSize": 20,
+  						    "anchor": 0,
+  						    "width": 80,
+  						    "height": 100
+  						}
+  					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+    ],
+		"content": [
+      {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background3LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+        {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Atelier1.png",
+			    "anchor": 0,
+			    "width": 70,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+        {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Atelier2.png",
+			    "anchor": 0,
+			    "width": 70,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+        {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Atelier3.png",
+			    "anchor": 0,
+			    "width": 70,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+        {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Atelier4.png",
+			    "anchor": 0,
+			    "width": 70,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+    ]
 	    },
 	    {
 		"scene": "screen-4-f-player2",
@@ -10154,8 +10236,73 @@
 			}
 		    }
 		],
-		"information": [],
-		"content": []
+		"information": [
+      {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+  						"type": "Text",
+  						"params": {
+                "content": "Fait découvrir les différents ateliers de l'usine à ton ouvrier en cliquant sur les étapes dans l'ordre chronologique.",
+  						    "color": "0,0,0,255",
+                  "fontSize": 20,
+  						    "anchor": 0,
+  						    "width": 80,
+  						    "height": 100
+  						}
+  					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+    ],
+		"content": [
+      {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background3LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+        {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Maquette2.png",
+			    "anchor": 0,
+			    "width": 80,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+    ]
 	    },
 	    {
 		"scene": "screen-4-g-player1",
@@ -10205,8 +10352,73 @@
 			}
 		    }
 		],
-		"information": [],
-		"content": []
+		"information": [
+      {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+  						"type": "Text",
+  						"params": {
+  						    "content": "Retrouvez l'emplacement des différents ateliers sur la maquette",
+  						    "color": "0,0,0,255",
+                  "fontSize": 20,
+  						    "anchor": 0,
+  						    "width": 80,
+  						    "height": 100
+  						}
+  					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    }
+    ],
+		"content": [
+      {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background3LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+        {
+			"type": "Image",
+			"params": {
+			    "source": "cache/Maquette2.png",
+			    "anchor": 0,
+			    "width": 80,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+    ]
 	    },
 	    {
 		"scene": "screen-4-g-player2",
@@ -10256,9 +10468,359 @@
 			}
 		    }
 		],
-		"information": [],
-		"content": []
-	    },
+    "information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+          "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-03.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Fait glisser les différents noms des étapes de préparation dans la zone de partage à ton ouvrier.",
+					"color": "0,0,0,255",
+          "fontSize": 20,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+      ]
+    }
+  }
+		],
+    "content": [
+      {
+    "type": "Image",
+    "params": {
+        "source": "cache/background3LU.png",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "x": 0,
+        "y": 0
+    }
+      },
+      {
+    "type": "Image",
+    "id": "dropArea1",
+    "params": {
+        "source": "cache/sendingArea.png",
+        "anchor": 4,
+        "width": 30,
+        "height": 100,
+        "x": 70,
+        "y": 0,
+        "listeners": [
+      {
+          "type": "Drop",
+          "params": {
+        "callback": ""
+          }
+      },
+      {
+          "type": "DropEnabledBack",
+          "params": {
+        "callback": "EnableEvent",
+        "arg": "dropArea1:Drop"
+          }
+      }
+        ]
+    }
+      },
+      {
+    "type": "Grid",
+    "params": {
+        "cols": 2,
+        "rows": 2,
+        "width": 50,
+        "height": 50,
+        "anchor": 8,
+        "alignItems": "center",
+        "children": [
+          {
+			"type": "Group",
+      "id":"Answer1",
+			"params": {
+			    "anchor": 0,
+			    "width": 90,
+			    "height": 100,
+  			    "children": [
+				{
+  				    "type": "Image",
+  				    "params": {
+  					"source": "ui/cache-noir-70.png",
+  					"anchor": 0,
+					"width": 100,
+					"height": 100
+  				    }
+  				},
+          {
+              "type": "Text",
+              "params": {
+            "content": "Mise en boite des biscuits",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "fontSize": 22
+          }
+        }
+      ],
+            "listeners": [
+                {
+              "type": "Move",
+              "params": {
+                  "callback": ""
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "Fade"
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "DisableEvent",
+                  "arg": "dropArea1:Drop"
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "SendMessage",
+                  "arg": "screen-4-g-player2:Show:AnswerA"
+              }
+                },
+                {
+              "type": "ReturnElement",
+              "params": {
+                  "callback": "ShowBack"
+              }
+                }
+            ]
+			}
+		    },
+        {
+    "type": "Group",
+    "id":"Answer2",
+    "params": {
+        "anchor": 0,
+        "width": 90,
+        "height": 100,
+          "children": [
+      {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+        "width": 100,
+        "height": 100
+            }
+        },
+        {
+          "type": "Text",
+          "params": {
+        "content": "Préparation des caisses en bois pour les expéditions",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "fontSize": 22
+      }
+    }
+  ],
+        "listeners": [
+            {
+          "type": "Move",
+          "params": {
+              "callback": ""
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "Fade"
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "DisableEvent",
+              "arg": "dropArea1:Drop"
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-g-player2:Show:AnswerB"
+          }
+            },
+            {
+          "type": "ReturnElement",
+          "params": {
+              "callback": "ShowBack"
+          }
+      }
+    ]
+        }
+          },
+          {
+          "type": "Group",
+          "id":"Answer3",
+          "params": {
+          "anchor": 0,
+          "width": 90,
+          "height": 100,
+            "children": [
+          {
+              "type": "Image",
+              "params": {
+            "source": "ui/cache-noir-70.png",
+            "anchor": 0,
+          "width": 100,
+          "height": 100
+              }
+          },
+          {
+              "type": "Text",
+              "params": {
+            "content": "Préparation des pâtes",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "fontSize": 22
+          }
+        }
+      ],
+            "listeners": [
+                {
+              "type": "Move",
+              "params": {
+                  "callback": ""
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "Fade"
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "DisableEvent",
+                  "arg": "dropArea1:Drop"
+              }
+                },
+                {
+              "type": "Droped",
+              "params": {
+                  "callback": "SendMessage",
+                  "arg": "screen-4-g-player2:Show:AnswerC"
+              }
+                },
+                {
+              "type": "ReturnElement",
+              "params": {
+                  "callback": "ShowBack"
+              }
+          }
+        ]
+    }
+  },
+      {
+      "type": "Group",
+      "id":"Answer4",
+      "params": {
+      "anchor": 0,
+      "width": 90,
+      "height": 100,
+        "children": [
+      {
+          "type": "Image",
+          "params": {
+        "source": "ui/cache-noir-70.png",
+        "anchor": 0,
+      "width": 100,
+      "height": 100
+          }
+      },
+      {
+          "type": "Text",
+          "params": {
+        "content": "Cuisson des biscuits",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "fontSize": 22
+      }
+    }
+  ],
+        "listeners": [
+            {
+          "type": "Move",
+          "params": {
+              "callback": ""
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "Fade"
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "DisableEvent",
+              "arg": "dropArea1:Drop"
+          }
+            },
+            {
+          "type": "Droped",
+          "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-g-player2:Show:AnswerD"
+          }
+            },
+            {
+          "type": "ReturnElement",
+          "params": {
+              "callback": "ShowBack"
+          }
+      }
+    ]
+        }
+    }
+          ]
+    }
+  }
+      ]
+    },
 	    {
 		"scene": "screen-4-h-player1",
     "navigation": [
@@ -10307,8 +10869,53 @@
 			}
 		    }
 		],
-		"information": [],
-		"content": []
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
+					"color": "0,0,0,255",
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/rewardbg.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/sugar.png",
+			    "anchor": 0,
+			    "width": 15,
+			    "height": 30,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-h-player2",
@@ -10358,8 +10965,60 @@
 			}
 		    }
 		],
-		"information": [],
-		"content": []
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
+					"color": "0,0,0,255",
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
+
+			}
+		    }
+		],
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/rewardbg.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/sugar.png",
+			    "anchor": 0,
+			    "width": 15,
+			    "height": 30,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Sound",
+			"params": {
+			    "source": ""
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-i-player1",
@@ -10410,7 +11069,61 @@
 		    }
 		],
 		"information": [],
-		"content": []
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/perso1left.png",
+			    "anchor": 7,
+			    "width": 0,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 4,
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+
+			    ]
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-i-player2",
@@ -10461,7 +11174,61 @@
 		    }
 		],
 		"information": [],
-		"content": []
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/perso1left.png",
+			    "anchor": 7,
+			    "width": 0,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 4,
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"font": "fonts/arial.ttf",
+					"fontSize": 24,
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+
+			    ]
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-j-player1",
@@ -10474,6 +11241,7 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
+			    "enabled": true,
 			    "action": "next",
 			    "children": [
 				{
@@ -10496,6 +11264,7 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
+			    "enabled": true,
 			    "action": "prev",
 			    "children": [
 				{
@@ -10512,7 +11281,59 @@
 		    }
 		],
 		"information": [],
-		"content": []
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/perso2left.png",
+			    "anchor": 7,
+			    "width": 0,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 4,
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 50
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, rendez-vous maintenant à la salle 24 !",
+					"width": 80,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+			    ]
+			}
+		    }
+
+		]
 	    },
 	    {
 		"scene": "screen-4-j-player2",
@@ -10525,6 +11346,7 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
+			    "enabled": true,
 			    "action": "next",
 			    "children": [
 				{
@@ -10547,6 +11369,7 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
+			    "enabled": true,
 			    "action": "prev",
 			    "children": [
 				{
@@ -10563,7 +11386,59 @@
 		    }
 		],
 		"information": [],
-		"content": []
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/perso2left.png",
+			    "anchor": 7,
+			    "width": 0,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Group",
+			"params": {
+			    "anchor": 4,
+			    "width": 50,
+			    "height": 100,
+			    "children": [
+				{
+				    "type": "Image",
+				    "params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 0,
+					"width": 100,
+					"height": 50
+				    }
+				},
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Bravo, rends-toi maintenant à la salle 24 !",
+					"width": 80,
+					"height": 100,
+					"anchor": 0
+				    }
+				}
+			    ]
+			}
+		    }
+
+		]
 	    },
 	    {
 		"scene": "screen-4-k-player1",
@@ -10582,9 +11457,9 @@
 				    "type": "Text",
 				    "params": {
 					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
 				    }
 				}
 			    ]
@@ -10604,9 +11479,9 @@
 				    "type": "Text",
 				    "params": {
 					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
 				    }
 				}
 			    ]
@@ -10614,7 +11489,30 @@
 		    }
 		],
 		"information": [],
-		"content": []
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/MuseeSalle24.png",
+			    "anchor": 0,
+			    "width": 0,
+			    "height": 80,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
 	    },
 	    {
 		"scene": "screen-4-k-player2",
@@ -10633,9 +11531,9 @@
 				    "type": "Text",
 				    "params": {
 					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
 				    }
 				}
 			    ]
@@ -10655,9 +11553,9 @@
 				    "type": "Text",
 				    "params": {
 					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
+				    	"anchor": 0,
+				    	"width": 100,
+				    	"height": 100
 				    }
 				}
 			    ]
@@ -10665,7 +11563,30 @@
 		    }
 		],
 		"information": [],
-		"content": []
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    },
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/MuseeSalle24.png",
+			    "anchor": 0,
+			    "width": 0,
+			    "height": 80,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
 	    }
 	]
     }
