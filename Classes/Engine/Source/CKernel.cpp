@@ -358,6 +358,7 @@ void CKernel::AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pAnchoredEnti
 		if (a_pAnchoredEntity && sExpectedID == a_pAnchoredEntity->GetID())
 		{
 			AnchorEntity(pAnchorEntity, a_pAnchoredEntity);
+			a_pAnchoredEntity->Dispatch("Anchored");
 		}
 		else {
 			// put entity back
