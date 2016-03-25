@@ -9498,7 +9498,15 @@
 					"height": 100
 				    }
 				}
-			    ]
+      ],
+    "listeners": [
+  {
+      "type": "Validate",
+      "params": {
+    "callback": "Show"
+      }
+  }
+    ]
 			}
 		    },
 		    {
@@ -9521,7 +9529,15 @@
 					"height": 100
 				    }
 				}
-			    ]
+      ],
+    "listeners": [
+  {
+      "type": "Validate",
+      "params": {
+    "callback": "Show"
+      }
+  }
+    ]
 			}
 		    },
 		    {
