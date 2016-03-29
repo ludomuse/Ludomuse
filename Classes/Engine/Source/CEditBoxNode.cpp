@@ -26,9 +26,9 @@ void CEditBoxNode::Init()
   ui::EditBox* pBox = ui::EditBox::create(Size(l_oVisibleSize.width/2.0f,
                                                l_oVisibleSize.height / 5.0f),
                                           ui::Scale9Sprite::create("Ludomuse/Content/textfieldBackground.png"));
-  pBox->setPlaceHolder("Nom de joueur");
-  pBox->setText("User");
-  pBox->setFontSize(24);
+  //pBox->setPlaceHolder("Nom de joueur");
+  //pBox->setText("User");
+  pBox->setFontSize(40);
   pBox->setFontName("fonts/Open_Sans/OpenSans-Bold.ttf");
   pBox->setFontColor(Color3B::BLACK);
   pBox->setMaxLength(80);
