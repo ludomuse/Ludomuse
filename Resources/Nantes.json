@@ -1118,7 +1118,16 @@
 						    "source":"cache/QuestWheat.png",
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+						    "height": 100,
+                "listeners": [
+                  {
+							    "type": "Show",
+							    "params": {
+								"callback": "Show",
+								"arg": false
+							    }
+							}
+                ]
 						}
 					    }
 					]
@@ -1138,7 +1147,16 @@
 						    "source":"cache/QuestSugar.png",
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+						    "height": 100,
+                "listeners": [
+                  {
+							    "type": "Show",
+							    "params": {
+								"callback": "Show",
+								"arg": false
+							    }
+							}
+                ]
 						}
 					    }
 					]
@@ -4550,7 +4568,15 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -4572,7 +4598,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+      ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -6069,7 +6103,15 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -6091,7 +6133,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+      ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -6226,9 +6276,9 @@
 				},
 				{
 				    "type": "Image",
-				    "id":"Puzzle2",
+				    "id":"Puzzle12",
 				    "params": {
-					"source": "cache/Puzzle2.png",
+					"source": "cache/Puzzle12.png",
 					"anchor": 0,
 					"width": 0,
 					"height": 80,
@@ -6272,9 +6322,9 @@
 				},
 				{
 				    "type": "Image",
-				    "id":"Puzzle3",
+				    "id":"Puzzle14",
 				    "params": {
-					"source": "cache/Puzzle3.png",
+					"source": "cache/Puzzle14.png",
 					"anchor": 0,
 					"width": 0,
 					"height": 80,
@@ -6318,9 +6368,9 @@
 				},
 				{
 				    "type": "Image",
-				    "id":"Puzzle4",
+				    "id":"Puzzle15",
 				    "params": {
-					"source": "cache/Puzzle4.png",
+					"source": "cache/Puzzle15.png",
 					"anchor": 0,
 					"width": 0,
 					"height": 80,
@@ -6498,10 +6548,10 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/Puzzle.png",
+			    "source": "cache/ImgBack.png",
 			    "anchor": 8,
 			    "width": 0,
 			    "height": 80,
@@ -6513,16 +6563,45 @@
 				    "params": {
 					"cols": 5,
 					"rows": 4,
-					"anchor": 0,
+					"anchor": 8,
 					"width": 100,
 					"height": 100,
 					"children": [
+            {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle16.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+						}
+					    },
+					    {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle17.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+					    },
 					    {
 						"type": "Group",
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle18.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6530,7 +6609,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle19.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6538,7 +6628,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle20.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6546,23 +6647,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle11.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6594,7 +6690,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle13.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6650,7 +6757,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle6.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6658,7 +6776,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle7.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6666,7 +6795,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle8.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6674,7 +6814,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle9.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6682,9 +6833,21 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle10.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
-					    },{
+					    },
+              {
 						"type": "Group",
 						"params": {
 						    "anchor": 0,
@@ -6713,7 +6876,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle2.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6721,7 +6895,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle3.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6729,7 +6914,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle4.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6737,14 +6933,25 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle5.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    }
 					]
 				    }
-				}
-			    ]
-			}
+          }
+          ]
+        }
 		    },
 		    {
 			"type": "Image",
@@ -6808,7 +7015,7 @@
 				    "type": "Image",
 				    "id": "PuzzleB",
 				    "params": {
-					"source": "cache/Puzzle2.png",
+					"source": "cache/Puzzle12.png",
 					"anchor": 0,
 					"width": 40,
 					"height": 100,
@@ -6845,7 +7052,7 @@
 						"type": "AnchoredFailed",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-3-b-player1:ReturnElement:Puzzle2"
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle12"
 						}
 					    }
 					]
@@ -6855,7 +7062,7 @@
 				    "type": "Image",
 				    "id": "PuzzleC",
 				    "params": {
-					"source": "cache/Puzzle3.png",
+					"source": "cache/Puzzle14.png",
 					"anchor": 0,
 					"width": 40,
 					"height": 100,
@@ -6892,7 +7099,7 @@
 						"type": "AnchoredFailed",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-3-b-player1:ReturnElement:Puzzle3"
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle14"
 						}
 					    }
 					]
@@ -6902,7 +7109,7 @@
 				    "type": "Image",
 				    "id": "PuzzleD",
 				    "params": {
-					"source": "cache/Puzzle4.png",
+					"source": "cache/Puzzle15.png",
 					"anchor": 0,
 					"width": 40,
 					"height": 100,
@@ -6939,7 +7146,7 @@
 						"type": "AnchoredFailed",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-3-b-player1:ReturnElement:Puzzle4"
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle15"
 						}
 					    }
 					]
@@ -7940,7 +8147,15 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -7962,7 +8177,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+      ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -8675,7 +8898,15 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -8697,7 +8928,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+      ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -8823,6 +9062,15 @@
 				}
 			    ]
 			}
+    },
+    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"Loire",
+				"Tour"
+			    ]
+			}
 		    }
 		],
     "information": [
@@ -8919,6 +9167,7 @@
 			    "children": [
 				{
 				    "type": "Image",
+            "id": "Loire",
 				    "params": {
 					"source": "cache/answerBackground.png",
 					"anchor": 6,
@@ -8938,8 +9187,8 @@
 						"type": "Touch",
 						"params":
 						{
-						    "callback": "SendMessage",
-						    "arg": "kernel:Validate"
+						    "callback": "Validate",
+						    "arg": "Loire"
 						}
 					    }
 					],
@@ -9029,6 +9278,7 @@
 				},
 				{
 				    "type": "Image",
+            "id": "Tour",
 				    "params": {
 					"source": "cache/answerBackground.png",
 					"anchor": 6,
@@ -9043,13 +9293,13 @@
 						    "callback": "ValidateScene",
 						    "arg": true
 						}
-					    },
-					    {
+          },
+          {
 						"type": "Touch",
 						"params":
 						{
-						    "callback": "SendMessage",
-						    "arg": "kernel:Validate"
+						    "callback": "Validate",
+						    "arg": "Tour"
 						}
 					    }
 					],
@@ -9087,6 +9337,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -9108,7 +9366,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10312,12 +10578,195 @@
 			"params": {
 			    "source": "cache/Maquette2.png",
 			    "anchor": 0,
-			    "width": 80,
-			    "height": 100,
+			    "width": 0,
+			    "height": 80,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+          "children": [
+          {
+  			"type": "Grid",
+  			"params": {
+  			    "cols": 3,
+  			    "rows": 3,
+  			    "width": 100,
+  			    "height": 100,
+  			    "anchor": 0,
+  			    "alignItems": "center",
+  			    "children": [
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+                "children": [
+                  {
+      			"type": "Image",
+      			"params": {
+              "source": "ui/cache-blanc-50.png",
+      			    "anchor": 0,
+      			    "width": 100,
+      			    "height": 100,
+      			    "x": 0,
+      			    "y": 0
+              }
+            },
+                  {
+  						"type": "Text",
+  						"params": {
+  						    "content": "3",
+                  "color": "0,0,0,255",
+                  "fontSize": 40,
+  						    "anchor": 0,
+  						    "width": 100,
+  						    "height": 100
+  						}
+  					    }
+                ]
+						}
+          },
+          {
+          "type": "Group",
+          "params": {
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "children": [
+                {
+          "type": "Image",
+          "params": {
+            "source": "ui/cache-blanc-50.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+                {
+            "type": "Text",
+            "params": {
+                "content": "4",
+                "color": "0,0,0,255",
+                "fontSize": 40,
+                "anchor": 0,
+                "width": 100,
+                "height": 100
+            }
+              }
+            ]
+          }
+        },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "children": [
+              {
+        "type": "Image",
+        "params": {
+          "source": "ui/cache-blanc-50.png",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "x": 0,
+            "y": 0
+          }
+        },
+              {
+          "type": "Text",
+          "params": {
+              "content": "2",
+              "color": "0,0,0,255",
+              "fontSize": 40,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+            ]
+        }
+      },
+      {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "children": [
+              {
+        "type": "Image",
+        "params": {
+          "source": "ui/cache-blanc-50.png",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "x": 0,
+            "y": 0
+          }
+        },
+              {
+          "type": "Text",
+          "params": {
+              "content": "1",
+              "color": "0,0,0,255",
+              "fontSize": 40,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+            ]
+        }
+      },
+      {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    }
+            ]
 			}
 		    }
+      ]
+    }
+  }
     ]
 	    },
 	    {
@@ -10332,6 +10781,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10354,6 +10811,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10364,6 +10829,17 @@
 					"height": 100
 				    }
 				}
+			    ]
+			}
+    },
+    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"AnswerA",
+				"AnswerB",
+				"AnswerC",
+				"AnswerD"
 			    ]
 			}
 		    }
@@ -10427,11 +10903,532 @@
 			"type": "Image",
 			"params": {
 			    "source": "cache/Maquette2.png",
-			    "anchor": 0,
-			    "width": 80,
-			    "height": 100,
+			    "anchor": 8,
+			    "width": 0,
+			    "height": 60,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+          "children": [
+          {
+  			"type": "Grid",
+  			"params": {
+  			    "cols": 3,
+  			    "rows": 3,
+  			    "width": 100,
+  			    "height": 100,
+  			    "anchor": 0,
+  			    "alignItems": "center",
+  			    "children": [
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+                "children": [
+                  {
+      			"type": "Image",
+      			"params": {
+              "source": "ui/cache-blanc-50.png",
+      			    "anchor": 0,
+      			    "width": 100,
+      			    "height": 100,
+      			    "x": 0,
+      			    "y": 0
+              }
+            },
+                  {
+  						"type": "Text",
+  						"params": {
+  						    "content": "3",
+                  "color": "0,0,0,255",
+                  "fontSize": 40,
+  						    "anchor": 0,
+  						    "width": 100,
+  						    "height": 100
+  						}
+  					    }
+                ],
+						    "listeners": [
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "AnswerA"
+							    }
+							},
+							{
+  							    "type": "Drop",
+  							    "params": {
+  								"callback": "SendMessage",
+  								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+							    }
+							}
+						    ]
+						}
+          },
+          {
+          "type": "Group",
+          "params": {
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "children": [
+                {
+          "type": "Image",
+          "params": {
+            "source": "ui/cache-blanc-50.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+                {
+            "type": "Text",
+            "params": {
+                "content": "4",
+                "color": "0,0,0,255",
+                "fontSize": 40,
+                "anchor": 0,
+                "width": 100,
+                "height": 100
+            }
+              }
+              ],
+              "listeners": [
+            {
+                "type": "Drop",
+                "params": {
+              "callback": "AnchorEntity",
+              "arg": "AnswerB"
+                }
+            },
+            {
+                  "type": "Drop",
+                  "params": {
+                "callback": "SendMessage",
+                "arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+                }
+            }
+              ]
+          }
+        },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "children": [
+              {
+        "type": "Image",
+        "params": {
+          "source": "ui/cache-blanc-50.png",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "x": 0,
+            "y": 0
+          }
+        },
+              {
+          "type": "Text",
+          "params": {
+              "content": "2",
+              "color": "0,0,0,255",
+              "fontSize": 40,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+            ],
+            "listeners": [
+          {
+              "type": "Drop",
+              "params": {
+            "callback": "AnchorEntity",
+            "arg": "AnswerD"
+              }
+          },
+          {
+                "type": "Drop",
+                "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+              }
+          }
+            ]
+        }
+      },
+      {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "children": [
+              {
+        "type": "Image",
+        "params": {
+          "source": "ui/cache-blanc-50.png",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "x": 0,
+            "y": 0
+          }
+        },
+              {
+          "type": "Text",
+          "params": {
+              "content": "1",
+              "color": "0,0,0,255",
+              "fontSize": 40,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+            ],
+            "listeners": [
+          {
+              "type": "Drop",
+              "params": {
+            "callback": "AnchorEntity",
+            "arg": "AnswerC"
+              }
+          },
+          {
+                "type": "Drop",
+                "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+              }
+          }
+            ]
+        }
+      },
+      {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    }
+            ]
+			}
+		    }
+      ]
+    }
+  },
+  {
+			"type": "Image",
+			"id": "dropArea1",
+			"params": {
+			    "source": "cache/sendingArea.png",
+			    "anchor": 4,
+			    "width": 30,
+			    "height": 100,
+			    "x": 70,
+			    "y": 0,
+			    "children": [
+            {
+  			"type": "Group",
+        "id":"AnswerA",
+  			"params": {
+  			    "anchor": 0,
+  			    "width": 70,
+  			    "height": 100,
+    			    "children": [
+  				{
+    				    "type": "Image",
+    				    "params": {
+    					"source": "ui/cache-noir-70.png",
+    					"anchor": 0,
+  					"width": 100,
+  					"height": 100
+    				    }
+    				},
+            {
+                "type": "Text",
+                "params": {
+              "content": "Mise en boite des biscuits",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "fontSize": 22
+            }
+          }
+        ],
+              "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "AnswerA"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-g-player2:ReturnElement:Answer1"
+						}
+					    }
+					]
+				    }
+				},
+        {
+    "type": "Group",
+    "id":"AnswerB",
+    "params": {
+        "anchor": 0,
+        "width": 70,
+        "height": 100,
+          "children": [
+      {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+        "width": 100,
+        "height": 100
+            }
+        },
+        {
+          "type": "Text",
+          "params": {
+        "content": "Préparation des caisses en bois pour les expéditions",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "fontSize": 22
+      }
+    }
+  ],
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "AnswerB"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-g-player2:ReturnElement:Answer2"
+						}
+					    }
+					]
+				    }
+				},
+        {
+        "type": "Group",
+        "id":"AnswerC",
+        "params": {
+        "anchor": 0,
+        "width": 70,
+        "height": 100,
+          "children": [
+        {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+        "width": 100,
+        "height": 100
+            }
+        },
+        {
+            "type": "Text",
+            "params": {
+          "content": "Préparation des pâtes",
+          "anchor": 0,
+          "width": 100,
+          "height": 100,
+          "fontSize": 22
+        }
+      }
+    ],
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "AnswerC"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-g-player2:ReturnElement:Answer3"
+						}
+					    }
+					]
+				    }
+				},
+        {
+        "type": "Group",
+        "id":"AnswerD",
+        "params": {
+        "anchor": 0,
+        "width": 70,
+        "height": 100,
+          "children": [
+        {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+        "width": 100,
+        "height": 100
+            }
+        },
+        {
+            "type": "Text",
+            "params": {
+          "content": "Cuisson des biscuits",
+          "anchor": 0,
+          "width": 100,
+          "height": 100,
+          "fontSize": 22
+        }
+      }
+    ],
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "AnswerD"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-g-player2:ReturnElement:Answer4"
+						}
+					    }
+					]
+				    }
+				}
+			    ]
 			}
 		    }
     ]
@@ -10448,6 +11445,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10470,6 +11475,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10541,7 +11554,7 @@
       },
       {
     "type": "Image",
-    "id": "dropArea1",
+    "id": "dropArea2",
     "params": {
         "source": "cache/sendingArea.png",
         "anchor": 4,
@@ -10560,7 +11573,7 @@
           "type": "DropEnabledBack",
           "params": {
         "callback": "EnableEvent",
-        "arg": "dropArea1:Drop"
+        "arg": "dropArea2:Drop"
           }
       }
         ]
@@ -10621,14 +11634,14 @@
               "type": "Droped",
               "params": {
                   "callback": "DisableEvent",
-                  "arg": "dropArea1:Drop"
+                  "arg": "dropArea2:Drop"
               }
                 },
                 {
               "type": "Droped",
               "params": {
                   "callback": "SendMessage",
-                  "arg": "screen-4-g-player2:Show:AnswerA"
+                  "arg": "screen-4-g-player1:Show:AnswerA"
               }
                 },
                 {
@@ -10685,14 +11698,14 @@
           "type": "Droped",
           "params": {
               "callback": "DisableEvent",
-              "arg": "dropArea1:Drop"
+              "arg": "dropArea2:Drop"
           }
             },
             {
           "type": "Droped",
           "params": {
               "callback": "SendMessage",
-              "arg": "screen-4-g-player2:Show:AnswerB"
+              "arg": "screen-4-g-player1:Show:AnswerB"
           }
             },
             {
@@ -10749,14 +11762,14 @@
               "type": "Droped",
               "params": {
                   "callback": "DisableEvent",
-                  "arg": "dropArea1:Drop"
+                  "arg": "dropArea2:Drop"
               }
                 },
                 {
               "type": "Droped",
               "params": {
                   "callback": "SendMessage",
-                  "arg": "screen-4-g-player2:Show:AnswerC"
+                  "arg": "screen-4-g-player1:Show:AnswerC"
               }
                 },
                 {
@@ -10813,14 +11826,14 @@
           "type": "Droped",
           "params": {
               "callback": "DisableEvent",
-              "arg": "dropArea1:Drop"
+              "arg": "dropArea2:Drop"
           }
             },
             {
           "type": "Droped",
           "params": {
               "callback": "SendMessage",
-              "arg": "screen-4-g-player2:Show:AnswerD"
+              "arg": "screen-4-g-player1:Show:AnswerD"
           }
             },
             {
