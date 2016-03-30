@@ -9176,13 +9176,6 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
-					    {
-						"type": "Touch",
-						"params": {
-						    "callback": "ValidateScene",
-						    "arg": true
-						}
-          },
           {
 						"type": "Touch",
 						"params":
@@ -9287,13 +9280,6 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
-					    {
-						"type": "Touch",
-						"params": {
-						    "callback": "ValidateScene",
-						    "arg": true
-						}
-          },
           {
 						"type": "Touch",
 						"params":
@@ -10333,6 +10319,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10355,6 +10349,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10482,6 +10484,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10504,6 +10514,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10514,6 +10532,17 @@
 					"height": 100
 				    }
 				}
+			    ]
+			}
+    },
+    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"1",
+				"2",
+        "3",
+        "4"
 			    ]
 			}
 		    }
@@ -10629,8 +10658,8 @@
       			"params": {
               "source": "ui/cache-blanc-50.png",
       			    "anchor": 0,
-      			    "width": 100,
-      			    "height": 100,
+      			    "width": 50,
+      			    "height": 0,
       			    "x": 0,
       			    "y": 0
               }
@@ -10646,7 +10675,17 @@
   						    "height": 100
   						}
   					    }
-                ]
+              ],
+              "listeners": [
+              {
+    						"type": "Touch",
+    						"params":
+    						{
+    						    "callback": "Validate",
+    						    "arg": "3"
+    						}
+    					    }
+    					]
 						}
           },
           {
@@ -10661,8 +10700,8 @@
           "params": {
             "source": "ui/cache-blanc-50.png",
               "anchor": 0,
-              "width": 100,
-              "height": 100,
+              "width": 50,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -10678,7 +10717,17 @@
                 "height": 100
             }
               }
-            ]
+            ],
+            "listeners": [
+            {
+  						"type": "Touch",
+  						"params":
+  						{
+  						    "callback": "Validate",
+  						    "arg": "4"
+  						}
+  					    }
+  					]
           }
         },
         {
@@ -10693,8 +10742,8 @@
         "params": {
           "source": "ui/cache-blanc-50.png",
             "anchor": 0,
-            "width": 100,
-            "height": 100,
+            "width": 50,
+            "height": 0,
             "x": 0,
             "y": 0
           }
@@ -10710,7 +10759,17 @@
               "height": 100
           }
             }
-            ]
+          ],
+          "listeners": [
+          {
+						"type": "Touch",
+						"params":
+						{
+						    "callback": "Validate",
+						    "arg": "2"
+						}
+					    }
+					]
         }
       },
       {
@@ -10733,8 +10792,8 @@
         "params": {
           "source": "ui/cache-blanc-50.png",
             "anchor": 0,
-            "width": 100,
-            "height": 100,
+            "width": 50,
+            "height": 0,
             "x": 0,
             "y": 0
           }
@@ -10750,7 +10809,17 @@
               "height": 100
           }
             }
-            ]
+          ],
+          "listeners": [
+          {
+						"type": "Touch",
+						"params":
+						{
+						    "callback": "Validate",
+						    "arg": "1"
+						}
+					    }
+					]
         }
       },
       {
@@ -11100,7 +11169,7 @@
         "params": {
             "anchor": 0,
             "width": 100,
-            "height": 100,
+            "height": 80,
             "children": [
               {
         "type": "Image",
