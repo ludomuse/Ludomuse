@@ -4447,6 +4447,13 @@
 							    }
 							},
 							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:Show:flourCheck"
+								}
+							},
+							{
 							    "type": "Droped",
 							    "params": {
 								"callback": "Fade"
@@ -4479,6 +4486,23 @@
 								"height": 100,
 								"anchor": 0
 							    }
+							},
+							{
+								"type": "Image",
+								"id": "flourCheck",
+								"params": {
+									"source": "ui/check.png",
+									"anchor": 0,
+									"width": 100,
+									"listeners": [
+										{
+											"type": "Show",
+											"params": {
+												"callback": "Show"
+											}
+										}
+									]
+								}
 							}
 						    ]
 						}
@@ -4499,6 +4523,13 @@
 							    "params": {
 								"callback": ""
 							    }
+							},
+							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:Show:butterCross"
+								}
 							},
 							{
 							    "type": "Droped",
@@ -4533,6 +4564,23 @@
 								"height": 100,
 								"anchor": 0
 							    }
+							},
+							{
+								"type": "Image",
+								"id": "butterCross",
+								"params": {
+									"source": "ui/cross.png",
+									"anchor": 0,
+									"width": 100,
+									"listeners": [
+										{
+											"type": "Show",
+											"params": {
+												"callback": "Show"
+											}
+										}
+									]
+								}
 							}
 						    ]
 						}
@@ -4553,6 +4601,13 @@
 							    "params": {
 								"callback": ""
 							    }
+							},
+							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:Show:waterCheck"
+								}
 							},
 							{
 							    "type": "Droped",
@@ -4587,6 +4642,23 @@
 								"height": 100,
 								"anchor": 0
 							    }
+							},
+							{
+								"type": "Image",
+								"id": "waterCheck",
+								"params": {
+									"source": "ui/check.png",
+									"anchor": 0,
+									"width": 100,
+									"listeners": [
+										{
+											"type": "Show",
+											"params": {
+												"callback": "Show"
+											}
+										}
+									]
+								}
 							}
 						    ]
 						}
@@ -4615,6 +4687,13 @@
 							    }
 							},
 							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:Show:sugarCross"
+								}
+							},
+							{
 							    "type": "Show",
 							    "params": {
 								"callback": "Show",
@@ -4641,6 +4720,23 @@
 								"height": 100,
 								"anchor": 0
 							    }
+							},
+							{
+								"type": "Image",
+								"id": "sugarCross",
+								"params": {
+									"source": "ui/cross.png",
+									"anchor": 0,
+									"width": 100,
+									"listeners": [
+										{
+											"type": "Show",
+											"params": {
+												"callback": "Show"
+											}
+										}
+									]
+								}
 							}
 						    ]
 						}
