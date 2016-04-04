@@ -84,6 +84,7 @@ class CKernel
   void SetPlayerID(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SetPlayerName(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SendNetworkMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void LocalMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
   void Connect(CEvent a_rEvent, CEntityNode* a_pTarget);
   void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
@@ -98,6 +99,7 @@ class CKernel
 
 private:
 	void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
+	void ProcessMessage(const std::string& a_rMessage);
 
 };
 

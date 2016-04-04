@@ -115,6 +115,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
+	else if (sCallbackString == "LocalMessage")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::LocalMessage,
+			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else if (sCallbackString == "Fade")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::FadeEntity,

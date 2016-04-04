@@ -2765,6 +2765,13 @@
 					"y": 0,
 					"listeners": [
 					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-1-h-player2:Show:check1"
+					    	}
+					    },
+					    {
 						"type": "Touch",
 						"params": {
 						    "callback": "ValidateScene",
@@ -2784,6 +2791,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "check1",
+					    	"params": {
+							"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params" : {
+					    					"callback": "Show"
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -2798,6 +2822,13 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-1-h-player2:Show:check2"
+					    	}
+					    },
 					    {
 						"type": "Touch",
 						"params": {
@@ -2818,6 +2849,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "check2",
+					    	"params": {
+							"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params" : {
+					    					"callback": "Show"
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -2832,6 +2880,13 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-1-h-player2:Show:check3"
+					    	}
+					    },
 					    {
 						"type": "Touch",
 						"params": {
@@ -2852,6 +2907,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "check3",
+					    	"params": {
+							"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params" : {
+					    					"callback": "Show"
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -2866,6 +2938,13 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-1-h-player2:Show:check4"
+					    	}
+					    },
 					    {
 						"type": "Touch",
 						"params": {
@@ -2894,6 +2973,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "check4",
+					    	"params": {
+							"source": "ui/check.png",
+								"anchor": 0,
+								"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params" : {
+					    					"callback": "Show"
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }

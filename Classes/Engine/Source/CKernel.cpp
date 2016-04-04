@@ -229,7 +229,12 @@ void CKernel::SendNetworkMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
 	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
 }
 
-void CKernel::OnReceivingMessage(const std::string& a_rMessage)
+void CKernel::LocalMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
+{
+	ProcessMessage(a_oEvent.m_sStringValue);
+}
+
+void CKernel::ProcessMessage(const std::string& a_rMessage)
 {
 	std::string sKernel = "kernel";
 	if (a_rMessage.substr(0, sKernel.size()) == sKernel)
@@ -249,6 +254,11 @@ void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 		CDispatchMessageVisitor oVisitor(a_rMessage);
 		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pBehaviorTree);
 	}
+}
+
+void CKernel::OnReceivingMessage(const std::string& a_rMessage)
+{
+	ProcessMessage(a_rMessage);
 }
 
 void CKernel::OnReceiving(bytes a_rByteArray)
