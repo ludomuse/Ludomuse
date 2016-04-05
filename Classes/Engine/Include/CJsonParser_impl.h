@@ -268,7 +268,7 @@ template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
 {
 	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString());
-	if (a_rJsonNode["scene"].GetString() == "Dashboard")
+	if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
 		m_pKernel->SetDahsboard(pSceneNode);
 	else
 		a_pNode->AddChildNode(pSceneNode);
