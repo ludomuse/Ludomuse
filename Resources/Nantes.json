@@ -9485,6 +9485,13 @@
 						    "callback": "Validate",
 						    "arg": "Loire"
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-4-d-player2:Show:checkLoire"
+					    	}
 					    }
 					],
 					"children": [
@@ -9499,6 +9506,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "checkLoire",
+					    	"params": {
+					    		"source": "ui/check.png",
+					    		"anchor": 0,
+					    		"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"	
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -9519,6 +9543,13 @@
 						    "callback": "ValidateScene",
 						    "arg": false
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-4-d-player2:Show:crossGare"
+					    	}
 					    }
 					],
 					"children": [
@@ -9533,6 +9564,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "crossGare",
+					    	"params": {
+					    		"source": "ui/cross.png",
+					    		"anchor": 0,
+					    		"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"	
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -9553,6 +9601,13 @@
 						    "callback": "ValidateScene",
 						    "arg": false
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-4-d-player2:Show:crossChateau"
+					    	}
 					    }
 					],
 					"children": [
@@ -9567,6 +9622,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "crossChateau",
+					    	"params": {
+					    		"source": "ui/cross.png",
+					    		"anchor": 0,
+					    		"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"	
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -9582,13 +9654,20 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
-          {
+          				{
 						"type": "Touch",
 						"params":
 						{
 						    "callback": "Validate",
 						    "arg": "Tour"
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-4-d-player2:Show:checkTour"
+					    	}
 					    }
 					],
 					"children": [
@@ -9603,6 +9682,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "checkTour",
+					    	"params": {
+					    		"source": "ui/check.png",
+					    		"anchor": 0,
+					    		"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"	
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
