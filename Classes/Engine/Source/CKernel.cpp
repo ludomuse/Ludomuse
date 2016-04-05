@@ -373,9 +373,18 @@ void CKernel::AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pAnchoredEnti
 		else {
 			// put entity back
 			CCLOG("put anchored entity back");
-			a_pAnchoredEntity->Revert();
-			CEntityNode::Release(a_pAnchoredEntity);
-			a_pAnchoredEntity->Dispatch("AnchoredFailed");
+			auto dispatchMessage = CallFunc::create([a_pAnchoredEntity]() {
+				CEntityNode::Release(a_pAnchoredEntity);
+				a_pAnchoredEntity->Dispatch("AnchoredFailed");
+			});
+
+			auto revert = CallFunc::create([a_pAnchoredEntity]() {
+				a_pAnchoredEntity->Revert();
+			});
+
+			auto oSequence = Sequence::create(dispatchMessage, revert, nullptr);
+
+			a_pAnchoredEntity->GetCocosEntity()->runAction(oSequence);
 		}
 	}
 }

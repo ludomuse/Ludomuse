@@ -7180,7 +7180,7 @@
 						}
 					    },
 					    {
-						"type": "Droped",
+						"type": "Anchored",
 						"params": {
 						    "callback": "Validate",
 						    "arg": "PuzzleA"
@@ -7196,10 +7196,42 @@
 					    {
 						"type": "AnchoredFailed",
 						"params": {
+						    "callback": "Fade"
+				    	}
+				    	},
+					    {
+						"type": "AnchoredFailed",
+						"params": {
 						    "callback": "SendMessage",
 						    "arg": "screen-3-b-player1:ReturnElement:Puzzle1"
 						}
+					    },
+					    {
+					    	"type": "AnchoredFailed",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-3-b-player2:Show:puzzleACross"
+					    	}
 					    }
+					],
+					"children": [
+						{
+							"type": "Image",
+							"id": "puzzleACross",
+							"params": {
+								"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Show",
+										"params": {
+											"callback": ""
+										}
+									}
+								]
+							}
+						}
 					]
 				    }
 				},
@@ -7227,7 +7259,7 @@
 						}
 					    },
 					    {
-						"type": "Droped",
+						"type": "Anchored",
 						"params": {
 						    "callback": "Validate",
 						    "arg": "PuzzleB"
@@ -7246,7 +7278,33 @@
 						    "callback": "SendMessage",
 						    "arg": "screen-3-b-player1:ReturnElement:Puzzle12"
 						}
+					    },
+					    {
+					    	"type": "AnchoredFailed",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-3-b-player2:Show:puzzleBCross"
+					    	}
 					    }
+					],
+					"children": [
+						{
+							"type": "Image",
+							"id": "puzzleBCross",
+							"params": {
+								"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Show",
+										"params": {
+											"callback": ""
+										}
+									}
+								]
+							}
+						}
 					]
 				    }
 				},
@@ -7274,7 +7332,7 @@
 						}
 					    },
 					    {
-						"type": "Droped",
+						"type": "Anchored",
 						"params": {
 						    "callback": "Validate",
 						    "arg": "PuzzleC"
@@ -7293,7 +7351,33 @@
 						    "callback": "SendMessage",
 						    "arg": "screen-3-b-player1:ReturnElement:Puzzle14"
 						}
+					    },
+					    {
+					    	"type": "AnchoredFailed",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-3-b-player2:Show:puzzleCCross"
+					    	}
 					    }
+					],
+					"children": [
+						{
+							"type": "Image",
+							"id": "puzzleCCross",
+							"params": {
+								"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Show",
+										"params": {
+											"callback": ""
+										}
+									}
+								]
+							}
+						}
 					]
 				    }
 				},
@@ -7321,7 +7405,7 @@
 						}
 					    },
 					    {
-						"type": "Droped",
+						"type": "Anchored",
 						"params": {
 						    "callback": "Validate",
 						    "arg": "PuzzleD"
@@ -7340,7 +7424,33 @@
 						    "callback": "SendMessage",
 						    "arg": "screen-3-b-player1:ReturnElement:Puzzle15"
 						}
+					    },
+					    {
+					    	"type": "AnchoredFailed",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-3-b-player2:Show:puzzleDCross"
+					    	}
 					    }
+					],
+					"children": [
+						{
+							"type": "Image",
+							"id": "puzzleDCross",
+							"params": {
+								"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Show",
+										"params": {
+											"callback": ""
+										}
+									}
+								]
+							}
+						}
 					]
 				    }
 				}

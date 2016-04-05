@@ -286,7 +286,7 @@ void CEntityNode::Show(bool a_bVisible)
 	for (CNode* itNode : *this)
 	{
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-		if (pEntity && !pEntity->IsListeningTo("Show"))
+		if (pEntity && (!pEntity->IsListeningTo("Show") || !a_bVisible))
 		{
 			pEntity->Show(a_bVisible);
 		}
