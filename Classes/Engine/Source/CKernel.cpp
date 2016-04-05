@@ -55,6 +55,10 @@ CNode* CKernel::GetBehaviorTree()
   return m_pBehaviorTree;
 }
 
+void CKernel::SetDahsboard(CSceneNode* a_pDashboard)
+{
+	m_pDashboard = a_pDashboard;
+}
 
 CJsonParser* CKernel::GetJsonParser()
 {

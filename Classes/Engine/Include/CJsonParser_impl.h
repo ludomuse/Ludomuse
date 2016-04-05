@@ -268,7 +268,11 @@ template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
 {
 	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString());
-	a_pNode->AddChildNode(pSceneNode);
+	if (a_rJsonNode["scene"].GetString() == "Dashboard")
+		m_pKernel->SetDahsboard(pSceneNode);
+	else
+		a_pNode->AddChildNode(pSceneNode);
+	
 	if (a_rJsonNode.HasMember("content"))
 	{
 		RefJsonNode rEntities = a_rJsonNode["content"];

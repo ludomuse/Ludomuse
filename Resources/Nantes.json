@@ -22,10 +22,6 @@
 		"screen-peers"
 	    ],
 	    [
-		"screen-board",
-		"screen-board"
-	    ],
-	    [
 		"screen-1-b-player1",
 		"screen-1-b-player2"
 	    ],
@@ -973,7 +969,7 @@
 		]
 	    },
 	    {
-		"scene": "screen-board",
+		"scene": "Dashboard",
 		"navigation": [
 		    {
 			"type": "Nav",
