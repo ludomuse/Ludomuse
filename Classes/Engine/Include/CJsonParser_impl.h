@@ -301,6 +301,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 	{
 		pSceneNode->SetSynced(a_rJsonNode["synced"].GetBool());
 	}
+	if (a_rJsonNode.HasMember("dashboardTrigger"))
+	{
+		pSceneNode->m_bDashboardTrigger = a_rJsonNode["dashboardTrigger"].GetBool();
+	}
 }
 
 
