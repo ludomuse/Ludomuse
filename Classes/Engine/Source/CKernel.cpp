@@ -11,6 +11,7 @@
 #include "../Include/CFindEntityFromTypeVisitor.h"
 
 #include "../Include/CInputManager.h"
+#include "../Include/CSoundManager.h"
 #include "../Include/CJsonParser.h"
 #include "../../Modules/Networking/Networking.h"
 #include "../../Modules/Util/Include/Util.h"
@@ -32,6 +33,7 @@ namespace LM
 	CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
 		m_pJsonParser(new CJsonParser(this)),
 		m_pNetworkManager(new CNetworkManager(this)),
+		m_pSoundManager(new CSoundManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
 		m_bCoopWaiting(false),
 		m_pLocalPlayer(new SUser()),
@@ -47,6 +49,7 @@ CKernel::~CKernel()
 	delete m_pBehaviorTree;
 	delete m_pInputManager;
 	delete m_pNetworkManager;
+	delete m_pSoundManager;
 	delete m_pJsonParser;
 	delete m_pLocalPlayer;
 }
@@ -426,6 +429,14 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 	}
 
 }
+
+
+
+void CKernel::PlaySoundCallback(CEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
+}
+
 
 void CKernel::LogMessage(const std::string& a_sMessage)
 {

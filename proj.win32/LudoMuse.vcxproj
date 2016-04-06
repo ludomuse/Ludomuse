@@ -166,6 +166,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Engine\Source\CSceneNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CSelectorNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CSequenceNode.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CSoundManager.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CSpriteNode.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CTouchBeganVisitor.cpp" />
     <ClCompile Include="..\Classes\Engine\Source\CTransitionVisitor.cpp" />
@@ -202,6 +203,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Engine\Include\CSceneNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CSelectorNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CSequenceNode.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CSoundManager.h" />
     <ClInclude Include="..\Classes\Engine\Include\CSpriteNode.h" />
     <ClInclude Include="..\Classes\Engine\Include\CTouchBeganVisitor.h" />
     <ClInclude Include="..\Classes\Engine\Include\CTransitionVisitor.h" />

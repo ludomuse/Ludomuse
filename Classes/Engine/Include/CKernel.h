@@ -13,6 +13,7 @@ namespace LM
 class CInputManager;
 class CJsonParser;
 class CNetworkManager;
+class CSoundManager;
 struct CEvent;
 class CEntityNode;
 
@@ -31,6 +32,8 @@ class CKernel
   CInputManager* m_pInputManager;
   /// \details will manage networking events such as direct wifi
   CNetworkManager* m_pNetworkManager;
+
+  CSoundManager* m_pSoundManager;
   
   /// \brief The parser that will build the behavior tree from the json file
   CJsonParser* m_pJsonParser;
@@ -98,6 +101,7 @@ public:
   void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void PlaySoundCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);

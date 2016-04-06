@@ -196,6 +196,13 @@
                                                     "callback": "ValidateScene",
                                                     "arg": true
                                                 }
+                                            },
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "PlaySound",
+                                                    "arg": "cache/audio/louis.mp3"
+                                                }
                                             }
                                         ],
                                         "children": [

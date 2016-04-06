@@ -3830,6 +3830,13 @@
 			    "x": 0,
 			    "y": 0,
           "listeners": [
+          				{
+      						"type": "Touch",
+      						"params": {
+      							"callback": "PlaySound",
+      							"arg": "cache/audio/louis.mp3"
+      						}
+      					},
 					    {
 						"type": "Touch",
 						"params": {
