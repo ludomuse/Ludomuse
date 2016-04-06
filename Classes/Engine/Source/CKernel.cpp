@@ -34,7 +34,9 @@ namespace LM
 		m_pNetworkManager(new CNetworkManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
 		m_bCoopWaiting(false),
-		m_pLocalPlayer(new SUser())
+		m_pLocalPlayer(new SUser()),
+		m_pDashboard(nullptr),
+		m_pCurrentScene(nullptr)
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
@@ -55,10 +57,6 @@ CNode* CKernel::GetBehaviorTree()
   return m_pBehaviorTree;
 }
 
-void CKernel::SetDahsboard(CSceneNode* a_pDashboard)
-{
-	m_pDashboard = a_pDashboard;
-}
 
 CJsonParser* CKernel::GetJsonParser()
 {
@@ -105,7 +103,7 @@ void CKernel::Init()
 	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
-
+	m_pCurrentScene = pFirstScene;
 	Scene* pScene = pFirstScene->CreateScene();
 	pFirstScene->init();
 

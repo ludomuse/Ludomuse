@@ -26,8 +26,6 @@ class CKernel
   /// \details a pointer to the root node of the tree, usually a SequenceNode
   CNode* m_pBehaviorTree;
 
-  /// \brief a reference to the dashboard with the timeline of the game
-  CSceneNode* m_pDashboard;
 
   /// \details will forward the inputs to the behavior tree
   CInputManager* m_pInputManager;
@@ -43,13 +41,18 @@ class CKernel
 
   bool m_bCoopWaiting;
 
+public:
+	/// \brief a reference to the dashboard with the timeline of the game
+	CSceneNode* m_pDashboard;
+
+	CSceneNode* m_pCurrentScene;
+
+
  public:
   CKernel();
   virtual ~CKernel();
   /// \returns the behavior tree
   CNode* GetBehaviorTree();
-
-  void SetDahsboard(CSceneNode* a_pDashboard);
 
   CJsonParser* GetJsonParser();
 

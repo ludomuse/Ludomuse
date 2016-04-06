@@ -3,6 +3,7 @@
 
 #include "CVisitor.h"
 #include "CSequenceNode.h"
+#include "CSceneNode.h"
 
 namespace LM
 {
@@ -25,6 +26,7 @@ private:
 
 private:
 	void GotoScene(CSequenceNode* a_pSequence);
+	void InitScene(CSceneNode* a_pScene);
 
 };
 

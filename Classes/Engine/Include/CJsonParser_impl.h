@@ -269,7 +269,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 {
 	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString());
 	if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
-		m_pKernel->SetDahsboard(pSceneNode);
+		m_pKernel->m_pDashboard = pSceneNode;
 	else
 		a_pNode->AddChildNode(pSceneNode);
 	

@@ -2446,6 +2446,7 @@
 	    },
 	    {
 		"scene": "screen-1-h-player1",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -2596,6 +2597,7 @@
 	    },
 	    {
 		"scene": "screen-1-h-player2",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
