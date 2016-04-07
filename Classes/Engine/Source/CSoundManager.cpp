@@ -7,21 +7,21 @@ namespace LM
 
 	void* WaitSoundFinished(void* a_pSoundManager)
 	{
-		//while (true)
-		//{
-		//	if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
-		//	{
-		//		CSoundManager* pSoundManager = static_cast<CSoundManager*>(a_pSoundManager);
-		//		if (pSoundManager->m_sPlayingSoundURL != "")
-		//		{
-		//			pSoundManager->EndSound(pSoundManager->m_sPlayingSoundURL);
-		//			pSoundManager->m_sPlayingSoundURL = "";
-		//		}
+		while (true)
+		{
+			if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+			{
+				CSoundManager* pSoundManager = static_cast<CSoundManager*>(a_pSoundManager);
+				if (pSoundManager->m_sPlayingSoundURL != "")
+				{
+					pSoundManager->EndSound(pSoundManager->m_sPlayingSoundURL);
+					pSoundManager->m_sPlayingSoundURL = "";
+				}
 
-		//	}
-		//	Sleep(1000);
-		//}
-		//return NULL;
+			}
+			//Sleep(1000);
+		}
+		return NULL;
 	}
 
 	CSoundManager::CSoundManager(CKernel* a_pKernel) : m_pKernel(a_pKernel), m_sPlayingSoundURL("")

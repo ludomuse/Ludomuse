@@ -196,6 +196,8 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 
 	m_oEntityStartLocation = m_pCocosEntity->getPosition();
 	m_fEntityStartScale = m_pCocosEntity->getScale();
+
+	Dispatch("Init");
 }
 
 

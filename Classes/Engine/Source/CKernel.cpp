@@ -236,6 +236,7 @@ void CKernel::SendNetworkMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::LocalMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
+	CCLOG("processing Local message %s", a_oEvent.m_sStringValue.c_str());
 	ProcessMessage(a_oEvent.m_sStringValue);
 }
 

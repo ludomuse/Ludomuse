@@ -93,6 +93,10 @@
 		"screen-2-h-player2"
 	    ],
 	    [
+	    "screen-article-player1",
+	    "screen-article-player2"
+	    ],
+	    [
 		"screen-2-i-player1",
 		"screen-2-i-player2"
 	    ],
@@ -1139,6 +1143,7 @@
 					"children": [
 					    {
 						"type": "Image",
+					    "id": "sugar",
 						"params": {
 						    "source":"cache/QuestSugar.png",
 						    "anchor": 0,
@@ -2596,7 +2601,6 @@
 	    },
 	    {
 		"scene": "screen-1-h-player2",
-		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -5664,7 +5668,173 @@
 		]
 	    },
 	    {
+	    	"scene": "screen-article-player1",
+			"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Approcher les deux tablettes pour lire l'article",
+					"color": "0,0,0,255",
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"content": [
+			{
+				"type": "Image",
+				"params": {
+					"source": "cache/newspaper1.png",
+					"anchor": 0,
+					"height": 80
+				}
+			}
+		]
+    	},
+    	{
+	    	"scene": "screen-article-player2",
+			"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Approchez les deux tablettes pour lire l'article",
+					"color": "0,0,0,255",
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"content": [
+			{
+				"type": "Image",
+				"params": {
+					"source": "cache/newspaper2.png",
+					"anchor": 0,
+					"height": 80
+				}
+			}
+		]
+
+		},
+	    {
 		"scene": "screen-2-i-player1",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -5748,19 +5918,30 @@
 		    },
 		    {
 			"type": "Image",
+			"id": "sugarReward",
 			"params": {
 			    "source": "cache/sugar.png",
 			    "anchor": 0,
 			    "width": 15,
 			    "height": 30,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+			    "listeners": [
+			    	{
+			    		"type": "Init",
+			    		"params": {
+			    			"callback": "LocalMessage",
+			    			"arg": "Dashboard:Show:sugar"
+			    		}
+			    	}
+			    ]
 			}
 		    }
 		]
 	    },
 	    {
 		"scene": "screen-2-i-player2",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -5845,19 +6026,23 @@
 		    },
 		    {
 			"type": "Image",
+			"id": "sugarReward",
 			"params": {
 			    "source": "cache/sugar.png",
 			    "anchor": 0,
 			    "width": 15,
 			    "height": 30,
 			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
+			    "y": 0,
+			    "listeners": [
+			    	{
+			    		"type": "Init",
+			    		"params": {
+			    			"callback": "LocalMessage",
+			    			"arg": "Dashboard:Show:sugar"
+			    		}
+			    	}
+			    ]
 			}
 		    }
 		]
@@ -7825,6 +8010,7 @@
 	    },
 	    {
 		"scene": "screen-3-e-player1",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -7921,6 +8107,7 @@
 	    },
 	    {
 		"scene": "screen-3-e-player2",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",

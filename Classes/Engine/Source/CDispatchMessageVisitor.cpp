@@ -13,6 +13,7 @@ CDispatchMessageVisitor::CDispatchMessageVisitor(const std::string& a_rMessage) 
 {
 
 	m_vSplittedMessage = StringSplit(a_rMessage);
+	CCLOG("trying to dispatch message : %s, %d", a_rMessage.c_str(), m_vSplittedMessage.size());
 }
 
 
@@ -20,21 +21,21 @@ void CDispatchMessageVisitor::Traverse(CNode* a_pNode)
 {
 	if (ProcessNodeTopDown(a_pNode) == RESULT_CONTINUE)
 	{
-		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
+		/*CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
 		CSceneNode* pScene = dynamic_cast<CSceneNode*>(a_pNode);
 		if (pEntity || pScene)
-		{
+		{*/
 			for (CNode* itNode : *a_pNode)
 			{
 				Traverse(itNode);
 			}
-		}
+		/*}
 		else
 		{
 			CNode* pTraverse = a_pNode->GetCurrentNode();
 			if (pTraverse)
 				Traverse(pTraverse);
-		}
+		}*/
 
 	}
 	ProcessNodeBottomUp(a_pNode);
@@ -59,6 +60,7 @@ Result CDispatchMessageVisitor::ProcessNodeTopDown(CNode* a_pNode)
   {
 	  if (m_vSplittedMessage.size() > 2)
 	  {
+		  CCLOG("processing node : %s", pEntity->GetID().c_str());
 		  if (pEntity->IsListeningTo(m_vSplittedMessage[1]) &&
 			  pEntity->GetID() == m_vSplittedMessage[2])
 		  {
