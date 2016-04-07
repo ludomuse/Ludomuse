@@ -242,10 +242,9 @@ void CKernel::LocalMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 void CKernel::ProcessMessage(const std::string& a_rMessage)
 {
-	std::string sKernel = "kernel";
-	if (a_rMessage.substr(0, sKernel.size()) == sKernel)
+	std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
+	if (vSplittedMessage[0] == "kernel")
 	{
-		std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
 		if (vSplittedMessage[1] == "waiting")
 		{
 			m_bCoopWaiting = true;
@@ -255,7 +254,11 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 			ValidateScene(CEvent(), nullptr);
 		}
 	}
-	else
+	else if (vSplittedMessage[0] == "Dashboard")
+	{
+		CDispatchMessageVisitor oVisitor(a_rMessage);
+		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pDashboard);
+	}
 	{
 		CDispatchMessageVisitor oVisitor(a_rMessage);
 		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pBehaviorTree);

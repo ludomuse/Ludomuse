@@ -4405,7 +4405,7 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "ui/cache-noir-70.png",
+			    "source": "cache/plate.png",
 			    "anchor": 0,
 			    "width": 30,
 			    "listeners": [

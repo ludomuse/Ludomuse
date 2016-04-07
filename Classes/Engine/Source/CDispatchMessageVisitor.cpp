@@ -13,7 +13,6 @@ CDispatchMessageVisitor::CDispatchMessageVisitor(const std::string& a_rMessage) 
 {
 
 	m_vSplittedMessage = StringSplit(a_rMessage);
-	CCLOG("trying to dispatch message : %s, %d", a_rMessage.c_str(), m_vSplittedMessage.size());
 }
 
 
@@ -60,7 +59,6 @@ Result CDispatchMessageVisitor::ProcessNodeTopDown(CNode* a_pNode)
   {
 	  if (m_vSplittedMessage.size() > 2)
 	  {
-		  CCLOG("processing node : %s", pEntity->GetID().c_str());
 		  if (pEntity->IsListeningTo(m_vSplittedMessage[1]) &&
 			  pEntity->GetID() == m_vSplittedMessage[2])
 		  {
