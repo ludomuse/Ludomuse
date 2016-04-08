@@ -115,6 +115,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
+	else if (sCallbackString == "LocalMessage")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::LocalMessage,
+			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else if (sCallbackString == "Fade")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::FadeEntity,
@@ -136,6 +142,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	else if (sCallbackString == "AnchorEntity")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::AnchorEntityCallback,
+			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+		a_pEntity->AddListener(sType, oCallback);
+	}
+	else if (sCallbackString == "PlaySound")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::PlaySoundCallback,
 			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}

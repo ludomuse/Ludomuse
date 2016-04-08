@@ -8,7 +8,7 @@ using namespace cocos2d;
 namespace LM
 {
 
-CSceneNode::CSceneNode(std::string a_sID) : m_sID(a_sID), m_bIsSynced(false)
+CSceneNode::CSceneNode(std::string a_sID) : m_sID(a_sID), m_bIsSynced(false), m_bDashboardTrigger(false)
 {
 }
 

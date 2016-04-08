@@ -185,8 +185,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "EditBox")
 	{
-		pEntity = new CSpriteNode("ui/textfieldBackground.png", EAnchor::CENTER, width, height, x, y);
-		CEditBoxNode* pEditBox = new CEditBoxNode(IntToAnchor(rParams["anchor"].GetInt()), 100);
+		pEntity = new CSpriteNode("ui/textfieldBackground.png", IntToAnchor(rParams["anchor"].GetInt()), width, height, x, y);
+		CEditBoxNode* pEditBox = new CEditBoxNode(EAnchor::CENTER, 100);
 		pEntity->AddChildNode(pEditBox);
 	}
 
@@ -268,7 +268,11 @@ template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
 {
 	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString());
-	a_pNode->AddChildNode(pSceneNode);
+	if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
+		m_pKernel->m_pDashboard = pSceneNode;
+	else
+		a_pNode->AddChildNode(pSceneNode);
+	
 	if (a_rJsonNode.HasMember("content"))
 	{
 		RefJsonNode rEntities = a_rJsonNode["content"];
@@ -296,6 +300,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 	if (a_rJsonNode.HasMember("synced"))
 	{
 		pSceneNode->SetSynced(a_rJsonNode["synced"].GetBool());
+	}
+	if (a_rJsonNode.HasMember("dashboardTrigger"))
+	{
+		pSceneNode->m_bDashboardTrigger = a_rJsonNode["dashboardTrigger"].GetBool();
 	}
 }
 

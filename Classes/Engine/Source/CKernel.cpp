@@ -11,6 +11,7 @@
 #include "../Include/CFindEntityFromTypeVisitor.h"
 
 #include "../Include/CInputManager.h"
+#include "../Include/CSoundManager.h"
 #include "../Include/CJsonParser.h"
 #include "../../Modules/Networking/Networking.h"
 #include "../../Modules/Util/Include/Util.h"
@@ -32,9 +33,12 @@ namespace LM
 	CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
 		m_pJsonParser(new CJsonParser(this)),
 		m_pNetworkManager(new CNetworkManager(this)),
+		m_pSoundManager(new CSoundManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
 		m_bCoopWaiting(false),
-		m_pLocalPlayer(new SUser())
+		m_pLocalPlayer(new SUser()),
+		m_pDashboard(nullptr),
+		m_pCurrentScene(nullptr)
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
@@ -45,6 +49,7 @@ CKernel::~CKernel()
 	delete m_pBehaviorTree;
 	delete m_pInputManager;
 	delete m_pNetworkManager;
+	delete m_pSoundManager;
 	delete m_pJsonParser;
 	delete m_pLocalPlayer;
 }
@@ -101,7 +106,7 @@ void CKernel::Init()
 	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
-
+	m_pCurrentScene = pFirstScene;
 	Scene* pScene = pFirstScene->CreateScene();
 	pFirstScene->init();
 
@@ -229,12 +234,17 @@ void CKernel::SendNetworkMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
 	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
 }
 
-void CKernel::OnReceivingMessage(const std::string& a_rMessage)
+void CKernel::LocalMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	std::string sKernel = "kernel";
-	if (a_rMessage.substr(0, sKernel.size()) == sKernel)
+	CCLOG("processing Local message %s", a_oEvent.m_sStringValue.c_str());
+	ProcessMessage(a_oEvent.m_sStringValue);
+}
+
+void CKernel::ProcessMessage(const std::string& a_rMessage)
+{
+	std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
+	if (vSplittedMessage[0] == "kernel")
 	{
-		std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
 		if (vSplittedMessage[1] == "waiting")
 		{
 			m_bCoopWaiting = true;
@@ -244,11 +254,20 @@ void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 			ValidateScene(CEvent(), nullptr);
 		}
 	}
-	else
+	else if (vSplittedMessage[0] == "Dashboard")
+	{
+		CDispatchMessageVisitor oVisitor(a_rMessage);
+		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pDashboard);
+	}
 	{
 		CDispatchMessageVisitor oVisitor(a_rMessage);
 		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pBehaviorTree);
 	}
+}
+
+void CKernel::OnReceivingMessage(const std::string& a_rMessage)
+{
+	ProcessMessage(a_rMessage);
 }
 
 void CKernel::OnReceiving(bytes a_rByteArray)
@@ -363,9 +382,18 @@ void CKernel::AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pAnchoredEnti
 		else {
 			// put entity back
 			CCLOG("put anchored entity back");
-			a_pAnchoredEntity->Revert();
-			CEntityNode::Release(a_pAnchoredEntity);
-			a_pAnchoredEntity->Dispatch("AnchoredFailed");
+			auto dispatchMessage = CallFunc::create([a_pAnchoredEntity]() {
+				CEntityNode::Release(a_pAnchoredEntity);
+				a_pAnchoredEntity->Dispatch("AnchoredFailed");
+			});
+
+			auto revert = CallFunc::create([a_pAnchoredEntity]() {
+				a_pAnchoredEntity->Revert();
+			});
+
+			auto oSequence = Sequence::create(dispatchMessage, revert, nullptr);
+
+			a_pAnchoredEntity->GetCocosEntity()->runAction(oSequence);
 		}
 	}
 }
@@ -405,6 +433,14 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 	}
 
 }
+
+
+
+void CKernel::PlaySoundCallback(CEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
+}
+
 
 void CKernel::LogMessage(const std::string& a_sMessage)
 {

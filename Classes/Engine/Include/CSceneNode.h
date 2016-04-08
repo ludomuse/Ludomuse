@@ -23,6 +23,8 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
 
   bool m_bIsSynced;
 
+public:
+	bool m_bDashboardTrigger;
   
  public:
   CSceneNode(std::string a_sID = "none");
@@ -40,6 +42,7 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
   void SetSynced(bool a_bIsSynced);
 
   bool IsSynced();
+
 
   CREATE_FUNC(CSceneNode);
 };

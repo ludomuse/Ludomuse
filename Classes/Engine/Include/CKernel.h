@@ -3,7 +3,7 @@
 
 
 #include "cocos2d.h"
-#include "CNode.h"
+#include "CSceneNode.h"
 #include "SUser.h"
 
 
@@ -13,6 +13,7 @@ namespace LM
 class CInputManager;
 class CJsonParser;
 class CNetworkManager;
+class CSoundManager;
 struct CEvent;
 class CEntityNode;
 
@@ -25,10 +26,14 @@ class CKernel
   /// \brief the Behavior Tree of the game
   /// \details a pointer to the root node of the tree, usually a SequenceNode
   CNode* m_pBehaviorTree;
+
+
   /// \details will forward the inputs to the behavior tree
   CInputManager* m_pInputManager;
   /// \details will manage networking events such as direct wifi
   CNetworkManager* m_pNetworkManager;
+
+  CSoundManager* m_pSoundManager;
   
   /// \brief The parser that will build the behavior tree from the json file
   CJsonParser* m_pJsonParser;
@@ -38,6 +43,13 @@ class CKernel
   SUser* m_pDistantPlayer;
 
   bool m_bCoopWaiting;
+
+public:
+	/// \brief a reference to the dashboard with the timeline of the game
+	CSceneNode* m_pDashboard;
+
+	CSceneNode* m_pCurrentScene;
+
 
  public:
   CKernel();
@@ -84,10 +96,12 @@ class CKernel
   void SetPlayerID(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SetPlayerName(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SendNetworkMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void LocalMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
   void Connect(CEvent a_rEvent, CEntityNode* a_pTarget);
   void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void PlaySoundCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
@@ -98,6 +112,7 @@ class CKernel
 
 private:
 	void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
+	void ProcessMessage(const std::string& a_rMessage);
 
 };
 

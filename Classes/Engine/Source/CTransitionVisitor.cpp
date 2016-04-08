@@ -37,6 +37,12 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 {
+	if (m_pKernel->m_pCurrentScene->m_bDashboardTrigger)
+	{
+		// init dashboard
+		InitScene(m_pKernel->m_pDashboard);
+		return;
+	}
 	bool bSceneExists = false;
 	if (m_bTransitionNext)
 	{
@@ -54,25 +60,31 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 	}
 	CSceneNode* pNewSceneNode = dynamic_cast<CSceneNode*>(a_pSequence->GetCurrentNode());
 	if (!m_pKernel->PlayerHasScene(pNewSceneNode->GetSceneID()))
-	{
+	{ // if the player does not have this scene in his list, skip it and go to the next one
 		GotoScene(a_pSequence);
 		return;
 	}
 	else if (pNewSceneNode)
 	{
-		Scene* pNewScene = pNewSceneNode->CreateScene();
-		pNewSceneNode->init();
-
-		if (m_bTransitionNext)
-		{
-			Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
-		}
-		else
-		{
-			Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
-		}
+		InitScene(pNewSceneNode);
 	}
 
+}
+
+void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
+{
+	Scene* pNewScene = a_pSceneNode->CreateScene();
+	a_pSceneNode->init();
+
+	if (m_bTransitionNext)
+	{
+		Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+	}
+	else
+	{
+		Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
+	}
+	m_pKernel->m_pCurrentScene = a_pSceneNode;
 }
 
 } // namespace LM

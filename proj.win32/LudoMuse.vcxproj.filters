@@ -105,6 +105,9 @@
     <ClCompile Include="..\Classes\Engine\Source\CEditBoxNode.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CSoundManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -213,6 +216,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CEditBoxNode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CSoundManager.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -22,10 +22,6 @@
 		"screen-peers"
 	    ],
 	    [
-		"screen-board",
-		"screen-board"
-	    ],
-	    [
 		"screen-1-b-player1",
 		"screen-1-b-player2"
 	    ],
@@ -95,6 +91,10 @@
 	    [
 		"screen-2-h-player1",
 		"screen-2-h-player2"
+	    ],
+	    [
+	    "screen-article-player1",
+	    "screen-article-player2"
 	    ],
 	    [
 		"screen-2-i-player1",
@@ -973,7 +973,7 @@
 		]
 	    },
 	    {
-		"scene": "screen-board",
+		"scene": "Dashboard",
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -1118,7 +1118,16 @@
 						    "source":"cache/QuestWheat.png",
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+						    "height": 100,
+                "listeners": [
+                  {
+							    "type": "Show",
+							    "params": {
+								"callback": "Show",
+								"arg": false
+							    }
+							}
+                ]
 						}
 					    }
 					]
@@ -1134,11 +1143,21 @@
 					"children": [
 					    {
 						"type": "Image",
+					    "id": "sugar",
 						"params": {
 						    "source":"cache/QuestSugar.png",
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+						    "height": 100,
+                "listeners": [
+                  {
+							    "type": "Show",
+							    "params": {
+								"callback": "Show",
+								"arg": false
+							    }
+							}
+                ]
 						}
 					    }
 					]
@@ -2747,6 +2766,13 @@
 					"y": 0,
 					"listeners": [
 					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-1-h-player2:Show:check1"
+					    	}
+					    },
+					    {
 						"type": "Touch",
 						"params": {
 						    "callback": "ValidateScene",
@@ -2766,6 +2792,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "check1",
+					    	"params": {
+							"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params" : {
+					    					"callback": "Show"
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -2780,6 +2823,13 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-1-h-player2:Show:check2"
+					    	}
+					    },
 					    {
 						"type": "Touch",
 						"params": {
@@ -2800,6 +2850,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "check2",
+					    	"params": {
+							"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params" : {
+					    					"callback": "Show"
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -2814,6 +2881,13 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-1-h-player2:Show:check3"
+					    	}
+					    },
 					    {
 						"type": "Touch",
 						"params": {
@@ -2834,6 +2908,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "check3",
+					    	"params": {
+							"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params" : {
+					    					"callback": "Show"
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -2848,6 +2939,13 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-1-h-player2:Show:check4"
+					    	}
+					    },
 					    {
 						"type": "Touch",
 						"params": {
@@ -2876,6 +2974,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "check4",
+					    	"params": {
+							"source": "ui/check.png",
+								"anchor": 0,
+								"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params" : {
+					    					"callback": "Show"
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -3718,6 +3833,13 @@
 			    "x": 0,
 			    "y": 0,
           "listeners": [
+          				{
+      						"type": "Touch",
+      						"params": {
+      							"callback": "PlaySound",
+      							"arg": "cache/audio/louis.mp3"
+      						}
+      					},
 					    {
 						"type": "Touch",
 						"params": {
@@ -4283,7 +4405,7 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "ui/cache-noir-70.png",
+			    "source": "cache/plate.png",
 			    "anchor": 0,
 			    "width": 30,
 			    "listeners": [
@@ -4333,6 +4455,13 @@
 							    }
 							},
 							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:Show:flourCheck"
+								}
+							},
+							{
 							    "type": "Droped",
 							    "params": {
 								"callback": "Fade"
@@ -4365,6 +4494,23 @@
 								"height": 100,
 								"anchor": 0
 							    }
+							},
+							{
+								"type": "Image",
+								"id": "flourCheck",
+								"params": {
+									"source": "ui/check.png",
+									"anchor": 0,
+									"width": 100,
+									"listeners": [
+										{
+											"type": "Show",
+											"params": {
+												"callback": "Show"
+											}
+										}
+									]
+								}
 							}
 						    ]
 						}
@@ -4385,6 +4531,13 @@
 							    "params": {
 								"callback": ""
 							    }
+							},
+							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:Show:butterCross"
+								}
 							},
 							{
 							    "type": "Droped",
@@ -4419,6 +4572,23 @@
 								"height": 100,
 								"anchor": 0
 							    }
+							},
+							{
+								"type": "Image",
+								"id": "butterCross",
+								"params": {
+									"source": "ui/cross.png",
+									"anchor": 0,
+									"width": 100,
+									"listeners": [
+										{
+											"type": "Show",
+											"params": {
+												"callback": "Show"
+											}
+										}
+									]
+								}
 							}
 						    ]
 						}
@@ -4439,6 +4609,13 @@
 							    "params": {
 								"callback": ""
 							    }
+							},
+							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:Show:waterCheck"
+								}
 							},
 							{
 							    "type": "Droped",
@@ -4473,6 +4650,23 @@
 								"height": 100,
 								"anchor": 0
 							    }
+							},
+							{
+								"type": "Image",
+								"id": "waterCheck",
+								"params": {
+									"source": "ui/check.png",
+									"anchor": 0,
+									"width": 100,
+									"listeners": [
+										{
+											"type": "Show",
+											"params": {
+												"callback": "Show"
+											}
+										}
+									]
+								}
 							}
 						    ]
 						}
@@ -4501,6 +4695,13 @@
 							    }
 							},
 							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:Show:sugarCross"
+								}
+							},
+							{
 							    "type": "Show",
 							    "params": {
 								"callback": "Show",
@@ -4527,6 +4728,23 @@
 								"height": 100,
 								"anchor": 0
 							    }
+							},
+							{
+								"type": "Image",
+								"id": "sugarCross",
+								"params": {
+									"source": "ui/cross.png",
+									"anchor": 0,
+									"width": 100,
+									"listeners": [
+										{
+											"type": "Show",
+											"params": {
+												"callback": "Show"
+											}
+										}
+									]
+								}
 							}
 						    ]
 						}
@@ -4550,7 +4768,15 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -4572,7 +4798,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+      ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -5434,7 +5668,173 @@
 		]
 	    },
 	    {
+	    	"scene": "screen-article-player1",
+			"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Approcher les deux tablettes pour lire l'article",
+					"color": "0,0,0,255",
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"content": [
+			{
+				"type": "Image",
+				"params": {
+					"source": "cache/newspaper1.png",
+					"anchor": 0,
+					"height": 80
+				}
+			}
+		]
+    	},
+    	{
+	    	"scene": "screen-article-player2",
+			"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 7,
+			    "normal": "ui/nav-7.png",
+			    "selected": "ui/nav-7-active.png",
+			    "action": "prev",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Précédent",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "source": "ui/info-6.png",
+			    "anchor": 6,
+			    "width": 0,
+			    "height": 13,
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Approchez les deux tablettes pour lire l'article",
+					"color": "0,0,0,255",
+					"anchor": 0,
+					"width": 80,
+					"height": 100
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"content": [
+			{
+				"type": "Image",
+				"params": {
+					"source": "cache/newspaper2.png",
+					"anchor": 0,
+					"height": 80
+				}
+			}
+		]
+
+		},
+	    {
 		"scene": "screen-2-i-player1",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -5518,19 +5918,30 @@
 		    },
 		    {
 			"type": "Image",
+			"id": "sugarReward",
 			"params": {
 			    "source": "cache/sugar.png",
 			    "anchor": 0,
 			    "width": 15,
 			    "height": 30,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+			    "listeners": [
+			    	{
+			    		"type": "Init",
+			    		"params": {
+			    			"callback": "LocalMessage",
+			    			"arg": "Dashboard:Show:sugar"
+			    		}
+			    	}
+			    ]
 			}
 		    }
 		]
 	    },
 	    {
 		"scene": "screen-2-i-player2",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -5615,19 +6026,23 @@
 		    },
 		    {
 			"type": "Image",
+			"id": "sugarReward",
 			"params": {
 			    "source": "cache/sugar.png",
 			    "anchor": 0,
 			    "width": 15,
 			    "height": 30,
 			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
+			    "y": 0,
+			    "listeners": [
+			    	{
+			    		"type": "Init",
+			    		"params": {
+			    			"callback": "LocalMessage",
+			    			"arg": "Dashboard:Show:sugar"
+			    		}
+			    	}
+			    ]
 			}
 		    }
 		]
@@ -6069,7 +6484,15 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -6091,7 +6514,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+      ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -6226,9 +6657,9 @@
 				},
 				{
 				    "type": "Image",
-				    "id":"Puzzle2",
+				    "id":"Puzzle12",
 				    "params": {
-					"source": "cache/Puzzle2.png",
+					"source": "cache/Puzzle12.png",
 					"anchor": 0,
 					"width": 0,
 					"height": 80,
@@ -6272,9 +6703,9 @@
 				},
 				{
 				    "type": "Image",
-				    "id":"Puzzle3",
+				    "id":"Puzzle14",
 				    "params": {
-					"source": "cache/Puzzle3.png",
+					"source": "cache/Puzzle14.png",
 					"anchor": 0,
 					"width": 0,
 					"height": 80,
@@ -6318,9 +6749,9 @@
 				},
 				{
 				    "type": "Image",
-				    "id":"Puzzle4",
+				    "id":"Puzzle15",
 				    "params": {
-					"source": "cache/Puzzle4.png",
+					"source": "cache/Puzzle15.png",
 					"anchor": 0,
 					"width": 0,
 					"height": 80,
@@ -6498,10 +6929,10 @@
 			    "y": 0
 			}
 		    },
-		    {
+        {
 			"type": "Image",
 			"params": {
-			    "source": "cache/Puzzle.png",
+			    "source": "cache/ImgBack.png",
 			    "anchor": 8,
 			    "width": 0,
 			    "height": 80,
@@ -6513,16 +6944,45 @@
 				    "params": {
 					"cols": 5,
 					"rows": 4,
-					"anchor": 0,
+					"anchor": 8,
 					"width": 100,
 					"height": 100,
 					"children": [
+            {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle16.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+						}
+					    },
+					    {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle17.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+					    },
 					    {
 						"type": "Group",
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle18.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6530,7 +6990,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle19.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6538,7 +7009,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle20.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6546,23 +7028,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle11.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6594,7 +7071,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle13.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6650,7 +7138,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle6.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6658,7 +7157,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle7.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6666,7 +7176,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle8.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6674,7 +7195,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle9.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6682,9 +7214,21 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle10.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
-					    },{
+					    },
+              {
 						"type": "Group",
 						"params": {
 						    "anchor": 0,
@@ -6713,7 +7257,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle2.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6721,7 +7276,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle3.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6729,7 +7295,18 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle4.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    },
 					    {
@@ -6737,14 +7314,25 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+                "height": 100,
+                "children": [
+                  {
+				    "type": "Image",
+				    "params": {
+					"source": "cache/Puzzle5.png",
+					"anchor": 0,
+					"width": 0,
+					"height": 100
+				    }
+				        }
+                ]
 						}
 					    }
 					]
 				    }
-				}
-			    ]
-			}
+          }
+          ]
+        }
 		    },
 		    {
 			"type": "Image",
@@ -6781,7 +7369,7 @@
 						}
 					    },
 					    {
-						"type": "Droped",
+						"type": "Anchored",
 						"params": {
 						    "callback": "Validate",
 						    "arg": "PuzzleA"
@@ -6797,10 +7385,42 @@
 					    {
 						"type": "AnchoredFailed",
 						"params": {
+						    "callback": "Fade"
+				    	}
+				    	},
+					    {
+						"type": "AnchoredFailed",
+						"params": {
 						    "callback": "SendMessage",
 						    "arg": "screen-3-b-player1:ReturnElement:Puzzle1"
 						}
+					    },
+					    {
+					    	"type": "AnchoredFailed",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-3-b-player2:Show:puzzleACross"
+					    	}
 					    }
+					],
+					"children": [
+						{
+							"type": "Image",
+							"id": "puzzleACross",
+							"params": {
+								"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Show",
+										"params": {
+											"callback": ""
+										}
+									}
+								]
+							}
+						}
 					]
 				    }
 				},
@@ -6808,7 +7428,7 @@
 				    "type": "Image",
 				    "id": "PuzzleB",
 				    "params": {
-					"source": "cache/Puzzle2.png",
+					"source": "cache/Puzzle12.png",
 					"anchor": 0,
 					"width": 40,
 					"height": 100,
@@ -6828,7 +7448,7 @@
 						}
 					    },
 					    {
-						"type": "Droped",
+						"type": "Anchored",
 						"params": {
 						    "callback": "Validate",
 						    "arg": "PuzzleB"
@@ -6845,9 +7465,35 @@
 						"type": "AnchoredFailed",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-3-b-player1:ReturnElement:Puzzle2"
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle12"
 						}
+					    },
+					    {
+					    	"type": "AnchoredFailed",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-3-b-player2:Show:puzzleBCross"
+					    	}
 					    }
+					],
+					"children": [
+						{
+							"type": "Image",
+							"id": "puzzleBCross",
+							"params": {
+								"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Show",
+										"params": {
+											"callback": ""
+										}
+									}
+								]
+							}
+						}
 					]
 				    }
 				},
@@ -6855,7 +7501,7 @@
 				    "type": "Image",
 				    "id": "PuzzleC",
 				    "params": {
-					"source": "cache/Puzzle3.png",
+					"source": "cache/Puzzle14.png",
 					"anchor": 0,
 					"width": 40,
 					"height": 100,
@@ -6875,7 +7521,7 @@
 						}
 					    },
 					    {
-						"type": "Droped",
+						"type": "Anchored",
 						"params": {
 						    "callback": "Validate",
 						    "arg": "PuzzleC"
@@ -6892,9 +7538,35 @@
 						"type": "AnchoredFailed",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-3-b-player1:ReturnElement:Puzzle3"
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle14"
 						}
+					    },
+					    {
+					    	"type": "AnchoredFailed",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-3-b-player2:Show:puzzleCCross"
+					    	}
 					    }
+					],
+					"children": [
+						{
+							"type": "Image",
+							"id": "puzzleCCross",
+							"params": {
+								"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Show",
+										"params": {
+											"callback": ""
+										}
+									}
+								]
+							}
+						}
 					]
 				    }
 				},
@@ -6902,7 +7574,7 @@
 				    "type": "Image",
 				    "id": "PuzzleD",
 				    "params": {
-					"source": "cache/Puzzle4.png",
+					"source": "cache/Puzzle15.png",
 					"anchor": 0,
 					"width": 40,
 					"height": 100,
@@ -6922,7 +7594,7 @@
 						}
 					    },
 					    {
-						"type": "Droped",
+						"type": "Anchored",
 						"params": {
 						    "callback": "Validate",
 						    "arg": "PuzzleD"
@@ -6939,9 +7611,35 @@
 						"type": "AnchoredFailed",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-3-b-player1:ReturnElement:Puzzle4"
+						    "arg": "screen-3-b-player1:ReturnElement:Puzzle15"
 						}
+					    },
+					    {
+					    	"type": "AnchoredFailed",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-3-b-player2:Show:puzzleDCross"
+					    	}
 					    }
+					],
+					"children": [
+						{
+							"type": "Image",
+							"id": "puzzleDCross",
+							"params": {
+								"source": "ui/cross.png",
+								"anchor": 0,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Show",
+										"params": {
+											"callback": ""
+										}
+									}
+								]
+							}
+						}
 					]
 				    }
 				}
@@ -7312,6 +8010,7 @@
 	    },
 	    {
 		"scene": "screen-3-e-player1",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -7408,6 +8107,7 @@
 	    },
 	    {
 		"scene": "screen-3-e-player2",
+		"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -7940,7 +8640,15 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -7962,7 +8670,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+      ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -8675,7 +9391,15 @@
 			    "anchor": 5,
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
+          "action": "next",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -8697,7 +9421,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+      ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -8823,6 +9555,15 @@
 				}
 			    ]
 			}
+    },
+    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"Loire",
+				"Tour"
+			    ]
+			}
 		    }
 		],
     "information": [
@@ -8919,6 +9660,7 @@
 			    "children": [
 				{
 				    "type": "Image",
+            "id": "Loire",
 				    "params": {
 					"source": "cache/answerBackground.png",
 					"anchor": 6,
@@ -8927,20 +9669,20 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
-					    {
-						"type": "Touch",
-						"params": {
-						    "callback": "ValidateScene",
-						    "arg": true
-						}
-          },
           {
 						"type": "Touch",
 						"params":
 						{
-						    "callback": "SendMessage",
-						    "arg": "kernel:Validate"
+						    "callback": "Validate",
+						    "arg": "Loire"
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-4-d-player2:Show:checkLoire"
+					    	}
 					    }
 					],
 					"children": [
@@ -8955,6 +9697,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "checkLoire",
+					    	"params": {
+					    		"source": "ui/check.png",
+					    		"anchor": 0,
+					    		"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"	
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -8975,6 +9734,13 @@
 						    "callback": "ValidateScene",
 						    "arg": false
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-4-d-player2:Show:crossGare"
+					    	}
 					    }
 					],
 					"children": [
@@ -8989,6 +9755,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "crossGare",
+					    	"params": {
+					    		"source": "ui/cross.png",
+					    		"anchor": 0,
+					    		"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"	
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -9009,6 +9792,13 @@
 						    "callback": "ValidateScene",
 						    "arg": false
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-4-d-player2:Show:crossChateau"
+					    	}
 					    }
 					],
 					"children": [
@@ -9023,12 +9813,30 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "crossChateau",
+					    	"params": {
+					    		"source": "ui/cross.png",
+					    		"anchor": 0,
+					    		"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"	
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
 				},
 				{
 				    "type": "Image",
+            "id": "Tour",
 				    "params": {
 					"source": "cache/answerBackground.png",
 					"anchor": 6,
@@ -9037,20 +9845,20 @@
 					"x": 0,
 					"y": 0,
 					"listeners": [
-					    {
-						"type": "Touch",
-						"params": {
-						    "callback": "ValidateScene",
-						    "arg": true
-						}
-					    },
-					    {
+          				{
 						"type": "Touch",
 						"params":
 						{
-						    "callback": "SendMessage",
-						    "arg": "kernel:Validate"
+						    "callback": "Validate",
+						    "arg": "Tour"
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "LocalMessage",
+					    		"arg": "screen-4-d-player2:Show:checkTour"
+					    	}
 					    }
 					],
 					"children": [
@@ -9065,6 +9873,23 @@
 						    "height": 100,
 						    "anchor": 0
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "checkTour",
+					    	"params": {
+					    		"source": "ui/check.png",
+					    		"anchor": 0,
+					    		"height": 100,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"	
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					]
 				    }
@@ -9087,6 +9912,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -9108,7 +9941,15 @@
 			    "anchor": 7,
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
+          "action": "prev",
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10067,6 +10908,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10089,6 +10938,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10216,6 +11073,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10238,6 +11103,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10248,6 +11121,17 @@
 					"height": 100
 				    }
 				}
+			    ]
+			}
+    },
+    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"1",
+				"2",
+        "3",
+        "4"
 			    ]
 			}
 		    }
@@ -10312,12 +11196,235 @@
 			"params": {
 			    "source": "cache/Maquette2.png",
 			    "anchor": 0,
-			    "width": 80,
-			    "height": 100,
+			    "width": 0,
+			    "height": 80,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+          "children": [
+          {
+  			"type": "Grid",
+  			"params": {
+  			    "cols": 3,
+  			    "rows": 3,
+  			    "width": 100,
+  			    "height": 100,
+  			    "anchor": 0,
+  			    "alignItems": "center",
+  			    "children": [
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+                "children": [
+                  {
+      			"type": "Image",
+      			"params": {
+              "source": "ui/cache-blanc-50.png",
+      			    "anchor": 0,
+      			    "width": 50,
+      			    "height": 0,
+      			    "x": 0,
+      			    "y": 0
+              }
+            },
+                  {
+  						"type": "Text",
+  						"params": {
+  						    "content": "3",
+                  "color": "0,0,0,255",
+                  "fontSize": 40,
+  						    "anchor": 0,
+  						    "width": 100,
+  						    "height": 100
+  						}
+  					    }
+              ],
+              "listeners": [
+              {
+    						"type": "Touch",
+    						"params":
+    						{
+    						    "callback": "Validate",
+    						    "arg": "3"
+    						}
+    					    }
+    					]
+						}
+          },
+          {
+          "type": "Group",
+          "params": {
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "children": [
+                {
+          "type": "Image",
+          "params": {
+            "source": "ui/cache-blanc-50.png",
+              "anchor": 0,
+              "width": 50,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+                {
+            "type": "Text",
+            "params": {
+                "content": "4",
+                "color": "0,0,0,255",
+                "fontSize": 40,
+                "anchor": 0,
+                "width": 100,
+                "height": 100
+            }
+              }
+            ],
+            "listeners": [
+            {
+  						"type": "Touch",
+  						"params":
+  						{
+  						    "callback": "Validate",
+  						    "arg": "4"
+  						}
+  					    }
+  					]
+          }
+        },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "children": [
+              {
+        "type": "Image",
+        "params": {
+          "source": "ui/cache-blanc-50.png",
+            "anchor": 0,
+            "width": 50,
+            "height": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+              {
+          "type": "Text",
+          "params": {
+              "content": "2",
+              "color": "0,0,0,255",
+              "fontSize": 40,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+          ],
+          "listeners": [
+          {
+						"type": "Touch",
+						"params":
+						{
+						    "callback": "Validate",
+						    "arg": "2"
+						}
+					    }
+					]
+        }
+      },
+      {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "children": [
+              {
+        "type": "Image",
+        "params": {
+          "source": "ui/cache-blanc-50.png",
+            "anchor": 0,
+            "width": 50,
+            "height": 0,
+            "x": 0,
+            "y": 0
+          }
+        },
+              {
+          "type": "Text",
+          "params": {
+              "content": "1",
+              "color": "0,0,0,255",
+              "fontSize": 40,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+          ],
+          "listeners": [
+          {
+						"type": "Touch",
+						"params":
+						{
+						    "callback": "Validate",
+						    "arg": "1"
+						}
+					    }
+					]
+        }
+      },
+      {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    }
+            ]
 			}
 		    }
+      ]
+    }
+  }
     ]
 	    },
 	    {
@@ -10332,6 +11439,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10354,6 +11469,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10364,6 +11487,17 @@
 					"height": 100
 				    }
 				}
+			    ]
+			}
+    },
+    {
+			"type": "Validator",
+			"params": {
+			    "ids": [
+				"AnswerA",
+				"AnswerB",
+				"AnswerC",
+				"AnswerD"
 			    ]
 			}
 		    }
@@ -10427,11 +11561,532 @@
 			"type": "Image",
 			"params": {
 			    "source": "cache/Maquette2.png",
-			    "anchor": 0,
-			    "width": 80,
-			    "height": 100,
+			    "anchor": 8,
+			    "width": 0,
+			    "height": 60,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+          "children": [
+          {
+  			"type": "Grid",
+  			"params": {
+  			    "cols": 3,
+  			    "rows": 3,
+  			    "width": 100,
+  			    "height": 100,
+  			    "anchor": 0,
+  			    "alignItems": "center",
+  			    "children": [
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+              {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100,
+                "children": [
+                  {
+      			"type": "Image",
+      			"params": {
+              "source": "ui/cache-blanc-50.png",
+      			    "anchor": 0,
+      			    "width": 100,
+      			    "height": 100,
+      			    "x": 0,
+      			    "y": 0
+              }
+            },
+                  {
+  						"type": "Text",
+  						"params": {
+  						    "content": "3",
+                  "color": "0,0,0,255",
+                  "fontSize": 40,
+  						    "anchor": 0,
+  						    "width": 100,
+  						    "height": 100
+  						}
+  					    }
+                ],
+						    "listeners": [
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "AnswerA"
+							    }
+							},
+							{
+  							    "type": "Drop",
+  							    "params": {
+  								"callback": "SendMessage",
+  								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+							    }
+							}
+						    ]
+						}
+          },
+          {
+          "type": "Group",
+          "params": {
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "children": [
+                {
+          "type": "Image",
+          "params": {
+            "source": "ui/cache-blanc-50.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+                {
+            "type": "Text",
+            "params": {
+                "content": "4",
+                "color": "0,0,0,255",
+                "fontSize": 40,
+                "anchor": 0,
+                "width": 100,
+                "height": 100
+            }
+              }
+              ],
+              "listeners": [
+            {
+                "type": "Drop",
+                "params": {
+              "callback": "AnchorEntity",
+              "arg": "AnswerB"
+                }
+            },
+            {
+                  "type": "Drop",
+                  "params": {
+                "callback": "SendMessage",
+                "arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+                }
+            }
+              ]
+          }
+        },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "children": [
+              {
+        "type": "Image",
+        "params": {
+          "source": "ui/cache-blanc-50.png",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "x": 0,
+            "y": 0
+          }
+        },
+              {
+          "type": "Text",
+          "params": {
+              "content": "2",
+              "color": "0,0,0,255",
+              "fontSize": 40,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+            ],
+            "listeners": [
+          {
+              "type": "Drop",
+              "params": {
+            "callback": "AnchorEntity",
+            "arg": "AnswerD"
+              }
+          },
+          {
+                "type": "Drop",
+                "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+              }
+          }
+            ]
+        }
+      },
+      {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    },
+        {
+        "type": "Group",
+        "params": {
+            "anchor": 0,
+            "width": 100,
+            "height": 80,
+            "children": [
+              {
+        "type": "Image",
+        "params": {
+          "source": "ui/cache-blanc-50.png",
+            "anchor": 0,
+            "width": 100,
+            "height": 100,
+            "x": 0,
+            "y": 0
+          }
+        },
+              {
+          "type": "Text",
+          "params": {
+              "content": "1",
+              "color": "0,0,0,255",
+              "fontSize": 40,
+              "anchor": 0,
+              "width": 100,
+              "height": 100
+          }
+            }
+            ],
+            "listeners": [
+          {
+              "type": "Drop",
+              "params": {
+            "callback": "AnchorEntity",
+            "arg": "AnswerC"
+              }
+          },
+          {
+                "type": "Drop",
+                "params": {
+              "callback": "SendMessage",
+              "arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+              }
+          }
+            ]
+        }
+      },
+      {
+						"type": "Group",
+						"params": {
+						    "anchor": 0,
+						    "width": 100,
+						    "height": 100
+						}
+					    }
+            ]
+			}
+		    }
+      ]
+    }
+  },
+  {
+			"type": "Image",
+			"id": "dropArea1",
+			"params": {
+			    "source": "cache/sendingArea.png",
+			    "anchor": 4,
+			    "width": 30,
+			    "height": 100,
+			    "x": 70,
+			    "y": 0,
+			    "children": [
+            {
+  			"type": "Group",
+        "id":"AnswerA",
+  			"params": {
+  			    "anchor": 0,
+  			    "width": 70,
+  			    "height": 100,
+    			    "children": [
+  				{
+    				    "type": "Image",
+    				    "params": {
+    					"source": "ui/cache-noir-70.png",
+    					"anchor": 0,
+  					"width": 100,
+  					"height": 100
+    				    }
+    				},
+            {
+                "type": "Text",
+                "params": {
+              "content": "Mise en boite des biscuits",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "fontSize": 22
+            }
+          }
+        ],
+              "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "AnswerA"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-g-player2:ReturnElement:Answer1"
+						}
+					    }
+					]
+				    }
+				},
+        {
+    "type": "Group",
+    "id":"AnswerB",
+    "params": {
+        "anchor": 0,
+        "width": 70,
+        "height": 100,
+          "children": [
+      {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+        "width": 100,
+        "height": 100
+            }
+        },
+        {
+          "type": "Text",
+          "params": {
+        "content": "Préparation des caisses en bois pour les expéditions",
+        "anchor": 0,
+        "width": 100,
+        "height": 100,
+        "fontSize": 22
+      }
+    }
+  ],
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "AnswerB"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-g-player2:ReturnElement:Answer2"
+						}
+					    }
+					]
+				    }
+				},
+        {
+        "type": "Group",
+        "id":"AnswerC",
+        "params": {
+        "anchor": 0,
+        "width": 70,
+        "height": 100,
+          "children": [
+        {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+        "width": 100,
+        "height": 100
+            }
+        },
+        {
+            "type": "Text",
+            "params": {
+          "content": "Préparation des pâtes",
+          "anchor": 0,
+          "width": 100,
+          "height": 100,
+          "fontSize": 22
+        }
+      }
+    ],
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "AnswerC"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-g-player2:ReturnElement:Answer3"
+						}
+					    }
+					]
+				    }
+				},
+        {
+        "type": "Group",
+        "id":"AnswerD",
+        "params": {
+        "anchor": 0,
+        "width": 70,
+        "height": 100,
+          "children": [
+        {
+            "type": "Image",
+            "params": {
+          "source": "ui/cache-noir-70.png",
+          "anchor": 0,
+        "width": 100,
+        "height": 100
+            }
+        },
+        {
+            "type": "Text",
+            "params": {
+          "content": "Cuisson des biscuits",
+          "anchor": 0,
+          "width": 100,
+          "height": 100,
+          "fontSize": 22
+        }
+      }
+    ],
+          "listeners": [
+					    {
+						"type": "Move",
+						"params": {
+						    "callback": ""
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Anchored"
+						}
+					    },
+					    {
+						"type": "Anchored",
+						"params": {
+						    "callback": "Validate",
+						    "arg": "AnswerD"
+						}
+					    },
+					    {
+						"type": "Show",
+						"params": {
+						    "callback": "Show",
+						    "arg": false
+						}
+					    },
+					    {
+						"type": "AnchoredFailed",
+						"params": {
+						    "callback": "SendMessage",
+						    "arg": "screen-4-g-player2:ReturnElement:Answer4"
+						}
+					    }
+					]
+				    }
+				}
+			    ]
 			}
 		    }
     ]
@@ -10448,6 +12103,14 @@
 			    "normal": "ui/nav-5.png",
 			    "selected": "ui/nav-5-active.png",
 			    "action": "next",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10470,6 +12133,14 @@
 			    "normal": "ui/nav-7.png",
 			    "selected": "ui/nav-7-active.png",
 			    "action": "prev",
+          "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ],
 			    "children": [
 				{
 				    "type": "Text",
@@ -10541,7 +12212,7 @@
       },
       {
     "type": "Image",
-    "id": "dropArea1",
+    "id": "dropArea2",
     "params": {
         "source": "cache/sendingArea.png",
         "anchor": 4,
@@ -10560,7 +12231,7 @@
           "type": "DropEnabledBack",
           "params": {
         "callback": "EnableEvent",
-        "arg": "dropArea1:Drop"
+        "arg": "dropArea2:Drop"
           }
       }
         ]
@@ -10621,14 +12292,14 @@
               "type": "Droped",
               "params": {
                   "callback": "DisableEvent",
-                  "arg": "dropArea1:Drop"
+                  "arg": "dropArea2:Drop"
               }
                 },
                 {
               "type": "Droped",
               "params": {
                   "callback": "SendMessage",
-                  "arg": "screen-4-g-player2:Show:AnswerA"
+                  "arg": "screen-4-g-player1:Show:AnswerA"
               }
                 },
                 {
@@ -10685,14 +12356,14 @@
           "type": "Droped",
           "params": {
               "callback": "DisableEvent",
-              "arg": "dropArea1:Drop"
+              "arg": "dropArea2:Drop"
           }
             },
             {
           "type": "Droped",
           "params": {
               "callback": "SendMessage",
-              "arg": "screen-4-g-player2:Show:AnswerB"
+              "arg": "screen-4-g-player1:Show:AnswerB"
           }
             },
             {
@@ -10749,14 +12420,14 @@
               "type": "Droped",
               "params": {
                   "callback": "DisableEvent",
-                  "arg": "dropArea1:Drop"
+                  "arg": "dropArea2:Drop"
               }
                 },
                 {
               "type": "Droped",
               "params": {
                   "callback": "SendMessage",
-                  "arg": "screen-4-g-player2:Show:AnswerC"
+                  "arg": "screen-4-g-player1:Show:AnswerC"
               }
                 },
                 {
@@ -10813,14 +12484,14 @@
           "type": "Droped",
           "params": {
               "callback": "DisableEvent",
-              "arg": "dropArea1:Drop"
+              "arg": "dropArea2:Drop"
           }
             },
             {
           "type": "Droped",
           "params": {
               "callback": "SendMessage",
-              "arg": "screen-4-g-player2:Show:AnswerD"
+              "arg": "screen-4-g-player1:Show:AnswerD"
           }
             },
             {

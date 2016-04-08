@@ -196,6 +196,8 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 
 	m_oEntityStartLocation = m_pCocosEntity->getPosition();
 	m_fEntityStartScale = m_pCocosEntity->getScale();
+
+	Dispatch("Init");
 }
 
 
@@ -281,18 +283,21 @@ void CEntityNode::Show(bool a_bVisible)
 		CCLOG("Showing entity : %s", GetID().c_str());
 
 	m_bVisible = a_bVisible;
-	m_pCocosEntity->setVisible(a_bVisible);
+	if (m_pCocosEntity) 
+	{
+		m_pCocosEntity->setVisible(a_bVisible);
+		FadeIn();
+	}
 	
 	for (CNode* itNode : *this)
 	{
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-		if (pEntity)
+		if (pEntity && (!pEntity->IsListeningTo("Show") || !a_bVisible))
 		{
 			pEntity->Show(a_bVisible);
 		}
 	}
 
-	FadeIn();
 }
 
 bool CEntityNode::IsLocked()
@@ -340,14 +345,14 @@ void CEntityNode::FadeIn()
 
 	m_pCocosEntity->runAction(oFadeIn);
 
-	for (CNode* itNode : m_vChildren)
+	/*for (CNode* itNode : m_vChildren)
 	{
 		CEntityNode* pChildEntity = dynamic_cast<CEntityNode*>(itNode);
 		if (pChildEntity)
 		{
 			pChildEntity->FadeIn();
 		}
-	}
+	}*/
 }
 
 

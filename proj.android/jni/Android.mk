@@ -19,6 +19,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CNode.cpp \
                    ../../Classes/Engine/Source/CSequenceNode.cpp \
                    ../../Classes/Engine/Source/CInputManager.cpp \
+                   ../../Classes/Engine/Source/CSoundManager.cpp \
                    ../../Classes/Engine/Source/CParallelNode.cpp \
                    ../../Classes/Engine/Source/CSceneNode.cpp \
                    ../../Classes/Engine/Source/CJsonParser.cpp \
