@@ -84,7 +84,9 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 	{
 		Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
 	}
+	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
 	m_pKernel->m_pCurrentScene = a_pSceneNode;
+	pOldScene->UnInit();
 }
 
 } // namespace LM
