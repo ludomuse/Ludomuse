@@ -207,6 +207,15 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			y);
 	}
 
+	else if (sType == "Camera")
+	{
+		pEntity = new CCameraFeedNode(IntToAnchor(rParams["anchor"].GetInt()),
+			width,
+			height,
+			x,
+			y);
+	}
+
 
 	// check listeners
 	if (rParams.HasMember("listeners"))

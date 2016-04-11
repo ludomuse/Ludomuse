@@ -18,6 +18,7 @@
 #include "CLabelNode.h"
 #include "CGridNode.h"
 #include "CPeerNode.h"
+#include "CCameraFeedNode.h"
 #include "CValidator.h"
 #include "CEditBoxNode.h"
 
