@@ -37,7 +37,7 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 {
-	if (m_pKernel->m_pCurrentScene->m_bDashboardTrigger)
+	if (m_pKernel->m_pCurrentScene->m_bDashboardTrigger && m_bTransitionNext)
 	{
 		// init dashboard
 		InitScene(m_pKernel->m_pDashboard);
@@ -84,7 +84,9 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 	{
 		Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
 	}
+	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
 	m_pKernel->m_pCurrentScene = a_pSceneNode;
+	pOldScene->UnInit();
 }
 
 } // namespace LM

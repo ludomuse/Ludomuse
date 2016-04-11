@@ -132,7 +132,7 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
 	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
-	oVisistor.Traverse(m_pBehaviorTree);
+	oVisistor.Traverse(m_pCurrentScene);
 
 	EventListenerTouchOneByOne* pEventListener = m_pInputManager->GetEventListener();
 	pEventListener->onTouchEnded = CC_CALLBACK_2(CTouchBeganVisitor::OnTouchEnd, oVisistor);

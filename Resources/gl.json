@@ -1,0 +1,589 @@
+{
+    "app": {
+        "colors": [],
+        "images": [],
+        "videos": [],
+        "sounds": [],
+        "scenes": [
+            [
+                "screen-1-a"
+            ],
+            [
+                "screen-3-a",
+                "screen-3-a"
+            ],
+            [
+                "screen-4-a",
+                "screen-4-a"
+            ],
+            [
+                "screen-1-b-player1",
+                "screen-1-b-player2"
+            ],
+            [
+                "screen-1-c-player1",
+                "screen-1-c-player2"
+            ],
+            [
+                "screen-1-d-player1",
+                "screen-1-d-player2"
+            ],
+            [
+                "screen-1-e-player1",
+                "screen-1-e-player2"
+            ],
+            [
+                "screen-1-f-player1",
+                "screen-1-f-player2"
+            ],
+            [
+                "screen-1-g-player1",
+                "screen-1-g-player2"
+            ],
+            [
+                "screen-1-h-player1",
+                "screen-1-h-player2"
+            ],
+            [
+                "screen-1-h-player1-fail"
+            ],
+            [
+                "screen-1-i-player1",
+                "screen-1-i-player2"
+            ],
+            [
+                "screen-1-j-player1",
+                "screen-1-j-player2"
+            ],
+            [
+                "screen-2-a-player1",
+                "screen-2-a-player2"
+            ],
+            [
+                "screen-2-b-player1",
+                "screen-2-b-player2"
+            ],
+            [
+                "screen-2-c-player1",
+                "screen-2-c-player2"
+            ],
+            [
+                "screen-2-d-player1",
+                "screen-2-d-player2"
+            ],
+            [
+                "screen-2-e-player1",
+                "screen-2-e-player2"
+            ],
+            [
+                "screen-2-f"
+            ],
+            [
+                "screen-2-g-player1",
+                "screen-2-g-player2"
+            ],
+            [
+                "screen-2-h-player1",
+                "screen-2-h-player2"
+            ],
+            [
+                "screen-2-i-player1",
+                "screen-2-i-player2"
+            ],
+            [
+                "screen-2-j-player1",
+                "screen-2-j-player2"
+            ],
+            [
+                "screen-3-a-player1",
+                "screen-3-a-player2"
+            ],
+            [
+                "screen-3-b-player1",
+                "screen-3-b-player2"
+            ],
+            [
+                "screen-3-c-player1",
+                "screen-3-c-player2"
+            ],
+            [
+                "screen-3-d",
+                "screen-3-d"
+            ],
+            [
+                "screen-3-e-player1",
+                "screen-3-e-player2"
+            ],
+            [
+                "screen-3-f-player1",
+                "screen-3-f-player2"
+            ]
+        ],
+        "screens": [
+            {
+                "scene": "screen-1-a",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "content": "SUIVANT",
+                            "width": 18,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "enabled": true,
+                            "color": "",
+                            "backgroundColor": "",
+                            "action": "next",
+                            "listeners": [
+                                {
+                                    "type": "Validate",
+                                    "params": {
+                                        "callback": "Show"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "font": "fonts/arial.ttf",
+                                        "fontSize": 24,
+                                        "width": 100,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "params": {
+                            "content": "Scène 1",
+                            "font": "fonts/arial.ttf",
+                            "fontSize": 24,
+                            "width": 50,
+                            "height": 50,
+                            "anchor": 4,
+                            "color": ""
+                        }
+                    },
+                    {
+                        "type": "Camera",
+                        "params": {
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 100
+                        }
+                    }
+                ]
+            },
+            {
+                "scene": "screen-2-a",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "content": "SUIVANT",
+                            "width": 18,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "enabled": true,
+                            "color": "",
+                            "backgroundColor": "",
+                            "action": "next"
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "params": {
+                            "content": "Scène 2",
+                            "font": "fonts/arial.ttf",
+                            "fontSize": 24,
+                            "width": 50,
+                            "height": 50,
+                            "anchor": 4,
+                            "color": ""
+                        }
+                    },
+                    {
+                        "type": "Grid",
+                        "params": {
+                            "rows": 2,
+                            "cols": 2,
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "listeners": [
+                                {
+                                    "type": "Move",
+                                    "params": {
+                                        "callback": "ValidateScene",
+                                        "arg": false
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Scène 1",
+                                        "fontSize": 24,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "color": "",
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Scène 2",
+                                        "fontSize": 24,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "color": "",
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Scène 3",
+                                        "fontSize": 24,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "color": "",
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Scène 4",
+                                        "fontSize": 24,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "color": "",
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "scene": "screen-3-a",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "content": "SUIVANT",
+                            "width": 18,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "enabled": true,
+                            "color": "",
+                            "backgroundColor": "",
+                            "action": "next"
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "params": {
+                            "content": "Scène 3",
+                            "font": "fonts/arial.ttf",
+                            "fontSize": 24,
+                            "width": 50,
+                            "height": 50,
+                            "anchor": 4,
+                            "color": ""
+                        }
+                    },
+                    {
+                        "type": "Peers",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "listeners" : [
+                                {
+                                    "type": "Peers",
+                                    "params": {
+                                        "callback" :"BuildPeerNodes",
+                                        "arg": ""
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "type": "Group",
+                                    "params": {
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ConnectPeer",
+                                                    "arg": false
+                                                }
+                                            }
+                                        ],
+                                        "children": [
+                                            {
+                                                "type": "Image",
+                                                "params": {
+                                                    "source": "cache/backgroundFactory.png",
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Scène 1",
+                                                    "fontSize": 24,
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "color": "",
+                                                    "listeners" : [
+                                                        {
+                                                            "type": "GetText",
+                                                            "params": {
+                                                                "callback" : "",
+                                                                "arg": ""
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+
+                                        ]
+                                    }
+
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "scene": "screen-4-a",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "content": "SUIVANT",
+                            "width": 18,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "enabled": true,
+                            "color": "",
+                            "backgroundColor": "",
+                            "action": "next",
+                            "listeners": [
+                                {
+                                    "type": "Validate",
+                                    "params": {
+                                        "callback": "Show"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Text",
+                        "params": {
+                            "content": "Scène 4",
+                            "font": "fonts/arial.ttf",
+                            "fontSize": 24,
+                            "width": 50,
+                            "height": 50,
+                            "anchor": 4,
+                            "color": ""
+                        }
+                    },
+                    {
+                        "type": "Grid",
+                        "params": {
+                            "rows": 2,
+                            "cols": 2,
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Scène 1",
+                                        "fontSize": 24,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "color": "",
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Scène 2",
+                                        "fontSize": 24,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "color": "",
+                                        "listeners": [
+                                            {
+                                                "type": "Drop",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "id": "scene3Text",
+                                        "content": "Scène 3",
+                                        "fontSize": 24,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "color": "",
+                                        "listeners": [
+                                            {
+                                                "type": "Show",
+                                                "params": {
+                                                    "callback": "Show",
+                                                    "arg": false
+                                                }
+                                            },
+                                            {
+                                                "type": "Move",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Scène 4",
+                                        "fontSize": 24,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "color": "",
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "SendMessage",
+                                                    "arg": "screen-4-a:Show:scene3Text"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -27,7 +27,9 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 
 void CEntityNode::UnInit()
 {
-	m_pCocosEntity->release();
+	//m_pCocosEntity->autorelease();
+	//m_pCocosEntity->release();
+	m_pCocosEntity = nullptr;
 	CNode::UnInit();
 }
 
