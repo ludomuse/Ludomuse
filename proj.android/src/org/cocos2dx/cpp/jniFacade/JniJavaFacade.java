@@ -4,10 +4,12 @@ import java.io.File;
 import java.lang.String;
 
 import org.cocos2dx.cpp.AppActivity;
+import org.cocos2dx.cpp.CameraActivity;
 import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 
 import android.os.Environment;
+import android.content.Intent;
 
 /**
  * These method are called by c++, when the cpp part of the WifiDirectFacade
@@ -106,7 +108,10 @@ public class JniJavaFacade {
 	public static void takePicture()
 	{
 		AppActivity appActivity = (AppActivity) _wifiDirectFacade.getActivity();
-		appActivity.dispatchTakePictureIntent();
+//		appActivity.dispatchTakePictureIntent();
+		
+		Intent intent = new Intent(appActivity, CameraActivity.class);
+		appActivity.getContext().startActivity(intent);
 	}
 
 	public static void getApplicationDirectory()
