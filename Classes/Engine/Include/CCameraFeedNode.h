@@ -7,10 +7,20 @@
 namespace LM
 {
 
-class CCameraGLView : public cocos2d::DrawNode
+	typedef struct {
+		GLfloat x;
+		GLfloat y;
+	} Vertex2D;
+
+class CCameraGLView : public cocos2d::CCNode
 {
+	Vertex2D *vertices;
+	float radius;
+	int numSegments;
 
  public:
+	 virtual bool init() override;
+	 ~CCameraGLView();
   virtual void draw(cocos2d::Renderer* a_pRenderer,
                     const cocos2d::Mat4& a_rTransform,
                     uint32_t a_iFlags) override;
