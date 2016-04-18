@@ -114,7 +114,7 @@ public class JniJavaFacade {
 		Intent intent = new Intent(appActivity, CameraActivity.class);
 		intent.putExtra("maskPath", maskPath);
 		//appActivity.startActivity(intent);
-		appActivity.startActivityForResult(intent, 0);
+		appActivity.startActivityForResult(intent, 1);
 	}
 
 	public static void getApplicationDirectory()

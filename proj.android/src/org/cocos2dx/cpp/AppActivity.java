@@ -86,7 +86,7 @@ public class AppActivity extends Cocos2dxActivity {
 	// Taking photo
 
 	//static final int REQUEST_TAKE_PHOTO = 1;
-	static final int REQUEST_IMAGE_CAPTURE = 0;
+	static final int REQUEST_IMAGE_CAPTURE = 1;
 	
 	public void dispatchTakePictureIntent()
 	{

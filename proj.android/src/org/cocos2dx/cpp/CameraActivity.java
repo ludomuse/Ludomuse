@@ -90,7 +90,8 @@ public class CameraActivity extends Activity implements OnClickListener {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-//				finishActivity(0);
+//				finishActivity(1);
+//				camera.takePicture(null, null, photoCallback);
 				finish();
 			}
 		});
