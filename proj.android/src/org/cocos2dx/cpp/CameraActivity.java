@@ -1,54 +1,54 @@
 package org.cocos2dx.cpp;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.PixelFormat;
+import android.graphics.Color;
 import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
-import android.hardware.Camera.Size;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.media.Image;
 import android.media.MediaScannerConnection;
 import android.media.MediaScannerConnection.MediaScannerConnectionClient;
 import android.view.Display;
 import android.graphics.PointF;
+import android.graphics.drawable.Drawable;
 import android.app.ProgressDialog;
 import android.view.KeyEvent;
-import android.view.View;
 import android.os.AsyncTask;
 import android.util.Log;
 import java.util.Calendar;
 import android.content.DialogInterface;
 import com.IHMTEK.LudoMuse.R;
 
-import org.cocos2dx.cpp.jniFacade.JniJavaFacade;
-import org.cocos2dx.cpp.jniFacade.WifiDirectFacade;
-import org.cocos2dx.cpp.jniFacade.JniCppFacade;
-import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
-import org.cocos2dx.lib.Cocos2dxActivity;
 
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.widget.Toast;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.io.Console;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.Override;
-import java.util.List;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 
 
 public class CameraActivity extends Activity implements OnClickListener {
 
     private SurfaceView preview = null;
     private SurfaceHolder previewHolder = null;
+    private ImageButton nextButton = null;
+    private ImageView imageView = null;
+    
     private Camera camera = null;
     private boolean inPreview = false;
     ImageView image;
@@ -63,8 +63,6 @@ public class CameraActivity extends Activity implements OnClickListener {
     Display d;
     int screenhgt, screenwdh;
     ProgressDialog dialog;
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,6 +81,38 @@ public class CameraActivity extends Activity implements OnClickListener {
             .getDefaultDisplay().getHeight());
 
 
+        nextButton = (ImageButton) findViewById(R.id.validateButton);
+        nextButton.setBackgroundColor(Color.TRANSPARENT);
+        nextButton.setPadding(0, 0, 0, 0);
+        
+        nextButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+//				finishActivity(0);
+				finish();
+			}
+		});
+        
+        String maskPath = getIntent().getStringExtra("maskPath");
+        try {
+    		URL url = getClass().getResource("/assets/" + maskPath);
+    		
+//    		String path = getFilesDir().getAbsolutePath() + "/assets/" + maskPath;
+//			URL url = new URL(path);
+			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+	        imageView = (ImageView) findViewById(R.id.imageView);
+	        imageView.setImageBitmap(bmp);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("unable to read file : " + e.toString());
+		}
+        
     }
 
     @Override

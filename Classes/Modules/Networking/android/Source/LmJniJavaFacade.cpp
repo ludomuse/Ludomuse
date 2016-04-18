@@ -141,9 +141,9 @@ void LmJniJavaFacade::clean()
 
 }
 
-void LmJniJavaFacade::takePicture()
+void LmJniJavaFacade::takePicture(const std::string& maskPath)
 {
-	callJavaMethod("takePicture", (void*) 0, PARAM_VOID);
+	callJavaMethod("takePicture", (void*) &maskPath, PARAM_STRING);
 }
 
 void LmJniJavaFacade::getApplicationDirectory()
