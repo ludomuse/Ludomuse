@@ -101,8 +101,8 @@ public class SocketHandler {
 	 */
 	public void notifyIsDisconnectedFromNetwork()
 	{
-		stop();
-		dettachFromRemoteHost();
+		//stop();
+		//dettachFromRemoteHost();
 	}
 
 	/**
