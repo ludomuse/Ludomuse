@@ -10,7 +10,7 @@
 class LmJniJavaFacade {
 
 public:
-		static void takePicture();
+		static void takePicture(const std::string&);
 
 		static void getApplicationDirectory();
 private:

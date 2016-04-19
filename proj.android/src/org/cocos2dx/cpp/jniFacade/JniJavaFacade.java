@@ -9,6 +9,7 @@ import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 
 import android.os.Environment;
+import android.sax.StartElementListener;
 import android.content.Intent;
 
 /**
@@ -105,13 +106,15 @@ public class JniJavaFacade {
 		_wifiDirectFacade.clear();
 	}
 
-	public static void takePicture()
+	public static void takePicture(String maskPath)
 	{
 		AppActivity appActivity = (AppActivity) _wifiDirectFacade.getActivity();
 //		appActivity.dispatchTakePictureIntent();
 		
 		Intent intent = new Intent(appActivity, CameraActivity.class);
-		appActivity.getContext().startActivity(intent);
+		intent.putExtra("maskPath", maskPath);
+		//appActivity.startActivity(intent);
+		appActivity.startActivityForResult(intent, 1);
 	}
 
 	public static void getApplicationDirectory()

@@ -209,7 +209,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "Camera")
 	{
-		pEntity = new CCameraFeedNode(IntToAnchor(rParams["anchor"].GetInt()),
+		pEntity = new CCameraFeedNode(
+			rParams["mask"].GetString(),
+			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
 			x,

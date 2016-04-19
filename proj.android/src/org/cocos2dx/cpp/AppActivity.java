@@ -4,28 +4,19 @@ package org.cocos2dx.cpp;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
-import android.hardware.Camera.Size;
 
-import org.cocos2dx.cpp.jniFacade.JniJavaFacade;
 import org.cocos2dx.cpp.jniFacade.WifiDirectFacade;
 import org.cocos2dx.cpp.jniFacade.JniCppFacade;
-import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.Override;
-import java.util.List;
 
 /**
  * This is the main activity for LudoMuse. THERE MUST NOT BE ANY GRAPHICS
@@ -96,6 +87,7 @@ public class AppActivity extends Cocos2dxActivity {
 
 	//static final int REQUEST_TAKE_PHOTO = 1;
 	static final int REQUEST_IMAGE_CAPTURE = 1;
+	
 	public void dispatchTakePictureIntent()
 	{
 		//4096 * 4096
