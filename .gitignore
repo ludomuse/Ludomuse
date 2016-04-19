@@ -6,10 +6,6 @@ proj.ios_mac
 proj.android-studio
 bin
 .cocos-project.json
-proj.android/res/values
-proj.android/res/drawable-mdpi
-proj.android/res/drawable-ldpi
-proj.android/res/drawable-hdpi
 proj.android/obj
 proj.android/libs
 proj.android/bin
