@@ -116,6 +116,7 @@ void CKernel::Init()
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
+  m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
 	CDispatchMessageVisitor oMessageVisitor("Validated");
 	oMessageVisitor.Traverse(m_pBehaviorTree);
 	CTransitionVisitor oVisitor(this, true);
@@ -124,8 +125,9 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
-	CTransitionVisitor oVisitor(this, false);
-	oVisitor.Traverse(m_pBehaviorTree);
+  m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+  CTransitionVisitor oVisitor(this, false);
+  oVisitor.Traverse(m_pBehaviorTree);
 }
 
 
