@@ -2738,13 +2738,23 @@
 
 				{
 				    "type": "Text",
+				    "id": "hint",
 				    "params": {
-					"content": "Réponds à la question de M. Louis",
+					"content": "",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
 					"width": 80,
-					"height": 100
+					"height": 100,
+					"listeners": [
+						{
+							"type": "ErrorHint",
+							"params": {
+								"callback": "SetText",
+								"arg": "Ce n'est pas la bonne réponse, essaie encore !"
+							}
+						}
+					]
 				    }
 				}
 			    ]
@@ -2844,7 +2854,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Demande à ton ouvrier combien de marches il a compté",
+						    "content": "Touche la bonne réponse",
 						    "color": "0,0,0,255",
 						    "font": "fonts/arial.ttf",
 						    "fontSize": 24,

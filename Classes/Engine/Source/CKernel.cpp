@@ -261,6 +261,7 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 		CDispatchMessageVisitor oVisitor(a_rMessage);
 		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pDashboard);
 	}
+	else 
 	{
 		CDispatchMessageVisitor oVisitor(a_rMessage);
 		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pBehaviorTree);

@@ -94,7 +94,7 @@ bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 }
 
 
-void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget)
+void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pSender)
 {
 	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
 	{
@@ -104,7 +104,7 @@ void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget)
 			for (CEventCallback oCallback : it->second)
 			{
 				CCLOG("CEntity::Dispatch : Calling callback %s on entity %s", a_rEvent.c_str(), m_sID.c_str());
-				oCallback(a_pTarget);
+				oCallback(a_pSender);
 			}
 		}
 	}
