@@ -85,8 +85,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	}
 	else if (sCallbackString == "Show")
 	{
+		bool bShow = true;
+		if (a_rListener["params"].HasMember("arg"))
+			bShow = a_rListener["params"]["arg"].GetBool();
+
 		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible,
-			CEvent(a_pEntity, sCallbackString, true));
+			CEvent(a_pEntity, sCallbackString, bShow));
 		a_pEntity->AddListener(sType, oCallback);
 		return false;
 	}

@@ -424,6 +424,30 @@
 						    "width": 0,
 						    "height": 50
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "womanCheck",
+					    	"params": {
+					    		"source": "ui/Assets/PNG/Assets-11.png",
+					    		"anchor": 3,
+					    		"width": 15,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"
+					    				}
+					    			},
+					    			{
+					    				"type": "Hide",
+					    				"params": {
+					    					"callback": "Show",
+					    					"arg": false
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
   					],
   					"listeners": [
@@ -439,6 +463,20 @@
 			    			"params": {
 			    				"callback": "PlaySound",
 			    				"arg": "ui/audio/buttonClicked.mp3"
+			    			}
+			    		},
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "LocalMessage",
+			    				"arg": "screen-login:Show:womanCheck"
+			    			}
+			    		},
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "LocalMessage",
+			    				"arg": "screen-login:Hide:manCheck"
 			    			}
 			    		}
   					]
@@ -460,6 +498,30 @@
 						    "width": 0,
 						    "height": 50
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "manCheck",
+					    	"params": {
+					    		"source": "ui/Assets/PNG/Assets-11.png",
+					    		"anchor": 3,
+					    		"width": 15,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"
+					    				}
+					    			},
+					    			{
+					    				"type": "Hide",
+					    				"params": {
+					    					"callback": "Show",
+					    					"arg": false
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
   					],
   					"listeners": [
@@ -475,6 +537,20 @@
 			    			"params": {
 			    				"callback": "PlaySound",
 			    				"arg": "ui/audio/buttonClicked.mp3"
+			    			}
+			    		},
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "LocalMessage",
+			    				"arg": "screen-login:Show:manCheck"
+			    			}
+			    		},
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "LocalMessage",
+			    				"arg": "screen-login:Hide:womanCheck"
 			    			}
 			    		}
   					]
@@ -676,6 +752,30 @@
 							}
 						    ]
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "bigCheck",
+					    	"params": {
+					    		"source": "ui/Assets/PNG/Assets-11.png",
+					    		"anchor": 3,
+					    		"width": 15,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"
+					    				}
+					    			},
+					    			{
+					    				"type": "Hide",
+					    				"params": {
+					    					"callback": "Show",
+					    					"arg": false
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					],
 					"listeners": [
@@ -698,6 +798,20 @@
 			    			"params": {
 			    				"callback": "PlaySound",
 			    				"arg": "ui/audio/buttonClicked.mp3"
+			    			}
+			    		},
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "LocalMessage",
+			    				"arg": "screen-playerid:Show:bigCheck"
+			    			}
+			    		},
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "LocalMessage",
+			    				"arg": "screen-playerid:Hide:littleCheck"
 			    			}
 			    		}
 					]
@@ -738,6 +852,30 @@
 							}
 						    ]
 						}
+					    },
+					    {
+					    	"type": "Image",
+					    	"id": "littleCheck",
+					    	"params": {
+					    		"source": "ui/Assets/PNG/Assets-11.png",
+					    		"anchor": 3,
+					    		"width": 15,
+					    		"listeners": [
+					    			{
+					    				"type": "Show",
+					    				"params": {
+					    					"callback": "Show"
+					    				}
+					    			},
+					    			{
+					    				"type": "Hide",
+					    				"params": {
+					    					"callback": "Show",
+					    					"arg": false
+					    				}
+					    			}
+					    		]
+					    	}
 					    }
 					],
 					"listeners": [
@@ -760,6 +898,20 @@
 			    			"params": {
 			    				"callback": "PlaySound",
 			    				"arg": "ui/audio/buttonClicked.mp3"
+			    			}
+			    		},
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "LocalMessage",
+			    				"arg": "screen-playerid:Show:littleCheck"
+			    			}
+			    		},
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "LocalMessage",
+			    				"arg": "screen-playerid:Hide:bigCheck"
 			    			}
 			    		}
 					]
@@ -1115,8 +1267,7 @@
 							{
 							    "type": "Show",
 							    "params": {
-								"callback": "Show",
-								"arg": false
+								"callback": "Show"
 							    }
 							}
 						    ]
@@ -1144,8 +1295,7 @@
 							{
 							    "type": "Show",
 							    "params": {
-								"callback": "Show",
-								"arg": false
+								"callback": "Show"
 							    }
 							}
 						    ]
@@ -3019,13 +3169,6 @@
 					    		    "params" : {
 					    			"callback": "Show"
 					    		    }
-					    		},
-					    		{
-					    			"type": "Show",
-					    			"params": {
-					    				"callback": "PlaySound",
-					    				"arg": "ui/audio/buttonClicked.mp3"
-					    			}
 					    		}
 					    	    ]
 					    	}
@@ -4526,8 +4669,7 @@
 							{
 							    "type": "Show",
 							    "params": {
-								"callback": "Show",
-								"arg": false
+								"callback": "Show"
 							    }
 							}
 						    ],
@@ -4604,8 +4746,7 @@
 							{
 							    "type": "Show",
 							    "params": {
-								"callback": "Show",
-								"arg": false
+								"callback": "Show"
 							    }
 							},
 							{
@@ -4696,8 +4837,7 @@
 							{
 							    "type": "Show",
 							    "params": {
-								"callback": "Show",
-								"arg": false
+								"callback": "Show"
 							    }
 							}
 						    ],
@@ -4774,9 +4914,8 @@
 							{
 							    "type": "Show",
 							    "params": {
-								"callback": "Show",
-								"arg": false
-							    }
+								"callback": "Show"
+						    }
 							},
 							{
 							    "type": "Droped",
@@ -7466,8 +7605,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -7552,8 +7690,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -7632,8 +7769,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -7712,8 +7848,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -9244,8 +9379,7 @@
   					    {
   						"type": "Show",
   						"params": {
-  						    "callback": "Show",
-  						    "arg": false
+  						    "callback": "Show"
   						}
 					    },
 					    {
@@ -10839,8 +10973,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -10904,8 +11037,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -10969,8 +11101,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -11034,8 +11165,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -12036,8 +12166,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -12101,8 +12230,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -12166,8 +12294,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
@@ -12231,8 +12358,7 @@
 					    {
 						"type": "Show",
 						"params": {
-						    "callback": "Show",
-						    "arg": false
+						    "callback": "Show"
 						}
 					    },
 					    {
