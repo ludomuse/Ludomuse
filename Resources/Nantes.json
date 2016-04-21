@@ -430,17 +430,17 @@
   					    {
   						"type": "Touch",
   						"params": {
-  						    "callback": "SetPlayerID",
-  						    "arg": 0
-  						}
-  					    },
-  					    {
-  						"type": "Touch",
-  						"params": {
   						    "callback": "ValidateScene",
   						    "arg": true
   						}
-  					    }
+  					    },
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "PlaySound",
+			    				"arg": "ui/audio/buttonClicked.mp3"
+			    			}
+			    		}
   					]
   				    }
   				},
@@ -466,17 +466,17 @@
   					    {
   						"type": "Touch",
   						"params": {
-  						    "callback": "SetPlayerID",
-  						    "arg": 1
-  						}
-  					    },
-  					    {
-  						"type": "Touch",
-  						"params": {
   						    "callback": "ValidateScene",
   						    "arg": true
   						}
-  					    }
+  					    },
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "PlaySound",
+			    				"arg": "ui/audio/buttonClicked.mp3"
+			    			}
+			    		}
   					]
   				    }
   				},
@@ -692,7 +692,14 @@
 						    "callback": "ValidateScene",
 						    "arg": true
 						}
-					    }
+					    },
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "PlaySound",
+			    				"arg": "ui/audio/buttonClicked.mp3"
+			    			}
+			    		}
 					]
 				    }
 				},
@@ -747,7 +754,14 @@
 						    "callback": "ValidateScene",
 						    "arg": true
 						}
-					    }
+					    },
+			    		{
+			    			"type": "Touch",
+			    			"params": {
+			    				"callback": "PlaySound",
+			    				"arg": "ui/audio/buttonClicked.mp3"
+			    			}
+			    		}
 					]
 				    }
 				}
@@ -2795,6 +2809,13 @@
 					    		    "params" : {
 					    			"callback": "Show"
 					    		    }
+					    		},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
 					    		}
 					    	    ]
 					    	}
@@ -2853,6 +2874,13 @@
 					    		    "params" : {
 					    			"callback": "Show"
 					    		    }
+					    		},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
 					    		}
 					    	    ]
 					    	}
@@ -2911,6 +2939,13 @@
 					    		    "params" : {
 					    			"callback": "Show"
 					    		    }
+					    		},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
 					    		}
 					    	    ]
 					    	}
@@ -2984,6 +3019,13 @@
 					    		    "params" : {
 					    			"callback": "Show"
 					    		    }
+					    		},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/buttonClicked.mp3"
+					    			}
 					    		}
 					    	    ]
 					    	}
@@ -4515,7 +4557,14 @@
 									"params": {
 									    "callback": "Show"
 									}
-								    }
+								    },
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/buttonClicked.mp3"
+					    			}
+					    		}
 								]
 							    }
 							}
@@ -4593,7 +4642,14 @@
 									"params": {
 									    "callback": "Show"
 									}
-								    }
+								    },
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
+					    		}
 								]
 							    }
 							}
@@ -4671,7 +4727,14 @@
 									"params": {
 									    "callback": "Show"
 									}
-								    }
+								    },
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/buttonClicked.mp3"
+					    			}
+					    		}
 								]
 							    }
 							}
@@ -4749,7 +4812,14 @@
 									"params": {
 									    "callback": "Show"
 									}
-								    }
+								    },
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
+					    		}
 								]
 							    }
 							}
@@ -4811,13 +4881,6 @@
 				    "type": "Validate",
 				    "params": {
 					"callback": "Show"
-				    }
-				},
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "PlaySound",
-					"arg": "cache/audio/xylophone.mp3"
 				    }
 				}
 			    ],
@@ -7075,17 +7138,17 @@
 						    "height": 100,
 						    "listeners": [
 							{
-							    "type": "Drop",
-							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "PuzzleB"
-							    }
-							},
-							{
   							    "type": "Drop",
   							    "params": {
   								"callback": "SendMessage",
   								"arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+							    }
+							},
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "PuzzleB"
 							    }
 							}
 						    ]
@@ -7118,17 +7181,17 @@
 						    "height": 100,
 						    "listeners": [
 							{
-							    "type": "Drop",
-							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "PuzzleC"
-							    }
-							},
-							{
   							    "type": "Drop",
   							    "params": {
   								"callback": "SendMessage",
   								"arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+							    }
+							},
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "PuzzleC"
 							    }
 							}
 						    ]
@@ -7142,17 +7205,17 @@
 						    "height": 100,
 						    "listeners": [
 							{
-							    "type": "Drop",
-							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "PuzzleD"
-							    }
-							},
-							{
   							    "type": "Drop",
   							    "params": {
   								"callback": "SendMessage",
   								"arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+							    }
+							},
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "PuzzleD"
 							    }
 							}
 						    ]
@@ -7261,17 +7324,17 @@
 						    "height": 100,
 						    "listeners": [
 							{
-							    "type": "Drop",
-							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "PuzzleA"
-							    }
-							},
-							{
   							    "type": "Drop",
   							    "params": {
   								"callback": "SendMessage",
   								"arg": "screen-3-b-player1:DropEnabledBack:dropArea1"
+							    }
+							},
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "PuzzleA"
 							    }
 							}
 						    ]
@@ -7442,7 +7505,14 @@
 							    "params": {
 								"callback": ""
 							    }
-							}
+							},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
+					    		}
 						    ]
 						}
 					    }
@@ -7515,7 +7585,14 @@
 							    "params": {
 								"callback": ""
 							    }
-							}
+							},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
+					    		}
 						    ]
 						}
 					    }
@@ -7588,7 +7665,14 @@
 							    "params": {
 								"callback": ""
 							    }
-							}
+							},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
+					    		}
 						    ]
 						}
 					    }
@@ -7661,7 +7745,14 @@
 							    "params": {
 								"callback": ""
 							    }
-							}
+							},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
+					    		}
 						    ]
 						}
 					    }
@@ -9748,6 +9839,13 @@
 					    		    "params": {
 					    			"callback": "Show"	
 					    		    }
+					    		},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/buttonClicked.mp3"
+					    			}
 					    		}
 					    	    ]
 					    	}
@@ -9806,6 +9904,13 @@
 					    		    "params": {
 					    			"callback": "Show"	
 					    		    }
+					    		},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
 					    		}
 					    	    ]
 					    	}
@@ -9864,6 +9969,13 @@
 					    		    "params": {
 					    			"callback": "Show"	
 					    		    }
+					    		},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/beep.wav"
+					    			}
 					    		}
 					    	    ]
 					    	}
@@ -9924,6 +10036,13 @@
 					    		    "params": {
 					    			"callback": "Show"	
 					    		    }
+					    		},
+					    		{
+					    			"type": "Show",
+					    			"params": {
+					    				"callback": "PlaySound",
+					    				"arg": "ui/audio/buttonClicked.mp3"
+					    			}
 					    		}
 					    	    ]
 					    	}
@@ -10525,17 +10644,17 @@
 						    ],
 						    "listeners": [
 							{
-							    "type": "Drop",
-							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "AnswerA"
-							    }
-							},
-							{
   							    "type": "Drop",
   							    "params": {
   								"callback": "SendMessage",
   								"arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
+							    }
+							},
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "AnswerA"
 							    }
 							}
 						    ]
@@ -10564,15 +10683,15 @@
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "AnswerB"
+								"callback": "SendMessage",
+								"arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
 							    }
 							},
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
+								"callback": "AnchorEntity",
+								"arg": "AnswerB"
 							    }
 							}
 						    ]
@@ -10601,15 +10720,15 @@
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "AnswerC"
+								"callback": "SendMessage",
+								"arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
 							    }
 							},
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
+								"callback": "AnchorEntity",
+								"arg": "AnswerC"
 							    }
 							}
 						    ]
@@ -10638,15 +10757,15 @@
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "AnswerD"
+								"callback": "SendMessage",
+								"arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
 							    }
 							},
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-4-e-player1:DropEnabledBack:dropArea1"
+								"callback": "AnchorEntity",
+								"arg": "AnswerD"
 							    }
 							}
 						    ]
@@ -11673,17 +11792,17 @@
 						    ],
 						    "listeners": [
 							{
-							    "type": "Drop",
-							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "AnswerA"
-							    }
-							},
-							{
   							    "type": "Drop",
   							    "params": {
   								"callback": "SendMessage",
   								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+							    }
+							},
+							{
+							    "type": "Drop",
+							    "params": {
+								"callback": "AnchorEntity",
+								"arg": "AnswerA"
 							    }
 							}
 						    ]
@@ -11723,15 +11842,15 @@
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "AnswerB"
+								"callback": "SendMessage",
+								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
 							    }
 							},
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+								"callback": "AnchorEntity",
+								"arg": "AnswerB"
 							    }
 							}
 						    ]
@@ -11771,15 +11890,15 @@
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "AnswerD"
+								"callback": "SendMessage",
+								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
 							    }
 							},
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+								"callback": "AnchorEntity",
+								"arg": "AnswerD"
 							    }
 							}
 						    ]
@@ -11827,15 +11946,15 @@
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "AnchorEntity",
-								"arg": "AnswerC"
+								"callback": "SendMessage",
+								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
 							    }
 							},
 							{
 							    "type": "Drop",
 							    "params": {
-								"callback": "SendMessage",
-								"arg": "screen-4-g-player2:DropEnabledBack:dropArea2"
+								"callback": "AnchorEntity",
+								"arg": "AnswerC"
 							    }
 							}
 						    ]
