@@ -27,13 +27,6 @@ class CKernel
   /// \details a pointer to the root node of the tree, usually a SequenceNode
   CNode* m_pBehaviorTree;
 
-
-  /// \details will forward the inputs to the behavior tree
-  CInputManager* m_pInputManager;
-  /// \details will manage networking events such as direct wifi
-  CNetworkManager* m_pNetworkManager;
-
-  CSoundManager* m_pSoundManager;
   
   /// \brief The parser that will build the behavior tree from the json file
   CJsonParser* m_pJsonParser;
@@ -49,6 +42,13 @@ public:
 	CSceneNode* m_pDashboard;
 
 	CSceneNode* m_pCurrentScene;
+
+	/// \details will forward the inputs to the behavior tree
+	CInputManager* m_pInputManager;
+	/// \details will manage networking events such as direct wifi
+	CNetworkManager* m_pNetworkManager;
+
+	CSoundManager* m_pSoundManager;
 
 
  public:

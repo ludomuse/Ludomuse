@@ -121,6 +121,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			oValidator->AddID(rParams["ids"][i].GetString());
 		}
 
+		if (rParams.HasMember("sound"))
+			oValidator->SetSound(rParams["sound"].GetString());
+
 		a_pNode->AddChildNode(oValidator);
 	}
 

@@ -1,11 +1,18 @@
 #include "../Include/CValidator.h"
 #include "../Include/CCallback.h"
+#include "../Include/CSoundManager.h"
 
 namespace LM
 {
 
 CValidator::CValidator(CKernel* a_pKernel) : m_pKernel(a_pKernel)
 {
+}
+
+
+void CValidator::SetSound(const std::string& a_rSound)
+{
+	m_sSound = a_rSound;
 }
 
 void CValidator::AddID(const std::string& a_sID)
@@ -24,8 +31,11 @@ void CValidator::Validate(const std::string& a_sID)
 
   if (m_oIDs.size() == 0)
   {
-    m_pKernel->ValidateScene(CEvent(), nullptr);
+	m_pKernel->ValidateScene(CEvent(), nullptr);
 	m_pKernel->SendNetworkMessage("kernel:Validate");
+
+	if (m_sSound != "")
+		m_pKernel->m_pSoundManager->PlaySound(m_sSound);
   }
 }
 

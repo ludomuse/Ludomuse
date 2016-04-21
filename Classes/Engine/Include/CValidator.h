@@ -12,10 +12,13 @@ class CValidator : public CNode
  private:
   CKernel* m_pKernel;
   std::set<std::string> m_oIDs;
+  std::string m_sSound;
 
  public:
   CValidator(CKernel* a_pKernel);
   
+  void SetSound(const std::string& a_rSound);
+
   void AddID(const std::string& a_sID);
 
   void Validate(const std::string& a_sID);
