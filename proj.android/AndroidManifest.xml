@@ -11,7 +11,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application android:label="@string/app_name"
-                 android:icon="@drawable/icon">
+                 android:icon="@drawable/icon"
+				 android:debuggable="true">
 					 
         <!-- Tell Cocos2dxActivity the name of our .so -->
         <meta-data android:name="android.app.lib_name"
