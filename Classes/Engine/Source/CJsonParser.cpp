@@ -101,6 +101,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 		a_pEntity->AddListener(sType, oCallback);
 		return true;
 	}
+	else if (sCallbackString == "SetText")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::SetText,
+			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString(), true));
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else if (sCallbackString == "SetPlayerID")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::SetPlayerID,

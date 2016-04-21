@@ -445,6 +445,16 @@ void CKernel::PlaySoundCallback(CEvent a_rEvent, CEntityNode* a_pTarget)
 }
 
 
+void CKernel::SetText(CEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	CCLOG("CKernel::SetText");
+	CLabelNode* pLabel = dynamic_cast<CLabelNode*>(a_rEvent.m_pSender);
+	if (pLabel)
+	{
+		ON_CC_THREAD(CLabelNode::SetText, pLabel, a_rEvent.m_sStringValue);
+	}
+}
+
 void CKernel::LogMessage(const std::string& a_sMessage)
 {
 	CCLOG("Kernel message : %s", a_sMessage.c_str());

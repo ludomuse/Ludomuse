@@ -2738,7 +2738,7 @@
 
 				{
 				    "type": "Text",
-				    "id": "hint",
+				    "id": "hintText",
 				    "params": {
 					"content": "",
 					"font": "fonts/arial.ttf",
@@ -2941,6 +2941,13 @@
 						    "callback": "ValidateScene",
 						    "arg": false
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "SendMessage",
+					    		"arg": "screen-1-h-player1:ErrorHint:hintText"
+					    	}
 					    }
 					],
 					"children": [
@@ -3006,6 +3013,13 @@
 						    "callback": "ValidateScene",
 						    "arg": false
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "SendMessage",
+					    		"arg": "screen-1-h-player1:ErrorHint:hintText"
+					    	}
 					    }
 					],
 					"children": [
@@ -3071,6 +3085,13 @@
 						    "callback": "ValidateScene",
 						    "arg": false
 						}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "SendMessage",
+					    		"arg": "screen-1-h-player1:ErrorHint:hintText"
+					    	}
 					    }
 					],
 					"children": [

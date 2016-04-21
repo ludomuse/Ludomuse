@@ -102,6 +102,7 @@ public:
   void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
   void AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
   void PlaySoundCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void SetText(CEvent a_rEvent, CEntityNode* a_pTarget);
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
