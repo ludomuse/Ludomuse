@@ -12,15 +12,21 @@ namespace LM
 
 	CTouchBeganVisitor::CTouchBeganVisitor(Touch* a_pTouch, Event* a_pEvent, CKernel* a_pKernel) :
 		CFindEntityTouchVisitor(a_pTouch, Desc<CNode>(), "Touch"),
-	    m_pEvent(a_pEvent),
-		m_pKernel(a_pKernel)
+		m_pEvent(a_pEvent),
+		m_pKernel(a_pKernel),
+		m_iTouchID(a_pTouch->getID())
 {
+	CCLOG("CTouchBeganVisitor::CTouchBeganVisitor touch id : %d", m_iTouchID);
 }
 
 
 
 bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
+	CCLOG("CTouchBeganVisitor::OnTouchEnd touch id : %d", a_pTouch->getID());
+	if (a_pTouch->getID() != m_iTouchID)
+		return false;
+
 	if (m_pEntityToFind.IsValid())
 	{
 
@@ -80,6 +86,10 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 
 bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 {
+	//CCLOG("CTouchBeganVisitor::OnTouchMove touch id : %d", a_pTouch->getID());
+	if (a_pTouch->getID() != m_iTouchID)
+		return false;
+
 	if (m_pEntityToFind.IsValid())
 	{
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(m_pEntityToFind.Get());

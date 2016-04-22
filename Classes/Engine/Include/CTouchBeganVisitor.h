@@ -22,6 +22,8 @@ class CTouchBeganVisitor : public CFindEntityTouchVisitor
   std::string m_sListenEvent;
 
   bool m_bStopVisiting;
+
+  int m_iTouchID;
   
  public:
   CTouchBeganVisitor(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent, CKernel* a_pKernel);

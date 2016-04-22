@@ -136,10 +136,22 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
 	oVisistor.Traverse(m_pCurrentScene);
 
-	EventListenerTouchOneByOne* pEventListener = m_pInputManager->GetEventListener();
-	pEventListener->onTouchEnded = CC_CALLBACK_2(CTouchBeganVisitor::OnTouchEnd, oVisistor);
-	pEventListener->onTouchMoved = CC_CALLBACK_2(CTouchBeganVisitor::OnTouchMove, oVisistor);
+	m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
 
+	return true;
+}
+
+bool CKernel::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
+{
+	m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchEnd(a_pTouch, a_pEvent);
+	m_mTouchBeganVisitors.erase(a_pTouch->getID());
+
+	return true;
+}
+
+bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
+{
+	m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchMove(a_pTouch, a_pEvent);
 	return true;
 }
 

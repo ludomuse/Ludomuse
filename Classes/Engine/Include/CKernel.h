@@ -16,6 +16,7 @@ class CNetworkManager;
 class CSoundManager;
 struct CEvent;
 class CEntityNode;
+class CTouchBeganVisitor;
 
 /// \class CKernel
 /// \ingroup Engine
@@ -36,6 +37,8 @@ class CKernel
   SUser* m_pDistantPlayer;
 
   bool m_bCoopWaiting;
+
+  std::map<int, CTouchBeganVisitor> m_mTouchBeganVisitors;
 
 public:
 	/// \brief a reference to the dashboard with the timeline of the game
@@ -79,8 +82,14 @@ public:
 
 
   ////////////////// input callbacks
+  /// \brief callback called when the user start touching the screen
+  /// \details forward the event to the BehaviorTree in the kernel
+  /// \returns true on success, false otherwise
+  /// \param[in] a_pTouch the touch event
+  /// \param[in] a_pEvent the cocos Event corresponding to this touch
   bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
-
+  bool OnTouchEnd(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
+  bool OnTouchMove(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
   ////////////////// json callbacks
   /// \brief go to the next scene in the tree
