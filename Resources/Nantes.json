@@ -2753,6 +2753,13 @@
 								"callback": "SetText",
 								"arg": "Ce n'est pas la bonne réponse, essaie encore !"
 							}
+						},
+						{
+							"type": "Validate",
+							"params": {
+								"callback": "SetText",
+								"arg": "Bravo tu as trouvé la bonne réponse !"
+							}
 						}
 					]
 				    }
@@ -4601,12 +4608,29 @@
 			    "children": [
 				{
 				    "type": "Text",
+				    "id": "infoText",
 				    "params": {
 					"content": "Placez les bons ingrédients dans le plat.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
-					"height": 100
+					"height": 100,
+					"listeners": [
+						{
+							"type": "ErrorHint",
+							"params": {
+								"callback": "SetText",
+								"arg": "Ce n'est pas le bon ingrédient, essaie encore"
+							}
+						},
+						{
+							"type": "SuccessHint",
+							"params": {
+								"callback": "SetText",
+								"arg": "Bravo !"
+							}
+						}
+					]
 				    }
 				}
 			    ]
@@ -4689,6 +4713,13 @@
 							    "params": {
 								"callback": "Fade"
 							    }
+							},
+							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:SuccessHint:infoText"
+								}
 							},
 							{
 							    "type": "Droped",
@@ -4775,6 +4806,13 @@
 							    }
 							},
 							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:ErrorHint:infoText"
+								}
+							},
+							{
 							    "type": "Show",
 							    "params": {
 								"callback": "Show"
@@ -4859,6 +4897,13 @@
 							    }
 							},
 							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:SuccessHint:infoText"
+								}
+							},
+							{
 							    "type": "Droped",
 							    "params": {
 								"callback": "Validate",
@@ -4941,6 +4986,13 @@
 								"callback": "LocalMessage",
 								"arg": "screen-2-e-player1:Show:sugarCross"
 							    }
+							},
+							{
+								"type": "Droped",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-2-e-player1:ErrorHint:infoText"
+								}
 							},
 							{
 							    "type": "Show",
@@ -11335,46 +11387,194 @@
 		    },
 		    {
 			"type": "Image",
+			"id": "Atelier1",
 			"params": {
 			    "source": "cache/Atelier1.png",
 			    "anchor": 0,
 			    "width": 70,
 			    "height": 100,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+				"listeners": [
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "Show"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+						}
+					},
+					{
+						"type": "HidePhoto",
+						"params": {
+							"callback": "Show",
+							"arg": false
+						}
+					}
+				]
 			}
 		    },
 		    {
 			"type": "Image",
+			"id": "Atelier2",
 			"params": {
 			    "source": "cache/Atelier2.png",
 			    "anchor": 0,
 			    "width": 70,
 			    "height": 100,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+				"listeners": [
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "Show"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+						}
+					},
+					{
+						"type": "HidePhoto",
+						"params": {
+							"callback": "Show",
+							"arg": false
+						}
+					}
+				]
 			}
 		    },
 		    {
 			"type": "Image",
+			"id": "Atelier3",
 			"params": {
 			    "source": "cache/Atelier3.png",
 			    "anchor": 0,
 			    "width": 70,
 			    "height": 100,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+				"listeners": [
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "Show"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+						}
+					},
+					{
+						"type": "HidePhoto",
+						"params": {
+							"callback": "Show",
+							"arg": false
+						}
+					}
+				]
 			}
 		    },
 		    {
 			"type": "Image",
+			"id": "Atelier4",
 			"params": {
 			    "source": "cache/Atelier4.png",
 			    "anchor": 0,
 			    "width": 70,
 			    "height": 100,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+				"listeners": [
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "Show"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+						}
+					},
+					{
+						"type": "ShowPhoto",
+						"params": {
+							"callback": "LocalMessage",
+							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+						}
+					},
+					{
+						"type": "HidePhoto",
+						"params": {
+							"callback": "Show",
+							"arg": false
+						}
+					}
+				]
 			}
 		    }
 		]
@@ -11592,6 +11792,13 @@
     								"callback": "Validate",
     								"arg": "3"
     							    }
+    							},
+    							{
+    								"type": "Touch",
+    								"params": {
+    									"callback": "SendMessage",
+    									"arg": "screen-4-f-player1:ShowPhoto:Atelier3"
+    								}
     							}
     						    ]
 						}
@@ -11634,7 +11841,14 @@
   								"callback": "Validate",
   								"arg": "4"
   							    }
-  							}
+  							},
+    							{
+    								"type": "Touch",
+    								"params": {
+    									"callback": "SendMessage",
+    									"arg": "screen-4-f-player1:ShowPhoto:Atelier4"
+    								}
+    							}
   						    ]
 						}
 					    },
@@ -11676,7 +11890,14 @@
 								"callback": "Validate",
 								"arg": "2"
 							    }
-							}
+							},
+    							{
+    								"type": "Touch",
+    								"params": {
+    									"callback": "SendMessage",
+    									"arg": "screen-4-f-player1:ShowPhoto:Atelier2"
+    								}
+    							}
 						    ]
 						}
 					    },
@@ -11726,7 +11947,14 @@
 								"callback": "Validate",
 								"arg": "1"
 							    }
-							}
+							},
+    							{
+    								"type": "Touch",
+    								"params": {
+    									"callback": "SendMessage",
+    									"arg": "screen-4-f-player1:ShowPhoto:Atelier1"
+    								}
+    							}
 						    ]
 						}
 					    },
