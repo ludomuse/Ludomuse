@@ -2081,12 +2081,7 @@
                                                     "height": 90,
                                                     "textAlign": "center",
                                                     "anchor": 0,
-                                                    "color": "255,255,255,255",
-                                                    "cache": {
-                                                        "visible": false,
-                                                        "backgroundColor": "",
-                                                        "backgroundImage": ""
-                                                    }
+                                                    "color": "255,255,255,255"
                                                 }
                                             }
                                         ]
@@ -2270,11 +2265,15 @@
                                                     "textAlign": "center",
                                                     "anchor": 0,
                                                     "color": "255,255,255,255",
-                                                    "cache": {
-                                                        "visible": false,
-                                                        "backgroundColor": "",
-                                                        "backgroundImage": ""
-                                                    }
+                                                    "listeners": [
+                                                        {
+                                                            "type": "Init",
+                                                            "params": {
+                                                                "callback": "PlaySound",
+                                                                "arg": "cache/audio/cernushi6.wav"
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
@@ -2618,11 +2617,15 @@
                                                     "height": 90,
                                                     "anchor": 0,
                                                     "color": "255,255,255,255",
-                                                    "cache": {
-                                                        "visible": false,
-                                                        "backgroundColor": "",
-                                                        "backgroundImage": ""
-                                                    }
+                                                    "listeners": [
+                                                        {
+                                                            "type": "Init",
+                                                            "params": {
+                                                                "callback": "PlaySound",
+                                                                "arg": "cache/audio/cernushi7.wav"
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
