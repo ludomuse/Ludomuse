@@ -2270,7 +2270,7 @@
                                                             "type": "Init",
                                                             "params": {
                                                                 "callback": "PlaySound",
-                                                                "arg": "cache/audio/cernushi6.wav"
+                                                                "arg": "cache/audio/cernuschi6.wav"
                                                             }
                                                         }
                                                     ]
@@ -2622,7 +2622,7 @@
                                                             "type": "Init",
                                                             "params": {
                                                                 "callback": "PlaySound",
-                                                                "arg": "cache/audio/cernushi7.wav"
+                                                                "arg": "cache/audio/cernuschi7.wav"
                                                             }
                                                         }
                                                     ]
