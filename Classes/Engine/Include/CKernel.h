@@ -53,6 +53,8 @@ public:
 
 	CSoundManager* m_pSoundManager;
 
+	bool m_bDebugMode;
+
 
  public:
   CKernel();

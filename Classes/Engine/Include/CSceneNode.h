@@ -23,11 +23,13 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
 
   bool m_bIsSynced;
 
+  bool m_bDebugMode;
+
 public:
 	bool m_bDashboardTrigger;
   
  public:
-  CSceneNode(std::string a_sID = "none");
+  CSceneNode(std::string a_sID = "none", bool a_bDebugMode = false);
 
   /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();
@@ -43,6 +45,7 @@ public:
 
   bool IsSynced();
 
+  void DisplayDebugInfo();
 
   CREATE_FUNC(CSceneNode);
 };

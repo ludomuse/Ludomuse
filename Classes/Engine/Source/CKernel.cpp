@@ -35,6 +35,7 @@ namespace LM
 		m_pNetworkManager(new CNetworkManager(this)),
 		m_pSoundManager(new CSoundManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
+		m_bDebugMode(false),
 		m_bCoopWaiting(false),
 		m_pLocalPlayer(new SUser()),
 		m_pDashboard(nullptr),
@@ -86,6 +87,7 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 
 	return false;
 }
+
 
 int CKernel::GetCurrentPlayer()
 {
