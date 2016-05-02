@@ -56,7 +56,7 @@ void CPeerNode::AddPeers(const std::vector<std::string>& a_vPeers)
   for (const std::string& sPeer : a_vPeers)
   {
     // parse the json to get the style of the child
-    // create the cild
+    // create the child
     m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
     
 
