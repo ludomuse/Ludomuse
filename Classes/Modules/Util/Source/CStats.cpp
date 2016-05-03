@@ -91,19 +91,13 @@ void CStats::PushStats(const std::string& a_rScreenID)
 void CStats::StartStats()
 {
   m_oScreenStartTime = system_clock::now();
-
 }
 
-
-void CStats::WriteToFile(const std::map<std::string, SScreenStats>& a_mOtherStats)
-{
-
-}
 
 
 
 #ifdef __ANDROID__
-void CStats::writeOn(bytes* msg)
+void CSerializableStats::writeOn(bytes* msg)
 {
 	int iSize = m_mScreensStats.size();
 	*msg << iSize;
@@ -124,7 +118,7 @@ void CStats::writeOn(bytes* msg)
 	}
 }
 
-void CStats::readOn(bytes* msg)
+void CSerializableStats::readOn(bytes* msg)
 {
 	int iSize;
 	*msg >> iSize;
@@ -150,7 +144,6 @@ void CStats::readOn(bytes* msg)
 		mScreenStats.insert(std::pair<std::string, SScreenStats>(screenID, stats));
 	}
 
-	WriteToFile(mScreenStats);
 }
 #endif // __ANDROID__
 

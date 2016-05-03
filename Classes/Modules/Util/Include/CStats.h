@@ -3,9 +3,6 @@
 
 #include "cocos2d.h"
 
-#ifdef __ANDROID__
-#include "../../Networking/android/Include/LmBytesMessage.h"
-#endif
 
 using namespace std::chrono;
 
@@ -36,11 +33,7 @@ struct SScreenStats
 };
 
 
-#ifdef __ANDROID__
-class CStats : LmSerializable
-#else
 class CStats
-#endif
 {
 
  private:
@@ -61,17 +54,33 @@ class CStats
   void PushStats(const std::string& a_rScreenID);
   void StartStats();
 
-  void WriteToFile(const std::map<std::string, SScreenStats>& a_mOtherStats);
+
+};
+
 
 #ifdef __ANDROID__
-  virtual void writeOn(bytes* msg) override;
-  virtual void readOn(bytes* msg) override;
+#include "../../Networking/android/Include/LmBytesMessage.h"
+
+
+class CSerializableStats : LmSerializable
+{
+
+private:
+	std::map<std::string, SScreenStats> m_mScreensStats;
+
+
+public:
+	CSerializableStats(const std::map<std::string, SScreenStats>& a_mStats) : 
+		m_mScreensStats(a_mStats) {}
+
+	virtual void writeOn(bytes* msg) override;
+	virtual void readOn(bytes* msg) override;
+
+};
+
 #endif // __ANDROID__
 
 
-
-
-};
 
 } // namespace LM
 
