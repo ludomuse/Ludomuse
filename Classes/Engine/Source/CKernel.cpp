@@ -114,6 +114,8 @@ void CKernel::Init()
 	pFirstScene->init();
 
     cocos2d::Director::getInstance()->runWithScene(pScene);
+
+	M_STATS->StartStats();
 }
 
 

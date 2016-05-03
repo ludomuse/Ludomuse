@@ -3,13 +3,15 @@
 
 #include "cocos2d.h"
 
+using namespace std::chrono;
+
 namespace LM
 {
 
 
 struct SScreenStats
 {
-  long time;
+  int time;
 
   int nbInteractions;
 
@@ -37,6 +39,7 @@ class CStats
   CStats(const CStats&);
   CStats& operator=(const CStats&);
 
+  time_point<system_clock> m_oScreenStartTime;
 
   ///// stats members
   std::map<std::string, SScreenStats> m_mScreensStats;

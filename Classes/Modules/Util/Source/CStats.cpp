@@ -31,15 +31,15 @@ void SScreenStats::reinit()
 
 std::ostream& operator<<(std::ostream& os, const SScreenStats& s)
 {
-	os << "time : " << s.time << std::endl;
-	os << "nbInteractions : " << s.nbInteractions << std::endl;
-	os << "nbTouches : " << s.nbTouches << std::endl;
-	os << "nbMoves : " << s.nbMoves << std::endl;
-	os << "nbValidTouches : " << s.nbValidTouches << std::endl;
-	os << "nbValidDrops : " << s.nbValidDrops << std::endl;
-	os << "nbInvalidDrops : " << s.nbInvalidDrops << std::endl;
-	os << "nbValideAnswers : " << s.nbValidAnswers << std::endl;
-	os << "nbInvalidAnswers : " << s.nbInvalidAnswers << std::endl;
+	os << "[LUDO_STATS] time : " << s.time << std::endl;
+	os << "[LUDO_STATS] nbInteractions : " << s.nbInteractions << std::endl;
+	os << "[LUDO_STATS] nbTouches : " << s.nbTouches << std::endl;
+	os << "[LUDO_STATS] nbMoves : " << s.nbMoves << std::endl;
+	os << "[LUDO_STATS] nbValidTouches : " << s.nbValidTouches << std::endl;
+	os << "[LUDO_STATS] nbValidDrops : " << s.nbValidDrops << std::endl;
+	os << "[LUDO_STATS] nbInvalidDrops : " << s.nbInvalidDrops << std::endl;
+	os << "[LUDO_STATS] nbValidAnswers : " << s.nbValidAnswers << std::endl;
+	os << "[LUDO_STATS] nbInvalidAnswers : " << s.nbInvalidAnswers << std::endl;
 	return os;
 }
 
@@ -73,7 +73,8 @@ CStats* CStats::Instance()
 
 void CStats::PushStats(const std::string& a_rScreenID)
 {
-  m_oCurrentScreenStats.time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	milliseconds oScreenDuration = duration_cast<milliseconds>(system_clock::now() - m_oScreenStartTime);
+  m_oCurrentScreenStats.time = oScreenDuration.count();
   
   m_mScreensStats.insert(std::pair<std::string, SScreenStats>(a_rScreenID, m_oCurrentScreenStats));
 
@@ -89,7 +90,7 @@ void CStats::PushStats(const std::string& a_rScreenID)
 
 void CStats::StartStats()
 {
-  std::chrono::system_clock::now();
+  m_oScreenStartTime = system_clock::now();
 
 }
 
