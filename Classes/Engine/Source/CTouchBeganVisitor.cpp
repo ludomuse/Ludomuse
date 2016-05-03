@@ -80,6 +80,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			else
 			{
 				// if not intersecting a drop area :
+				M_STATS_SCREEN.nbInvalidDrops++;
 				MoveEntityBack(pEntity);
 			}
 
@@ -200,7 +201,6 @@ void CTouchBeganVisitor::TouchStop(CEntityNode* a_pEntity)
 
 void CTouchBeganVisitor::MoveEntityBack(CEntityNode* a_pEntity)
 {
-	M_STATS_SCREEN.nbInvalidDrops++;
 
 	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
 		CEntityNode::Release(a_pEntity);
@@ -246,6 +246,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Touch";
 
+		  M_STATS_SCREEN.nbTouches++;
 		  StartTouch(pEntity);
 
 		  return RESULT_PRUNE;
@@ -256,6 +257,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Move";
 
+		  M_STATS_SCREEN.nbMoves++;
 		  StartMove(pEntity);
 
 		  return RESULT_PRUNE;
@@ -274,7 +276,6 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 void CTouchBeganVisitor::StartTouch(CEntityNode* a_pEntity)
 {
-	M_STATS_SCREEN.nbTouches++;
 	CEntityNode::Lock(a_pEntity);
 
 	auto oTintTo = TintTo::create(0.0f, 120.0f, 120.0f, 120.0f);
@@ -292,7 +293,6 @@ void CTouchBeganVisitor::StartTouch(CEntityNode* a_pEntity)
 
 void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 {
-	M_STATS_SCREEN.nbMoves++;
 	CEntityNode::Lock(a_pEntity);
 
 	auto oScaleTo1 = ScaleTo::create(0.1f, 2 * a_pEntity->GetEntityStartScale());
