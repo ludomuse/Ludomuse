@@ -94,4 +94,65 @@ void CStats::StartStats()
 
 }
 
+
+void CStats::WriteToFile(const std::map<std::string, SScreenStats>& a_mOtherStats)
+{
+
+}
+
+
+
+#ifdef __ANDROID__
+void CStats::writeOn(bytes* msg)
+{
+	int iSize = m_mScreensStats.size();
+	*msg << iSize;
+	std::map<std::string, SScreenStats>::iterator itScreen;
+	for (itScreen = m_mScreensStats.begin(); itScreen != m_mScreensStats.end(); ++itScreen)
+	{
+		const SScreenStats& stats = itScreen->second;
+		*msg << itScreen->first;
+		*msg << stats.time;
+		*msg << stats.nbInteractions;
+		*msg << stats.nbTouches;
+		*msg << stats.nbValidTouches;
+		*msg << stats.nbMoves;
+		*msg << stats.nbValidDrops;
+		*msg << stats.nbInvalidDrops;
+		*msg << stats.nbValidAnswers;
+		*msg << stats.nbInvalidAnswers;
+	}
+}
+
+void CStats::readOn(bytes* msg)
+{
+	int iSize;
+	*msg >> iSize;
+
+	std::map<std::string, SScreenStats> mScreenStats;
+
+	for (int i = 0; i < iSize; ++i)
+	{
+		SScreenStats stats;
+		std::string screenID;
+
+		*msg >> screenID;
+		*msg >> stats.time;
+		*msg >> stats.nbInteractions;
+		*msg >> stats.nbTouches;
+		*msg >> stats.nbValidTouches;
+		*msg >> stats.nbMoves;
+		*msg >> stats.nbValidDrops;
+		*msg >> stats.nbInvalidDrops;
+		*msg >> stats.nbValidAnswers;
+		*msg >> stats.nbInvalidAnswers;
+
+		mScreenStats.insert(std::pair<std::string, SScreenStats>(screenID, stats));
+	}
+
+	WriteToFile(mScreenStats);
+}
+#endif // __ANDROID__
+
+
 } // namespace LM
