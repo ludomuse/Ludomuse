@@ -3,6 +3,7 @@
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
 
+#include "../../Modules/Util/Include/CStats.h"
 
 using namespace cocos2d;
 
@@ -46,6 +47,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
 				pEntity->Dispatch(m_sListenEvent);
+				M_STATS_SCREEN.nbValidTouches++;
 			}
 
 			TouchStop(pEntity);
@@ -58,6 +60,8 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			CEntityNode* pDropEntity = m_pKernel->FindEntity(a_pTouch, "Drop");
 			if (pDropEntity)
 			{
+
+				M_STATS_SCREEN.nbValidDrops++;
 				pDropEntity->Dispatch("Drop", pEntity);
 				if (pEntity->IsListeningTo("Droped"))
 				{
@@ -196,6 +200,7 @@ void CTouchBeganVisitor::TouchStop(CEntityNode* a_pEntity)
 
 void CTouchBeganVisitor::MoveEntityBack(CEntityNode* a_pEntity)
 {
+	M_STATS_SCREEN.nbInvalidDrops++;
 
 	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
 		CEntityNode::Release(a_pEntity);
@@ -269,6 +274,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 void CTouchBeganVisitor::StartTouch(CEntityNode* a_pEntity)
 {
+	M_STATS_SCREEN.nbTouches++;
 	CEntityNode::Lock(a_pEntity);
 
 	auto oTintTo = TintTo::create(0.0f, 120.0f, 120.0f, 120.0f);
@@ -286,6 +292,7 @@ void CTouchBeganVisitor::StartTouch(CEntityNode* a_pEntity)
 
 void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 {
+	M_STATS_SCREEN.nbMoves++;
 	CEntityNode::Lock(a_pEntity);
 
 	auto oScaleTo1 = ScaleTo::create(0.1f, 2 * a_pEntity->GetEntityStartScale());

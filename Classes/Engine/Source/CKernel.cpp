@@ -15,6 +15,7 @@
 #include "../Include/CJsonParser.h"
 #include "../../Modules/Networking/Networking.h"
 #include "../../Modules/Util/Include/Util.h"
+#include "../../Modules/Util/Include/CStats.h"
 
 #include "ui/CocosGUI.h"
 
@@ -118,6 +119,7 @@ void CKernel::Init()
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
+	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
 	CDispatchMessageVisitor oMessageVisitor("Validated");
 	oMessageVisitor.Traverse(m_pBehaviorTree);
@@ -127,6 +129,7 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
+	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
   CTransitionVisitor oVisitor(this, false);
   oVisitor.Traverse(m_pBehaviorTree);
@@ -135,6 +138,7 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
+	M_STATS_SCREEN.nbInteractions++;
 	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
 	oVisistor.Traverse(m_pCurrentScene);
 

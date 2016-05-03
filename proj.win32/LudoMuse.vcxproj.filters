@@ -111,6 +111,9 @@
     <ClCompile Include="..\Classes\Engine\Source\CCameraFeedNode.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Modules\Util\Source\CStats.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -225,6 +228,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CCameraFeedNode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Util\Include\CStats.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,8 @@
 #include "../Include/CCallback.h"
 #include "../Include/CSoundManager.h"
 
+#include "../../Modules/Util/Include/CStats.h"
+
 namespace LM
 {
 
@@ -28,6 +30,12 @@ void CValidator::Validate(const std::string& a_sID)
   if (itID != m_oIDs.end())
   {
     m_oIDs.erase(itID);
+
+	M_STATS_SCREEN.nbValidAnswers++;
+  }
+  else
+  {
+	  M_STATS_SCREEN.nbInvalidAnswers++;
   }
 
 

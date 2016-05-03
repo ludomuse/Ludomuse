@@ -3,6 +3,8 @@
 #include "../Include/CSequenceNode.h"
 #include "../Include/CKernel.h"
 
+#include "../../Modules/Util/Include/CStats.h"
+
 #include "cocos2d.h"
 
 using namespace cocos2d;
@@ -87,6 +89,8 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
 	m_pKernel->m_pCurrentScene = a_pSceneNode;
 	pOldScene->UnInit();
+
+	M_STATS->StartStats();
 }
 
 } // namespace LM
