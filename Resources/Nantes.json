@@ -556,15 +556,50 @@
   					]
   				    }
   				},
-				{
-				    "type": "EditBox",
-				    "id": "nameBox",
-				    "params": {
-					"anchor": 2,
-					"width": 60,
-					"height": 30
-				    }
-				}
+  				{
+  					"type": "Group",
+  					"params": {
+  						"anchor": 2,
+  						"width": 100,
+  						"height": 40,
+  						"children": [
+							{
+							    "type": "EditBox",
+							    "id": "nameBox",
+							    "params": {
+								"anchor": 8,
+								"width": 60
+							    }
+							},
+  							{
+  								"type": "Group",
+  								"params": {
+  									"anchor": 8,
+  									"width": 85,
+  									"height": 85,
+  									"children": [
+										{
+											"type": "Image",
+											"params": {
+												"source": "ui/ok.png",
+												"height" : 100,
+												"anchor": 4,
+												"listeners": [
+													{
+														"type": "Touch",
+														"params": {
+															"callback": ""
+														}
+													}
+												]
+											}
+										}
+  									]
+  								}
+  							}
+  						]
+  					}
+  				}
   			    ]
   			}
 		    }
