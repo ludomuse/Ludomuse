@@ -84,6 +84,12 @@ void CEntityNode::EnableEvent(const std::string& a_rEvent)
 	m_oDisabledEvents.erase(a_rEvent);
 }
 
+
+bool CEntityNode::EventIsDisabled(const std::string& a_rEvent)
+{
+	return (m_oDisabledEvents.find(a_rEvent) != m_oDisabledEvents.end());
+}
+
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
 	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())

@@ -240,8 +240,12 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
       // if so and if listenning to touch/move, store the entity
-      if (pEntity->IsListeningTo("Touch"))
-      {
+		if (pEntity->EventIsDisabled("Touch"))
+		{
+			return RESULT_PRUNE;
+		}
+		else if (pEntity->IsListeningTo("Touch"))
+		{
 
 		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Touch";
@@ -251,6 +255,10 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 		  return RESULT_PRUNE;
       }
+		else if (pEntity->EventIsDisabled("Move"))
+		{
+			return RESULT_PRUNE;
+		}
 	  else if (pEntity->IsListeningTo("Move"))
 	  {
 

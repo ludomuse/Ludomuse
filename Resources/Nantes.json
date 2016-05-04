@@ -2953,6 +2953,7 @@
 
 		    {
 			"type": "Grid",
+			"id": "answersGrid",
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
@@ -3213,6 +3214,13 @@
 					    	"params": {
 					    	    "callback": "PlaySound",
 					    	    "arg": "cache/audio/xylophone.mp3"
+					    	}
+					    },
+					    {
+					    	"type": "Touch",
+					    	"params": {
+					    		"callback": "DisableEvent",
+					    		"arg": "answersGrid:Touch"
 					    	}
 					    }
 					],

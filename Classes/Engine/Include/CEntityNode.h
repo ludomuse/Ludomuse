@@ -113,6 +113,8 @@ class CEntityNode : public CNode
 
   void EnableEvent(const std::string& a_rEvent);
 
+  bool EventIsDisabled(const std::string& a_rEvent);
+
   /// \brief checks if the entity is listening to 
   bool IsListeningTo(const std::string& a_rEvent);
 
