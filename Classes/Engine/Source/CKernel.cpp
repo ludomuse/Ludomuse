@@ -362,7 +362,7 @@ void CKernel::Connect(CEvent a_oEvent, CEntityNode* a_pTarget)
 				if (pLabel)
 				{
 					m_pNetworkManager->ConnectTo(pLabel->getString());
-					//m_pNetworkManager->Send("connection:establish");
+					m_pNetworkManager->Send("connection:establish");
 				}
 			}
 		}
@@ -492,6 +492,11 @@ void CKernel::SetText(CEvent a_rEvent, CEntityNode* a_pTarget)
 	}
 }
 
+
+void CKernel::RefreshPeers(CEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	m_pNetworkManager->DiscoverPeers();
+}
 
 
 

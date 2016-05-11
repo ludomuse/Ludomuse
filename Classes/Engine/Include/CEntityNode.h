@@ -94,8 +94,8 @@ class CEntityNode : public CNode
 		 int a_iHeight = 0,
 		 int a_iXPosition = 0,
 		 int a_iYPosition = 0,
-		 const std::string& a_sID = ""
-);
+		 const std::string& a_sID = "");
+
   
   /// \brief called when the scene is initialized
   //virtual void Init() = 0;

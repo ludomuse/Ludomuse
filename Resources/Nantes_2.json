@@ -472,6 +472,14 @@
                                 "color": ""
                               }
                             }
+                          ],
+                          "listeners": [
+                            {
+                              "type": "Touch",
+                              "params": {
+                                "callback": "RefreshPeers"
+                              }
+                            }
                           ]
                         }
                       }
