@@ -102,6 +102,18 @@ void CKernel::SendNetworkMessage(const std::string& a_rMessage)
 }
 
 
+
+bool CKernel::CheckPlayerInfo()
+{
+	bytes b;
+	b << '0' << *m_pLocalPlayer;
+	CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
+	m_pNetworkManager->Send(b);
+
+	return m_pLocalPlayer->m_iPlayerID != m_pDistantPlayer->m_iPlayerID;
+}
+
+
 void CKernel::Init()
 {
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
@@ -121,6 +133,15 @@ void CKernel::Init()
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
+	if (m_pCurrentScene->GetSceneID() == "screen-playerid")
+	{
+		if (!CheckPlayerInfo()) {
+			// TODO throw a toast at the user
+			
+			return;
+		}
+	}
+
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
 	CDispatchMessageVisitor oMessageVisitor("Validated");
@@ -342,10 +363,6 @@ void CKernel::Connect(CEvent a_oEvent, CEntityNode* a_pTarget)
 				{
 					m_pNetworkManager->ConnectTo(pLabel->getString());
 					//m_pNetworkManager->Send("connection:establish");
-					bytes b;
-					b << '0' << *m_pLocalPlayer;
-					CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
-					m_pNetworkManager->Send(b);
 				}
 			}
 		}
@@ -474,6 +491,9 @@ void CKernel::SetText(CEvent a_rEvent, CEntityNode* a_pTarget)
 		ON_CC_THREAD(CLabelNode::SetText, pLabel, a_rEvent.m_sStringValue);
 	}
 }
+
+
+
 
 void CKernel::LogMessage(const std::string& a_sMessage)
 {

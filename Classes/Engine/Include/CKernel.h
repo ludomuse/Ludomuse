@@ -74,6 +74,10 @@ public:
 
   void SendNetworkMessage(const std::string& a_rMessage);
 
+  /// \brief send info about the local player to the remote player
+  bool CheckPlayerInfo();
+
+
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 
@@ -100,11 +104,18 @@ public:
   void NavPrevious(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
 
   void GotoScreenID(CEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief automatically validate the current scene
   void ValidateScene(CEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief Finds the Validator in the scene and validate the given ID
+  /// \param[in] a_rEvent.m_sStringValue the id of the element to validate
   void Validate(CEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief change the visibility of the node
+  /// \param[in] a_rEvent.m_bBoolValue is the chosen visibility
   void SetNodeVisible(CEvent a_rEvent, CEntityNode* a_pTarget);
   void FadeEntity(CEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief change the current player ID
   void SetPlayerID(CEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief change the current player name
   void SetPlayerName(CEvent a_rEvent, CEntityNode* a_pTarget);
   void SendNetworkMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
   void LocalMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
