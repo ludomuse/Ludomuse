@@ -64,7 +64,7 @@ public:
 
   CJsonParser* GetJsonParser();
 
-  /// \biref Add the m_sSceneID to a_iPlayerID
+  /// \brief Add the m_sSceneID to a_iPlayerID
   void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
 
   /// \brief checks if the current player has this scene in his list
