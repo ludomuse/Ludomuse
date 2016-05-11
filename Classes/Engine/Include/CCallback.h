@@ -9,16 +9,15 @@ namespace LM
 {
 
 
-struct CEvent
+struct SEvent
 {
 
-public:
 	CNode* m_pSender;
 	std::string m_sStringValue;
 	bool m_bBoolValue;
 	int m_iIntValue;
 
-	CEvent(CNode* a_pSender = nullptr, std::string a_sStringValue = "", bool a_bBoolValue = true, int a_iIntValue = 0) :
+	SEvent(CNode* a_pSender = nullptr, std::string a_sStringValue = "", bool a_bBoolValue = true, int a_iIntValue = 0) :
 		m_pSender(a_pSender),
 		m_sStringValue(a_sStringValue),
 		m_bBoolValue(a_bBoolValue),
@@ -65,7 +64,7 @@ public:
   
 };
 
-typedef CCallback<CKernel, CEvent> CEventCallback;
+typedef CCallback<CKernel, SEvent> CEventCallback;
 
 } // namespace LM
 

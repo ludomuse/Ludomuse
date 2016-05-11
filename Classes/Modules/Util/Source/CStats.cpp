@@ -94,9 +94,13 @@ void CStats::StartStats()
 }
 
 
+std::map<std::string, SScreenStats> CStats::GetStats()
+{
+	return m_mScreensStats;
+}
 
 
-#ifdef __ANDROID__
+
 void CSerializableStats::writeOn(bytes* msg)
 {
 	int iSize = m_mScreensStats.size();
@@ -145,7 +149,6 @@ void CSerializableStats::readOn(bytes* msg)
 	}
 
 }
-#endif // __ANDROID__
 
 
 } // namespace LM

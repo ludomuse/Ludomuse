@@ -53,16 +53,15 @@ class CStats
   static CStats* Instance();
   void PushStats(const std::string& a_rScreenID);
   void StartStats();
-
+  std::map<std::string, SScreenStats> GetStats();
 
 };
 
 
-#ifdef __ANDROID__
+
 #include "../../Networking/android/Include/LmBytesMessage.h"
 
-
-class CSerializableStats : LmSerializable
+class CSerializableStats : public LmSerializable
 {
 
 private:
@@ -78,7 +77,6 @@ public:
 
 };
 
-#endif // __ANDROID__
 
 
 
