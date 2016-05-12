@@ -272,6 +272,7 @@ void CKernel::FadeEntity(SEvent a_oEvent, CEntityNode* a_pTarget)
 void CKernel::SetPlayerID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
+	CheckPlayerInfo();
 }
 
 void CKernel::SetPlayerName(SEvent a_rEvent, CEntityNode* a_pTarget)
