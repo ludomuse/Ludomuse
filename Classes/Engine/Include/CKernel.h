@@ -5,7 +5,7 @@
 #include "cocos2d.h"
 #include "CSceneNode.h"
 #include "SUser.h"
-
+#include "../../Modules/Util/Include/CStats.h"
 
 namespace LM 
 {
@@ -81,7 +81,7 @@ public:
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 
-  void EndGame();
+  void WriteStats(CSerializableStats* a_oSStats);
 
 
   /// \brief find the CEntityNode under the a_pTouch touch event and listening to a_rEvent
@@ -129,10 +129,12 @@ public:
   void PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget);
   void SetText(SEvent a_rEvent, CEntityNode* a_pTarget);
   void RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void EndGame(SEvent, CEntityNode*);
+
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
-  void OnReceiving(bytes byteArray);
+  void OnReceiving(bytes a_rbyteArray, char a_cEventID);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
 

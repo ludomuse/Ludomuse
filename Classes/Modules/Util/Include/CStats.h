@@ -72,8 +72,57 @@ public:
 	CSerializableStats(const std::map<std::string, SScreenStats>& a_mStats) : 
 		m_mScreensStats(a_mStats) {}
 
-	virtual void writeOn(bytes* msg) override;
-	virtual void readOn(bytes* msg) override;
+	CSerializableStats() : 
+		m_mScreensStats(std::map<std::string, SScreenStats>()){}
+
+	virtual void writeOn(bytes* msg) override
+	{
+		int iSize = m_mScreensStats.size();
+		*msg << iSize;
+		std::map<std::string, SScreenStats>::iterator itScreen;
+		for (itScreen = m_mScreensStats.begin(); itScreen != m_mScreensStats.end(); ++itScreen)
+		{
+			const SScreenStats& stats = itScreen->second;
+			*msg << itScreen->first;
+			*msg << stats.time;
+			*msg << stats.nbInteractions;
+			*msg << stats.nbTouches;
+			*msg << stats.nbValidTouches;
+			*msg << stats.nbMoves;
+			*msg << stats.nbValidDrops;
+			*msg << stats.nbInvalidDrops;
+			*msg << stats.nbValidAnswers;
+			*msg << stats.nbInvalidAnswers;
+		}
+	}
+
+	virtual void readOn(bytes* msg) override
+	{
+		int iSize;
+		*msg >> iSize;
+
+		std::map<std::string, SScreenStats> mScreenStats;
+
+		for (int i = 0; i < iSize; ++i)
+		{
+			SScreenStats stats;
+			std::string screenID;
+
+			*msg >> screenID;
+			*msg >> stats.time;
+			*msg >> stats.nbInteractions;
+			*msg >> stats.nbTouches;
+			*msg >> stats.nbValidTouches;
+			*msg >> stats.nbMoves;
+			*msg >> stats.nbValidDrops;
+			*msg >> stats.nbInvalidDrops;
+			*msg >> stats.nbValidAnswers;
+			*msg >> stats.nbInvalidAnswers;
+
+			mScreenStats.insert(std::pair<std::string, SScreenStats>(screenID, stats));
+		}
+
+	}
 
 };
 

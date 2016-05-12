@@ -28,8 +28,8 @@
 
 
 
-#define M_USER_BYTES '0'
-#define M_STATS_BYTES '1'
+#define M_USER_EVENT '0'
+#define M_STATS_EVENT '1'
 
 
 
@@ -46,6 +46,7 @@ namespace LM
 		m_bDebugMode(false),
 		m_bCoopWaiting(false),
 		m_pLocalPlayer(new SUser()),
+		m_pDistantPlayer(new SUser()),
 		m_pDashboard(nullptr),
 		m_pCurrentScene(nullptr)
 {
@@ -113,7 +114,7 @@ void CKernel::SendNetworkMessage(const std::string& a_rMessage)
 bool CKernel::CheckPlayerInfo()
 {
 	bytes b;
-	b << M_USER_BYTES << *m_pLocalPlayer;
+	b << M_USER_EVENT << *m_pLocalPlayer;
 	CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
 	m_pNetworkManager->Send(b);
 
@@ -138,16 +139,25 @@ void CKernel::Init()
 }
 
 
-void CKernel::EndGame()
+void CKernel::EndGame(SEvent, CEntityNode*)
 {
 	if (m_pLocalPlayer->m_iPlayerID == 1)
 	{
 		CSerializableStats oSStats(M_STATS->GetStats());
 		bytes b;
 
-		b << M_STATS_BYTES << oSStats;
+		b << M_STATS_EVENT << oSStats;
 		m_pNetworkManager->Send(b);
 	}
+}
+
+
+void CKernel::WriteStats(CSerializableStats* a_oSStats)
+{
+	// TODO write stats to file on filesystem
+	std::stringstream ss;
+	ss << a_oSStats;
+	CCLOG("STATS remote peer : \n%s", ss.str().c_str());
 }
 
 
@@ -334,11 +344,21 @@ void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 	ProcessMessage(a_rMessage);
 }
 
-void CKernel::OnReceiving(bytes a_rByteArray)
+void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 {
-	CCLOG("On Receiving MSg");
-	a_rByteArray >> &m_pDistantPlayer;
-	CCLOG("Distant player : %d", m_pDistantPlayer->m_iPlayerID);
+	switch (a_cEventID)
+	{
+	case M_USER_EVENT:
+		CCLOG("CKernel : On Receiving MSg");
+		a_rByteArray >> &m_pDistantPlayer;
+		CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
+		break;
+	case M_STATS_EVENT:
+		CSerializableStats* oSStats;
+		a_rByteArray >> &oSStats;
+		WriteStats(oSStats);
+		break;
+	}
 }
 
 void CKernel::GetPeers()
