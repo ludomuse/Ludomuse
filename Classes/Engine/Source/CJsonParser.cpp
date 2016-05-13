@@ -68,25 +68,25 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	if (sCallbackString == "GotoSceneID")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::GotoScreenID, 
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "ValidateScene")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::ValidateScene,
-			CEvent(a_pEntity, sCallbackString, a_rListener["params"]["arg"].GetBool()));
+			SEvent(a_pEntity, sCallbackString, a_rListener["params"]["arg"].GetBool()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "Validate")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::Validate,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "ConnectPeer")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::Connect,
-			CEvent(a_pEntity));
+			SEvent(a_pEntity));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "Show")
@@ -96,75 +96,87 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			bShow = a_rListener["params"]["arg"].GetBool();
 
 		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible,
-			CEvent(a_pEntity, sCallbackString, bShow));
+			SEvent(a_pEntity, sCallbackString, bShow));
 		a_pEntity->AddListener(sType, oCallback);
 		return false;
 	}
 	else if (sCallbackString == "ShowBack")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeVisible,
-			CEvent(a_pEntity, sCallbackString, true));
+			SEvent(a_pEntity, sCallbackString, true));
 		a_pEntity->AddListener(sType, oCallback);
 		return true;
 	}
 	else if (sCallbackString == "SetText")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::SetText,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString(), true));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString(), true));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "SetPlayerID")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::SetPlayerID,
-			CEvent(a_pEntity, sCallbackString, true, a_rListener["params"]["arg"].GetInt()));
+			SEvent(a_pEntity, sCallbackString, true, a_rListener["params"]["arg"].GetInt()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else  if (sCallbackString == "SetPlayerName")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::SetPlayerName,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "SendMessage")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::SendNetworkMessage,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "LocalMessage")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::LocalMessage,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "Fade")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::FadeEntity,
-			CEvent(a_pEntity));
+			SEvent(a_pEntity));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "DisableEvent")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::DisableEvent,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "EnableEvent")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::EnableEvent,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "AnchorEntity")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::AnchorEntityCallback,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "PlaySound")
 	{
 		CEventCallback oCallback(m_pKernel, &CKernel::PlaySoundCallback,
-			CEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+			SEvent(a_pEntity, a_rListener["params"]["arg"].GetString()));
+		a_pEntity->AddListener(sType, oCallback);
+	}
+	else if (sCallbackString == "RefreshPeers")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::RefreshPeers,
+			SEvent(a_pEntity));
+		a_pEntity->AddListener(sType, oCallback);
+	}
+	else if (sCallbackString == "EndGame")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::EndGame,
+			SEvent(a_pEntity));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else

@@ -5,7 +5,7 @@
 #include "cocos2d.h"
 #include "CSceneNode.h"
 #include "SUser.h"
-
+#include "../../Modules/Util/Include/CStats.h"
 
 namespace LM 
 {
@@ -14,7 +14,7 @@ class CInputManager;
 class CJsonParser;
 class CNetworkManager;
 class CSoundManager;
-struct CEvent;
+struct SEvent;
 class CEntityNode;
 class CTouchBeganVisitor;
 
@@ -74,8 +74,15 @@ public:
 
   void SendNetworkMessage(const std::string& a_rMessage);
 
+  /// \brief send info about the local player to the remote player
+  bool CheckPlayerInfo();
+
+
   /// \brief Initialize the kernel and the behavior tree
   void Init();
+
+  void WriteStats(CSerializableStats* a_oSStats);
+
 
   /// \brief find the CEntityNode under the a_pTouch touch event and listening to a_rEvent
   /// \returns the found entity, nullptr otherwise
@@ -99,25 +106,35 @@ public:
   /// \brief go to the previous scene in the tree
   void NavPrevious(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
 
-  void GotoScreenID(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void ValidateScene(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void Validate(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void SetNodeVisible(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void FadeEntity(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void SetPlayerID(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void SetPlayerName(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void SendNetworkMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void LocalMessage(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void Connect(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void PlaySoundCallback(CEvent a_rEvent, CEntityNode* a_pTarget);
-  void SetText(CEvent a_rEvent, CEntityNode* a_pTarget);
+  void GotoScreenID(SEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief automatically validate the current scene
+  void ValidateScene(SEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief Finds the Validator in the scene and validate the given ID
+  /// \param[in] a_rEvent.m_sStringValue the id of the element to validate
+  void Validate(SEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief change the visibility of the node
+  /// \param[in] a_rEvent.m_bBoolValue is the chosen visibility
+  void SetNodeVisible(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void FadeEntity(SEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief change the current player ID
+  void SetPlayerID(SEvent a_rEvent, CEntityNode* a_pTarget);
+  /// \brief change the current player name
+  void SetPlayerName(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void SendNetworkMessage(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void LocalMessage(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void Connect(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void DisableEvent(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void EnableEvent(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void AnchorEntityCallback(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void SetText(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void EndGame(SEvent, CEntityNode*);
+
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
-  void OnReceiving(bytes byteArray);
+  void OnReceiving(bytes a_rbyteArray, char a_cEventID);
   void GetPeers();
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
 

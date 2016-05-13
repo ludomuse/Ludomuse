@@ -21,6 +21,10 @@ namespace LM
 
 	virtual void writeOn(bytes* msg) override
 	{
+		if (m_sName == "")
+		{
+			m_sName = "noname";
+		}
 		*msg << m_iPlayerID << m_sName << m_eSex;
 	}
 

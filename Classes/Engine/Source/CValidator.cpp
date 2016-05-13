@@ -41,7 +41,7 @@ void CValidator::Validate(const std::string& a_sID)
 
   if (m_oIDs.size() == 0 && iOldSize > m_oIDs.size())
   {
-	m_pKernel->ValidateScene(CEvent(), nullptr);
+	m_pKernel->ValidateScene(SEvent(), nullptr);
 	m_pKernel->SendNetworkMessage("kernel:Validate");
 
 	if (m_sSound != "")

@@ -8,7 +8,7 @@ namespace LM
 {
 
 
-CValidateSceneVisitor::CValidateSceneVisitor(const CEvent& a_rEvent) :
+CValidateSceneVisitor::CValidateSceneVisitor(const SEvent& a_rEvent) :
     m_bValidate(a_rEvent.m_bBoolValue),
 	m_pSender(a_rEvent.m_pSender)
 {

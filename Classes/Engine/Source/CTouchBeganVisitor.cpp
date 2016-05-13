@@ -267,6 +267,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 		  M_STATS_SCREEN.nbMoves++;
 		  StartMove(pEntity);
+		  pEntity->Dispatch("Move");
 
 		  return RESULT_PRUNE;
 	  }

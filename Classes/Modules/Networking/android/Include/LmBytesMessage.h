@@ -212,13 +212,17 @@ class bytes {
 			write(std::string(str));
 		}
 
-		void write(std::string str)
+		void write(const std::string& str)
 		{
 			int len = str.length();
 			std::vector<char> vect(str.begin(), str.end());
-			lmByte* data = &vect[0];
-			write(len);
-			write(data, len);
+
+			if (len > 0)
+			{
+				lmByte* data = &vect[0];
+				write(len);
+				write(data, len);
+			}
 		}
 
 		WR_PRIM(int)
@@ -294,9 +298,13 @@ class bytes {
 		{
 			int len = readInt();
 			CCLOG("string size = %d", size);
-			lmByte* array = readBytes(len);
-			CCLOG("string read  correctly ! %s", array);
-			return std::string(array, len);
+			if (len > 0)
+			{
+				lmByte* array = readBytes(len);
+				CCLOG("string read  correctly ! %s", array);
+				return std::string(array, len);
+			}
+			return "";
 		}
 
 		RD_PRIM(int, readInt)

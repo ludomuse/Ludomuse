@@ -26,6 +26,13 @@
 										std::bind(&FUN, OBJ, ##__VA_ARGS__));
 
 
+
+
+#define M_USER_EVENT '0'
+#define M_STATS_EVENT '1'
+
+
+
 using namespace cocos2d;
 
 namespace LM
@@ -39,6 +46,7 @@ namespace LM
 		m_bDebugMode(false),
 		m_bCoopWaiting(false),
 		m_pLocalPlayer(new SUser()),
+		m_pDistantPlayer(new SUser()),
 		m_pDashboard(nullptr),
 		m_pCurrentScene(nullptr)
 {
@@ -102,6 +110,18 @@ void CKernel::SendNetworkMessage(const std::string& a_rMessage)
 }
 
 
+
+bool CKernel::CheckPlayerInfo()
+{
+	bytes b;
+	b << M_USER_EVENT << *m_pLocalPlayer;
+	CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
+	m_pNetworkManager->Send(b);
+
+	return m_pLocalPlayer->m_iPlayerID != m_pDistantPlayer->m_iPlayerID;
+}
+
+
 void CKernel::Init()
 {
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
@@ -119,8 +139,39 @@ void CKernel::Init()
 }
 
 
+void CKernel::EndGame(SEvent, CEntityNode*)
+{
+	if (m_pLocalPlayer->m_iPlayerID == 1)
+	{
+		CSerializableStats oSStats(M_STATS->GetStats());
+		bytes b;
+
+		b << M_STATS_EVENT << oSStats;
+		m_pNetworkManager->Send(b);
+	}
+}
+
+
+void CKernel::WriteStats(CSerializableStats* a_oSStats)
+{
+	// TODO write stats to file on filesystem
+	std::stringstream ss;
+	ss << a_oSStats;
+	CCLOG("STATS remote peer : \n%s", ss.str().c_str());
+}
+
+
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
+	if (m_pCurrentScene->GetSceneID() == "screen-playerid")
+	{
+		if (!CheckPlayerInfo()) {
+			// TODO throw a toast at the user
+			
+			return;
+		}
+	}
+
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
 	CDispatchMessageVisitor oMessageVisitor("Validated");
@@ -164,7 +215,7 @@ bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 }
 
 
-void CKernel::GotoScreenID(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("GotoScreenID : %s", a_oEvent.m_sStringValue.c_str());
 	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue);
@@ -172,7 +223,7 @@ void CKernel::GotoScreenID(CEvent a_oEvent, CEntityNode* a_pTarget)
 
 }
 
-void CKernel::ValidateScene(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::ValidateScene(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("CKernel::ValidateScene");
 	CValidateSceneVisitor oVisitor(a_oEvent);
@@ -180,7 +231,7 @@ void CKernel::ValidateScene(CEvent a_oEvent, CEntityNode* a_pTarget)
 	CCLOG("Scene validated successfully");
 }
 
-void CKernel::Validate(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::Validate(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	// find CValidator element in tree and validator->Validate(a_oEvent.m_sStringValue);
 	Desc<CNode> pNode;
@@ -197,7 +248,7 @@ void CKernel::Validate(CEvent a_oEvent, CEntityNode* a_pTarget)
 	}
 }
 
-void CKernel::SetNodeVisible(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::SetNodeVisible(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("CKernel::SetNodeVisible");
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
@@ -207,7 +258,7 @@ void CKernel::SetNodeVisible(CEvent a_oEvent, CEntityNode* a_pTarget)
 	}
 }
 
-void CKernel::FadeEntity(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::FadeEntity(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
@@ -218,12 +269,13 @@ void CKernel::FadeEntity(CEvent a_oEvent, CEntityNode* a_pTarget)
 	}
 }
 
-void CKernel::SetPlayerID(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::SetPlayerID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
+	CheckPlayerInfo();
 }
 
-void CKernel::SetPlayerName(CEvent a_rEvent, CEntityNode* a_pTarget)
+void CKernel::SetPlayerName(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	Desc<CNode> pNode;
 	CFindEntityFromIDVisitor oVisitor(pNode, a_rEvent.m_sStringValue);
@@ -250,13 +302,13 @@ CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 }
 
 
-void CKernel::SendNetworkMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::SendNetworkMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("Sending message %s", a_oEvent.m_sStringValue.c_str());
 	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
 }
 
-void CKernel::LocalMessage(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::LocalMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("processing Local message %s", a_oEvent.m_sStringValue.c_str());
 	ProcessMessage(a_oEvent.m_sStringValue);
@@ -273,7 +325,7 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 		}
 		else if (vSplittedMessage[1] == "Validate")
 		{
-			ValidateScene(CEvent(), nullptr);
+			ValidateScene(SEvent(), nullptr);
 		}
 	}
 	else if (vSplittedMessage[0] == "Dashboard")
@@ -293,11 +345,21 @@ void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 	ProcessMessage(a_rMessage);
 }
 
-void CKernel::OnReceiving(bytes a_rByteArray)
+void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 {
-	CCLOG("On Receiving MSg");
-	a_rByteArray >> &m_pDistantPlayer;
-	CCLOG("Distant player : %d", m_pDistantPlayer->m_iPlayerID);
+	switch (a_cEventID)
+	{
+	case M_USER_EVENT:
+		CCLOG("CKernel : On Receiving MSg");
+		a_rByteArray >> &m_pDistantPlayer;
+		CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
+		break;
+	case M_STATS_EVENT:
+		CSerializableStats* oSStats;
+		a_rByteArray >> &oSStats;
+		WriteStats(oSStats);
+		break;
+	}
 }
 
 void CKernel::GetPeers()
@@ -325,7 +387,7 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 	}
 }
 
-void CKernel::Connect(CEvent a_oEvent, CEntityNode* a_pTarget)
+void CKernel::Connect(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 	if (pEntity)
@@ -341,18 +403,14 @@ void CKernel::Connect(CEvent a_oEvent, CEntityNode* a_pTarget)
 				if (pLabel)
 				{
 					m_pNetworkManager->ConnectTo(pLabel->getString());
-					//m_pNetworkManager->Send("connection:establish");
-					bytes b;
-					b << '0' << *m_pLocalPlayer;
-					CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
-					m_pNetworkManager->Send(b);
+					m_pNetworkManager->Send("connection:establish");
 				}
 			}
 		}
 	}
 }
 
-void CKernel::DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
+void CKernel::DisableEvent(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	// string value should be build : "targetID:Event"
 	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
@@ -370,7 +428,7 @@ void CKernel::DisableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
 }
 
 
-void CKernel::EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
+void CKernel::EnableEvent(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
 	if (vArgs.size() > 1)
@@ -388,7 +446,7 @@ void CKernel::EnableEvent(CEvent a_rEvent, CEntityNode* a_pTarget)
 }
 
 
-void CKernel::AnchorEntityCallback(CEvent a_rEvent, CEntityNode* a_pAnchoredEntity)
+void CKernel::AnchorEntityCallback(SEvent a_rEvent, CEntityNode* a_pAnchoredEntity)
 {
 	std::string sExpectedID = a_rEvent.m_sStringValue;
 	CCLOG("AnchorEntity callback : %s", sExpectedID.c_str());
@@ -459,13 +517,13 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 
 
 
-void CKernel::PlaySoundCallback(CEvent a_rEvent, CEntityNode* a_pTarget)
+void CKernel::PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
 }
 
 
-void CKernel::SetText(CEvent a_rEvent, CEntityNode* a_pTarget)
+void CKernel::SetText(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("CKernel::SetText");
 	CLabelNode* pLabel = dynamic_cast<CLabelNode*>(a_rEvent.m_pSender);
@@ -474,6 +532,14 @@ void CKernel::SetText(CEvent a_rEvent, CEntityNode* a_pTarget)
 		ON_CC_THREAD(CLabelNode::SetText, pLabel, a_rEvent.m_sStringValue);
 	}
 }
+
+
+void CKernel::RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	m_pNetworkManager->DiscoverPeers();
+}
+
+
 
 void CKernel::LogMessage(const std::string& a_sMessage)
 {
