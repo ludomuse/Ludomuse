@@ -62,6 +62,7 @@ CKernel::~CKernel()
 	delete m_pSoundManager;
 	delete m_pJsonParser;
 	delete m_pLocalPlayer;
+	delete m_pDistantPlayer;
 }
 
 
@@ -136,6 +137,10 @@ void CKernel::Init()
     cocos2d::Director::getInstance()->runWithScene(pScene);
 
 	M_STATS->StartStats();
+
+	//M_STATS->PushStats("test");
+	//CSerializableStats oSStats(M_STATS->GetStats());
+	//WriteStats(&oSStats);
 }
 
 
@@ -152,12 +157,15 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 }
 
 
-void CKernel::WriteStats(CSerializableStats* a_oSStats)
+void CKernel::WriteStats(CSerializableStats* a_pSStats)
 {
+
 	// TODO write stats to file on filesystem
 	std::stringstream ss;
-	ss << a_oSStats;
-	CCLOG("STATS remote peer : \n%s", ss.str().c_str());
+	ss << *a_pSStats;
+	CCLOG("[LUDO_STATS] ******************************************************************");
+	CCLOG("[LUDO_STATS] remote peer : ");
+	CCLOG("%s", ss.str().c_str());
 }
 
 
@@ -355,9 +363,9 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 		CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
 		break;
 	case M_STATS_EVENT:
-		CSerializableStats* oSStats;
-		a_rByteArray >> &oSStats;
-		WriteStats(oSStats);
+		CSerializableStats* pSStats;
+		a_rByteArray >> &pSStats;
+		WriteStats(pSStats);
 		break;
 	}
 }

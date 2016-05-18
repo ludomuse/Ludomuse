@@ -94,12 +94,27 @@ void CStats::StartStats()
 }
 
 
-std::map<std::string, SScreenStats> CStats::GetStats()
+std::map<std::string, SScreenStats> CStats::GetStats() const 
 {
 	return m_mScreensStats;
 }
 
 
+
+std::ostream& operator<<(std::ostream& os, const CSerializableStats& a_rStats)
+{
+	std::map<std::string, SScreenStats>::const_iterator itScreenStats;
+	os << "[LUDO_STATS]" << std::endl;
+	for (itScreenStats = a_rStats.m_mScreensStats.begin();
+		itScreenStats != a_rStats.m_mScreensStats.end();
+		++itScreenStats)
+	{
+		os << "[LUDO_STATS] stats for screen : " << itScreenStats->first << std::endl;
+		os << itScreenStats->second;
+		os << "[LUDO_STATS] -----------------------------------" << std::endl;
+	}
+	return os;
+}
 
 
 //void CSerializableStats::writeOn(bytes* msg)

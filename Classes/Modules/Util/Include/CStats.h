@@ -53,7 +53,7 @@ class CStats
   static CStats* Instance();
   void PushStats(const std::string& a_rScreenID);
   void StartStats();
-  std::map<std::string, SScreenStats> GetStats();
+  std::map<std::string, SScreenStats> GetStats() const;
 
 };
 
@@ -64,11 +64,10 @@ class CStats
 class CSerializableStats : public LmSerializable
 {
 
-private:
+public:
 	std::map<std::string, SScreenStats> m_mScreensStats;
 
 
-public:
 	CSerializableStats(const std::map<std::string, SScreenStats>& a_mStats) : 
 		m_mScreensStats(a_mStats) {}
 
@@ -101,8 +100,6 @@ public:
 		int iSize;
 		*msg >> iSize;
 
-		std::map<std::string, SScreenStats> mScreenStats;
-
 		for (int i = 0; i < iSize; ++i)
 		{
 			SScreenStats stats;
@@ -118,8 +115,7 @@ public:
 			*msg >> stats.nbInvalidDrops;
 			*msg >> stats.nbValidAnswers;
 			*msg >> stats.nbInvalidAnswers;
-
-			mScreenStats.insert(std::pair<std::string, SScreenStats>(screenID, stats));
+			m_mScreensStats.insert(std::pair<std::string, SScreenStats>(screenID, stats));
 		}
 
 	}
@@ -127,6 +123,7 @@ public:
 };
 
 
+std::ostream& operator<<(std::ostream& os, const CSerializableStats& a_rStats);
 
 
 } // namespace LM
