@@ -99,6 +99,10 @@
         "screen-2-g-player2"
       ],
       [
+        "screen-2-g-2-player1",
+        "screen-2-g-2-player2"
+      ],
+      [
         "screen-2-h-player1",
         "screen-2-h-player2"
       ],
@@ -117,6 +121,10 @@
       [
         "screen-3-b-player1",
         "screen-3-b-player2"
+      ],
+      [
+        "screen-3-b-2-player1",
+        "screen-3-b-2-player2"
       ],
       [
         "screen-3-c-player1",
@@ -209,6 +217,10 @@
       [
         "screen-6-a-player1",
         "screen-6-a-player2"
+      ],
+      [
+        "screen-generique-player1",
+        "screen-generique-player2"
       ]
     ],
     "screens": [
@@ -1862,7 +1874,7 @@
                     "anchor": 6,
                     "width": 100,
                     "height": 35,
-                    "source": "ui/cache-noir-70.png",
+                    "source": "ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -1873,7 +1885,7 @@
                           "height": 90,
                           "textAlign": "center",
                           "anchor": 0,
-                          "color": "255,255,255,255"
+                          "color": "0,0,0,255"
                         }
                       }
                     ]
@@ -2045,7 +2057,7 @@
                     "anchor": 6,
                     "width": 100,
                     "height": 35,
-                    "source": "ui/cache-noir-70.png",
+                    "source": "ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -2056,7 +2068,7 @@
                           "height": 90,
                           "textAlign": "center",
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "listeners": [
                             {
                               "type": "Init",
@@ -2229,9 +2241,9 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 6,
-                    "width": 100,
-                    "height": 35,
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
                     "source": "ui/cache-noir-70.png",
                     "children": [
                       {
@@ -2395,9 +2407,9 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 6,
-                    "width": 100,
-                    "height": 35,
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
                     "source": "ui/cache-noir-70.png",
                     "children": [
                       {
@@ -3533,9 +3545,9 @@
           {
             "type": "Group",
             "params": {
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 74,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
@@ -3553,7 +3565,8 @@
                   "params": {
                     "anchor": 6,
                     "width": 100,
-                    "height": 50,
+                    "height": 35,
+                    "source": "ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -3563,7 +3576,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -3686,9 +3699,9 @@
           {
             "type": "Group",
             "params": {
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 74,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
@@ -3706,7 +3719,8 @@
                   "params": {
                     "anchor": 6,
                     "width": 100,
-                    "height": 50,
+                    "height": 35,
+                    "source": "ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -3716,7 +3730,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -3882,7 +3896,7 @@
                     "anchor": 6,
                     "width": 100,
                     "height": 35,
-                    "source": "ui/cache-noir-70.png",
+                    "source": "ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -3892,7 +3906,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -4058,7 +4072,7 @@
                     "anchor": 6,
                     "width": 100,
                     "height": 35,
-                    "source": "ui/cache-noir-70.png",
+                    "source": "ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -4068,7 +4082,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -4229,7 +4243,7 @@
                     "anchor": 6,
                     "width": 100,
                     "height": 35,
-                    "source": "ui/cache-noir-70.png",
+                    "source": "ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -4239,7 +4253,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -4394,7 +4408,7 @@
                     "anchor": 6,
                     "width": 100,
                     "height": 35,
-                    "source": "ui/cache-noir-70.png",
+                    "source": "ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -4404,7 +4418,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -5747,6 +5761,7 @@
       },
 
 
+
       {
         "scene": "screen-1-j-player1",
         "navigation": [
@@ -6169,10 +6184,10 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 2,
+                    "anchor": 6,
                     "width": 100,
-                    "height": 30,
-                    "source":"ui/cache-noir-70.png",
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -6182,7 +6197,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -6339,10 +6354,10 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 2,
+                    "anchor": 6,
                     "width": 100,
-                    "height": 30,
-                    "source":"ui/cache-noir-70.png",
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -6352,7 +6367,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -7015,7 +7030,9 @@
                     "y": 0
                   }
                 }
-              ]}}
+              ]
+            }
+          }
         ],
         "information": [
           {
@@ -7154,7 +7171,7 @@
                   "type": "Image",
                   "params": {
                     "source": "cache/carte2.png",
-                    "anchor": 7,
+                    "anchor": 1,
                     "width": 0,
                     "height": 30,
                     "x": 0,
@@ -7164,10 +7181,10 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 2,
+                    "anchor": 6,
                     "width": 100,
-                    "height": 30,
-                    "source":"ui/cache-noir-70.png",
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -7177,7 +7194,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -7185,7 +7202,12 @@
                           }
                         }
                       }
-                    ]}}]}}
+                    ]
+                  }
+                }
+              ]
+            }
+          }
         ],
         "information": [
           {
@@ -7324,7 +7346,7 @@
                   "type": "Image",
                   "params": {
                     "source": "cache/carte2.png",
-                    "anchor": 7,
+                    "anchor": 1,
                     "width": 0,
                     "height": 30,
                     "x": 0,
@@ -7334,10 +7356,10 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 2,
+                    "anchor": 6,
                     "width": 100,
-                    "height": 30,
-                    "source":"ui/cache-noir-70.png",
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
                     "children": [
                       {
                         "type": "Text",
@@ -7347,7 +7369,7 @@
                           "width": 80,
                           "height": 90,
                           "anchor": 0,
-                          "color": "255,255,255,255",
+                          "color": "0,0,0,255",
                           "cache": {
                             "visible": false,
                             "backgroundColor": "",
@@ -7355,7 +7377,12 @@
                           }
                         }
                       }
-                    ]}}]}}
+                    ]
+                  }
+                }
+              ]
+            }
+          }
         ],
         "information": [
           {
@@ -7493,9 +7520,9 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 2,
-                    "width": 100,
-                    "height": 30,
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
                     "source":"ui/cache-noir-70.png",
                     "children": [
                       {
@@ -7514,8 +7541,12 @@
                           }
                         }
                       }
-                    ]}}]}}
-
+                    ]
+                  }
+                }
+              ]
+            }
+          }
         ],
         "information": [
           {
@@ -7620,60 +7651,66 @@
             }
           }
         ],
-        "content": [{
-          "type": "Group",
-          "params": {
-            "anchor": 2,
-            "width": 100,
-            "height": 87,
-            "children": [
-              {
-                "type": "Image",
-                "params": {
-                  "source": "cache/background2CERN.png",
-                  "anchor": 0,
-                  "width": 100,
-                  "height": 100,
-                  "x": 0,
-                  "y": 0
-                }
-              },
-              {
-                "type": "Image",
-                "params": {
-                  "source": "cache/perso2Homme.png",
-                  "anchor": 5,
-                  "width": 0,
-                  "height": 60,
-                  "x": 0,
-                  "y": 0
-                }
-              },
-              {
-                "type": "Group",
-                "params": {
-                  "anchor": 2,
-                  "width": 100,
-                  "height": 30,
-                  "source":"ui/cache-noir-70.png",
-                  "children": [
-                    {
-                      "type": "Text",
-                      "params": {
-                        "content": "Je dois te laisser un moment ! Inities-toi avec mes collections, et amuses-toi à retrouver les ambiances sonores : celui qui aura le plus de point gagnera",
-                        "fontSize": 24,
-                        "width": 90,
-                        "height": 100,
-                        "anchor": 0,
-                        "color": "255,255,255,255",
-                        "cache": {
-                          "visible": false,
-                          "backgroundColor": "",
-                          "backgroundImage": ""
+        "content": [
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background2CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso2Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
+                    "source":"ui/cache-noir-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Je dois te laisser un moment ! Inities-toi avec mes collections, et amuses-toi à retrouver les ambiances sonores : celui qui aura le plus de point gagnera",
+                          "fontSize": 24,
+                          "width": 90,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "255,255,255,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
                         }
                       }
-                    }
-                  ]}}]}}
+                    ]
+                  }
+                }
+              ]
+            }
+          }
         ],
         "information": [
           {
@@ -8999,7 +9036,7 @@
                   "type": "Image",
                   "params": {
                     "source": "cache/Pot1.jpg",
-                    "anchor": 7,
+                    "anchor": 1,
                     "width": 0,
                     "height": 40,
                     "x": 0,
@@ -9009,27 +9046,32 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 2,
+                    "anchor": 6,
                     "width": 100,
-                    "height": 30,
-                    "source":"ui/cache-noir-70.png",
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
                     "children": [{
                       "type": "Text",
                       "params": {
-                        "content": "mais vous n'avez pas encore découvert le plus grand de tous! ...Tu as remarqué cet énorme récipient en bronze au milieu de la pièce. Personne n’est sûr de ce à quoi il servait. On sait qu’il contenait un liquide",
+                        "content": "Mais vous n'avez pas encore découvert le plus grand de tous! ...Tu as remarqué cet énorme récipient en bronze au milieu de la pièce. Personne n’est sûr de ce à quoi il servait. On sait qu’il contenait un liquide",
                         "fontSize": 24,
                         "width": 80,
                         "height": 100,
                         "anchor": 0,
-                        "color": "255,255,255,255",
+                        "color": "0,0,0,255",
                         "cache": {
                           "visible": false,
                           "backgroundColor": "",
                           "backgroundImage": ""
                         }
                       }
-                    }]}}
-              ]}}
+                    }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
         ],
         "information": [
           {
@@ -9168,7 +9210,7 @@
                   "type": "Image",
                   "params": {
                     "source": "cache/Pot1.jpg",
-                    "anchor": 7,
+                    "anchor": 1,
                     "width": 0,
                     "height": 40,
                     "x": 0,
@@ -9178,27 +9220,32 @@
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 2,
+                    "anchor": 6,
                     "width": 100,
-                    "height": 30,
-                    "source":"ui/cache-noir-70.png",
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
                     "children": [{
                       "type": "Text",
                       "params": {
-                        "content": "mais vous n'avez pas encore découvert le plus grand de tous! ...Tu as remarqué cet énorme récipient en bronze au milieu de la pièce. Personne n’est sûr de ce à quoi il servait. On sait qu’il contenait un liquide",
+                        "content": "Mais vous n'avez pas encore découvert le plus grand de tous! ...Tu as remarqué cet énorme récipient en bronze au milieu de la pièce. Personne n’est sûr de ce à quoi il servait. On sait qu’il contenait un liquide",
                         "fontSize": 24,
                         "width": 80,
                         "height": 100,
                         "anchor": 0,
-                        "color": "255,255,255,255",
+                        "color": "0,0,0,255",
                         "cache": {
                           "visible": false,
                           "backgroundColor": "",
                           "backgroundImage": ""
                         }
                       }
-                    }]}}
-              ]}}
+                    }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
         ],
         "information": [
           {
@@ -9213,6 +9260,332 @@
                   "type": "Text",
                   "params": {
                     "content": "Voici un autre objet qui devrait t'intéresser",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-2-g-2-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background2CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso2Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
+                    "source":"ui/cache-noir-70.png",
+                    "children": [{
+                      "type": "Text",
+                      "params": {
+                        "content": "Pouvez-vous nous aider à retrouver ce qu'il contenait?",
+                        "fontSize": 24,
+                        "width": 80,
+                        "height": 100,
+                        "anchor": 0,
+                        "color": "255,255,255,255",
+                        "cache": {
+                          "visible": false,
+                          "backgroundColor": "",
+                          "backgroundImage": ""
+                        }
+                      }
+                    }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 6,
+              "source": "ui/info-6.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Voici un autre objet qui devrait t'intéresser",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-2-g-2-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background2CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso2Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
+                    "source":"ui/cache-noir-70.png",
+                    "children": [{
+                      "type": "Text",
+                      "params": {
+                        "content": "Peux-tu nous aider à retrouver ce qu'il contenait?",
+                        "fontSize": 24,
+                        "width": 80,
+                        "height": 100,
+                        "anchor": 0,
+                        "color": "255,255,255,255",
+                        "cache": {
+                          "visible": false,
+                          "backgroundColor": "",
+                          "backgroundImage": ""
+                        }
+                      }
+                    }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 6,
+              "source": "ui/info-6.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Voici un autre objet qui devrez-vous intéresser",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -10390,6 +10763,7 @@
         ]
       },
 
+
       {
         "scene": "screen-2-i-player1",
         "navigation": [
@@ -10769,52 +11143,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background2CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso2Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Porteur1.png",
-              "anchor": 7,
-              "width": 0,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Je suis heureux de vous offrir ce bassin...qui m’encombrait un peu. Vous ne pourrez pas l’emporter seuls !  Prenez un pousse-pousse pour continuer votre voyage. Je vous conseille de rencontrer des artisans à Suzhou !",
-              "fontSize": 24,
-              "width": 60,
-              "height": 100,
-              "anchor": 0,
-              "color": "0,0,0,255",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background2CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso2Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Porteur1.png",
+                    "anchor": 7,
+                    "width": 0,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Je suis heureux de vous offrir ce bassin...qui m’encombrait un peu. Vous ne pourrez pas l’emporter seuls !  Prenez un pousse-pousse pour continuer votre voyage. Je vous conseille de rencontrer des artisans à Suzhou !",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -10923,52 +11318,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background2CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso2Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Porteur1.png",
-              "anchor": 7,
-              "width": 0,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Je suis heureux de vous offrir ce bassin...qui m’encombrait un peu. Vous ne pourrez pas l’emporter seuls !  Prenez un pousse-pousse pour continuer votre voyage. Je vous conseille de rencontrer des artisans à Suzhou !",
-              "fontSize": 24,
-              "width": 60,
-              "height": 100,
-              "anchor": 0,
-              "color": "0,0,0,255",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background2CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso2Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Porteur1.png",
+                    "anchor": 7,
+                    "width": 0,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Je suis heureux de vous offrir ce bassin...qui m’encombrait un peu. Vous ne pourrez pas l’emporter seuls !  Prenez un pousse-pousse pour continuer votre voyage. Je vous conseille de rencontrer des artisans à Suzhou !",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -10985,238 +11401,6 @@
                   "type": "Text",
                   "params": {
                     "content": "Moyen de transport",
-                    "fontSize": 20,
-                    "textAlign": "center",
-                    "width": 60,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "0,0,0,255",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-3-a-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "SUIVANT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/PlanSalle2.jpg",
-              "anchor": 2,
-              "width": 0,
-              "height": 90,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ],
-        "information": [
-          {
-            "type": "Info",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 6,
-              "source": "ui/info-6.png",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "Rendez-vous vers la salle suivante",
-                    "fontSize": 20,
-                    "textAlign": "center",
-                    "width": 60,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "0,0,0,255",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-3-a-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "SUIVANT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Musee3.jpg",
-              "anchor": 2,
-              "width": 0,
-              "height": 90,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ],
-        "information": [
-          {
-            "type": "Info",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 6,
-              "source": "ui/info-6.png",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "Rendez-vous devant la tour de plaisance",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -11448,7 +11632,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Rendez-­vous devant la tour de plaisance",
+                    "content": "Rendez­vous devant la tour de plaisance",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -11541,43 +11725,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background1CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso1Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/Statuette3.jpg",
+                    "source": "cache/background1CERN.png",
                     "anchor": 0,
-                    "width": 80,
-                    "height": 80,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -11585,31 +11745,76 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte3.png",
-                    "anchor": 0,
-                    "width": 80,
-                    "height": 80,
+                    "source": "cache/perso1Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "rows": 2,
+                    "cols": 1,
+                    "anchor": 1,
+                    "width": 30,
+                    "height": 80,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/Statuette3.jpg",
+                          "anchor": 0,
+                          "width": 80,
+                          "height": 80,
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/carte3.png",
+                          "anchor": 0,
+                          "width": 80,
+                          "height": 80,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Ni hao, bonjour étrangers, je suis potier. Bienvenue à Suzhou et dans cet atelier de céramique... Aujourd’hui je dois terminer un objet destiné à mettre dans la tombe d’un défunt important...  Voulez-vous terminer de monter la tour avec moi ?",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Ni hao, bonjour étrangers, je suis potier. Bienvenue à Suzhou etdans cet atelier de céramique [...] Aujourd’hui je dois terminer un objet destiné à mettre dans la tombe d’un défunt important[...]  Voulez-vous terminer de monter la tour avec moi ?",
-              "fontSize": 24,
-              "width": 60,
-              "height": 100,
-              "anchor": 0,
-              "color": "0,0,0,255",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
             }
           }
         ],
@@ -11718,43 +11923,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background1CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso1Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/Statuette3.jpg",
+                    "source": "cache/background1CERN.png",
                     "anchor": 0,
-                    "width": 80,
-                    "height": 80,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -11762,37 +11943,76 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte3.png",
-                    "anchor": 0,
-                    "width": 80,
-                    "height": 80,
+                    "source": "cache/perso1Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "rows": 2,
+                    "cols": 1,
+                    "anchor": 1,
+                    "width": 30,
+                    "height": 80,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/Statuette3.jpg",
+                          "anchor": 0,
+                          "width": 80,
+                          "height": 80,
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/carte3.png",
+                          "anchor": 0,
+                          "width": 80,
+                          "height": 80,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Nǐ hǎo, bonjour étrangers, je suis potier. Bienvenue à Suzhou et dans cet atelier de céramique... Aujourd’hui je dois terminer un objet destiné à mettre dans la tombe d’un défunt important...  Voulez-vous terminer de monter la tour avec moi ?",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Nǐ hǎo, bonjour étrangers, je suis potier. Bienvenue à Suzhou et dans cet atelier de céramique [...] Aujourd’hui je dois terminer un objet destiné à mettre dans la tombe d’un défunt important[...]  Voulez-vous terminer de monter la tour avec moi ?",
-              "fontSize": 24,
-              "width": 60,
-              "height": 100,
-              "anchor": 0,
-              "color": "0,0,0,255",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          },
-          {
-            "type": "Sound",
-            "params": {
-              "source": ""
             }
           }
         ],
@@ -11809,6 +12029,332 @@
                   "type": "Text",
                   "params": {
                     "content": "Bienvenue à Suzhou - Salle Han",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-3-b-2-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background1CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso1Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
+                    "source":"ui/cache-noir-70.png",
+                    "children": [{
+                      "type": "Text",
+                      "params": {
+                        "content": "Aidez le potier à reconstruire sa tour en envoyant les photos à votre partenaire dans le bon ordre. Le potier compte sur vous!",
+                        "fontSize": 24,
+                        "width": 80,
+                        "height": 100,
+                        "anchor": 0,
+                        "color": "255,255,255,255",
+                        "cache": {
+                          "visible": false,
+                          "backgroundColor": "",
+                          "backgroundImage": ""
+                        }
+                      }
+                    }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 6,
+              "source": "ui/info-6.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Prêt à aider un artisan?",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-3-b-2-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background1CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso1Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
+                    "source":"ui/cache-noir-70.png",
+                    "children": [{
+                      "type": "Text",
+                      "params": {
+                        "content": "Aide le potier à reconstruire sa tour en placant les images que t'envoie ton partnaire",
+                        "fontSize": 24,
+                        "width": 80,
+                        "height": 100,
+                        "anchor": 0,
+                        "color": "255,255,255,255",
+                        "cache": {
+                          "visible": false,
+                          "backgroundColor": "",
+                          "backgroundImage": ""
+                        }
+                      }
+                    }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 6,
+              "source": "ui/info-6.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Prêt à aider un artisan?",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -13030,30 +13576,50 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/Statuette3.jpg",
               "anchor": 0,
-              "width": 0,
-              "height": 70,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "C’est ça ! Bravo ! merci de votre aide...je vous offre cette tour de plaisance en céramique, je trouverai le temps d’en faire une autre pour le client.",
-              "fontSize": 24,
-              "width": 80,
-              "height": 100,
-              "anchor": 2,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "width": 100,
+              "height": 74,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Statuette3.jpg",
+                    "anchor": 2,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 60,
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "C’est ça ! Bravo ! merci de votre aide...je vous offre cette tour de plaisance en céramique, je trouverai le temps d’en faire une autre pour le client.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 6,
+                          "color": "",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -13162,30 +13728,50 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/Statuette3.jpg",
               "anchor": 0,
-              "width": 0,
-              "height": 70,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "C’est ça ! Bravo ! merci de ton aide...je t'offre cette tour de plaisance en céramique, je trouverai le temps d’en faire une autre pour le client.",
-              "fontSize": 24,
-              "width": 80,
-              "height": 100,
-              "anchor": 2,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "width": 100,
+              "height": 74,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Statuette3.jpg",
+                    "anchor": 2,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 60,
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "C’est ça ! Bravo ! merci de ton aide...je t'offre cette tour de plaisance en céramique, je trouverai le temps d’en faire une autre pour le client.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 6,
+                          "color": "",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -13294,52 +13880,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background2CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso2Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Porteur1.png",
-              "anchor": 7,
-              "width": 0,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Si vous aimez rencontrer des artisans comme moi, je vous conseille de rendre visite à mon ami peintre à Pékin! Prenez une voiture à porteur pour sortir de la ville.",
-              "fontSize": 24,
-              "width": 60,
-              "height": 100,
-              "anchor": 0,
-              "color": "0,0,0,255",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background2CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso2Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Porteur1.png",
+                    "anchor": 7,
+                    "width": 0,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Si vous aimez rencontrer des artisans comme moi, je vous conseille de rendre visite à mon ami peintre à Pékin! Prenez une voiture à porteur pour sortir de la ville.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -13448,52 +14055,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background2CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso2Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Porteur1.png",
-              "anchor": 7,
-              "width": 0,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Si vous aimez rencontrer des artisans comme moi, je vous conseille de rendre visite à mon ami peintre à Pékin! Prenez une voiture à porteur pour sortir de la ville.",
-              "fontSize": 24,
-              "width": 60,
-              "height": 100,
-              "anchor": 0,
-              "color": "0,0,0,255",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background2CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso2Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Porteur1.png",
+                    "anchor": 7,
+                    "width": 0,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Si vous aimez rencontrer des artisans comme moi, je vous conseille de rendre visite à mon ami peintre à Pékin! Prenez une voiture à porteur pour sortir de la ville.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -13741,7 +14369,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Rendez­-vous dans la salle Tang derrière la vitrine avec l’objet “Gardien de tombe”",
+                    "content": "Rendez-vous dans la salle Tang derrière la vitrine avec l’objet “Gardien de tombe”",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -13973,7 +14601,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Rendez­-vous dans la salle Tang derrière la vitrine avec l’objet “Gardien de tombe”",
+                    "content": "Rendez-vous dans la salle Tang derrière la vitrine avec l’objet “Gardien de tombe”",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -14066,43 +14694,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/demon1.jpg",
+                    "source": "cache/background3CERN.png",
                     "anchor": 0,
-                    "width": 70,
-                    "height": 60,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -14110,31 +14714,76 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte4.png",
-                    "anchor": 0,
-                    "width": 70,
-                    "height": 30,
+                    "source": "cache/perso3Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "rows": 2,
+                    "cols": 1,
+                    "anchor": 1,
+                    "width": 30,
+                    "height": 80,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/demon1.jpg",
+                          "anchor": 0,
+                          "width": 70,
+                          "height": 60,
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/carte4.png",
+                          "anchor": 0,
+                          "width": 70,
+                          "height": 30,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Il y a un démon chez Monsieur Li ! C'est terrible ! Peut-être pouvez-vous faire quelque chose ? ",
+                          "fontSize": 24,
+                          "width": 40,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Il y a un démon chez Monsieur Li ! C'est terrible ! Peut-être pouvez-vous faire quelque chose ? ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
             }
           }
         ],
@@ -14243,43 +14892,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/demon1.jpg",
+                    "source": "cache/background3CERN.png",
                     "anchor": 0,
-                    "width": 70,
-                    "height": 60,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -14287,37 +14912,76 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte4.png",
-                    "anchor": 0,
-                    "width": 70,
-                    "height": 30,
+                    "source": "cache/perso3Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "rows": 2,
+                    "cols": 1,
+                    "anchor": 1,
+                    "width": 30,
+                    "height": 80,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/demon1.jpg",
+                          "anchor": 0,
+                          "width": 70,
+                          "height": 60,
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/carte4.png",
+                          "anchor": 0,
+                          "width": 70,
+                          "height": 30,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Il y a un démon chez Monsieur Li ! C'est terrible ! Peut-être pouvez-vous faire quelque chose ? ",
+                          "fontSize": 24,
+                          "width": 40,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Il y a un démon chez Monsieur Li ! C'est terrible ! Peut-être pouvez-vous faire quelque chose ? ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 60,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
-            }
-          },
-          {
-            "type": "Sound",
-            "params": {
-              "source": ""
             }
           }
         ],
@@ -14426,43 +15090,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/demon1.jpg",
+                    "source": "cache/background3CERN.png",
                     "anchor": 0,
-                    "width": 70,
-                    "height": 60,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -14470,31 +15110,42 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte4.png",
-                    "anchor": 0,
-                    "width": 70,
-                    "height": 30,
+                    "source": "cache/perso3Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
+                    "source":"ui/cache-noir-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "On dit que le démon a peur de lui même, regardez bien autour de vous, vous trouverez peut-être de quoi faire peur au démon ! Moi je n'ose pas ... ",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "On dit que le démon a peur de lui même, regardez bien autour de vous, vous trouverez peut-être de quoi faire peur au démon ! Moi je n'ose pas ... ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
             }
           }
         ],
@@ -14510,7 +15161,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Bienvenue à Pékin - Salle Tang",
+                    "content": "Il faut se débarrasser du démon!",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -14603,43 +15254,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/demon1.jpg",
+                    "source": "cache/background3CERN.png",
                     "anchor": 0,
-                    "width": 70,
-                    "height": 60,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -14647,31 +15274,42 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte4.png",
-                    "anchor": 0,
-                    "width": 70,
-                    "height": 30,
+                    "source": "cache/perso3Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 8,
+                    "width": 50,
+                    "height": 66,
+                    "source":"ui/cache-noir-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "On dit que le démon a peur de lui même, regardez bien autour de vous, vous trouverez peut-être de quoi faire peur au démon ! Moi je n'ose pas ... ",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "On dit que le démon a peur de lui même, regardez bien autour de vous, vous trouverez peut-être de quoi faire peur au démon ! Moi je n'ose pas ... ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
             }
           },
           {
@@ -14693,7 +15331,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Bienvenue à Pékin - Salle Tang",
+                    "content": "Il faut se débarrasser du démon!",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -16122,6 +16760,8 @@
           }
         ]
       },
+
+
       {
         "scene": "screen-4-g-player1",
         "navigation": [
@@ -16196,30 +16836,50 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/miroir1.jpg",
               "anchor": 0,
-              "width": 0,
-              "height": 70,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bravo ! Vous détenez le miroir magique chasseur de démon !",
-              "fontSize": 24,
-              "width": 60,
-              "height": 100,
-              "anchor": 2,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "width": 100,
+              "height": 74,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/miroir1.jpg",
+                    "anchor": 2,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 50,
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Bravo ! Vous détenez le miroir magique chasseur de démon !",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -16328,30 +16988,50 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/miroir1.jpg",
               "anchor": 0,
-              "width": 0,
-              "height": 70,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bravo ! Garde ce miroir magique chasseur de démon, tu en feras bon usage !",
-              "fontSize": 24,
-              "width": 60,
-              "height": 100,
-              "anchor": 2,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "width": 100,
+              "height": 74,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/miroir1.jpg",
+                    "anchor": 2,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 50,
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Bravo ! Garde ce miroir magique chasseur de démon, tu en feras bon usage !",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -16367,7 +17047,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Bravo ! Vous remportez un nouvel objet à ajouter à votre inventaire ! ",
+                    "content": "Bravo ! Tu remportes un nouvel objet à ajouter à ton inventaire ! ",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -16460,43 +17140,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/demon1.jpg",
+                    "source": "cache/background3CERN.png",
                     "anchor": 0,
-                    "width": 70,
-                    "height": 60,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -16504,31 +17160,76 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte4.png",
-                    "anchor": 0,
-                    "width": 70,
-                    "height": 30,
+                    "source": "cache/perso3Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "rows": 2,
+                    "cols": 1,
+                    "anchor": 1,
+                    "width": 30,
+                    "height": 80,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/demon1.jpg",
+                          "anchor": 0,
+                          "width": 70,
+                          "height": 60,
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/carte4.png",
+                          "anchor": 0,
+                          "width": 70,
+                          "height": 30,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Retournez devant la vitrine et regardez le grand personnage à l’intérieur. Il s’agit d’un être fantastique debout sur le démon qu’il a combattu.  A votre avis est-ce que ce personnage est fort ou en colère?",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Retournez devant la vitrine et regardez le grand personnage à l’intérieur. Il s’agit d’un être fantastique debout sur le démon qu’il a combattu.  A ton avis est-ce que ce personnage est fort ou en colère?",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
             }
           }
         ],
@@ -16637,43 +17338,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/demon1.jpg",
+                    "source": "cache/background3CERN.png",
                     "anchor": 0,
-                    "width": 70,
-                    "height": 60,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -16681,31 +17358,76 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte4.png",
-                    "anchor": 0,
-                    "width": 70,
-                    "height": 30,
+                    "source": "cache/perso3Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "rows": 2,
+                    "cols": 1,
+                    "anchor": 1,
+                    "width": 30,
+                    "height": 80,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/demon1.jpg",
+                          "anchor": 0,
+                          "width": 70,
+                          "height": 60,
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/carte4.png",
+                          "anchor": 0,
+                          "width": 70,
+                          "height": 30,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Retourne devant la vitrine et regarde le grand personnage à l’intérieur. Il s’agit d’un être fantastique debout sur le démon qu’il a combattu.  A ton avis est-ce que ce personnage est fort ou en colère?",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Retourne devant la vitrine et regarde le grand personnage à l’intérieur. Il s’agit d’un être fantastique debout sur le démon qu’il a combattu.  A ton avis est-ce que ce personnage est fort ou en colère?",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
             }
           },
           {
@@ -16727,7 +17449,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Retournes devant la vitrine",
+                    "content": "Retourne devant la vitrine",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -18298,52 +19020,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/barque1.png",
-              "anchor": 8,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Je vois que vous avez une belle collection d’objets chinois, ne repartez pas en France avant d’être passés au Japon!Je sais qu’il existe des bateaux qui partent du port de Pékin?  et font une escale au port de Tokyo.",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background3CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso3Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/barque1.png",
+                    "anchor": 8,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Je vois que vous avez une belle collection d’objets chinois, ne repartez pas en France avant d’être passés au Japon!Je sais qu’il existe des bateaux qui partent du port de Pékin?  et font une escale au port de Tokyo.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -18452,52 +19195,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background3CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso3Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/barque1.png",
-              "anchor": 8,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Je vois que tu as une belle collection d’objets chinois, ne repart pas en France avant d’êtrepassés au Japon ! Il te faudra prendre le bateau.",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background3CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso3Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/barque1.png",
+                    "anchor": 8,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Je vois que tu as une belle collection d’objets chinois, ne repart pas en France avant d’êtrepassés au Japon ! Il te faudra prendre le bateau.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -18629,7 +19393,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Retournez sur vos pas et rendez-­vous à la salle Han",
+                    "content": "Retournez sur vos pas et rendez­vous à la salle Han",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -18745,7 +19509,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Retourne­-toi et dirige-­toi dans la salle avec le Grand Bouddha",
+                    "content": "Retourne-toi et dirige­toi dans la salle avec le Grand Bouddha",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -18861,7 +19625,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Placez-­vous devant le grand Bouddha",
+                    "content": "Placez­vous devant le grand Bouddha",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -19070,43 +19834,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/Statuette4.jpg",
+                    "source": "cache/background4CERN.png",
                     "anchor": 0,
-                    "width": 80,
-                    "height": 80,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -19114,31 +19854,76 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte5.png",
-                    "anchor": 0,
-                    "width": 80,
-                    "height": 80,
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "rows": 2,
+                    "cols": 1,
+                    "anchor": 1,
+                    "width": 30,
+                    "height": 80,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/Statuette4.jpg",
+                          "anchor": 0,
+                          "width": 80,
+                          "height": 80,
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/carte5.png",
+                          "anchor": 0,
+                          "width": 80,
+                          "height": 80,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze? ",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze? ",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
             }
           }
         ],
@@ -19247,43 +20032,19 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Grid",
-            "params": {
-              "rows": 2,
-              "cols": 1,
-              "anchor": 1,
-              "width": 30,
-              "height": 80,
+              "height": 87,
               "children": [
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/Statuette4.jpg",
+                    "source": "cache/background4CERN.png",
                     "anchor": 0,
-                    "width": 80,
-                    "height": 80,
+                    "width": 100,
+                    "height": 100,
                     "x": 0,
                     "y": 0
                   }
@@ -19291,31 +20052,76 @@
                 {
                   "type": "Image",
                   "params": {
-                    "source": "cache/carte5.png",
-                    "anchor": 0,
-                    "width": 80,
-                    "height": 80,
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "rows": 2,
+                    "cols": 1,
+                    "anchor": 1,
+                    "width": 30,
+                    "height": 80,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/Statuette4.jpg",
+                          "anchor": 0,
+                          "width": 80,
+                          "height": 80,
+                          "x": 0,
+                          "y": 0
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/carte5.png",
+                          "anchor": 0,
+                          "width": 80,
+                          "height": 80,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": " Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze?",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": " Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze?",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
             }
           }
         ],
@@ -19424,52 +20230,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Statuette4.jpg",
-              "anchor": 8,
-              "width": 0,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Il s'agit de Bouddha,  c’est un ancien prince qui a renoncé à sa richesse pour se détacher des choses matérielles pour atteindre l’éveil... Regarde sa main levée, il montre par ce geste qu’il nous enseigne la sagesse. Veux-tu essayer de méditer avec moi?",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background4CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Statuette4.jpg",
+                    "anchor": 8,
+                    "width": 0,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Il s'agit de Bouddha, c’est un ancien prince qui a renoncé à sa richesse pour se détacher des choses matérielles pour atteindre l’éveil... Regardez sa main levée, il montre par ce geste qu’il nous enseigne la sagesse. Voulez-vous essayer de méditer avec moi?",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -19578,52 +20405,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Statuette4.jpg",
-              "anchor": 8,
-              "width": 0,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "« Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze?",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background4CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Statuette4.jpg",
+                    "anchor": 8,
+                    "width": 0,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "« Bonjour, bienvenue à Meguro dans la banlieue de Tokyo. Je suis le Moine Kukai,vois-tu cette gigantesque statue en bronze?",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -19658,6 +20506,7 @@
           }
         ]
       },
+
 
 
       {
@@ -19785,7 +20634,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Indiquez à votre coéquipier comment adopter la position du lotus et prenez-­le en photo.",
+                    "content": "Indiquez à votre coéquipier comment adopter la position du lotus et prenez-le en photo.",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -19929,8 +20778,8 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Imite la position du Bouddha : “Assis-­toi et croise les jambes pour avoir la position du lotus “Fais un cercle avec le pouce et l’index de la main gauche” “Lève le chignon vers le ciel” “Ouvre le troisième oeil”",
-                    "fontSize": 20,
+                    "content": "Imite la position du Bouddha : “Assis-toi et croise les jambes pour avoir la position du lotus “Fais un cercle avec le pouce et l’index de la main gauche” “Lève le chignon vers le ciel” “Ouvre le troisième oeil”",
+                    "fontSize": 16,
                     "textAlign": "center",
                     "width": 80,
                     "height": 100,
@@ -20022,41 +20871,62 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bravo ! vous avez montré beaucoup de sagesse et vous vous êtes approchés de létat d'éveil, vous avez remporté une fleur de lotus",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background4CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Bravo ! vous avez montré beaucoup de sagesse et vous vous êtes approchés de létat d'éveil, vous avez remporté une fleur de lotus",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -20165,41 +21035,62 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Tu as montré beaucoup de sagesse et tu t’es approché de l'état d'éveil, je t’offre cette fleur de lotus.",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background4CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Tu as montré beaucoup de sagesse et tu t’es approché de l'état d'éveil, je t’offre cette fleur de lotus.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -20308,41 +21199,62 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Pourquoi un lotus? Parce que le Bouddha est assis sur un lotus et qu’il ressemble au lotus qui pousse dans la boue mais devient une belle fleur blanche.",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background4CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Pourquoi un lotus? Parce que le Bouddha est assis sur un lotus et qu’il ressemble au lotus qui pousse dans la boue mais devient une belle fleur blanche.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -20451,41 +21363,62 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Pourquoi un lotus? Parce que le Bouddha est assis sur un lotus et qu’il ressemble au lotus qui pousse dans la boue mais devient une belle fleur blanche",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background4CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Pourquoi un lotus? Parce que le Bouddha est assis sur un lotus et qu’il ressemble au lotus qui pousse dans la boue mais devient une belle fleur blanche",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -20594,30 +21527,50 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/Statuette4.jpg",
-              "anchor": 1,
-              "width": 0,
-              "height": 90,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bravo vous avez reçu l’enseignement du Bouddha, J’ai le plaisir de vous offrir, au nom du monastère,la statue de Bouddha.",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 4,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "anchor": 0,
+              "width": 100,
+              "height": 74,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Statuette4.jpg",
+                    "anchor": 2,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 50,
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Bravo vous avez reçu l’enseignement du Bouddha, J’ai le plaisir de vous offrir, au nom du monastère,la statue de Bouddha.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 90,
+                          "anchor": 0,
+                          "color": "",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -20653,7 +21606,7 @@
         ]
       },
       {
-        "scene": "screen-5-h-player1",
+        "scene": "screen-5-h-player2",
         "navigation": [
           {
             "type": "Nav",
@@ -20726,30 +21679,50 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/Statuette4.jpg",
-              "anchor": 1,
-              "width": 0,
-              "height": 90,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Bravo vous avez reçu l’enseignement du Bouddha, rapportez ce Bouddha en France, vos amis pourront ainsi l’admirer!",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 4,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "anchor": 0,
+              "width": 100,
+              "height": 74,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/Statuette4.jpg",
+                    "anchor": 2,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 50,
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Bravo Tu as reçu l’enseignement du Bouddha, rapporte ce Bouddha en France, tes amis pourront ainsi l’admirer!",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 90,
+                          "anchor": 0,
+                          "color": "",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -20858,52 +21831,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/bateau1.png",
-              "anchor": 8,
-              "width": 0,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Vous avez réuni une belle collection d’objets! Quel voyage! Que de rencontres... Il est temps de revenir en France ... Embarquons!",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background4CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/bateau1.png",
+                    "anchor": 8,
+                    "width": 0,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Vous avez réuni une belle collection d’objets! Quel voyage! Que de rencontres... Il est temps de revenir en France ... Embarquons!",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -21012,52 +22006,73 @@
         ],
         "content": [
           {
-            "type": "Image",
+            "type": "Group",
             "params": {
-              "source": "cache/background4CERN.png",
-              "anchor": 0,
+              "anchor": 2,
               "width": 100,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/perso4Homme.png",
-              "anchor": 5,
-              "width": 0,
-              "height": 60,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/bateau1.png",
-              "anchor": 8,
-              "width": 0,
-              "height": 50,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Text",
-            "params": {
-              "content": "Vous avez réuni une belle collection d’objets! Quel voyage! Que de rencontres... Il est temps de revenir en France ... Embarquons!",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
-              "anchor": 0,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background4CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso4Homme.png",
+                    "anchor": 5,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/bateau1.png",
+                    "anchor": 8,
+                    "width": 0,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Vous avez réuni une belle collection d’objets! Quel voyage! Que de rencontres... Il est temps de revenir en France ... Embarquons!",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ],
@@ -21177,19 +22192,29 @@
             }
           },
           {
-            "type": "Text",
+            "type": "Group",
             "params": {
-              "content": "Il est temps pour moi de vous laisser rentrer chez vous maintenant que vous êtes chargés d'atouts et d'oeuvres à présenter à vos amis et collaborateurs. En espérant vous revoir très prochainement pour un autre voyage ! Le mettrez-vous au centre d'une salle dédiée comme l'a fait Monsieur Cernuschi ? nous vous souhaitons un très bon retour en France !",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
               "anchor": 4,
-              "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "width": 60,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Il est temps pour moi de vous laisser rentrer chez vous maintenant que vous êtes chargés d'atouts et d'oeuvres à présenter à vos amis et collaborateurs. En espérant vous revoir très prochainement pour un autre voyage ! Le mettrez-vous au centre d'une salle dédiée comme l'a fait Monsieur Cernuschi ? nous vous souhaitons un très bon retour en France !",
+                    "fontSize": 24,
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
             }
           }
         ],
@@ -21309,19 +22334,313 @@
             }
           },
           {
-            "type": "Text",
+            "type": "Group",
             "params": {
-              "content": "Il est temps pour moi de vous laisser rentrer chez vous maintenant que vous êtes chargés d'atouts et d'oeuvres à présenter à vos amis et collaborateurs. En espérant vous revoir très prochainement pour un autre voyage ! Le mettrez-vous au centre d'une salle dédiée comme l'a fait Monsieur Cernuschi ? nous vous souhaitons un très bon retour en France !",
-              "fontSize": 24,
-              "width": 40,
-              "height": 100,
               "anchor": 4,
+              "width": 60,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Il est temps pour moi de vous laisser rentrer chez vous maintenant que vous êtes chargés d'atouts et d'oeuvres à présenter à vos amis et collaborateurs. En espérant vous revoir très prochainement pour un autre voyage ! Le mettrez-vous au centre d'une salle dédiée comme l'a fait Monsieur Cernuschi ? nous vous souhaitons un très bon retour en France !",
+                    "fontSize": 24,
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 6,
+              "source": "ui/info-6.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "A bientôt !",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-generique-player1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
               "color": "",
-              "cache": {
-                "visible": false,
-                "backgroundColor": "",
-                "backgroundImage": ""
-              }
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "DONATION",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Musee.jpg",
+              "anchor": 1,
+              "width": 0,
+              "height": 90,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 4,
+              "width": 60,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Développeurs\r\nRani Baghezza    Gregoire Cattan\r\nBastien Maureille     Sarah XXX\r\nVincent Rigaud\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n Illustration\r\n Monsieur Du Dessin",
+                    "fontSize": 20,
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 6,
+              "source": "ui/info-6.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "A bientôt !",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-generique-player2",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "DONATION",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Musee.jpg",
+              "anchor": 1,
+              "width": 0,
+              "height": 90,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 4,
+              "width": 60,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Développeurs\r\nRani Baghezza    Gregoire Cattan\r\nBastien Maureille     Sarah XXX\r\nVincent Rigaud\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n Illustration\r\n Monsieur Du Dessin",
+                    "fontSize": 20,
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
             }
           }
         ],
