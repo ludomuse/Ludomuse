@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.String;
+import java.util.Calendar;
 
 import org.cocos2dx.cpp.AppActivity;
 import org.cocos2dx.cpp.CameraActivity;
@@ -151,7 +152,15 @@ public class JniJavaFacade {
 				Log.d("[LUDO_STATS]", "Directory not created");
 			}
 
-			File statsFile = new File(file, "test.csv");
+			Calendar cal = Calendar.getInstance();
+			String filename = cal.get(Calendar.DAY_OF_MONTH) + 
+					"_"  + (cal.get(Calendar.MONTH) + 1) + 
+					"_" + cal.get(Calendar.YEAR) + 
+					"_" + cal.get(Calendar.HOUR_OF_DAY) + 
+					"_" + cal.get(Calendar.MINUTE) + 
+					"_" + cal.get(Calendar.MILLISECOND) + 
+					".csv";
+			File statsFile = new File(file, filename);
 			try {
 				if (statsFile.createNewFile())
 				{
