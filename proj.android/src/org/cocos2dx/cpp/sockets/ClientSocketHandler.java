@@ -77,6 +77,55 @@ class ConnectTask2 implements Runnable {
 	}
 }
 
+
+
+class CheckConnection implements Runnable
+{
+
+	private Socket m_oSocket;
+	private boolean m_bNotifiedDisconnection;
+	
+	public CheckConnection(Socket socket) {
+		this.m_oSocket = socket;
+		this.m_bNotifiedDisconnection = false;
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while (true)
+		{
+			
+			if (m_oSocket.isConnected() || m_oSocket.isInputShutdown() || m_oSocket.isInputShutdown())
+			{
+				
+				if (!m_bNotifiedDisconnection)
+				{
+					// notify disconnection to game engine
+					m_bNotifiedDisconnection = true;
+				}
+
+				// try to reconnect
+			}
+			else
+			{
+				if (m_bNotifiedDisconnection)
+				{
+					m_bNotifiedDisconnection = false;
+				}
+			}
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}
+
 /**
  * This class manage all demands you want to ask to the remot host
  * 
