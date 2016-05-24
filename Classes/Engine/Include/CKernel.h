@@ -7,6 +7,11 @@
 #include "SUser.h"
 #include "../../Modules/Util/Include/CStats.h"
 
+
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qwidget.h>
+
+
 namespace LM 
 {
 
@@ -17,6 +22,27 @@ class CSoundManager;
 struct SEvent;
 class CEntityNode;
 class CTouchBeganVisitor;
+
+
+class gui_launcher : public QObject
+{
+	QWidget* w;
+
+public:
+	virtual bool event(QEvent* ev)
+	{
+		if (ev->type() == QEvent::User)
+		{
+			w = new QWidget();
+			w->resize(500, 400);
+			w->show();
+			return true;
+		}
+		return false;
+	}
+};
+
+
 
 /// \class CKernel
 /// \ingroup Engine
@@ -40,7 +66,12 @@ class CKernel
 
   std::map<int, CTouchBeganVisitor> m_mTouchBeganVisitors;
 
+
 public:
+	QApplication* pQApp;
+	gui_launcher* pLauncher;
+	
+
 	/// \brief a reference to the dashboard with the timeline of the game
 	CSceneNode* m_pDashboard;
 
@@ -59,6 +90,7 @@ public:
  public:
   CKernel();
   virtual ~CKernel();
+
   /// \returns the behavior tree
   CNode* GetBehaviorTree();
 

@@ -20,13 +20,14 @@
 #include "ui/CocosGUI.h"
 
 #include <fstream>
+#include <pthread.h>
+
 
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
 #endif
-
 
 
 #define ON_CC_THREAD(FUN, OBJ, ...) 	Director::getInstance()->getScheduler()->performFunctionInCocosThread(\
@@ -45,6 +46,25 @@ using namespace cocos2d;
 namespace LM
 {
 
+
+
+
+	void* RunQtApplication(void* a_pKernel)
+	{
+		CKernel* pKernel = (CKernel*)a_pKernel;
+		if (pKernel)
+		{
+			pKernel->pLauncher = new gui_launcher;
+			pKernel->pLauncher->moveToThread(QApplication::instance()->thread());
+			QCoreApplication::postEvent(pKernel->pLauncher, new QEvent(QEvent::User));
+			pKernel->pQApp->exec();
+		}
+
+		return NULL;
+	}
+
+
+
 	CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
 		m_pJsonParser(new CJsonParser(this)),
 		m_pNetworkManager(new CNetworkManager(this)),
@@ -59,7 +79,13 @@ namespace LM
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
+	int argc = 0;
+	pQApp = new QApplication(argc, nullptr);
+
+	pthread_t thread;
+	pthread_create(&thread, NULL, &RunQtApplication, pQApp);
 }
+
 
 CKernel::~CKernel()
 {
@@ -70,6 +96,11 @@ CKernel::~CKernel()
 	delete m_pJsonParser;
 	delete m_pLocalPlayer;
 	delete m_pDistantPlayer;
+
+	pQApp->exit();
+
+	delete pLauncher;
+	delete pQApp;
 }
 
 
