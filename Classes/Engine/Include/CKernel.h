@@ -198,17 +198,23 @@ class gui_launcher : public QObject
 public:
 	gui_launcher(CKernel* a_pKernel);
 
-	virtual bool event(QEvent* ev);
+	virtual bool event(QEvent* ev) override;
 
 	void SetEditLabel(CLabelNode* a_pLabel);
 
-private:
-	void OpenLabelEditBox();
+	void OpenLabelEditBox(const std::string& a_rText);
 
 	void LabelTextChanged(const QString& oText);
 	
+};
 
+class CLabelEditBox : public QWidget
+{
 
+public:
+	CLabelEditBox(const std::string& a_rText, gui_launcher* a_rLauncher);
+
+	virtual bool event(QEvent* ev) override;
 };
 
 

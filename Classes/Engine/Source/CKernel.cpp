@@ -32,6 +32,7 @@
 #include <QtWidgets/qpushbutton.h>
 #include <QtWidgets/qlineedit.h>
 
+
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
@@ -750,7 +751,11 @@ bool gui_launcher::event(QEvent* ev)
 	}
 	else if (ev->type() == QEvent::MaxUser)
 	{
-		OpenLabelEditBox();
+		if (m_pEditedLabelNode)
+		{
+			OpenLabelEditBox(m_pEditedLabelNode->GetText());
+			return true;
+		}
 	}
 	return false;
 }
@@ -762,17 +767,25 @@ void gui_launcher::SetEditLabel(CLabelNode* a_pEditLabel)
 }
 
 
-void gui_launcher::OpenLabelEditBox()
+void gui_launcher::OpenLabelEditBox(const std::string& a_rText)
 {
 	QWidget* oLabelEditBox = new QWidget();
 	QLineEdit* oLineEdit = new QLineEdit(oLabelEditBox);
+	oLineEdit->setText(a_rText.c_str());
+	oLineEdit->selectAll();
 
 	connect(oLineEdit, &QLineEdit::textChanged, this, &gui_launcher::LabelTextChanged);
 
-	QVBoxLayout* vLayout = new QVBoxLayout();
-	vLayout->addWidget(oLineEdit);
+	QPushButton* okButton = new QPushButton();
+	okButton->setText("ok");
 
-	oLabelEditBox->setLayout(vLayout);
+	connect(okButton, &QPushButton::clicked, oLabelEditBox, &QWidget::close);
+
+	QHBoxLayout* hLayout = new QHBoxLayout();
+	hLayout->addWidget(oLineEdit);
+	hLayout->addWidget(okButton);
+
+	oLabelEditBox->setLayout(hLayout);
 
 	oLabelEditBox->show();
 }
@@ -782,5 +795,48 @@ void gui_launcher::LabelTextChanged(const QString& oText)
 	ON_CC_THREAD(CLabelNode::SetText, m_pEditedLabelNode, oText.toStdString());
 }
 
+
+CLabelEditBox::CLabelEditBox(const std::string& a_rText, gui_launcher* a_rLauncher)
+{
+	QLineEdit* oLineEdit = new QLineEdit(this);
+	oLineEdit->setText(a_rText.c_str());
+	oLineEdit->selectAll();
+
+	connect(oLineEdit, &QLineEdit::textChanged, a_rLauncher, &gui_launcher::LabelTextChanged);
+
+	QPushButton* okButton = new QPushButton();
+	okButton->setText("ok");
+
+	connect(okButton, &QPushButton::clicked, this, &QWidget::close);
+
+	QHBoxLayout* hLayout = new QHBoxLayout();
+	hLayout->addWidget(oLineEdit);
+	hLayout->addWidget(okButton);
+
+	setLayout(hLayout);
+
+	show();
+}
+
+
+bool CLabelEditBox::event(QEvent* ev)
+{
+	if (ev->type() == QEvent::KeyRelease)
+	{
+		//QKeyEvent* keyEvent = static_cast<QKeyEvent*>(ev);
+		//if (keyEvent->key() == Qt::Key_Enter)
+		//{
+		//	close();
+		//	return true;
+		//}
+	}
+	else if (ev->type() == QEvent::FocusOut)
+	{
+		close();
+		return true;
+	}
+
+	return false;
+}
 
 } // namespace LM
