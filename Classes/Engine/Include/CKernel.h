@@ -8,8 +8,8 @@
 #include "../../Modules/Util/Include/CStats.h"
 
 
-#include <QtWidgets/qapplication.h>
 #include <QtWidgets/qwidget.h>
+
 
 
 namespace LM 
@@ -22,25 +22,9 @@ class CSoundManager;
 struct SEvent;
 class CEntityNode;
 class CTouchBeganVisitor;
-
-
-class gui_launcher : public QObject
-{
-	QWidget* w;
-
-public:
-	virtual bool event(QEvent* ev)
-	{
-		if (ev->type() == QEvent::User)
-		{
-			w = new QWidget();
-			w->resize(500, 400);
-			w->show();
-			return true;
-		}
-		return false;
-	}
-};
+class gui_launcher;
+class CLabelNode;
+class CSpriteNode;
 
 
 
@@ -175,7 +159,60 @@ private:
 	void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
 	void ProcessMessage(const std::string& a_rMessage);
 
+
+
+
+
+
+
+	//////////////////////////// Editor related stuff
+public:
+	void EditTextValue(CLabelNode* a_pLabel);
+	void EditSpritePath(CSpriteNode* a_pSprite);
+
+private:
+	std::string GenerateID(CEntityNode* a_pEntity);
+
+
 };
+
+
+
+
+
+
+
+
+
+
+class gui_launcher : public QObject
+{
+
+	QWidget* w;
+	CKernel* m_pKernel;
+
+
+	CLabelNode* m_pEditedLabelNode;
+	CSpriteNode* m_pEditedSpriteNode;
+
+public:
+	gui_launcher(CKernel* a_pKernel);
+
+	virtual bool event(QEvent* ev);
+
+	void SetEditLabel(CLabelNode* a_pLabel);
+
+private:
+	void OpenLabelEditBox();
+
+	void LabelTextChanged(const QString& oText);
+	
+
+
+};
+
+
+
 
 
 } // namespace LM

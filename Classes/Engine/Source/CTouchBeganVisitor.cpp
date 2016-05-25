@@ -2,6 +2,8 @@
 
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
+#include "../Include/CLabelNode.h"
+#include "../Include/CSpriteNode.h"
 
 #include "../../Modules/Util/Include/CStats.h"
 
@@ -239,6 +241,23 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
     if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
+		// forget about touch and move events in the editor :
+		CLabelNode* pLabel = dynamic_cast<CLabelNode*>(pEntity);
+		if (pLabel)
+		{
+			m_pKernel->EditTextValue(pLabel);
+			return RESULT_PRUNE;
+		}
+		CSpriteNode* pSprite = dynamic_cast<CSpriteNode*>(pEntity);
+		if (pSprite)
+		{
+			m_pKernel->EditSpritePath(pSprite);
+			return RESULT_CONTINUE;
+		}
+		return RESULT_CONTINUE;
+
+
+
       // if so and if listenning to touch/move, store the entity
 		if (pEntity->EventIsDisabled("Touch"))
 		{

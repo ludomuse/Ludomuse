@@ -23,6 +23,14 @@
 #include <pthread.h>
 
 
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+
+#include <QtWidgets/qapplication.h>
+#include <QtWidgets/qboxlayout.h>
+#include <QtWidgets/qpushbutton.h>
+#include <QtWidgets/qlineedit.h>
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
@@ -54,7 +62,7 @@ namespace LM
 		CKernel* pKernel = (CKernel*)a_pKernel;
 		if (pKernel)
 		{
-			pKernel->pLauncher = new gui_launcher;
+			pKernel->pLauncher = new gui_launcher(pKernel);
 			pKernel->pLauncher->moveToThread(QApplication::instance()->thread());
 			QCoreApplication::postEvent(pKernel->pLauncher, new QEvent(QEvent::User));
 			pKernel->pQApp->exec();
@@ -79,11 +87,13 @@ namespace LM
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
+	pLauncher = nullptr;
+
 	int argc = 0;
 	pQApp = new QApplication(argc, nullptr);
 
 	pthread_t thread;
-	pthread_create(&thread, NULL, &RunQtApplication, pQApp);
+	pthread_create(&thread, NULL, &RunQtApplication, this);
 }
 
 
@@ -673,5 +683,104 @@ void CKernel::LogMessage(const std::string& a_sMessage)
 {
 	CCLOG("Kernel message : %s", a_sMessage.c_str());
 }
+
+
+
+
+/////////////////////// Editor related stuff
+
+std::string CKernel::GenerateID(CEntityNode* a_pEntity)
+{
+	// if no ID generate one
+	if (a_pEntity->GetID() == "")
+	{
+		std::srand(time(0));
+		int randomID = std::rand();
+		std::string sID = "" + randomID;
+		std::cout << "Random id generated : " << sID << std::endl;
+		a_pEntity->SetID(sID);
+	}
+	return a_pEntity->GetID();
+}
+
+void CKernel::EditTextValue(CLabelNode* a_pLabel)
+{
+	//std::string sID = GenerateID(a_pLabel);
+	pLauncher->SetEditLabel(a_pLabel);
+	QCoreApplication::postEvent(pLauncher, new QEvent(QEvent::MaxUser));
+}
+
+
+void CKernel::EditSpritePath(CSpriteNode* a_pSprite)
+{
+	//std::string sID = GenerateID(a_pSprite);
+}
+
+
+
+gui_launcher::gui_launcher(CKernel* a_pKernel) : 
+	m_pKernel(a_pKernel),
+	w(nullptr),
+	m_pEditedLabelNode(nullptr),
+	m_pEditedSpriteNode(nullptr)
+{
+
+}
+
+
+bool gui_launcher::event(QEvent* ev)
+{
+	if (ev->type() == QEvent::User)
+	{
+		w = new QWidget();
+		w->resize(500, 400);
+
+		QVBoxLayout* vLayout = new QVBoxLayout();
+		QPushButton* publishButton = new QPushButton();
+		publishButton->setText("Publier le jeu");
+
+		//connect(publishButton, &QPushButton::clicked, this, &gui_launcher::DoStuff);
+
+		vLayout->addWidget(publishButton);
+
+		w->setLayout(vLayout);
+
+		w->show();
+		return true;
+	}
+	else if (ev->type() == QEvent::MaxUser)
+	{
+		OpenLabelEditBox();
+	}
+	return false;
+}
+
+
+void gui_launcher::SetEditLabel(CLabelNode* a_pEditLabel)
+{
+	m_pEditedLabelNode = a_pEditLabel;
+}
+
+
+void gui_launcher::OpenLabelEditBox()
+{
+	QWidget* oLabelEditBox = new QWidget();
+	QLineEdit* oLineEdit = new QLineEdit(oLabelEditBox);
+
+	connect(oLineEdit, &QLineEdit::textChanged, this, &gui_launcher::LabelTextChanged);
+
+	QVBoxLayout* vLayout = new QVBoxLayout();
+	vLayout->addWidget(oLineEdit);
+
+	oLabelEditBox->setLayout(vLayout);
+
+	oLabelEditBox->show();
+}
+
+void gui_launcher::LabelTextChanged(const QString& oText)
+{
+	ON_CC_THREAD(CLabelNode::SetText, m_pEditedLabelNode, oText.toStdString());
+}
+
 
 } // namespace LM
