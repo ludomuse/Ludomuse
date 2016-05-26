@@ -34,6 +34,7 @@ class CTouchBeganVisitor : public CFindEntityTouchVisitor
 
 protected:
   virtual Result ProcessNodeTopDown(CNode* a_pNode) override;
+  virtual Result ProcessNodeBottomUp(CNode* a_pNode) override;
   
 
   // entities actions

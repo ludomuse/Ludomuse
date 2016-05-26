@@ -32,6 +32,7 @@
 #include <QtWidgets/qpushbutton.h>
 #include <QtWidgets/qlineedit.h>
 #include <QtGui/QKeyEvent>
+#include <QtWidgets/QFileDialog>
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
@@ -715,6 +716,8 @@ void CKernel::EditTextValue(CLabelNode* a_pLabel)
 void CKernel::EditSpritePath(CSpriteNode* a_pSprite)
 {
 	//std::string sID = GenerateID(a_pSprite);
+	pLauncher->SetEditSprite(a_pSprite);
+	QCoreApplication::postEvent(pLauncher, new QEvent(QEvent::FocusOut));
 }
 
 
@@ -734,7 +737,6 @@ bool gui_launcher::event(QEvent* ev)
 	if (ev->type() == QEvent::User)
 	{
 		w = new QWidget();
-		w->resize(500, 400);
 
 		QVBoxLayout* vLayout = new QVBoxLayout();
 		QPushButton* publishButton = new QPushButton();
@@ -757,6 +759,13 @@ bool gui_launcher::event(QEvent* ev)
 			return true;
 		}
 	}
+	else if (ev->type() == QEvent::FocusOut)
+	{
+		if (m_pEditedSpriteNode)
+		{
+			OpenSpriteDialog();
+		}
+	}
 	return false;
 }
 
@@ -766,31 +775,25 @@ void gui_launcher::SetEditLabel(CLabelNode* a_pEditLabel)
 	m_pEditedLabelNode = a_pEditLabel;
 }
 
+void gui_launcher::SetEditSprite(CSpriteNode* a_pEditSprite)
+{
+	m_pEditedSpriteNode = a_pEditSprite;
+}
+
 
 void gui_launcher::OpenLabelEditBox(const std::string& a_rText)
 {
-	//QWidget* oLabelEditBox = new QWidget();
-	//QLineEdit* oLineEdit = new QLineEdit(oLabelEditBox);
-	//oLineEdit->setText(a_rText.c_str());
-	//oLineEdit->selectAll();
-
-	//connect(oLineEdit, &QLineEdit::textChanged, this, &gui_launcher::LabelTextChanged);
-
-	//QPushButton* okButton = new QPushButton();
-	//okButton->setText("ok");
-
-	//connect(okButton, &QPushButton::clicked, oLabelEditBox, &QWidget::close);
-
-	//QHBoxLayout* hLayout = new QHBoxLayout();
-	//hLayout->addWidget(oLineEdit);
-	//hLayout->addWidget(okButton);
-
-	//oLabelEditBox->setLayout(hLayout);
-
-	//oLabelEditBox->show();
-
-	CLabelEditBox* labelEditBox = new CLabelEditBox(a_rText, this);
+	CLabelEditBox* labelEditBox = new CLabelEditBox(a_rText, m_pEditedLabelNode->GetID(), this);
 }
+
+
+void gui_launcher::OpenSpriteDialog()
+{
+	QFileDialog* fileDialog = new QFileDialog();
+	fileDialog->selectFile(m_pEditedSpriteNode->m_sSpriteFilename.c_str());
+	fileDialog->show();
+}
+
 
 void gui_launcher::LabelTextChanged(const QString& oText)
 {
@@ -798,8 +801,12 @@ void gui_launcher::LabelTextChanged(const QString& oText)
 }
 
 
-CLabelEditBox::CLabelEditBox(const std::string& a_rText, gui_launcher* a_rLauncher)
+CLabelEditBox::CLabelEditBox(const std::string& a_rText, 
+	const std::string& a_rTitle, 
+	gui_launcher* a_rLauncher)
 {
+	setWindowTitle(a_rTitle.c_str());
+
 	QLineEdit* oLineEdit = new QLineEdit(this);
 	oLineEdit->setText(a_rText.c_str());
 	oLineEdit->selectAll();
@@ -826,7 +833,9 @@ bool CLabelEditBox::event(QEvent* ev)
 	if (ev->type() == QEvent::KeyRelease)
 	{
 		QKeyEvent* keyEvent = dynamic_cast<QKeyEvent*>(ev);
-		if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)
+		if (keyEvent->key() == Qt::Key_Return 
+			|| keyEvent->key() == Qt::Key_Enter
+			|| keyEvent->key() == Qt::Key_Escape)
 		{
 			close();
 		}

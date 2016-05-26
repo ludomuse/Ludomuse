@@ -201,8 +201,10 @@ public:
 	virtual bool event(QEvent* ev) override;
 
 	void SetEditLabel(CLabelNode* a_pLabel);
+	void SetEditSprite(CSpriteNode* a_pSprite);
 
 	void OpenLabelEditBox(const std::string& a_rText);
+	void OpenSpriteDialog();
 
 	void LabelTextChanged(const QString& oText);
 	
@@ -212,7 +214,9 @@ class CLabelEditBox : public QWidget
 {
 
 public:
-	CLabelEditBox(const std::string& a_rText, gui_launcher* a_rLauncher);
+	CLabelEditBox(const std::string& a_rText, 
+		const std::string& a_rTitle,
+		gui_launcher* a_rLauncher);
 
 	virtual bool event(QEvent* ev) override;
 };

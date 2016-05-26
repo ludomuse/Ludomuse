@@ -242,18 +242,20 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
 		// forget about touch and move events in the editor :
-		CLabelNode* pLabel = dynamic_cast<CLabelNode*>(pEntity);
-		if (pLabel)
-		{
-			m_pKernel->EditTextValue(pLabel);
-			return RESULT_PRUNE;
-		}
-		CSpriteNode* pSprite = dynamic_cast<CSpriteNode*>(pEntity);
-		if (pSprite)
-		{
-			m_pKernel->EditSpritePath(pSprite);
-			return RESULT_CONTINUE;
-		}
+		//CLabelNode* pLabel = dynamic_cast<CLabelNode*>(pEntity);
+		//if (pLabel)
+		//{
+		//	m_pKernel->EditTextValue(pLabel);
+		//	m_pEntityToFind.Set(pLabel);
+		//	return RESULT_PRUNE;
+		//}
+		//CSpriteNode* pSprite = dynamic_cast<CSpriteNode*>(pEntity);
+		//if (pSprite)
+		//{
+		//	m_pKernel->EditSpritePath(pSprite);
+		//	m_pEntityToFind.Set(pSprite);
+		//	return RESULT_CONTINUE;
+		//}
 		return RESULT_CONTINUE;
 
 
@@ -301,6 +303,41 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
   return RESULT_CONTINUE;
 }
 
+
+Result CTouchBeganVisitor::ProcessNodeBottomUp(CNode* a_pNode)
+{
+	CFindEntityTouchVisitor::ProcessNodeBottomUp(a_pNode);
+
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
+	if (pEntity)
+	{
+
+		Vec2 oTouchLocation = m_pTouch->getStartLocation();
+		Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+		if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
+		{
+			// forget about touch and move events in the editor :
+			CLabelNode* pLabel = dynamic_cast<CLabelNode*>(pEntity);
+			if (pLabel)
+			{
+				m_pKernel->EditTextValue(pLabel);
+				m_pEntityToFind.Set(pLabel);
+				m_bStopVisiting = true;
+				return RESULT_STOP;
+			}
+			CSpriteNode* pSprite = dynamic_cast<CSpriteNode*>(pEntity);
+			if (pSprite)
+			{
+				m_pKernel->EditSpritePath(pSprite);
+				m_pEntityToFind.Set(pSprite);
+				m_bStopVisiting = true;
+				return RESULT_STOP;
+			}
+		}
+	}
+	return RESULT_CONTINUE;
+
+}
 
 void CTouchBeganVisitor::StartTouch(CEntityNode* a_pEntity)
 {

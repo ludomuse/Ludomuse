@@ -11,13 +11,13 @@ namespace LM
 
 class CSpriteNode : public CEntityNode
 {
- protected:
+ public:
   /// \brief the system filename of the sprite
   std::string m_sSpriteFilename;
   /// \brief The cocos2d sprite
   //cocos2d::Sprite* m_pSprite;
 
- public:
+
 	 CSpriteNode(const std::string& a_rFilename,
 			  EAnchor a_eAnchor = EAnchor::FLOAT,
 			  int a_iWidth = 0,
