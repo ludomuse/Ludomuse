@@ -31,7 +31,7 @@
 #include <QtWidgets/qboxlayout.h>
 #include <QtWidgets/qpushbutton.h>
 #include <QtWidgets/qlineedit.h>
-
+#include <QtGui/QKeyEvent>
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
@@ -769,25 +769,27 @@ void gui_launcher::SetEditLabel(CLabelNode* a_pEditLabel)
 
 void gui_launcher::OpenLabelEditBox(const std::string& a_rText)
 {
-	QWidget* oLabelEditBox = new QWidget();
-	QLineEdit* oLineEdit = new QLineEdit(oLabelEditBox);
-	oLineEdit->setText(a_rText.c_str());
-	oLineEdit->selectAll();
+	//QWidget* oLabelEditBox = new QWidget();
+	//QLineEdit* oLineEdit = new QLineEdit(oLabelEditBox);
+	//oLineEdit->setText(a_rText.c_str());
+	//oLineEdit->selectAll();
 
-	connect(oLineEdit, &QLineEdit::textChanged, this, &gui_launcher::LabelTextChanged);
+	//connect(oLineEdit, &QLineEdit::textChanged, this, &gui_launcher::LabelTextChanged);
 
-	QPushButton* okButton = new QPushButton();
-	okButton->setText("ok");
+	//QPushButton* okButton = new QPushButton();
+	//okButton->setText("ok");
 
-	connect(okButton, &QPushButton::clicked, oLabelEditBox, &QWidget::close);
+	//connect(okButton, &QPushButton::clicked, oLabelEditBox, &QWidget::close);
 
-	QHBoxLayout* hLayout = new QHBoxLayout();
-	hLayout->addWidget(oLineEdit);
-	hLayout->addWidget(okButton);
+	//QHBoxLayout* hLayout = new QHBoxLayout();
+	//hLayout->addWidget(oLineEdit);
+	//hLayout->addWidget(okButton);
 
-	oLabelEditBox->setLayout(hLayout);
+	//oLabelEditBox->setLayout(hLayout);
 
-	oLabelEditBox->show();
+	//oLabelEditBox->show();
+
+	CLabelEditBox* labelEditBox = new CLabelEditBox(a_rText, this);
 }
 
 void gui_launcher::LabelTextChanged(const QString& oText)
@@ -823,20 +825,18 @@ bool CLabelEditBox::event(QEvent* ev)
 {
 	if (ev->type() == QEvent::KeyRelease)
 	{
-		//QKeyEvent* keyEvent = static_cast<QKeyEvent*>(ev);
-		//if (keyEvent->key() == Qt::Key_Enter)
-		//{
-		//	close();
-		//	return true;
-		//}
-	}
-	else if (ev->type() == QEvent::FocusOut)
-	{
-		close();
-		return true;
+		QKeyEvent* keyEvent = dynamic_cast<QKeyEvent*>(ev);
+		if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter)
+		{
+			close();
+		}
 	}
 
-	return false;
+
+	return QWidget::event(ev);
 }
+
+
+
 
 } // namespace LM
