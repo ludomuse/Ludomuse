@@ -30,9 +30,14 @@ void CEntityNode::UnInit()
 {
 	//m_pCocosEntity->autorelease();
 	//m_pCocosEntity->release();
-	GetParentScene()->removeChild(m_pCocosEntity);
-	m_pCocosEntity = nullptr;
-	CNode::UnInit();
+	if (m_pCocosEntity != nullptr) {
+		GetParentScene()->removeChild(m_pCocosEntity);
+		m_pCocosEntity = nullptr;
+		CNode::UnInit();
+	}
+	else {
+		return;
+	}
 }
 
 

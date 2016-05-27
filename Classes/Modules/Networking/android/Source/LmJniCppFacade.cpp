@@ -25,7 +25,7 @@ std::string LmJniCppFacade::getCurrentPicturePath()
 void LmJniCppFacade::setCurrentPicturePath(std::string path)
 {
 	_currentPicturePath = path;
-
+	CCLOG("LUDOMUSE - onReceivingFile from LmJniCppFacade.cpp");
 	CCLOG("<font color='red'>dispatch event PictureTaken</font>");
 	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(
 			"PictureTaken");
@@ -39,6 +39,15 @@ std::string LmJniCppFacade::getApplicationDirectory()
 void LmJniCppFacade::setApplicationDirectory(std::string path)
 {
 	_applicationDirectory = path;
+}
+
+void LmJniCppFacade::onReceivingPhoto(std::string path)
+{
+	CCLOG("LUDOMUSE - onReceivingPhoto from LmJniCppFacade.cpp");
+	_currentPicturePath = path;
+	CCLOG("<font color='red'>dispatch event PictureReceived</font>");
+	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent(
+		"PictureReceived");
 }
 
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_onGettingPeers(
@@ -129,4 +138,11 @@ JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_setApplicati
 	JNIEnv* env, jobject thiz, jstring path)
 {
 LmJniCppFacade::setApplicationDirectory(LmJniCppFacade::toCObject(path, env));
+}
+
+JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_onReceivingPhoto(
+	JNIEnv* env, jobject thiz, jstring path)
+{
+	LmJniCppFacade::onReceivingPhoto(
+		LmJniCppFacade::toCObject(path, env));
 }

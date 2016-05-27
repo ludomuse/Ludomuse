@@ -58,6 +58,8 @@ JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_setCurrentPi
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_setApplicationDirectory(
 		JNIEnv* env, jobject thiz, jstring path);
 
+JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_onReceivingPhoto(
+	JNIEnv* env, jobject thiz, jstring path);
 }
 
 
@@ -82,6 +84,8 @@ public:
 	static std::string getApplicationDirectory();
 
 	static void setApplicationDirectory(std::string);
+
+	static void onReceivingPhoto(std::string);
 
 	inline static int toCObject(jint i) {
 		return (int) i;

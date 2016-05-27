@@ -1,8 +1,11 @@
 #include "../Include/CCameraFeedNode.h"
+#include <fstream>
+#include <string>
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
+#include "../../Modules/Networking/android/Include/LmJniCppFacade.h"
 #endif
 
 using namespace cocos2d;
@@ -152,28 +155,60 @@ void CCameraGLView::draw(Renderer* a_pRenderer,
 ///////////////////////////// class CCameraFeedNode
 
 
-CCameraFeedNode::CCameraFeedNode(const std::string& a_rMaskPath, EAnchor a_eAnchor, int width, int height, int x, int y) :
-	CEntityNode(a_eAnchor, width, height, x, y),
+CCameraFeedNode::CCameraFeedNode(const std::string& a_rMaskPath, EAnchor a_eAnchor, int width, int height, int x, int y, bool a_bIsReceiver) :
+	CSpriteNode("cache/bouddha1.png", a_eAnchor, width, height, x, y),
+	m_bIsReceiver(a_bIsReceiver),
 	m_sMaskPath(a_rMaskPath)
 {
-
+	if (a_bIsReceiver)
+	{
+		CCLOG("LUDOMUSE - Construction CCameraFeedNode in receiver mode : %s", this->m_sID.c_str());
+		Director::getInstance()->getEventDispatcher()->addCustomEventListener("PictureReceived", CC_CALLBACK_0(CCameraFeedNode::PictureTaken, this));
+	}
+	else
+	{
+		CCLOG("LUDOMUSE - Construction CCameraFeedNode in sender mode : %s", this->m_sID.c_str());
+		Director::getInstance()->getEventDispatcher()->addCustomEventListener("PictureTaken", CC_CALLBACK_0(CCameraFeedNode::PictureTaken, this));
+	}
+		
 }
 
 void CCameraFeedNode::Init()
 {
-	//m_pCocosEntity = CCameraGLView::create();
-	//Sprite* sprite = cocos2d::Sprite::create("cache/AmuletteTigre.png");
-	//m_pCocosEntity = sprite;
-
-	//sprite->setGLProgramState();
-
-	//PopulateParent();
 #ifdef __ANDROID__
-	LmJniJavaFacade::takePicture(m_sMaskPath);
+	if (!m_bIsReceiver)
+	{
+		LmJniJavaFacade::takePicture(m_sMaskPath);
+	}
 #endif
-	
-	CNode::Init();
+	CSpriteNode::Init();
 }
 
+void CCameraFeedNode::PictureTaken()
+{
+#ifdef __ANDROID__
+	//UnInit();
+	ON_CC_THREAD(CCameraFeedNode::DisplayPicture, this, LmJniCppFacade::getCurrentPicturePath()); 
+#endif
+}
+
+
+void CCameraFeedNode::DisplayPicture(std::string sPicturePath) 
+{
+	CCLOG("LUDOMUSE - DisplayPicture %s begin", sPicturePath.c_str());
+	m_pCocosEntity = Sprite::create(sPicturePath);
+
+#ifdef __ANDROID__
+	if (!m_bIsReceiver)
+	{
+		CCLOG("LUDOMUSE - Debut de l'envoie de fichier");
+		LmJniJavaFacade::sendFile(sPicturePath);
+		CCLOG("LUDOMUSE - Fin de l'envoie de fichier");
+	}
+#endif
+
+	PopulateParent();
+	CCLOG("LUDOMUSE - DisplayPicture ended");
+}
 
 } // namespace LM

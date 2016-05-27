@@ -8,6 +8,7 @@ import org.cocos2dx.cpp.sockets.CallBackMethod;
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 
 import android.app.Activity;
+import android.util.Log;
 
 /**
  * This is a wrapper for the WifiDirectManager, that expose simple method such
@@ -143,6 +144,7 @@ public class WifiDirectFacade {
 
 	public void onReceiving(String s)
 	{
+		Log.d("debug","LUDOMUSE - string");
 		JniCppFacade.onReceivingString(s);
 	}
 
@@ -155,41 +157,50 @@ public class WifiDirectFacade {
 
 	public void onReceiving(boolean b)
 	{
+		Log.d("debug","LUDOMUSE - bool");
 		JniCppFacade.onReceivingBool(b);
 	}
 
 	public void onReceiving(long l)
 	{
+		Log.d("debug","LUDOMUSE - long");
 		JniCppFacade.onReceivingLong(l);
 	}
 
 	public void onReceiving(File f)
 	{
-		JniCppFacade.onReceivingFile(f.getAbsolutePath());
+		String fileName = f.getPath() + ".jpg";
+		f.renameTo(new File(fileName));
+		JniCppFacade.onReceivingPhoto(f.getPath() + ".jpg");
 	}
 
 	public void onReceiving(double d)
 	{
+		Log.d("debug","LUDOMUSE - double");
 		JniCppFacade.onReceivingDouble(d);
 	}
 
 	public void onReceiving(float f)
 	{
+		Log.d("debug","LUDOMUSE - float");
 		JniCppFacade.onReceivingFloat(f);
 	}
 
 	public void onReceiving(char c)
 	{
+		Log.d("debug","LUDOMUSE - char");
 		JniCppFacade.onReceivingChar(c);
 	}
 
 	public void onReceiving(byte b)
 	{
+		Log.d("debug","LUDOMUSE - byte");
 		JniCppFacade.onReceivingByte(b);
 	}
 
 	public void onReceiving(byte[] bytes)
 	{
+		Log.d("debug","LUDOMUSE - bytes");
 		JniCppFacade.onReceivingBytes(bytes);
 	}
 

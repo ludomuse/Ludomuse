@@ -61,4 +61,6 @@ public class JniCppFacade {
 	public static native void setCurrentPicturePath(String name);
 	
 	public static native void setApplicationDirectory(String path);
+
+	public static native void onReceivingPhoto(String path);
 }

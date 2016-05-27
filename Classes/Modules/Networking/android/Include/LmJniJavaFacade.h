@@ -13,6 +13,8 @@ public:
 		static void takePicture(const std::string&);
 
 		static void getApplicationDirectory();
+
+		static void sendFile(std::string path);
 private:
 
 	static void send(std::string s);
@@ -26,8 +28,6 @@ private:
 	static void send(char c);
 
 	static void send(double d);
-
-	static void sendFile(std::string path);
 
 	static void setServerTempFileName(std::string name);
 
