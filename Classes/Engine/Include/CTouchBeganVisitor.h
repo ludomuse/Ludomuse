@@ -21,8 +21,6 @@ class CTouchBeganVisitor : public CFindEntityTouchVisitor
 
   std::string m_sListenEvent;
 
-  bool m_bStopVisiting;
-
   int m_iTouchID;
   
  public:

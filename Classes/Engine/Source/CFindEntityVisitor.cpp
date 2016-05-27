@@ -51,6 +51,8 @@ void CFindEntityVisitor::Traverse(CNode* a_pNode)
     }
 
   }
+  if (m_bStopVisiting) return;
+
   ProcessNodeBottomUp(a_pNode);
 
 }
