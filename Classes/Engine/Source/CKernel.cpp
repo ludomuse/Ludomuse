@@ -790,7 +790,19 @@ void gui_launcher::OpenLabelEditBox(const std::string& a_rText)
 void gui_launcher::OpenSpriteDialog()
 {
 	QFileDialog* fileDialog = new QFileDialog();
-	fileDialog->selectFile(m_pEditedSpriteNode->m_sSpriteFilename.c_str());
+
+	QDir currentDir = QDir::currentPath();
+	currentDir.cd("bin");
+	std::vector<std::string> pathToImage = StringSplit(m_pEditedSpriteNode->m_sSpriteFilename, '/');
+
+	for (int i = 0; i < pathToImage.size() - 1; ++i)
+	{
+		currentDir.cd(pathToImage[i].c_str());
+	}
+	fileDialog->setDirectory(currentDir);
+	fileDialog->selectFile(pathToImage[pathToImage.size() - 1].c_str());
+
+	fileDialog->setNameFilter("Images (*.jpeg, *.jpg, *.png");
 
 	connect(fileDialog, &QFileDialog::fileSelected, this, &gui_launcher::SpriteSourceChanged);
 

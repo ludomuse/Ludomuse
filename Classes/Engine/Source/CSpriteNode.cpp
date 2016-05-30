@@ -22,6 +22,10 @@ CSpriteNode::CSpriteNode(const std::string& a_rFilename,
 void CSpriteNode::Init()
 {
   m_pCocosEntity = Sprite::create(m_sSpriteFilename);
+  if (!m_pCocosEntity)
+  {
+	  m_pCocosEntity = Sprite::create();
+  }
   //m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
   PopulateParent();
