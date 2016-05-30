@@ -156,6 +156,8 @@ class CEntityNode : public CNode
 
   virtual cocos2d::Scene* GetParentScene();
 
+  virtual CSceneNode* GetParentSceneNode();
+
   virtual cocos2d::Size GetParentVisibleSize();
 
   virtual cocos2d::Vec2 GetParentOrigin();

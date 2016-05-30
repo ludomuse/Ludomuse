@@ -213,17 +213,23 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 
 Scene* CEntityNode::GetParentScene()
 {
+	return GetParentSceneNode()->GetScene();
+}
+
+
+CSceneNode* CEntityNode::GetParentSceneNode()
+{
 	CSceneNode* pParentScene = dynamic_cast<CSceneNode*>(m_pParent);
 	if (pParentScene)
 	{
-		return pParentScene->GetScene();
+		return pParentScene;
 	}
 	else
 	{
 		CEntityNode* pParentNode = dynamic_cast<CEntityNode*>(m_pParent);
 		if (pParentNode)
 		{
-			return pParentNode->GetParentScene();
+			return pParentNode->GetParentSceneNode();
 		}
 	}
 }

@@ -206,7 +206,8 @@ public:
 	void OpenLabelEditBox(const std::string& a_rText);
 	void OpenSpriteDialog();
 
-	void LabelTextChanged(const QString& oText);
+	void LabelTextChanged(const QString& a_rText);
+	void SpriteSourceChanged(const QString& a_rPaths);
 	
 };
 

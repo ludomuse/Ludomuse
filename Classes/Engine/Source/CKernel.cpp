@@ -791,15 +791,24 @@ void gui_launcher::OpenSpriteDialog()
 {
 	QFileDialog* fileDialog = new QFileDialog();
 	fileDialog->selectFile(m_pEditedSpriteNode->m_sSpriteFilename.c_str());
+
+	connect(fileDialog, &QFileDialog::fileSelected, this, &gui_launcher::SpriteSourceChanged);
+
 	fileDialog->show();
 }
 
 
-void gui_launcher::LabelTextChanged(const QString& oText)
+void gui_launcher::LabelTextChanged(const QString& a_rText)
 {
-	ON_CC_THREAD(CLabelNode::SetText, m_pEditedLabelNode, oText.toStdString());
+	ON_CC_THREAD(CLabelNode::SetText, m_pEditedLabelNode, a_rText.toStdString());
 }
 
+
+void gui_launcher::SpriteSourceChanged(const QString& a_rPaths)
+{
+
+	m_pEditedSpriteNode->SetSpriteNode(a_rPaths.toStdString());
+}
 
 CLabelEditBox::CLabelEditBox(const std::string& a_rText, 
 	const std::string& a_rTitle, 

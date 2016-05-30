@@ -27,6 +27,8 @@ class CSpriteNode : public CEntityNode
 
   virtual void Init();
 
+  virtual void SetSpriteNode(const std::string& a_rNewPath);
+
 };
 
 } // namespace LM

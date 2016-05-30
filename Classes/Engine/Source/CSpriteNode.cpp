@@ -30,4 +30,12 @@ void CSpriteNode::Init()
 }
 
 
+void CSpriteNode::SetSpriteNode(const std::string& a_rNewPath)
+{
+	m_sSpriteFilename = a_rNewPath;
+	CSceneNode* pSceneNode = GetParentSceneNode();
+	pSceneNode->UnInit();
+	pSceneNode->Init();
+}
+
 } // namespace LM
