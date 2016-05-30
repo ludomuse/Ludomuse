@@ -951,265 +951,7 @@
           }
         ]
       },
-
-      {
-        "scene": "screen-camera-player1",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PHOTO",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Camera",
-            "id":  "nique-p1",
-            "params": {
-              "mask": "cache/bouddha1.png",
-              "anchor": 0,
-              "width": 0,
-              "height": 73
-            }
-          }
-        ],
-        "information": [
-          {
-            "type": "Info",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 6,
-              "source": "ui/info-6.png",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "Voila une belle photo, vous pourrez la récupérer plus tard en souvenir de votre voyage!",
-                    "fontSize": 20,
-                    "textAlign": "center",
-                    "width": 60,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "0,0,0,255",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "scene": "screen-camera-player2",
-        "navigation": [
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "SUVANT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ],
-        "content": [
-          {
-            "type": "Group",
-            "params": {
-              "anchor": 0,
-              "width": 50,
-              "height": 80,
-              "x": 0,
-              "y": 0,
-              "children":[
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "Patiente le temps que la photo parcourt l'espace qui te sépare de ton partenaire à l'aide d'ondes éléctromagnétiques",
-                    "fontSize": 22,
-                    "color": "255,255,255,255",
-                    "anchor": 0,
-                    "width": 90,
-                    "height": 80,
-                    "x": 0,
-                    "y": 0
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Camera",
-            "id":  "nique-p2",
-            "params": {
-              "mask": "bouddha1.png",
-              "isReceiver": true,
-              "anchor": 0,
-              "width": 0,
-              "height": 73,
-              "x": 0,
-              "y": 0
-            }
-          }
-        ],
-        "information": [
-          {
-            "type": "Info",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 6,
-              "source": "ui/info-6.png",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "Voila une belle photo, Tu pourras la récupérer plus tard en souvenir de ton voyage!",
-                    "fontSize": 20,
-                    "textAlign": "center",
-                    "width": 60,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "0,0,0,255",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      },
+      
 
       {
         "scene": "screen-0-a-player1",
@@ -2851,8 +2593,8 @@
                   "type": "Grid",
                   "params": {
                     "cols": 2,
-                    "rows": 2,
-                    "width": 70,
+                    "rows": 4,
+                    "width": 75,
                     "height": 100,
                     "anchor": 8,
                     "children": [
@@ -2863,7 +2605,7 @@
                           "source": "cache/Statue1.jpg",
                           "anchor": 0,
                           "width": 0,
-                          "height": 80,
+                          "height": 95,
                           "x": 0,
                           "y": 0,
                           "listeners": [
@@ -2909,7 +2651,7 @@
                           "source": "cache/Statue2.jpg",
                           "anchor": 0,
                           "width": 0,
-                          "height": 100,
+                          "height": 95,
                           "x": 0,
                           "y": 0,
                           "listeners": [
@@ -2954,8 +2696,8 @@
                         "params": {
                           "source": "cache/Statue3.jpg",
                           "anchor": 0,
-                          "width": 100,
-                          "height": 0,
+                          "width": 0,
+                          "height": 95,
                           "x": 0,
                           "y": 0,
                           "listeners": [
@@ -3001,7 +2743,7 @@
                           "source": "cache/Statue4.jpg",
                           "anchor": 0,
                           "width": 0,
-                          "height": 100,
+                          "height": 95,
                           "x": 0,
                           "y": 0,
                           "listeners": [
@@ -3029,6 +2771,190 @@
                               "params": {
                                 "callback": "SendMessage",
                                 "arg": "screen-1-e-player2:Show:Statue4"
+                              }
+                            },
+                            {
+                              "type": "ReturnElement",
+                              "params": {
+                                "callback": "ShowBack"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "id":"Statue5",
+                        "params": {
+                          "source": "cache/Statue5.jpg",
+                          "anchor": 0,
+                          "width": 0,
+                          "height": 95,
+                          "x": 0,
+                          "y": 0,
+                          "listeners": [
+                            {
+                              "type": "Move",
+                              "params": {
+                                "callback": ""
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "Fade"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "DisableEvent",
+                                "arg": "photosDropArea:Drop"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "SendMessage",
+                                "arg": "screen-1-e-player2:Show:Statue5"
+                              }
+                            },
+                            {
+                              "type": "ReturnElement",
+                              "params": {
+                                "callback": "ShowBack"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "id":"Statue6",
+                        "params": {
+                          "source": "cache/Statue6.jpg",
+                          "anchor": 0,
+                          "width": 0,
+                          "height": 95,
+                          "x": 0,
+                          "y": 0,
+                          "listeners": [
+                            {
+                              "type": "Move",
+                              "params": {
+                                "callback": ""
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "Fade"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "DisableEvent",
+                                "arg": "photosDropArea:Drop"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "SendMessage",
+                                "arg": "screen-1-e-player2:Show:Statue6"
+                              }
+                            },
+                            {
+                              "type": "ReturnElement",
+                              "params": {
+                                "callback": "ShowBack"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "id":"Statue7",
+                        "params": {
+                          "source": "cache/Statue7.jpg",
+                          "anchor": 0,
+                          "width": 0,
+                          "height": 95,
+                          "x": 0,
+                          "y": 0,
+                          "listeners": [
+                            {
+                              "type": "Move",
+                              "params": {
+                                "callback": ""
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "Fade"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "DisableEvent",
+                                "arg": "photosDropArea:Drop"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "SendMessage",
+                                "arg": "screen-1-e-player2:Show:Statue7"
+                              }
+                            },
+                            {
+                              "type": "ReturnElement",
+                              "params": {
+                                "callback": "ShowBack"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "id":"Statue8",
+                        "params": {
+                          "source": "cache/Statue8.jpg",
+                          "anchor": 0,
+                          "width": 0,
+                          "height": 95,
+                          "x": 0,
+                          "y": 0,
+                          "listeners": [
+                            {
+                              "type": "Move",
+                              "params": {
+                                "callback": ""
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "Fade"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "DisableEvent",
+                                "arg": "photosDropArea:Drop"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "SendMessage",
+                                "arg": "screen-1-e-player2:Show:Statue8"
                               }
                             },
                             {
@@ -3196,7 +3122,11 @@
                 "Statue1",
                 "Statue2",
                 "Statue3",
-                "Statue4"
+                "Statue4",
+                "Statue5",
+                "Statue6",
+                "Statue7",
+                "Statue8"
               ],
               "sound": "cache/audio/gong.mp3"
             }
@@ -3339,7 +3269,7 @@
                         "type": "Drop",
                         "params": {
                           "callback": "AnchorEntity",
-                          "arg": "Statue1"
+                          "arg": "Statue1:Statue5"
                         }
                       }
                     ]
@@ -3369,7 +3299,7 @@
                         "type": "Drop",
                         "params": {
                           "callback": "AnchorEntity",
-                          "arg": "Statue2"
+                          "arg": "Statue2:Statue6"
                         }
                       }
                     ]
@@ -3399,7 +3329,7 @@
                         "type": "Drop",
                         "params": {
                           "callback": "AnchorEntity",
-                          "arg": "Statue3"
+                          "arg": "Statue3:Statue7"
                         }
                       }
                     ]
@@ -3429,7 +3359,7 @@
                         "type": "Drop",
                         "params": {
                           "callback": "AnchorEntity",
-                          "arg": "Statue4"
+                          "arg": "Statue4:Statue8"
                         }
                       }
                     ]
@@ -3790,6 +3720,350 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:ReturnElement:Statue4"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Image",
+                  "id": "Statue5",
+                  "params": {
+                    "source": "cache/Statue5.jpg",
+                    "anchor": 0,
+                    "width": 40,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0,
+                    "listeners": [
+                      {
+                        "type": "Move",
+                        "params": {
+                          "callback": ""
+                        }
+                      },
+                      {
+                        "type": "Droped",
+                        "params": {
+                          "callback": "Anchored"
+                        }
+                      },{
+                        "type": "Droped",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statue5"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-1-e-player2:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Fade"
+                        }
+                      },
+                      {
+                        "type": "Show",
+                        "params": {
+                          "callback": "Show"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-1-e-player2:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:ReturnElement:Statue5"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Image",
+                  "id": "Statue6",
+                  "params": {
+                    "source": "cache/Statue6.jpg",
+                    "anchor": 0,
+                    "width": 40,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0,
+                    "listeners": [
+                      {
+                        "type": "Move",
+                        "params": {
+                          "callback": ""
+                        }
+                      },
+                      {
+                        "type": "Droped",
+                        "params": {
+                          "callback": "Anchored"
+                        }
+                      },{
+                        "type": "Droped",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statue6"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-1-e-player2:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Fade"
+                        }
+                      },
+                      {
+                        "type": "Show",
+                        "params": {
+                          "callback": "Show"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-1-e-player2:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:ReturnElement:Statue6"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Image",
+                  "id": "Statue7",
+                  "params": {
+                    "source": "cache/Statue7.jpg",
+                    "anchor": 0,
+                    "width": 40,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0,
+                    "listeners": [
+                      {
+                        "type": "Move",
+                        "params": {
+                          "callback": ""
+                        }
+                      },
+                      {
+                        "type": "Droped",
+                        "params": {
+                          "callback": "Anchored"
+                        }
+                      },{
+                        "type": "Droped",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statue7"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-1-e-player2:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Fade"
+                        }
+                      },
+                      {
+                        "type": "Show",
+                        "params": {
+                          "callback": "Show"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-1-e-player2:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:ReturnElement:Statue7"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Image",
+                  "id": "Statue8",
+                  "params": {
+                    "source": "cache/Statue8.jpg",
+                    "anchor": 0,
+                    "width": 40,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0,
+                    "listeners": [
+                      {
+                        "type": "Move",
+                        "params": {
+                          "callback": ""
+                        }
+                      },
+                      {
+                        "type": "Droped",
+                        "params": {
+                          "callback": "Anchored"
+                        }
+                      },{
+                        "type": "Droped",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statue8"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-1-e-player2:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Fade"
+                        }
+                      },
+                      {
+                        "type": "Show",
+                        "params": {
+                          "callback": "Show"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-1-e-player2:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-1-e-player1:ReturnElement:Statue8"
                         }
                       }
                     ]
@@ -21201,6 +21475,7 @@
         "content": [
           {
             "type": "Camera",
+            "id":  "nique-p1",
             "params": {
               "mask": "cache/bouddha1.png",
               "anchor": 0,
@@ -21325,7 +21600,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Patiente le temps que la photo parcourt l'espace qui te sépare de ton partenaire à l'aide d'ondes éléctromagnétiques",
+                    "content": "Pose la tablette et patiente le temps que la photo soit prise et te soit envoyée.",
                     "fontSize": 22,
                     "color": "255,255,255,255",
                     "anchor": 0,
@@ -21339,8 +21614,11 @@
             }
           },
           {
-            "type": "CameraReceiver",
+            "type": "Camera",
+            "id":  "nique-p2",
             "params": {
+              "mask": "bouddha1.png",
+              "isReceiver": true,
               "anchor": 0,
               "width": 0,
               "height": 73,
