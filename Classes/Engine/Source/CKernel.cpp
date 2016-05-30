@@ -22,6 +22,13 @@
 #include <fstream>
 
 
+#ifdef __ANDROID__
+#include <GLES/gl.h>
+#include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
+#endif
+
+
+
 #define ON_CC_THREAD(FUN, OBJ, ...) 	Director::getInstance()->getScheduler()->performFunctionInCocosThread(\
 										std::bind(&FUN, OBJ, ##__VA_ARGS__));
 
@@ -166,6 +173,88 @@ void CKernel::WriteStats(CSerializableStats* a_pSStats)
 	CCLOG("[LUDO_STATS] ******************************************************************");
 	CCLOG("[LUDO_STATS] remote peer : ");
 	CCLOG("%s", ss.str().c_str());
+
+
+	std::map<std::string, SScreenStats> mLocalStats = M_STATS->GetStats();
+	std::map<std::string, SScreenStats> mRemoteStats = a_pSStats->m_mScreensStats;
+
+	std::stringstream fileStream;
+
+	fileStream << ",Player1,Player2," << std::endl;
+
+	std::map<std::string, SScreenStats>::const_iterator itLocal;
+	std::map<std::string, SScreenStats>::const_iterator itRemote;
+
+	for (itLocal = mLocalStats.begin(), itRemote = mRemoteStats.begin(); 
+		itLocal != mLocalStats.end() || itRemote != mRemoteStats.end(); 
+		++itLocal, ++itRemote)
+	{
+
+		const SScreenStats& rLocalStat = itLocal->second;
+		const SScreenStats& rRemoteStat = itRemote->second;
+		
+
+		fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
+		fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
+		fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
+		fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
+		fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
+		fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
+		fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
+		fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
+		fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
+		fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
+
+		fileStream << std::endl;
+
+	}
+
+	//std::string sPath = CCFileUtils::getInstance()->getWritablePath() + "stats.csv";
+	//
+	//CCLOG("[LUDO_STATS] trying to write stats to file : %s", sPath.c_str());
+
+	//bool bWriteSuccess = CCFileUtils::getInstance()->writeStringToFile(fileStream.str(), sPath);
+
+	//if (bWriteSuccess)
+	//{
+	//	CCLOG("[LUDO_STATS] Stats were successfully written to %s", sPath.c_str());
+	//}
+	//else
+	//{
+	//	CCLOG("[LUDO_STATS] Error while writing stats. Stats could not be written");
+	//}
+
+	//CCLOG("%s", fileStream.str().c_str());
+
+	//FILE* statsFile = fopen(sPath.c_str(), "wb");
+	//if (statsFile != NULL)
+	//{
+	//	const std::string sData = fileStream.str();
+	//	const char* pData = sData.c_str();
+	//	fputs(pData, statsFile);
+
+	//	int iError = ferror(statsFile);
+	//	if (iError == 0)
+	//	{
+	//		CCLOG("[LUDO_STATS] Stats were successfully written to %s", sPath.c_str());
+	//	}
+	//	else
+	//	{
+	//		CCLOG("[LUDO_STATS] stats could not be written to file. write failed with error code : %d", iError);
+	//	}
+
+	//}
+	//else
+	//{
+	//	CCLOG("File could not be open");
+	//}
+	//fflush(statsFile);
+	//fclose(statsFile);
+
+#ifdef __ANDROID__
+	CCLOG("calling jni saveStringToFile");
+	LmJniJavaFacade::saveStringToFile(fileStream.str());
+#endif // __ANDROID__
 }
 
 
