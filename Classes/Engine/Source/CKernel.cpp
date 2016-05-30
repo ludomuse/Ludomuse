@@ -457,13 +457,16 @@ void CKernel::EnableEvent(SEvent a_rEvent, CEntityNode* a_pTarget)
 void CKernel::AnchorEntityCallback(SEvent a_rEvent, CEntityNode* a_pAnchoredEntity)
 {
 	std::string sExpectedID = a_rEvent.m_sStringValue;
+	std::vector<std::string> vExpectedIDs = StringSplit(sExpectedID);
+	std::vector<std::string>::iterator it;
+	it = std::find(vExpectedIDs.begin(), vExpectedIDs.end(), a_pAnchoredEntity->GetID());
 	CCLOG("AnchorEntity callback : %s", sExpectedID.c_str());
 	CEntityNode* pAnchorEntity = dynamic_cast<CEntityNode*>(a_rEvent.m_pSender);
 	if (pAnchorEntity)
 	{
 		CCLOG("pAnchoredEntity ID : %s", a_pAnchoredEntity->GetID().c_str());
 		CCLOG("expected ID : %s", sExpectedID.c_str());
-		if (a_pAnchoredEntity && sExpectedID == a_pAnchoredEntity->GetID())
+		if (a_pAnchoredEntity && it != vExpectedIDs.end())
 		{
 			AnchorEntity(pAnchorEntity, a_pAnchoredEntity);
 			a_pAnchoredEntity->Dispatch("Anchored");
