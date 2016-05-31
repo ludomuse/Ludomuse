@@ -60,7 +60,7 @@ class CNode
 
   virtual void Init();
 
-  virtual void UnInit();
+  virtual void UnInit( bool removeChild = true);
 
 };
 

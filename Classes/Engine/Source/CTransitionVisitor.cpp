@@ -75,6 +75,7 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 
 void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 {
+	CCLOG("LUDOMUSE - debut de InitScene");
 	Scene* pNewScene = a_pSceneNode->CreateScene();
 	a_pSceneNode->init();
 
@@ -89,14 +90,13 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 
 	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
 	m_pKernel->m_pCurrentScene = a_pSceneNode;
-	//pOldScene->UnInit();
-
-	auto fpUnInitScene = CallFunc::create([this, pOldScene]() {
-		pOldScene->UnInit();
+	pOldScene->UnInit(false);
+	/*auto fpUnInitScene = CallFunc::create([pOldScene]() {
+		pOldScene->UnInit(false);
 	});
 
-	auto oSequence = Sequence::create(DelayTime::create(0.6), fpUnInitScene, nullptr);
-	m_pKernel->m_pCurrentScene->runAction(oSequence);
+	auto oSequence = Sequence::create(DelayTime::create(0.6f), fpUnInitScene, nullptr);
+	m_pKernel->m_pCurrentScene->runAction(oSequence);*/
 
 	M_STATS->StartStats();
 }

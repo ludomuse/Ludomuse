@@ -26,12 +26,14 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 
 
 
-void CEntityNode::UnInit()
+void CEntityNode::UnInit(bool removeChild)
 {
 	//m_pCocosEntity->autorelease();
 	//m_pCocosEntity->release();
 	if (m_pCocosEntity != nullptr) {
-		GetParentScene()->removeChild(m_pCocosEntity);
+		if(removeChild)
+			GetParentScene()->removeChild(m_pCocosEntity);
+
 		m_pCocosEntity = nullptr;
 		CNode::UnInit();
 	}

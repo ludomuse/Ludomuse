@@ -99,7 +99,7 @@ class CEntityNode : public CNode
   
   /// \brief called when the scene is initialized
   //virtual void Init() = 0;
-  virtual void UnInit() override;
+  virtual void UnInit(bool removeChild = true) override;
 
   virtual void Revert(bool a_bVisible = false);
 

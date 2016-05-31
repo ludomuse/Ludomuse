@@ -103,11 +103,11 @@ void CNode::Init()
 	}
 }
 
-void CNode::UnInit()
+void CNode::UnInit(bool removeChild)
 {
 	for (CNode* pChildNode : m_vChildren)
 	{
-		pChildNode->UnInit();
+		pChildNode->UnInit(removeChild);
 	}
 }
 

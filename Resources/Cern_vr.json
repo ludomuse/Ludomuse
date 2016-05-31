@@ -541,6 +541,35 @@
                       }
                     ]
                   }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "ui/cache-noir-50.png",
+                    "anchor": 4,
+                    "width": 20,
+                    "height": 20,
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "ACTUALISER",
+                          "width": 50,
+                          "height": 50,
+                          "anchor": 0,
+                          "color": ""
+                        }
+                      }
+                    ],
+                    "listeners": [
+                      {
+                        "type": "Touch",
+                        "params": {
+                          "callback": "RefreshPeers"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -951,6 +980,9 @@
           }
         ]
       },
+
+
+
 
 
       {
@@ -8538,7 +8570,6 @@
           },
           {
             "type": "Info",
-            "id": "InfoText",
             "params": {
               "width": 0,
               "height": 13,
@@ -8547,6 +8578,7 @@
               "children": [
                 {
                   "type": "Text",
+                  "id": "InfoText",
                   "params": {
                     "content": " Glisser/relier les bruits avec les fonctions des objets plusieurs objets visibles dans la salle Zhou",
                     "fontSize": 20,
@@ -8624,7 +8656,8 @@
                   "params": {
                     "callback": "Show"
                   }
-                },{
+                },
+                {
                   "type": "Validate",
                   "params": {
                     "callback": "SendMessage",
@@ -8909,7 +8942,7 @@
                         "type": "Move",
                         "params": {
                           "callback": "PlaySound",
-                          "arg": "ui/audio/beep.wav"
+                          "arg": "ui/audio/beep_2.wav"
                         }
                       },
                       {
@@ -11366,7 +11399,6 @@
             }
           }
         ],
-
         "content": [
           {
             "type": "Group",
@@ -22316,6 +22348,7 @@
       },
       {
         "scene": "screen-5-h-player1",
+
         "navigation": [
           {
             "type": "Nav",
