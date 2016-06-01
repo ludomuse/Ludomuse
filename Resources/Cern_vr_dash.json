@@ -3487,13 +3487,6 @@
                     "callback": "SendMessage",
                     "arg": "kernel:Validate"
                   }
-                },
-                {
-                  "type": "Validate",
-                  "params": {
-                    "callback": "LocalMessage",
-                    "arg":  "Dashboard:Show:Amulette"
-                  }
                 }
               ]
             }
@@ -3814,13 +3807,6 @@
                       {
                         "type": "Anchored",
                         "params": {
-                          "callback": "Validate",
-                          "arg": "Statue1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:DropGood:InfoText"
                         }
@@ -3864,6 +3850,13 @@
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:ReturnElement:Statue1"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statue1"
+                        }
                       }
                     ]
                   }
@@ -3895,13 +3888,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Statue2"
                         }
                       },
                       {
@@ -3950,6 +3936,13 @@
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:ReturnElement:Statue2"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statue2"
+                        }
                       }
                     ]
                   }
@@ -3981,13 +3974,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Statue3"
                         }
                       },
                       {
@@ -4036,6 +4022,13 @@
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:ReturnElement:Statue3"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statue3"
+                        }
                       }
                     ]
                   }
@@ -4068,13 +4061,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Statue4"
                         }
                       },
                       {
@@ -4123,6 +4109,13 @@
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:ReturnElement:Statue4"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statue4"
+                        }
                       }
                     ]
                   }
@@ -4154,13 +4147,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Statue5"
                         }
                       },
                       {
@@ -4245,13 +4231,6 @@
                       {
                         "type": "Anchored",
                         "params": {
-                          "callback": "Validate",
-                          "arg": "Statue6"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
                           "callback": "LocalMessage",
                           "arg": "screen-1-e-player2:DropGood:InfoText"
                         }
@@ -4331,13 +4310,6 @@
                       {
                         "type": "Anchored",
                         "params": {
-                          "callback": "Validate",
-                          "arg": "Statue7"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
                           "callback": "LocalMessage",
                           "arg": "screen-1-e-player2:DropGood:InfoText"
                         }
@@ -4412,13 +4384,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-1-e-player1:DropEnabledBack:photosDropArea"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Statue8"
                         }
                       },
                       {
@@ -5630,13 +5595,6 @@
                             {
                               "type": "Touch",
                               "params": {
-                                "callback": "Validate",
-                                "arg": "local"
-                              }
-                            },
-                            {
-                              "type": "Touch",
-                              "params": {
                                 "callback": "SendMessage",
                                 "arg": "screen-1-i-player2:DistValidate:DummyValidator"
                               }
@@ -5667,6 +5625,13 @@
                               "params": {
                                 "callback": "LocalMessage",
                                 "arg": "screen-1-i-player1:Show:SuccessSmile"
+                              }
+                            },
+                            {
+                              "type": "Touch",
+                              "params": {
+                                "callback": "Validate",
+                                "arg": "local"
                               }
                             }
                           ],
@@ -6328,13 +6293,6 @@
                             {
                               "type": "Touch",
                               "params": {
-                                "callback": "Validate",
-                                "arg": "local"
-                              }
-                            },
-                            {
-                              "type": "Touch",
-                              "params": {
                                 "callback": "SendMessage",
                                 "arg": "screen-1-i-player1:DistValidate:DummyValidator"
                               }
@@ -6365,6 +6323,13 @@
                               "params": {
                                 "callback": "LocalMessage",
                                 "arg": "screen-1-i-player2:Show:SuccessSmile"
+                              }
+                            },
+                            {
+                              "type": "Touch",
+                              "params": {
+                                "callback": "Validate",
+                                "arg": "local"
                               }
                             }
                           ],
@@ -9276,13 +9241,6 @@
                       {
                         "type": "Anchored",
                         "params": {
-                          "callback": "Validate",
-                          "arg": "SwordValid"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
                           "callback": "SendMessage",
                           "arg": "screen-2-e-player1:DropGood:InfoText"
                         }
@@ -9326,6 +9284,13 @@
                           "callback": "SendMessage",
                           "arg": "screen-2-e-player1:ReturnElement:Sword"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "SwordValid"
+                        }
                       }
                     ]
                   }
@@ -9364,13 +9329,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-2-e-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "ClocheValid"
                         }
                       },
                       {
@@ -9419,6 +9377,13 @@
                           "callback": "SendMessage",
                           "arg": "screen-2-e-player1:ReturnElement:Cloche"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "ClocheValid"
+                        }
                       }
                     ]
                   }
@@ -9457,13 +9422,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-2-e-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "TripodeValid"
                         }
                       },
                       {
@@ -9511,6 +9469,13 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-2-e-player1:ReturnElement:Tripode"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "TripodeValid"
                         }
                       }
                     ]
@@ -10732,13 +10697,6 @@
                             {
                               "type": "Touch",
                               "params": {
-                                "callback": "Validate",
-                                "arg": "local"
-                              }
-                            },
-                            {
-                              "type": "Touch",
-                              "params": {
                                 "callback": "SendMessage",
                                 "arg": "screen-2-h-player2:DistValidate:DummyValidator"
                               }
@@ -10769,6 +10727,13 @@
                               "params": {
                                 "callback": "LocalMessage",
                                 "arg": "screen-2-h-player1:Show:SuccessSmile"
+                              }
+                            },
+                            {
+                              "type": "Touch",
+                              "params": {
+                                "callback": "Validate",
+                                "arg": "local"
                               }
                             }
                           ],
@@ -11317,13 +11282,6 @@
                             {
                               "type": "Touch",
                               "params": {
-                                "callback": "Validate",
-                                "arg": "local"
-                              }
-                            },
-                            {
-                              "type": "Touch",
-                              "params": {
                                 "callback": "SendMessage",
                                 "arg": "screen-2-h-player1:DistValidate:DummyValidator"
                               }
@@ -11354,6 +11312,13 @@
                               "params": {
                                 "callback": "LocalMessage",
                                 "arg": "screen-2-h-player2:Show:SuccessSmile"
+                              }
+                            },
+                            {
+                              "type": "Touch",
+                              "params": {
+                                "callback": "Validate",
+                                "arg": "local"
                               }
                             }
                           ],
@@ -14104,13 +14069,6 @@
                       {
                         "type": "Anchored",
                         "params": {
-                          "callback": "Validate",
-                          "arg": "Statuette3aValidate"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
                           "callback": "SendMessage",
                           "arg": "screen-3-c-player1:DropGood:InfoText"
                         }
@@ -14155,6 +14113,13 @@
                         "params": {
                           "callback": "Show"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statuette3aValidate"
+                        }
                       }
                     ]
                   }
@@ -14187,13 +14152,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Statuette3bValidate"
                         }
                       },
                       {
@@ -14243,6 +14201,13 @@
                         "params": {
                           "callback": "Show"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statuette3bValidate"
+                        }
                       }
                     ]
                   }
@@ -14275,13 +14240,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Statuette3cValidate"
                         }
                       },
                       {
@@ -14331,6 +14289,13 @@
                         "params": {
                           "callback": "Show"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statuette3cValidate"
+                        }
                       }
                     ]
                   }
@@ -14363,13 +14328,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Statuette3dValidate"
                         }
                       },
                       {
@@ -14418,6 +14376,13 @@
                         "type": "Show",
                         "params": {
                           "callback": "Show"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Statuette3dValidate"
                         }
                       }
                     ]
@@ -16665,13 +16630,6 @@
                             {
                               "type": "Touch",
                               "params": {
-                                "callback": "Validate",
-                                "arg": "local"
-                              }
-                            },
-                            {
-                              "type": "Touch",
-                              "params": {
                                 "callback": "SendMessage",
                                 "arg": "screen-4-e-player2:DistValidate:DummyValidator"
                               }
@@ -16702,6 +16660,13 @@
                               "params": {
                                 "callback": "LocalMessage",
                                 "arg": "screen-4-e-player1:Show:SuccessSmile"
+                              }
+                            },
+                            {
+                              "type": "Touch",
+                              "params": {
+                                "callback": "Validate",
+                                "arg": "local"
                               }
                             }
                           ],
@@ -17197,13 +17162,6 @@
                             {
                               "type": "Touch",
                               "params": {
-                                "callback": "Validate",
-                                "arg": "local"
-                              }
-                            },
-                            {
-                              "type": "Touch",
-                              "params": {
                                 "callback": "SendMessage",
                                 "arg": "screen-4-e-player1:DistValidate:DummyValidator"
                               }
@@ -17234,6 +17192,13 @@
                               "params": {
                                 "callback": "LocalMessage",
                                 "arg": "screen-4-e-player2:Show:SuccessSmile"
+                              }
+                            },
+                            {
+                              "type": "Touch",
+                              "params": {
+                                "callback": "Validate",
+                                "arg": "local"
                               }
                             }
                           ],
@@ -19560,13 +19525,6 @@
                       {
                         "type": "Anchored",
                         "params": {
-                          "callback": "Validate",
-                          "arg": "Leg1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
                           "callback": "SendMessage",
                           "arg": "screen-4-i-player1:DropGood:InfoText"
                         }
@@ -19610,6 +19568,13 @@
                         "params": {
                           "callback": "Fade"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Leg1"
+                        }
                       }
                     ]
                   }
@@ -19642,13 +19607,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-4-i-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Leg2"
                         }
                       },
                       {
@@ -19697,6 +19655,13 @@
                         "params": {
                           "callback": "Fade"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Leg2"
+                        }
                       }
                     ]
                   }
@@ -19729,13 +19694,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-4-i-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Helmet"
                         }
                       },
                       {
@@ -19784,6 +19742,13 @@
                         "params": {
                           "callback": "Fade"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Helmet"
+                        }
                       }
                     ]
                   }
@@ -19815,13 +19780,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-4-i-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Armor"
                         }
                       },
                       {
@@ -19870,6 +19828,13 @@
                         "params": {
                           "callback": "Fade"
                         }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Armor"
+                        }
                       }
                     ]
                   }
@@ -19901,13 +19866,6 @@
                         "params": {
                           "callback": "SendMessage",
                           "arg": "screen-4-i-player1:DropEnabledBack:dropArea1"
-                        }
-                      },
-                      {
-                        "type": "Anchored",
-                        "params": {
-                          "callback": "Validate",
-                          "arg": "Belt"
                         }
                       },
                       {
@@ -19955,6 +19913,13 @@
                         "type": "Validate",
                         "params": {
                           "callback": "Fade"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Belt"
                         }
                       }
                     ]
