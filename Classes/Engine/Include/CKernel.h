@@ -33,10 +33,6 @@ class CKernel
   CJsonParser* m_pJsonParser;
 
   std::map<int, std::vector<std::string> > m_mScenesID;
-  SUser* m_pLocalPlayer;
-  SUser* m_pDistantPlayer;
-
-  bool m_bCoopWaiting;
 
   std::map<int, CTouchBeganVisitor> m_mTouchBeganVisitors;
 
@@ -46,6 +42,8 @@ public:
 
 	CSceneNode* m_pCurrentScene;
 
+	CSceneNode* m_pWaitingScene;
+
 	/// \details will forward the inputs to the behavior tree
 	CInputManager* m_pInputManager;
 	/// \details will manage networking events such as direct wifi
@@ -54,6 +52,9 @@ public:
 	CSoundManager* m_pSoundManager;
 
 	bool m_bDebugMode;
+
+	SUser* m_pLocalPlayer;
+	SUser* m_pDistantPlayer;
 
 
  public:

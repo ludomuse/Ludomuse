@@ -60,8 +60,9 @@ CNode* CNode::GetCurrentNode()
 	return nullptr;
 }
 
-bool CNode::OffsetCurrentNode(int i)
+bool CNode::OffsetCurrentNode(bool a_bNext)
 {
+	int i = a_bNext ? 1 : -1;
 	if (m_iCurrentNode + i < m_vChildren.size())
 	{
 		m_iCurrentNode += i;
@@ -83,6 +84,16 @@ bool CNode::SetCurrentNode(CNode* a_pNode)
 		}
 	}
 	return false;
+}
+
+CNode* CNode::GetOffsetNode(bool a_bNext)
+{
+	int i = a_bNext ? 1 : -1;
+	if (m_iCurrentNode + i < m_vChildren.size() && m_iCurrentNode + i >= 0)
+	{
+		return m_vChildren[m_iCurrentNode + i];
+	}
+	return nullptr;
 }
 
 std::vector<CNode*> CNode::GetChildren()

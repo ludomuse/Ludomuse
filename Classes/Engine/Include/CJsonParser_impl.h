@@ -301,6 +301,11 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 		m_pKernel->m_pDashboard = pSceneNode;
 	else
 		a_pNode->AddChildNode(pSceneNode);
+
+	if (a_rJsonNode.HasMember("sync"))
+	{
+		pSceneNode->SetSynced(a_rJsonNode["sync"].GetBool());
+	}
 	
 	if (a_rJsonNode.HasMember("content"))
 	{

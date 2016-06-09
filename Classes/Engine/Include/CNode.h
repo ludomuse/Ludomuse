@@ -50,13 +50,15 @@ class CNode
   /// \brief returns the currently executed node in the sequence
   virtual CNode* GetCurrentNode();
 
+  virtual bool OffsetCurrentNode(bool a_bNext);
+
+  virtual bool SetCurrentNode(CNode* a_pNode);
+
+  virtual CNode* GetOffsetNode(bool a_bNext);
+
   virtual std::vector<CNode*> GetChildren();
 
   virtual CNode* GetParent();
-
-  virtual bool OffsetCurrentNode(int i);
-
-  virtual bool SetCurrentNode(CNode* a_pNode);
 
   virtual void Init();
 

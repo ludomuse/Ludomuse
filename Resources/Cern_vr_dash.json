@@ -2864,6 +2864,7 @@
 
       {
         "scene": "screen-1-e-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -3445,6 +3446,7 @@
       },
       {
         "scene": "screen-1-e-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",

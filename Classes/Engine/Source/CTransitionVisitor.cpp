@@ -2,6 +2,7 @@
 #include "../Include/CSceneNode.h"
 #include "../Include/CSequenceNode.h"
 #include "../Include/CKernel.h"
+#include "../Include/CCallback.h"
 
 #include "../../Modules/Util/Include/CStats.h"
 
@@ -45,30 +46,65 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 		InitScene(m_pKernel->m_pDashboard);
 		return;
 	}
-	bool bSceneExists = false;
-	if (m_bTransitionNext)
-	{
-		// if TransitioNext offset of 1 scene 
-		bSceneExists = a_pSequence->OffsetCurrentNode(1);
-	}
-	else
-	{
-		// else return to previous scene
-		bSceneExists = a_pSequence->OffsetCurrentNode(-1);
-	}
-	if (!bSceneExists)
+
+
+	CNode* pNewNode = a_pSequence->GetOffsetNode(m_bTransitionNext);
+
+	if (!pNewNode)
 	{
 		return;
 	}
-	CSceneNode* pNewSceneNode = dynamic_cast<CSceneNode*>(a_pSequence->GetCurrentNode());
-	if (!m_pKernel->PlayerHasScene(pNewSceneNode->GetSceneID()))
-	{ // if the player does not have this scene in his list, skip it and go to the next one
-		GotoScene(a_pSequence);
-		return;
-	}
-	else if (pNewSceneNode)
+
+	CSceneNode* pNewSceneNode = dynamic_cast<CSceneNode*>(pNewNode);
+	if (pNewSceneNode)
 	{
-		InitScene(pNewSceneNode);
+		if (!m_pKernel->PlayerHasScene(pNewSceneNode->GetSceneID()))
+		{ // if the player does not have this scene in his list, skip it and go to the next one
+			a_pSequence->OffsetCurrentNode(m_bTransitionNext);
+			GotoScene(a_pSequence);
+			return;
+		}
+		else if (pNewSceneNode->IsSynced())
+		{
+			if (!m_bTransitionNext)
+			{
+				return;
+			}
+
+			SEvent oMessage;
+			oMessage.m_sStringValue = "kernel:waiting";
+			m_pKernel->SendNetworkMessage(oMessage, nullptr);
+
+			if (m_pKernel->m_pDistantPlayer->m_bWaiting)
+			{
+				CCLOG("distant player waiting");
+				m_pKernel->m_pDistantPlayer->m_bWaiting = false;
+				a_pSequence->OffsetCurrentNode(m_bTransitionNext);
+				InitScene(pNewSceneNode);
+			}
+			else if (m_pKernel->m_pLocalPlayer->m_bWaiting)
+			{
+				CCLOG("local player waiting");
+				m_pKernel->m_pLocalPlayer->m_bWaiting = false;
+				//a_pSequence->OffsetCurrentNode(m_bTransitionNext);
+				InitScene(pNewSceneNode);
+			}
+			else
+			{
+				CCLOG("init waiting scene");
+				// init waiting scene
+				m_pKernel->m_pLocalPlayer->m_bWaiting = true;
+				InitScene(m_pKernel->m_pWaitingScene);
+			}
+
+
+
+		}
+		else
+		{
+			a_pSequence->OffsetCurrentNode(m_bTransitionNext);
+			InitScene(pNewSceneNode);
+		}
 	}
 
 }

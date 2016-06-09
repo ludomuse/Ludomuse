@@ -51,14 +51,21 @@ namespace LM
 		m_pSoundManager(new CSoundManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
 		m_bDebugMode(false),
-		m_bCoopWaiting(false),
 		m_pLocalPlayer(new SUser()),
 		m_pDistantPlayer(new SUser()),
 		m_pDashboard(nullptr),
-		m_pCurrentScene(nullptr)
+		m_pCurrentScene(nullptr),
+		m_pWaitingScene(nullptr)
 {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
+
+	// build the waiting scene
+	m_pWaitingScene = new CSceneNode("WaitingScene");
+	CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
+		EAnchor::CENTER, 100, 100, 0, 0);
+
+	m_pWaitingScene->AddChildNode(pBackgroundSprite);
 }
 
 CKernel::~CKernel()
@@ -418,8 +425,16 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 	{
 		if (vSplittedMessage[1] == "waiting")
 		{
-			m_bCoopWaiting = true;
+			if (m_pLocalPlayer->m_bWaiting)
+			{
+				NavNext(nullptr, nullptr);
+			}
+			else
+			{
+				m_pDistantPlayer->m_bWaiting = true;
+			}
 		}
+
 		else if (vSplittedMessage[1] == "Validate")
 		{
 			ValidateScene(SEvent(), nullptr);
