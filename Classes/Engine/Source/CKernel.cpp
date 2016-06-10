@@ -45,9 +45,9 @@ using namespace cocos2d;
 namespace LM
 {
 
-	CKernel::CKernel() : m_pInputManager(new CInputManager(this)),
+	CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
 		m_pJsonParser(new CJsonParser(this)),
-		m_pNetworkManager(new CNetworkManager(this)),
+		m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
 		m_pSoundManager(new CSoundManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
 		m_bDebugMode(false),

@@ -58,7 +58,7 @@ public:
 
 
  public:
-  CKernel();
+  CKernel(bool a_bIsServer);
   virtual ~CKernel();
   /// \returns the behavior tree
   CNode* GetBehaviorTree();
