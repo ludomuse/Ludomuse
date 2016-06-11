@@ -42,7 +42,7 @@ namespace LM
 			iResult = recv(nm->ClientSocket, recvbuf, recvbuflen, 0);
 			if (iResult > 0) {
 				printf("Bytes received: %d\n", iResult);
-				nm->m_pKernel->OnReceivingMessage(std::string(recvbuf));
+				nm->m_pKernel->OnReceivingMessage(std::string(recvbuf, iResult));
 			}
 			else if (iResult == 0)
 				printf("Connection closing...\n");
@@ -69,11 +69,11 @@ namespace LM
 		char recvbuf[DEFAULT_BUFLEN];
 		// Receive data until the server closes the connection
 		do {
-			int iResult = recv(nm->ConnectSocket, recvbuf, recvbuflen, 0);
+			iResult = recv(nm->ConnectSocket, recvbuf, recvbuflen, 0);
 			if (iResult > 0)
 			{
 				printf("Bytes received: %d\n", iResult);
-				nm->m_pKernel->OnReceivingMessage(std::string(recvbuf));
+				nm->m_pKernel->OnReceivingMessage(std::string(recvbuf, iResult));
 			}
 			else if (iResult == 0)
 				printf("Connection closed\n");
