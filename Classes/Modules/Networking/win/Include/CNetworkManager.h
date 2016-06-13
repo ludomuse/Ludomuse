@@ -29,6 +29,7 @@ class CNetworkManager
   CNetworkManager(CKernel* a_pKernel, bool a_bIsServer = true);
   ~CNetworkManager();
   
+  void Send(const char* buff, size_t size);
   void Send(const std::string& s);
   void Send(const bytes& b);
   void DiscoverPeers();

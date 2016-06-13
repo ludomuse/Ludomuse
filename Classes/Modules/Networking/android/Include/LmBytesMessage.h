@@ -134,6 +134,11 @@ class bytes {
 			return *this;
 		}
 
+		char* getData()
+		{
+			return data;
+		}
+
 		void copy(const bytes & other)
 		{
 			size = other.size;

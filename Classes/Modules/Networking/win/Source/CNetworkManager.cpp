@@ -11,7 +11,25 @@
 namespace LM
 {
 
+	static const std::string M_BYTES = "LudoMuse:bytes";
 
+
+	void ProcessBytes(char* recvbuf, int iResult, CNetworkManager* nm)
+	{
+		printf("Bytes received: %d\n", iResult);
+		if (iResult > M_BYTES.size())
+		{
+			std::string sMessageStart(recvbuf, M_BYTES.size());
+			if (sMessageStart == M_BYTES)
+			{
+				byte oEvent = recvbuf[M_BYTES.size()];
+				bytes message(recvbuf + M_BYTES.size() + 1, iResult - M_BYTES.size() - 1);
+				nm->m_pKernel->OnReceiving(message, oEvent);
+				return;
+			}
+		}
+		nm->m_pKernel->OnReceivingMessage(std::string(recvbuf, iResult));
+	}
 
 
 	void* ServerWaitMessages(void* networkManager)
@@ -41,8 +59,7 @@ namespace LM
 
 			iResult = recv(nm->ClientSocket, recvbuf, recvbuflen, 0);
 			if (iResult > 0) {
-				printf("Bytes received: %d\n", iResult);
-				nm->m_pKernel->OnReceivingMessage(std::string(recvbuf, iResult));
+				ProcessBytes(recvbuf, iResult, nm);
 			}
 			else if (iResult == 0)
 				printf("Connection closing...\n");
@@ -72,8 +89,7 @@ namespace LM
 			iResult = recv(nm->ConnectSocket, recvbuf, recvbuflen, 0);
 			if (iResult > 0)
 			{
-				printf("Bytes received: %d\n", iResult);
-				nm->m_pKernel->OnReceivingMessage(std::string(recvbuf, iResult));
+				ProcessBytes(recvbuf, iResult, nm);
 			}
 			else if (iResult == 0)
 				printf("Connection closed\n");
@@ -224,51 +240,65 @@ CNetworkManager::CNetworkManager(CKernel* a_pKernel, bool a_bIsServer) :
 
 }
 
-void CNetworkManager::Send(const std::string& s)
+
+
+void CNetworkManager::Send(const char* buff, size_t size)
 {
+	std::cout << "send message " << buff << std::endl;
+	//m_pKernel->OnReceivingMessage(s);
 
+	if (m_bIsServer) // Server : use ClientSocket
+	{
 
-  std::cout << "send message " << s << std::endl;
-  //m_pKernel->OnReceivingMessage(s);
+		// Echo the buffer back to the sender
+		int iSendResult = send(ClientSocket, buff, size, 0);
+		if (iSendResult == SOCKET_ERROR) {
+			printf("send failed: %d\n", WSAGetLastError());
+			closesocket(ClientSocket);
+			WSACleanup();
+			return;
+		}
+		printf("Bytes sent: %d\n", iSendResult);
 
-  if (m_bIsServer) // Server : use ClientSocket
-  {
+	}
+	else // client use ConnectSocket
+	{
 
-	  // Echo the buffer back to the sender
-	  int iSendResult = send(ClientSocket, s.c_str(), (int)strlen(s.c_str()), 0);
-	  if (iSendResult == SOCKET_ERROR) {
-		  printf("send failed: %d\n", WSAGetLastError());
-		  closesocket(ClientSocket);
-		  WSACleanup();
-		  return;
-	  }
-	  printf("Bytes sent: %d\n", iSendResult);
+		int iResult;
 
-  }
-  else // client use ConnectSocket
-  {
+		// Send an initial buffer
+		iResult = send(ConnectSocket, buff, size, 0);
+		if (iResult == SOCKET_ERROR) {
+			printf("send failed: %d\n", WSAGetLastError());
+			closesocket(ConnectSocket);
+			WSACleanup();
+			return;
+		}
 
-	  int iResult;
-
-	  // Send an initial buffer
-	  iResult = send(ConnectSocket, s.c_str(), (int)strlen(s.c_str()), 0);
-	  if (iResult == SOCKET_ERROR) {
-		  printf("send failed: %d\n", WSAGetLastError());
-		  closesocket(ConnectSocket);
-		  WSACleanup();
-		  return;
-	  }
-
-	  printf("Bytes Sent: %ld\n", iResult);
+		printf("Bytes Sent: %ld\n", iResult);
 
 
 
-  }
+	}
 }
 
-void CNetworkManager::Send(const bytes& b)
-{
 
+void CNetworkManager::Send(const std::string& s)
+{
+	Send(s.c_str(), s.size());
+}
+
+void CNetworkManager::Send(const bytes& a_rBytes)
+{
+	bytes oBytes = a_rBytes;
+	const int buffSize = M_BYTES.size() + oBytes.getSize();
+	char* buff = new char[buffSize];
+	memcpy(buff, M_BYTES.c_str(), M_BYTES.size());
+	memcpy(buff + M_BYTES.size(), oBytes.getData(), oBytes.getSize());
+
+	Send(buff, buffSize);
+
+	delete[] buff;
 }
 
 
