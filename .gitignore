@@ -2,6 +2,7 @@ proj.win10
 proj.win8.1-universal
 linux-build
 Debug.win32
+LudoMuse Client.win32
 proj.ios_mac
 proj.android-studio
 bin
