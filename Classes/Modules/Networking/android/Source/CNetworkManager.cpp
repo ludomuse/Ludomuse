@@ -7,7 +7,7 @@ namespace LM
 {
 
 
-CNetworkManager::CNetworkManager(CKernel* a_pKernel) : m_pKernel(a_pKernel)
+CNetworkManager::CNetworkManager(CKernel* a_pKernel, bool a_bIsServer) : m_pKernel(a_pKernel)
 {
   m_oWifiDirectFacade.addObserver(this);
 }
