@@ -427,7 +427,7 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 		{
 			if (m_pLocalPlayer->m_bWaiting)
 			{
-				NavNext(nullptr, nullptr);
+				ON_CC_THREAD(CKernel::NavNext, this, nullptr, nullptr);
 			}
 			else
 			{

@@ -90,7 +90,6 @@ bool CSceneNode::init()
   if (m_bDebugMode && m_sID != "none")
 	  DisplayDebugInfo();
 
-  CCLOG("end init scene");
 
   return true;
 

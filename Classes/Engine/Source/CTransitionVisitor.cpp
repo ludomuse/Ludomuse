@@ -60,6 +60,7 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 	{
 		if (!m_pKernel->PlayerHasScene(pNewSceneNode->GetSceneID()))
 		{ // if the player does not have this scene in his list, skip it and go to the next one
+			CCLOG("player do not have this scene, skipping");
 			a_pSequence->OffsetCurrentNode(m_bTransitionNext);
 			GotoScene(a_pSequence);
 			return;
@@ -77,21 +78,18 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 
 			if (m_pKernel->m_pDistantPlayer->m_bWaiting)
 			{
-				CCLOG("distant player waiting");
 				m_pKernel->m_pDistantPlayer->m_bWaiting = false;
 				a_pSequence->OffsetCurrentNode(m_bTransitionNext);
 				InitScene(pNewSceneNode);
 			}
 			else if (m_pKernel->m_pLocalPlayer->m_bWaiting)
 			{
-				CCLOG("local player waiting");
 				m_pKernel->m_pLocalPlayer->m_bWaiting = false;
-				//a_pSequence->OffsetCurrentNode(m_bTransitionNext);
+				a_pSequence->OffsetCurrentNode(m_bTransitionNext);
 				InitScene(pNewSceneNode);
 			}
 			else
 			{
-				CCLOG("init waiting scene");
 				// init waiting scene
 				m_pKernel->m_pLocalPlayer->m_bWaiting = true;
 				InitScene(m_pKernel->m_pWaitingScene);
@@ -111,10 +109,8 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 
 void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 {
-	CCLOG("LUDOMUSE - debut de InitScene");
 	Scene* pNewScene = a_pSceneNode->CreateScene();
 	a_pSceneNode->init();
-
 	if (m_bTransitionNext)
 	{
 		Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
@@ -133,7 +129,6 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 
 	auto oSequence = Sequence::create(DelayTime::create(0.6f), fpUnInitScene, nullptr);
 	m_pKernel->m_pCurrentScene->runAction(oSequence);*/
-
 	M_STATS->StartStats();
 }
 
