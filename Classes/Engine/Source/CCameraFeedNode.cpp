@@ -211,4 +211,5 @@ void CCameraFeedNode::DisplayPicture(std::string sPicturePath)
 	CCLOG("LUDOMUSE - DisplayPicture ended");
 }
 
+
 } // namespace LM

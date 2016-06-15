@@ -80,4 +80,9 @@ void CLabelNode::SetText(const std::string& a_rText)
 	}
 }
 
+const std::string& CLabelNode::GetText() const
+{
+    return m_sText;
+}
+
 } // namespace LM

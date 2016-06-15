@@ -38,6 +38,10 @@ public:
     */
     virtual void applicationWillEnterForeground();
 
+	/**
+	@brief return application m_oKernel
+	*/
+	virtual LM::CKernel* getKernel();	
 
  private:
 

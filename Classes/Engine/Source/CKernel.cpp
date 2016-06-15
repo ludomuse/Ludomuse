@@ -9,6 +9,7 @@
 #include "../Include/CDispatchMessageVisitor.h"
 #include "../Include/CFindEntityFromIDVisitor.h"
 #include "../Include/CFindEntityFromTypeVisitor.h"
+#include "../Include/CEditorFindEntityTouchVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CSoundManager.h"
@@ -29,8 +30,6 @@
 
 
 
-#define ON_CC_THREAD(FUN, OBJ, ...) 	Director::getInstance()->getScheduler()->performFunctionInCocosThread(\
-										std::bind(&FUN, OBJ, ##__VA_ARGS__));
 
 
 
@@ -91,6 +90,12 @@ CJsonParser* CKernel::GetJsonParser()
 	return m_pJsonParser;
 }
 
+
+CEditorFindEntityTouchVisitor* CKernel::GetEditorVisitor()
+{
+    return this->m_oVisitor;
+}
+
 void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 {
 	m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
@@ -98,16 +103,21 @@ void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 {
-	std::vector<std::string>::iterator itSceneID;
-	for (itSceneID = m_mScenesID[m_pLocalPlayer->m_iPlayerID].begin();
-			itSceneID != m_mScenesID[m_pLocalPlayer->m_iPlayerID].end();
-			++itSceneID)
-	{
-		if (*itSceneID == a_rSceneID)
-		{
-			return true;
-		}
-	}
+    return PlayerHasScene(a_rSceneID, m_pLocalPlayer->m_iPlayerID);
+}
+
+bool CKernel::PlayerHasScene(const std::string& a_rSceneID, int a_iPlayerID)
+{
+    std::vector<std::string>::iterator itSceneID;
+    for (itSceneID = m_mScenesID[a_iPlayerID].begin();
+            itSceneID != m_mScenesID[a_iPlayerID].end();
+            ++itSceneID)
+    {
+        if (*itSceneID == a_rSceneID)
+        {
+            return true;
+        }
+    }
 
 	return false;
 }
@@ -151,6 +161,8 @@ void CKernel::Init()
     cocos2d::Director::getInstance()->runWithScene(pScene);
 
 	M_STATS->StartStats();
+
+    this->m_oVisitor = new CEditorFindEntityTouchVisitor(this);
 
 	//M_STATS->PushStats("test");
 	//CSerializableStats oSStats(M_STATS->GetStats());
@@ -277,7 +289,7 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 	}
 
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
-  m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+    m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
 	CDispatchMessageVisitor oMessageVisitor("Validated");
 	oMessageVisitor.Traverse(m_pBehaviorTree);
 	CTransitionVisitor oVisitor(this, true);
@@ -296,26 +308,39 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
 	M_STATS_SCREEN.nbInteractions++;
-	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
-	oVisistor.Traverse(m_pCurrentScene);
+//    CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
+//    oVisistor.Traverse(m_pCurrentScene);
 
-	m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
-
+//    m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
+    qDebug("OnTouchBegan");
+//    this->m_oVisitor->SetEvent(a_pEvent);
+//    this->m_oVisitor->SetTouch(a_pTouch);
+    this->m_oVisitor->SetVisitor(a_pEvent, a_pTouch);
+    this->m_oVisitor->Traverse(m_pCurrentScene);
 	return true;
 }
 
 bool CKernel::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
-	m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchEnd(a_pTouch, a_pEvent);
-	m_mTouchBeganVisitors.erase(a_pTouch->getID());
+    std::map<int, CTouchBeganVisitor>::iterator itVisitor = m_mTouchBeganVisitors.find(a_pTouch->getID());
+    if(itVisitor != m_mTouchBeganVisitors.end())
+    {
+        itVisitor->second.OnTouchEnd(a_pTouch, a_pEvent);
+        m_mTouchBeganVisitors.erase(a_pTouch->getID());
+    }
 
 	return true;
 }
 
 bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 {
-	m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchMove(a_pTouch, a_pEvent);
-	return true;
+    std::map<int, CTouchBeganVisitor>::iterator itVisitor = m_mTouchBeganVisitors.find(a_pTouch->getID());
+    if(itVisitor != m_mTouchBeganVisitors.end())
+    {
+        itVisitor->second.OnTouchMove(a_pTouch, a_pEvent);
+    }
+
+    return true;
 }
 
 

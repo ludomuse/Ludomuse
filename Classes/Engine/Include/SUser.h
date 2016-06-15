@@ -2,7 +2,7 @@
 #define _CUSER_H_
 
 #include <string>
-#include "Modules/Networking/android/Include/LmBytesMessage.h"
+#include "Classes/Modules/Networking/android/Include/LmBytesMessage.h"
 
 namespace LM
 {

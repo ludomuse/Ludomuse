@@ -3,7 +3,7 @@
 
 
 #include "cocos2d.h"
-#include "SimpleAudioEngine.h"
+#include "audio/include/SimpleAudioEngine.h"
 #include "CKernel.h"
 
 namespace LM

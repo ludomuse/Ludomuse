@@ -1,8 +1,8 @@
 #ifndef _CJSONPARSER_H_
 #define _CJSONPARSER_H_
 
-#include "../../cocos2d/external/json/rapidjson.h"
-#include "../../cocos2d/external/json/document.h"
+#include "rapidjson.h"
+#include "document.h"
 
 #include <string>
 #include <algorithm>

@@ -2,10 +2,17 @@
 #define _CKERNEL_H_
 
 
+
 #include "cocos2d.h"
 #include "CSceneNode.h"
 #include "SUser.h"
 #include "../../Modules/Util/Include/CStats.h"
+
+
+#include "ui/CocosGUI.h"
+
+#define ON_CC_THREAD(FUN, OBJ, ...) 	cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread(\
+                                        std::bind(&FUN, OBJ, ##__VA_ARGS__));
 
 namespace LM 
 {
@@ -17,6 +24,7 @@ class CSoundManager;
 struct SEvent;
 class CEntityNode;
 class CTouchBeganVisitor;
+class CEditorFindEntityTouchVisitor;
 
 /// \class CKernel
 /// \ingroup Engine
@@ -31,6 +39,8 @@ class CKernel
   
   /// \brief The parser that will build the behavior tree from the json file
   CJsonParser* m_pJsonParser;
+
+  CEditorFindEntityTouchVisitor* m_oVisitor;
 
   std::map<int, std::vector<std::string> > m_mScenesID;
 
@@ -65,11 +75,16 @@ public:
 
   CJsonParser* GetJsonParser();
 
+  CEditorFindEntityTouchVisitor* GetEditorVisitor();
+
   /// \brief Add the m_sSceneID to a_iPlayerID
   void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
 
   /// \brief checks if the current player has this scene in his list
   bool PlayerHasScene(const std::string& a_sSceneID);
+
+  /// \brief checks if the current player has this scene in his list
+  bool PlayerHasScene(const std::string& a_sSceneID, int a_iPlayerID);
 
   int GetCurrentPlayer();
 

@@ -23,21 +23,23 @@ class CLabelNode : public CEntityNode
   //cocos2d::Label* m_pLabel;
 
  public:
-	 CLabelNode(const std::string& a_rText, 
-			 const std::string& a_rFontName, 
-		     int a_iFontSize,
-		     const std::string& a_sTextAlign,
-		     const std::string& a_rFontColor,
-			 EAnchor a_eAnchor = EAnchor::FLOAT,
-			 int a_iWidth = 0,
-			 int a_iHeight = 0,
-	         int a_iXPosition = 0, 
-	         int a_iYPosition = 0);
+     CLabelNode(const std::string& a_rText,
+             const std::string& a_rFontName,
+             int a_iFontSize,
+             const std::string& a_sTextAlign,
+             const std::string& a_rFontColor,
+             EAnchor a_eAnchor = EAnchor::FLOAT,
+             int a_iWidth = 0,
+             int a_iHeight = 0,
+             int a_iXPosition = 0,
+             int a_iYPosition = 0);
 
   /// \brief init this node
   virtual void Init();
 
   virtual void SetText(const std::string& a_rText);
+
+  virtual const std::string& GetText() const;
 
 };
 
