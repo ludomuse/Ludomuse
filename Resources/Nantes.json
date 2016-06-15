@@ -1338,14 +1338,24 @@
   			    "children": [
   				{
   				    "type": "Text",
+					"id": "infoZone",
   				    "params": {
-  					"content": "Trouvez tous les ingrédients de la recette de LU !",
+  					"content": "À partir de maintenant, collectez les ingrédients nécessaires à votre recette.",
   					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
   					"fontSize": 20,
   					"textAlign": "center",
   					"width": 80,
   					"anchor": 0,
-  					"color": "0,0,0,255"
+  					"color": "0,0,0,255",
+						"listeners": [
+							{
+								"type": "Article",
+								"params": {
+									"callback": "SetText",
+									"arg": "Bravo, vous avez gagné un premier ingrédient."
+								}
+							}
+						]
   				    }
   				}
   			    ]
@@ -6023,29 +6033,7 @@
 			}
 		    }
 		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Approchez-vous de Monsieur Louis et lisez cet article à voix haute.",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 60,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
+		"information": [],
 		"content": [
 		    {
 			"type": "Image",
@@ -6068,7 +6056,38 @@
 			    "x": 0,
 			    "y": 0
 			}
-		    }
+		    },
+			{
+				"type": "Group",
+				"params": {
+					"anchor": 4,
+					"width": 50,
+					"height": 100,
+					"children": [
+						{
+							"type": "Image",
+							"params": {
+								"source": "ui/cache-noir-70.png",
+								"anchor": 0,
+								"width": 100,
+								"height": 100
+							}
+						},
+						{
+							"type": "Text",
+							"params": {
+								"content": "Pour la prochaine étape de formation, vous allez devoir approchez vos tablettes l’une de l’autre.",
+								"font": "fonts/arial.ttf",
+								"fontSize": 24,
+								"anchor": 0,
+								"width": 80,
+								"height": 100
+							}
+						}
+
+					]
+				}
+			}
 		]
 	    },
 	    {
@@ -6119,29 +6138,7 @@
 			}
 		    }
 		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Demande à ton ouvrier de te lire à voix haute son article.",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 60,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
+		"information": [],
 		"content": [
 		    {
 			"type": "Image",
@@ -6184,7 +6181,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Pour poursuivre la formation de ton ouvrier, fais-lui lire un article de presse. Celui-ci pourra être lu quand les deux tablettes seront côte-à-côte.",
+					"content": "Pour la prochaine étape de formation, vous allez devoir approchez vos tablettes l’une de l’autre",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -6200,6 +6197,7 @@
 	    },
 	    {
 	    	"scene": "screen-article-player1",
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -6217,7 +6215,16 @@
 					"content": "Suivant",
 					"anchor": 0,
 					"width": 100,
-					"height": 100
+					"height": 100,
+						"listeners": [
+							{
+								"type": "Validated",
+								"params": {
+									"callback" : "LocalMessage",
+									"arg": "Dashboard:Article:infoZone"
+								}
+							}
+						]
 				    }
 				}
 			    ]
@@ -6258,7 +6265,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Approcher les deux tablettes pour lire l'article",
+					"content": "L’un de vous deux lit l’article à voix haute",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
@@ -6282,6 +6289,7 @@
     	    },
     	    {
 	    	"scene": "screen-article-player2",
+				"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -6299,7 +6307,16 @@
 					"content": "Suivant",
 					"anchor": 0,
 					"width": 100,
-					"height": 100
+					"height": 100,
+						"listeners": [
+							{
+								"type": "Validated",
+								"params": {
+									"callback" : "LocalMessage",
+									"arg": "Dashboard:Article:infoZone"
+								}
+							}
+						]
 				    }
 				}
 			    ]
@@ -6340,7 +6357,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Approchez les deux tablettes pour lire l'article",
+					"content": "L’un de vous deux lit l’article à voix haute",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
@@ -6362,431 +6379,6 @@
 		    }
 		]
 
-	    },
-	    {
-		"scene": "screen-2-i-player1",
-		"dashboardTrigger": true,
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "sugarReward",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 0,
-			    "width": 15,
-			    "height": 30,
-			    "x": 0,
-			    "y": 0,
-			    "listeners": [
-			    	{
-			    	    "type": "Init",
-			    	    "params": {
-			    		"callback": "LocalMessage",
-			    		"arg": "Dashboard:Show:sugar"
-			    	    }
-			    	}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-2-i-player2",
-		"dashboardTrigger": true,
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "sugarReward",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 0,
-			    "width": 15,
-			    "height": 30,
-			    "x": 0,
-			    "y": 0,
-			    "listeners": [
-			    	{
-			    	    "type": "Init",
-			    	    "params": {
-			    		"callback": "LocalMessage",
-			    		"arg": "Dashboard:Show:sugar"
-			    	    }
-			    	}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-2-j-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-2-j-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
-			    ]
-			}
-		    }
-		]
 	    },
 	    {
 		"scene": "screen-3-a-player1",
