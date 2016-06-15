@@ -6223,6 +6223,13 @@
 									"callback" : "LocalMessage",
 									"arg": "Dashboard:Article:infoZone"
 								}
+							},
+							{
+								"type": "Validated",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "Dashboard:Show:sugar"
+								}
 							}
 						]
 				    }
@@ -6314,6 +6321,13 @@
 								"params": {
 									"callback" : "LocalMessage",
 									"arg": "Dashboard:Article:infoZone"
+								}
+							},
+							{
+								"type": "Validated",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "Dashboard:Show:sugar"
 								}
 							}
 						]
