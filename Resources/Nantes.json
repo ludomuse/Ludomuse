@@ -62,10 +62,6 @@
 		"screen-1-h-player1-fail"
 	    ],
 	    [
-		"screen-1-i-player1",
-		"screen-1-i-player2"
-	    ],
-	    [
 		"screen-1-j-player1",
 		"screen-1-j-player2"
 	    ],
@@ -2271,17 +2267,17 @@
 			    "y": 0
 			}
 		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/Escalier2.JPG",
-			    "anchor": 8,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
+			{
+				"type": "Image",
+				"params": {
+					"source": "cache/Escalier2.JPG",
+					"anchor": 8,
+					"width": 0,
+					"height": 100,
+					"x": 0,
+					"y": 0
+				}
+			},
 		    {
 			"type": "Group",
 			"params": {
@@ -2301,7 +2297,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand vous arrivez à cet endroit, arrêtez-vous. Prenez maintenant le petit escalier à droite tout en continuant à compter. Passez à l’écran suivant.",
+					"content": "Suivez Monsieur Louis qui connaît le chemin…",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2406,7 +2402,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand tu arrives à cet endroit, arrête-toi. Tu dois prendre maintenant ce petit escalier. Indique à ton ouvrier qu’il doit continuer à compter les marches puis passe à l’écran suivant.",
+					"content": "Prend ce petit escalier à droite, puis clique sur SUIVANT.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2511,7 +2507,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand vous arrivez à cet endroit, vous avez déjà monté 38 marches. Maintenant, prenez l’escalier en colimaçon. Un dernier petit effort ! Continuez à compter les marches. Passez à l’écran suivant",
+					"content": "Suivez Monsieur Louis qui connaît le chemin…",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2616,7 +2612,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand tu arrives à cet endroit, arrête-toi. Tu dois prendre maintenant ce tout petit escalier. Précise à ton ouvrier que c’est le dernier effort à fournir, vous êtes presque arrivés ! Passe à l’écran suivant.",
+					"content": "Prend maintenant ce petit escalier. Vérifie que ton ouvrière est toujours derrière toi, puis clique sur SUIVANT.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2722,7 +2718,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Entrez dans la salle !",
+					"content": "Entrez dans la salle. Gardez bien en mémoire le nombre de marches !",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2827,7 +2823,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Entre dans la salle ! Tu es maintenant dans ton entreprise.",
+					"content": "Entre dans la salle 23 avec votre ouvrière pour lui faire passer son premier test d’embauche.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2843,6 +2839,7 @@
 	    },
 	    {
 		"scene": "screen-1-h-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -2918,14 +2915,24 @@
 			    "children": [
 				{
 				    "type": "Text",
+					"id": "infoZone",
 				    "params": {
-					"content": "Réponds à la question de M. Louis",
+					"content": "Répondez à la question de Monsieur Louis.",
 					"color": "0,0,0,255",
 					"font": "fonts/arial.ttf",
 					"anchor": 0,
 					"fontSize": 24,
 					"width": 80,
-					"height": 100
+					"height": 100,
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "SetText",
+									"arg": "Vous avez trouvé la bonne réponse"
+								}
+							}
+						]
 				    }
 				}
 			    ]
@@ -2983,7 +2990,7 @@
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
-					"width": 80,
+					"width": 90,
 					"height": 100,
 					"listeners": [
 						{
@@ -3010,6 +3017,7 @@
 	    },
 	    {
 		"scene": "screen-1-h-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -3099,6 +3107,7 @@
 					    },
 					    {
 						"type": "Text",
+							"id": "infoZone",
 						"params": {
 						    "content": "Touche la bonne réponse",
 						    "color": "0,0,0,255",
@@ -3106,9 +3115,18 @@
 						    "fontSize": 24,
 						    "anchor": 0,
 						    "width": 80,
-						    "height": 100
+						    "height": 100,
+							"listeners": [
+								{
+									"type": "Validate",
+									"params": {
+										"callback": "SetText",
+										"arg": "Votre ouvrier a trouvé la bonne réponse"
+									}
+								}
+							]
 						}
-					    }
+						}
 					]
 				    }
 				}
@@ -3141,7 +3159,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Demande à ton ouvrier combien de marche il a compté",
+					"content": "Demande à ton ouvrière le nombre de marches qu’elle a compté",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -3398,6 +3416,13 @@
 					    	    "arg": "screen-1-h-player2:Show:check4"
 					    	}
 					    },
+						{
+							"type": "Touch",
+							"params": {
+								"callback": "LocalMessage",
+								"arg": "screen-1-h-player2:Validate:infoZone"
+							}
+						},
 					    {
 						"type": "Touch",
 						"params": {
@@ -3405,6 +3430,13 @@
 						    "arg": true
 						}
 					    },
+						{
+							"type": "Touch",
+							"params": {
+								"callback": "SendMessage",
+								"arg": "screen-1-h-player1:Validate:infoZone"
+							}
+						},
 					    {
 						"type": "Touch",
 						"params":
@@ -3468,224 +3500,6 @@
 		]
 	    },
 	    {
-		"scene": "screen-1-i-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Tu as trouvé la bonne réponse !",
-					"color": "0,0,0,255",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width":80,
-					"height": 100
-				    }
-
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Félicitation, vous avez été embauché dans l'entreprise Lu !",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-1-i-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Ton coéquipier a trouvé la bonne réponse !",
-					"color": "0,0,0,255",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Text",
-			"params": {
-			    "content": "Bravo, tu as un nouvel ouvrier dans ton équipe !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
-			    "anchor": 0,
-			    "width": 80,
-			    "height": 100,
-			    "listeners": [
-				{
-				    "type": "Init",
-				    "params": {
-					"callback": "PlaySound",
-					"arg": "cache/audio/nantes3.mp3"
-				    }
-				}
-			    ]
-
-			}
-		    }
-		]
-	    },
-	    {
 		"scene": "screen-1-j-player1",
 		"navigation": [
 		    {
@@ -3733,7 +3547,41 @@
 			}
 		    }
 		],
-		"information": [],
+		"information": [
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-6.png",
+					"anchor": 6,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Essayez maintenant de gagner un premier ingréditent",
+											"color": "0,0,0,255",
+											"font": "fonts/arial.ttf",
+											"fontSize": 24,
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -3776,7 +3624,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bien, maintenant que tu es embauché, nous pouvons continuer.",
+					"content": "Félicitations Marie, vous avez été embauchée dans l’entreprise LU !",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -3838,7 +3686,41 @@
 			}
 		    }
 		],
-		"information": [],
+		"information": [
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-6.png",
+					"anchor": 6,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Essaie maintenant de gagner un premier ingréditent.",
+											"color": "0,0,0,255",
+											"font": "fonts/arial.ttf",
+											"fontSize": 24,
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -3881,7 +3763,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bien, maintenant que tu as un nouvel ouvrier, nous allons pouvoir commencer la nouvelle recette !",
+					"content": "Bravo, tu as maintenant une nouvelle ouvrière dans ton équipe ! Elle s’appelle Marie",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -3986,7 +3868,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Approchez-vous du grand portrait de Monsieur Louis. Il est impressionnant, vous ne trouvez pas ?",
+					"content": "Approchez-vous du grand portrait de Monsieur Louis.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4064,7 +3946,7 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso1left.png",
+			    "source": "cache/Portrait.png",
 			    "anchor": 7,
 			    "width": 0,
 			    "height": 100,
@@ -4091,7 +3973,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Montre ton portrait peint à ton ouvrier.",
+					"content": "Montre ton portrait à ton ouvrière.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4168,13 +4050,47 @@
 			}
 		    }
 		],
-		"information": [],
+		"information": [
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-2.png",
+					"anchor": 2,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Isolez-vous pour écouter ce que j’ai à vous raconter.",
+											"color": "0,0,0,255",
+											"font": "fonts/arial.ttf",
+											"fontSize": 24,
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
 		"content": [
 		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Portrait.png",
-			    "anchor": 2,
+			    "anchor": 6,
 			    "width": 0,
 			    "height": 90,
 			    "x": 0,
@@ -4284,7 +4200,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Touche le portrait pour écouter Monsieur Louis.",
+						    "content": "Clique sur ton portrait pour m’écouter t’en parler.",
 						    "color": "0,0,0,255",
 						    "anchor": 0,
 						    "width": 80,
@@ -4296,16 +4212,47 @@
 				}
 			    ]
 			}
-		    }
+		    },
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-2.png",
+					"anchor": 2,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Isole-toi pour écouter ce que j’ai à te raconter",
+											"color": "0,0,0,255",
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
 		],
 		"content": [
 		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Portrait.png",
-			    "anchor": 2,
+			    "anchor": 0,
 			    "width": 0,
-			    "height": 90,
+			    "height": 80,
 			    "x": 0,
 			    "y": 0,
 			    "listeners": [
