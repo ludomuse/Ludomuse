@@ -3988,6 +3988,7 @@
 	    },
 	    {
 		"scene": "screen-2-b-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -4101,6 +4102,7 @@
 	    },
 	    {
 		"scene": "screen-2-b-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -4374,7 +4376,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Monsieur Louis vous interroge : « Connaissez-vous l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
+					"content": "Questionnez votre patron sur l’origine des biscuits.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4479,7 +4481,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Monsieur Louis interroge son ouvrier : « connais-tu l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
+					"content": "Les premiers biscuits étaient fabriqués par les boulangers pour les marins. On les appelait des “biscuits de mer”",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4590,7 +4592,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Pour découvrir la recette des biscuits de mer vous devez choisir de faire glisser de la zone de partage(en forme de petit beurre) au plat les ingrédients qui conviennent à la recette.",
+					"content": "Selon vous, quels sont les ingrédients composant les biscuits de mer ? Envoyez les à votre patron en les glissant vers le biscuit.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4695,7 +4697,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Faites glisser les différents ingrédients : farine, beurre, eau, vanille œuf, sucre dans la zone de partage en forme de petit beurre. Ton ouvrier doit déterminer si ces ingrédients sont présents dans les biscuits de mer. Ces biscuits avaient l’avantage de se conserver longtemps mais ils n’étaient pas très bons !",
+					"content": "Récupère les ingrédients et glisse les dans le plat pour vérifier qu’ils étaient dans la recette des biscuits de mer.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4706,17 +4708,12 @@
 
 			    ]
 			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
-			}
 		    }
 		]
 	    },
 	    {
-		"scene": "screen-2-e-player1",
+		"scene": "screen-2-e-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -4804,7 +4801,7 @@
 				    "type": "Text",
 				    "id": "infoText",
 				    "params": {
-					"content": "Placez les bons ingrédients dans le plat.",
+					"content": "Place les bons ingrédients dans le plat.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
@@ -4854,7 +4851,7 @@
 				    "type": "Drop",
 				    "params": {
 					"callback": "SendMessage",
-					"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
+					"arg": "screen-2-e-player1:DropEnabledBack:dropArea2"
 				    }
 				}
 			    ]
@@ -4899,7 +4896,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "LocalMessage",
-								"arg": "screen-2-e-player1:Show:flourCheck"
+								"arg": "screen-2-e-player2:Show:flourCheck"
 							    }
 							},
 							{
@@ -4912,7 +4909,7 @@
 								"type": "Droped",
 								"params": {
 									"callback": "LocalMessage",
-									"arg": "screen-2-e-player1:SuccessHint:infoText"
+									"arg": "screen-2-e-player2:SuccessHint:infoText"
 								}
 							},
 							{
@@ -4990,7 +4987,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "LocalMessage",
-								"arg": "screen-2-e-player1:Show:butterCross"
+								"arg": "screen-2-e-player2:Show:butterCross"
 							    }
 							},
 							{
@@ -5003,7 +5000,7 @@
 								"type": "Droped",
 								"params": {
 									"callback": "LocalMessage",
-									"arg": "screen-2-e-player1:ErrorHint:infoText"
+									"arg": "screen-2-e-player2:ErrorHint:infoText"
 								}
 							},
 							{
@@ -5016,7 +5013,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "SendMessage",
-								"arg": "screen-2-e-player2:ReturnElement:butter"
+								"arg": "screen-2-e-player1:ReturnElement:butter"
 							    }
 							}
 						    ],
@@ -5064,7 +5061,7 @@
 						"type": "Image",
 						"id": "water1",
 						"params": {
-						    "source": "cache/butter.png",
+						    "source": "cache/water.png",
 						    "anchor": 0,
 						    "width": 40,
 						    "height": 100,
@@ -5081,7 +5078,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "LocalMessage",
-								"arg": "screen-2-e-player1:Show:waterCheck"
+								"arg": "screen-2-e-player2:Show:waterCheck"
 							    }
 							},
 							{
@@ -5094,7 +5091,7 @@
 								"type": "Droped",
 								"params": {
 									"callback": "LocalMessage",
-									"arg": "screen-2-e-player1:SuccessHint:infoText"
+									"arg": "screen-2-e-player2:SuccessHint:infoText"
 								}
 							},
 							{
@@ -5178,14 +5175,14 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "LocalMessage",
-								"arg": "screen-2-e-player1:Show:sugarCross"
+								"arg": "screen-2-e-player2:Show:sugarCross"
 							    }
 							},
 							{
 								"type": "Droped",
 								"params": {
 									"callback": "LocalMessage",
-									"arg": "screen-2-e-player1:ErrorHint:infoText"
+									"arg": "screen-2-e-player2:ErrorHint:infoText"
 								}
 							},
 							{
@@ -5198,7 +5195,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "SendMessage",
-								"arg": "screen-2-e-player2:ReturnElement:sugar"
+								"arg": "screen-2-e-player1:ReturnElement:sugar"
 							    }
 							}
 						    ],
@@ -5251,7 +5248,8 @@
 		]
 	    },
 	    {
-		"scene": "screen-2-e-player2",
+		"scene": "screen-2-e-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -5341,15 +5339,25 @@
 					    },
 					    {
   						"type": "Text",
+							"id": "infoZone",
   						"params": {
-  						    "content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
+  						    "content": "Donnez les bons ingrédients à Mr Louis en les faisant glisser dans la zone de droite.",
   						    "color": "0,0,0,255",
 						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
 						    "fontSize": 20,
 						    "textAlign": "center",
   						    "anchor": 0,
   						    "width": 80,
-  						    "height": 100
+  						    "height": 100,
+							"listeners": [
+								{
+									"type": "Validate",
+									"params": {
+										"callback": "SetText",
+										"arg": "Bravo tu a trouvé les bons ingrédients !"
+									}
+								}
+							]
   						}
   					    }
 					]
@@ -5375,8 +5383,8 @@
 			"type": "Image",
 			"id": "dropArea2",
 			"params": {
-			    "source": "cache/sendingArea.png",
-			    "anchor": 4,
+			    "source": "cache/sendingArea2.png",
+			    "anchor": 8,
 			    "width": 30,
 			    "height": 100,
 			    "x": 70,
@@ -5403,7 +5411,7 @@
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
-			    "anchor": 8,
+			    "anchor": 4,
 			    "width": 60,
 			    "height": 80,
 			    "alignItems": "center",
@@ -5442,7 +5450,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:flour1"
+						    "arg": "screen-2-e-player2:Show:flour1"
 						}
 					    },
 					    {
@@ -5502,7 +5510,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:butter1"
+						    "arg": "screen-2-e-player2:Show:butter1"
 						}
 					    },
 					    {
@@ -5532,7 +5540,7 @@
 				    "type": "Image",
 				    "id": "water",
 				    "params": {
-					"source": "cache/butter.png",
+					"source": "cache/water.png",
 					"anchor": 0,
 					"width": 40,
 					"height": 100,
@@ -5562,7 +5570,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:water1"
+						    "arg": "screen-2-e-player2:Show:water1"
 						}
 					    },
 					    {
@@ -5623,7 +5631,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:sugar1"
+						    "arg": "screen-2-e-player2:Show:sugar1"
 						}
 					    },
 					    {
@@ -5716,13 +5724,12 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bravo, vous avez réussi !",
+					"content": "Rapprochez-vous pour écouter sur la tablette de Monsieur Louis.",
+						"width": 60,
 					"anchor": 0,
 					"color": "0,0,0,255",
 					"normal": "ui/nav-7.png",
-					"selected": "ui/nav-7.png",
-					"color": "",
-					"backgroundColor": ""
+					"selected": "ui/nav-7.png"
 				    }
 				}
 			    ]
@@ -5771,7 +5778,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bravo, vous avez trouvé les deux ingrédients qui entrent dans la recette des biscuits de mer. Écoutez Monsieur Louis, il va vous raconter ce qui s’est passé ensuite.",
+					"content": "Félicitation, il s’agissait bien de l’eau et la farine. Pour en savoir plus, interroge Monsieur Louis.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -5861,7 +5868,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Bravo, tu as réussi !",
+						    "content": "Clique sur l’écran pour écouter l’explication de Pierre",
 						    "color": "0,0,0,255",
 						    "anchor": 0,
 						    "width": 80,
@@ -5873,7 +5880,38 @@
 				}
 			    ]
 			}
-		    }
+		    },
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-2.png",
+					"anchor": 2,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Laisse écouter ton ouvrière sur ta tablette.",
+											"color": "0,0,0,255",
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
 		],
 		"content": [
 		    {
