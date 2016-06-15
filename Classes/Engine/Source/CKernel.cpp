@@ -279,7 +279,7 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
 	CDispatchMessageVisitor oMessageVisitor("Validated");
-	oMessageVisitor.Traverse(m_pBehaviorTree);
+	oMessageVisitor.Traverse(m_pCurrentScene);
 	CTransitionVisitor oVisitor(this, true);
 	oVisitor.Traverse(m_pBehaviorTree);
 }
