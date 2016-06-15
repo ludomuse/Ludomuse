@@ -122,8 +122,8 @@
 		"screen-3-c-player2"
 	    ],
 	    [
-		"screen-3-d",
-		"screen-3-d"
+		"screen-3-d-player1",
+		"screen-3-d-player2"
 	    ],
 	    [
 		"screen-3-e-player1",
@@ -6485,7 +6485,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Vous allez maintenant découvrir vos collègues grâce un jeu.Règle du jeu : Faites glisser les personnages un par un dans la zone de partage en forme de petit beurre pour les envoyer à Monsieur Louis. Il va les replacer au bon endroit et va vous indiquer les noms de métiers.",
+					"content": "Bienvenue dans l’entreprise ! Monsieur Louis va vous présenter vos collègues.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -6600,7 +6600,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Voici une manière originale de présenter ces collègues à ton ouvrier ! Règle du jeu : Lorsque l’ouvrier t’envoie un détail dans la zone de partage (en forme de petit beurre) replace le au bon endroit.",
+					"content": "Présente ses collègues à ton ouvrière.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -6696,7 +6696,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Faites glisser les personnages dans la zone de droite pour les donner à Monsieur Louis.",
+					"content": "Faites glissez les éléments de la photo de vos collègues à Monsieur Louis.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 60,
@@ -6723,8 +6723,8 @@
 			"type": "Image",
 			"id": "dropArea1",
 			"params": {
-			    "source": "cache/sendingArea.png",
-			    "anchor": 4,
+			    "source": "cache/sendingArea2.png",
+			    "anchor": 8,
 			    "width": 30,
 			    "height": 100,
 			    "x": 70,
@@ -6753,7 +6753,7 @@
 			    "rows": 2,
 			    "width": 50,
 			    "height": 50,
-			    "anchor": 8,
+			    "anchor": 4,
 			    "alignItems": "center",
 			    "children": [
 				{
@@ -7048,16 +7048,25 @@
 						    "height": 80
 						}
 					    },
-					    {
-  						"type": "Text",
-  						"params": {
-  						    "content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
-  						    "color": "0,0,0,255",
-  						    "anchor": 0,
-  						    "width": 80,
-  						    "height": 100
-  						}
-  					    }
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 4,
+								"width": 95,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Recompose la photo à partir des éléments transmis par ton ouvrière.",
+											"color": "0,0,0,255",
+											"anchor": 0,
+											"width": 100
+										}
+									}
+
+								]
+							}
+						}
 					]
 				    }
 				}
@@ -7998,7 +8007,7 @@
 		]
 	    },
 	    {
-		"scene": "screen-3-d",
+		"scene": "screen-3-d-player1",
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -8045,7 +8054,29 @@
 			}
 		    }
 		],
-		"information": [],
+		"information": [
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-6.png",
+					"anchor": 6,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Text",
+							"params": {
+								"content": "Laissez Monsieur Louis écouter sur votre tablette.",
+								"color": "0,0,0,255",
+								"anchor": 0,
+								"width": 80,
+								"height": 100
+							}
+						}
+					]
+				}
+			}
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -8180,6 +8211,211 @@
                     }
 		]
 	    },
+		{
+			"scene": "screen-3-d-player2",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [
+				{
+					"type": "Info",
+					"params": {
+						"source": "ui/info-6.png",
+						"anchor": 6,
+						"width": 0,
+						"height": 13,
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Rapproche-toi pour écouter sur la tablette de ton ouvrière.",
+									"color": "0,0,0,255",
+									"anchor": 0,
+									"width": 80,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/rightSpotImage.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 70,
+						"y": 0
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 1,
+						"width": 40,
+						"height": 40,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 40,
+									"height": 30
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Dirigeants",
+									"font": "fonts/arial.ttf",
+									"fontSize": 24,
+									"width": 100,
+									"height": 100,
+									"anchor": 0
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 5,
+						"width": 40,
+						"height": 40,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 40,
+									"height": 30
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Menuisiers",
+									"font": "fonts/arial.ttf",
+									"fontSize": 24,
+									"width": 100,
+									"height": 100,
+									"anchor": 0
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 6,
+						"width": 40,
+						"height": 40,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 40,
+									"height": 30
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Pâtissiers",
+									"font": "fonts/arial.ttf",
+									"fontSize": 24,
+									"width": 100,
+									"height": 100,
+									"anchor": 0
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 7,
+						"width": 40,
+						"height": 40,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 40,
+									"height": 30
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Ouvrières",
+									"font": "fonts/arial.ttf",
+									"fontSize": 24,
+									"width": 100,
+									"height": 100,
+									"anchor": 0
+								}
+							}
+						]
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-3-e-player1",
 		"dashboardTrigger": true,
