@@ -1,10 +1,15 @@
 {
     "app": {
+	"debug": true,
 	"colors": [],
 	"images": [],
 	"videos": [],
 	"sounds": [],
 	"scenes": [
+	    [
+		"screen-peers",
+		"screen-peers"
+	    ],
 	    [
 		"screen-1-a",
 		"screen-1-a"
@@ -14,13 +19,17 @@
 		"screen-login"
 	    ],
 	    [
+	    "screen-sex",
+	    "screen-sex"
+	    ],
+	    [
 		"screen-playerid",
 		"screen-playerid"
 	    ],
-	    [
-		"screen-peers",
-		"screen-peers"
-	    ],
+		[
+		"screen-manual",
+		"screen-manual"
+		],
 	    [
 		"screen-1-b-player1",
 		"screen-1-b-player2"
@@ -174,6 +183,199 @@
 	    ]
 	],
 	"screens": [
+		    {
+		"scene": "screen-peers",
+		"navigation": [
+		    {
+			"type": "Nav",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 5,
+			    "normal": "ui/nav-5.png",
+			    "selected": "ui/nav-5-active.png",
+			    "enabled": true,
+			    "action": "next",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "Suivant",
+					"anchor": 0,
+					"width": 100,
+					"height": 100
+				    }
+				}
+			    ],
+			    "listeners": [
+				{
+				    "type": "Validate",
+				    "params": {
+					"callback": "Show"
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"information": [
+		    {
+			"type": "Info",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 6,
+			    "source": "ui/info-6.png",
+			    "children": [
+				{
+				    "type": "Group",
+				    "params": {
+					"anchor": 0,
+					"width": 60,
+					"height": 100,
+					"children": [
+					    {
+						"type": "Image",
+						"params": {
+						    "source": "ui/Assets/PNG/Assets-04.png",
+						    "anchor": 8,
+						    "width": 0,
+						    "height": 80
+						}
+					    },
+					    {
+						"type": "Text",
+						"params": {
+						    "content": "Nous recherchons les partenaires de jeu autour de toi, cela ne prendra qu'un instant...",
+						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+						    "fontSize": 20,
+						    "textAlign": "center",
+						    "width": 80,
+						    "anchor": 4,
+						    "color": "0,0,0,255"
+						}
+					    }
+					]
+				    }
+				}
+			    ]
+			}
+		    },
+		    {
+			"type": "Info",
+			"params": {
+			    "width": 0,
+			    "height": 13,
+			    "anchor": 2,
+			    "source": "ui/info-2.png",
+			    "children": [
+				{
+				    "type": "Text",
+				    "params": {
+					"content": "étape 3 : Avec qui veux-tu jouer ?",
+					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+					"fontSize": 20,
+					"textAlign": "center",
+					"width": 80,
+					"anchor": 0,
+					"color": "0,0,0,255"
+				    }
+				}
+			    ]
+			}
+		    }
+		],
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "cache/background1LU.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100
+			}
+		    },
+		    {
+                        "type": "Peers",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "listeners" : [
+                                {
+                                    "type": "Peers",
+                                    "params": {
+                                        "callback" :"BuildPeerNodes"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "type": "Group",
+                                    "params": {
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ConnectPeer",
+                                                    "arg": false
+                                                }
+                                            },
+					    {
+						"type": "Touch",
+						"params": {
+						    "callback": "ValidateScene",
+						    "arg": true
+						}
+					    }
+                                        ],
+                                        "children": [
+                                            {
+                                                "type": "Image",
+                                                "params": {
+                                                    "source": "ui/cache-noir-70.png",
+                                                    "anchor": 0,
+                                                    "width": 80,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Scène 1",
+                                                    "fontSize": 24,
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "color": "",
+                                                    "listeners" : [
+                                                        {
+                                                            "type": "GetText",
+                                                            "params": {
+                                                                "callback" : "",
+                                                                "arg": ""
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+
+                                        ]
+                                    }
+
+                                }
+                            ]
+                        }
+                    }
+		]
+	    },
 	    {
 		"scene": "screen-1-a",
 		"navigation": [
@@ -224,38 +426,29 @@
 			    "y": 0
 			}
 		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
+			{
+			    "type": "Image",
+			    "params": {
 					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 30,
-					"height": 20
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bienvenue !",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
+					"anchor": 4,
 					"width": 50,
-					"height": 50,
-					"anchor": 0,
-					"color": ""
-				    }
-				}
-			    ]
+					"children": [
+						{
+						    "type": "Text",
+						    "params": {
+								"content": "Bienvenue, moi c’est Pierre !",
+								"font": "fonts/arial.ttf",
+								"fontSize": 24,
+								"width": 50,
+								"height": 50,
+								"anchor": 0,
+								"color": ""
+						    }
+						}
+					]
+			    }
 			}
-		    }
-		]
+		    ]
 	    },
 	    {
 		"scene": "screen-login",
@@ -350,7 +543,7 @@
   					    {
   						"type": "Text",
   						"params": {
-  						    "content": "Inscris ton nom de joueur et précise si tu es une fille ou un garçon.",
+  						    "content": "Inscris ton nom de joueur dans le champ.",
   						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
   						    "fontSize": 20,
   						    "textAlign": "center",
@@ -406,163 +599,8 @@
   			"params": {
   			    "anchor": 0,
   			    "width": 60,
-  			    "height": 50,
+  			    "height": 20,
   			    "children": [
-  				{
-  				    "type": "Image",
-  				    "params": {
-  					"source": "ui/cache-blanc-50.png",
-  					"anchor": 7,
-  					"width": 40,
-  					"height": 30,
-  					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-01.png",
-						    "anchor": 0,
-						    "width": 0,
-						    "height": 50
-						}
-					    },
-					    {
-					    	"type": "Image",
-					    	"id": "womanCheck",
-					    	"params": {
-					    		"source": "ui/Assets/PNG/Assets-11.png",
-					    		"anchor": 3,
-					    		"width": 15,
-					    		"listeners": [
-					    			{
-					    				"type": "Show",
-					    				"params": {
-					    					"callback": "Show"
-					    				}
-					    			},
-					    			{
-					    				"type": "Hide",
-					    				"params": {
-					    					"callback": "Show",
-					    					"arg": false
-					    				}
-					    			}
-					    		]
-					    	}
-					    }
-  					],
-  					"listeners": [
-  					    {
-  						"type": "Touch",
-  						"params": {
-  						    "callback": "ValidateScene",
-  						    "arg": true
-  						}
-  					    },
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "PlaySound",
-			    				"arg": "ui/audio/buttonClicked.mp3"
-			    			}
-			    		},
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "LocalMessage",
-			    				"arg": "screen-login:Show:womanCheck"
-			    			}
-			    		},
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "LocalMessage",
-			    				"arg": "screen-login:Hide:manCheck"
-			    			}
-			    		}
-  					]
-  				    }
-  				},
-  				{
-  				    "type": "Image",
-  				    "params": {
-  					"source": "ui/cache-blanc-50.png",
-  					"anchor": 5,
-  					"width": 40,
-  					"height": 30,
-  					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-02.png",
-						    "anchor": 0,
-						    "width": 0,
-						    "height": 50
-						}
-					    },
-					    {
-					    	"type": "Image",
-					    	"id": "manCheck",
-					    	"params": {
-					    		"source": "ui/Assets/PNG/Assets-11.png",
-					    		"anchor": 3,
-					    		"width": 15,
-					    		"listeners": [
-					    			{
-					    				"type": "Show",
-					    				"params": {
-					    					"callback": "Show"
-					    				}
-					    			},
-					    			{
-					    				"type": "Hide",
-					    				"params": {
-					    					"callback": "Show",
-					    					"arg": false
-					    				}
-					    			}
-					    		]
-					    	}
-					    }
-  					],
-  					"listeners": [
-  					    {
-  						"type": "Touch",
-  						"params": {
-  						    "callback": "ValidateScene",
-  						    "arg": true
-  						}
-  					    },
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "PlaySound",
-			    				"arg": "ui/audio/buttonClicked.mp3"
-			    			}
-			    		},
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "LocalMessage",
-			    				"arg": "screen-login:Show:manCheck"
-			    			}
-			    		},
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "LocalMessage",
-			    				"arg": "screen-login:Hide:womanCheck"
-			    			}
-			    		}
-  					]
-  				    }
-  				},
-  				{
-  					"type": "Group",
-  					"params": {
-  						"anchor": 2,
-  						"width": 100,
-  						"height": 40,
-  						"children": [
 							{
 							    "type": "EditBox",
 							    "id": "nameBox",
@@ -588,7 +626,15 @@
 													{
 														"type": "Touch",
 														"params": {
-															"callback": ""
+															"callback": "PlaySound",
+															"arg": "ui/audio/buttonClicked.mp3"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "ValidateScene",
+															"arg": true
 														}
 													}
 												]
@@ -601,10 +647,7 @@
   					}
   				}
   			    ]
-  			}
-		    }
-		]
-	    },
+  			},
 	    {
 		"scene": "screen-playerid",
 		"navigation": [
@@ -692,7 +735,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Choisis si tu auras le rôle du grand ou le rôle du petit durant le jeu.",
+						    "content": "Choisis si tu es un grand ou un petit.",
 						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
 						    "fontSize": 20,
 						    "textAlign": "center",
@@ -718,7 +761,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "étape 2 : Quel est ton profil ?",
+					"content": "étape 2 : Quel est ton âge ?",
 					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
 					"fontSize": 20,
 					"textAlign": "center",
@@ -958,8 +1001,8 @@
 		]
 	    },
 	    {
-		"scene": "screen-peers",
-		"navigation": [
+	    	"scene": "screen-sex",
+			"navigation": [
 		    {
 			"type": "Nav",
 			"params": {
@@ -986,6 +1029,13 @@
 				    "type": "Validate",
 				    "params": {
 					"callback": "Show"
+				    }
+				},
+				{
+				    "type": "Validated",
+				    "params": {
+					"callback": "SetPlayerName",
+					"arg": "nameBox"
 				    }
 				}
 			    ]
@@ -1016,163 +1066,244 @@
 		    }
 		],
 		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 6,
-			    "source": "ui/info-6.png",
-			    "children": [
-				{
-				    "type": "Group",
-				    "params": {
-					"anchor": 0,
-					"width": 60,
-					"height": 100,
-					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-04.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
-						"type": "Text",
-						"params": {
-						    "content": "Nous recherchons les partenaires de jeu autour de toi, cela ne prendra qu'un instant...",
-						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-						    "fontSize": 20,
-						    "textAlign": "center",
-						    "width": 80,
-						    "anchor": 4,
-						    "color": "0,0,0,255"
-						}
-					    }
-					]
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Info",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 2,
-			    "source": "ui/info-2.png",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "étape 3 : Avec qui veux-tu jouer ?",
-					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-					"fontSize": 20,
-					"textAlign": "center",
-					"width": 80,
-					"anchor": 0,
-					"color": "0,0,0,255"
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100
-			}
-		    },
-		    {
-                        "type": "Peers",
-                        "params": {
-                            "anchor": 0,
-                            "width": 50,
-                            "height": 50,
-                            "listeners" : [
-                                {
-                                    "type": "Peers",
-                                    "params": {
-                                        "callback" :"BuildPeerNodes"
-                                    }
-                                }
-                            ],
-                            "children": [
-                                {
-                                    "type": "Group",
-                                    "params": {
-                                        "anchor": 0,
-                                        "width": 100,
-                                        "height": 100,
-                                        "listeners": [
-                                            {
-                                                "type": "Touch",
-                                                "params": {
-                                                    "callback": "ConnectPeer",
-                                                    "arg": false
-                                                }
-                                            },
-					    {
-						"type": "Touch",
-						"params": {
-						    "callback": "ValidateScene",
-						    "arg": true
-						}
-					    }
-                                        ],
-                                        "children": [
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "ui/cache-noir-70.png",
-                                                    "anchor": 0,
-                                                    "width": 80,
-                                                    "height": 80,
-                                                    "x": 0,
-                                                    "y": 0
-                                                }
-                                            },
-                                            {
-                                                "type": "Text",
-                                                "params": {
-                                                    "content": "Scène 1",
-                                                    "fontSize": 24,
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "color": "",
-                                                    "listeners" : [
-                                                        {
-                                                            "type": "GetText",
-                                                            "params": {
-                                                                "callback" : "",
-                                                                "arg": ""
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-
-                                        ]
-                                    }
-
-                                }
-                            ]
-                        }
-                    }
-		]
-	    },
+  		    {
+  			"type": "Info",
+  			"params": {
+  			    "width": 0,
+  			    "height": 13,
+  			    "anchor": 6,
+  			    "source": "ui/info-6.png",
+  			    "children": [
+  				{
+  				    "type": "Group",
+  				    "params": {
+  					"anchor": 0,
+  					"width": 60,
+  					"height": 100,
+  					"children": [
+  					    {
+  						"type": "Image",
+  						"params": {
+  						    "source": "ui/Assets/PNG/Assets-03.png",
+  						    "anchor": 8,
+  						    "width": 0,
+  						    "height": 80
+  						}
+  					    },
+  					    {
+  						"type": "Text",
+  						"params": {
+  						    "content": "Choisis si tu es un garçon ou une fille.",
+  						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+  						    "fontSize": 20,
+  						    "textAlign": "center",
+  						    "width": 80,
+  						    "anchor": 0,
+  						    "color": "0,0,0,255"
+  						}
+  					    }
+  					]
+  				    }
+  				}
+  			    ]
+  			}
+  		    },
+  		    {
+  			"type": "Info",
+  			"params": {
+  			    "width": 0,
+  			    "height": 13,
+  			    "anchor": 2,
+  			    "source": "ui/info-2.png",
+  			    "children": [
+  				{
+  				    "type": "Text",
+  				    "params": {
+  					"content": "étape 1: Quel est ton sexe ?",
+  					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+  					"fontSize": 20,
+  					"textAlign": "center",
+  					"width": 80,
+  					"anchor": 0,
+  					"color": "0,0,0,255"
+  				    }
+  				}
+  			    ]
+  			}
+  		    }
+  		],
+	    	"content": [
+  			    {
+	  			"type": "Image",
+	  			"params": {
+	  			    "source": "cache/background1LU.png",
+	  			    "anchor": 0,
+	  			    "width": 100,
+	  			    "height": 100,
+	  			    "x": 0,
+	  			    "y": 0
+	  			}
+	  		    },
+      		    {
+				"type": "Group",
+	  			"params": {
+				    "anchor": 0,
+				    "width": 60,
+				    "height": 20,
+				    "children": [
+						{
+		  				    "type": "Image",
+		  				    "params": {
+		  					"source": "ui/cache-blanc-50.png",
+		  					"anchor": 8,
+		  					"width": 40,
+		  					"height": 30,
+		  					"children": [
+							    {
+									"type": "Image",
+									"params": {
+							    "source": "ui/Assets/PNG/Assets-01.png",
+							    "anchor": 0,
+							    "width": 0,
+							    "height": 50
+							}
+						    },
+						    {
+						    	"type": "Image",
+						    	"id": "womanCheck",
+						    	"params": {
+						    		"source": "ui/Assets/PNG/Assets-11.png",
+						    		"anchor": 3,
+						    		"width": 15,
+						    		"listeners": [
+						    			{
+						    				"type": "Show",
+						    				"params": {
+						    					"callback": "Show"
+						    				}
+						    			},
+						    			{
+						    				"type": "Hide",
+						    				"params": {
+						    					"callback": "Show",
+						    					"arg": false
+						    				}
+						    			}
+						    		]
+						    	}
+						    }
+	  					],
+	  					"listeners": [
+	  					    {
+	  						"type": "Touch",
+	  						"params": {
+	  						    "callback": "ValidateScene",
+	  						    "arg": true
+	  						}
+	  					    },
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "PlaySound",
+				    				"arg": "ui/audio/buttonClicked.mp3"
+				    			}
+				    		},
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "LocalMessage",
+				    				"arg": "screen-sex:Show:womanCheck"
+				    			}
+				    		},
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "LocalMessage",
+				    				"arg": "screen-sex:Hide:manCheck"
+				    			}
+				    		}
+	  					]
+	  				    }
+	  				},
+	  				{
+	  				    "type": "Image",
+	  				    "params": {
+	  					"source": "ui/cache-blanc-50.png",
+	  					"anchor": 4,
+	  					"width": 40,
+	  					"height": 30,
+	  					"children": [
+						    {
+							"type": "Image",
+							"params": {
+							    "source": "ui/Assets/PNG/Assets-02.png",
+							    "anchor": 0,
+							    "width": 0,
+							    "height": 50
+							}
+						    },
+						    {
+						    	"type": "Image",
+						    	"id": "manCheck",
+						    	"params": {
+						    		"source": "ui/Assets/PNG/Assets-11.png",
+						    		"anchor": 3,
+						    		"width": 15,
+						    		"listeners": [
+						    			{
+						    				"type": "Show",
+						    				"params": {
+						    					"callback": "Show"
+						    				}
+						    			},
+						    			{
+						    				"type": "Hide",
+						    				"params": {
+						    					"callback": "Show",
+						    					"arg": false
+						    				}
+						    			}
+						    		]
+						    	}
+						    }
+	  					],
+	  					"listeners": [
+	  					    {
+	  						"type": "Touch",
+	  						"params": {
+	  						    "callback": "ValidateScene",
+	  						    "arg": true
+	  						}
+	  					    },
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "PlaySound",
+				    				"arg": "ui/audio/buttonClicked.mp3"
+				    			}
+				    		},
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "LocalMessage",
+				    				"arg": "screen-sex:Show:manCheck"
+				    			}
+				    		},
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "LocalMessage",
+				    				"arg": "screen-sex:Hide:womanCheck"
+				    			}
+				    		}
+	  					]
+	  				    }
+	  				}
+	  				]
+	  			}
+	  		}
+	    	]
+    	},
 	    {
 		"scene": "Dashboard",
 		"navigation": [
@@ -1362,8 +1493,84 @@
 		    }
 		]
 	    },
+		{
+			"scene": "screen-manual",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"enabled": true,
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"enabled": true,
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background1LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Text",
+					"params": {
+						"content": "Tu va participer à un jeu découverte de la biscuiterie LU. Tu seras amené(e) à collaborer avec ton partenaire en échangeant des objets ou des informations d’une tablette à l’autre.",
+						"fontSize": 20,
+						"width": 80,
+						"height": 100,
+						"anchor": 0
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-1-b-player1",
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -1428,18 +1635,15 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
+			    "source": "cache/ouvriere.png",
+			    "anchor": 5,
+			    "width": 40
 			}
 		    },
 		    {
 			"type": "Group",
 			"params": {
-			    "anchor": 4,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
 			    "children": [
@@ -1455,7 +1659,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Durant cette visite, vous êtes un ouvrier de la biscuiterie LU. Votre futur patron et coéquipier sera Monsieur Louis Lefevre-Utile dit « Monsieur Louis ». Votre mission sera de créer un nouveau biscuit Vous allez relever plusieurs défi. Le premier défi : réussir être embauché dans la biscuiterie LU. Écoutez ce que le patron Monsieur Louis vous demande. Bonne chance pour le test d’embauche.",
+					"content": "Vous devez créer une nouvelle recette de biscuit. Pour réussir cette mission, vous devrez travailler en collaboration avec le patron de la biscuiterie, “Monsieur Louis”.",
 					"fontSize": 20,
 					"width": 80,
 					"height": 100,
@@ -1470,6 +1674,7 @@
 	    },
 	    {
 		"scene": "screen-1-b-player2",
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -1530,16 +1735,15 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100
+			    "source": "cache/louis.png",
+			    "anchor": 5,
+			    "width": 50
 			}
 		    },
 		    {
 			"type": "Group",
 			"params": {
-			    "anchor": 4,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
 			    "children": [
@@ -1555,7 +1759,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Pendant cette visite, tu seras  Monsieur Louis Lefèvre-Utile, le patron de l'entreprise de biscuits LU. Tu as 24 ans. Tu es le directeur d’une entreprise qui a été créée par tes parents.Tout le monde t’appelle Monsieur Louis. Aujourd'hui, tu souhaites créer un nouveau biscuit. Pour le créer, tu vas devoir relever plusieurs défis  avec l'aide de ton ouvrier. À chaque défi relevé, le processus de création de la recette avance !",
+					"content": "Tu es le directeur de la biscuiterie LU. Tout le monde t’appelle, “Monsieur Louis”. Tu vas créer une recette de biscuit avec l'aide d’une nouvelle ouvrière.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 22,
 					"width": 80,
@@ -1774,7 +1978,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Demande à haute voix à ton ouvrier « Suis moi et compte les marches jusqu’à la salle 23. »",
+					"content": "Demande à ta future ouvrière de compter les marches jusqu’à la salle 23.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"width": 50,
@@ -1887,7 +2091,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Passez cette porte. Au pied de l’escalier, commencez à compter les marches à haute voix. Puis passez à l’écran suivant.",
+					"content": "Commencez à compter les marches à l’endroit de la photo.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -1992,7 +2196,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand tu es au pied de l’escalier, rappelle à ton ouvrier qu’il doit commencer à compter les marches. Vérifie que ton ouvrier est derrière toi et qu’il accomplie sa mission puis passe à l’écran suivant.",
+					"content": "Vérifie que ton ouvrière commence à compter les marches à partir d’ici, puis guide la en cliquant sur SUIVANT.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
