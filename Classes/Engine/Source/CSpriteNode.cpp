@@ -60,5 +60,10 @@ void CSpriteNode::ChangeAnchor(int a_anchor)
     pSceneNode->Init();
 }
 
+int CSpriteNode::GetAnchor()
+{
+    return this->m_eAnchor;
+}
+
 
 } // namespace LM

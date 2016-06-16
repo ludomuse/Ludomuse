@@ -35,6 +35,9 @@ class CSpriteNode : public CEntityNode
   /// \brief Update sprite with the new anchor
   void ChangeAnchor(int a_anchor);
 
+  /// \brief return current anchor
+  int GetAnchor();
+
  private:
   void DisplayNewImage(const std::string&);
 };
