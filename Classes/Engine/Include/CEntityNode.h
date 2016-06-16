@@ -5,6 +5,7 @@
 #include "CNode.h"
 #include "CCallback.h"
 #include "cocos2d.h"
+#include "CSceneNode.h"
 
 #include <map>
 
@@ -155,6 +156,8 @@ class CEntityNode : public CNode
   virtual void PopulateParent(bool a_bDoScaling = true);
 
   virtual cocos2d::Scene* GetParentScene();
+
+  virtual CSceneNode* GetParentSceneNode();
 
   virtual cocos2d::Size GetParentVisibleSize();
 

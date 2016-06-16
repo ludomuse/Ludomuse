@@ -3,6 +3,8 @@
 
 using namespace cocos2d;
 
+
+
 namespace LM
 {
 
@@ -27,6 +29,35 @@ void CSpriteNode::Init()
   PopulateParent();
 
   CNode::Init();
+}
+
+
+const std::string& CSpriteNode::GetPath() const
+{
+    return this->m_sSpriteFilename;
+}
+
+void CSpriteNode::SetPath(const std::string &a_sPath)
+{
+    //this->m_pCocosEntity = Sprite::create(a_sPath);
+    //CCameraFeedNode::DisplayPicture, this, LmJniCppFacade::getCurrentPicturePath()
+    ON_CC_THREAD(CSpriteNode::DisplayNewImage, this, a_sPath);
+}
+
+void CSpriteNode::DisplayNewImage(const std::string &a_sPath)
+{
+    m_sSpriteFilename = a_sPath;
+    CSceneNode* pSceneNode = GetParentSceneNode();
+    pSceneNode->UnInit();
+    pSceneNode->Init();
+}
+
+void CSpriteNode::ChangeAnchor(int a_anchor)
+{
+    this->m_eAnchor = IntToAnchor(a_anchor);
+    CSceneNode* pSceneNode = GetParentSceneNode();
+    pSceneNode->UnInit();
+    pSceneNode->Init();
 }
 
 
