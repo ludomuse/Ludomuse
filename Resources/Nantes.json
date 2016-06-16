@@ -1354,6 +1354,13 @@
 									"callback": "SetText",
 									"arg": "Bravo, vous avez gagné un premier ingrédient."
 								}
+							},
+							{
+								"type": "Colleagues",
+								"params": {
+									"callback": "SetText",
+									"arg": "Bravo, vous avez gagné un nouvel ingrédient"
+								}
 							}
 						]
   				    }
@@ -6622,6 +6629,7 @@
 	    },
 	    {
 		"scene": "screen-3-b-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -6947,6 +6955,7 @@
 	    },
 	    {
 		"scene": "screen-3-b-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -7997,17 +8006,12 @@
 			    "x": 70,
 			    "y": 0
 			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
-			}
 		    }
 		]
 	    },
 	    {
 		"scene": "screen-3-d-player1",
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -8070,7 +8074,16 @@
 								"color": "0,0,0,255",
 								"anchor": 0,
 								"width": 80,
-								"height": 100
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Validated",
+										"params": {
+											"callback": "LocalMessage",
+											"arg": "Dashboard:Colleagues:infoZone"
+										}
+									}
+								]
 							}
 						}
 					]
@@ -8213,6 +8226,7 @@
 	    },
 		{
 			"scene": "screen-3-d-player2",
+			"dashboardTrigger": true,
 			"navigation": [
 				{
 					"type": "Nav",
@@ -8275,7 +8289,16 @@
 									"color": "0,0,0,255",
 									"anchor": 0,
 									"width": 80,
-									"height": 100
+									"height": 100,
+									"listeners": [
+										{
+											"type": "Validated",
+											"params": {
+												"callback": "LocalMessage",
+												"arg": "Dashboard:Colleagues:infoZone"
+											}
+										}
+									]
 								}
 							}
 						]
@@ -8417,217 +8440,6 @@
 			]
 		},
 	    {
-		"scene": "screen-3-e-player1",
-		"dashboardTrigger": true,
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le beurre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/butter.png",
-			    "anchor": 0,
-			    "width": 25,
-			    "height": 35,
-			    "x": 0,
-			    "y": 0,
-			    "listeners": [
-				{
-				    "type": "Init",
-				    "params": {
-					"callback": "PlaySound",
-					"arg": "cache/audio/nantes5.mp3"
-				    }
-				}
-			    ]
-
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-3-e-player2",
-		"dashboardTrigger": true,
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le beurre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/butter.png",
-			    "anchor": 0,
-			    "width": 25,
-			    "height": 35,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
-			}
-		    }
-		]
-	    },
-	    {
 		"scene": "screen-3-f-player1",
 		"navigation": [
 		    {
@@ -8718,7 +8530,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"content": "Vous allez maintenant découvrir l’usine grâce à la grande maquette présente dans la salle",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -8823,7 +8635,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"content": "Maintenant, fait découvrir l’usine à ton ouvrière à l’aide de la maquette présente dans la salle.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -8838,217 +8650,8 @@
 		]
 	    },
 	    {
-		"scene": "screen-4-a-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "enabled": true,
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "enabled": true,
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 50
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "« Vous allez maintenant découvrir l’usine » Regardez la photo qui apparait sur votre écran…il s’agit d’une tour de l’usine. Pouvez-vous la retrouver sur la maquette ?",
-					"fontSize": 24,
-					"width": 80,
-					"height": 100,
-					"anchor": 0
-				    }
-				}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-a-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "enabled": true,
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "enabled": true,
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 50
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Aide ton ouvrier à prendre des  repères dans l’usine. Pour cela utilise la maquette fabriquée par Paul Duchesne et qui te sert à faire la promotion de ton entreprise. ",
-					"fontSize": 24,
-					"width": 80,
-					"height": 100,
-					"anchor": 0
-				    }
-				}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
 		"scene": "screen-4-b-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -9128,23 +8731,31 @@
 					"height": 100,
 					"children": [
 					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-03.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
 						"type": "Text",
+							"id": "infoZone",
 						"params": {
-						    "content": "Faites glisser la photo dans la zone de partage et montre à Monsieur Louis où cette tour se situe.",
+						    "content": "Repérez sur la maquette cette tour encore existante aujourd’hui.",
 						    "color": "0,0,0,255",
 						    "fontSize": 20,
 						    "anchor": 0,
 						    "width": 80,
-						    "height": 100
+						    "height": 100,
+							"listeners": [
+								{
+									"type": "SuccessHint",
+									"params": {
+										"callback": "SetText",
+										"arg": "Vous avez trouvé la bonne réponse !"
+									}
+								},
+								{
+									"type": "ErrorHint",
+									"params": {
+										"callback": "SetText",
+										"arg": "Ce n'est pas la bonne réponse"
+									}
+								}
+							]
 						}
 					    }
 					]
@@ -9168,81 +8779,21 @@
 		    },
 		    {
 			"type": "Image",
-			"id": "dropArea1",
-			"params": {
-			    "source": "cache/sendingArea.png",
-			    "anchor": 4,
-			    "width": 30,
-			    "height": 100,
-			    "x": 70,
-			    "y": 0,
-			    "listeners": [
-				{
-				    "type": "Drop",
-				    "params": {
-					"callback": ""
-				    }
-				},
-				{
-				    "type": "DropEnabledBack",
-				    "params": {
-					"callback": "EnableEvent",
-					"arg": "dropArea1:Drop"
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Image",
 			"id":"TourLU1",
 			"params": {
 			    "source": "cache/TourLU.png",
-			    "anchor": 0,
+			    "anchor": 2,
 			    "width": 0,
-			    "height": 40,
+			    "height": 87,
 			    "x": 0,
-			    "y": 0,
-			    "listeners": [
-				{
-				    "type": "Move",
-				    "params": {
-					"callback": ""
-				    }
-				},
-				{
-				    "type": "Droped",
-				    "params": {
-					"callback": "Fade"
-				    }
-				},
-				{
-				    "type": "Droped",
-				    "params": {
-					"callback": "DisableEvent",
-					"arg": "dropArea1:Drop"
-				    }
-				},
-				{
-				    "type": "Droped",
-				    "params": {
-					"callback": "SendMessage",
-					"arg": "screen-4-b-player2:Show:TourLUA"
-				    }
-				},
-				{
-				    "type": "ReturnElement",
-				    "params": {
-					"callback": "ShowBack"
-				    }
-				}
-			    ]
+			    "y": 0
 			}
 		    }
 		]
 	    },
 	    {
 		"scene": "screen-4-b-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -9343,13 +8894,30 @@
 					    },
 					    {
   						"type": "Text",
+							"id": "infoZone",
   						"params": {
-  						    "content": "Lorsque ton ouvrier t’envoie le détail dans la zone de partage, demande lui de te montrer où cette tour se situe",
+  						    "content": "Avec l’aide de ton ouvrière, clique sur la tour encore existante aujourd’hui.",
   						    "color": "0,0,0,255",
 						    "fontSize": 20,
   						    "anchor": 0,
   						    "width": 80,
-  						    "height": 100
+  						    "height": 100,
+							"listeners": [
+								{
+									"type": "SuccessHint",
+									"params": {
+										"callback": "SetText",
+										"arg": "Vous avez trouvé la bonne réponse !"
+									}
+								},
+								{
+									"type": "ErrorHint",
+									"params": {
+										"callback": "SetText",
+										"arg": "Tu t'es trompé, essaie encore"
+									}
+								}
+							]
   						}
   					    }
 					]
@@ -9375,14 +8943,15 @@
 			"type": "Image",
 			"params": {
 			    "source": "cache/Maquette.png",
-			    "anchor": 8,
+			    "anchor": 2,
 			    "width": 0,
-			    "height": 70,
+			    "height": 87,
 			    "x": 0,
 			    "y": 0,
 			    "children": [
 				{
 				    "type": "Grid",
+					"id": "tours",
 				    "params": {
 					"cols": 5,
 					"rows": 2,
@@ -9454,19 +9023,33 @@
 						    "height": 100,
 						    "listeners": [
 							{
-							    "type": "Drop",
+							    "type": "Touch",
 							    "params": {
-								"callback": "AnchorEntity",
+								"callback": "Validate",
 								"arg": "TourLUA"
 							    }
 							},
 							{
-  							    "type": "Drop",
+  							    "type": "Touch",
   							    "params": {
-  								"callback": "SendMessage",
-  								"arg": "screen-4-b-player1:DropEnabledBack:dropArea1"
+  								"callback": "LocalMessage",
+  								"arg": "screen-4-b-player2:SuccessHint:infoZone"
 							    }
-							}
+							},
+								{
+									"type": "Touch",
+									"params": {
+										"callback": "DisableEvent",
+										"arg": "tours:Touch"
+									}
+								},
+								{
+									"type": "Touch",
+									"params": {
+										"callback": "SendMessage",
+										"arg": "screen-4-b-player1:SuccessHint:infoZone"
+									}
+								}
 						    ]
 						}
 					    },
@@ -9475,7 +9058,23 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+						    "height": 100,
+							"listeners": [
+								{
+									"type": "Touch",
+									"params": {
+										"callback": "LocalMessage",
+										"arg": "screen-4-b-player2:ErrorHint:infoZone"
+									}
+								},
+								{
+									"type": "Touch",
+									"params": {
+										"callback": "SendMessage",
+										"arg": "screen-4-b-player1:ErrorHint:infoZone"
+									}
+								}
+							]
 						}
 					    },
 					    {
@@ -9491,67 +9090,7 @@
 				}
 			    ]
 			}
-		    },
-		    {
-  			"type": "Image",
-  			"id": "dropArea2",
-  			"params": {
-  			    "source": "cache/sendingArea.png",
-  			    "anchor": 4,
-  			    "width": 30,
-  			    "height": 100,
-  			    "x": 70,
-  			    "y": 0,
-  			    "children": [
-  				{
-  				    "type": "Image",
-  				    "id": "TourLUA",
-  				    "params": {
-  					"source": "cache/TourLU.png",
-  					"anchor": 0,
-  					"width": 0,
-  					"height": 40,
-  					"x": 0,
-  					"y": 0,
-  					"listeners": [
-  					    {
-  						"type": "Move",
-  						"params": {
-  						    "callback": ""
-  						}
-  					    },
-  					    {
-  						"type": "Droped",
-  						"params": {
-  						    "callback": "Anchored"
-  						}
-  					    },
-  					    {
-  						"type": "Droped",
-  						"params": {
-  						    "callback": "Validate",
-  						    "arg": "TourLUA"
-  						}
-  					    },
-  					    {
-  						"type": "Show",
-  						"params": {
-  						    "callback": "Show"
-  						}
-					    },
-					    {
-						"type": "AnchoredFailed",
-						"params": {
-						    "callback": "SendMessage",
-						    "arg": "screen-4-b-player1:ReturnElement:TourLU1"
-						}
-					    }
-  					]
-  				    }
-  				}
-  			    ]
-  			}
-  		    }
+		    }
   		]
   	    },
 	    {
@@ -9614,7 +9153,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Approchez les tablettes l’une de l’autre et comparez les deux images.",
+					"content": "Raprochez-vous pour écouter sur la tablette de Monsieur Louis.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"fontSize": 20,
@@ -9638,17 +9177,35 @@
 			    "y": 0
 			}
 		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/TourLU.png",
-			    "anchor": 0,
-			    "width": 0,
-			    "height": 70,
-			    "x": 0,
-			    "y": 0
+			{
+				"type": "Group",
+				"params": {
+					"anchor": 0,
+					"width": 50,
+					"height": 100,
+					"children": [
+						{
+							"type": "Image",
+							"params": {
+								"source": "ui/cache-noir-70.png",
+								"anchor": 0,
+								"width": 100,
+								"height": 100
+							}
+						},
+						{
+							"type": "Text",
+							"params": {
+								"content": "Cette maquette a été fabriquée par Paul Duchesne. Pour en savoir plus aprochez-vous de Monsieur Louis.",
+								"anchor": 0,
+								"fontSize": 20,
+								"width": 60,
+								"height": 100
+							}
+						}
+					]
+				}
 			}
-		    }
 		]
 	    },
 	    {
@@ -9727,7 +9284,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Approchez les tablettes l’une de l’autre et comparez les deux images.",
+						    "content": "Laisse ton ouvrière écouter sur ta tablette.",
 						    "color": "0,0,0,255",
 						    "fontSize": 20,
 						    "anchor": 0,
@@ -9784,7 +9341,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Une partie de l'usine existe toujours. Elle se trouve en face du château. Cet emplacement n’a pas été choisi au hasard par monsieur Louis. L’usine se situe près de la gare et de La Loire. Les marchandises œufs, farine, sucre, beurre, vanille nécessaires à la fabrication des biscuits arrivent facilement dans l’usine. Une fois les biscuits fabriquées ils sont  envoyés dans toute la France.",
+					"content": "Cette maquette a longtemps servi à faire la promotion de l’entreprise. Cliquez sur l’écran pour en savoir plus.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 20,
 					"anchor": 0,
@@ -9800,6 +9357,8 @@
 	    },
 	    {
 		"scene": "screen-4-d-player1",
+			"sync": true,
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -9874,7 +9433,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Observez la maquette et la photo.",
+					"content": "Aidez-vous aussi de la maquette d’époque.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"fontSize": 20,
@@ -9901,18 +9460,29 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/TourLU.png",
-			    "anchor": 0,
-			    "width": 0,
-			    "height": 70,
+			    "source": "cache/Maquette2.png",
+			    "anchor": 8,
+			    "width": 50,
 			    "x": 0,
 			    "y": 0
 			}
-		    }
+		    },
+			{
+				"type": "Text",
+				"params": {
+					"content": "A l'aide de la photo contemporaine qui apparait sur votre écran. Répondez à la question de Monsieur Louis.",
+					"color": "0,0,0,255",
+					"anchor": 4,
+					"fontSize": 20,
+					"width": 50
+				}
+			}
 		]
 	    },
 	    {
 		"scene": "screen-4-d-player2",
+			"sync": true,
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -10013,7 +9583,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Observe la maquette et la photo qui apparait sur l’autre tablette. ",
+						    "content": "Regarde aussi la photo qui apparaît sur l’autre tablette.",
 						    "color": "0,0,0,255",
 						    "font": "fonts/arial.ttf",
 						    "fontSize": 20,
@@ -10054,7 +9624,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Indique à ton ouvrier quels sont les deux éléments qui ont disparus aujourd ’hui",
+					"content": "Demandez à votre ouvrière quels sont les deux éléments qui ont disparu aujourd’hui",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -10070,12 +9640,22 @@
 
 		    {
 			"type": "Grid",
+				"id": "AnswersGrid",
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
 			    "anchor": 0,
 			    "width": 50,
 			    "height": 40,
+				"listeners": [
+					{
+						"type": "Validated",
+						"params": {
+							"callback": "DisableEvent",
+							"arg": "Touch:AnswersGrid"
+						}
+					}
+				],
 			    "children": [
 				{
 				    "type": "Image",
