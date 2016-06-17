@@ -98,6 +98,7 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 				// init waiting scene
 				m_pKernel->m_pLocalPlayer->m_bWaiting = true;
 				InitScene(m_pKernel->m_pWaitingScene);
+				m_pKernel->m_oSyncTransitionStart = std::chrono::system_clock::now();
 			}
 
 

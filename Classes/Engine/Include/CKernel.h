@@ -56,6 +56,7 @@ public:
 	SUser* m_pLocalPlayer;
 	SUser* m_pDistantPlayer;
 
+	std::chrono::time_point<system_clock> m_oSyncTransitionStart;
 
  public:
   CKernel(bool a_bIsServer);

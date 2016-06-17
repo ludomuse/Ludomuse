@@ -20,11 +20,13 @@
 #include "ui/CocosGUI.h"
 
 #include <fstream>
+#include <pthread.h>
 
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
+#include <unistd.h>
 #endif
 
 
@@ -418,6 +420,8 @@ void CKernel::LocalMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
 	ProcessMessage(a_oEvent.m_sStringValue);
 }
 
+
+
 void CKernel::ProcessMessage(const std::string& a_rMessage)
 {
 	std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
@@ -427,7 +431,23 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 		{
 			if (m_pLocalPlayer->m_bWaiting)
 			{
+				std::chrono::milliseconds oTimeSinceTransitionStarted = duration_cast<milliseconds>(
+					std::chrono::system_clock::now() - m_oSyncTransitionStart);
+				
+
+				int iDelay = 600 - oTimeSinceTransitionStarted.count();
+
+				if (iDelay > 0)
+				{
+#ifdef __linux__
+					usleep(iDelay * 1000);
+#else
+					Sleep(iDelay);
+#endif
+				}
+
 				ON_CC_THREAD(CKernel::NavNext, this, nullptr, nullptr);
+
 			}
 			else
 			{
@@ -515,7 +535,7 @@ void CKernel::Connect(SEvent a_oEvent, CEntityNode* a_pTarget)
 				if (pLabel)
 				{
 					m_pNetworkManager->ConnectTo(pLabel->getString());
-					//m_pNetworkManager->Send("connection:establish");
+					m_pNetworkManager->Send("connection:establish");
 				}
 			}
 		}
