@@ -352,6 +352,7 @@ bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("GotoScreenID : %s", a_oEvent.m_sStringValue.c_str());
+    m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
     CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
 	oVisitor.Traverse(m_pBehaviorTree);
 
