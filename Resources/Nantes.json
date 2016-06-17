@@ -149,14 +149,22 @@
 		"screen-4-d-player1",
 		"screen-4-d-player2"
 	    ],
+		[
+			"screen-4-f1-player1",
+			"screen-4-f1-player2"
+		],
+		[
+			"screen-4-f2-player1",
+			"screen-4-f2-player2"
+		],
 	    [
 		"screen-4-e-player1",
 		"screen-4-e-player2"
 	    ],
-	    [
-		"screen-4-f-player1",
-		"screen-4-f-player2"
-	    ],
+		[
+			"screen-4-g1-player1",
+			"screen-4-g1-player2"
+		],
 	    [
 		"screen-4-g-player1",
 		"screen-4-g-player2"
@@ -369,7 +377,36 @@
                                 }
                             ]
                         }
-                    }
+                    },
+			{
+				"type": "Image",
+				"params": {
+					"source": "ui/cache-noir-50.png",
+					"anchor": 4,
+					"width": 20,
+					"height": 20,
+					"children": [
+						{
+							"type": "Text",
+							"params": {
+								"content": "ACTUALISER",
+								"width": 50,
+								"height": 50,
+								"anchor": 0,
+								"color": ""
+							}
+						}
+					],
+					"listeners": [
+						{
+							"type": "Touch",
+							"params": {
+								"callback": "RefreshPeers"
+							}
+						}
+					]
+				}
+			}
 		]
 	    },
 	    {
@@ -9468,13 +9505,22 @@
 			}
 		    },
 			{
-				"type": "Text",
+				"type": "Image",
 				"params": {
-					"content": "A l'aide de la photo contemporaine qui apparait sur votre écran. Répondez à la question de Monsieur Louis.",
-					"color": "0,0,0,255",
+					"source": "ui/cache-noir-70.png",
 					"anchor": 4,
-					"fontSize": 20,
-					"width": 50
+					"width": 50,
+					"children": [
+						{
+							"type": "Text",
+							"params": {
+								"content": "A l'aide de la photo contemporaine qui apparait sur votre écran. Répondez à la question de Monsieur Louis.",
+								"anchor": 0,
+								"width": 90
+							}
+						}
+
+					]
 				}
 			}
 		]
@@ -9649,10 +9695,10 @@
 			    "height": 40,
 				"listeners": [
 					{
-						"type": "Validated",
+						"type": "Validate",
 						"params": {
 							"callback": "DisableEvent",
-							"arg": "Touch:AnswersGrid"
+							"arg": "AnswersGrid:Touch"
 						}
 					}
 				],
@@ -9927,8 +9973,919 @@
 		    }
 		]
 	    },
+		{
+			"scene": "screen-4-f1-player1",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso6.png",
+						"anchor": 8,
+						"height": 100
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 4,
+						"width": 50,
+						"height": 100,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Vous allez maintenant découvrir les différents ateliers, soyez attentif !",
+									"anchor": 0,
+									"width": 60,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"scene": "screen-4-f1-player2",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso6.png",
+						"anchor": 8,
+						"height": 100
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 4,
+						"width": 50,
+						"height": 100,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Maintenant, fais visiter les ateliers à ton ouvrière.",
+									"font": "fonts/arial.ttf",
+									"anchor": 0,
+									"width": 90,
+									"height": 100
+								}
+							}
+
+						]
+					}
+				}
+			]
+		},
+		{
+			"scene": "screen-4-f2-player1",
+			"sync": true,
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						],
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						],
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [
+				{
+					"type": "Info",
+					"params": {
+						"source": "ui/info-6.png",
+						"anchor": 6,
+						"width": 0,
+						"height": 13,
+						"children": [
+							{
+								"type": "Group",
+								"params": {
+									"anchor": 0,
+									"width": 60,
+									"height": 100,
+									"children": [
+										{
+											"type": "Image",
+											"params": {
+												"source": "ui/Assets/PNG/Assets-03.png",
+												"anchor": 8,
+												"width": 0,
+												"height": 80
+											}
+										},
+										{
+											"type": "Text",
+											"params": {
+												"content": "Observez les images et retenez l’ordre des étapes.",
+												"color": "0,0,0,255",
+												"fontSize": 20,
+												"anchor": 0,
+												"width": 80,
+												"height": 100
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"id": "Atelier1",
+					"params": {
+						"source": "cache/Atelier1.png",
+						"anchor": 0,
+						"width": 70,
+						"height": 100,
+						"x": 0,
+						"y": 0,
+						"listeners": [
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "Show"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+								}
+							},
+							{
+								"type": "HidePhoto",
+								"params": {
+									"callback": "Show",
+									"arg": false
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Image",
+					"id": "Atelier2",
+					"params": {
+						"source": "cache/Atelier2.png",
+						"anchor": 0,
+						"width": 70,
+						"height": 100,
+						"x": 0,
+						"y": 0,
+						"listeners": [
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "Show"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+								}
+							},
+							{
+								"type": "HidePhoto",
+								"params": {
+									"callback": "Show",
+									"arg": false
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Image",
+					"id": "Atelier3",
+					"params": {
+						"source": "cache/Atelier3.png",
+						"anchor": 0,
+						"width": 70,
+						"height": 100,
+						"x": 0,
+						"y": 0,
+						"listeners": [
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "Show"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+								}
+							},
+							{
+								"type": "HidePhoto",
+								"params": {
+									"callback": "Show",
+									"arg": false
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Image",
+					"id": "Atelier4",
+					"params": {
+						"source": "cache/Atelier4.png",
+						"anchor": 0,
+						"width": 70,
+						"height": 100,
+						"x": 0,
+						"y": 0,
+						"listeners": [
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "Show"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+								}
+							},
+							{
+								"type": "HidePhoto",
+								"params": {
+									"callback": "Show",
+									"arg": false
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"scene": "screen-4-f2-player2",
+			"sync": true,
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						],
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						],
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Validator",
+					"params": {
+						"ids": [
+							"1",
+							"2",
+							"3",
+							"4"
+						],
+						"sound": "cache/audio/xylophone.mp3"
+					}
+				}
+			],
+			"information": [
+				{
+					"type": "Info",
+					"params": {
+						"source": "ui/info-6.png",
+						"anchor": 6,
+						"width": 0,
+						"height": 13,
+						"children": [
+							{
+								"type": "Group",
+								"params": {
+									"anchor": 0,
+									"width": 60,
+									"height": 100,
+									"children": [
+										{
+											"type": "Image",
+											"params": {
+												"source": "ui/Assets/PNG/Assets-03.png",
+												"anchor": 8,
+												"width": 0,
+												"height": 80
+											}
+										},
+										{
+											"type": "Text",
+											"params": {
+												"content": "Fait découvrir les différents ateliers à ton ouvrière en cliquant sur les étapes dans l’ordre.",
+												"color": "0,0,0,255",
+												"fontSize": 20,
+												"anchor": 0,
+												"width": 80,
+												"height": 100
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/Maquette2.png",
+						"anchor": 0,
+						"width": 0,
+						"height": 80,
+						"x": 0,
+						"y": 0,
+						"children": [
+							{
+								"type": "Grid",
+								"params": {
+									"cols": 3,
+									"rows": 3,
+									"width": 100,
+									"height": 100,
+									"anchor": 0,
+									"alignItems": "center",
+									"children": [
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-blanc-50.png",
+															"anchor": 0,
+															"width": 50,
+															"height": 0,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "3",
+															"color": "0,0,0,255",
+															"fontSize": 40,
+															"anchor": 0,
+															"width": 100,
+															"height": 100
+														}
+													}
+												],
+												"listeners": [
+													{
+														"type": "Touch",
+														"params":
+														{
+															"callback": "Validate",
+															"arg": "3"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-4-f2-player1:ShowPhoto:Atelier3"
+														}
+													}
+												]
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-blanc-50.png",
+															"anchor": 0,
+															"width": 50,
+															"height": 0,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "4",
+															"color": "0,0,0,255",
+															"fontSize": 40,
+															"anchor": 0,
+															"width": 100,
+															"height": 100
+														}
+													}
+												],
+												"listeners": [
+													{
+														"type": "Touch",
+														"params":
+														{
+															"callback": "Validate",
+															"arg": "4"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-4-f2-player1:ShowPhoto:Atelier4"
+														}
+													}
+												]
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-blanc-50.png",
+															"anchor": 0,
+															"width": 50,
+															"height": 0,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "2",
+															"color": "0,0,0,255",
+															"fontSize": 40,
+															"anchor": 0,
+															"width": 100,
+															"height": 100
+														}
+													}
+												],
+												"listeners": [
+													{
+														"type": "Touch",
+														"params":
+														{
+															"callback": "Validate",
+															"arg": "2"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-4-f2-player1:ShowPhoto:Atelier2"
+														}
+													}
+												]
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-blanc-50.png",
+															"anchor": 0,
+															"width": 50,
+															"height": 0,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "1",
+															"color": "0,0,0,255",
+															"fontSize": 40,
+															"anchor": 0,
+															"width": 100,
+															"height": 100
+														}
+													}
+												],
+												"listeners": [
+													{
+														"type": "Touch",
+														"params":
+														{
+															"callback": "Validate",
+															"arg": "1"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-4-f2-player1:ShowPhoto:Atelier1"
+														}
+													}
+												]
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-4-e-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -10019,10 +10976,10 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Faites glisser dans la zone de partage chaque étape.",
+						    "content": "Passez à Monsieur Louis les étapes dans le bon ordre.",
 						    "color": "0,0,0,255",
 						    "anchor": 0,
-						    "width": 60,
+						    "width": 80,
 						    "height": 100
 						}
 					    }
@@ -10345,6 +11302,7 @@
 	    },
 	    {
 		"scene": "screen-4-e-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -10449,7 +11407,7 @@
 					    {
   						"type": "Text",
   						"params": {
-  						    "content": "Classe dans le bon ordre les étapes de fabrication d’un biscuit",
+  						    "content": "Vérifie que les étapes sont dans le bon ordre.",
   						    "color": "0,0,0,255",
   						    "anchor": 0,
   						    "width": 80,
@@ -10920,716 +11878,210 @@
 		    }
 		]
 	    },
-	    {
-		"scene": "screen-4-f-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "listeners": [
+		{
+			"scene": "screen-4-g1-player1",
+			"navigation": [
 				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Group",
-				    "params": {
-					"anchor": 0,
-					"width": 60,
-					"height": 100,
-					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-03.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
-  						"type": "Text",
-  						"params": {
-						    "content": "Sur votre écran apparait différents ateliers. Observez les.",
-  						    "color": "0,0,0,255",
-						    "fontSize": 20,
-  						    "anchor": 0,
-  						    "width": 80,
-  						    "height": 100
-  						}
-  					    }
-					]
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background3LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "Atelier1",
-			"params": {
-			    "source": "cache/Atelier1.png",
-			    "anchor": 0,
-			    "width": 70,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0,
-				"listeners": [
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "Show"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
-						}
-					},
-					{
-						"type": "HidePhoto",
-						"params": {
-							"callback": "Show",
-							"arg": false
-						}
-					}
-				]
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "Atelier2",
-			"params": {
-			    "source": "cache/Atelier2.png",
-			    "anchor": 0,
-			    "width": 70,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0,
-				"listeners": [
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "Show"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
-						}
-					},
-					{
-						"type": "HidePhoto",
-						"params": {
-							"callback": "Show",
-							"arg": false
-						}
-					}
-				]
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "Atelier3",
-			"params": {
-			    "source": "cache/Atelier3.png",
-			    "anchor": 0,
-			    "width": 70,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0,
-				"listeners": [
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "Show"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
-						}
-					},
-					{
-						"type": "HidePhoto",
-						"params": {
-							"callback": "Show",
-							"arg": false
-						}
-					}
-				]
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "Atelier4",
-			"params": {
-			    "source": "cache/Atelier4.png",
-			    "anchor": 0,
-			    "width": 70,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0,
-				"listeners": [
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "Show"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
-						}
-					},
-					{
-						"type": "HidePhoto",
-						"params": {
-							"callback": "Show",
-							"arg": false
-						}
-					}
-				]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-f-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Validator",
-			"params": {
-			    "ids": [
-				"1",
-				"2",
-				"3",
-				"4"
-			    ],
-			    "sound": "cache/audio/xylophone.mp3"
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Group",
-				    "params": {
-					"anchor": 0,
-					"width": 60,
-					"height": 100,
-					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-03.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
-  						"type": "Text",
-  						"params": {
-						    "content": "Fait découvrir les différents ateliers de l'usine à ton ouvrier en cliquant sur les étapes dans l'ordre chronologique.",
-  						    "color": "0,0,0,255",
-						    "fontSize": 20,
-  						    "anchor": 0,
-  						    "width": 80,
-  						    "height": 100
-  						}
-  					    }
-					]
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background3LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/Maquette2.png",
-			    "anchor": 0,
-			    "width": 0,
-			    "height": 80,
-			    "x": 0,
-			    "y": 0,
-			    "children": [
-				{
-  				    "type": "Grid",
-  				    "params": {
-  					"cols": 3,
-  					"rows": 3,
-  					"width": 100,
-  					"height": 100,
-  					"anchor": 0,
-  					"alignItems": "center",
-  					"children": [
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100,
-						    "children": [
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
 							{
-      							    "type": "Image",
-      							    "params": {
-								"source": "ui/cache-blanc-50.png",
-      								"anchor": 0,
-      								"width": 50,
-      								"height": 0,
-      								"x": 0,
-      								"y": 0
-							    }
-							},
-							{
-  							    "type": "Text",
-  							    "params": {
-  								"content": "3",
-								"color": "0,0,0,255",
-								"fontSize": 40,
-  								"anchor": 0,
-  								"width": 100,
-  								"height": 100
-  							    }
-  							}
-						    ],
-						    "listeners": [
-							{
-    							    "type": "Touch",
-    							    "params":
-    							    {
-    								"callback": "Validate",
-    								"arg": "3"
-    							    }
-    							},
-    							{
-    								"type": "Touch",
-    								"params": {
-    									"callback": "SendMessage",
-    									"arg": "screen-4-f-player1:ShowPhoto:Atelier3"
-    								}
-    							}
-    						    ]
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100,
-						    "children": [
-							{
-							    "type": "Image",
-							    "params": {
-								"source": "ui/cache-blanc-50.png",
-								"anchor": 0,
-								"width": 50,
-								"height": 0,
-								"x": 0,
-								"y": 0
-							    }
-							},
-							{
-							    "type": "Text",
-							    "params": {
-								"content": "4",
-								"color": "0,0,0,255",
-								"fontSize": 40,
-								"anchor": 0,
-								"width": 100,
-								"height": 100
-							    }
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
 							}
-						    ],
-						    "listeners": [
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
 							{
-  							    "type": "Touch",
-  							    "params":
-  							    {
-  								"callback": "Validate",
-  								"arg": "4"
-  							    }
-  							},
-    							{
-    								"type": "Touch",
-    								"params": {
-    									"callback": "SendMessage",
-    									"arg": "screen-4-f-player1:ShowPhoto:Atelier4"
-    								}
-    							}
-  						    ]
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100,
-						    "children": [
-							{
-							    "type": "Image",
-							    "params": {
-								"source": "ui/cache-blanc-50.png",
-								"anchor": 0,
-								"width": 50,
-								"height": 0,
-								"x": 0,
-								"y": 0
-							    }
-							},
-							{
-							    "type": "Text",
-							    "params": {
-								"content": "2",
-								"color": "0,0,0,255",
-								"fontSize": 40,
-								"anchor": 0,
-								"width": 100,
-								"height": 100
-							    }
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
 							}
-						    ],
-						    "listeners": [
-							{
-							    "type": "Touch",
-							    "params":
-							    {
-								"callback": "Validate",
-								"arg": "2"
-							    }
-							},
-    							{
-    								"type": "Touch",
-    								"params": {
-    									"callback": "SendMessage",
-    									"arg": "screen-4-f-player1:ShowPhoto:Atelier2"
-    								}
-    							}
-						    ]
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100,
-						    "children": [
-							{
-							    "type": "Image",
-							    "params": {
-								"source": "ui/cache-blanc-50.png",
-								"anchor": 0,
-								"width": 50,
-								"height": 0,
-								"x": 0,
-								"y": 0
-							    }
-							},
-							{
-							    "type": "Text",
-							    "params": {
-								"content": "1",
-								"color": "0,0,0,255",
-								"fontSize": 40,
-								"anchor": 0,
-								"width": 100,
-								"height": 100
-							    }
-							}
-						    ],
-						    "listeners": [
-							{
-							    "type": "Touch",
-							    "params":
-							    {
-								"callback": "Validate",
-								"arg": "1"
-							    }
-							},
-    							{
-    								"type": "Touch",
-    								"params": {
-    									"callback": "SendMessage",
-    									"arg": "screen-4-f-player1:ShowPhoto:Atelier1"
-    								}
-    							}
-						    ]
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    }
-					]
-				    }
+						]
+					}
 				}
-			    ]
-			}
-		    }
-		]
-	    },
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso6.png",
+						"anchor": 8,
+						"height": 100
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 4,
+						"width": 50,
+						"height": 100,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Félicitation, continuons la visite de l’usine !",
+									"anchor": 0,
+									"width": 60,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"scene": "screen-4-g1-player2",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso6.png",
+						"anchor": 8,
+						"height": 100
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 4,
+						"width": 50,
+						"height": 100,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Fait maintenant découvrir à ton ouvrière dans quels bâtiments se situaient ces ateliers !",
+									"font": "fonts/arial.ttf",
+									"anchor": 0,
+									"width": 90,
+									"height": 100
+								}
+							}
+
+						]
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-4-g-player1",
+			"sync": true,
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -11732,7 +12184,7 @@
 					    {
   						"type": "Text",
   						"params": {
-  						    "content": "Retrouvez l'emplacement des différents ateliers sur la maquette",
+  						    "content": "Cherchez sur la maquette, les bâtiments des 4 ateliers.",
   						    "color": "0,0,0,255",
 						    "fontSize": 20,
   						    "anchor": 0,
@@ -12291,6 +12743,8 @@
 	    },
 	    {
 		"scene": "screen-4-g-player2",
+			"sync": true,
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -12381,7 +12835,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Fait glisser les différents noms des étapes de préparation dans la zone de partage à ton ouvrier.",
+						    "content": "Cherche sur la maquette, les bâtiments des 4 ateliers.",
 						    "color": "0,0,0,255",
 						    "fontSize": 20,
 						    "anchor": 0,
@@ -12701,415 +13155,6 @@
 					]
 				    }
 				}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-h-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 0,
-			    "width": 15,
-			    "height": 30,
-			    "x": 0,
-			    "y": 0
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-h-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 0,
-			    "width": 15,
-			    "height": 30,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-i-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-i-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
 			    ]
 			}
 		    }
