@@ -279,17 +279,19 @@ void CKernel::WriteStats(CSerializableStats* a_pSStats)
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
-	if (m_pCurrentScene->GetSceneID() == "screen-playerid")
-	{
-		if (!CheckPlayerInfo()) {
-			// TODO throw a toast at the user
+//    if (m_pCurrentScene->GetSceneID() == "screen-playerid" && !a_bEditor)
+//	{
+//		if (!CheckPlayerInfo()) {
+//			// TODO throw a toast at the user
 			
-			return;
-		}
-	}
-
-	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
-    m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+//			return;
+//		}
+//	}
+//    if(!a_bEditor)
+//    {
+//        M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+//        m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+//    }
 	CDispatchMessageVisitor oMessageVisitor("Validated");
 	oMessageVisitor.Traverse(m_pBehaviorTree);
 	CTransitionVisitor oVisitor(this, true);
@@ -298,10 +300,13 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
-	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
-  m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
-  CTransitionVisitor oVisitor(this, false);
-  oVisitor.Traverse(m_pBehaviorTree);
+//    if(!a_bEditor)
+//    {
+//        M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+//        m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+//    }
+    CTransitionVisitor oVisitor(this, false);
+    oVisitor.Traverse(m_pBehaviorTree);
 }
 
 
