@@ -1814,16 +1814,7 @@
 					"fontSize": 22,
 					"width": 80,
 					"height": 100,
-					"anchor": 0,
-					"listeners": [
-					    {
-						"type" : "Init",
-						"params": {
-						    "callback": "PlaySound",
-						    "arg": "cache/audio/nantes1.mp3"
-						}
-					    }
-					]
+					"anchor": 0
 				    }
 				}
 
@@ -2033,16 +2024,7 @@
 					"fontSize": 24,
 					"width": 50,
 					"height": 100,
-					"anchor": 0,
-					"listeners": [
-					    {
-						"type": "Init",
-						"params": {
-						    "callback": "PlaySound",
-						    "arg": "cache/audio/nantes2.mp3"
-						}
-					    }
-					]
+					"anchor": 0
 				    }
 				}
 			    ]
@@ -4316,7 +4298,7 @@
       				    "type": "Touch",
       				    "params": {
       					"callback": "PlaySound",
-      					"arg": "cache/audio/louis.mp3"
+      					"arg": "cache/audio/Lu1.mp3"
       				    }
       				},
 				{
@@ -5976,7 +5958,16 @@
 			    "width": 100,
 			    "height": 100,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+				"listeners": [
+					{
+						"type": "Touch",
+						"params": {
+							"callback": "PlaySound",
+							"arg": "cache/audio/Lu2.mp3"
+						}
+					}
+				]
 			}
 		    },
 		    {
@@ -6534,16 +6525,7 @@
 					"fontSize": 24,
 					"anchor": 0,
 					"width": 80,
-					"height": 100,
-					"listeners": [
-					    {
-						"type": "Init",
-						"params": {
-						    "callback": "PlaySound",
-						    "arg": "cache/audio/nantes4.mp3"
-						}
-					    }
-					]
+					"height": 100
 
 				    }
 				}
@@ -8119,6 +8101,13 @@
 											"callback": "LocalMessage",
 											"arg": "Dashboard:Colleagues:infoZone"
 										}
+									},
+									{
+										"type": "Init",
+										"params": {
+											"callback": "PlaySound",
+											"arg": "cache/audio/Lu3.mp3"
+										}
 									}
 								]
 							}
@@ -9383,7 +9372,16 @@
 					"fontSize": 20,
 					"anchor": 0,
 					"width": 90,
-					"height": 100
+					"height": 100,
+						"listeners": [
+							{
+								"type": "Init",
+								"params": {
+									"callback": "PlaySound",
+									"arg": "cache/audio/Lu4.mp3"
+								}
+							}
+						]
 				    }
 				}
 
