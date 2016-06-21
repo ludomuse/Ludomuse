@@ -3,6 +3,7 @@
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
 
+#include "../../Modules/Util/Include/CStats.h"
 
 using namespace cocos2d;
 
@@ -12,15 +13,21 @@ namespace LM
 
 	CTouchBeganVisitor::CTouchBeganVisitor(Touch* a_pTouch, Event* a_pEvent, CKernel* a_pKernel) :
 		CFindEntityTouchVisitor(a_pTouch, Desc<CNode>(), "Touch"),
-	    m_pEvent(a_pEvent),
-		m_pKernel(a_pKernel)
+		m_pEvent(a_pEvent),
+		m_pKernel(a_pKernel),
+		m_iTouchID(a_pTouch->getID())
 {
+	CCLOG("CTouchBeganVisitor::CTouchBeganVisitor touch id : %d", m_iTouchID);
 }
 
 
 
 bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
+	CCLOG("CTouchBeganVisitor::OnTouchEnd touch id : %d", a_pTouch->getID());
+	if (a_pTouch->getID() != m_iTouchID)
+		return false;
+
 	if (m_pEntityToFind.IsValid())
 	{
 
@@ -40,6 +47,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
 				pEntity->Dispatch(m_sListenEvent);
+				M_STATS_SCREEN.nbValidTouches++;
 			}
 
 			TouchStop(pEntity);
@@ -52,6 +60,8 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			CEntityNode* pDropEntity = m_pKernel->FindEntity(a_pTouch, "Drop");
 			if (pDropEntity)
 			{
+
+				M_STATS_SCREEN.nbValidDrops++;
 				pDropEntity->Dispatch("Drop", pEntity);
 				if (pEntity->IsListeningTo("Droped"))
 				{
@@ -70,6 +80,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			else
 			{
 				// if not intersecting a drop area :
+				M_STATS_SCREEN.nbInvalidDrops++;
 				MoveEntityBack(pEntity);
 			}
 
@@ -80,6 +91,10 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 
 bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 {
+	//CCLOG("CTouchBeganVisitor::OnTouchMove touch id : %d", a_pTouch->getID());
+	if (a_pTouch->getID() != m_iTouchID)
+		return false;
+
 	if (m_pEntityToFind.IsValid())
 	{
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(m_pEntityToFind.Get());
@@ -225,23 +240,34 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
       // if so and if listenning to touch/move, store the entity
-      if (pEntity->IsListeningTo("Touch"))
-      {
+		if (pEntity->EventIsDisabled("Touch"))
+		{
+			return RESULT_PRUNE;
+		}
+		else if (pEntity->IsListeningTo("Touch"))
+		{
 
 		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Touch";
 
+		  M_STATS_SCREEN.nbTouches++;
 		  StartTouch(pEntity);
 
 		  return RESULT_PRUNE;
       }
+		else if (pEntity->EventIsDisabled("Move"))
+		{
+			return RESULT_PRUNE;
+		}
 	  else if (pEntity->IsListeningTo("Move"))
 	  {
 
 		  m_pEntityToFind.Set(pEntity);
 		  m_sListenEvent = "Move";
 
+		  M_STATS_SCREEN.nbMoves++;
 		  StartMove(pEntity);
+		  pEntity->Dispatch("Move");
 
 		  return RESULT_PRUNE;
 	  }

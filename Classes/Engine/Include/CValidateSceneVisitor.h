@@ -16,7 +16,7 @@ class CValidateSceneVisitor : public CVisitor
 	 CNode* m_pSender;
 
  public:
-  CValidateSceneVisitor(const CEvent& a_rEvent);
+  CValidateSceneVisitor(const SEvent& a_rEvent);
 
   virtual void Traverse(CNode* a_pNode);
 

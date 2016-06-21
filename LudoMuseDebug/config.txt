@@ -14,5 +14,7 @@ LUDOSERVER
 LUDOCLIENT
 LudoMuse
 FINISHING
-debug
 Kernel
+clientAddress
+serverAddress
+LUDO_STATS

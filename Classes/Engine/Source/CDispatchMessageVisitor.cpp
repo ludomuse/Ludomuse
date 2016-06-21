@@ -65,12 +65,20 @@ Result CDispatchMessageVisitor::ProcessNodeTopDown(CNode* a_pNode)
 			  pEntity->Dispatch(m_vSplittedMessage[1]);
 			  return RESULT_PRUNE;
 		  }
+		  else if (pEntity->EventIsDisabled(m_vSplittedMessage[1]))
+		  {
+			  return RESULT_PRUNE;
+		  }
 	  }
 	  else if (m_vSplittedMessage.size() == 1)
 	  {
 		  if (pEntity->IsListeningTo(m_vSplittedMessage[0]))
 		  {
 			  pEntity->Dispatch(m_vSplittedMessage[0]);
+			  return RESULT_PRUNE;
+		  }
+		  else if (pEntity->EventIsDisabled(m_vSplittedMessage[0]))
+		  {
 			  return RESULT_PRUNE;
 		  }
 	  }

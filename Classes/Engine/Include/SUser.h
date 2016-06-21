@@ -19,8 +19,17 @@ namespace LM
     std::string m_sName;
     EUserSex m_eSex;
 
+	bool m_bWaiting;
+
+	SUser() : m_iPlayerID(0), m_sName(""), m_eSex(EUserSex::MALE), m_bWaiting(false)
+	{}
+
 	virtual void writeOn(bytes* msg) override
 	{
+		if (m_sName == "")
+		{
+			m_sName = "noname";
+		}
 		*msg << m_iPlayerID << m_sName << m_eSex;
 	}
 

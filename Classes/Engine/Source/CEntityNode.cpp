@@ -25,12 +25,21 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 }
 
 
-void CEntityNode::UnInit()
+
+void CEntityNode::UnInit(bool removeChild)
 {
 	//m_pCocosEntity->autorelease();
 	//m_pCocosEntity->release();
-	m_pCocosEntity = nullptr;
-	CNode::UnInit();
+	if (m_pCocosEntity != nullptr) {
+		if(removeChild)
+			GetParentScene()->removeChild(m_pCocosEntity);
+
+		m_pCocosEntity = nullptr;
+		CNode::UnInit(removeChild);
+	}
+	else {
+		return;
+	}
 }
 
 
@@ -84,6 +93,12 @@ void CEntityNode::EnableEvent(const std::string& a_rEvent)
 	m_oDisabledEvents.erase(a_rEvent);
 }
 
+
+bool CEntityNode::EventIsDisabled(const std::string& a_rEvent)
+{
+	return (m_oDisabledEvents.find(a_rEvent) != m_oDisabledEvents.end());
+}
+
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
 	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
@@ -94,7 +109,7 @@ bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 }
 
 
-void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget)
+void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pSender)
 {
 	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
 	{
@@ -104,7 +119,7 @@ void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget)
 			for (CEventCallback oCallback : it->second)
 			{
 				CCLOG("CEntity::Dispatch : Calling callback %s on entity %s", a_rEvent.c_str(), m_sID.c_str());
-				oCallback(a_pTarget);
+				oCallback(a_pSender);
 			}
 		}
 	}

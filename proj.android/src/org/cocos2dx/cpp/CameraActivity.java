@@ -41,6 +41,8 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 
+import org.cocos2dx.cpp.jniFacade.JniCppFacade;
+
 
 public class CameraActivity extends Activity implements OnClickListener {
 
@@ -91,8 +93,8 @@ public class CameraActivity extends Activity implements OnClickListener {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 //				finishActivity(1);
-//				camera.takePicture(null, null, photoCallback);
-				finish();
+				camera.takePicture(null, null, photoCallback);
+//				finish();
 			}
 		});
         
@@ -195,35 +197,41 @@ public class CameraActivity extends Activity implements OnClickListener {
             dialog = ProgressDialog.show(CameraActivity.this, "", "Saving Photo");
             new Thread() {
                 public void run() {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception ex) {}
+                    try{
+                        sleep(1000);
+                    }
+                    catch(Exception e) {
+
+                    }
                     onPictureTake(data, camera);
                 }
             }.start();
+
         }
     };
 
 
 
     public void onPictureTake(byte[] data, Camera camera) {
-
         bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
         mutableBitmap = bmp.copy(Bitmap.Config.ARGB_8888, true);
         savePhoto(mutableBitmap);
         dialog.dismiss();
+        finish();
     }
 
 
 
     class SavePhotoTask extends AsyncTask < byte[], String, String > {@Override
         protected String doInBackground(byte[]...jpeg) {
-            File photo = new File(Environment.getExternalStorageDirectory(), "photo.jpg");
-            if (photo.exists()) {
-                photo.delete();
+            File folder = new File(Environment.getExternalStorageDirectory(), "Cern");
+            if (!folder.exists()) {
+                if(!folder.mkdirs()){
+                    Log.d("MyCameraApp", "failed to create directory");
+                }
             }
             try {
-                FileOutputStream fos = new FileOutputStream(photo.getPath());
+                FileOutputStream fos = new FileOutputStream(folder.getPath());
                 fos.write(jpeg[0]);
                 fos.close();
             } catch (java.io.IOException e) {
@@ -235,22 +243,26 @@ public class CameraActivity extends Activity implements OnClickListener {
 
 
     public void savePhoto(Bitmap bmp) {
-        imageFileFolder = new File(Environment.getExternalStorageDirectory(), "Rotate");
+        imageFileFolder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Cern");
         imageFileFolder.mkdir();
         FileOutputStream out = null;
         Calendar c = Calendar.getInstance();
         String date = fromInt(c.get(Calendar.MONTH)) + fromInt(c.get(Calendar.DAY_OF_MONTH)) + fromInt(c.get(Calendar.YEAR)) + fromInt(c.get(Calendar.HOUR_OF_DAY)) + fromInt(c.get(Calendar.MINUTE)) + fromInt(c.get(Calendar.SECOND));
-        imageFileName = new File(imageFileFolder, date.toString() + ".jpg");
+        imageFileName = new File(imageFileFolder.getPath() + File.separator + date + ".jpg");
         try {
+            imageFileName.createNewFile();
             out = new FileOutputStream(imageFileName);
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
             out.flush();
             out.close();
-            scanPhoto(imageFileName.toString());
+//            scanPhoto(imageFileName.toString());
             out = null;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Intent intent = getIntent();
+        intent.putExtra("imageName", imageFileName.getPath());
+        JniCppFacade.setCurrentPicturePath(imageFileName.getPath());
     }
 
     public String fromInt(int val) {

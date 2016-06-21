@@ -121,6 +121,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			oValidator->AddID(rParams["ids"][i].GetString());
 		}
 
+		if (rParams.HasMember("sound"))
+			oValidator->SetSound(rParams["sound"].GetString());
+
 		a_pNode->AddChildNode(oValidator);
 	}
 
@@ -209,13 +212,28 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "Camera")
 	{
-		pEntity = new CCameraFeedNode(
-			rParams["mask"].GetString(),
-			IntToAnchor(rParams["anchor"].GetInt()),
-			width,
-			height,
-			x,
-			y);
+		if (rParams.HasMember("isReceiver")) 
+		{
+			pEntity = new CCameraFeedNode(
+				rParams["mask"].GetString(),
+				IntToAnchor(rParams["anchor"].GetInt()),
+				width,
+				height,
+				x,
+				y,
+				rParams["isReceiver"].GetBool());
+		}
+		else
+		{
+			pEntity = new CCameraFeedNode(
+				rParams["mask"].GetString(),
+				IntToAnchor(rParams["anchor"].GetInt()),
+				width,
+				height,
+				x,
+				y);
+		}
+		
 	}
 
 
@@ -278,11 +296,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
 {
-	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString());
+	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel->m_bDebugMode);
 	if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
 		m_pKernel->m_pDashboard = pSceneNode;
 	else
 		a_pNode->AddChildNode(pSceneNode);
+
+	if (a_rJsonNode.HasMember("sync"))
+	{
+		pSceneNode->SetSynced(a_rJsonNode["sync"].GetBool());
+	}
 	
 	if (a_rJsonNode.HasMember("content"))
 	{

@@ -146,6 +146,12 @@ void LmJniJavaFacade::takePicture(const std::string& maskPath)
 	callJavaMethod("takePicture", (void*) &maskPath, PARAM_STRING);
 }
 
+void LmJniJavaFacade::saveStringToFile(const std::string& text)
+{
+	CCLOG("in saveStringToFile");
+	callJavaMethod("saveStringToFile", (void*) &text, PARAM_STRING);
+}
+
 void LmJniJavaFacade::getApplicationDirectory()
 {
 	callJavaMethod("getApplicationDirectory", (void*) 0, PARAM_VOID);

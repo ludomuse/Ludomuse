@@ -94,12 +94,12 @@ class CEntityNode : public CNode
 		 int a_iHeight = 0,
 		 int a_iXPosition = 0,
 		 int a_iYPosition = 0,
-		 const std::string& a_sID = ""
-);
+		 const std::string& a_sID = "");
+
   
   /// \brief called when the scene is initialized
   //virtual void Init() = 0;
-  virtual void UnInit() override;
+  virtual void UnInit(bool removeChild = true) override;
 
   virtual void Revert(bool a_bVisible = false);
 
@@ -113,11 +113,13 @@ class CEntityNode : public CNode
 
   void EnableEvent(const std::string& a_rEvent);
 
+  bool EventIsDisabled(const std::string& a_rEvent);
+
   /// \brief checks if the entity is listening to 
   bool IsListeningTo(const std::string& a_rEvent);
 
   /// \brief dispatch this event to the entity
-  void Dispatch(const std::string& a_rEvent, CEntityNode* a_pTarget = nullptr);
+  void Dispatch(const std::string& a_rEvent, CEntityNode* a_pSender = nullptr);
 
   /// \brief set the visibility on StartUp 
   virtual void SetVisible(bool a_bVisible);

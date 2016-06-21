@@ -23,12 +23,6 @@ class CInputManager
 
  public:
   CInputManager(CKernel* a_rKernel);
-  /// \brief callback called when the user start touching the screen
-  /// \details forward the event to the BehaviorTree in the kernel
-  /// \returns true on success, false otherwise
-  /// \param[in] a_pTouch the touch event
-  /// \param[in] a_pEvent the cocos Event corresponding to this touch
-  bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
   cocos2d::EventListenerTouchOneByOne* GetEventListener();
 };

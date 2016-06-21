@@ -8,7 +8,11 @@ using namespace cocos2d;
 namespace LM
 {
 
-CSceneNode::CSceneNode(std::string a_sID) : m_sID(a_sID), m_bIsSynced(false), m_bDashboardTrigger(false)
+CSceneNode::CSceneNode(std::string a_sID, bool a_bDebugMode) : 
+	m_sID(a_sID),
+	m_bIsSynced(false), 
+	m_bDashboardTrigger(false),
+	m_bDebugMode(a_bDebugMode)
 {
 }
 
@@ -83,6 +87,10 @@ bool CSceneNode::init()
   
   CNode::Init();
 
+  if (m_bDebugMode && m_sID != "none")
+	  DisplayDebugInfo();
+
+
   return true;
 
 }
@@ -104,14 +112,20 @@ bool CSceneNode::IsSynced()
 	return m_bIsSynced;
 }
 
-// TODO REMOVE
-//void CSceneNode::menuCloseCallback(Ref* pSender)
-//{
-//  Director::getInstance()->end();
-//
-//#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//  exit(0);
-//#endif
-//}
+
+
+void CSceneNode::DisplayDebugInfo()
+{
+	Label* pLabel = Label::createWithTTF(m_sID, "fonts/arial.ttf", 12);
+
+	Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
+	Size oVisibleSize = Director::getInstance()->getVisibleSize();
+
+	pLabel->setAlignment(TextHAlignment::LEFT);
+	pLabel->setAnchorPoint(Vec2(0, 1));
+	pLabel->setPosition(Vec2(20 + oOrigin.x, oOrigin.y + oVisibleSize.height - 20));
+
+	m_pScene->addChild(pLabel, 2);
+}
 
 } // namespace LM

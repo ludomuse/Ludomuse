@@ -2,6 +2,7 @@ proj.win10
 proj.win8.1-universal
 linux-build
 Debug.win32
+LudoMuse Client.win32
 proj.ios_mac
 proj.android-studio
 bin
@@ -57,3 +58,5 @@ LudoMuse.kdev4
 
 proj.android/.settings/org.eclipse.jdt.core.prefs
 proj.android/.classpath
+proj.win32/LudoMuse.VC.db
+proj.win32/LudoMuse.VC.VC.opendb

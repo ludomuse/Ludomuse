@@ -11,6 +11,7 @@
 #define APP_DIR LmJniCppFacade::getApplicationDirectory()
 #define CURR_PHOTO_PATH LmJniCppFacade::getCurrentPicturePath()
 #define TAKE_PICTURE LmJniJavaFacade::takePicture()
+#define SAVE_STRING_TO_FILE LmJniJavaFacade::saveStringToFile()
 #define PTR_TO_OBJ(PTR, OBJ_TYPE) *(static_cast<OBJ_TYPE*>(PTR))
 #define WIFIFACADE LmJniCppFacade::getWifiFacade()
 #define ON_CC_THREAD(FUN, OBJ, ...) 	Director::getInstance()->getScheduler()->performFunctionInCocosThread(\

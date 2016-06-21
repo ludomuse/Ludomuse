@@ -1,8 +1,12 @@
 #include "main.h"
 #include "AppDelegate.h"
 #include "cocos2d.h"
+#include <iostream>
 
-USING_NS_CC;
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+#include <Windows.h>
+#include <ShellAPI.h>
+#endif 
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                        HINSTANCE hPrevInstance,
@@ -12,7 +16,37 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    // create the application instance
-    AppDelegate app;
-    return Application::getInstance()->run();
+	bool isServer = false;
+
+
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+
+	LPWSTR *szArgList;
+	int argCount;
+
+	szArgList = CommandLineToArgvW(GetCommandLine(), &argCount);
+
+	if (argCount == 1)
+	{
+		std::wstring warg(szArgList[0]);
+		std::string arg(warg.begin(), warg.end());
+		std::cout << "arg : " << arg << std::endl;
+		isServer = arg == std::string("client") ? false : true;
+	}
+
+	if (isServer)
+	{
+		std::cout << "launching LudoMuse as a server" << std::endl;
+	}
+	else
+	{
+		std::cout << "launching LudoMuse as a client" << std::endl;
+	}
+
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
+
+
+	// create the application instance
+    AppDelegate app(isServer);
+    return cocos2d::Application::getInstance()->run();
 }

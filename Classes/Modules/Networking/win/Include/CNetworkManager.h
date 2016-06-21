@@ -19,14 +19,17 @@ class CNetworkManager
   SOCKET ClientSocket;
   SOCKET ListenSocket;
 
+  bool m_bIsServer;
+
   struct addrinfo *ptr;
   struct addrinfo *result;
 
  public:
 
-  CNetworkManager(CKernel* a_pKernel);
+  CNetworkManager(CKernel* a_pKernel, bool a_bIsServer = true);
   ~CNetworkManager();
   
+  void Send(const char* buff, size_t size);
   void Send(const std::string& s);
   void Send(const bytes& b);
   void DiscoverPeers();

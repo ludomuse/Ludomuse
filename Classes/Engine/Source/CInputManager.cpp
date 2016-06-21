@@ -10,18 +10,15 @@ CInputManager::CInputManager(CKernel* a_pKernel) : m_pKernel(a_pKernel)
 {
   // create a cocos EventListener and bind touchBegan to InputManager
   m_pEventListener = EventListenerTouchOneByOne::create();
-  m_pEventListener->onTouchBegan = CC_CALLBACK_2(CInputManager::OnTouchBegan, this);
+
+  m_pEventListener->onTouchBegan = CC_CALLBACK_2(CKernel::OnTouchBegan, m_pKernel);
+  m_pEventListener->onTouchEnded = CC_CALLBACK_2(CKernel::OnTouchEnd, m_pKernel);
+  m_pEventListener->onTouchMoved = CC_CALLBACK_2(CKernel::OnTouchMove, m_pKernel);
 
   auto pEventDispatcher = Director::getInstance()->getEventDispatcher();
   pEventDispatcher->addEventListenerWithFixedPriority(m_pEventListener, 1);
-}
 
 
-bool CInputManager::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
-{
-  //return m_pKernel->GetBehaviorTree()->OnTouchBegan(a_pTouch, a_pEvent); TODO 
-	return m_pKernel->OnTouchBegan(a_pTouch, a_pEvent);
-	return true;
 }
 
 

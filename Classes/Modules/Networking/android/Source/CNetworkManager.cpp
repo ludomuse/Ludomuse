@@ -7,7 +7,7 @@ namespace LM
 {
 
 
-CNetworkManager::CNetworkManager(CKernel* a_pKernel) : m_pKernel(a_pKernel)
+CNetworkManager::CNetworkManager(CKernel* a_pKernel, bool a_bIsServer) : m_pKernel(a_pKernel)
 {
   m_oWifiDirectFacade.addObserver(this);
 }
@@ -29,7 +29,7 @@ void CNetworkManager::onReceiving(std::string s)
 
 void CNetworkManager::onReceivingMsg(bytes byteArray)
 {
-	m_pKernel->OnReceiving(byteArray);
+	m_pKernel->OnReceiving(byteArray, _event);
 }
 
 ////////////////////////// forward calls to WifiDirectfacade
