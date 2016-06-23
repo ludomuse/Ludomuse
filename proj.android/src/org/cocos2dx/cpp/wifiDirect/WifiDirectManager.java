@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import android.os.SystemClock;
 import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.sockets.CallBackMethod;
 import org.cocos2dx.cpp.sockets.SocketHandler;
@@ -1080,6 +1081,10 @@ public class WifiDirectManager {
 			@Override
 			public void onConnectionInfoAvailable(WifiP2pInfo info)
 			{
+				while (info.groupOwnerAddress == null)
+				{
+					SystemClock.sleep(100);
+				}
 				String ownerAddress = info.groupOwnerAddress.getHostAddress();
 				DebugManager.print("owner address is = " + ownerAddress, WifiDirectManager.DEBUGGER_CHANNEL);
 				DebugManager.print("<font color='red'>owner sdk ? </font>" + info.isGroupOwner, DEBUGGER_CHANNEL);
