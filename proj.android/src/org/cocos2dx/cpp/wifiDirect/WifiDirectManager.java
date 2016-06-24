@@ -1090,6 +1090,7 @@ public class WifiDirectManager {
 				DebugManager.print("<font color='red'>owner sdk ? </font>" + info.isGroupOwner, DEBUGGER_CHANNEL);
 				SocketHandler.printAllNetworkInterfaceName();
 				String myLocalAddress = SocketHandler.getIPAddress(true);
+				if(myLocalAddress.equals("")) myLocalAddress = SocketHandler.getIPAddress(false);
 				
 				if (!myLocalAddress.equals(ownerAddress) && info.groupFormed)
 				{
