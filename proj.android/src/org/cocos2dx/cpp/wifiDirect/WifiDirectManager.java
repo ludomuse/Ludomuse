@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import android.os.SystemClock;
 import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.sockets.CallBackMethod;
 import org.cocos2dx.cpp.sockets.SocketHandler;
@@ -21,6 +22,7 @@ import android.content.IntentFilter;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WpsInfo;
+import android.net.wifi.WifiManager.WifiLock;
 import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pDeviceList;
@@ -44,6 +46,7 @@ public class WifiDirectManager {
 
 	private Activity _activity;
 	private WifiP2pManager _manager;
+	private WifiManager.WifiLock _lock;
 	private Channel _channel;
 	private IntentFilter _intentFilter;
 	private WiFiDirectBroadcastReceiver _receiver;
@@ -114,7 +117,8 @@ public class WifiDirectManager {
 		_intentFilter
 				.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 		DebugManager.print("WifiDirectManager started !", DEBUGGER_CHANNEL);
-
+		_lock = _wifiManager.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "ludomuse");
+		_lock.acquire();
 	}
 
 	private void initDebugger()
@@ -214,6 +218,7 @@ public class WifiDirectManager {
 
 	public void clear()
 	{
+		_lock.release();
 		stopHandlers();
 		askToRemoveGroup();
 		socket.stop();
@@ -1081,11 +1086,16 @@ public class WifiDirectManager {
 			@Override
 			public void onConnectionInfoAvailable(WifiP2pInfo info)
 			{
+				while (info.groupOwnerAddress == null)
+				{
+					SystemClock.sleep(100);
+				}
 				String ownerAddress = info.groupOwnerAddress.getHostAddress();
 				DebugManager.print("owner address is = " + ownerAddress, WifiDirectManager.DEBUGGER_CHANNEL);
 				DebugManager.print("<font color='red'>owner sdk ? </font>" + info.isGroupOwner, DEBUGGER_CHANNEL);
 				SocketHandler.printAllNetworkInterfaceName();
 				String myLocalAddress = SocketHandler.getIPAddress(true);
+				if(myLocalAddress.equals("")) myLocalAddress = SocketHandler.getIPAddress(false);
 				
 				if (!myLocalAddress.equals(ownerAddress) && info.groupFormed)
 				{
