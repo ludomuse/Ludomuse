@@ -49,7 +49,8 @@ namespace LM
 
 	CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
 		m_pJsonParser(new CJsonParser(this)),
-		m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
+		m_bIsServer(a_bIsServer),
+		//m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
 		m_pSoundManager(new CSoundManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
 		m_bDebugMode(false),
@@ -141,6 +142,7 @@ bool CKernel::CheckPlayerInfo()
 
 void CKernel::Init()
 {
+	m_pNetworkManager = new CNetworkManager(this, m_bIsServer);
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
 
 	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);

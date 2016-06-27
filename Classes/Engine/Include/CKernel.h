@@ -36,6 +36,8 @@ class CKernel
 
   std::map<int, CTouchBeganVisitor> m_mTouchBeganVisitors;
 
+  bool m_bIsServer;
+
 public:
 	/// \brief a reference to the dashboard with the timeline of the game
 	CSceneNode* m_pDashboard;
