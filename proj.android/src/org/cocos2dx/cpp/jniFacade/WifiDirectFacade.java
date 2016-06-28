@@ -173,7 +173,7 @@ public class WifiDirectFacade {
 		{
 //			String fileName = f.getPath() + ".jpg";
 //			f.renameTo(new File(fileName));
-			JniCppFacade.onReceivingPhoto(fileName);
+			JniCppFacade.onReceivingPhoto(f.getPath());
 		}
 	}
 

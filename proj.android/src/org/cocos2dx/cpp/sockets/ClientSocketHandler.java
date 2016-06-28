@@ -174,6 +174,7 @@ public class ClientSocketHandler {
 		isAttachedToRemoteHost = true;
 	}
 
+
 	private void closeOutputStream(OutputStream os)
 	{
 		try
@@ -267,7 +268,7 @@ public class ClientSocketHandler {
 							WifiDirectManager.DEBUGGER_CHANNEL);
 					socket = new Socket();
 					ConnectTask2 connectTask = new ConnectTask2(remoteIp,
-							remotePort, socket, null);
+							remotePort, socket, cm);
 					connectTask.execute();
 					/*
 					 * uncomment to enable timer to work. But this is not a good
@@ -299,6 +300,7 @@ public class ClientSocketHandler {
 							+ "error while openning outputstream: "
 							+ e.getLocalizedMessage(),
 					WifiDirectManager.DEBUGGER_CHANNEL);
+
 			return null;
 		}
 	}
@@ -497,6 +499,8 @@ public class ClientSocketHandler {
 					// open a new stream to communicate with remote server
 					OutputStream outputStream = openOutputStream();
 
+
+
 					// Check if we need to concatenate a message accuse to this
 					// message
 					// @see sendAccuse method from SocketHandler class for more
@@ -537,6 +541,8 @@ public class ClientSocketHandler {
 					closeOutputStream(outputStream);
 					socket.close();
 
+
+
 					// rearmServerNotificator();
 				}
 				catch (Exception e)
@@ -547,8 +553,9 @@ public class ClientSocketHandler {
 									+ e.getLocalizedMessage(),
 							WifiDirectManager.DEBUGGER_CHANNEL);
 				}
-			}
 
+
+			}
 		};
 
 		connect(cm);
