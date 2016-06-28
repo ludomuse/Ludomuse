@@ -221,7 +221,7 @@ public class WifiDirectManager {
 		stopHandlers();
 		askToRemoveGroup();
 		socket.stop();
-		turnOffWifi();
+		//turnOffWifi();
 		turnOnWifi();
 		askToClearAllRequestsAndLocalServices();
 		DebugManager.clear();
