@@ -38,6 +38,7 @@ import android.net.wifi.p2p.WifiP2pManager.PeerListListener;
 import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceInfo;
 import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceRequest;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -620,7 +621,11 @@ public class WifiDirectManager {
 						if (_cmPeerDiscovered != null)
 						{
 							_cmPeerDiscovered.Do();
-							_cmPeerDiscovered = null;
+							//_cmPeerDiscovered = null;
+						}
+						else
+						{
+							Log.d("debug","LudoMuse - debug - _cmPeerDiscovered");
 						}
 
 						/* for debug */

@@ -19,8 +19,11 @@ using namespace std;
 void LmJniJavaFacade::callJavaMethod(const char* name, void* arg,
 		const char* param)
 {
+	CCLOG("before method");
 	NS_CC::JniMethodInfo method;
+	CCLOG("before getStaticMethodInfo");
 	NS_CC::JniHelper::getStaticMethodInfo(method, JAVACLASS, name, param);
+	CCLOG("after getStaticMethodInfo");
 
 	if (param == PARAM_VOID)
 	{
@@ -154,6 +157,7 @@ void LmJniJavaFacade::saveStringToFile(const std::string& text)
 
 void LmJniJavaFacade::getApplicationDirectory()
 {
+	CCLOG("in getApplicationDirectory");
 	callJavaMethod("getApplicationDirectory", (void*) 0, PARAM_VOID);
 }
 
