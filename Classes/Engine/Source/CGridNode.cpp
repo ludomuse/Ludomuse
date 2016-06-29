@@ -17,6 +17,20 @@ namespace LM
 }
 
 
+	void CGridNode::Init()
+	{
+		// populate empty slots in the grid with placeholder groups
+		for (int iNbPlaceholders = m_iRows * m_iCols - m_vChildren.size();
+			iNbPlaceholders > 0;
+			--iNbPlaceholders)
+		{
+			CGroupNode* pPlaceHolder = new CGroupNode();
+			AddChildNode(pPlaceHolder);
+		}
+
+		CGroupNode::Init();
+	}
+
 
 Size CGridNode::GetVisibleSize()
 {
