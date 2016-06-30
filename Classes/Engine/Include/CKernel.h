@@ -57,6 +57,7 @@ public:
 
 	SUser* m_pLocalPlayer;
 	SUser* m_pDistantPlayer;
+	std::mutex m_oSyncMutex;
 
 	std::chrono::time_point<system_clock> m_oSyncTransitionStart;
 

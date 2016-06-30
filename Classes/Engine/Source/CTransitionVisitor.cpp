@@ -72,6 +72,7 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 				return;
 			}
 
+			m_pKernel->m_oSyncMutex.lock();
 
 			if (m_pKernel->m_pDistantPlayer->m_bWaiting)
 			{
@@ -101,7 +102,7 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 				m_pKernel->m_oSyncTransitionStart = std::chrono::system_clock::now();
 			}
 
-
+			m_pKernel->m_oSyncMutex.unlock();
 
 		}
 		else
