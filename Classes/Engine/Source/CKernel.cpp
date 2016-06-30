@@ -431,6 +431,9 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 	{
 		if (vSplittedMessage[1] == "waiting")
 		{
+
+			m_oSyncMutex.lock();
+
 			if (m_pLocalPlayer->m_bWaiting)
 			{
 				std::chrono::milliseconds oTimeSinceTransitionStarted = duration_cast<milliseconds>(
@@ -455,6 +458,8 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 			{
 				m_pDistantPlayer->m_bWaiting = true;
 			}
+
+			m_oSyncMutex.unlock();
 		}
 
 		else if (vSplittedMessage[1] == "Validate")
