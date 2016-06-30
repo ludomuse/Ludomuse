@@ -191,7 +191,6 @@ void CKernel::WriteStats(CSerializableStats* a_pSStats)
 
 	std::stringstream fileStream;
 
-	fileStream << ",Player1,Player2," << std::endl;
 
 	std::map<std::string, SScreenStats>::const_iterator itLocal;
 	std::map<std::string, SScreenStats>::const_iterator itRemote;
@@ -204,21 +203,46 @@ void CKernel::WriteStats(CSerializableStats* a_pSStats)
 		const SScreenStats& rLocalStat = itLocal->second;
 		const SScreenStats& rRemoteStat = itRemote->second;
 		
+		fileStream << rLocalStat.time << ","
+			<< rLocalStat.nbInteractions << ","
+			<< rLocalStat.nbTouches << ","
+			<< rLocalStat.nbMoves << ","
+			<< rLocalStat.nbValidTouches << ","
+			<< rLocalStat.nbValidDrops << ","
+			<< rLocalStat.nbInvalidDrops << ","
+			<< rLocalStat.nbValidAnswers << ","
+			<< rLocalStat.nbInvalidAnswers << ",";
 
-		fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
-		fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
-		fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
-		fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
-		fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
-		fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
-		fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
-		fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
-		fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
-		fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
+		fileStream << ",";
 
-		fileStream << std::endl;
+		fileStream << rRemoteStat.time << ","
+			<< rRemoteStat.nbInteractions << ","
+			<< rRemoteStat.nbTouches << ","
+			<< rRemoteStat.nbMoves << ","
+			<< rRemoteStat.nbValidTouches << ","
+			<< rRemoteStat.nbValidDrops << ","
+			<< rRemoteStat.nbInvalidDrops << ","
+			<< rRemoteStat.nbValidAnswers << ","
+			<< rRemoteStat.nbInvalidAnswers << ",";
+
+		fileStream << ",,";
+
+
+		//fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
+		//fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
+		//fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
+		//fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
+		//fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
+		//fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
+		//fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
+		//fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
+		//fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
+		//fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
 
 	}
+
+	fileStream << std::endl;
+
 
 	//std::string sPath = CCFileUtils::getInstance()->getWritablePath() + "stats.csv";
 	//
