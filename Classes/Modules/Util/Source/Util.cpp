@@ -13,7 +13,7 @@ std::vector<std::string> StringSplit(const std::string& a_sToSplit, char a_cSpli
   {
     vResult.push_back(a_sToSplit.substr(iFoundFirst, iFoundNext - iFoundFirst));
     iFoundFirst = iFoundNext + 1;
-    iFoundNext = a_sToSplit.find_first_of(':', iFoundFirst);
+    iFoundNext = a_sToSplit.find_first_of(a_cSplitter, iFoundFirst);
   }
   vResult.push_back(a_sToSplit.substr(iFoundFirst, a_sToSplit.size()));
 
