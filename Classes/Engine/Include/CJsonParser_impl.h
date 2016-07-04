@@ -116,7 +116,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			width,
 			height,
 			x,
-			y);
+            y,
+            rParams["action"].GetString());
 
 	}
 

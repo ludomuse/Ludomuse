@@ -110,7 +110,7 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     params.AddMember("anchor", this->m_eAnchor, a_rAllocator);
     params.AddMember("normal", rapidjson::Value(this->m_sNormalImage.c_str(), this->m_sNormalImage.length()), a_rAllocator);
     params.AddMember("selected", rapidjson::Value(this->m_sSelectedImage.c_str(), this->m_sNormalImage.length()), a_rAllocator);
-    params.AddMember("action", "next", a_rAllocator);
+    params.AddMember("action", rapidjson::Value(this->m_sAction.c_str(), this->m_sAction.length()), a_rAllocator);
     /*"width": 0,
               "height": 13,
               "anchor": 5,
