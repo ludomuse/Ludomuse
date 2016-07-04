@@ -144,6 +144,8 @@ class CEntityNode : public CNode
 
   virtual void FadeIn();
 
+  virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+
   ////////////////////////// Static methods
   static bool Lock(CEntityNode* a_pEntity);
 

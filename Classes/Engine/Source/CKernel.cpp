@@ -21,15 +21,12 @@
 #include "ui/CocosGUI.h"
 
 #include <fstream>
-
+#include <QDebug>
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
 #endif
-
-
-
 
 
 
@@ -90,6 +87,116 @@ CJsonParser* CKernel::GetJsonParser()
 	return m_pJsonParser;
 }
 
+std::string CKernel::ToJson(){
+
+    rapidjson::StringBuffer s;
+
+    rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(s);
+
+//    rapidjson::Writer<rapidjson::StringBuffer> writer(s);
+
+    qDebug()<<"Lancement de la traduction vers Json";
+
+    rapidjson::Document document;
+    document.SetObject();
+    rapidjson::Document::AllocatorType& allocator = document.GetAllocator();
+    rapidjson::Value app(rapidjson::kObjectType);
+    app.AddMember("debug", true, allocator);
+    rapidjson::Value colors(rapidjson::kArrayType);
+    app.AddMember("colors", colors, allocator);
+    rapidjson::Value images(rapidjson::kArrayType);
+    app.AddMember("images", images, allocator);
+    rapidjson::Value videos(rapidjson::kArrayType);
+    app.AddMember("videos", videos, allocator);
+    rapidjson::Value sounds(rapidjson::kArrayType);
+    app.AddMember("sounds", sounds, allocator);
+    rapidjson::Value scenes(rapidjson::kArrayType);
+    this->ScenesToJson(scenes, allocator);
+    app.AddMember("scenes", scenes, allocator);
+    rapidjson::Value screens(rapidjson::kArrayType);
+    this->ScreensToJson(screens, allocator);
+    app.AddMember("screens", screens, allocator);
+
+
+    document.AddMember("app", app, allocator);
+
+//    writer.StartObject();
+//    {
+//        writer.Key("app");
+//        writer.StartObject();
+//        {
+//            writer.Key("debug");
+//            writer.Bool(true);
+//            writer.Key("colors");
+//            writer.StartArray();
+//            {
+//            }
+//            writer.EndArray();
+//            writer.Key("images");
+//            writer.StartArray();
+//            {
+//            }
+//            writer.EndArray();
+//            writer.Key("videos");
+//            writer.StartArray();
+//            {
+//            }
+//            writer.EndArray();
+//            writer.Key("sounds");
+//            writer.StartArray();
+//            {
+//            }
+//            writer.EndArray();
+//            writer.Key("scenes");
+//            writer.StartArray();
+//            {
+//                this->ScenesToJson(writer);
+//            }
+//            writer.EndArray();
+//            writer.Key("screens");
+//            writer.StartArray();
+//            {
+//                this->ScreensToJson(writer);
+//            }
+//            writer.EndArray();
+//        }
+//        writer.EndObject();
+//    }
+//    writer.EndObject();
+
+
+    document.Accept(writer);
+    qDebug()<<"Fin de la traduction ----- Resultat";
+    //qDebug()<<s.GetString();
+    return s.GetString();
+}
+
+
+
+void CKernel::ScenesToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    std::vector<std::string>::iterator itSceneIDP1;
+    std::vector<std::string>::iterator itSceneIDP2;
+    // Assume that both vector have same length
+    if(m_mScenesID[0].size() != m_mScenesID[1].size())
+    {
+        qDebug()<<"Nombre d'id différents";
+    }
+    for (itSceneIDP1 = m_mScenesID[0].begin(), itSceneIDP2 = m_mScenesID[1].begin() ;
+            itSceneIDP1 != m_mScenesID[0].end() && itSceneIDP2 != m_mScenesID[1].end();
+            ++itSceneIDP1, ++itSceneIDP2)
+    {
+        rapidjson::Value scene(rapidjson::kArrayType);
+        scene.PushBack(rapidjson::Value(itSceneIDP1->c_str(), itSceneIDP1->length()), a_rAllocator);
+        scene.PushBack(rapidjson::Value(itSceneIDP2->c_str(), itSceneIDP2->length()), a_rAllocator);
+        a_rParent.PushBack(scene, a_rAllocator);
+    }
+}
+
+void CKernel::ScreensToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    this->m_pBehaviorTree->ToJson(a_rParent, a_rAllocator);
+}
 
 CEditorFindEntityTouchVisitor* CKernel::GetEditorVisitor()
 {

@@ -12,11 +12,13 @@ CMenuNode::CMenuNode(const std::string& a_rNormalImage,
 					 int a_iWidth,
 					 int a_iHeight,
                      int a_iXPosition,
-                     int a_iYPosition) :
+                     int a_iYPosition,
+                     const std::string& a_rAction) :
     CEntityNode(a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition),
     m_sNormalImage(a_rNormalImage),
     m_sSelectedImage(a_rSelectedImage),
-    m_fpClickedCallback(a_fpCallback)
+    m_fpClickedCallback(a_fpCallback),
+    m_sAction(a_rAction)
 {
 }
 
@@ -93,6 +95,34 @@ void CMenuNode::Show(bool a_bVisible)
 {
 	m_pCocosEntity->setVisible(true);
 	CEntityNode::Show();
+}
+
+void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    // TODO
+    rapidjson::Value menu(rapidjson::kObjectType);
+    menu.AddMember("type", "Nav", a_rAllocator);
+
+    // Create params properties
+    rapidjson::Value params(rapidjson::kObjectType);
+    params.AddMember("width", this->m_iWidth, a_rAllocator);
+    params.AddMember("height", this->m_iHeight, a_rAllocator);
+    params.AddMember("anchor", this->m_eAnchor, a_rAllocator);
+    params.AddMember("normal", rapidjson::Value(this->m_sNormalImage.c_str(), this->m_sNormalImage.length()), a_rAllocator);
+    params.AddMember("selected", rapidjson::Value(this->m_sSelectedImage.c_str(), this->m_sNormalImage.length()), a_rAllocator);
+    params.AddMember("action", "next", a_rAllocator);
+    /*"width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",*/
+    menu.AddMember("params", params, a_rAllocator);
+
+    a_rParent.PushBack(menu, a_rAllocator);
 }
 
 } // namespace LM

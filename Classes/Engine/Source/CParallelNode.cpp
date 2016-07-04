@@ -42,4 +42,9 @@ void CParallelNode::Finish()
 }
 
 
+void CParallelNode::ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator)
+{
+
+}
+
 } // namespace LM

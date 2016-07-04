@@ -2,7 +2,9 @@
 #include "../Include/CSpriteNode.h"
 #include "../Include/CLabelNode.h"
 #include "../Include/CMenuNode.h"
+#include "../Include/CInfoNode.h"
 
+#include <QDebug>
 using namespace cocos2d;
 
 namespace LM
@@ -126,6 +128,46 @@ void CSceneNode::DisplayDebugInfo()
 	pLabel->setPosition(Vec2(20 + oOrigin.x, oOrigin.y + oVisibleSize.height - 20));
 
 	m_pScene->addChild(pLabel, 2);
+}
+
+void CSceneNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    rapidjson::Value newScene(rapidjson::kObjectType);
+    newScene.AddMember("scene", rapidjson::Value(this->m_sID.c_str(), this->m_sID.length()), a_rAllocator);
+    rapidjson::Value navigation(rapidjson::kArrayType);
+    rapidjson::Value content(rapidjson::kArrayType);
+    rapidjson::Value information(rapidjson::kArrayType);
+
+
+    for(CNode* currentNode : this->m_vChildren)
+    {
+        // Special process (navigation and information)
+        qDebug("cast en CMenuNode");
+        CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(currentNode);
+        if(pMenuNode)
+        {
+            pMenuNode->ToJson(navigation, a_rAllocator);
+            continue;
+        }
+        qDebug("cast en CInfoNode");
+        CInfoNode* pInfoNode = dynamic_cast<CInfoNode*>(currentNode);
+        if(pInfoNode)
+        {
+            pInfoNode->ToJson(information, a_rAllocator);
+            continue;
+        }
+        qDebug("Default comp");
+        content.PushBack("content Node", a_rAllocator);
+        // Else do default process (content)
+
+    }
+
+    newScene.AddMember("navigation", navigation, a_rAllocator);
+    newScene.AddMember("content", content, a_rAllocator);
+    newScene.AddMember("information", information, a_rAllocator);
+
+
+    a_rParent.PushBack(newScene, a_rAllocator);
 }
 
 } // namespace LM

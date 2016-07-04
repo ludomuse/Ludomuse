@@ -14,6 +14,12 @@
 #define ON_CC_THREAD(FUN, OBJ, ...) 	cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread(\
                                         std::bind(&FUN, OBJ, ##__VA_ARGS__));
 
+// Include for Json conversion
+#include "rapidjson.h"
+#include "document.h"
+#include "stringbuffer.h"
+#include "prettywriter.h"
+
 namespace LM 
 {
 
@@ -74,6 +80,9 @@ public:
   CNode* GetBehaviorTree();
 
   CJsonParser* GetJsonParser();
+
+  /// \brief Convert the whole game into Json
+  std::string ToJson();
 
   CEditorFindEntityTouchVisitor* GetEditorVisitor();
 
@@ -157,7 +166,9 @@ public:
 
 private:
 	void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
-	void ProcessMessage(const std::string& a_rMessage);
+    void ProcessMessage(const std::string& a_rMessage);
+    void ScenesToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+    void ScreensToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
 
 };
 

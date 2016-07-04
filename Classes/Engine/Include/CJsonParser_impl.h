@@ -76,7 +76,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		   CCLOG("grid constructed");
     }*/
 
-	else if (sType == "Image" || sType == "Info")
+    else if (sType == "Image")
 	{
 		pEntity = new CSpriteNode(rParams["source"].GetString(),
 			IntToAnchor(rParams["anchor"].GetInt()),
@@ -84,6 +84,13 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			x, y);
 	}
 
+    else if (sType == "Info")
+    {
+        pEntity = new CInfoNode(rParams["source"].GetString(),
+            IntToAnchor(rParams["anchor"].GetInt()),
+            width, height,
+            x, y);
+    }
 
 	else if (sType == "Input")
 	{

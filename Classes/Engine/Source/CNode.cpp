@@ -122,4 +122,12 @@ void CNode::UnInit(bool removeChild)
 	}
 }
 
+void CNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    for (CNode* pChildNode : m_vChildren)
+    {
+        pChildNode->ToJson(a_rParent, a_rAllocator);
+    }
+}
+
 } // namespace LM

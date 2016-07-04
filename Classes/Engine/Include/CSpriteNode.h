@@ -21,7 +21,7 @@ class CSpriteNode : public CEntityNode
 	 CSpriteNode(const std::string& a_rFilename,
 			  EAnchor a_eAnchor = EAnchor::FLOAT,
 			  int a_iWidth = 0,
-			  int a_iHieght = 0,
+              int a_iHeight = 0,
 	          int a_iXPosition = 0, 
 	          int a_iYPosition = 0);
 
@@ -37,6 +37,8 @@ class CSpriteNode : public CEntityNode
 
   /// \brief return current anchor
   int GetAnchor();
+
+  virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
 
  private:
   void DisplayNewImage(const std::string&);

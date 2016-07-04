@@ -47,6 +47,8 @@ public:
 
   void DisplayDebugInfo();
 
+  virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+
   CREATE_FUNC(CSceneNode);
 };
 

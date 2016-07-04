@@ -65,5 +65,9 @@ int CSpriteNode::GetAnchor()
     return this->m_eAnchor;
 }
 
+void CSpriteNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    // TODO
+}
 
 } // namespace LM

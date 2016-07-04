@@ -21,6 +21,7 @@
 #include "CCameraFeedNode.h"
 #include "CValidator.h"
 #include "CEditBoxNode.h"
+#include "CInfoNode.h"
 
 namespace LM
 {

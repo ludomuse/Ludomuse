@@ -379,6 +379,11 @@ void CEntityNode::FadeIn()
 }
 
 
+void CEntityNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    // TODO
+}
+
 bool CEntityNode::Lock(CEntityNode* a_pEntity)
 {
 	if (!a_pEntity->IsLocked())

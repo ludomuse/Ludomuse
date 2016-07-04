@@ -4,6 +4,11 @@
 #include <vector>
 #include "cocos2d.h"
 
+// Include for Json conversion
+#include "rapidjson.h"
+#include "document.h"
+#include "stringbuffer.h"
+#include "prettywriter.h"
 
 namespace LM
 {
@@ -63,6 +68,8 @@ class CNode
   virtual void Init();
 
   virtual void UnInit( bool removeChild = true);
+
+  virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
 
 };
 

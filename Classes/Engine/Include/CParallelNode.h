@@ -22,6 +22,8 @@ class CParallelNode : public CNode
   //virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) override;
   /// \details Finish when all the children nodes are finished
   virtual void Finish() override;
+
+  virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
 };
 
 

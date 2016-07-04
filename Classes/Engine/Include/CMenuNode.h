@@ -25,6 +25,8 @@ class CMenuNode : public CEntityNode
   
   cocos2d::MenuItemImage* m_pMenuItemImage;
 
+  std::string m_sAction;
+
  public:
   CMenuNode(const std::string& a_rNormalImage,
             const std::string& a_rSelectedImage,
@@ -33,7 +35,8 @@ class CMenuNode : public CEntityNode
 			int a_iWidth = 0,
 			int a_iHeight = 0,
             int a_iXPosition = 0,
-            int a_iYPosition = 0);
+            int a_iYPosition = 0,
+            const std::string& a_rAction = "" );
   
   virtual void Init() override;
   
@@ -44,6 +47,8 @@ class CMenuNode : public CEntityNode
   virtual cocos2d::Node* GetCocosEntity() override;
 
   virtual void Show(bool a_bVisible) override;
+
+  virtual void ToJson(rapidjson::Value &parent, rapidjson::Document::AllocatorType &allocator);
 
 };
 
