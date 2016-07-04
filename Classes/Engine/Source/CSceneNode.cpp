@@ -134,6 +134,14 @@ void CSceneNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
 {
     rapidjson::Value newScene(rapidjson::kObjectType);
     newScene.AddMember("scene", rapidjson::Value(this->m_sID.c_str(), this->m_sID.length()), a_rAllocator);
+    if(this->m_bDashboardTrigger)
+    {
+        newScene.AddMember("dashboardTrigger", rapidjson::Value(true), a_rAllocator);
+    }
+    if(this->m_bIsSynced)
+    {
+        newScene.AddMember("sync", rapidjson::Value(true), a_rAllocator);
+    }
     rapidjson::Value navigation(rapidjson::kArrayType);
     rapidjson::Value content(rapidjson::kArrayType);
     rapidjson::Value information(rapidjson::kArrayType);
