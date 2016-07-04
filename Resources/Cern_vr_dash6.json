@@ -441,7 +441,7 @@
                       {
                         "type": "Image",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-03.png",
+                          "source": "ui/Assets/PNG/picto_doigt.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80
@@ -877,7 +877,7 @@
                             {
                               "type": "Image",
                               "params": {
-                                "source": "ui/Assets/PNG/Assets-07.png",
+                                "source": "cache/collectionneur.png",
                                 "anchor": 2,
                                 "width": 0,
                                 "height": 60
@@ -977,7 +977,7 @@
                             {
                               "type": "Image",
                               "params": {
-                                "source": "ui/Assets/PNG/Assets-08.png",
+                                "source": "cache/explorateur.png",
                                 "anchor": 2,
                                 "width": 0,
                                 "height": 40
@@ -1078,14 +1078,24 @@
               "children": [
                 {
                   "type": "Text",
+                  "id": "CollectionText",
                   "params": {
                     "anchor": 0,
                     "color": "0,0,0,255",
-                    "content": "Obtenez tous les trésors pour agrandir votre collection",
+                    "content": "Relevez tous les défis pour \r\nagrandir votre collection",
                     "textAlign": "center",
                     "fontSize": 20,
                     "width": 80,
-                    "font": "fonts/Open_Sans/OpenSans-Regular.ttf"
+                    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                    "listeners":[
+                      {
+                        "type": "Ended",
+                        "params":{
+                          "callback":"SetText",
+                          "arg": "Votre Collection"
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -1560,8 +1570,6 @@
       },
 
 
-
-
       {
         "scene": "screen-0-a-player1",
         "navigation": [
@@ -1914,20 +1922,9 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/ACCEUIL-CERNU-NEW.JPG",
               "anchor": 0,
-              "width": 0,
-              "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Intro-1.jpg",
-              "anchor": 1,
-              "width": 50,
+              "width": 100,
               "height": 0,
               "x": 0,
               "y": 0
@@ -1962,7 +1959,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Bonjour vous me paraissez prêts à partir à l'aventure ! Vous me rappelez Henri Cernuschi et Théodore Duret. Ce Collectionneur et son ami explorateur, sont à l'origine de ce musée ! Je vous retrouve à l'tage pour découvrir la collection qu'ils ont apporté de leur voyage il y a presque 200 ans !",
+                          "content": "Bonjour vous me paraissez prêts à partir à l'aventure ! Vous me rappelez Henri Cernuschi et Théodore Duret. Ce Collectionneur et son ami explorateur, sont à l'origine de ce musée ! Je vous retrouve à l'étage pour découvrir la collection qu'ils ont apporté de leur voyage il y a presque 200 ans !",
                           "fontSize": 24,
                           "width": 80,
                           "height": 90,
@@ -2134,7 +2131,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Tournez-vous à droite et regarder la sculpture en bois au mur. Elle a été ramenée par Henri Cernuschi du Japon ! Ce dragon a un corps de serpent, des écailles, des pattes de tigre et de cornes de cerf. Pourquoi ce mélange ? Il bénéficie ainsi de l'énergie de ces animaux",
+                          "content": "Tournez-vous à droite et regardez la sculpture en bois au mur. Elle a été ramenée par Henri Cernuschi du Japon ! Ce dragon a un corps de serpent, des écailles, des pattes de tigre et de cornes de cerf. Pourquoi ce mélange ? Il bénéficie ainsi de l'énergie de ces animaux",
                           "fontSize": 24,
                           "width": 80,
                           "height": 90,
@@ -2258,21 +2255,10 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/introDRAGON.png",
               "anchor": 0,
               "width": 0,
               "height": 100,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/introDRAGON.png",
-              "anchor": 1,
-              "width": 50,
-              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -2960,8 +2946,8 @@
             "params": {
               "source": "cache/background1CERN.png",
               "anchor": 0,
-              "width": 0,
-              "height": 100,
+              "width": 100,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3132,8 +3118,8 @@
             "params": {
               "source": "cache/background1CERN.png",
               "anchor": 0,
-              "width": 0,
-              "height": 100,
+              "width": 100,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3319,8 +3305,8 @@
             "params": {
               "source": "cache/background1CERN.png",
               "anchor": 0,
-              "width": 0,
-              "height": 100,
+              "width": 100,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3491,8 +3477,8 @@
             "params": {
               "source": "cache/background1CERN.png",
               "anchor": 0,
-              "width": 0,
-              "height": 100,
+              "width": 100,
+              "height": 0,
               "x": 0,
               "y": 0
             }
@@ -3532,16 +3518,7 @@
                           "height": 90,
                           "textAlign": "center",
                           "anchor": 0,
-                          "color": "0,0,0,255",
-                          "listeners": [
-                            {
-                              "type": "Init",
-                              "params": {
-                                "callback": "PlaySound",
-                                "arg": "cache/audio/cernuschi6.wav"
-                              }
-                            }
-                          ]
+                          "color": "0,0,0,255"
                         }
                       }
                     ]
@@ -3619,7 +3596,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "SUIVANT",
+                    "content": "Jouer",
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
@@ -3933,6 +3910,7 @@
 
       {
         "scene": "screen-1-e-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -3950,7 +3928,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "JOUER",
+                    "content": "SUIVANT",
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
@@ -3978,40 +3956,6 @@
                   "params": {
                     "callback": "LocalMessage",
                     "arg":  "Dashboard:Show:Amulette"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
                   }
                 }
               ]
@@ -4341,6 +4285,7 @@
       },
       {
         "scene": "screen-1-e-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -4382,29 +4327,6 @@
                   "params": {
                     "callback": "SendMessage",
                     "arg": "kernel:Validate"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "id":"navPrev",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "anchor": 0,
-                    "width": 100,
-                    "height": 100
                   }
                 }
               ]
@@ -4676,7 +4598,7 @@
                   "params": {
                     "source": "cache/Statue1.png",
                     "anchor": 0,
-                    "width": 40,
+                    "width": 90,
                     "height": 100,
                     "x": 0,
                     "y": 0,
@@ -4763,7 +4685,7 @@
                   "params": {
                     "source": "cache/Statue2.png",
                     "anchor": 0,
-                    "width": 40,
+                    "width": 90,
                     "height": 100,
                     "x": 0,
                     "y": 0,
@@ -4849,7 +4771,7 @@
                   "params": {
                     "source": "cache/Statue3.png",
                     "anchor": 0,
-                    "width": 40,
+                    "width": 90,
                     "height": 100,
                     "x": 0,
                     "y": 0,
@@ -4935,8 +4857,8 @@
                   "params": {
                     "source": "cache/Statue4.png",
                     "anchor": 0,
-                    "width": 40,
-                    "height": 100,
+                    "width": 0,
+                    "height": 90,
                     "x": 0,
                     "y": 0,
                     "listeners": [
@@ -5479,7 +5401,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Une autre question ? ",
+                    "content": "Etape 1/5 : second défi",
                     "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
                     "fontSize": 20,
                     "textAlign": "center",
@@ -5792,7 +5714,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "êtes-vous prêts ? L’explorateur aussi ?",
+                          "content": "Êtes-vous prêts ? L’explorateur aussi ?",
                           "fontSize": 24,
                           "width": 80,
                           "height": 90,
@@ -6014,6 +5936,7 @@
 
       {
         "scene": "screen-1-i-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -6054,44 +5977,10 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "JOUER",
+                    "content": "SUIVANT",
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
                     "width": 80,
                     "height": 100,
                     "anchor": 0,
@@ -6586,7 +6475,7 @@
                         "type": "Image",
                         "id": "SuccessSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-09.png",
+                          "source": "ui/Assets/PNG/picto_bonne_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -6611,7 +6500,7 @@
                         "type": "Image",
                         "id": "FailSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-10.png",
+                          "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -6706,6 +6595,7 @@
       },
       {
         "scene": "screen-1-i-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -6757,40 +6647,6 @@
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
                     "width": 80,
                     "height": 100,
                     "anchor": 0,
@@ -7207,7 +7063,7 @@
                         "type": "Image",
                         "id": "SuccessSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-09.png",
+                          "source": "ui/Assets/PNG/picto_bonne_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -7232,7 +7088,7 @@
                         "type": "Image",
                         "id": "FailSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-10.png",
+                          "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -7429,7 +7285,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Félicitation ! Vous êtes tellement téméraire que je vous offre la Tigresse !",
+                          "content": "Félicitations ! Vous êtes tellement téméraire que je vous offre la Tigresse !",
                           "fontSize": 24,
                           "width": 80,
                           "height": 90,
@@ -7653,7 +7509,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "SUIVANT",
+                    "content": "En route !",
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
@@ -7785,7 +7641,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 2/5 Le Bassin",
+                    "content": "En route pour l'étape 2/5 Le Bassin",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -7955,7 +7811,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 2/5 Le Bassin",
+                    "content": "En route pour l'étape 2/5 Le Bassin",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -7993,7 +7849,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "En route !",
+                    "content": "SUIVANT",
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
@@ -8610,7 +8466,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Chers amis soyez les bienvenus à Nankin. Je sais que vous vous intéressez à la Chine et à son histoire… Je suis collectionneur à mes heures perdues. Ce que je préfère ce sont les objets de l’époque des Zhou, entre le IIe et le Xe siècle avant Jésus-Christ.",
+                          "content": "Chers amis soyez les bienvenus à Nankin. Mon ami m’a dit que vous vous intéressiez à la Chine et à son histoire. La période historique de la Chine que je préfère est la Zhou entre le 10e et le 2e siècle avant Jésus-Christ.",
                           "fontSize": 24,
                           "width": 80,
                           "height": 90,
@@ -8981,7 +8837,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Défi N°2",
+                    "content": "Etape 2/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -9145,7 +9001,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Défi N°2",
+                    "content": "Etape 2/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -9168,6 +9024,7 @@
 
       {
         "scene": "screen-2-e-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -9227,40 +9084,6 @@
                   "params": {
                     "callback": "PlaySound",
                     "arg": "cache/audio/gong.mp3"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
                   }
                 }
               ]
@@ -9542,6 +9365,7 @@
       },
       {
         "scene": "screen-2-e-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -9594,40 +9418,6 @@
                   "params": {
                     "callback": "SendMessage",
                     "arg": "screen-2-e-player:DistValidate"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
                   }
                 }
               ]
@@ -10255,7 +10045,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Bravo, vous connaissez les secrets des bronzes Zhou !\r\nVous avez gagné ce masque TAOTIE qui vous protégera.",
+                    "content": "Etape 2/5 : premier défi relevé",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 80,
@@ -10408,7 +10198,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Bravo, vous connaissez les secrets des bronzes Zhou !\r\nVous avez gagné ce masque TAOTIE qui vous protégera.",
+                    "content": "Etape 2/5 : premier défi relevé",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 80,
@@ -10550,7 +10340,7 @@
                     "children": [{
                       "type": "Text",
                       "params": {
-                        "content": "Mais vous n'avez pas encore découvert le plus grand de tous! ...Tu as remarqué cet énorme récipient en bronze au milieu de la pièce. Personne n’est sûr de ce à quoi il servait. On sait qu’il contenait un liquide",
+                        "content": "Mais vous n'avez pas encore découvert le plus grand de tous! ...Avez-vous remarqué cet énorme récipient en bronze au milieu de la pièce. Personne n’est sûr de ce à quoi il servait. On sait qu’il contenait un liquide",
                         "fontSize": 24,
                         "width": 80,
                         "height": 100,
@@ -10582,7 +10372,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Voici un autre objet qui devrais-vous intéresser",
+                    "content": "Etape 2/5 : Le Bassin",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -10756,7 +10546,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Voici un autre objet qui devrait t'intéresser",
+                    "content": "Etape 2/5 : Le Bassin",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -10919,7 +10709,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Voici un autre objet qui devrait t'intéresser",
+                    "content": "Etape 2/5 : second défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -11082,7 +10872,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Voici un autre objet qui devrez-vous intéresser",
+                    "content": "Etape 2/5 : second défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -11105,6 +10895,7 @@
 
       {
         "scene": "screen-2-h-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -11149,40 +10940,6 @@
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
                     "width": 80,
                     "height": 100,
                     "anchor": 0,
@@ -11571,7 +11328,7 @@
                         "type": "Image",
                         "id": "SuccessSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-09.png",
+                          "source": "ui/Assets/PNG/picto_bonne_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -11596,7 +11353,7 @@
                         "type": "Image",
                         "id": "FailSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-10.png",
+                          "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -11690,6 +11447,7 @@
       },
       {
         "scene": "screen-2-h-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -12156,7 +11914,7 @@
                         "type": "Image",
                         "id": "SuccessSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-09.png",
+                          "source": "ui/Assets/PNG/picto_bonne_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -12181,7 +11939,7 @@
                         "type": "Image",
                         "id": "FailSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-10.png",
+                          "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -12409,7 +12167,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Bravo ! Vous remportez un nouvel objet à ajouter à votre inventaire",
+                    "content": "Etape 2/5 : défi réussi ! ",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -12562,7 +12320,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Bravo ! Tu remportes un nouvel objet à ajouter à ton inventaire",
+                    "content": "Etape 2/5 : défi réussi ! ",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -12737,7 +12495,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Moyen de transport",
+                    "content": "En route pour l’étape 2/5 : Le Bassin",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -12912,7 +12670,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Moyen de transport",
+                    "content": "En route pour l’étape 2/5 : Le Bassin",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -13384,7 +13142,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/Musee00.png",
+              "source": "cache/Musee000.png",
               "anchor": 2,
               "width": 0,
               "height": 90,
@@ -14002,7 +13760,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Nous sommes plusieurs ici à fabriquer des objets de terre cuite, des objets qui doivent plaire à notre clientèle. Aujourd'hui je dois terminer un pbjet destiné à mettre dans la tombe d'un défunt important",
+                          "content": "Nous sommes plusieurs ici à fabriquer des objets de terre cuite, des objets qui doivent plaire à notre clientèle. Aujourd'hui je dois terminer un objet destiné à être mis dans la tombe d'un défunt important.",
                           "fontSize": 24,
                           "width": 80,
                           "height": 100,
@@ -14034,7 +13792,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 3/5 La Tour de Plaisance",
+                    "content": "Etape 3/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -14198,7 +13956,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 3/5 La Tour de Plaisance",
+                    "content": "Etape 3/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -14361,7 +14119,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Prêt à aider un artisan?",
+                    "content": "Etape 3/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -14524,7 +14282,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 3/5 La Tour de Plaisance",
+                    "content": "Etape 3/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -14547,6 +14305,7 @@
 
       {
         "scene": "screen-3-c-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -14600,40 +14359,6 @@
                   "params": {
                     "callback": "Playsound",
                     "arg":"cache/audio/gong.mp3"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
                   }
                 }
               ]
@@ -14875,7 +14600,7 @@
                   "type": "Text",
                   "id": "InfoText",
                   "params": {
-                    "content": "Défi n°3",
+                    "content": "Etape 3/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 80,
@@ -14940,6 +14665,7 @@
       },
       {
         "scene": "screen-3-c-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -14985,40 +14711,6 @@
                   "params": {
                     "callback": "LocalMessage",
                     "arg": "Dashboard:Show:YinYang"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
                   }
                 }
               ]
@@ -15259,7 +14951,7 @@
                     "source": "cache/Statuette3a.png",
                     "anchor": 0,
                     "width": 0,
-                    "height": 100,
+                    "height": 80,
                     "x": 0,
                     "y": 0,
                     "listeners": [
@@ -15347,7 +15039,7 @@
                     "source": "cache/Statuette3b.png",
                     "anchor": 0,
                     "width": 0,
-                    "height": 100,
+                    "height": 80,
                     "x": 0,
                     "y": 0,
                     "listeners": [
@@ -15435,7 +15127,7 @@
                     "source": "cache/Statuette3c.png",
                     "anchor": 0,
                     "width": 0,
-                    "height": 100,
+                    "height": 80,
                     "x": 0,
                     "y": 0,
                     "listeners": [
@@ -15523,7 +15215,7 @@
                     "source": "cache/Statuette3d.png",
                     "anchor": 0,
                     "width": 0,
-                    "height": 100,
+                    "height": 80,
                     "x": 0,
                     "y": 0,
                     "listeners": [
@@ -15621,7 +15313,7 @@
                   "type": "Text",
                   "id": "InfoText",
                   "params": {
-                    "content": "Défi N°3",
+                    "content": "Etape 3/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -15820,7 +15512,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Bravo ! Vous remportez un nouvel objet à ajouter à votre inventaire !",
+                    "content": "Etape 3/5 : premier défi relevé !",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -15941,7 +15633,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Bravo je t'ffre ce signe qu'on appelle le symbole du yin et yang. Il t'aidera à méditer",
+                          "content": "Bravo je t'offre ce signe qu'on appelle le symbole du yin et yang. Il t'aidera à méditer",
                           "fontSize": 24,
                           "width": 80,
                           "height": 100,
@@ -16322,9 +16014,9 @@
       },
 
 
-
       {
         "scene": "screen-3-f-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -16369,40 +16061,6 @@
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
                     "width": 80,
                     "height": 100,
                     "anchor": 0,
@@ -16791,7 +16449,7 @@
                         "type": "Image",
                         "id": "SuccessSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-09.png",
+                          "source": "ui/Assets/PNG/picto_bonne_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -16816,7 +16474,7 @@
                         "type": "Image",
                         "id": "FailSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-10.png",
+                          "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -16841,7 +16499,7 @@
                         "type": "Text",
                         "id": "InfoText",
                         "params": {
-                          "content": "Question N°1",
+                          "content": "Etape 3/5 : second défi",
                           "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
                           "fontSize": 20,
                           "textAlign": "center",
@@ -16889,7 +16547,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "A qui sert la tour fabriquée par le potier",
+                    "content": "A qui sert la tour fabriquée par le potier?",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -16910,6 +16568,7 @@
       },
       {
         "scene": "screen-3-f-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -16954,40 +16613,6 @@
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
                     "width": 80,
                     "height": 100,
                     "anchor": 0,
@@ -17376,7 +17001,7 @@
                         "type": "Image",
                         "id": "SuccessSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-09.png",
+                          "source": "ui/Assets/PNG/picto_bonne_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -17401,7 +17026,7 @@
                         "type": "Image",
                         "id": "FailSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-10.png",
+                          "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -17426,7 +17051,7 @@
                         "type": "Text",
                         "id": "InfoText",
                         "params": {
-                          "content": "Question N°1",
+                          "content": "Etape 3/5 : second défi",
                           "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
                           "fontSize": 20,
                           "textAlign": "center",
@@ -17474,7 +17099,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "A qui sert la tour fabriquée par le potier",
+                    "content": "A quoi sert la tour fabriquée par le potier",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -17957,7 +17582,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Moyen de transport",
+                    "content": "En route pour l’étape 4/5 : Le gardien de tombe",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -18132,7 +17757,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Moyen de Transport",
+                    "content": "En route pour l’étape 4/5 : Le gardien de tombe",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -18151,8 +17776,6 @@
           }
         ]
       },
-
-
       {
         "scene": "screen-4-0-player2",
         "navigation": [
@@ -19439,7 +19062,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "SUIVANT",
+                    "content": "Jouer",
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
@@ -19565,7 +19188,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 4/5 Le gardien de tombe",
+                    "content": "Etape 4/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -19735,7 +19358,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 4/5 Le gardien de tombe",
+                    "content": "Etape 4/5 : premier défi",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -19758,6 +19381,7 @@
 
       {
         "scene": "screen-4-e-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -19798,44 +19422,10 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "JOUER",
+                    "content": "SUIVANT",
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
                     "width": 80,
                     "height": 100,
                     "anchor": 0,
@@ -20170,7 +19760,7 @@
                         "type": "Image",
                         "id": "SuccessSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-09.png",
+                          "source": "ui/Assets/PNG/picto_bonne_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -20195,7 +19785,7 @@
                         "type": "Image",
                         "id": "FailSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-10.png",
+                          "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -20220,7 +19810,7 @@
                         "type": "Text",
                         "id": "InfoText",
                         "params": {
-                          "content": "Question N°1",
+                          "content": "Etape 4/5 : premier défi",
                           "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
                           "fontSize": 20,
                           "textAlign": "center",
@@ -20245,7 +19835,7 @@
                               "type": "SuccessHint",
                               "params": {
                                 "callback": "SetText",
-                                "arg": "Bravo !"
+                                "arg": "Bravo ! C’est bien son reflet dans le miroir qui lui fera peur"
                               }
                             }
                           ]
@@ -20290,6 +19880,7 @@
       },
       {
         "scene": "screen-4-e-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -20334,40 +19925,6 @@
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
                     "width": 80,
                     "height": 100,
                     "anchor": 0,
@@ -20702,7 +20259,7 @@
                         "type": "Image",
                         "id": "SuccessSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-09.png",
+                          "source": "ui/Assets/PNG/picto_bonne_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -20727,7 +20284,7 @@
                         "type": "Image",
                         "id": "FailSmile",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-10.png",
+                          "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80,
@@ -20752,7 +20309,7 @@
                         "type": "Text",
                         "id": "InfoText",
                         "params": {
-                          "content": "Question N°1",
+                          "content": "Etape 4/5 : premier défi",
                           "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
                           "fontSize": 20,
                           "textAlign": "center",
@@ -21252,7 +20809,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Retournez face à la vitrine avec le grand personnage au bras levé, il représente un gardine de tombe menaçant qui aussi protège des démons",
+                          "content": "Retournez face à la vitrine avec le grand personnage au bras levé, il représente un gardien de tombe menaçant qui lui aussi protège des démons",
                           "fontSize": 24,
                           "width": 80,
                           "height": 100,
@@ -21973,7 +21530,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 4/5 Le gardien de tombe",
+                    "content": "Etape 4/5 : premier défi ",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -22160,6 +21717,7 @@
 
       {
         "scene": "screen-4-i-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -22213,40 +21771,6 @@
                   "params": {
                     "callback": "LocalMessage",
                     "arg": "Dashboard:Show:Demon"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
                   }
                 }
               ]
@@ -22734,6 +22258,7 @@
       },
       {
         "scene": "screen-4-i-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -22775,29 +22300,6 @@
                   "params": {
                     "callback": "LocalMessage",
                     "arg": "Dashboard:Show:Demon"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "id":"navPrev",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "anchor": 0,
-                    "width": 100,
-                    "height": 100
                   }
                 }
               ]
@@ -23648,7 +23150,6 @@
       },
 
 
-
       {
         "scene": "screen-4-j-player1",
         "dashboardTrigger": true,
@@ -24111,7 +23612,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Moyen de transport",
+                    "content": "En route pour l’étape 5/5 : Le grand Bouddha",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -25720,7 +25221,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Les buddhas sont de grands sages qui ont renoncé à tout pour atteindre l'Eveil. Il est vêtu d'un costume de moine... La position de ses doigts est dite \"de l'enseignement\" ",
+                          "content": "Les bouddhas sont de grands sages qui ont renoncé à tout pour atteindre l'Eveil. Ce bouddha est vêtu d'un costume de moine... La position de ses doigts est dite \"de l'enseignement\".",
                           "fontSize": 24,
                           "width": 80,
                           "height": 100,
@@ -25895,7 +25396,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Les buddhas sont de grands sages qui ont renoncé à tout pour atteindre l'Eveil. Il est vêtu d'un costume de moine... La position de ses doigts est dite \"de l'enseignement\" ",
+                          "content": "Les bouddhas sont de grands sages qui ont renoncé à tout pour atteindre l'Eveil. Ce bouddha est vêtu d'un costume de moine... La position de ses doigts est dite \"de l'enseignement\".",
                           "fontSize": 24,
                           "width": 80,
                           "height": 100,
@@ -25948,6 +25449,7 @@
       },
       {
         "scene": "screen-5-d-a-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -26059,7 +25561,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "L'un de vous va tenter de se positionner comme le grand Bouddha et l'autre prendra une photographie. A vous de jouer",
+                          "content": "L'un de vous va tenter de se positionner comme le grand Bouddha et l'autre prendra une photographie. A vous de jouer !",
                           "fontSize": 24,
                           "width": 80,
                           "height": 100,
@@ -26112,6 +25614,7 @@
       },
       {
         "scene": "screen-5-d-a-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -26223,7 +25726,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "L'un de vous va tenter de se positionner comme le grand Bouddha et l'autre prendra une photographie. A vous de jouer",
+                          "content": "L'un de vous va tenter de se positionner comme le grand Bouddha et l'autre prendra une photographie. A vous de jouer !",
                           "fontSize": 24,
                           "width": 80,
                           "height": 100,
@@ -26410,7 +25913,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Défi n°5 - Quand votre coéquipier est prêt, touchez \"PHOTO\"",
+                    "content": "Quand votre coéquipier est prêt, touchez \"PHOTO\"",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -27007,7 +26510,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Bravo ! Vous avez montré beaucoup de sagesse et vous vous etes approchés de l'état d'éveil, vous avez remporté une fleur de lotus.",
+                          "content": "Bravo ! Vous avez montré beaucoup de sagesse et vous vous êtes approchés de l'état d'éveil, vous avez remporté une fleur de lotus.",
                           "fontSize": 24,
                           "width": 80,
                           "height": 90,
@@ -27376,7 +26879,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 5/5 le grand Bouddha",
+                    "content": "Etape 5/5 Le grand Bouddha",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -27551,7 +27054,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 5/5 le grand Bouddha",
+                    "content": "Etape 5/5 Le grand Bouddha",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -27902,137 +27405,147 @@
 
       {
         "scene": "screen-5-i-player1",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
+            "id": "navNext",
             "params": {
               "width": 0,
               "height": 13,
               "anchor": 5,
               "normal": "ui/nav-5.png",
               "selected": "ui/nav-5-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
               "action": "next",
               "children": [
                 {
                   "type": "Text",
                   "params": {
-                    "content": "JOUER",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "right",
-                    "width": 80,
-                    "height": 100,
+                    "content": "SUIVANT",
                     "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
+                    "width": 100,
+                    "height": 100
                   }
                 }
               ],
               "listeners": [
                 {
-                  "type": "Init",
+                  "type": "Validate",
+                  "params": {
+                    "callback": "Show"
+                  }
+                },
+                {
+                  "type": "Validate",
                   "params": {
                     "callback": "LocalMessage",
-                    "arg": "Dashboard:Show:Bouddha"
+                    "arg": "Dashboard:Show:Amulette"
+                  }
+                },
+                {
+                  "type": "Validate",
+                  "params": {
+                    "callback": "SendMessage",
+                    "arg": "kernel:Validate"
                   }
                 }
               ]
             }
           },
           {
-            "type": "Nav",
+            "type": "Validator",
             "params": {
+              "ids": [
+                "Lotus2",
+                "Lotus3"
+              ],
+              "sound": "cache/audio/gong.mp3"
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "source": "ui/info-6.png",
+              "anchor": 6,
               "width": 0,
               "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
               "children": [
                 {
-                  "type": "Text",
+                  "type": "Group",
                   "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
                     "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
+                    "width": 60,
+                    "height": 100,
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "ui/Assets/PNG/Assets-03.png",
+                          "anchor": 8,
+                          "width": 0,
+                          "height": 80
+                        }
+                      },
+                      {
+                        "type": "Text",
+                        "id": "InfoText",
+                        "params": {
+                          "content": "Etape 5/5 : dernier défi",
+                          "color": "0,0,0,255",
+                          "fontSize": 20,
+                          "anchor": 0,
+                          "width": 90,
+                          "height": 100,
+                          "listeners":[
+                            {
+                              "type": "DropGood",
+                              "params": {
+                                "callback": "SetText",
+                                "arg": "Bien placé!"
+                              }
+                            },
+                            {
+                              "type": "DropBad",
+                              "params": {
+                                "callback": "SetText",
+                                "arg": "Mal placé!"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
                   }
                 }
               ]
             }
-          }
-        ],
-        "content": [
+          },
           {
-            "type": "Group",
+            "type": "Info",
             "params": {
+              "source": "ui/info-2.png",
               "anchor": 2,
-              "width": 100,
-              "height": 87,
+              "width": 0,
+              "height": 13,
               "children": [
-                {
-                  "type": "Image",
-                  "params": {
-                    "source": "cache/background4CERN.png",
-                    "anchor": 0,
-                    "width": 100,
-                    "height": 100,
-                    "x": 0,
-                    "y": 0
-                  }
-                },
-                {
-                  "type": "Image",
-                  "params": {
-                    "source": "cache/perso4Homme.png",
-                    "anchor": 5,
-                    "width": 0,
-                    "height": 60,
-                    "x": 0,
-                    "y": 0
-                  }
-                },
                 {
                   "type": "Group",
                   "params": {
-                    "anchor": 8,
-                    "width": 50,
-                    "height": 66,
-                    "source":"ui/cache-noir-70.png",
+                    "anchor": 0,
+                    "width": 60,
+                    "height": 100,
                     "children": [
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Placeholder pour le 2eme jeu",
-                          "fontSize": 24,
-                          "width": 80,
-                          "height": 100,
+                          "content": "Glisse chaque photo que te donne ton ami explorateur vers le bon endroit sur le plan",
+                          "color": "0,0,0,255",
+                          "fontSize": 20,
                           "anchor": 0,
-                          "color": "",
-                          "cache": {
-                            "visible": false,
-                            "backgroundColor": "",
-                            "backgroundImage": ""
-                          }
+                          "width": 90,
+                          "height": 100
                         }
                       }
                     ]
@@ -28042,30 +27555,273 @@
             }
           }
         ],
-        "information": [
+        "content": [
           {
-            "type": "Info",
+            "type": "Image",
             "params": {
+              "source": "cache/background3LU.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "anchor": 4,
+              "source": "cache/map_activite5.png",
               "width": 0,
-              "height": 13,
-              "anchor": 6,
-              "source": "ui/info-6.png",
+              "height": 70,
               "children": [
                 {
-                  "type": "Text",
+                  "type": "Group",
                   "params": {
-                    "content": "Etape 4/5 Le gardien de tombe",
-                    "fontSize": 20,
-                    "textAlign": "center",
-                    "width": 60,
-                    "height": 100,
+                    "anchor": 2,
+                    "width": 15,
+                    "height": 15,
+                    "x": 0,
+                    "y": 0,
+                    "listeners": [
+                      {
+                        "type": "Drop",
+                        "params": {
+                          "callback": "AnchorEntity",
+                          "arg": "Lotus2"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 48,
+                    "height": 50,
+                    "x": 0,
+                    "y": 0,
+                    "children":[
+                      {
+                        "type": "Group",
+                        "params": {
+                          "anchor": 2,
+                          "width": 100,
+                          "height": 36,
+                          "x": 0,
+                          "y": 0,
+                          "children":[
+                            {
+                              "type": "Group",
+                              "params": {
+                                "anchor": 5,
+                                "width": 30,
+                                "height": 80,
+                                "x": 0,
+                                "y": 0,
+                                "listeners": [
+                                  {
+                                    "type": "Drop",
+                                    "params": {
+                                      "callback": "AnchorEntity",
+                                      "arg": "Lotus3"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Image",
+            "id": "dropArea2",
+            "params": {
+              "source": "cache/patchment.png",
+              "anchor": 8,
+              "width": 25,
+              "height": 0,
+              "x": 70,
+              "y": 0,
+              "children": [
+                {
+                  "type": "Image",
+                  "id": "Lotus2",
+                  "params": {
+                    "source": "cache/lotus2.png",
                     "anchor": 0,
-                    "color": "0,0,0,255",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
+                    "width": 40,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0,
+                    "listeners": [
+                      {
+                        "type": "Move",
+                        "params": {
+                          "callback": ""
+                        }
+                      },
+                      {
+                        "type": "Droped",
+                        "params": {
+                          "callback": "Anchored"
+                        }
+                      },
+                      {
+                        "type": "Droped",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-5-i-player2:DropEnabledBack:photosDropArea"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-5-i-player2:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-5-i-player1:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Fade"
+                        }
+                      },
+                      {
+                        "type": "Show",
+                        "params": {
+                          "callback": "Show"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-5-i-player2:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-5-i-player1:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-5-i-player2:ReturnElement:Lotus2"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Lotus2"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Image",
+                  "id": "Lotus3",
+                  "params": {
+                    "source": "cache/lotus3.png",
+                    "anchor": 0,
+                    "width": 40,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0,
+                    "listeners": [
+                      {
+                        "type": "Move",
+                        "params": {
+                          "callback": ""
+                        }
+                      },
+                      {
+                        "type": "Droped",
+                        "params": {
+                          "callback": "Anchored"
+                        }
+                      },{
+                        "type": "Droped",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-5-i-player2:DropEnabledBack:photosDropArea"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-5-i-player1:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-5-i-player2:DropGood:InfoText"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Fade"
+                        }
+                      },
+                      {
+                        "type": "Show",
+                        "params": {
+                          "callback": "Show"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "LocalMessage",
+                          "arg": "screen-5-i-player1:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-5-i-player2:DropBad:InfoText"
+                        }
+                      },
+                      {
+                        "type": "AnchoredFailed",
+                        "params": {
+                          "callback": "SendMessage",
+                          "arg": "screen-5-i-player2:ReturnElement:Lotus3"
+                        }
+                      },
+                      {
+                        "type": "Anchored",
+                        "params": {
+                          "callback": "Validate",
+                          "arg": "Lotus3"
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -28075,6 +27831,7 @@
       },
       {
         "scene": "screen-5-i-player2",
+        "sync": true,
         "navigation": [
           {
             "type": "Nav",
@@ -28108,46 +27865,18 @@
                   }
                 }
               ],
-              "listeners": [
+              "listeners":[
                 {
-                  "type": "Init",
+                  "type": "Validate",
+                  "params": {
+                    "callback": "Show"
+                  }
+                },
+                {
+                  "type": "Validate",
                   "params": {
                     "callback": "LocalMessage",
-                    "arg": "Dashboard:Show:Bouddha"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "type": "Nav",
-            "params": {
-              "width": 0,
-              "height": 13,
-              "anchor": 7,
-              "normal": "ui/nav-7.png",
-              "selected": "ui/nav-7-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "prev",
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "PRÉCÉDENT",
-                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                    "fontSize": 20,
-                    "textAlign": "left",
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
+                    "arg":  "Dashboard:Show:Amulette"
                   }
                 }
               ]
@@ -28156,56 +27885,146 @@
         ],
         "content": [
           {
+            "type": "Image",
+            "params": {
+              "source": "cache/background1LU.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
             "type": "Group",
             "params": {
-              "anchor": 2,
-              "width": 100,
-              "height": 87,
+              "anchor": 0,
+              "width": 92,
+              "height": 66,
               "children": [
                 {
                   "type": "Image",
+                  "id": "photosDropArea",
                   "params": {
-                    "source": "cache/background4CERN.png",
-                    "anchor": 0,
-                    "width": 100,
+                    "source": "cache/patchment.png",
+                    "anchor": 4,
+                    "width": 25,
+                    "listeners": [
+                      {
+                        "type": "Drop",
+                        "params": {
+                          "callback": ""
+                        }
+                      },
+                      {
+                        "type": "DropEnabledBack",
+                        "params": {
+                          "callback": "EnableEvent",
+                          "arg": "photosDropArea:Drop"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Grid",
+                  "params": {
+                    "cols": 1,
+                    "rows": 2,
+                    "width": 75,
                     "height": 100,
-                    "x": 0,
-                    "y": 0
-                  }
-                },
-                {
-                  "type": "Image",
-                  "params": {
-                    "source": "cache/perso4Homme.png",
-                    "anchor": 5,
-                    "width": 0,
-                    "height": 60,
-                    "x": 0,
-                    "y": 0
-                  }
-                },
-                {
-                  "type": "Group",
-                  "params": {
                     "anchor": 8,
-                    "width": 50,
-                    "height": 66,
-                    "source":"ui/cache-noir-70.png",
                     "children": [
                       {
-                        "type": "Text",
+                        "type": "Image",
+                        "id":"Lotus2",
                         "params": {
-                          "content": "Placeholder pour le 2eme jeu",
-                          "fontSize": 24,
-                          "width": 80,
-                          "height": 100,
+                          "source": "cache/lotus2.png",
                           "anchor": 0,
-                          "color": "",
-                          "cache": {
-                            "visible": false,
-                            "backgroundColor": "",
-                            "backgroundImage": ""
-                          }
+                          "width": 0,
+                          "height": 95,
+                          "x": 0,
+                          "y": 0,
+                          "listeners": [
+                            {
+                              "type": "Move",
+                              "params": {
+                                "callback": ""
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "Fade"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "DisableEvent",
+                                "arg": "photosDropArea:Drop"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "SendMessage",
+                                "arg": "screen-5-i-player1:Show:Lotus2"
+                              }
+                            },
+                            {
+                              "type": "ReturnElement",
+                              "params": {
+                                "callback": "ShowBack"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Image",
+                        "id":"Lotus3",
+                        "params": {
+                          "source": "cache/lotus3.png",
+                          "anchor": 0,
+                          "width": 0,
+                          "height": 95,
+                          "x": 0,
+                          "y": 0,
+                          "listeners": [
+                            {
+                              "type": "Move",
+                              "params": {
+                                "callback": ""
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "Fade"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "DisableEvent",
+                                "arg": "photosDropArea:Drop"
+                              }
+                            },
+                            {
+                              "type": "Droped",
+                              "params": {
+                                "callback": "SendMessage",
+                                "arg": "screen-5-i-player1:Show:Lotus3"
+                              }
+                            },
+                            {
+                              "type": "ReturnElement",
+                              "params": {
+                                "callback": "ShowBack"
+                              }
+                            }
+                          ]
                         }
                       }
                     ]
@@ -28219,18 +28038,18 @@
           {
             "type": "Info",
             "params": {
+              "source": "ui/info-2.png",
+              "anchor": 2,
               "width": 0,
               "height": 13,
-              "anchor": 6,
-              "source": "ui/info-6.png",
               "children": [
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 4/5 Le gardien de tombe",
+                    "content": "Glissez chaque photo à votre ami collectionneur",
                     "fontSize": 20,
-                    "textAlign": "center",
-                    "width": 60,
+                    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                    "width": 100,
                     "height": 100,
                     "anchor": 0,
                     "color": "0,0,0,255",
@@ -28239,6 +28058,53 @@
                       "backgroundColor": "",
                       "backgroundImage": ""
                     }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Info",
+            "params": {
+              "source": "ui/info-6.png",
+              "anchor": 6,
+              "width": 0,
+              "height": 13,
+              "x": 0,
+              "y": 0,
+              "children": [
+                {
+                  "type": "Text",
+                  "id":"InfoText",
+                  "params": {
+                    "content": "Etape 5/5 second défi",
+                    "fontSize": 20,
+                    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    },
+                    "listeners":[
+                      {
+                        "type": "DropGood",
+                        "params":{
+                          "callback":"SetText",
+                          "arg": "Ton ami collectionneur a bien placé l'objet sur le plan! Envoie-lui une nouvelle photo!"
+                        }
+                      },
+                      {
+                        "type": "DropBad",
+                        "params":{
+                          "callback":"SetText",
+                          "arg": "Ton ami explorateur n'a pas trouvé la place de l'objet sur le plan ! Renvoie-lui la photo!"
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -28290,6 +28156,13 @@
                   "params": {
                     "callback": "LocalMessage",
                     "arg":  "Dashboard:Show:Bouddha"
+                  }
+                },
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "LocalMessage",
+                    "arg":  "Dashboard:Ended:CollectionText"
                   }
                 }
               ]
@@ -28359,7 +28232,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "Bravo vous avez reçu l’enseignement du Bouddha, rapportez ce Buddha en France, vos amis pourront ainsi l'admirer !",
+                          "content": "Bravo vous avez reçu l’enseignement du Bouddha, rapportez ce Bouddha en France, vos amis pourront ainsi l'admirer !",
                           "fontSize": 24,
                           "width": 80,
                           "height": 90,
@@ -28391,7 +28264,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Félicitation !",
+                    "content": "Etape 5/5 : dernier défi réussi,  félicitations ! ",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -28452,6 +28325,13 @@
                   "params": {
                     "callback": "LocalMessage",
                     "arg":  "Dashboard:Show:Bouddha"
+                  }
+                },
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "LocalMessage",
+                    "arg":  "Dashboard:Ended:CollectionText"
                   }
                 }
               ]
@@ -28553,7 +28433,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Félicitation !",
+                    "content": "Etape 5/5 : dernier défi réussi,  félicitations ! ",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -28675,14 +28555,25 @@
                   }
                 },
                 {
-                  "type": "Image",
+                  "type": "Group",
                   "params": {
-                    "source": "cache/bateau1.png",
                     "anchor": 8,
-                    "width": 0,
-                    "height": 50,
-                    "x": 0,
-                    "y": 0
+                    "width": 50,
+                    "height": 0,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/bateau1.png",
+                          "anchor": 0,
+                          "width": 90,
+                          "height": 0,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
                   }
                 },
                 {
@@ -28849,15 +28740,27 @@
                     "y": 0
                   }
                 },
+
                 {
-                  "type": "Image",
+                  "type": "Group",
                   "params": {
-                    "source": "cache/bateau1.png",
                     "anchor": 8,
-                    "width": 0,
-                    "height": 50,
-                    "x": 0,
-                    "y": 0
+                    "width": 50,
+                    "height": 0,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Image",
+                        "params": {
+                          "source": "cache/bateau1.png",
+                          "anchor": 0,
+                          "width": 90,
+                          "height": 0,
+                          "x": 0,
+                          "y": 0
+                        }
+                      }
+                    ]
                   }
                 },
                 {
@@ -29074,7 +28977,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Etape 1/5 La Tigresse",
+                    "content": "A bientôt ! ",
                     "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
                     "fontSize": 20,
                     "textAlign": "center",
@@ -29648,7 +29551,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Ligne éditoriale\r\n Kristel Fauconnier    Julia Moreira\r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
+                    "content": "Ligne éditoriale\r\n Kristel Fauconnier    Julia Moreira\r\n Scarlett Greco \r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
                     "fontSize": 20,
                     "width": 80,
                     "height": 100,
@@ -29756,7 +29659,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Ligne éditoriale\r\n Kristel Fauconnier    Julia Moreira\r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
+                    "content": "Ligne éditoriale\r\n Kristel Fauconnier    Julia Moreira\r\n Scarlett Greco \r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
                     "fontSize": 20,
                     "width": 80,
                     "height": 100,
