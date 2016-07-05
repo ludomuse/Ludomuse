@@ -1,5 +1,8 @@
 #include "../Include/CSpriteNode.h"
 #include "../Include/CSceneNode.h"
+#include "../Include/CLabelNode.h"
+
+#include <QDebug>
 
 using namespace cocos2d;
 
@@ -68,6 +71,40 @@ int CSpriteNode::GetAnchor()
 void CSpriteNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
 {
     // TODO
+    rapidjson::Value spriteNode(rapidjson::kObjectType);
+    spriteNode.AddMember("type", "Image", a_rAllocator);
+    rapidjson::Value params(rapidjson::kObjectType);
+    params.AddMember("source", rapidjson::Value(m_sSpriteFilename.c_str(), m_sSpriteFilename.length()) , a_rAllocator);
+    params.AddMember("anchor", m_eAnchor, a_rAllocator);
+    params.AddMember("width", m_iWidth, a_rAllocator);
+    params.AddMember("height", m_iHeight, a_rAllocator);
+    params.AddMember("x", m_iXPosition, a_rAllocator);
+    params.AddMember("y", m_iYPosition, a_rAllocator);
+
+    if(!this->m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    spriteNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(spriteNode, a_rAllocator);
+    /*{
+            "type": "Image",
+            "params": {
+              "source": "cache/white.png",
+              "anchor": 8,
+              "width": 100,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          */
 }
 
 } // namespace LM

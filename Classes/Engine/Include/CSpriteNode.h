@@ -38,7 +38,7 @@ class CSpriteNode : public CEntityNode
   /// \brief return current anchor
   int GetAnchor();
 
-  virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+  virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
 
  private:
   void DisplayNewImage(const std::string&);
