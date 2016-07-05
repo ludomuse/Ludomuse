@@ -19,7 +19,7 @@ namespace LM
     std::string m_sName;
     EUserSex m_eSex;
 
-	bool m_bWaiting;
+	volatile bool m_bWaiting;
 
 	SUser() : m_iPlayerID(0), m_sName(""), m_eSex(EUserSex::MALE), m_bWaiting(false)
 	{}

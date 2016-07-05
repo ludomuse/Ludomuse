@@ -184,231 +184,309 @@
 	    [
 		"screen-4-k-player1",
 		"screen-4-k-player2"
-	    ]
+	    ],
+		[
+			"screen-generique",
+			"screen-generique"
+		]
 	],
 	"screens": [
-		    {
-		"scene": "screen-peers",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "enabled": true,
-			    "action": "next",
-			    "children": [
+		{
+			"scene": "screen-peers",
+			"navigation": [
 				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ],
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 6,
-			    "source": "ui/info-6.png",
-			    "children": [
-				{
-				    "type": "Group",
-				    "params": {
-					"anchor": 0,
-					"width": 60,
-					"height": 100,
-					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-04.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
-						"type": "Text",
-						"params": {
-						    "content": "Nous recherchons les partenaires de jeu autour de toi, cela ne prendra qu'un instant...",
-						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-						    "fontSize": 20,
-						    "textAlign": "center",
-						    "width": 80,
-						    "anchor": 4,
-						    "color": "0,0,0,255"
-						}
-					    }
-					]
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Info",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 2,
-			    "source": "ui/info-2.png",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "étape 3 : Avec qui veux-tu jouer ?",
-					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-					"fontSize": 20,
-					"textAlign": "center",
-					"width": 80,
-					"anchor": 0,
-					"color": "0,0,0,255"
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100
-			}
-		    },
-		    {
-                        "type": "Peers",
-                        "params": {
-                            "anchor": 0,
-                            "width": 50,
-                            "height": 50,
-                            "listeners" : [
-                                {
-                                    "type": "Peers",
-                                    "params": {
-                                        "callback" :"BuildPeerNodes"
-                                    }
-                                }
-                            ],
-                            "children": [
-                                {
-                                    "type": "Group",
-                                    "params": {
-                                        "anchor": 0,
-                                        "width": 100,
-                                        "height": 100,
-                                        "listeners": [
-                                            {
-                                                "type": "Touch",
-                                                "params": {
-                                                    "callback": "ConnectPeer",
-                                                    "arg": false
-                                                }
-                                            },
-					    {
-						"type": "Touch",
-						"params": {
-						    "callback": "ValidateScene",
-						    "arg": true
-						}
-					    }
-                                        ],
-                                        "children": [
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "ui/cache-noir-70.png",
-                                                    "anchor": 0,
-                                                    "width": 80,
-                                                    "height": 80,
-                                                    "x": 0,
-                                                    "y": 0
-                                                }
-                                            },
-                                            {
-                                                "type": "Text",
-                                                "params": {
-                                                    "content": "Scène 1",
-                                                    "fontSize": 24,
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "color": "",
-                                                    "listeners" : [
-                                                        {
-                                                            "type": "GetText",
-                                                            "params": {
-                                                                "callback" : "",
-                                                                "arg": ""
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-
-                                        ]
-                                    }
-
-                                }
-                            ]
-                        }
-                    },
-			{
-				"type": "Image",
-				"params": {
-					"source": "ui/cache-noir-50.png",
-					"anchor": 4,
-					"width": 20,
-					"height": 20,
-					"children": [
-						{
-							"type": "Text",
-							"params": {
-								"content": "ACTUALISER",
-								"width": 50,
-								"height": 50,
-								"anchor": 0,
-								"color": ""
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"enabled": true,
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "PRÊT!",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
 							}
-						}
-					],
-					"listeners": [
-						{
-							"type": "Touch",
-							"params": {
-								"callback": "RefreshPeers"
+						],
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
 							}
-						}
-					]
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"enabled": true,
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "PRÉCÉDENT",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
 				}
-			}
-		]
-	    },
+			],
+			"information": [
+				{
+					"type": "Info",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 6,
+						"source": "ui/info-6.png",
+						"children": [
+							{
+								"type": "Group",
+								"params": {
+									"anchor": 0,
+									"width": 60,
+									"height": 100,
+									"children": [
+										{
+											"type": "Image",
+											"params": {
+												"source": "ui/Assets/PNG/picto_doigt.png",
+												"anchor": 8,
+												"width": 0,
+												"height": 80
+											}
+										},
+										{
+											"type": "Text",
+											"id": "infoPeer",
+											"params": {
+												"content": "Choisis ton partenaire!",
+												"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+												"fontSize": 20,
+												"textAlign": "center",
+												"width": 80,
+												"anchor": 0,
+												"color": "0,0,0,255",
+												"listeners": [
+													{
+														"type": "PeerChoose",
+														"params": {
+
+															"callback": "SetText",
+															"arg": "Quelqu'un vous a choisi ! Cliquez \"prêt !\" pour continuer"
+														}
+													},
+													{
+														"type": "PeerChooseDist",
+														"params": {
+															"callback": "SetText",
+															"arg": "Quelqu'un vous a choisi ! Cliquez \"prêt !\" pour continuer"
+														}
+													},
+													{
+														"type": "PeerChooseDist",
+														"params": {
+															"callback": "ValidateScene",
+															"arg": true
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Info",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 2,
+						"source": "ui/info-2.png",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Avec qui veux-tu jouer ?",
+									"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+									"fontSize": 20,
+									"textAlign": "center",
+									"width": 80,
+									"anchor": 0,
+									"color": "0,0,0,255"
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background1LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 0,
+						"width": 100,
+						"height": 90,
+						"children": [
+							{
+								"type": "Peers",
+								"params": {
+									"anchor": 0,
+									"width": 80,
+									"height": 50,
+									"listeners" : [
+										{
+											"type": "Peers",
+											"params": {
+												"callback" :"BuildPeerNodes"
+											}
+										}
+									],
+									"children": [
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"listeners": [
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "ConnectPeer",
+															"arg": false
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "ValidateScene",
+															"arg": true
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "LocalMessage",
+															"arg": "screen-peers:PeerChoose:infoPeer"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-peers:PeerChooseDist:infoPeer"
+														}
+													}
+												],
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-noir-70.png",
+															"anchor": 0,
+															"width": 80,
+															"height": 80,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "Scène 1",
+															"fontSize": 24,
+															"anchor": 0,
+															"width": 100,
+															"height": 100,
+															"x": 0,
+															"y": 0,
+															"color": "",
+															"listeners" : [
+																{
+																	"type": "GetText",
+																	"params": {
+																		"callback" : "",
+																		"arg": ""
+																	}
+																}
+															]
+														}
+													}
+
+												]
+											}
+
+										}
+									]
+								}
+							},
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-50.png",
+									"anchor": 4,
+									"width": 20,
+									"height": 20,
+									"children": [
+										{
+											"type": "Text",
+											"params": {
+												"content": "ACTUALISER",
+												"width": 50,
+												"height": 50,
+												"anchor": 0,
+												"color": ""
+											}
+										}
+									],
+									"listeners": [
+										{
+											"type": "Touch",
+											"params": {
+												"callback": "RefreshPeers"
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-1-a",
 		"navigation": [
@@ -13515,7 +13593,82 @@
 			}
 		    }
 		]
-	    }
+	    },
+		{
+			"scene": "screen-generique",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"enabled": true,
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Commencer",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/backgroundFactory.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso4.png",
+						"anchor": 7,
+						"width": 0,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"source": "ui/cache-noir-70.png",
+						"anchor": 4,
+						"width": 50,
+						"height": 87,
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Ligne éditoriale\r\n Guillaume Ducongé    Laurence D'haene\r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
+									"font": "fonts/arial.ttf",
+									"fontSize": 22,
+									"width": 80,
+									"height": 100,
+									"anchor": 0,
+									"color": ""
+								}
+							}
+						]
+					}
+				}
+			]
+		}
 	]
     }
 }

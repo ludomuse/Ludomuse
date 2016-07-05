@@ -258,10 +258,13 @@ public class WifiDirectManager {
 	{
 		if (requestForServicePeersDiscoveringAlreadyLaunched)
 		{
-			DebugManager
+			/*DebugManager
 					.print("request for service peers discovering already Launched. Please wait.",
 							DEBUGGER_CHANNEL);
-			return;
+			return;*/
+			DebugManager
+					.print("request for service peers discovering already Launched. Re-launch ",
+							DEBUGGER_CHANNEL);
 		}
 		else
 		{
