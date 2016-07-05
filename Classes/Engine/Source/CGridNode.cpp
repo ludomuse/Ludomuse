@@ -51,4 +51,32 @@ Vec2 CGridNode::GetOrigin()
 	return oNodeOrigin;
 }
 
+void CGridNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator)
+{
+
+    rapidjson::Value gridNode(rapidjson::kObjectType);
+    gridNode.AddMember("type", "Grid", a_rAllocator);
+    rapidjson::Value params(rapidjson::kObjectType);
+    params.AddMember("cols", m_iCols, a_rAllocator);
+    params.AddMember("rows", m_iRows, a_rAllocator);
+    params.AddMember("anchor", m_eAnchor, a_rAllocator);
+    params.AddMember("width", m_iWidth, a_rAllocator);
+    params.AddMember("height", m_iHeight, a_rAllocator);
+    params.AddMember("x", m_iXPosition, a_rAllocator);
+    params.AddMember("y", m_iYPosition, a_rAllocator);
+
+    if(!this->m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    gridNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(gridNode, a_rAllocator);
+}
+
 } // namespace LM
