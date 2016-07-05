@@ -56,6 +56,10 @@ void CGridNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::Allocat
 
     rapidjson::Value gridNode(rapidjson::kObjectType);
     gridNode.AddMember("type", "Grid", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        gridNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
     rapidjson::Value params(rapidjson::kObjectType);
     params.AddMember("cols", m_iCols, a_rAllocator);
     params.AddMember("rows", m_iRows, a_rAllocator);

@@ -19,6 +19,10 @@ void CInfoNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
 //    qDebug("Parsing CInfoNode");
     rapidjson::Value info(rapidjson::kObjectType);
     info.AddMember("type", "Info", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        info.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
 
     rapidjson::Value params(rapidjson::kObjectType);
     params.AddMember("source", rapidjson::Value(m_sSpriteFilename.c_str(), m_sSpriteFilename.length()), a_rAllocator);

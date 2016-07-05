@@ -105,6 +105,10 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
 {
     rapidjson::Value menu(rapidjson::kObjectType);
     menu.AddMember("type", "Nav", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        menu.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
 
     // Create params properties
     rapidjson::Value params(rapidjson::kObjectType);

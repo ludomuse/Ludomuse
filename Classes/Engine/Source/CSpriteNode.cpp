@@ -73,6 +73,11 @@ void CSpriteNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloc
     // TODO
     rapidjson::Value spriteNode(rapidjson::kObjectType);
     spriteNode.AddMember("type", "Image", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        spriteNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
+
     rapidjson::Value params(rapidjson::kObjectType);
     params.AddMember("source", rapidjson::Value(m_sSpriteFilename.c_str(), m_sSpriteFilename.length()) , a_rAllocator);
     params.AddMember("anchor", m_eAnchor, a_rAllocator);

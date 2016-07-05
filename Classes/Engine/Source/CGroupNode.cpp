@@ -62,6 +62,10 @@ void CGroupNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::Alloca
 {
     rapidjson::Value groupNode(rapidjson::kObjectType);
     groupNode.AddMember("type", "Group", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        groupNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
     rapidjson::Value params(rapidjson::kObjectType);
     if(!m_sBackgroundSource.empty())
     {

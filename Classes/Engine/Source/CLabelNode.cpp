@@ -92,6 +92,10 @@ void CLabelNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
 {
     rapidjson::Value labelNode(rapidjson::kObjectType);
     labelNode.AddMember("type","Text",a_rAllocator);
+    if(!m_sID.empty())
+    {
+        labelNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
 
     rapidjson::Value params(rapidjson::kObjectType);
     params.AddMember("content", rapidjson::Value(m_sText.c_str(), m_sText.length()),a_rAllocator);

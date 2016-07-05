@@ -97,6 +97,10 @@ void CPeerNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::Allocat
 
     rapidjson::Value peerNode(rapidjson::kObjectType);
     peerNode.AddMember("type", "Peers", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        peerNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
     rapidjson::Value params(rapidjson::kObjectType);
     params.AddMember("anchor", m_eAnchor, a_rAllocator);
     params.AddMember("width", m_iWidth, a_rAllocator);
