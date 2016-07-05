@@ -184,6 +184,53 @@ void CCameraFeedNode::Init()
 	CSpriteNode::Init();
 }
 
+
+void CCameraFeedNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    rapidjson::Value cameraFeedNode(rapidjson::kObjectType);
+    cameraFeedNode.AddMember("type", "Camera", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        cameraFeedNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
+    rapidjson::Value params(rapidjson::kObjectType);
+    params.AddMember("mask", rapidjson::Value(m_sMaskPath.c_str(), m_sMaskPath.length()) , a_rAllocator);
+    if(m_bIsReceiver)
+    {
+        params.AddMember("isReceiver", true, a_rAllocator);
+    }
+    params.AddMember("anchor", m_eAnchor, a_rAllocator);
+    params.AddMember("width", m_iWidth, a_rAllocator);
+    params.AddMember("height", m_iHeight, a_rAllocator);
+    params.AddMember("x", m_iXPosition, a_rAllocator);
+    params.AddMember("y", m_iYPosition, a_rAllocator);
+
+//    {
+//                "type": "Camera",
+//                "id":  "camera-p1",
+//                "params": {
+//                  "mask": "cache/bouddha1.png",
+//                  "anchor": 0,
+//                  "width": 0,
+//                  "height": 73
+//                }
+//              }
+
+    if(!this->m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    cameraFeedNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(cameraFeedNode, a_rAllocator);
+
+}
+
 void CCameraFeedNode::PictureTaken()
 {
 #ifdef __ANDROID__

@@ -16,7 +16,7 @@ CInfoNode::CInfoNode(const std::string &a_rFilename, EAnchor a_eAnchor, int a_iW
 
 void CInfoNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
 {
-    qDebug("Parsing CInfoNode");
+//    qDebug("Parsing CInfoNode");
     rapidjson::Value info(rapidjson::kObjectType);
     info.AddMember("type", "Info", a_rAllocator);
 

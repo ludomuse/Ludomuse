@@ -43,7 +43,7 @@ void CEditBoxNode::Init()
   CNode::Init();
 }
 
-void CEditBoxNode::ToJson(rapidjson::Value &a_rParent, rapidjson::GenericDocument::AllocatorType &a_rAllocator)
+void CEditBoxNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator)
 {
     rapidjson::Value editBoxNode(rapidjson::kObjectType);
     editBoxNode.AddMember("type", "EditBox", a_rAllocator);
