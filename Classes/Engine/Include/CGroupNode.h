@@ -22,9 +22,10 @@ private:
                     int a_iYPosition = 0,
 	  const std::string& a_rBackgroundSource = "");
   virtual void Init() override;
-
+    virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
   
 };
+
 
 
 } // namespace LM

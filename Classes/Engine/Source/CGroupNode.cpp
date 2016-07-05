@@ -58,5 +58,35 @@ void CGroupNode::Init()
   CNode::Init();
 }
 
+void CGroupNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator)
+{
+    rapidjson::Value groupNode(rapidjson::kObjectType);
+    groupNode.AddMember("type", "Group", a_rAllocator);
+    rapidjson::Value params(rapidjson::kObjectType);
+    if(!m_sBackgroundSource.empty())
+    {
+        params.AddMember("source", rapidjson::Value(m_sBackgroundSource.c_str(), m_sBackgroundSource.length()) , a_rAllocator);
+    }
+    params.AddMember("anchor", m_eAnchor, a_rAllocator);
+    params.AddMember("width", m_iWidth, a_rAllocator);
+    params.AddMember("height", m_iHeight, a_rAllocator);
+    params.AddMember("x", m_iXPosition, a_rAllocator);
+    params.AddMember("y", m_iYPosition, a_rAllocator);
+
+    if(!this->m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    groupNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(groupNode, a_rAllocator);
+
+
+}
 
 } // namespace LM
