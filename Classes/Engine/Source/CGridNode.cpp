@@ -69,6 +69,13 @@ void CGridNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::Allocat
     params.AddMember("x", m_iXPosition, a_rAllocator);
     params.AddMember("y", m_iYPosition, a_rAllocator);
 
+    if(!this->m_mListeners.empty())
+    {
+        rapidjson::Value listeners(rapidjson::kArrayType);
+        CEntityNode::ToJsonListener(listeners, a_rAllocator);
+        params.AddMember("listeners", listeners, a_rAllocator);
+    }
+
     if(!this->m_vChildren.empty())
     {
         rapidjson::Value children(rapidjson::kArrayType);

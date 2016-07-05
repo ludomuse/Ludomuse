@@ -31,6 +31,13 @@ void CInfoNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     params.AddMember("height", m_iHeight, a_rAllocator);
 
     rapidjson::Value children(rapidjson::kArrayType);
+
+    if(!this->m_mListeners.empty())
+    {
+        rapidjson::Value listeners(rapidjson::kArrayType);
+        CEntityNode::ToJsonListener(listeners, a_rAllocator);
+        params.AddMember("listeners", listeners, a_rAllocator);
+    }
     if(!this->m_vChildren.empty())
     {
         rapidjson::Value children(rapidjson::kArrayType);

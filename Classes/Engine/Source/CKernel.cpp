@@ -120,54 +120,11 @@ std::string CKernel::ToJson(){
 
     document.AddMember("app", app, allocator);
 
-//    writer.StartObject();
-//    {
-//        writer.Key("app");
-//        writer.StartObject();
-//        {
-//            writer.Key("debug");
-//            writer.Bool(true);
-//            writer.Key("colors");
-//            writer.StartArray();
-//            {
-//            }
-//            writer.EndArray();
-//            writer.Key("images");
-//            writer.StartArray();
-//            {
-//            }
-//            writer.EndArray();
-//            writer.Key("videos");
-//            writer.StartArray();
-//            {
-//            }
-//            writer.EndArray();
-//            writer.Key("sounds");
-//            writer.StartArray();
-//            {
-//            }
-//            writer.EndArray();
-//            writer.Key("scenes");
-//            writer.StartArray();
-//            {
-//                this->ScenesToJson(writer);
-//            }
-//            writer.EndArray();
-//            writer.Key("screens");
-//            writer.StartArray();
-//            {
-//                this->ScreensToJson(writer);
-//            }
-//            writer.EndArray();
-//        }
-//        writer.EndObject();
-//    }
-//    writer.EndObject();
 
 
     document.Accept(writer);
+    qDebug()<<s.GetString();
     qDebug()<<"Fin de la traduction ----- Resultat";
-    //qDebug()<<s.GetString();
     return s.GetString();
 }
 

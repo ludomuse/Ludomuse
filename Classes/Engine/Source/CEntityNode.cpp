@@ -2,6 +2,8 @@
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
 
+#include <QDebug>
+
 #include "cocos2d.h"
 
 using namespace cocos2d;
@@ -382,6 +384,56 @@ void CEntityNode::FadeIn()
 void CEntityNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
 {
     // NOTHING TO DO
+}
+
+void CEntityNode::ToJsonListener(rapidjson::Value& a_rListeners, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    std::map<std::string, std::vector<CEventCallback>>::iterator it;
+    for(it = m_mListeners.begin();
+        it != m_mListeners.end();
+        ++it)
+    {
+        for(CEventCallback& currentEvent : it->second)
+        {
+            rapidjson::Value listener(rapidjson::kObjectType);
+            const std::string &type = it->first;
+            listener.AddMember("type", rapidjson::Value(type.c_str(), type.length()), a_rAllocator);
+            rapidjson::Value params(rapidjson::kObjectType);
+            params.AddMember("callback",
+                             rapidjson::Value(currentEvent.getCallbackName().c_str(), currentEvent.getCallbackName().length()),
+                             a_rAllocator);
+            const SEvent& tamponEvent = currentEvent.getArg();
+            switch(tamponEvent.m_eArg){
+            case SEvent::NONE:
+                break;
+            case SEvent::STRING:
+                params.AddMember("arg",
+                                 rapidjson::Value(tamponEvent.m_sStringValue.c_str(), tamponEvent.m_sStringValue.length()),
+                                 a_rAllocator);
+                break;
+            case SEvent::BOOLEAN:
+                params.AddMember("arg", tamponEvent.m_bBoolValue,a_rAllocator);
+                break;
+            case SEvent::NUMBER:
+                params.AddMember("arg", tamponEvent.m_iIntValue,a_rAllocator);
+                break;
+            }
+            listener.AddMember("params", params, a_rAllocator);
+            a_rListeners.PushBack(listener, a_rAllocator);
+        }
+    }
+
+
+//	if (it != m_mListeners.end())
+//	{
+//		it->second.push_back(a_rCallback);
+//	}
+//	else
+//	{
+//		std::vector<CEventCallback> oCallbacks;
+//		oCallbacks.push_back(a_rCallback);
+//		m_mListeners.insert(std::pair<std::string, std::vector<CEventCallback>>(a_rEvent, oCallbacks));
+//	}
 }
 
 bool CEntityNode::Lock(CEntityNode* a_pEntity)

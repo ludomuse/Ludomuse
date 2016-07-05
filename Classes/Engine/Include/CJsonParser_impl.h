@@ -109,7 +109,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		pEntity = new CMenuNode(
 			rParams["normal"].GetString(),
 			rParams["selected"].GetString(),
-			CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
+            CCallback<CKernel, cocos2d::Ref*>("Nav", m_pKernel,
 				(std::string(rParams["action"].GetString()) == "next") ?
 				&CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
