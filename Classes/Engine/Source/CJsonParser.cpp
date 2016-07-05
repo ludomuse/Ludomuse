@@ -185,7 +185,6 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	{
         CEventCallback oCallback(sCallbackString, m_pKernel, nullptr);
         a_pEntity->AddListener(sType, oCallback);
-        qDebug()<<"appel de callback personnelle "<< sType.c_str();
 	}
 
 	return true;

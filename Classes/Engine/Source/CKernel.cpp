@@ -114,12 +114,12 @@ std::string CKernel::ToJson(){
     this->ScenesToJson(scenes, allocator);
     app.AddMember("scenes", scenes, allocator);
     rapidjson::Value screens(rapidjson::kArrayType);
+    m_pDashboard->ToJson(screens, allocator);
     this->ScreensToJson(screens, allocator);
     app.AddMember("screens", screens, allocator);
 
 
     document.AddMember("app", app, allocator);
-
 
 
     document.Accept(writer);
