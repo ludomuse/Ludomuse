@@ -1,4 +1,7 @@
 #include "../Include/CLabelNode.h"
+#include "../Include/CSpriteNode.h"
+
+#include <QDebug>
 
 using namespace cocos2d;
 
@@ -83,6 +86,46 @@ void CLabelNode::SetText(const std::string& a_rText)
 const std::string& CLabelNode::GetText() const
 {
     return m_sText;
+}
+
+void CLabelNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    rapidjson::Value labelNode(rapidjson::kObjectType);
+    labelNode.AddMember("type","Text",a_rAllocator);
+
+    rapidjson::Value params(rapidjson::kObjectType);
+    params.AddMember("content", rapidjson::Value(m_sText.c_str(), m_sText.length()),a_rAllocator);
+    params.AddMember("font",rapidjson::Value(m_sFontName.c_str(), m_sFontName.length()),a_rAllocator);
+    params.AddMember("fontSize", m_iFontSize, a_rAllocator);
+    params.AddMember("textAlign", rapidjson::Value(m_sTextAlign.c_str(), m_sTextAlign.length()),a_rAllocator);
+    params.AddMember("width", m_iWidth,a_rAllocator);
+    params.AddMember("height", m_iHeight,a_rAllocator);
+    params.AddMember("anchor", m_eAnchor,a_rAllocator);
+    params.AddMember("color", rapidjson::Value(m_sFontColor.c_str(), m_sFontColor.length()),a_rAllocator);
+    /* "type": "Text",
+     "params": {
+       "content": "SUIVANT",
+       "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+       "fontSize": 20,
+       "textAlign": "right",
+       "width": 80,
+       "height": 100,
+       "anchor": 0,
+       "color": ""
+     }*/
+
+    if(!this->m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    labelNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(labelNode, a_rAllocator);
 }
 
 } // namespace LM
