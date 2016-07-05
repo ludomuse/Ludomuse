@@ -27,6 +27,8 @@ class CPeerNode : public CGridNode
 
   virtual void AddPeers(const std::vector<std::string>& a_vPeers);
 
+  virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
+
 
  private: // methods
   bool ReplaceLabelValue(CNode* a_pNode, const std::string& a_sPeerName);
