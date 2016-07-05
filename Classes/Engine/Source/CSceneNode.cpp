@@ -150,23 +150,23 @@ void CSceneNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
     for(CNode* currentNode : this->m_vChildren)
     {
         // Special process (navigation and information)
-        qDebug("cast en CMenuNode");
+//        qDebug("cast en CMenuNode");
         CMenuNode* pMenuNode = dynamic_cast<CMenuNode*>(currentNode);
         if(pMenuNode)
         {
             pMenuNode->ToJson(navigation, a_rAllocator);
             continue;
         }
-        qDebug("cast en CInfoNode");
+//        qDebug("cast en CInfoNode");
         CInfoNode* pInfoNode = dynamic_cast<CInfoNode*>(currentNode);
         if(pInfoNode)
         {
             pInfoNode->ToJson(information, a_rAllocator);
             continue;
         }
-        qDebug("Default comp");
-        content.PushBack("content Node", a_rAllocator);
+//        qDebug("Default comp");
         // Else do default process (content)
+        currentNode->ToJson(content, a_rAllocator);
 
     }
 
