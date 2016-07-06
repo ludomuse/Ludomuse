@@ -422,18 +422,29 @@ void CEntityNode::ToJsonListener(rapidjson::Value& a_rListeners, rapidjson::Docu
             a_rListeners.PushBack(listener, a_rAllocator);
         }
     }
+}
 
 
-//	if (it != m_mListeners.end())
-//	{
-//		it->second.push_back(a_rCallback);
-//	}
-//	else
-//	{
-//		std::vector<CEventCallback> oCallbacks;
-//		oCallbacks.push_back(a_rCallback);
-//		m_mListeners.insert(std::pair<std::string, std::vector<CEventCallback>>(a_rEvent, oCallbacks));
-//	}
+
+int CEntityNode::GetWidth()
+{
+    return this->m_iWidth;
+}
+
+int CEntityNode::GetHeight()
+{
+
+    return this->m_iHeight;
+}
+
+void CEntityNode::SetWidth(int a_iWidth)
+{
+    ON_CC_THREAD(CEntityNode::ChangeWidth, this, a_iWidth);
+}
+
+void CEntityNode::SetHeight(int a_iHeight)
+{
+    ON_CC_THREAD(CEntityNode::ChangeHeight, this, a_iHeight);
 }
 
 bool CEntityNode::Lock(CEntityNode* a_pEntity)
@@ -465,6 +476,23 @@ void CEntityNode::Release(CEntityNode* a_pEntity)
 			CEntityNode::Release(pEntity);
 		}
 	}
+}
+
+
+void CEntityNode::ChangeWidth(int a_iWidth)
+{
+    this->m_iWidth = a_iWidth;
+    CSceneNode* pSceneNode = GetParentSceneNode();
+    pSceneNode->UnInit();
+    pSceneNode->Init();
+}
+
+void CEntityNode::ChangeHeight(int a_iHeight)
+{
+    this->m_iHeight = a_iHeight;
+    CSceneNode* pSceneNode = GetParentSceneNode();
+    pSceneNode->UnInit();
+    pSceneNode->Init();
 }
 
 

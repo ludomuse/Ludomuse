@@ -148,6 +148,14 @@ class CEntityNode : public CNode
 
   virtual void ToJsonListener(rapidjson::Value& a_rListeners, rapidjson::Document::AllocatorType& a_rAllocator);
 
+  int GetWidth();
+
+  int GetHeight();
+
+  void SetWidth(int a_iWidth);
+
+  void SetHeight(int a_iHeight);
+
   ////////////////////////// Static methods
   static bool Lock(CEntityNode* a_pEntity);
 
@@ -170,6 +178,10 @@ class CEntityNode : public CNode
   virtual cocos2d::Size GetVisibleSize();
 
   virtual cocos2d::Vec2 GetOrigin();
+
+  void ChangeWidth(int a_iWidth);
+
+  void ChangeHeight(int a_iHeight);
 
 
 };
