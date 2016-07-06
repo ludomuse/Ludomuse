@@ -178,10 +178,9 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 	else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
 	{
 		WriteStats();
-		Director::getInstance()->end();
 	}
+	Director::getInstance()->end();
 	
-
 }
 
 
