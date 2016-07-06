@@ -21,7 +21,9 @@ namespace LM
 
 	volatile bool m_bWaiting;
 
-	SUser() : m_iPlayerID(0), m_sName(""), m_eSex(EUserSex::MALE), m_bWaiting(false)
+	bool m_bGameEnded;
+
+	SUser() : m_iPlayerID(0), m_sName(""), m_eSex(EUserSex::MALE), m_bWaiting(false), m_bGameEnded(false)
 	{}
 
 	virtual void writeOn(bytes* msg) override

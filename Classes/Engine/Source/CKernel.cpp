@@ -58,8 +58,9 @@ namespace LM
 		m_pDistantPlayer(new SUser()),
 		m_pDashboard(nullptr),
 		m_pCurrentScene(nullptr),
-		m_pWaitingScene(nullptr)
-{
+		m_pWaitingScene(nullptr),
+		m_pRemoteStats(nullptr)
+	{
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
 
@@ -164,6 +165,8 @@ void CKernel::Init()
 
 void CKernel::EndGame(SEvent, CEntityNode*)
 {
+	m_pLocalPlayer->m_bGameEnded = true;
+
 	if (m_pLocalPlayer->m_iPlayerID == 1)
 	{
 		CSerializableStats oSStats(M_STATS->GetStats());
@@ -172,22 +175,29 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 		b << M_STATS_EVENT << oSStats;
 		m_pNetworkManager->Send(b);
 	}
+	else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
+	{
+		WriteStats();
+		Director::getInstance()->end();
+	}
+	
+
 }
 
 
-void CKernel::WriteStats(CSerializableStats* a_pSStats)
+void CKernel::WriteStats()
 {
 
 	// TODO write stats to file on filesystem
 	std::stringstream ss;
-	ss << *a_pSStats;
+	ss << *m_pRemoteStats;
 	CCLOG("[LUDO_STATS] ******************************************************************");
 	CCLOG("[LUDO_STATS] remote peer : ");
 	CCLOG("%s", ss.str().c_str());
 
 
 	std::map<std::string, SScreenStats> mLocalStats = M_STATS->GetStats();
-	std::map<std::string, SScreenStats> mRemoteStats = a_pSStats->m_mScreensStats;
+	std::map<std::string, SScreenStats> mRemoteStats = m_pRemoteStats->m_mScreensStats;
 
 	std::stringstream fileStream;
 
@@ -518,9 +528,13 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 		CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
 		break;
 	case M_STATS_EVENT:
-		CSerializableStats* pSStats;
-		a_rByteArray >> &pSStats;
-		WriteStats(pSStats);
+		a_rByteArray >> &m_pRemoteStats;
+		m_pDistantPlayer->m_bGameEnded = true;
+		if (m_pLocalPlayer->m_bGameEnded && m_pDistantPlayer->m_bGameEnded)
+		{
+			WriteStats();
+			Director::getInstance()->end();
+		}
 		break;
 	}
 }
