@@ -43,6 +43,8 @@ class CNode
   /// \param[in] a_pChild The child to add
   virtual void AddChildNode(CNode* a_pChild);
 
+  /// \brief add the node at after a node with specific id
+  void AddChildNodeAt(CNode* a_pChild, const std::string& a_rID);
   // begin and en in order to iterate node through foreach loop
   CNode::Iterator begin();
   CNode::Iterator end();
@@ -58,6 +60,8 @@ class CNode
   virtual bool OffsetCurrentNode(bool a_bNext);
 
   virtual bool SetCurrentNode(CNode* a_pNode);
+
+  virtual bool isSceneID(const std::string& a_rID);
 
   virtual CNode* GetOffsetNode(bool a_bNext);
 

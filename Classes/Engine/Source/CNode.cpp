@@ -1,5 +1,6 @@
 #include "../Include/CNode.h"
 
+#include <QDebug>
 
 namespace LM
 {
@@ -22,6 +23,24 @@ void CNode::AddChildNode(CNode* a_pChild)
 {
   a_pChild->m_pParent = this;
   m_vChildren.push_back(a_pChild);
+}
+
+void CNode::AddChildNodeAt(CNode* a_pChild, const std::string& a_rID)
+{
+    for(CNode* currentNode : this->m_vChildren)
+    {
+        // function should be called only on the behaviour tree
+        // There should be only CSceneNode in children vector
+        if(currentNode->isSceneID(a_rID))
+        {
+            int pos = find(m_vChildren.begin(), m_vChildren.end(), currentNode) - m_vChildren.begin();
+            qDebug()<<"Found children at index :"<<pos;
+            a_pChild->m_pParent = this;
+            m_vChildren.insert(m_vChildren.begin() + pos + 1, a_pChild);
+            return;
+        }
+    }
+    qDebug("No children found");
 }
 
 
@@ -84,6 +103,11 @@ bool CNode::SetCurrentNode(CNode* a_pNode)
 		}
 	}
 	return false;
+}
+
+bool CNode::isSceneID(const std::string &a_rID)
+{
+    return false;
 }
 
 CNode* CNode::GetOffsetNode(bool a_bNext)

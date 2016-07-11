@@ -172,26 +172,46 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
 {
     CSceneNode* newScene = new CSceneNode(a_sNewID, m_bDebugMode);
     qDebug("ckernel add new scene");
-    m_pJsonParser->BuildSceneNodeFromFile(newScene, "test.json");
-    this->m_pBehaviorTree->AddChildNode(newScene);
+    m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath);
+
+
     switch(a_iPlayerNumber)
     {
     case 0: // Both player
-        qDebug("Add for both player");
-        this->AddSceneID(1, a_sNewID);
-        this->AddSceneID(0, a_sNewID);
+        if((std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end()
+                && std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end())
+                || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean ading at end
+        {
+            this->AddSceneID(1, a_sNewID);
+            this->AddSceneID(0, a_sNewID);
+        }
         break;
     case 1: // Player 1 only
-        qDebug("Add for player 1");
-        this->AddSceneID(0, a_sNewID);
-        this->AddSceneID(1, "");
+        if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end()
+                || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean ading at end
+        {
+            this->AddSceneID(0, a_sNewID);
+            this->AddSceneID(1, "");
+        }
         break;
     case 2: // Player 2 only
-        qDebug("Add for player 2");
-        this->AddSceneID(0, "");
-        this->AddSceneID(1, a_sNewID);
+        if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end()
+                || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean ading at end
+        {
+            this->AddSceneID(0, "");
+            this->AddSceneID(1, a_sNewID);
+        }
         break;
     }
+    if(a_sPreviousID.empty()) // Adding scene at the end
+    {
+        qDebug("id empty -> adding at the end");
+        this->m_pBehaviorTree->AddChildNode(newScene);
+        emit(addingSceneFinished());
+        return;
+    }
+
+    this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
     emit(addingSceneFinished());
     qDebug("ckernel add new Scene ended");
 }

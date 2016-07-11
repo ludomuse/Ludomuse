@@ -47,4 +47,9 @@ void CParallelNode::ToJson(rapidjson::Value& parent, rapidjson::Document::Alloca
 
 }
 
+bool CParallelNode::isSceneID(const std::string& a_rID)
+{
+    return false;
+}
+
 } // namespace LM

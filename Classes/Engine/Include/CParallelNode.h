@@ -24,6 +24,8 @@ class CParallelNode : public CNode
   virtual void Finish() override;
 
   virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+
+  virtual bool isSceneID(const std::string &a_rID);
 };
 
 
