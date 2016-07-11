@@ -20,6 +20,8 @@
 #include "stringbuffer.h"
 #include "prettywriter.h"
 
+#include <QObject>
+
 namespace LM 
 {
 
@@ -35,8 +37,9 @@ class CEditorFindEntityTouchVisitor;
 /// \class CKernel
 /// \ingroup Engine
 /// \brief the kernel of the game engine. Containing the behavior tree
-class CKernel
+class CKernel : public QObject
 {
+    Q_OBJECT
  private:
   /// \brief the Behavior Tree of the game
   /// \details a pointer to the root node of the tree, usually a SequenceNode
@@ -89,6 +92,9 @@ public:
   /// \brief Add the m_sSceneID to a_iPlayerID
   void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
 
+  /// \brief Add a whole new scene to the BehaviorTree
+  void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID, int a_iPlayerNumber);
+
   /// \brief checks if the current player has this scene in his list
   bool PlayerHasScene(const std::string& a_sSceneID);
 
@@ -107,6 +113,7 @@ public:
   void Init();
 
   void WriteStats(CSerializableStats* a_oSStats);
+
 
 
   /// \brief find the CEntityNode under the a_pTouch touch event and listening to a_rEvent
@@ -132,6 +139,13 @@ public:
   void NavPrevious(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
 
   void GotoScreenID(SEvent a_rEvent, CEntityNode* a_pTarget);
+
+  /// \brief go to scene and capture it!
+  void CaptureScreenByID(SEvent a_rEvent, CEntityNode* a_pTarget);
+
+  /// Callback called after capturing screen
+  void afterCaptured(bool a_bSucceed, const std::string& outputFile);
+
   /// \brief automatically validate the current scene
   void ValidateScene(SEvent a_rEvent, CEntityNode* a_pTarget);
   /// \brief Finds the Validator in the scene and validate the given ID
@@ -170,6 +184,8 @@ private:
     void ScenesToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
     void ScreensToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
 
+signals:
+    void addingSceneFinished();
 };
 
 

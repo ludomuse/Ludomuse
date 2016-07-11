@@ -114,7 +114,10 @@ std::string CKernel::ToJson(){
     this->ScenesToJson(scenes, allocator);
     app.AddMember("scenes", scenes, allocator);
     rapidjson::Value screens(rapidjson::kArrayType);
-    m_pDashboard->ToJson(screens, allocator);
+    if(this->m_pDashboard != nullptr)
+    {
+        m_pDashboard->ToJson(screens, allocator);
+    }
     this->ScreensToJson(screens, allocator);
     app.AddMember("screens", screens, allocator);
 
@@ -163,6 +166,34 @@ CEditorFindEntityTouchVisitor* CKernel::GetEditorVisitor()
 void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 {
 	m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
+}
+
+void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a_sPreviousID, std::string a_sNewID, int a_iPlayerNumber)
+{
+    CSceneNode* newScene = new CSceneNode(a_sNewID, m_bDebugMode);
+    qDebug("ckernel add new scene");
+    m_pJsonParser->BuildSceneNodeFromFile(newScene, "test.json");
+    this->m_pBehaviorTree->AddChildNode(newScene);
+    switch(a_iPlayerNumber)
+    {
+    case 0: // Both player
+        qDebug("Add for both player");
+        this->AddSceneID(1, a_sNewID);
+        this->AddSceneID(0, a_sNewID);
+        break;
+    case 1: // Player 1 only
+        qDebug("Add for player 1");
+        this->AddSceneID(0, a_sNewID);
+        this->AddSceneID(1, "");
+        break;
+    case 2: // Player 2 only
+        qDebug("Add for player 2");
+        this->AddSceneID(0, "");
+        this->AddSceneID(1, a_sNewID);
+        break;
+    }
+    emit(addingSceneFinished());
+    qDebug("ckernel add new Scene ended");
 }
 
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
@@ -420,6 +451,32 @@ void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
     CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
 	oVisitor.Traverse(m_pBehaviorTree);
 
+}
+
+
+void CKernel::CaptureScreenByID(SEvent a_oEvent, CEntityNode* a_pTarget)
+{
+    qDebug()<<"Save screenshot of %s" << a_oEvent.m_sStringValue.c_str();
+    m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
+    CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
+    oVisitor.Traverse(m_pBehaviorTree);
+    std::string sFilePath = "D:\\IHMTEK\\LudoMuseEditorCocos\\build-LudoMuseEditor-Clone_de_Desktop_Qt_5_6_0_MSVC2015_32bit-Debug\\debug\\thumbnails\\";
+    sFilePath += a_oEvent.m_sStringValue;
+    sFilePath += ".png";
+    cocos2d::utils::captureScreen(CC_CALLBACK_2(CKernel::afterCaptured, this), sFilePath);
+}
+
+void CKernel::afterCaptured(bool succeed, const std::string& outputFile)
+{
+    if (succeed)
+    {
+        // show screenshot
+        qDebug("Capture screen succeed");
+    }
+    else
+    {
+        qDebug("Capture screen failed.");
+    }
 }
 
 void CKernel::ValidateScene(SEvent a_oEvent, CEntityNode* a_pTarget)

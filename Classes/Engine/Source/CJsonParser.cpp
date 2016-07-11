@@ -56,6 +56,22 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
   }
 }
 
+void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName)
+{
+    // init json document
+    qDebug("Jsonparser add new scene");
+    std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFileName);
+
+    m_oDocument.Parse(sJsonString.c_str());
+
+    if (m_oDocument.HasMember("template"))
+    {
+        qDebug("has member template");
+        RefJsonNode rScenes = m_oDocument["template"];
+        // Calling ParseJson with add scene params
+        ParseJson(rScenes, a_pNewScene, true, true);
+    }
+}
 
 bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 {

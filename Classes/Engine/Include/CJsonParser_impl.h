@@ -3,9 +3,8 @@
 
 /// \brief the specialisation building entities in a scene or subentities
 template <typename T>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible)
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible, bool a_bNewScene)
 {
-
 	assert(a_rJsonNode["type"].IsString());
 	// the object type
 	std::string sType = a_rJsonNode["type"].GetString();
@@ -302,13 +301,25 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 /// \brief the specialisation building a scene
 template <>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible, bool a_bNewScene)
 {
-	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel->m_bDebugMode);
-	if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
-		m_pKernel->m_pDashboard = pSceneNode;
-	else
-		a_pNode->AddChildNode(pSceneNode);
+    CSceneNode* pSceneNode;
+    if(! a_bNewScene)
+    {
+        pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel->m_bDebugMode);
+        if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
+            m_pKernel->m_pDashboard = pSceneNode;
+        else
+            a_pNode->AddChildNode(pSceneNode);
+    }
+    else
+    {
+        pSceneNode = dynamic_cast<CSceneNode*>(a_pNode);
+        if(!pSceneNode){
+            qDebug("Error - root node is not a scene Node when trying to edit behavior Tree");
+            return;
+        }
+    }
 
 	if (a_rJsonNode.HasMember("sync"))
 	{
