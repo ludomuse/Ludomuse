@@ -13,6 +13,11 @@ proj.android/bin
 proj.android/assets
 proj.android/gen
 proj.android/build-cfg.json
+proj.android/.idea
+proj.android/classes
+proj.android/LudoMuse.iml
+proj.android/out
+proj.android/proj.android.iml
 proguard-project.txt
 local.properties
 lint.xml
