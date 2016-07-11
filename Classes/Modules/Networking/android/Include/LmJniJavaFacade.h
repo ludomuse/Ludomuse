@@ -17,7 +17,7 @@ public:
 		static void getApplicationDirectory();
 
 		static void sendFile(std::string path);
-private:
+//private:
 
 	static void send(std::string s);
 

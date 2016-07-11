@@ -36,6 +36,10 @@ class CKernel
 
   std::map<int, CTouchBeganVisitor> m_mTouchBeganVisitors;
 
+  bool m_bIsServer;
+
+  CSerializableStats* m_pRemoteStats;
+
 public:
 	/// \brief a reference to the dashboard with the timeline of the game
 	CSceneNode* m_pDashboard;
@@ -55,6 +59,7 @@ public:
 
 	SUser* m_pLocalPlayer;
 	SUser* m_pDistantPlayer;
+	std::mutex m_oSyncMutex;
 
 	std::chrono::time_point<system_clock> m_oSyncTransitionStart;
 
@@ -83,7 +88,7 @@ public:
   /// \brief Initialize the kernel and the behavior tree
   void Init();
 
-  void WriteStats(CSerializableStats* a_oSStats);
+  void WriteStats();
 
 
   /// \brief find the CEntityNode under the a_pTouch touch event and listening to a_rEvent

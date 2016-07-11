@@ -160,7 +160,22 @@ CCameraFeedNode::CCameraFeedNode(const std::string& a_rMaskPath, EAnchor a_eAnch
 	m_bIsReceiver(a_bIsReceiver),
 	m_sMaskPath(a_rMaskPath)
 {
-	if (a_bIsReceiver)
+//	if (a_bIsReceiver)
+//	{
+//		CCLOG("LUDOMUSE - Construction CCameraFeedNode in receiver mode : %s", this->m_sID.c_str());
+//		Director::getInstance()->getEventDispatcher()->addCustomEventListener("PictureReceived", CC_CALLBACK_0(CCameraFeedNode::PictureTaken, this));
+//	}
+//	else
+//	{
+//		CCLOG("LUDOMUSE - Construction CCameraFeedNode in sender mode : %s", this->m_sID.c_str());
+//		Director::getInstance()->getEventDispatcher()->addCustomEventListener("PictureTaken", CC_CALLBACK_0(CCameraFeedNode::PictureTaken, this));
+//	}
+		
+}
+
+void CCameraFeedNode::Init()
+{
+	if (m_bIsReceiver)
 	{
 		CCLOG("LUDOMUSE - Construction CCameraFeedNode in receiver mode : %s", this->m_sID.c_str());
 		Director::getInstance()->getEventDispatcher()->addCustomEventListener("PictureReceived", CC_CALLBACK_0(CCameraFeedNode::PictureTaken, this));
@@ -170,11 +185,6 @@ CCameraFeedNode::CCameraFeedNode(const std::string& a_rMaskPath, EAnchor a_eAnch
 		CCLOG("LUDOMUSE - Construction CCameraFeedNode in sender mode : %s", this->m_sID.c_str());
 		Director::getInstance()->getEventDispatcher()->addCustomEventListener("PictureTaken", CC_CALLBACK_0(CCameraFeedNode::PictureTaken, this));
 	}
-		
-}
-
-void CCameraFeedNode::Init()
-{
 #ifdef __ANDROID__
 	if (!m_bIsReceiver)
 	{

@@ -10,6 +10,11 @@ namespace LM
 CNetworkManager::CNetworkManager(CKernel* a_pKernel, bool a_bIsServer) : m_pKernel(a_pKernel)
 {
   m_oWifiDirectFacade.addObserver(this);
+  CCLOG("<h1> A </h1>");
+  LmJniJavaFacade::getApplicationDirectory();
+  CCLOG("<h1> B </h1>");
+  m_oWifiDirectFacade.setServerTempFileName(APP_DIR + "/tempPic.jpg");
+  CCLOG("<h1> C </h1>");
 }
 
 

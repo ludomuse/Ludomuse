@@ -169,9 +169,12 @@ public class WifiDirectFacade {
 
 	public void onReceiving(File f)
 	{
-		String fileName = f.getPath() + ".jpg";
-		f.renameTo(new File(fileName));
-		JniCppFacade.onReceivingPhoto(f.getPath() + ".jpg");
+		if (f != null)
+		{
+//			String fileName = f.getPath() + ".jpg";
+//			f.renameTo(new File(fileName));
+			JniCppFacade.onReceivingPhoto(f.getPath());
+		}
 	}
 
 	public void onReceiving(double d)

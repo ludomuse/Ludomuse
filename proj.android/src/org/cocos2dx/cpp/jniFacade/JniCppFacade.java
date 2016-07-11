@@ -31,6 +31,8 @@ public class JniCppFacade {
 		{
 			res += "-" + s;
 		}
+		if (res.length() < 2)
+			return "";
 		return res.substring(1);
 	}
 	

@@ -49,7 +49,8 @@ namespace LM
 
 	CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
 		m_pJsonParser(new CJsonParser(this)),
-		m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
+		m_bIsServer(a_bIsServer),
+		//m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
 		m_pSoundManager(new CSoundManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
 		m_bDebugMode(false),
@@ -57,8 +58,9 @@ namespace LM
 		m_pDistantPlayer(new SUser()),
 		m_pDashboard(nullptr),
 		m_pCurrentScene(nullptr),
-		m_pWaitingScene(nullptr)
-{
+		m_pWaitingScene(nullptr),
+		m_pRemoteStats(nullptr)
+	{
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
 
@@ -141,6 +143,7 @@ bool CKernel::CheckPlayerInfo()
 
 void CKernel::Init()
 {
+	m_pNetworkManager = new CNetworkManager(this, m_bIsServer);
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
 
 	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
@@ -162,6 +165,8 @@ void CKernel::Init()
 
 void CKernel::EndGame(SEvent, CEntityNode*)
 {
+	m_pLocalPlayer->m_bGameEnded = true;
+
 	if (m_pLocalPlayer->m_iPlayerID == 1)
 	{
 		CSerializableStats oSStats(M_STATS->GetStats());
@@ -170,26 +175,31 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 		b << M_STATS_EVENT << oSStats;
 		m_pNetworkManager->Send(b);
 	}
+	else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
+	{
+		WriteStats();
+	}
+	Director::getInstance()->end();
+	
 }
 
 
-void CKernel::WriteStats(CSerializableStats* a_pSStats)
+void CKernel::WriteStats()
 {
 
 	// TODO write stats to file on filesystem
 	std::stringstream ss;
-	ss << *a_pSStats;
+	ss << *m_pRemoteStats;
 	CCLOG("[LUDO_STATS] ******************************************************************");
 	CCLOG("[LUDO_STATS] remote peer : ");
 	CCLOG("%s", ss.str().c_str());
 
 
 	std::map<std::string, SScreenStats> mLocalStats = M_STATS->GetStats();
-	std::map<std::string, SScreenStats> mRemoteStats = a_pSStats->m_mScreensStats;
+	std::map<std::string, SScreenStats> mRemoteStats = m_pRemoteStats->m_mScreensStats;
 
 	std::stringstream fileStream;
 
-	fileStream << ",Player1,Player2," << std::endl;
 
 	std::map<std::string, SScreenStats>::const_iterator itLocal;
 	std::map<std::string, SScreenStats>::const_iterator itRemote;
@@ -202,21 +212,46 @@ void CKernel::WriteStats(CSerializableStats* a_pSStats)
 		const SScreenStats& rLocalStat = itLocal->second;
 		const SScreenStats& rRemoteStat = itRemote->second;
 		
+		fileStream << rLocalStat.time << ","
+			<< rLocalStat.nbInteractions << ","
+			<< rLocalStat.nbTouches << ","
+			<< rLocalStat.nbMoves << ","
+			<< rLocalStat.nbValidTouches << ","
+			<< rLocalStat.nbValidDrops << ","
+			<< rLocalStat.nbInvalidDrops << ","
+			<< rLocalStat.nbValidAnswers << ","
+			<< rLocalStat.nbInvalidAnswers << ",";
 
-		fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
-		fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
-		fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
-		fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
-		fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
-		fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
-		fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
-		fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
-		fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
-		fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
+		fileStream << ",";
 
-		fileStream << std::endl;
+		fileStream << rRemoteStat.time << ","
+			<< rRemoteStat.nbInteractions << ","
+			<< rRemoteStat.nbTouches << ","
+			<< rRemoteStat.nbMoves << ","
+			<< rRemoteStat.nbValidTouches << ","
+			<< rRemoteStat.nbValidDrops << ","
+			<< rRemoteStat.nbInvalidDrops << ","
+			<< rRemoteStat.nbValidAnswers << ","
+			<< rRemoteStat.nbInvalidAnswers << ",";
+
+		fileStream << ",,";
+
+
+		//fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
+		//fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
+		//fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
+		//fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
+		//fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
+		//fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
+		//fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
+		//fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
+		//fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
+		//fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
 
 	}
+
+	fileStream << std::endl;
+
 
 	//std::string sPath = CCFileUtils::getInstance()->getWritablePath() + "stats.csv";
 	//
@@ -429,6 +464,9 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 	{
 		if (vSplittedMessage[1] == "waiting")
 		{
+
+			m_oSyncMutex.lock();
+
 			if (m_pLocalPlayer->m_bWaiting)
 			{
 				std::chrono::milliseconds oTimeSinceTransitionStarted = duration_cast<milliseconds>(
@@ -453,6 +491,8 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 			{
 				m_pDistantPlayer->m_bWaiting = true;
 			}
+
+			m_oSyncMutex.unlock();
 		}
 
 		else if (vSplittedMessage[1] == "Validate")
@@ -487,9 +527,13 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 		CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
 		break;
 	case M_STATS_EVENT:
-		CSerializableStats* pSStats;
-		a_rByteArray >> &pSStats;
-		WriteStats(pSStats);
+		a_rByteArray >> &m_pRemoteStats;
+		m_pDistantPlayer->m_bGameEnded = true;
+		if (m_pLocalPlayer->m_bGameEnded && m_pDistantPlayer->m_bGameEnded)
+		{
+			WriteStats();
+			Director::getInstance()->end();
+		}
 		break;
 	}
 }

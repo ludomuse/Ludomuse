@@ -65,3 +65,9 @@ proj.android/.settings/org.eclipse.jdt.core.prefs
 proj.android/.classpath
 proj.win32/LudoMuse.VC.db
 proj.win32/LudoMuse.VC.VC.opendb
+proj.android/out
+proj.win32/LudoMuse.vcxproj
+
+Resources/.idea
+proj.android/LudoMuse.iml
+proj.android/.idea
