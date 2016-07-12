@@ -27,15 +27,15 @@
         "screen-0-a-player2"
       ],
       [
-        "screen-0-b",
+        "screen-0-b-1",
         "screen-0-b"
       ],
       [
-        "screen-0-c",
+        "screen-0-c-1",
         "screen-0-c"
       ],
       [
-        "screen-0-d",
+        "screen-0-d-1",
         "screen-0-d"
       ],
       [
@@ -147,11 +147,11 @@
         "screen-3-b-player2"
       ],
       [
-        "screen-3-b-a",
+        "screen-3-b-a-1",
         "screen-3-b-a"
       ],
       [
-        "screen-3-b-b",
+        "screen-3-b-b-1",
         "screen-3-b-b"
       ],
       [
@@ -441,7 +441,7 @@
                       {
                         "type": "Image",
                         "params": {
-                          "source": "ui/Assets/PNG/picto_doigt.png",
+                          "source": "ui/picto_doigt.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80
@@ -518,7 +518,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -790,7 +790,7 @@
                       {
                         "type": "Image",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-03.png",
+                          "source": "ui/Assets/PNG/picto_doigt.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80
@@ -842,9 +842,9 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/backgroundGREY2.png",
               "anchor": 0,
-              "width": 100,
+              "width": 0,
               "height": 100,
               "x": 0,
               "y": 0
@@ -860,60 +860,60 @@
               "height": 50,
               "children": [
                 {
-                  "type": "Image",
+                  "type" :"Group",
                   "params": {
-                    "source": "ui/cache-blanc-50.png",
-                    "anchor": 2,
-                    "width": 80,
-                    "height": 80,
+                    "anchor": 0,
+                    "width" : 100,
+                    "height": 100,
                     "children": [
                       {
-                        "type" :"Group",
+                        "type": "Image",
                         "params": {
-                          "anchor": 0,
-                          "width" : 80,
-                          "height": 80,
-                          "children": [
-                            {
-                              "type": "Image",
-                              "params": {
-                                "source": "cache/collectionneur.png",
-                                "anchor": 2,
-                                "width": 0,
-                                "height": 60
-                              }
-                            },
-                            {
-                              "type" :"Text",
-                              "params": {
-                                "content": "JE SUIS UN COLLECTIONNEUR !",
-                                "anchor": 6,
-                                "width": 100,
-                                "color": "0,0,0,255"
-                              }
-                            }
-                          ]
+                          "source": "cache/collectionneur.png",
+                          "anchor": 2,
+                          "width": 0,
+                          "height": 85
                         }
                       },
                       {
-                        "type": "Image",
-                        "id": "bigCheck",
+                        "type" :"Text",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-11.png",
+                          "content": "JE SUIS UN COLLECTIONNEUR !",
+                          "anchor": 6,
+                          "width": 100,
+                          "height": 15,
+                          "color": "255,255,255,255"
+                        }
+                      },
+                      {
+                        "type" :"Group",
+                        "params": {
                           "anchor": 3,
-                          "width": 15,
-                          "listeners": [
+                          "width" : 66,
+                          "height": 20,
+                          "children": [
                             {
-                              "type": "Show",
+                              "type": "Image",
+                              "id": "bigCheck",
                               "params": {
-                                "callback": "Show"
-                              }
-                            },
-                            {
-                              "type": "Hide",
-                              "params": {
-                                "callback": "Show",
-                                "arg": false
+                                "source": "ui/Assets/PNG/Assets-11.png",
+                                "anchor": 0,
+                                "height": 80,
+                                "listeners": [
+                                  {
+                                    "type": "Show",
+                                    "params": {
+                                      "callback": "Show"
+                                    }
+                                  },
+                                  {
+                                    "type": "Hide",
+                                    "params": {
+                                      "callback": "Show",
+                                      "arg": false
+                                    }
+                                  }
+                                ]
                               }
                             }
                           ]
@@ -960,60 +960,60 @@
                   }
                 },
                 {
-                  "type": "Image",
+                  "type" :"Group",
                   "params": {
-                    "source": "ui/cache-blanc-50.png",
-                    "anchor": 2,
-                    "width": 80,
-                    "height": 80,
+                    "anchor": 0,
+                    "width" : 100,
+                    "height": 100,
                     "children": [
                       {
-                        "type" :"Group",
+                        "type": "Image",
                         "params": {
-                          "anchor": 0,
-                          "width" : 80,
-                          "height": 80,
-                          "children": [
-                            {
-                              "type": "Image",
-                              "params": {
-                                "source": "cache/explorateur.png",
-                                "anchor": 2,
-                                "width": 0,
-                                "height": 40
-                              }
-                            },
-                            {
-                              "type": "Text",
-                              "params": {
-                                "content": "JE SUIS UN EXPLORATEUR !",
-                                "width": 100,
-                                "color": "0,0,0,255",
-                                "anchor": 6
-                              }
-                            }
-                          ]
+                          "source": "cache/explorateur.png",
+                          "anchor": 2,
+                          "width": 0,
+                          "height": 85
                         }
                       },
                       {
-                        "type": "Image",
-                        "id": "littleCheck",
+                        "type" :"Text",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-11.png",
+                          "content": "JE SUIS UN EXPLORATEUR !",
+                          "anchor": 6,
+                          "width": 100,
+                          "height": 15,
+                          "color": "255,255,255,255"
+                        }
+                      },
+                      {
+                        "type" :"Group",
+                        "params": {
                           "anchor": 3,
-                          "width": 15,
-                          "listeners": [
+                          "width" : 66,
+                          "height": 20,
+                          "children": [
                             {
-                              "type": "Show",
+                              "type": "Image",
+                              "id": "littleCheck",
                               "params": {
-                                "callback": "Show"
-                              }
-                            },
-                            {
-                              "type": "Hide",
-                              "params": {
-                                "callback": "Show",
-                                "arg": false
+                                "source": "ui/Assets/PNG/Assets-11.png",
+                                "anchor": 0,
+                                "height": 80,
+                                "listeners": [
+                                  {
+                                    "type": "Show",
+                                    "params": {
+                                      "callback": "Show"
+                                    }
+                                  },
+                                  {
+                                    "type": "Hide",
+                                    "params": {
+                                      "callback": "Show",
+                                      "arg": false
+                                    }
+                                  }
+                                ]
                               }
                             }
                           ]
@@ -1847,7 +1847,7 @@
         ]
       },
       {
-        "scene": "screen-0-b",
+        "scene": "screen-0-b-1",
         "navigation": [
           {
             "type": "Nav",
@@ -2008,7 +2008,177 @@
         ]
       },
       {
-        "scene": "screen-0-c",
+        "scene": "screen-0-b",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranIntro-1.mp3"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/ACCEUIL-CERNU-NEW.JPG",
+              "anchor": 0,
+              "width": 100,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/narrateur.png",
+              "anchor": 4,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source": "ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Bonjour vous me paraissez prêts à partir à l'aventure ! Vous me rappelez Henri Cernuschi et Théodore Duret. Ce Collectionneur et son ami explorateur, sont à l'origine de ce musée ! Je vous retrouve à l'étage pour découvrir la collection qu'ils ont apporté de leur voyage il y a presque 200 ans !",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 90,
+                          "textAlign": "center",
+                          "anchor": 0,
+                          "color": "0,0,0,255"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "source": "ui/info-6.png",
+              "anchor": 6,
+              "width": 0,
+              "height": 13,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Etape 1/5 La Tigresse",
+                    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 100,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-0-c-1",
         "navigation": [
           {
             "type": "Nav",
@@ -2083,7 +2253,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 0,
               "height": 100,
@@ -2180,7 +2350,188 @@
         ]
       },
       {
-        "scene": "screen-0-d",
+        "scene": "screen-0-c",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranIntro-2.mp3"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background1LUC.png",
+              "anchor": 0,
+              "width": 0,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/fresqueDRAGON.png",
+              "anchor": 1,
+              "width": 50,
+              "height": 0,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/narrateur.png",
+              "anchor": 4,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source": "ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Tournez-vous à droite et regardez la sculpture en bois au mur. Elle a été ramenée par Henri Cernuschi du Japon ! Ce dragon a un corps de serpent, des écailles, des pattes de tigre et de cornes de cerf. Pourquoi ce mélange ? Il bénéficie ainsi de l'énergie de ces animaux",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 90,
+                          "textAlign": "center",
+                          "anchor": 0,
+                          "color": "0,0,0,255"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "source": "ui/info-6.png",
+              "anchor": 6,
+              "width": 0,
+              "height": 13,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Etape 1/5 La Tigresse",
+                    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 100,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-0-d-1",
         "navigation": [
           {
             "type": "Nav",
@@ -2300,13 +2651,178 @@
                           "anchor": 0,
                           "color": "0,0,0,255",
                           "listeners": [
-                            {
-                              "type": "Init",
-                              "params": {
-                                "callback": "PlaySound",
-                                "arg": "cache/audio/lightining.mp3"
-                              }
-                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "source": "ui/info-6.png",
+              "anchor": 6,
+              "width": 0,
+              "height": 13,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Etape 1/5 La Tigresse",
+                    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 100,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-0-d",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranIntro-3.mp3"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/introDRAGON.png",
+              "anchor": 0,
+              "width": 0,
+              "height": 100,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/narrateur.png",
+              "anchor": 4,
+              "width": 0,
+              "height": 60,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source": "ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Ciel ! Quel boucan ! C'est le tonnerre du dragon qui retentit ! le dragon du musée s'est animé ! Suivons-le, il doit certainement vouloir retourner en Asie et faire un voyage dans le passé.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 90,
+                          "textAlign": "center",
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "listeners": [
                           ]
                         }
                       }
@@ -2583,35 +3099,6 @@
           }
         ],
         "information": [
-          {
-            "type": "Info",
-            "params": {
-              "source": "ui/info-6.png",
-              "anchor": 6,
-              "width": 0,
-              "height": 13,
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "",
-                    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                    "fontSize": 20,
-                    "textAlign": "center",
-                    "width": 100,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "0,0,0,255",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
-          }
         ]
       },
       {
@@ -3074,6 +3561,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape1-1.mp3"
+                  }
+                }
               ]
             }
           },
@@ -3172,13 +3668,6 @@
                           "anchor": 0,
                           "color": "0,0,0,255",
                           "listeners": [
-                            {
-                              "type": "Init",
-                              "params": {
-                                "callback": "PlaySound",
-                                "arg": "cache/audio/cernuschi6.wav"
-                              }
-                            }
                           ]
                         }
                       }
@@ -3433,6 +3922,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape1-2.mp3"
+                  }
+                }
               ]
             }
           },
@@ -3596,7 +4094,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Jouer",
+                    "content": "JOUER",
                     "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
                     "fontSize": 20,
                     "textAlign": "right",
@@ -3966,7 +4464,7 @@
           {
           "type": "Image",
           "params": {
-            "source": "cache/background1LU.png",
+            "source": "cache/background1LUC.png",
             "anchor": 0,
             "width": 100,
             "height": 100,
@@ -4364,7 +4862,7 @@
                       {
                         "type": "Image",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-03.png",
+                          "source": "ui/Assets/PNG/picto_doigt.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80
@@ -4441,7 +4939,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background3LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -6010,7 +6508,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -6612,13 +7110,6 @@
               "action": "next",
               "listeners": [
                 {
-                  "type": "Init",
-                  "params": {
-                    "callback": "PlaySound",
-                    "arg": "cache/audio/cernuschi7.wav"
-                  }
-                },
-                {
                   "type": "Validate",
                   "params": {
                     "callback": "Show"
@@ -6676,7 +7167,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -7694,6 +8185,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape1-fin.mp3"
+                  }
+                }
               ]
             }
           },
@@ -8549,6 +9049,15 @@
                       "backgroundColor": "",
                       "backgroundImage": ""
                     }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape2-1.mp3"
                   }
                 }
               ]
@@ -10423,6 +10932,15 @@
                       "backgroundColor": "",
                       "backgroundImage": ""
                     }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape2-2.mp3"
                   }
                 }
               ]
@@ -12447,7 +12965,7 @@
                     "source": "cache/Porteur1.png",
                     "anchor": 8,
                     "width": 0,
-                    "height": 50,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
@@ -12548,6 +13066,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape2-fin.mp3"
+                  }
+                }
               ]
             }
           },
@@ -12622,7 +13149,7 @@
                     "source": "cache/Porteur1.png",
                     "anchor": 8,
                     "width": 0,
-                    "height": 50,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
@@ -13507,6 +14034,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape3-1.mp3"
+                  }
+                }
               ]
             }
           },
@@ -13648,7 +14184,7 @@
         ]
       },
       {
-        "scene": "screen-3-b-a",
+        "scene": "screen-3-b-a-1",
         "navigation": [
           {
             "type": "Nav",
@@ -13812,6 +14348,343 @@
         ]
       },
       {
+        "scene": "screen-3-b-a",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape3-2.mp3"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background5CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso5Homme.png",
+                    "anchor": 4,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Nous sommes plusieurs ici à fabriquer des objets de terre cuite, des objets qui doivent plaire à notre clientèle. Aujourd'hui je dois terminer un objet destiné à être mis dans la tombe d'un défunt important.",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 6,
+              "source": "ui/info-6.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Etape 3/5 : premier défi",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "scene": "screen-3-b-b-1",
+        "navigation": [
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "normal": "ui/nav-5.png",
+              "selected": "ui/nav-5-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "next",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "SUIVANT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "right",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Nav",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 7,
+              "normal": "ui/nav-7.png",
+              "selected": "ui/nav-7-active.png",
+              "enabled": true,
+              "color": "",
+              "backgroundColor": "",
+              "action": "prev",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "PRÉCÉDENT",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 2,
+              "width": 100,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/background6CERN.png",
+                    "anchor": 0,
+                    "width": 100,
+                    "height": 100,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Image",
+                  "params": {
+                    "source": "cache/perso5Homme.png",
+                    "anchor": 4,
+                    "width": 0,
+                    "height": 60,
+                    "x": 0,
+                    "y": 0
+                  }
+                },
+                {
+                  "type": "Group",
+                  "params": {
+                    "anchor": 6,
+                    "width": 100,
+                    "height": 35,
+                    "source":"ui/cache-blanc-70.png",
+                    "children": [
+                      {
+                        "type": "Text",
+                        "params": {
+                          "content": "Cet objet doit ressembler à une grande tour qui se trouve dans la maison de campagne du défunt, et où celui-ci aimait monter afin de se rafraichr et de se rapporcher des Immortels circulant dans le ciel",
+                          "fontSize": 24,
+                          "width": 80,
+                          "height": 100,
+                          "anchor": 0,
+                          "color": "0,0,0,255",
+                          "cache": {
+                            "visible": false,
+                            "backgroundColor": "",
+                            "backgroundImage": ""
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "information": [
+          {
+            "type": "Info",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 6,
+              "source": "ui/info-6.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Etape 3/5 : premier défi",
+                    "fontSize": 20,
+                    "textAlign": "center",
+                    "width": 60,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "0,0,0,255",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
         "scene": "screen-3-b-b",
         "navigation": [
           {
@@ -13843,6 +14716,15 @@
                       "backgroundColor": "",
                       "backgroundImage": ""
                     }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape3-3.mp3"
                   }
                 }
               ]
@@ -16090,7 +16972,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -16642,7 +17524,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -17534,7 +18416,7 @@
                     "source": "cache/PoussePousse.png",
                     "anchor": 8,
                     "width": 0,
-                    "height": 50,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
@@ -17635,6 +18517,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape3-fin.mp3"
+                  }
+                }
               ]
             }
           },
@@ -17709,7 +18600,7 @@
                     "source": "cache/PoussePousse.png",
                     "anchor": 8,
                     "width": 0,
-                    "height": 50,
+                    "height": 60,
                     "x": 0,
                     "y": 0
                   }
@@ -18575,6 +19466,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape4-1.mp3"
+                  }
+                }
               ]
             }
           },
@@ -18911,6 +19811,15 @@
                       "backgroundColor": "",
                       "backgroundImage": ""
                     }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape4-2.mp3"
                   }
                 }
               ]
@@ -19455,7 +20364,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -19954,7 +20863,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -20334,7 +21243,7 @@
                               "type": "SuccessHint",
                               "params": {
                                 "callback": "SetText",
-                                "arg": "Bravo !"
+                                "arg": "Bravo ! C’est bien son reflet dans le miroir qui lui fera peur"
                               }
                             }
                           ]
@@ -20894,6 +21803,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape4-3.mp3"
+                  }
+                }
               ]
             }
           },
@@ -21242,6 +22160,15 @@
                       "backgroundColor": "",
                       "backgroundImage": ""
                     }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape4-4.mp3"
                   }
                 }
               ]
@@ -21778,6 +22705,25 @@
           }
         ],
         "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/background1LUC.png",
+              "anchor": 0,
+              "width": 100,
+              "height": 80,
+              "x": 0,
+              "y": 0,
+              "listeners":[
+                {
+                  "type": "Validate",
+                  "params": {
+                    "callback": "Show"
+                  }
+                }
+              ]
+            }
+          },
           {
             "type": "Image",
             "id": "dropArea1",
@@ -22338,7 +23284,7 @@
                       {
                         "type": "Image",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-03.png",
+                          "source": "ui/Assets/PNG/picto_doigt.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80
@@ -22414,7 +23360,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1CERN.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -23564,7 +24510,7 @@
                     "source": "cache/barque1.png",
                     "anchor": 8,
                     "width": 0,
-                    "height": 60,
+                    "height": 70,
                     "x": 0,
                     "y": 0
                   }
@@ -23665,6 +24611,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape4-fin.mp3"
+                  }
+                }
               ]
             }
           },
@@ -23739,7 +24694,7 @@
                     "source": "cache/barque1.png",
                     "anchor": 8,
                     "width": 0,
-                    "height": 60,
+                    "height": 70,
                     "x": 0,
                     "y": 0
                   }
@@ -23787,7 +24742,7 @@
                 {
                   "type": "Text",
                   "params": {
-                    "content": "Moyen de transport",
+                    "content": "En route pour l’étape 5/5 : Le grand Bouddha",
                     "fontSize": 20,
                     "textAlign": "center",
                     "width": 60,
@@ -24606,6 +25561,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape5-1.mp3"
+                  }
+                }
               ]
             }
           },
@@ -24956,6 +25920,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape5-2.mp3"
+                  }
+                }
               ]
             }
           },
@@ -25046,7 +26019,7 @@
                       {
                         "type": "Text",
                         "params": {
-                          "content": "vois-tu cette gigantesque statue en bronze ? Il s'agit du Buddha Amida, qui règne à l'ouest sur le Paradis de la Terre Pure.",
+                          "content": "Vois-tu cette gigantesque statue en bronze ? Il s'agit du Buddha Amida, qui règne à l'ouest sur le Paradis de la Terre Pure.",
                           "fontSize": 24,
                           "width": 80,
                           "height": 100,
@@ -25304,6 +26277,15 @@
                       "backgroundColor": "",
                       "backgroundImage": ""
                     }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape5-3.mp3"
                   }
                 }
               ]
@@ -26932,6 +27914,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape5-LOTUS.mp3"
+                  }
+                }
               ]
             }
           },
@@ -27482,7 +28473,7 @@
                       {
                         "type": "Image",
                         "params": {
-                          "source": "ui/Assets/PNG/Assets-03.png",
+                          "source": "ui/Assets/PNG/picto_doigt.png",
                           "anchor": 8,
                           "width": 0,
                           "height": 80
@@ -27559,7 +28550,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background3LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -27887,7 +28878,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 100,
               "height": 100,
@@ -28555,25 +29546,14 @@
                   }
                 },
                 {
-                  "type": "Group",
+                  "type": "Image",
                   "params": {
+                    "source": "cache/bateau1.png",
                     "anchor": 8,
-                    "width": 50,
-                    "height": 0,
-                    "source":"ui/cache-blanc-70.png",
-                    "children": [
-                      {
-                        "type": "Image",
-                        "params": {
-                          "source": "cache/bateau1.png",
-                          "anchor": 0,
-                          "width": 90,
-                          "height": 0,
-                          "x": 0,
-                          "y": 0
-                        }
-                      }
-                    ]
+                    "width": 0,
+                    "height": 70,
+                    "x": 0,
+                    "y": 0
                   }
                 },
                 {
@@ -28672,6 +29652,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranEtape5-FIN.mp3"
+                  }
+                }
               ]
             }
           },
@@ -28740,27 +29729,15 @@
                     "y": 0
                   }
                 },
-
                 {
-                  "type": "Group",
+                  "type": "Image",
                   "params": {
+                    "source": "cache/bateau1.png",
                     "anchor": 8,
-                    "width": 50,
-                    "height": 0,
-                    "source":"ui/cache-blanc-70.png",
-                    "children": [
-                      {
-                        "type": "Image",
-                        "params": {
-                          "source": "cache/bateau1.png",
-                          "anchor": 0,
-                          "width": 90,
-                          "height": 0,
-                          "x": 0,
-                          "y": 0
-                        }
-                      }
-                    ]
+                    "width": 0,
+                    "height": 70,
+                    "x": 0,
+                    "y": 0
                   }
                 },
                 {
@@ -28901,7 +29878,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 0,
               "height": 100,
@@ -29031,6 +30008,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranConclusion-1.mp3"
+                  }
+                }
               ]
             }
           },
@@ -29073,7 +30059,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 0,
               "height": 100,
@@ -29245,7 +30231,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 0,
               "height": 100,
@@ -29364,6 +30350,15 @@
                     }
                   }
                 }
+              ],
+              "listeners": [
+                {
+                  "type": "Init",
+                  "params": {
+                    "callback": "PlaySound",
+                    "arg": "cache/audio/ecranConclusion-2.mp3"
+                  }
+                }
               ]
             }
           },
@@ -29406,7 +30401,7 @@
           {
             "type": "Image",
             "params": {
-              "source": "cache/background1LU.png",
+              "source": "cache/background1LUC.png",
               "anchor": 0,
               "width": 0,
               "height": 100,
@@ -29566,6 +30561,43 @@
                 }
               ]
             }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "source": "ui/nav-5.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Terminer",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Touch",
+                  "params": {
+                    "callback": "EndGame"
+                  }
+                }
+              ]
+            }
           }
         ],
         "information": [
@@ -29670,6 +30702,43 @@
                       "backgroundColor": "",
                       "backgroundImage": ""
                     }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "width": 0,
+              "height": 13,
+              "anchor": 5,
+              "source": "ui/nav-5.png",
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Terminer",
+                    "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                    "fontSize": 20,
+                    "textAlign": "left",
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
+                  }
+                }
+              ],
+              "listeners": [
+                {
+                  "type": "Touch",
+                  "params": {
+                    "callback": "EndGame"
                   }
                 }
               ]
