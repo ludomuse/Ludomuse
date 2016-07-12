@@ -184,6 +184,30 @@ void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 	m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
 }
 
+void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID, const std::string& a_rOtherID)
+{
+    for(std::string currentString : m_mScenesID[a_iPlayerID])
+    {
+        if(currentString == a_rPreviousID)
+        {
+            int pos = find(m_mScenesID[a_iPlayerID].begin(), m_mScenesID[a_iPlayerID].end(), currentString) - m_mScenesID[a_iPlayerID].begin();
+            qDebug()<<"Found id at index :"<<pos;
+            m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin() + pos + 1, a_rSceneID);
+
+            // Fill the other list at the right place
+            if(a_iPlayerID == 1)
+            {
+                m_mScenesID[0].insert(m_mScenesID[0].begin() + pos + 1, a_rOtherID);
+            }
+            else
+            {
+                m_mScenesID[1].insert(m_mScenesID[1].begin() + pos + 1, a_rOtherID);
+            }
+            return;
+        }
+    }
+}
+
 void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a_sPreviousID, std::string a_sNewID, int a_iPlayerNumber)
 {
     CSceneNode* newScene = new CSceneNode(a_sNewID, m_bDebugMode);
@@ -196,7 +220,7 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     case 0: // Both player
         if((std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end()
                 && std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end())
-                || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean ading at end
+                || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean adding at end
         {
             this->AddSceneID(1, a_sNewID);
             this->AddSceneID(0, a_sNewID);
@@ -206,16 +230,16 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
         if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end()
                 || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean ading at end
         {
-            this->AddSceneID(0, a_sNewID);
-            this->AddSceneID(1, "");
+            this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID);
+            //this->AddSceneID(1, "");
         }
         break;
     case 2: // Player 2 only
         if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end()
                 || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean ading at end
         {
-            this->AddSceneID(0, "");
-            this->AddSceneID(1, a_sNewID);
+            //this->AddSceneID(0, "");
+            this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID);
         }
         break;
     }

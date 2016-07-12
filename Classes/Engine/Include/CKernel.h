@@ -94,6 +94,13 @@ public:
   /// \brief Add the m_sSceneID to a_iPlayerID
   void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
 
+  /// \brief Add the m_sSceneID after the a_rPreviousID to a_iPlayerID
+  /// \attention no test done to check if the id really exist in a_iPlayer scene ids !
+  /// just does nothing if id doesn't exist in the list
+  /// \param a_rPreviousID must be in a_iplayerID scene ids
+  /// \param a_bInsertEmptyID if true, insert an empty id at the same
+  void AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID, const std::string& a_rOtherPlayerID = "");
+
   /// \brief Add a whole new scene to the BehaviorTree
   void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID, int a_iPlayerNumber);
 
