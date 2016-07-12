@@ -87,6 +87,22 @@ CJsonParser* CKernel::GetJsonParser()
 	return m_pJsonParser;
 }
 
+const std::vector<std::string> CKernel::GetSceneIDPlayer(int a_iPlayerID)
+{
+    if(a_iPlayerID == 0)
+    {
+        return this->m_mScenesID[0];
+    }
+    else if(a_iPlayerID == 1)
+    {
+        return this->m_mScenesID[1];
+    }
+    else
+    {
+        return this->m_mScenesID[0];
+    }
+}
+
 std::string CKernel::ToJson(){
 
     rapidjson::StringBuffer s;

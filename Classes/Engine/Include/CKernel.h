@@ -84,6 +84,8 @@ public:
 
   CJsonParser* GetJsonParser();
 
+  const std::vector<std::string> GetSceneIDPlayer(int a_iPlayerID);
+
   /// \brief Convert the whole game into Json
   std::string ToJson();
 
