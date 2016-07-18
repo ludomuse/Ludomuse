@@ -166,51 +166,6 @@ std::ostream& operator<<(std::ostream& os, const CSerializableStats& a_rStats)
 //
 //}
 
-void CSerializableStats::writeOn(bytes* msg)
-{
-	int iSize = m_mScreensStats.size();
-	*msg << iSize;
-	std::map<std::string, SScreenStats>::iterator itScreen;
-	for (itScreen = m_mScreensStats.begin(); itScreen != m_mScreensStats.end(); ++itScreen)
-	{
-		const SScreenStats& stats = itScreen->second;
-		*msg << itScreen->first;
-		*msg << stats.time;
-		*msg << stats.nbInteractions;
-		*msg << stats.nbTouches;
-		*msg << stats.nbValidTouches;
-		*msg << stats.nbMoves;
-		*msg << stats.nbValidDrops;
-		*msg << stats.nbInvalidDrops;
-		*msg << stats.nbValidAnswers;
-		*msg << stats.nbInvalidAnswers;
-	}
-}
 
-
-void CSerializableStats::readOn(bytes* msg)
-{
-	int iSize;
-	*msg >> iSize;
-
-	for (int i = 0; i < iSize; ++i)
-	{
-		SScreenStats stats;
-		std::string screenID;
-
-		*msg >> screenID;
-		*msg >> stats.time;
-		*msg >> stats.nbInteractions;
-		*msg >> stats.nbTouches;
-		*msg >> stats.nbValidTouches;
-		*msg >> stats.nbMoves;
-		*msg >> stats.nbValidDrops;
-		*msg >> stats.nbInvalidDrops;
-		*msg >> stats.nbValidAnswers;
-		*msg >> stats.nbInvalidAnswers;
-		m_mScreensStats.insert(std::pair<std::string, SScreenStats>(screenID, stats));
-	}
-
-}
 
 } // namespace LM

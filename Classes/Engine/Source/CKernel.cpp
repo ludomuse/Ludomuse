@@ -165,6 +165,8 @@ void CKernel::Init()
 
 void CKernel::EndGame(SEvent, CEntityNode*)
 {
+	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+
 	m_pLocalPlayer->m_bGameEnded = true;
 
 	if (m_pLocalPlayer->m_iPlayerID == 1)
@@ -174,13 +176,19 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 
 		b << M_STATS_EVENT << oSStats;
 		m_pNetworkManager->Send(b);
+
+#ifdef __ANDROID__
+	sleep(1);
+#endif // __ANDROID__
+
+	Director::getInstance()->end();
+
 	}
 	else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
 	{
 		WriteStats();
 	}
-	//Director::getInstance()->end();
-	
+
 }
 
 
@@ -301,6 +309,10 @@ void CKernel::WriteStats()
 	CCLOG("[LUDO_STATS] calling jni saveStringToFile");
 	LmJniJavaFacade::saveStringToFile(fileStream.str());
 #endif // __ANDROID__
+
+#if defined _WIN32 | defined _WIN64
+	Director::getInstance()->end();
+#endif	// WINDOWS
 }
 
 
@@ -534,7 +546,6 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 		if (m_pLocalPlayer->m_bGameEnded && m_pDistantPlayer->m_bGameEnded)
 		{
 			WriteStats();
-			//Director::getInstance()->end();
 		}
 		break;
 	}
