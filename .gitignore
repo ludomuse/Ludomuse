@@ -71,3 +71,5 @@ proj.win32/LudoMuse.vcxproj
 Resources/.idea
 proj.android/LudoMuse.iml
 proj.android/.idea
+proj.android/.idea/workspace.xml
+proj.win32/LudoMuse.vcxproj
