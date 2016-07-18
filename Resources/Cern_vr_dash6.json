@@ -30522,45 +30522,6 @@
                 }
               ]
             }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Musee.png",
-              "anchor": 1,
-              "width": 0,
-              "height": 90,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Group",
-            "params": {
-              "anchor": 4,
-              "width": 60,
-              "height": 87,
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "Ligne éditoriale\r\n Kristel Fauconnier    Julia Moreira\r\n Scarlett Greco \r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
-                    "fontSize": 20,
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
           },
           {
             "type": "Image",
@@ -30594,6 +30555,45 @@
                   "type": "Touch",
                   "params": {
                     "callback": "EndGame"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Musee.png",
+              "anchor": 1,
+              "width": 0,
+              "height": 90,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 4,
+              "width": 60,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Ligne éditoriale\r\n Kristel Fauconnet    Julia Moreira\r\n Scarlett Greco \r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
+                    "fontSize": 20,
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
                   }
                 }
               ]
@@ -30667,45 +30667,6 @@
                 }
               ]
             }
-          }
-        ],
-        "content": [
-          {
-            "type": "Image",
-            "params": {
-              "source": "cache/Musee.png",
-              "anchor": 1,
-              "width": 0,
-              "height": 90,
-              "x": 0,
-              "y": 0
-            }
-          },
-          {
-            "type": "Group",
-            "params": {
-              "anchor": 4,
-              "width": 60,
-              "height": 87,
-              "children": [
-                {
-                  "type": "Text",
-                  "params": {
-                    "content": "Ligne éditoriale\r\n Kristel Fauconnier    Julia Moreira\r\n Scarlett Greco \r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
-                    "fontSize": 20,
-                    "width": 80,
-                    "height": 100,
-                    "anchor": 0,
-                    "color": "",
-                    "cache": {
-                      "visible": false,
-                      "backgroundColor": "",
-                      "backgroundImage": ""
-                    }
-                  }
-                }
-              ]
-            }
           },
           {
             "type": "Image",
@@ -30739,6 +30700,45 @@
                   "type": "Touch",
                   "params": {
                     "callback": "EndGame"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "Image",
+            "params": {
+              "source": "cache/Musee.png",
+              "anchor": 1,
+              "width": 0,
+              "height": 90,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "type": "Group",
+            "params": {
+              "anchor": 4,
+              "width": 60,
+              "height": 87,
+              "children": [
+                {
+                  "type": "Text",
+                  "params": {
+                    "content": "Ligne éditoriale\r\n Kristel Fauconnet    Julia Moreira\r\n Scarlett Greco \r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
+                    "fontSize": 20,
+                    "width": 80,
+                    "height": 100,
+                    "anchor": 0,
+                    "color": "",
+                    "cache": {
+                      "visible": false,
+                      "backgroundColor": "",
+                      "backgroundImage": ""
+                    }
                   }
                 }
               ]

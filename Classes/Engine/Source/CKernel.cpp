@@ -179,7 +179,7 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 	{
 		WriteStats();
 	}
-	Director::getInstance()->end();
+	//Director::getInstance()->end();
 	
 }
 
@@ -295,8 +295,10 @@ void CKernel::WriteStats()
 	//fflush(statsFile);
 	//fclose(statsFile);
 
+	CCLOG("[LUDO_STATS] end WriteStats");
+
 #ifdef __ANDROID__
-	CCLOG("calling jni saveStringToFile");
+	CCLOG("[LUDO_STATS] calling jni saveStringToFile");
 	LmJniJavaFacade::saveStringToFile(fileStream.str());
 #endif // __ANDROID__
 }
@@ -532,7 +534,7 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 		if (m_pLocalPlayer->m_bGameEnded && m_pDistantPlayer->m_bGameEnded)
 		{
 			WriteStats();
-			Director::getInstance()->end();
+			//Director::getInstance()->end();
 		}
 		break;
 	}

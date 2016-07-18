@@ -44,7 +44,7 @@ class ConnectTask2 implements Runnable {
 
 		try
 		{
-			socket.bind(null);
+			//socket.bind(null);
 			DebugManager.print(ClientSocketHandler.GetTag()
 					+ "Trying to reach address " + host + ":" + port,
 					WifiDirectManager.DEBUGGER_CHANNEL);
