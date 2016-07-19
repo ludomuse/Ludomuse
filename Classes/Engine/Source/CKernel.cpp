@@ -214,35 +214,46 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     qDebug("ckernel add new scene");
     m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath);
 
-
+    // Adding id in the map
+    // can add at   the end of both player (player number 0)
+    //              after an existing id of the player number
+    //              at the end of only one player (the player number)
     switch(a_iPlayerNumber)
     {
     case 0: // Both player
-        if((std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end()
-                && std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end())
-                || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean adding at end
+        if(a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean adding at end
         {
             this->AddSceneID(1, a_sNewID);
             this->AddSceneID(0, a_sNewID);
         }
         break;
     case 1: // Player 1 only
-        if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end()
-                || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean ading at end
+        if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end())
         {
             this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID);
             //this->AddSceneID(1, "");
         }
+        else if(a_sPreviousID.empty())
+        {
+            this->AddSceneID(0, a_sNewID);
+            this->AddSceneID(1,""); // Add blank id at the other player timeline end
+        }
         break;
     case 2: // Player 2 only
-        if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end()
-                || a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean ading at end
+        if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end())
         {
             //this->AddSceneID(0, "");
             this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID);
         }
+        else if(a_sPreviousID.empty())
+        {
+            this->AddSceneID(1, a_sNewID);
+            this->AddSceneID(0,""); // Add blank id at the other player timeline end
+        }
         break;
     }
+
+    // Adding the new scene at the right place
     if(a_sPreviousID.empty()) // Adding scene at the end
     {
         qDebug("id empty -> adding at the end");
@@ -250,7 +261,7 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
         emit(addingSceneFinished());
         return;
     }
-
+    // Adding scene after an existing
     this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
     emit(addingSceneFinished());
     qDebug("ckernel add new Scene ended");
@@ -434,34 +445,18 @@ void CKernel::WriteStats(CSerializableStats* a_pSStats)
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
-//    if (m_pCurrentScene->GetSceneID() == "screen-playerid" && !a_bEditor)
-//	{
-//		if (!CheckPlayerInfo()) {
-//			// TODO throw a toast at the user
-			
-//			return;
-//		}
-//	}
-//    if(!a_bEditor)
-//    {
-//        M_STATS->PushStats(m_pCurrentScene->GetSceneID());
-//        m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
-//    }
-	CDispatchMessageVisitor oMessageVisitor("Validated");
-	oMessageVisitor.Traverse(m_pBehaviorTree);
-	CTransitionVisitor oVisitor(this, true);
-	oVisitor.Traverse(m_pBehaviorTree);
+    CDispatchMessageVisitor oMessageVisitor("Validated");
+    oMessageVisitor.Traverse(m_pBehaviorTree);
+    CTransitionVisitor oVisitor(this, true);
+    oVisitor.Traverse(m_pBehaviorTree);
+    emit sendScene(m_pCurrentScene);
 }
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
-//    if(!a_bEditor)
-//    {
-//        M_STATS->PushStats(m_pCurrentScene->GetSceneID());
-//        m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
-//    }
     CTransitionVisitor oVisitor(this, false);
     oVisitor.Traverse(m_pBehaviorTree);
+    emit sendScene(m_pCurrentScene);
 }
 
 
@@ -510,7 +505,7 @@ void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
     m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
     CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
 	oVisitor.Traverse(m_pBehaviorTree);
-
+    emit sendScene(this->m_pCurrentScene);
 }
 
 

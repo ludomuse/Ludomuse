@@ -195,6 +195,7 @@ private:
 
 signals:
     void addingSceneFinished();
+    void sendScene(LM::CSceneNode*);
 };
 
 

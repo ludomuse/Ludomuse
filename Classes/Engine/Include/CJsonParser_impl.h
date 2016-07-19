@@ -110,7 +110,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			rParams["selected"].GetString(),
             CCallback<CKernel, cocos2d::Ref*>("Nav", m_pKernel,
 				(std::string(rParams["action"].GetString()) == "next") ?
-				&CKernel::NavNext : &CKernel::NavPrevious),
+                &CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
