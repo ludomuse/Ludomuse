@@ -195,7 +195,10 @@ private:
 
 signals:
     void addingSceneFinished();
-    void sendScene(LM::CSceneNode*);
+
+    /// \brief signal a new scene loaded, is Nav store the fact that it's navigation transition
+    /// (with next and previous button) or if it's an transtition by id
+    void sendScene(LM::CSceneNode*, bool a_bIsNav);
 };
 
 

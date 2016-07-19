@@ -449,14 +449,14 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
     oMessageVisitor.Traverse(m_pBehaviorTree);
     CTransitionVisitor oVisitor(this, true);
     oVisitor.Traverse(m_pBehaviorTree);
-    emit sendScene(m_pCurrentScene);
+    emit sendScene(m_pCurrentScene, true);
 }
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
     CTransitionVisitor oVisitor(this, false);
     oVisitor.Traverse(m_pBehaviorTree);
-    emit sendScene(m_pCurrentScene);
+    emit sendScene(m_pCurrentScene, true);
 }
 
 
@@ -505,7 +505,7 @@ void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
     m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
     CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
 	oVisitor.Traverse(m_pBehaviorTree);
-    emit sendScene(this->m_pCurrentScene);
+    emit sendScene(this->m_pCurrentScene, false);
 }
 
 
