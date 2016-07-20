@@ -76,7 +76,7 @@ public:
 	SUser* m_pDistantPlayer;
 
 
- public:
+public:
   CKernel(bool a_bIsServer);
   virtual ~CKernel();
   /// \returns the behavior tree
@@ -99,9 +99,10 @@ public:
   /// just does nothing if id doesn't exist in the list
   /// \param a_rPreviousID must be in a_iplayerID scene ids
   /// \param a_bInsertEmptyID if true, insert an empty id at the same
-  void AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID, const std::string& a_rOtherPlayerID = "");
+  void AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID);
 
   /// \brief Add a whole new scene to the BehaviorTree
+  /// \param previousID can be empty, if it's just add the new scene at the end of timeline
   void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID, int a_iPlayerNumber);
 
   /// \brief checks if the current player has this scene in his list

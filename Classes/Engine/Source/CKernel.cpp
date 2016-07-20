@@ -184,29 +184,30 @@ void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 	m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
 }
 
-void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID, const std::string& a_rOtherID)
+void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID)
 {
     for(std::string currentString : m_mScenesID[a_iPlayerID])
     {
         if(currentString == a_rPreviousID)
         {
             int pos = find(m_mScenesID[a_iPlayerID].begin(), m_mScenesID[a_iPlayerID].end(), currentString) - m_mScenesID[a_iPlayerID].begin();
-            qDebug()<<"Found id at index :"<<pos;
+//            qDebug()<<"Found id at index :"<<pos;
             m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin() + pos + 1, a_rSceneID);
 
-            // Fill the other list at the right place
+            // Fill the other list at the right place with an empty id
             if(a_iPlayerID == 1)
             {
-                m_mScenesID[0].insert(m_mScenesID[0].begin() + pos + 1, a_rOtherID);
+                m_mScenesID[0].insert(m_mScenesID[0].begin() + pos + 1, "");
             }
             else
             {
-                m_mScenesID[1].insert(m_mScenesID[1].begin() + pos + 1, a_rOtherID);
+                m_mScenesID[1].insert(m_mScenesID[1].begin() + pos + 1, "");
             }
             return;
         }
     }
 }
+
 
 void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a_sPreviousID, std::string a_sNewID, int a_iPlayerNumber)
 {
@@ -215,18 +216,10 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath);
 
     // Adding id in the map
-    // can add at   the end of both player (player number 0)
-    //              after an existing id of the player number
+    // can add at   after an existing id of the player number
     //              at the end of only one player (the player number)
     switch(a_iPlayerNumber)
     {
-    case 0: // Both player
-        if(a_sPreviousID.empty()) // Test if id is present in player screen id or if it's empty -> mean adding at end
-        {
-            this->AddSceneID(1, a_sNewID);
-            this->AddSceneID(0, a_sNewID);
-        }
-        break;
     case 1: // Player 1 only
         if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end())
         {
