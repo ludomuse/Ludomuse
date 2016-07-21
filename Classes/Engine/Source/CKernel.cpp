@@ -154,19 +154,21 @@ void CKernel::ScenesToJson(rapidjson::Value& a_rParent, rapidjson::Document::All
     std::vector<std::string>::iterator itSceneIDP1;
     std::vector<std::string>::iterator itSceneIDP2;
     // Assume that both vector have same length
-    if(m_mScenesID[0].size() != m_mScenesID[1].size())
+    rapidjson::Value player1IDs(rapidjson::kArrayType);
+    rapidjson::Value player2IDs(rapidjson::kArrayType);
+
+    for (itSceneIDP1 = m_mScenesID[0].begin(); itSceneIDP1 != m_mScenesID[0].end(); ++itSceneIDP1)
     {
-        qDebug()<<"Nombre d'id différents";
+        if(itSceneIDP1->compare(""))
+        player1IDs.PushBack(rapidjson::Value(itSceneIDP1->c_str(), itSceneIDP1->length()), a_rAllocator);
     }
-    for (itSceneIDP1 = m_mScenesID[0].begin(), itSceneIDP2 = m_mScenesID[1].begin() ;
-            itSceneIDP1 != m_mScenesID[0].end() && itSceneIDP2 != m_mScenesID[1].end();
-            ++itSceneIDP1, ++itSceneIDP2)
+    for (itSceneIDP2 = m_mScenesID[1].begin(); itSceneIDP2 != m_mScenesID[1].end(); ++itSceneIDP2)
     {
-        rapidjson::Value scene(rapidjson::kArrayType);
-        scene.PushBack(rapidjson::Value(itSceneIDP1->c_str(), itSceneIDP1->length()), a_rAllocator);
-        scene.PushBack(rapidjson::Value(itSceneIDP2->c_str(), itSceneIDP2->length()), a_rAllocator);
-        a_rParent.PushBack(scene, a_rAllocator);
+        if(itSceneIDP2->compare(""))
+        player2IDs.PushBack(rapidjson::Value(itSceneIDP2->c_str(), itSceneIDP2->length()), a_rAllocator);
     }
+    a_rParent.PushBack(player1IDs, a_rAllocator);
+    a_rParent.PushBack(player2IDs, a_rAllocator);
 }
 
 void CKernel::ScreensToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
@@ -193,17 +195,7 @@ void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, co
             int pos = find(m_mScenesID[a_iPlayerID].begin(), m_mScenesID[a_iPlayerID].end(), currentString) - m_mScenesID[a_iPlayerID].begin();
 //            qDebug()<<"Found id at index :"<<pos;
             m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin() + pos + 1, a_rSceneID);
-
-            // Fill the other list at the right place with an empty id
-            if(a_iPlayerID == 1)
-            {
-                m_mScenesID[0].insert(m_mScenesID[0].begin() + pos + 1, "");
-            }
-            else
-            {
-                m_mScenesID[1].insert(m_mScenesID[1].begin() + pos + 1, "");
-            }
-            return;
+            break;
         }
     }
 }
@@ -220,11 +212,10 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     //              at the end of only one player (the player number)
     switch(a_iPlayerNumber)
     {
-    case 1: // Player 1 only
+    case 0: // Player 1 only
         if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end())
         {
             this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID);
-            //this->AddSceneID(1, "");
         }
         else if(a_sPreviousID.empty())
         {
@@ -232,10 +223,9 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
             this->AddSceneID(1,""); // Add blank id at the other player timeline end
         }
         break;
-    case 2: // Player 2 only
+    case 1: // Player 2 only
         if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end())
         {
-            //this->AddSceneID(0, "");
             this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID);
         }
         else if(a_sPreviousID.empty())
@@ -249,7 +239,6 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     // Adding the new scene at the right place
     if(a_sPreviousID.empty()) // Adding scene at the end
     {
-        qDebug("id empty -> adding at the end");
         this->m_pBehaviorTree->AddChildNode(newScene);
         emit(addingSceneFinished());
         return;
@@ -257,7 +246,6 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     // Adding scene after an existing
     this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
     emit(addingSceneFinished());
-    qDebug("ckernel add new Scene ended");
 }
 
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
