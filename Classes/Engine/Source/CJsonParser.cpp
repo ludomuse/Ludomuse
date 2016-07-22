@@ -64,10 +64,10 @@ void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& 
 
     m_oDocument.Parse(sJsonString.c_str());
 
-    if (m_oDocument.HasMember("template"))
+    if (m_oDocument.HasMember("templates") && m_oDocument["templates"].IsArray())
     {
         qDebug("has member template");
-        RefJsonNode rScenes = m_oDocument["template"];
+        RefJsonNode rScenes = m_oDocument["templates"][0];
         // Calling ParseJson with add scene params
         ParseJson(rScenes, a_pNewScene, true, true);
     }
