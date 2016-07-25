@@ -47,8 +47,8 @@ private:
 	 /// \params[in] a_sFilename the filename of the json file to build the tree from
     void BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename);
 
-    /// \brief Build a new Scene node from a template file
-    void BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName);
+    /// \brief Build a new Scene node from a template file 
+    void BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber = 0);
 
 	/// \brief recursive Method to parse the json file
 	/// \params[in] a_rJsonNode the json node in the file corresponging to a_pNode in the tree

@@ -56,7 +56,7 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
   }
 }
 
-void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName)
+void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber)
 {
     // init json document
     qDebug("Jsonparser add new scene");
@@ -67,9 +67,12 @@ void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& 
     if (m_oDocument.HasMember("templates") && m_oDocument["templates"].IsArray())
     {
         qDebug("has member template");
-        RefJsonNode rScenes = m_oDocument["templates"][0];
-        // Calling ParseJson with add scene params
-        ParseJson(rScenes, a_pNewScene, true, true);
+        if(m_oDocument["templates"].Size() >= a_iTemplateNumber)
+        {
+            RefJsonNode rScenes = m_oDocument["templates"][a_iTemplateNumber];
+            // Calling ParseJson with add scene params
+            ParseJson(rScenes, a_pNewScene, true, true);
+        }
     }
 }
 

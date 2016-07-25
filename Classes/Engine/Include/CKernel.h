@@ -103,7 +103,8 @@ public:
 
   /// \brief Add a whole new scene to the BehaviorTree
   /// \param previousID can be empty, if it's just add the new scene at the end of timeline
-  void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID, int a_iPlayerNumber);
+  void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID,
+                   int a_iPlayerNumber, int a_iTemplateNumber = 0);
 
   /// \brief checks if the current player has this scene in his list
   bool PlayerHasScene(const std::string& a_sSceneID);
