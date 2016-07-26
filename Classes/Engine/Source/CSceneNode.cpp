@@ -178,9 +178,8 @@ void CSceneNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
     a_rParent.PushBack(newScene, a_rAllocator);
 }
 
-bool CSceneNode::isSceneID(const std::string &a_rID)
+bool CSceneNode::hasID(const std::string &a_rID)
 {
-    qDebug()<< "test id : "<<m_sID.c_str()<< " vs "<<a_rID.c_str();
     if(this->m_sID == a_rID)
     {
         return true;

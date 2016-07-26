@@ -49,7 +49,7 @@ public:
 
   virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
 
-  bool isSceneID(const std::string &a_rID);
+  bool hasID(const std::string &a_rID);
 
   CREATE_FUNC(CSceneNode);
 };

@@ -31,7 +31,7 @@ void CNode::AddChildNodeAt(CNode* a_pChild, const std::string& a_rID)
     {
         // function should be called only on the behaviour tree
         // There should be only CSceneNode in children vector
-        if(currentNode->isSceneID(a_rID))
+        if(currentNode->hasID(a_rID))
         {
             int pos = find(m_vChildren.begin(), m_vChildren.end(), currentNode) - m_vChildren.begin();
             qDebug()<<"Found children at index :"<<pos;
@@ -43,6 +43,21 @@ void CNode::AddChildNodeAt(CNode* a_pChild, const std::string& a_rID)
     qDebug("No children found");
 }
 
+void CNode::DeleteChildByID(const std::string& a_sID)
+{
+    int index = 0;
+    CNode* tempNode;
+    for(CNode* currentNode : this->m_vChildren)
+    {
+        if(currentNode->hasID(a_sID))
+        {
+            index = find(m_vChildren.begin(), m_vChildren.end(), currentNode) - m_vChildren.begin();
+            tempNode = currentNode;
+        }
+    }
+    this->m_vChildren.erase(m_vChildren.begin() + index);
+    delete(tempNode);
+}
 
 CNode::Iterator CNode::begin()
 {
@@ -105,7 +120,7 @@ bool CNode::SetCurrentNode(CNode* a_pNode)
 	return false;
 }
 
-bool CNode::isSceneID(const std::string &a_rID)
+bool CNode::hasID(const std::string &a_rID)
 {
     return false;
 }

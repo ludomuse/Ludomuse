@@ -106,6 +106,11 @@ public:
   void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID,
                    int a_iPlayerNumber, int a_iTemplateNumber = 0);
 
+
+  /// \brief Delete scene matching id in arg
+  void DeleteScene(const std::string& a_sSceneID);
+
+
   /// \brief checks if the current player has this scene in his list
   bool PlayerHasScene(const std::string& a_sSceneID);
 
@@ -125,13 +130,10 @@ public:
 
   void WriteStats(CSerializableStats* a_oSStats);
 
-
-
   /// \brief find the CEntityNode under the a_pTouch touch event and listening to a_rEvent
   /// \returns the found entity, nullptr otherwise
   CEntityNode* FindEntity(cocos2d::Touch* a_pTouch, const std::string& a_rEvent);
   void LogMessage(const std::string& a_sMessage);
-
 
   ////////////////// input callbacks
   /// \brief callback called when the user start touching the screen
@@ -197,6 +199,7 @@ private:
 
 signals:
     void addingSceneFinished();
+    void deletingSceneFinished();
 
     /// \brief signal a new scene loaded, is Nav store the fact that it's navigation transition
     /// (with next and previous button) or if it's an transtition by id

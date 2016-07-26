@@ -26,7 +26,17 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 {
 }
 
-
+bool CEntityNode::hasID(const std::string& a_sID)
+{
+    if(this->m_sID == a_sID)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 
 void CEntityNode::UnInit(bool removeChild)
 {

@@ -249,6 +249,38 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     emit(addingSceneFinished());
 }
 
+void CKernel::DeleteScene(const std::string &a_sSceneID)
+{
+    // Trying to go to previous screen
+    CSceneNode* tempNode = m_pCurrentScene;
+    CTransitionVisitor oVisitor(this, false);
+    oVisitor.Traverse(m_pBehaviorTree);
+    if(tempNode == m_pCurrentScene)
+    {
+        // Trying to go to the next screen
+        qDebug("Premier screen");
+        CTransitionVisitor oVisitor(this, true);
+        oVisitor.Traverse(m_pBehaviorTree);
+        if(tempNode == m_pCurrentScene)
+        {
+            qDebug("Dernier screen");
+        }
+    }
+    this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
+    // Clear id from vector for both player
+    int index = find(this->m_mScenesID[0].begin(), this->m_mScenesID[0].end(), a_sSceneID) - this->m_mScenesID[0].begin();
+    if(index < m_mScenesID[0].size())
+    {
+        this->m_mScenesID[0].erase(this->m_mScenesID[0].begin() + index);
+    }
+    index = find(this->m_mScenesID[1].begin(), this->m_mScenesID[1].end(), a_sSceneID) - this->m_mScenesID[1].begin();
+    if(index < m_mScenesID[1].size())
+    {
+        this->m_mScenesID[1].erase(this->m_mScenesID[1].begin() + index);
+    }
+    emit deletingSceneFinished();
+}
+
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 {
     return PlayerHasScene(a_rSceneID, m_pLocalPlayer->m_iPlayerID);
