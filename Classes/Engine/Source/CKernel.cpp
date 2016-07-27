@@ -10,6 +10,7 @@
 #include "../Include/CFindEntityFromIDVisitor.h"
 #include "../Include/CFindEntityFromTypeVisitor.h"
 #include "../Include/CEditorFindEntityTouchVisitor.h"
+#include "../Include/CFindSceneFromIDVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CSoundManager.h"
@@ -176,6 +177,47 @@ void CKernel::ScreensToJson(rapidjson::Value& a_rParent, rapidjson::Document::Al
     this->m_pBehaviorTree->ToJson(a_rParent, a_rAllocator);
 }
 
+void CKernel::RemoveIDFromPlayer(const std::string &a_sSceneID, int a_iPlayerID)
+{
+    int index = find(this->m_mScenesID[a_iPlayerID].begin(), this->m_mScenesID[a_iPlayerID].end(), a_sSceneID) - this->m_mScenesID[a_iPlayerID].begin();
+    if(index < m_mScenesID[a_iPlayerID].size())
+    {
+        this->m_mScenesID[a_iPlayerID].erase(this->m_mScenesID[a_iPlayerID].begin() + index);
+    }
+}
+
+void CKernel::FullfillSyncedScenes()
+{
+    std::vector<std::string> syncScenesP1;
+    std::vector<std::string> syncScenesP2;
+    for(CNode* currentNode : m_pBehaviorTree->GetChildren())
+    {
+        CSceneNode* pSceneNode = dynamic_cast<CSceneNode*>(currentNode);
+        if(pSceneNode)
+        {
+            if(pSceneNode->IsSynced())
+            {
+                if(this->PlayerHasScene(pSceneNode->GetSceneID(), 0))
+                {
+                    syncScenesP1.push_back(pSceneNode->GetSceneID());
+                }
+                else
+                {
+                    syncScenesP2.push_back(pSceneNode->GetSceneID());
+                }
+            }
+        }
+    }
+    if(syncScenesP1.size() == syncScenesP2.size())
+    {
+        for(int i = 0; i < syncScenesP1.size(); i++)
+        {
+            this->m_mSceneSynced.emplace(syncScenesP1.at(i), syncScenesP2.at(i));
+            this->m_mSceneSynced.emplace(syncScenesP2.at(i), syncScenesP1.at(i));
+        }
+    }
+}
+
 CEditorFindEntityTouchVisitor* CKernel::GetEditorVisitor()
 {
     return this->m_oVisitor;
@@ -249,9 +291,15 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     emit(addingSceneFinished());
 }
 
+void CKernel::AddSyncID(const std::string& a_sID1, const std::string& a_sID2)
+{
+    this->m_mSceneSynced.emplace(a_sID1, a_sID2);
+    this->m_mSceneSynced.emplace(a_sID2, a_sID1);
+}
+
 void CKernel::DeleteScene(const std::string &a_sSceneID)
 {
-    // Trying to go to previous screen
+    //Change current screen Trying to go to previous screen
     CSceneNode* tempNode = m_pCurrentScene;
     CTransitionVisitor oVisitor(this, false);
     oVisitor.Traverse(m_pBehaviorTree);
@@ -264,20 +312,44 @@ void CKernel::DeleteScene(const std::string &a_sSceneID)
         if(tempNode == m_pCurrentScene)
         {
             qDebug("Dernier screen");
+            return;
         }
     }
     this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
     // Clear id from vector for both player
-    int index = find(this->m_mScenesID[0].begin(), this->m_mScenesID[0].end(), a_sSceneID) - this->m_mScenesID[0].begin();
-    if(index < m_mScenesID[0].size())
+    this->RemoveIDFromPlayer(a_sSceneID, 0);
+    this->RemoveIDFromPlayer(a_sSceneID, 1);
+    emit deletingSceneFinished();
+}
+
+void CKernel::DeleteSyncScenes(const std::string &a_sSceneID)
+{
+    // Change current screen by the previous or next
+    CSceneNode* tempNode = m_pCurrentScene;
+    CTransitionVisitor oVisitor(this, false);
+    oVisitor.Traverse(m_pBehaviorTree);
+    if(tempNode == m_pCurrentScene)
     {
-        this->m_mScenesID[0].erase(this->m_mScenesID[0].begin() + index);
+        // Trying to go to the next screen
+        qDebug("Premier screen");
+        CTransitionVisitor oVisitor(this, true);
+        oVisitor.Traverse(m_pBehaviorTree);
+        if(tempNode == m_pCurrentScene)
+        {
+            qDebug("Dernier screen");
+            return;
+        }
     }
-    index = find(this->m_mScenesID[1].begin(), this->m_mScenesID[1].end(), a_sSceneID) - this->m_mScenesID[1].begin();
-    if(index < m_mScenesID[1].size())
-    {
-        this->m_mScenesID[1].erase(this->m_mScenesID[1].begin() + index);
-    }
+    std::string otherID = m_mSceneSynced[a_sSceneID];
+    // Removing scene from behavior, idlist and synced scene map
+    this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
+    this->m_pBehaviorTree->DeleteChildByID(otherID);
+    this->RemoveIDFromPlayer(a_sSceneID, 0);
+    this->RemoveIDFromPlayer(a_sSceneID, 1);
+    this->RemoveIDFromPlayer(otherID, 0);
+    this->RemoveIDFromPlayer(otherID, 1);
+    this->m_mSceneSynced.erase(a_sSceneID);
+    this->m_mSceneSynced.erase(otherID);
     emit deletingSceneFinished();
 }
 
@@ -343,10 +415,11 @@ void CKernel::Init()
 	M_STATS->StartStats();
 
     this->m_oVisitor = new CEditorFindEntityTouchVisitor(this);
-
+    this->FullfillSyncedScenes();
 	//M_STATS->PushStats("test");
 	//CSerializableStats oSStats(M_STATS->GetStats());
 	//WriteStats(&oSStats);
+
 }
 
 

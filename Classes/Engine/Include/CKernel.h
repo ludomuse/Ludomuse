@@ -53,6 +53,8 @@ class CKernel : public QObject
 
   std::map<int, std::vector<std::string> > m_mScenesID;
 
+  std::map<std::string, std::string> m_mSceneSynced;
+
   std::map<int, CTouchBeganVisitor> m_mTouchBeganVisitors;
 
 public:
@@ -106,9 +108,14 @@ public:
   void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID,
                    int a_iPlayerNumber, int a_iTemplateNumber = 0);
 
+  void AddSyncID(const std::string& a_sID1, const std::string& a_sID2);
 
   /// \brief Delete scene matching id in arg
   void DeleteScene(const std::string& a_sSceneID);
+
+
+  /// \brief Delete the sync scene and it's matching screen for the other player
+  void DeleteSyncScenes(const std::string& a_sSceneID);
 
 
   /// \brief checks if the current player has this scene in his list
@@ -196,6 +203,8 @@ private:
     void ProcessMessage(const std::string& a_rMessage);
     void ScenesToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
     void ScreensToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+    void RemoveIDFromPlayer(const std::string& a_sSceneID, int a_iPlayerID = 0);
+    void FullfillSyncedScenes();
 
 signals:
     void addingSceneFinished();
