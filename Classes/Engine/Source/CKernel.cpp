@@ -23,6 +23,7 @@
 
 #include <fstream>
 #include <QDebug>
+#include <QDir>
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
@@ -399,11 +400,18 @@ bool CKernel::CheckPlayerInfo()
 }
 
 
-void CKernel::Init()
+void CKernel::Init(const std::string& a_sPath)
 {
-	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
+    if(a_sPath.empty())
+    {
+        std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
 
-	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
+        m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
+    }
+    else
+    {
+        m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, a_sPath);
+    }
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
 	m_pCurrentScene = pFirstScene;

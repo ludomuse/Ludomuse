@@ -7,6 +7,7 @@
 #include "../Include/CValidateSceneVisitor.h"
 
 #include <QDebug>
+#include <QFileInfo>
 
 using namespace cocos2d;
 
@@ -22,8 +23,18 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 {
 
   // init json document
+
   std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFilename);
 
+  std::string fullPath = cocos2d::FileUtils::getInstance()->fullPathForFilename(a_sFilename);
+  int lastSlash = fullPath.find_last_of("/");
+  while(lastSlash == fullPath.size()-1)
+  {
+      fullPath = fullPath.substr(0, lastSlash);
+      lastSlash = fullPath.find_last_of("/");
+  }
+  fullPath = fullPath.substr(0, lastSlash+1); // +1 to save the last slash
+  m_sBasePath = fullPath;
   m_oDocument.Parse(sJsonString.c_str());
 
   if (m_oDocument.HasMember("app"))
@@ -59,14 +70,23 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber)
 {
     // init json document
-    qDebug("Jsonparser add new scene");
     std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFileName);
+
+    // update path
+    std::string fullPath = cocos2d::FileUtils::getInstance()->fullPathForFilename(a_sFileName);
+    int lastSlash = fullPath.find_last_of("/");
+    while(lastSlash == fullPath.size()-1)
+    {
+        fullPath = fullPath.substr(0, lastSlash);
+        lastSlash = fullPath.find_last_of("/");
+    }
+    fullPath = fullPath.substr(0, lastSlash+1); // +1 to save the last slash
+    m_sBasePath = fullPath;
 
     m_oDocument.Parse(sJsonString.c_str());
 
     if (m_oDocument.HasMember("templates") && m_oDocument["templates"].IsArray())
     {
-        qDebug("has member template");
         if(m_oDocument["templates"].Size() >= a_iTemplateNumber)
         {
             RefJsonNode rScenes = m_oDocument["templates"][a_iTemplateNumber];

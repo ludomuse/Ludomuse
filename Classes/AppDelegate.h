@@ -14,7 +14,7 @@ The reason for implement as private inheritance is to hide some interface call b
 class  AppDelegate : private cocos2d::Application
 {
 public:
-	AppDelegate(bool a_bIsServer = true);
+    AppDelegate(bool a_bIsServer = true, const std::string& a_sPath = "");
     virtual ~AppDelegate();
 
     virtual void initGLContextAttrs();
@@ -53,6 +53,7 @@ public:
   //handle the good behavior of the game
   // LmGameManager* m_pLmGameManager;
   LM::CKernel m_oKernel;
+  std::string m_sPath;
 
   //this object handle log of user & wifi direct & get info to set after gamanager
   // LmMenu* m_pLmMenu;

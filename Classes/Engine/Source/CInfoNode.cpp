@@ -1,4 +1,4 @@
-#include "CInfoNode.h"
+#include "../Include/CInfoNode.h"
 #include <QDebug>
 
 namespace LM

@@ -39,6 +39,9 @@ private:
 	/// \brief a reference pointer to the game kernel
 	CKernel* m_pKernel;
 
+    /// \brief base path for all resources
+    std::string m_sBasePath;
+
  public:
 	 CJsonParser(CKernel* a_pKernel);
 
