@@ -86,7 +86,7 @@ public:
 
 
   /// \brief Initialize the kernel and the behavior tree
-  void Init();
+  void Init(const std::string& a_sPath);
 
   void WriteStats();
 

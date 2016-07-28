@@ -17,7 +17,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
 	bool isServer = false;
-
+	std::string filename;
 
 #if CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
 
@@ -26,9 +26,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	szArgList = CommandLineToArgvW(GetCommandLine(), &argCount);
 
-	if (argCount == 1)
+	if (argCount >= 2)
 	{
-		std::wstring warg(szArgList[0]);
+		std::wstring warg(szArgList[1]);
 		std::string arg(warg.begin(), warg.end());
 		std::cout << "arg : " << arg << std::endl;
 		isServer = arg == std::string("client") ? false : true;
@@ -43,10 +43,16 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 		std::cout << "launching LudoMuse as a client" << std::endl;
 	}
 
+	if (argCount >= 3)
+	{
+		std::wstring warg(szArgList[2]);
+		filename = std::string(warg.begin(), warg.end());
+		std::cout << "using config file : " << filename << std::endl;
+	}
 #endif // CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
 
 
 	// create the application instance
-    AppDelegate app(isServer);
+    AppDelegate app(isServer, filename);
     return cocos2d::Application::getInstance()->run();
 }

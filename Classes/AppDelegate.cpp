@@ -10,7 +10,7 @@ static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 static cocos2d::Size standardResolutionSize = cocos2d::Size(960, 540);
 
-AppDelegate::AppDelegate(bool a_bIsServer) : m_oKernel(a_bIsServer){
+AppDelegate::AppDelegate(bool a_bIsServer, const std::string& a_sPath) : m_oKernel(a_bIsServer), m_sPath(a_sPath){
   /*Create the wifi direct
     and set it in the jni facade (it's like doing a singleton -> all class can now access the wifi
     trough this the jni facade class)
@@ -87,7 +87,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     // director->runWithScene(scene);
-    m_oKernel.Init();
+    m_oKernel.Init(m_sPath);
 
     return true;
 }

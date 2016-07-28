@@ -22,7 +22,6 @@
 #include <fstream>
 #include <pthread.h>
 
-
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
@@ -147,12 +146,20 @@ bool CKernel::CheckPlayerInfo()
 }
 
 
-void CKernel::Init()
+void CKernel::Init(const std::string& a_sPath)
 {
 	m_pNetworkManager = new CNetworkManager(this, m_bIsServer);
-	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
 
-	m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
+    if(a_sPath.empty())
+    {
+        std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
+
+        m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
+    }
+    else
+    {
+        m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, a_sPath);
+    }
 
 	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
 	m_pCurrentScene = pFirstScene;

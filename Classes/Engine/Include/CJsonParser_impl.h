@@ -48,6 +48,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		if (rParams.HasMember("source"))
 		{
 			sBackgroundSource = rParams["source"].GetString();
+            sBackgroundSource = m_sBasePath + sBackgroundSource;
 		}
 		pEntity = new CGroupNode(
 			IntToAnchor(rParams["anchor"].GetInt()),
@@ -78,7 +79,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "Image" || sType == "Info")
 	{
-		pEntity = new CSpriteNode(rParams["source"].GetString(),
+        std::string imageSource = m_sBasePath + rParams["source"].GetString();
+        pEntity = new CSpriteNode(imageSource,
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width, height,
 			x, y);
@@ -100,8 +102,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		//	//CCLOG("HI");
 		//};
 		pEntity = new CMenuNode(
-			rParams["normal"].GetString(),
-			rParams["selected"].GetString(),
+            m_sBasePath + rParams["normal"].GetString(),
+            m_sBasePath + rParams["selected"].GetString(),
 			CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
 				(std::string(rParams["action"].GetString()) == "next") ?
 				&CKernel::NavNext : &CKernel::NavPrevious),
@@ -122,7 +124,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		}
 
 		if (rParams.HasMember("sound"))
-			oValidator->SetSound(rParams["sound"].GetString());
+            oValidator->SetSound( m_sBasePath + rParams["sound"].GetString());
 
 		a_pNode->AddChildNode(oValidator);
 	}
@@ -145,17 +147,17 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		std::string sFontName = "";
 		if (rParams.HasMember("font"))
 		{
-			sFontName = rParams["font"].GetString();
+            sFontName =  m_sBasePath + rParams["font"].GetString();
 		}
 		if (sFontName == "") // apply default font
 		{
-			sFontName = "fonts/Open_Sans/OpenSans-Regular.ttf";
+            sFontName =  m_sBasePath + "fonts/Open_Sans/OpenSans-Regular.ttf";
 		}
 
 		int iFontSize = 24;
 		if (rParams.HasMember("fontSize"))
 		{
-			iFontSize = rParams["fontSize"].GetInt();
+            iFontSize =  rParams["fontSize"].GetInt();
 		}
 		if (iFontSize < 1)
 		{
@@ -188,7 +190,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "EditBox")
 	{
-		pEntity = new CSpriteNode("ui/textfieldBackground.png", IntToAnchor(rParams["anchor"].GetInt()), width, height, x, y);
+        pEntity = new CSpriteNode( m_sBasePath + "ui/textfieldBackground.png", IntToAnchor(rParams["anchor"].GetInt()), width, height, x, y);
 		CEditBoxNode* pEditBox = new CEditBoxNode(EAnchor::CENTER, 100);
 		pEntity->AddChildNode(pEditBox);
 	}
@@ -215,7 +217,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		if (rParams.HasMember("isReceiver")) 
 		{
 			pEntity = new CCameraFeedNode(
-				rParams["mask"].GetString(),
+                 m_sBasePath + rParams["source"].GetString(),
 				IntToAnchor(rParams["anchor"].GetInt()),
 				width,
 				height,
@@ -226,7 +228,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		else
 		{
 			pEntity = new CCameraFeedNode(
-				rParams["mask"].GetString(),
+                 m_sBasePath + rParams["source"].GetString(),
 				IntToAnchor(rParams["anchor"].GetInt()),
 				width,
 				height,
