@@ -1,7 +1,7 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 
-#include <qDebug>
+#include <QDebug>
 
 USING_NS_CC;
 
