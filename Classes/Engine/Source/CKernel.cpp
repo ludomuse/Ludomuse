@@ -26,6 +26,11 @@
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
+#endif
+#ifdef TARGET_OS_MAC
+#include <unistd.h>
+#endif
+#ifdef __linux__
 #include <unistd.h>
 #endif
 
