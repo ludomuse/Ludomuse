@@ -491,7 +491,7 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 
 				if (iDelay > 0)
 				{
-#ifdef __linux__
+#if defined __linux__ | defined TARGET_OS_MAC
 					usleep(iDelay * 1000);
 #else
 					Sleep(iDelay);
