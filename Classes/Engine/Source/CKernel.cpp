@@ -29,6 +29,12 @@
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
 #endif
+#ifdef TARGET_OS_MAC
+#include <unistd.h>
+#endif
+#ifdef __linux__
+#include <unistd.h>
+#endif
 
 
 
@@ -45,7 +51,8 @@ namespace LM
 
 	CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
 		m_pJsonParser(new CJsonParser(this)),
-		m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
+		m_bIsServer(a_bIsServer),
+		//m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
 		m_pSoundManager(new CSoundManager(this)),
 		m_pBehaviorTree(new CSequenceNode()),
 		m_bDebugMode(false),
@@ -53,8 +60,9 @@ namespace LM
 		m_pDistantPlayer(new SUser()),
 		m_pDashboard(nullptr),
 		m_pCurrentScene(nullptr),
-		m_pWaitingScene(nullptr)
-{
+		m_pWaitingScene(nullptr),
+		m_pRemoteStats(nullptr)
+	{
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
 
@@ -402,6 +410,8 @@ bool CKernel::CheckPlayerInfo()
 
 void CKernel::Init(const std::string& a_sPath)
 {
+	m_pNetworkManager = new CNetworkManager(this, m_bIsServer);
+	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
     if(a_sPath.empty())
     {
         std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
@@ -433,6 +443,10 @@ void CKernel::Init(const std::string& a_sPath)
 
 void CKernel::EndGame(SEvent, CEntityNode*)
 {
+	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+
+	m_pLocalPlayer->m_bGameEnded = true;
+
 	if (m_pLocalPlayer->m_iPlayerID == 1)
 	{
 		CSerializableStats oSStats(M_STATS->GetStats());
@@ -440,27 +454,38 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 
 		b << M_STATS_EVENT << oSStats;
 		m_pNetworkManager->Send(b);
+
+#ifdef __ANDROID__
+	sleep(1);
+#endif // __ANDROID__
+
+	Director::getInstance()->end();
+
 	}
+	else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
+	{
+		WriteStats();
+	}
+
 }
 
 
-void CKernel::WriteStats(CSerializableStats* a_pSStats)
+void CKernel::WriteStats()
 {
 
 	// TODO write stats to file on filesystem
 	std::stringstream ss;
-	ss << *a_pSStats;
+	ss << *m_pRemoteStats;
 	CCLOG("[LUDO_STATS] ******************************************************************");
 	CCLOG("[LUDO_STATS] remote peer : ");
 	CCLOG("%s", ss.str().c_str());
 
 
 	std::map<std::string, SScreenStats> mLocalStats = M_STATS->GetStats();
-	std::map<std::string, SScreenStats> mRemoteStats = a_pSStats->m_mScreensStats;
+	std::map<std::string, SScreenStats> mRemoteStats = m_pRemoteStats->m_mScreensStats;
 
 	std::stringstream fileStream;
 
-	fileStream << ",Player1,Player2," << std::endl;
 
 	std::map<std::string, SScreenStats>::const_iterator itLocal;
 	std::map<std::string, SScreenStats>::const_iterator itRemote;
@@ -473,21 +498,46 @@ void CKernel::WriteStats(CSerializableStats* a_pSStats)
 		const SScreenStats& rLocalStat = itLocal->second;
 		const SScreenStats& rRemoteStat = itRemote->second;
 		
+		fileStream << rLocalStat.time << ","
+			<< rLocalStat.nbInteractions << ","
+			<< rLocalStat.nbTouches << ","
+			<< rLocalStat.nbMoves << ","
+			<< rLocalStat.nbValidTouches << ","
+			<< rLocalStat.nbValidDrops << ","
+			<< rLocalStat.nbInvalidDrops << ","
+			<< rLocalStat.nbValidAnswers << ","
+			<< rLocalStat.nbInvalidAnswers << ",";
 
-		fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
-		fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
-		fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
-		fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
-		fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
-		fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
-		fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
-		fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
-		fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
-		fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
+		fileStream << ",";
 
-		fileStream << std::endl;
+		fileStream << rRemoteStat.time << ","
+			<< rRemoteStat.nbInteractions << ","
+			<< rRemoteStat.nbTouches << ","
+			<< rRemoteStat.nbMoves << ","
+			<< rRemoteStat.nbValidTouches << ","
+			<< rRemoteStat.nbValidDrops << ","
+			<< rRemoteStat.nbInvalidDrops << ","
+			<< rRemoteStat.nbValidAnswers << ","
+			<< rRemoteStat.nbInvalidAnswers << ",";
+
+		fileStream << ",,";
+
+
+		//fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
+		//fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
+		//fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
+		//fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
+		//fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
+		//fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
+		//fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
+		//fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
+		//fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
+		//fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
 
 	}
+
+	fileStream << std::endl;
+
 
 	//std::string sPath = CCFileUtils::getInstance()->getWritablePath() + "stats.csv";
 	//
@@ -531,26 +581,47 @@ void CKernel::WriteStats(CSerializableStats* a_pSStats)
 	//fflush(statsFile);
 	//fclose(statsFile);
 
+	CCLOG("[LUDO_STATS] end WriteStats");
+
 #ifdef __ANDROID__
-	CCLOG("calling jni saveStringToFile");
+	CCLOG("[LUDO_STATS] calling jni saveStringToFile");
 	LmJniJavaFacade::saveStringToFile(fileStream.str());
 #endif // __ANDROID__
+
+#if defined _WIN32 | defined _WIN64
+	Director::getInstance()->end();
+#endif	// WINDOWS
 }
 
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
-    CDispatchMessageVisitor oMessageVisitor("Validated");
-    oMessageVisitor.Traverse(m_pBehaviorTree);
-    CTransitionVisitor oVisitor(this, true);
-    oVisitor.Traverse(m_pBehaviorTree);
-    emit sendScene(m_pCurrentScene, true);
+	if (m_pCurrentScene->GetSceneID() == "screen-playerid")
+	{
+		if (!CheckPlayerInfo()) {
+			// TODO throw a toast at the user
+			
+			return;
+		}
+	}
+
+	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+  m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+	CDispatchMessageVisitor oMessageVisitor("Validated");
+	oMessageVisitor.Traverse(m_pCurrentScene);
+	CTransitionVisitor oVisitor(this, true);
+	oVisitor.Traverse(m_pBehaviorTree);
+	
+	emit sendScene(m_pCurrentScene, true);
 }
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
-    CTransitionVisitor oVisitor(this, false);
-    oVisitor.Traverse(m_pBehaviorTree);
+	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+  m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+  CTransitionVisitor oVisitor(this, false);
+  oVisitor.Traverse(m_pBehaviorTree);
+
     emit sendScene(m_pCurrentScene, true);
 }
 
@@ -720,6 +791,8 @@ void CKernel::LocalMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
 	ProcessMessage(a_oEvent.m_sStringValue);
 }
 
+
+
 void CKernel::ProcessMessage(const std::string& a_rMessage)
 {
 	std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
@@ -727,14 +800,35 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 	{
 		if (vSplittedMessage[1] == "waiting")
 		{
+
+			m_oSyncMutex.lock();
+
 			if (m_pLocalPlayer->m_bWaiting)
 			{
+				std::chrono::milliseconds oTimeSinceTransitionStarted = duration_cast<milliseconds>(
+					std::chrono::system_clock::now() - m_oSyncTransitionStart);
+				
+
+				int iDelay = 600 - oTimeSinceTransitionStarted.count();
+
+				if (iDelay > 0)
+				{
+#if defined __linux__ | defined TARGET_OS_MAC
+					usleep(iDelay * 1000);
+#else
+					Sleep(iDelay);
+#endif
+				}
+
 				ON_CC_THREAD(CKernel::NavNext, this, nullptr, nullptr);
+
 			}
 			else
 			{
 				m_pDistantPlayer->m_bWaiting = true;
 			}
+
+			m_oSyncMutex.unlock();
 		}
 
 		else if (vSplittedMessage[1] == "Validate")
@@ -769,9 +863,12 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 		CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
 		break;
 	case M_STATS_EVENT:
-		CSerializableStats* pSStats;
-		a_rByteArray >> &pSStats;
-		WriteStats(pSStats);
+		a_rByteArray >> &m_pRemoteStats;
+		m_pDistantPlayer->m_bGameEnded = true;
+		if (m_pLocalPlayer->m_bGameEnded && m_pDistantPlayer->m_bGameEnded)
+		{
+			WriteStats();
+		}
 		break;
 	}
 }

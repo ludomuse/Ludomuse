@@ -50,6 +50,11 @@ void LmJniCppFacade::onReceivingPhoto(std::string path)
 		"PictureReceived");
 }
 
+void LmJniCppFacade::closeApp()
+{
+    cocos2d::Director::getInstance()->end();
+}
+
 JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_onGettingPeers(
 		JNIEnv* env, jobject thiz, jstring peers)
 {
@@ -145,4 +150,10 @@ JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_onReceivingP
 {
 	LmJniCppFacade::onReceivingPhoto(
 		LmJniCppFacade::toCObject(path, env));
+}
+
+JNIEXPORT void JNICALL Java_org_cocos2dx_cpp_jniFacade_JniCppFacade_closeApp(
+    JNIEnv* env, jobject thiz)
+{
+    LmJniCppFacade::closeApp();
 }

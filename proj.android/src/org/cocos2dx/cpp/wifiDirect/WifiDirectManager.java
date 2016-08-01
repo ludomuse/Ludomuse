@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import android.os.SystemClock;
 import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.sockets.CallBackMethod;
 import org.cocos2dx.cpp.sockets.SocketHandler;
@@ -21,6 +22,7 @@ import android.content.IntentFilter;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WpsInfo;
+import android.net.wifi.WifiManager.WifiLock;
 import android.net.wifi.p2p.WifiP2pConfig;
 import android.net.wifi.p2p.WifiP2pDevice;
 import android.net.wifi.p2p.WifiP2pDeviceList;
@@ -36,6 +38,7 @@ import android.net.wifi.p2p.WifiP2pManager.PeerListListener;
 import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceInfo;
 import android.net.wifi.p2p.nsd.WifiP2pDnsSdServiceRequest;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -43,6 +46,7 @@ public class WifiDirectManager {
 
 	private Activity _activity;
 	private WifiP2pManager _manager;
+	private WifiManager.WifiLock _lock;
 	private Channel _channel;
 	private IntentFilter _intentFilter;
 	private WiFiDirectBroadcastReceiver _receiver;
@@ -113,7 +117,8 @@ public class WifiDirectManager {
 		_intentFilter
 				.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
 		DebugManager.print("WifiDirectManager started !", DEBUGGER_CHANNEL);
-
+		_lock = _wifiManager.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "ludomuse");
+		_lock.acquire();
 	}
 
 	private void initDebugger()
@@ -213,10 +218,11 @@ public class WifiDirectManager {
 
 	public void clear()
 	{
+		_lock.release();
 		stopHandlers();
 		askToRemoveGroup();
 		socket.stop();
-		turnOffWifi();
+		//turnOffWifi();
 		turnOnWifi();
 		askToClearAllRequestsAndLocalServices();
 		DebugManager.clear();
@@ -252,10 +258,13 @@ public class WifiDirectManager {
 	{
 		if (requestForServicePeersDiscoveringAlreadyLaunched)
 		{
-			DebugManager
+			/*DebugManager
 					.print("request for service peers discovering already Launched. Please wait.",
 							DEBUGGER_CHANNEL);
-			return;
+			return;*/
+			DebugManager
+					.print("request for service peers discovering already Launched. Re-launch ",
+							DEBUGGER_CHANNEL);
 		}
 		else
 		{
@@ -615,7 +624,11 @@ public class WifiDirectManager {
 						if (_cmPeerDiscovered != null)
 						{
 							_cmPeerDiscovered.Do();
-							_cmPeerDiscovered = null;
+							//_cmPeerDiscovered = null;
+						}
+						else
+						{
+							Log.d("debug","LudoMuse - debug - _cmPeerDiscovered");
 						}
 
 						/* for debug */
@@ -1081,6 +1094,7 @@ public class WifiDirectManager {
 				DebugManager.print("<font color='red'>owner sdk ? </font>" + info.isGroupOwner, DEBUGGER_CHANNEL);
 				SocketHandler.printAllNetworkInterfaceName();
 				String myLocalAddress = SocketHandler.getIPAddress(true);
+				if(myLocalAddress.equals("")) myLocalAddress = SocketHandler.getIPAddress(false);
 				
 				if (!myLocalAddress.equals(ownerAddress) && info.groupFormed)
 				{

@@ -1,8 +1,10 @@
 package org.cocos2dx.cpp.sockets;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.util.Log;
 import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 
@@ -180,7 +182,12 @@ public class MailBox {
 			messages.get(0).send();
 			// arm timer in order to send this message again if no accuse is
 			// received
-			armTimeOut();
+			if(messages.get(0).parameterTypes[0] == File.class){
+				Log.d("debug", "Ludomuse - LudoMuse - Message à base d'un file trop style c'est une grand ligne pour prendre de la place est resortir dans le caca qu'est le debug");
+			}
+			else{
+				armTimeOut();
+			}
 		}
 	}
 

@@ -31,6 +31,8 @@ public class JniCppFacade {
 		{
 			res += "-" + s;
 		}
+		if (res.length() < 2)
+			return "";
 		return res.substring(1);
 	}
 	
@@ -63,4 +65,6 @@ public class JniCppFacade {
 	public static native void setApplicationDirectory(String path);
 
 	public static native void onReceivingPhoto(String path);
+
+	public static native void closeApp();
 }

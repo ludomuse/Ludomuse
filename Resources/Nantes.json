@@ -1,10 +1,15 @@
 {
     "app": {
+	"debug": true,
 	"colors": [],
 	"images": [],
 	"videos": [],
 	"sounds": [],
 	"scenes": [
+	    [
+		"screen-peers",
+		"screen-peers"
+	    ],
 	    [
 		"screen-1-a",
 		"screen-1-a"
@@ -14,13 +19,17 @@
 		"screen-login"
 	    ],
 	    [
+	    "screen-sex",
+	    "screen-sex"
+	    ],
+	    [
 		"screen-playerid",
 		"screen-playerid"
 	    ],
-	    [
-		"screen-peers",
-		"screen-peers"
-	    ],
+		[
+		"screen-manual",
+		"screen-manual"
+		],
 	    [
 		"screen-1-b-player1",
 		"screen-1-b-player2"
@@ -51,10 +60,6 @@
 	    ],
 	    [
 		"screen-1-h-player1-fail"
-	    ],
-	    [
-		"screen-1-i-player1",
-		"screen-1-i-player2"
 	    ],
 	    [
 		"screen-1-j-player1",
@@ -117,8 +122,8 @@
 		"screen-3-c-player2"
 	    ],
 	    [
-		"screen-3-d",
-		"screen-3-d"
+		"screen-3-d-player1",
+		"screen-3-d-player2"
 	    ],
 	    [
 		"screen-3-e-player1",
@@ -144,14 +149,22 @@
 		"screen-4-d-player1",
 		"screen-4-d-player2"
 	    ],
+		[
+			"screen-4-f1-player1",
+			"screen-4-f1-player2"
+		],
+		[
+			"screen-4-f2-player1",
+			"screen-4-f2-player2"
+		],
 	    [
 		"screen-4-e-player1",
 		"screen-4-e-player2"
 	    ],
-	    [
-		"screen-4-f-player1",
-		"screen-4-f-player2"
-	    ],
+		[
+			"screen-4-g1-player1",
+			"screen-4-g1-player2"
+		],
 	    [
 		"screen-4-g-player1",
 		"screen-4-g-player2"
@@ -171,9 +184,309 @@
 	    [
 		"screen-4-k-player1",
 		"screen-4-k-player2"
-	    ]
+	    ],
+		[
+			"screen-generique",
+			"screen-generique"
+		]
 	],
 	"screens": [
+		{
+			"scene": "screen-peers",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"enabled": true,
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "PRÊT!",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						],
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"enabled": true,
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "PRÉCÉDENT",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [
+				{
+					"type": "Info",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 6,
+						"source": "ui/info-6.png",
+						"children": [
+							{
+								"type": "Group",
+								"params": {
+									"anchor": 0,
+									"width": 60,
+									"height": 100,
+									"children": [
+										{
+											"type": "Image",
+											"params": {
+												"source": "ui/Assets/PNG/picto_doigt.png",
+												"anchor": 8,
+												"width": 0,
+												"height": 80
+											}
+										},
+										{
+											"type": "Text",
+											"id": "infoPeer",
+											"params": {
+												"content": "Choisis ton partenaire!",
+												"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+												"fontSize": 20,
+												"textAlign": "center",
+												"width": 80,
+												"anchor": 0,
+												"color": "0,0,0,255",
+												"listeners": [
+													{
+														"type": "PeerChoose",
+														"params": {
+
+															"callback": "SetText",
+															"arg": "Quelqu'un vous a choisi ! Cliquez \"prêt !\" pour continuer"
+														}
+													},
+													{
+														"type": "PeerChooseDist",
+														"params": {
+															"callback": "SetText",
+															"arg": "Quelqu'un vous a choisi ! Cliquez \"prêt !\" pour continuer"
+														}
+													},
+													{
+														"type": "PeerChooseDist",
+														"params": {
+															"callback": "ValidateScene",
+															"arg": true
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Info",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 2,
+						"source": "ui/info-2.png",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Avec qui veux-tu jouer ?",
+									"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+									"fontSize": 20,
+									"textAlign": "center",
+									"width": 80,
+									"anchor": 0,
+									"color": "0,0,0,255"
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background1LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 0,
+						"width": 100,
+						"height": 90,
+						"children": [
+							{
+								"type": "Peers",
+								"params": {
+									"anchor": 0,
+									"width": 80,
+									"height": 50,
+									"listeners" : [
+										{
+											"type": "Peers",
+											"params": {
+												"callback" :"BuildPeerNodes"
+											}
+										}
+									],
+									"children": [
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"listeners": [
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "ConnectPeer",
+															"arg": false
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "ValidateScene",
+															"arg": true
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "LocalMessage",
+															"arg": "screen-peers:PeerChoose:infoPeer"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-peers:PeerChooseDist:infoPeer"
+														}
+													}
+												],
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-noir-70.png",
+															"anchor": 0,
+															"width": 80,
+															"height": 80,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "Scène 1",
+															"fontSize": 24,
+															"anchor": 0,
+															"width": 100,
+															"height": 100,
+															"x": 0,
+															"y": 0,
+															"color": "",
+															"listeners" : [
+																{
+																	"type": "GetText",
+																	"params": {
+																		"callback" : "",
+																		"arg": ""
+																	}
+																}
+															]
+														}
+													}
+
+												]
+											}
+
+										}
+									]
+								}
+							},
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-50.png",
+									"anchor": 4,
+									"width": 20,
+									"height": 20,
+									"children": [
+										{
+											"type": "Text",
+											"params": {
+												"content": "ACTUALISER",
+												"width": 50,
+												"height": 50,
+												"anchor": 0,
+												"color": ""
+											}
+										}
+									],
+									"listeners": [
+										{
+											"type": "Touch",
+											"params": {
+												"callback": "RefreshPeers"
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-1-a",
 		"navigation": [
@@ -224,38 +537,29 @@
 			    "y": 0
 			}
 		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
+			{
+			    "type": "Image",
+			    "params": {
 					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 30,
-					"height": 20
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bienvenue !",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
+					"anchor": 4,
 					"width": 50,
-					"height": 50,
-					"anchor": 0,
-					"color": ""
-				    }
-				}
-			    ]
+					"children": [
+						{
+						    "type": "Text",
+						    "params": {
+								"content": "Bienvenue, moi c’est Pierre !",
+								"font": "fonts/arial.ttf",
+								"fontSize": 24,
+								"width": 50,
+								"height": 50,
+								"anchor": 0,
+								"color": ""
+						    }
+						}
+					]
+			    }
 			}
-		    }
-		]
+		    ]
 	    },
 	    {
 		"scene": "screen-login",
@@ -350,7 +654,7 @@
   					    {
   						"type": "Text",
   						"params": {
-  						    "content": "Inscris ton nom de joueur et précise si tu es une fille ou un garçon.",
+  						    "content": "Inscris ton nom de joueur dans le champ.",
   						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
   						    "fontSize": 20,
   						    "textAlign": "center",
@@ -406,163 +710,8 @@
   			"params": {
   			    "anchor": 0,
   			    "width": 60,
-  			    "height": 50,
+  			    "height": 20,
   			    "children": [
-  				{
-  				    "type": "Image",
-  				    "params": {
-  					"source": "ui/cache-blanc-50.png",
-  					"anchor": 7,
-  					"width": 40,
-  					"height": 30,
-  					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-01.png",
-						    "anchor": 0,
-						    "width": 0,
-						    "height": 50
-						}
-					    },
-					    {
-					    	"type": "Image",
-					    	"id": "womanCheck",
-					    	"params": {
-					    		"source": "ui/Assets/PNG/Assets-11.png",
-					    		"anchor": 3,
-					    		"width": 15,
-					    		"listeners": [
-					    			{
-					    				"type": "Show",
-					    				"params": {
-					    					"callback": "Show"
-					    				}
-					    			},
-					    			{
-					    				"type": "Hide",
-					    				"params": {
-					    					"callback": "Show",
-					    					"arg": false
-					    				}
-					    			}
-					    		]
-					    	}
-					    }
-  					],
-  					"listeners": [
-  					    {
-  						"type": "Touch",
-  						"params": {
-  						    "callback": "ValidateScene",
-  						    "arg": true
-  						}
-  					    },
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "PlaySound",
-			    				"arg": "ui/audio/buttonClicked.mp3"
-			    			}
-			    		},
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "LocalMessage",
-			    				"arg": "screen-login:Show:womanCheck"
-			    			}
-			    		},
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "LocalMessage",
-			    				"arg": "screen-login:Hide:manCheck"
-			    			}
-			    		}
-  					]
-  				    }
-  				},
-  				{
-  				    "type": "Image",
-  				    "params": {
-  					"source": "ui/cache-blanc-50.png",
-  					"anchor": 5,
-  					"width": 40,
-  					"height": 30,
-  					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-02.png",
-						    "anchor": 0,
-						    "width": 0,
-						    "height": 50
-						}
-					    },
-					    {
-					    	"type": "Image",
-					    	"id": "manCheck",
-					    	"params": {
-					    		"source": "ui/Assets/PNG/Assets-11.png",
-					    		"anchor": 3,
-					    		"width": 15,
-					    		"listeners": [
-					    			{
-					    				"type": "Show",
-					    				"params": {
-					    					"callback": "Show"
-					    				}
-					    			},
-					    			{
-					    				"type": "Hide",
-					    				"params": {
-					    					"callback": "Show",
-					    					"arg": false
-					    				}
-					    			}
-					    		]
-					    	}
-					    }
-  					],
-  					"listeners": [
-  					    {
-  						"type": "Touch",
-  						"params": {
-  						    "callback": "ValidateScene",
-  						    "arg": true
-  						}
-  					    },
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "PlaySound",
-			    				"arg": "ui/audio/buttonClicked.mp3"
-			    			}
-			    		},
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "LocalMessage",
-			    				"arg": "screen-login:Show:manCheck"
-			    			}
-			    		},
-			    		{
-			    			"type": "Touch",
-			    			"params": {
-			    				"callback": "LocalMessage",
-			    				"arg": "screen-login:Hide:womanCheck"
-			    			}
-			    		}
-  					]
-  				    }
-  				},
-  				{
-  					"type": "Group",
-  					"params": {
-  						"anchor": 2,
-  						"width": 100,
-  						"height": 40,
-  						"children": [
 							{
 							    "type": "EditBox",
 							    "id": "nameBox",
@@ -588,7 +737,15 @@
 													{
 														"type": "Touch",
 														"params": {
-															"callback": ""
+															"callback": "PlaySound",
+															"arg": "ui/audio/buttonClicked.mp3"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "ValidateScene",
+															"arg": true
 														}
 													}
 												]
@@ -601,10 +758,7 @@
   					}
   				}
   			    ]
-  			}
-		    }
-		]
-	    },
+  			},
 	    {
 		"scene": "screen-playerid",
 		"navigation": [
@@ -692,7 +846,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Choisis si tu auras le rôle du grand ou le rôle du petit durant le jeu.",
+						    "content": "Choisis si tu es un grand ou un petit.",
 						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
 						    "fontSize": 20,
 						    "textAlign": "center",
@@ -718,7 +872,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "étape 2 : Quel est ton profil ?",
+					"content": "étape 2 : Quel est ton âge ?",
 					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
 					"fontSize": 20,
 					"textAlign": "center",
@@ -958,8 +1112,8 @@
 		]
 	    },
 	    {
-		"scene": "screen-peers",
-		"navigation": [
+	    	"scene": "screen-sex",
+			"navigation": [
 		    {
 			"type": "Nav",
 			"params": {
@@ -986,6 +1140,13 @@
 				    "type": "Validate",
 				    "params": {
 					"callback": "Show"
+				    }
+				},
+				{
+				    "type": "Validated",
+				    "params": {
+					"callback": "SetPlayerName",
+					"arg": "nameBox"
 				    }
 				}
 			    ]
@@ -1016,163 +1177,244 @@
 		    }
 		],
 		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 6,
-			    "source": "ui/info-6.png",
-			    "children": [
-				{
-				    "type": "Group",
-				    "params": {
-					"anchor": 0,
-					"width": 60,
-					"height": 100,
-					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-04.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
-						"type": "Text",
-						"params": {
-						    "content": "Nous recherchons les partenaires de jeu autour de toi, cela ne prendra qu'un instant...",
-						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-						    "fontSize": 20,
-						    "textAlign": "center",
-						    "width": 80,
-						    "anchor": 4,
-						    "color": "0,0,0,255"
-						}
-					    }
-					]
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Info",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 2,
-			    "source": "ui/info-2.png",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "étape 3 : Avec qui veux-tu jouer ?",
-					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
-					"fontSize": 20,
-					"textAlign": "center",
-					"width": 80,
-					"anchor": 0,
-					"color": "0,0,0,255"
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100
-			}
-		    },
-		    {
-                        "type": "Peers",
-                        "params": {
-                            "anchor": 0,
-                            "width": 50,
-                            "height": 50,
-                            "listeners" : [
-                                {
-                                    "type": "Peers",
-                                    "params": {
-                                        "callback" :"BuildPeerNodes"
-                                    }
-                                }
-                            ],
-                            "children": [
-                                {
-                                    "type": "Group",
-                                    "params": {
-                                        "anchor": 0,
-                                        "width": 100,
-                                        "height": 100,
-                                        "listeners": [
-                                            {
-                                                "type": "Touch",
-                                                "params": {
-                                                    "callback": "ConnectPeer",
-                                                    "arg": false
-                                                }
-                                            },
-					    {
-						"type": "Touch",
-						"params": {
-						    "callback": "ValidateScene",
-						    "arg": true
-						}
-					    }
-                                        ],
-                                        "children": [
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "ui/cache-noir-70.png",
-                                                    "anchor": 0,
-                                                    "width": 80,
-                                                    "height": 80,
-                                                    "x": 0,
-                                                    "y": 0
-                                                }
-                                            },
-                                            {
-                                                "type": "Text",
-                                                "params": {
-                                                    "content": "Scène 1",
-                                                    "fontSize": 24,
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "color": "",
-                                                    "listeners" : [
-                                                        {
-                                                            "type": "GetText",
-                                                            "params": {
-                                                                "callback" : "",
-                                                                "arg": ""
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-
-                                        ]
-                                    }
-
-                                }
-                            ]
-                        }
-                    }
-		]
-	    },
+  		    {
+  			"type": "Info",
+  			"params": {
+  			    "width": 0,
+  			    "height": 13,
+  			    "anchor": 6,
+  			    "source": "ui/info-6.png",
+  			    "children": [
+  				{
+  				    "type": "Group",
+  				    "params": {
+  					"anchor": 0,
+  					"width": 60,
+  					"height": 100,
+  					"children": [
+  					    {
+  						"type": "Image",
+  						"params": {
+  						    "source": "ui/Assets/PNG/Assets-03.png",
+  						    "anchor": 8,
+  						    "width": 0,
+  						    "height": 80
+  						}
+  					    },
+  					    {
+  						"type": "Text",
+  						"params": {
+  						    "content": "Choisis si tu es un garçon ou une fille.",
+  						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+  						    "fontSize": 20,
+  						    "textAlign": "center",
+  						    "width": 80,
+  						    "anchor": 0,
+  						    "color": "0,0,0,255"
+  						}
+  					    }
+  					]
+  				    }
+  				}
+  			    ]
+  			}
+  		    },
+  		    {
+  			"type": "Info",
+  			"params": {
+  			    "width": 0,
+  			    "height": 13,
+  			    "anchor": 2,
+  			    "source": "ui/info-2.png",
+  			    "children": [
+  				{
+  				    "type": "Text",
+  				    "params": {
+  					"content": "étape 1: Quel est ton sexe ?",
+  					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+  					"fontSize": 20,
+  					"textAlign": "center",
+  					"width": 80,
+  					"anchor": 0,
+  					"color": "0,0,0,255"
+  				    }
+  				}
+  			    ]
+  			}
+  		    }
+  		],
+	    	"content": [
+  			    {
+	  			"type": "Image",
+	  			"params": {
+	  			    "source": "cache/background1LU.png",
+	  			    "anchor": 0,
+	  			    "width": 100,
+	  			    "height": 100,
+	  			    "x": 0,
+	  			    "y": 0
+	  			}
+	  		    },
+      		    {
+				"type": "Group",
+	  			"params": {
+				    "anchor": 0,
+				    "width": 60,
+				    "height": 20,
+				    "children": [
+						{
+		  				    "type": "Image",
+		  				    "params": {
+		  					"source": "ui/cache-blanc-50.png",
+		  					"anchor": 8,
+		  					"width": 40,
+		  					"height": 30,
+		  					"children": [
+							    {
+									"type": "Image",
+									"params": {
+							    "source": "ui/Assets/PNG/Assets-01.png",
+							    "anchor": 0,
+							    "width": 0,
+							    "height": 50
+							}
+						    },
+						    {
+						    	"type": "Image",
+						    	"id": "womanCheck",
+						    	"params": {
+						    		"source": "ui/Assets/PNG/Assets-11.png",
+						    		"anchor": 3,
+						    		"width": 15,
+						    		"listeners": [
+						    			{
+						    				"type": "Show",
+						    				"params": {
+						    					"callback": "Show"
+						    				}
+						    			},
+						    			{
+						    				"type": "Hide",
+						    				"params": {
+						    					"callback": "Show",
+						    					"arg": false
+						    				}
+						    			}
+						    		]
+						    	}
+						    }
+	  					],
+	  					"listeners": [
+	  					    {
+	  						"type": "Touch",
+	  						"params": {
+	  						    "callback": "ValidateScene",
+	  						    "arg": true
+	  						}
+	  					    },
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "PlaySound",
+				    				"arg": "ui/audio/buttonClicked.mp3"
+				    			}
+				    		},
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "LocalMessage",
+				    				"arg": "screen-sex:Show:womanCheck"
+				    			}
+				    		},
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "LocalMessage",
+				    				"arg": "screen-sex:Hide:manCheck"
+				    			}
+				    		}
+	  					]
+	  				    }
+	  				},
+	  				{
+	  				    "type": "Image",
+	  				    "params": {
+	  					"source": "ui/cache-blanc-50.png",
+	  					"anchor": 4,
+	  					"width": 40,
+	  					"height": 30,
+	  					"children": [
+						    {
+							"type": "Image",
+							"params": {
+							    "source": "ui/Assets/PNG/Assets-02.png",
+							    "anchor": 0,
+							    "width": 0,
+							    "height": 50
+							}
+						    },
+						    {
+						    	"type": "Image",
+						    	"id": "manCheck",
+						    	"params": {
+						    		"source": "ui/Assets/PNG/Assets-11.png",
+						    		"anchor": 3,
+						    		"width": 15,
+						    		"listeners": [
+						    			{
+						    				"type": "Show",
+						    				"params": {
+						    					"callback": "Show"
+						    				}
+						    			},
+						    			{
+						    				"type": "Hide",
+						    				"params": {
+						    					"callback": "Show",
+						    					"arg": false
+						    				}
+						    			}
+						    		]
+						    	}
+						    }
+	  					],
+	  					"listeners": [
+	  					    {
+	  						"type": "Touch",
+	  						"params": {
+	  						    "callback": "ValidateScene",
+	  						    "arg": true
+	  						}
+	  					    },
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "PlaySound",
+				    				"arg": "ui/audio/buttonClicked.mp3"
+				    			}
+				    		},
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "LocalMessage",
+				    				"arg": "screen-sex:Show:manCheck"
+				    			}
+				    		},
+				    		{
+				    			"type": "Touch",
+				    			"params": {
+				    				"callback": "LocalMessage",
+				    				"arg": "screen-sex:Hide:womanCheck"
+				    			}
+				    		}
+	  					]
+	  				    }
+	  				}
+	  				]
+	  			}
+	  		}
+	    	]
+    	},
 	    {
 		"scene": "Dashboard",
 		"navigation": [
@@ -1211,14 +1453,31 @@
   			    "children": [
   				{
   				    "type": "Text",
+					"id": "infoZone",
   				    "params": {
-  					"content": "Trouvez tous les ingrédients de la recette de LU !",
+  					"content": "À partir de maintenant, collectez les ingrédients nécessaires à votre recette.",
   					"font": "fonts/Open_Sans/OpenSans-Regular.ttf",
   					"fontSize": 20,
   					"textAlign": "center",
   					"width": 80,
   					"anchor": 0,
-  					"color": "0,0,0,255"
+  					"color": "0,0,0,255",
+						"listeners": [
+							{
+								"type": "Article",
+								"params": {
+									"callback": "SetText",
+									"arg": "Bravo, vous avez gagné un premier ingrédient."
+								}
+							},
+							{
+								"type": "Colleagues",
+								"params": {
+									"callback": "SetText",
+									"arg": "Bravo, vous avez gagné un nouvel ingrédient"
+								}
+							}
+						]
   				    }
   				}
   			    ]
@@ -1362,8 +1621,84 @@
 		    }
 		]
 	    },
+		{
+			"scene": "screen-manual",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"enabled": true,
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"enabled": true,
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background1LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Text",
+					"params": {
+						"content": "Tu va participer à un jeu découverte de la biscuiterie LU. Tu seras amené(e) à collaborer avec ton partenaire en échangeant des objets ou des informations d’une tablette à l’autre.",
+						"fontSize": 20,
+						"width": 80,
+						"height": 100,
+						"anchor": 0
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-1-b-player1",
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -1428,18 +1763,15 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
+			    "source": "cache/ouvriere.png",
+			    "anchor": 5,
+			    "width": 40
 			}
 		    },
 		    {
 			"type": "Group",
 			"params": {
-			    "anchor": 4,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
 			    "children": [
@@ -1455,7 +1787,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Durant cette visite, vous êtes un ouvrier de la biscuiterie LU. Votre futur patron et coéquipier sera Monsieur Louis Lefevre-Utile dit « Monsieur Louis ». Votre mission sera de créer un nouveau biscuit Vous allez relever plusieurs défi. Le premier défi : réussir être embauché dans la biscuiterie LU. Écoutez ce que le patron Monsieur Louis vous demande. Bonne chance pour le test d’embauche.",
+					"content": "Vous devez créer une nouvelle recette de biscuit. Pour réussir cette mission, vous devrez travailler en collaboration avec le patron de la biscuiterie, “Monsieur Louis”.",
 					"fontSize": 20,
 					"width": 80,
 					"height": 100,
@@ -1470,6 +1802,7 @@
 	    },
 	    {
 		"scene": "screen-1-b-player2",
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -1530,16 +1863,15 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100
+			    "source": "cache/louis.png",
+			    "anchor": 5,
+			    "width": 50
 			}
 		    },
 		    {
 			"type": "Group",
 			"params": {
-			    "anchor": 4,
+			    "anchor": 8,
 			    "width": 50,
 			    "height": 100,
 			    "children": [
@@ -1555,21 +1887,12 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Pendant cette visite, tu seras  Monsieur Louis Lefèvre-Utile, le patron de l'entreprise de biscuits LU. Tu as 24 ans. Tu es le directeur d’une entreprise qui a été créée par tes parents.Tout le monde t’appelle Monsieur Louis. Aujourd'hui, tu souhaites créer un nouveau biscuit. Pour le créer, tu vas devoir relever plusieurs défis  avec l'aide de ton ouvrier. À chaque défi relevé, le processus de création de la recette avance !",
+					"content": "Tu es le directeur de la biscuiterie LU. Tout le monde t’appelle, “Monsieur Louis”. Tu vas créer une recette de biscuit avec l'aide d’une nouvelle ouvrière.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 22,
 					"width": 80,
 					"height": 100,
-					"anchor": 0,
-					"listeners": [
-					    {
-						"type" : "Init",
-						"params": {
-						    "callback": "PlaySound",
-						    "arg": "cache/audio/nantes1.mp3"
-						}
-					    }
-					]
+					"anchor": 0
 				    }
 				}
 
@@ -1774,21 +2097,12 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Demande à haute voix à ton ouvrier « Suis moi et compte les marches jusqu’à la salle 23. »",
+					"content": "Demande à ta future ouvrière de compter les marches jusqu’à la salle 23.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"width": 50,
 					"height": 100,
-					"anchor": 0,
-					"listeners": [
-					    {
-						"type": "Init",
-						"params": {
-						    "callback": "PlaySound",
-						    "arg": "cache/audio/nantes2.mp3"
-						}
-					    }
-					]
+					"anchor": 0
 				    }
 				}
 			    ]
@@ -1887,7 +2201,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Passez cette porte. Au pied de l’escalier, commencez à compter les marches à haute voix. Puis passez à l’écran suivant.",
+					"content": "Commencez à compter les marches à l’endroit de la photo.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -1992,7 +2306,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand tu es au pied de l’escalier, rappelle à ton ouvrier qu’il doit commencer à compter les marches. Vérifie que ton ouvrier est derrière toi et qu’il accomplie sa mission puis passe à l’écran suivant.",
+					"content": "Vérifie que ton ouvrière commence à compter les marches à partir d’ici, puis guide la en cliquant sur SUIVANT.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2067,17 +2381,17 @@
 			    "y": 0
 			}
 		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/Escalier2.JPG",
-			    "anchor": 8,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
+			{
+				"type": "Image",
+				"params": {
+					"source": "cache/Escalier2.JPG",
+					"anchor": 8,
+					"width": 0,
+					"height": 100,
+					"x": 0,
+					"y": 0
+				}
+			},
 		    {
 			"type": "Group",
 			"params": {
@@ -2097,7 +2411,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand vous arrivez à cet endroit, arrêtez-vous. Prenez maintenant le petit escalier à droite tout en continuant à compter. Passez à l’écran suivant.",
+					"content": "Suivez Monsieur Louis qui connaît le chemin…",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2202,7 +2516,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand tu arrives à cet endroit, arrête-toi. Tu dois prendre maintenant ce petit escalier. Indique à ton ouvrier qu’il doit continuer à compter les marches puis passe à l’écran suivant.",
+					"content": "Prend ce petit escalier à droite, puis clique sur SUIVANT.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2307,7 +2621,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand vous arrivez à cet endroit, vous avez déjà monté 38 marches. Maintenant, prenez l’escalier en colimaçon. Un dernier petit effort ! Continuez à compter les marches. Passez à l’écran suivant",
+					"content": "Suivez Monsieur Louis qui connaît le chemin…",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2412,7 +2726,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Quand tu arrives à cet endroit, arrête-toi. Tu dois prendre maintenant ce tout petit escalier. Précise à ton ouvrier que c’est le dernier effort à fournir, vous êtes presque arrivés ! Passe à l’écran suivant.",
+					"content": "Prend maintenant ce petit escalier. Vérifie que ton ouvrière est toujours derrière toi, puis clique sur SUIVANT.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2518,7 +2832,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Entrez dans la salle !",
+					"content": "Entrez dans la salle. Gardez bien en mémoire le nombre de marches !",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2623,7 +2937,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Entre dans la salle ! Tu es maintenant dans ton entreprise.",
+					"content": "Entre dans la salle 23 avec votre ouvrière pour lui faire passer son premier test d’embauche.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -2639,6 +2953,7 @@
 	    },
 	    {
 		"scene": "screen-1-h-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -2714,14 +3029,24 @@
 			    "children": [
 				{
 				    "type": "Text",
+					"id": "infoZone",
 				    "params": {
-					"content": "Réponds à la question de M. Louis",
+					"content": "Répondez à la question de Monsieur Louis.",
 					"color": "0,0,0,255",
 					"font": "fonts/arial.ttf",
 					"anchor": 0,
 					"fontSize": 24,
 					"width": 80,
-					"height": 100
+					"height": 100,
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "SetText",
+									"arg": "Vous avez trouvé la bonne réponse"
+								}
+							}
+						]
 				    }
 				}
 			    ]
@@ -2779,7 +3104,7 @@
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
-					"width": 80,
+					"width": 90,
 					"height": 100,
 					"listeners": [
 						{
@@ -2806,6 +3131,7 @@
 	    },
 	    {
 		"scene": "screen-1-h-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -2895,6 +3221,7 @@
 					    },
 					    {
 						"type": "Text",
+							"id": "infoZone",
 						"params": {
 						    "content": "Touche la bonne réponse",
 						    "color": "0,0,0,255",
@@ -2902,9 +3229,18 @@
 						    "fontSize": 24,
 						    "anchor": 0,
 						    "width": 80,
-						    "height": 100
+						    "height": 100,
+							"listeners": [
+								{
+									"type": "Validate",
+									"params": {
+										"callback": "SetText",
+										"arg": "Votre ouvrier a trouvé la bonne réponse"
+									}
+								}
+							]
 						}
-					    }
+						}
 					]
 				    }
 				}
@@ -2937,7 +3273,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Demande à ton ouvrier combien de marche il a compté",
+					"content": "Demande à ton ouvrière le nombre de marches qu’elle a compté",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -3194,6 +3530,13 @@
 					    	    "arg": "screen-1-h-player2:Show:check4"
 					    	}
 					    },
+						{
+							"type": "Touch",
+							"params": {
+								"callback": "LocalMessage",
+								"arg": "screen-1-h-player2:Validate:infoZone"
+							}
+						},
 					    {
 						"type": "Touch",
 						"params": {
@@ -3201,6 +3544,13 @@
 						    "arg": true
 						}
 					    },
+						{
+							"type": "Touch",
+							"params": {
+								"callback": "SendMessage",
+								"arg": "screen-1-h-player1:Validate:infoZone"
+							}
+						},
 					    {
 						"type": "Touch",
 						"params":
@@ -3264,224 +3614,6 @@
 		]
 	    },
 	    {
-		"scene": "screen-1-i-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Tu as trouvé la bonne réponse !",
-					"color": "0,0,0,255",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width":80,
-					"height": 100
-				    }
-
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Félicitation, vous avez été embauché dans l'entreprise Lu !",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-1-i-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-				    	"anchor": 0,
-				    	"width": 100,
-				    	"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Ton coéquipier a trouvé la bonne réponse !",
-					"color": "0,0,0,255",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Text",
-			"params": {
-			    "content": "Bravo, tu as un nouvel ouvrier dans ton équipe !",
-			    "font": "fonts/arial.ttf",
-			    "fontSize": 24,
-			    "anchor": 0,
-			    "width": 80,
-			    "height": 100,
-			    "listeners": [
-				{
-				    "type": "Init",
-				    "params": {
-					"callback": "PlaySound",
-					"arg": "cache/audio/nantes3.mp3"
-				    }
-				}
-			    ]
-
-			}
-		    }
-		]
-	    },
-	    {
 		"scene": "screen-1-j-player1",
 		"navigation": [
 		    {
@@ -3529,7 +3661,41 @@
 			}
 		    }
 		],
-		"information": [],
+		"information": [
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-6.png",
+					"anchor": 6,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Essayez maintenant de gagner un premier ingréditent",
+											"color": "0,0,0,255",
+											"font": "fonts/arial.ttf",
+											"fontSize": 24,
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -3572,7 +3738,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bien, maintenant que tu es embauché, nous pouvons continuer.",
+					"content": "Félicitations Marie, vous avez été embauchée dans l’entreprise LU !",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -3634,7 +3800,41 @@
 			}
 		    }
 		],
-		"information": [],
+		"information": [
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-6.png",
+					"anchor": 6,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Essaie maintenant de gagner un premier ingréditent.",
+											"color": "0,0,0,255",
+											"font": "fonts/arial.ttf",
+											"fontSize": 24,
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -3677,7 +3877,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bien, maintenant que tu as un nouvel ouvrier, nous allons pouvoir commencer la nouvelle recette !",
+					"content": "Bravo, tu as maintenant une nouvelle ouvrière dans ton équipe ! Elle s’appelle Marie",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -3782,7 +3982,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Approchez-vous du grand portrait de Monsieur Louis. Il est impressionnant, vous ne trouvez pas ?",
+					"content": "Approchez-vous du grand portrait de Monsieur Louis.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -3860,7 +4060,7 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/perso1left.png",
+			    "source": "cache/Portrait.png",
 			    "anchor": 7,
 			    "width": 0,
 			    "height": 100,
@@ -3887,7 +4087,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Montre ton portrait peint à ton ouvrier.",
+					"content": "Montre ton portrait à ton ouvrière.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -3902,6 +4102,7 @@
 	    },
 	    {
 		"scene": "screen-2-b-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -3964,13 +4165,47 @@
 			}
 		    }
 		],
-		"information": [],
+		"information": [
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-2.png",
+					"anchor": 2,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Isolez-vous pour écouter ce que j’ai à vous raconter.",
+											"color": "0,0,0,255",
+											"font": "fonts/arial.ttf",
+											"fontSize": 24,
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
 		"content": [
 		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Portrait.png",
-			    "anchor": 2,
+			    "anchor": 6,
 			    "width": 0,
 			    "height": 90,
 			    "x": 0,
@@ -3981,6 +4216,7 @@
 	    },
 	    {
 		"scene": "screen-2-b-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -4080,7 +4316,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Touche le portrait pour écouter Monsieur Louis.",
+						    "content": "Clique sur ton portrait pour m’écouter t’en parler.",
 						    "color": "0,0,0,255",
 						    "anchor": 0,
 						    "width": 80,
@@ -4092,16 +4328,47 @@
 				}
 			    ]
 			}
-		    }
+		    },
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-2.png",
+					"anchor": 2,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Isole-toi pour écouter ce que j’ai à te raconter",
+											"color": "0,0,0,255",
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
 		],
 		"content": [
 		    {
 			"type": "Image",
 			"params": {
 			    "source": "cache/Portrait.png",
-			    "anchor": 2,
+			    "anchor": 0,
 			    "width": 0,
-			    "height": 90,
+			    "height": 80,
 			    "x": 0,
 			    "y": 0,
 			    "listeners": [
@@ -4109,7 +4376,7 @@
       				    "type": "Touch",
       				    "params": {
       					"callback": "PlaySound",
-      					"arg": "cache/audio/louis.mp3"
+      					"arg": "cache/audio/Lu1.mp3"
       				    }
       				},
 				{
@@ -4223,7 +4490,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Monsieur Louis vous interroge : « Connaissez-vous l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
+					"content": "Questionnez votre patron sur l’origine des biscuits.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4328,7 +4595,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Monsieur Louis interroge son ouvrier : « connais-tu l’origine des biscuits ? ». Les premiers biscuits étaient très anciens. Ils étaient fabriqués par les boulangers pour les marins.",
+					"content": "Les premiers biscuits étaient fabriqués par les boulangers pour les marins. On les appelait des “biscuits de mer”",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4439,7 +4706,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Pour découvrir la recette des biscuits de mer vous devez choisir de faire glisser de la zone de partage(en forme de petit beurre) au plat les ingrédients qui conviennent à la recette.",
+					"content": "Selon vous, quels sont les ingrédients composant les biscuits de mer ? Envoyez les à votre patron en les glissant vers le biscuit.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4544,7 +4811,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Faites glisser les différents ingrédients : farine, beurre, eau, vanille œuf, sucre dans la zone de partage en forme de petit beurre. Ton ouvrier doit déterminer si ces ingrédients sont présents dans les biscuits de mer. Ces biscuits avaient l’avantage de se conserver longtemps mais ils n’étaient pas très bons !",
+					"content": "Récupère les ingrédients et glisse les dans le plat pour vérifier qu’ils étaient dans la recette des biscuits de mer.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -4555,17 +4822,12 @@
 
 			    ]
 			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
-			}
 		    }
 		]
 	    },
 	    {
-		"scene": "screen-2-e-player1",
+		"scene": "screen-2-e-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -4653,7 +4915,7 @@
 				    "type": "Text",
 				    "id": "infoText",
 				    "params": {
-					"content": "Placez les bons ingrédients dans le plat.",
+					"content": "Place les bons ingrédients dans le plat.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
@@ -4703,7 +4965,7 @@
 				    "type": "Drop",
 				    "params": {
 					"callback": "SendMessage",
-					"arg": "screen-2-e-player2:DropEnabledBack:dropArea2"
+					"arg": "screen-2-e-player1:DropEnabledBack:dropArea2"
 				    }
 				}
 			    ]
@@ -4748,7 +5010,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "LocalMessage",
-								"arg": "screen-2-e-player1:Show:flourCheck"
+								"arg": "screen-2-e-player2:Show:flourCheck"
 							    }
 							},
 							{
@@ -4761,7 +5023,7 @@
 								"type": "Droped",
 								"params": {
 									"callback": "LocalMessage",
-									"arg": "screen-2-e-player1:SuccessHint:infoText"
+									"arg": "screen-2-e-player2:SuccessHint:infoText"
 								}
 							},
 							{
@@ -4839,7 +5101,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "LocalMessage",
-								"arg": "screen-2-e-player1:Show:butterCross"
+								"arg": "screen-2-e-player2:Show:butterCross"
 							    }
 							},
 							{
@@ -4852,7 +5114,7 @@
 								"type": "Droped",
 								"params": {
 									"callback": "LocalMessage",
-									"arg": "screen-2-e-player1:ErrorHint:infoText"
+									"arg": "screen-2-e-player2:ErrorHint:infoText"
 								}
 							},
 							{
@@ -4865,7 +5127,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "SendMessage",
-								"arg": "screen-2-e-player2:ReturnElement:butter"
+								"arg": "screen-2-e-player1:ReturnElement:butter"
 							    }
 							}
 						    ],
@@ -4913,7 +5175,7 @@
 						"type": "Image",
 						"id": "water1",
 						"params": {
-						    "source": "cache/butter.png",
+						    "source": "cache/water.png",
 						    "anchor": 0,
 						    "width": 40,
 						    "height": 100,
@@ -4930,7 +5192,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "LocalMessage",
-								"arg": "screen-2-e-player1:Show:waterCheck"
+								"arg": "screen-2-e-player2:Show:waterCheck"
 							    }
 							},
 							{
@@ -4943,7 +5205,7 @@
 								"type": "Droped",
 								"params": {
 									"callback": "LocalMessage",
-									"arg": "screen-2-e-player1:SuccessHint:infoText"
+									"arg": "screen-2-e-player2:SuccessHint:infoText"
 								}
 							},
 							{
@@ -5027,14 +5289,14 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "LocalMessage",
-								"arg": "screen-2-e-player1:Show:sugarCross"
+								"arg": "screen-2-e-player2:Show:sugarCross"
 							    }
 							},
 							{
 								"type": "Droped",
 								"params": {
 									"callback": "LocalMessage",
-									"arg": "screen-2-e-player1:ErrorHint:infoText"
+									"arg": "screen-2-e-player2:ErrorHint:infoText"
 								}
 							},
 							{
@@ -5047,7 +5309,7 @@
 							    "type": "Droped",
 							    "params": {
 								"callback": "SendMessage",
-								"arg": "screen-2-e-player2:ReturnElement:sugar"
+								"arg": "screen-2-e-player1:ReturnElement:sugar"
 							    }
 							}
 						    ],
@@ -5100,7 +5362,8 @@
 		]
 	    },
 	    {
-		"scene": "screen-2-e-player2",
+		"scene": "screen-2-e-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -5190,15 +5453,25 @@
 					    },
 					    {
   						"type": "Text",
+							"id": "infoZone",
   						"params": {
-  						    "content": "Donne les bons ingrédients à ton ouvrier en les faisant glisser dans la zone de droite.",
+  						    "content": "Donnez les bons ingrédients à Mr Louis en les faisant glisser dans la zone de droite.",
   						    "color": "0,0,0,255",
 						    "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
 						    "fontSize": 20,
 						    "textAlign": "center",
   						    "anchor": 0,
   						    "width": 80,
-  						    "height": 100
+  						    "height": 100,
+							"listeners": [
+								{
+									"type": "Validate",
+									"params": {
+										"callback": "SetText",
+										"arg": "Bravo tu a trouvé les bons ingrédients !"
+									}
+								}
+							]
   						}
   					    }
 					]
@@ -5224,8 +5497,8 @@
 			"type": "Image",
 			"id": "dropArea2",
 			"params": {
-			    "source": "cache/sendingArea.png",
-			    "anchor": 4,
+			    "source": "cache/sendingArea2.png",
+			    "anchor": 8,
 			    "width": 30,
 			    "height": 100,
 			    "x": 70,
@@ -5252,7 +5525,7 @@
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
-			    "anchor": 8,
+			    "anchor": 4,
 			    "width": 60,
 			    "height": 80,
 			    "alignItems": "center",
@@ -5291,7 +5564,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:flour1"
+						    "arg": "screen-2-e-player2:Show:flour1"
 						}
 					    },
 					    {
@@ -5351,7 +5624,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:butter1"
+						    "arg": "screen-2-e-player2:Show:butter1"
 						}
 					    },
 					    {
@@ -5381,7 +5654,7 @@
 				    "type": "Image",
 				    "id": "water",
 				    "params": {
-					"source": "cache/butter.png",
+					"source": "cache/water.png",
 					"anchor": 0,
 					"width": 40,
 					"height": 100,
@@ -5411,7 +5684,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:water1"
+						    "arg": "screen-2-e-player2:Show:water1"
 						}
 					    },
 					    {
@@ -5472,7 +5745,7 @@
 						"type": "Droped",
 						"params": {
 						    "callback": "SendMessage",
-						    "arg": "screen-2-e-player1:Show:sugar1"
+						    "arg": "screen-2-e-player2:Show:sugar1"
 						}
 					    },
 					    {
@@ -5565,13 +5838,12 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bravo, vous avez réussi !",
+					"content": "Rapprochez-vous pour écouter sur la tablette de Monsieur Louis.",
+						"width": 60,
 					"anchor": 0,
 					"color": "0,0,0,255",
 					"normal": "ui/nav-7.png",
-					"selected": "ui/nav-7.png",
-					"color": "",
-					"backgroundColor": ""
+					"selected": "ui/nav-7.png"
 				    }
 				}
 			    ]
@@ -5620,7 +5892,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bravo, vous avez trouvé les deux ingrédients qui entrent dans la recette des biscuits de mer. Écoutez Monsieur Louis, il va vous raconter ce qui s’est passé ensuite.",
+					"content": "Félicitation, il s’agissait bien de l’eau et la farine. Pour en savoir plus, interroge Monsieur Louis.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -5710,7 +5982,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Bravo, tu as réussi !",
+						    "content": "Clique sur l’écran pour écouter l’explication de Pierre",
 						    "color": "0,0,0,255",
 						    "anchor": 0,
 						    "width": 80,
@@ -5722,7 +5994,38 @@
 				}
 			    ]
 			}
-		    }
+		    },
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-2.png",
+					"anchor": 2,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Laisse écouter ton ouvrière sur ta tablette.",
+											"color": "0,0,0,255",
+											"anchor": 0,
+											"width": 80,
+											"height": 100
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
 		],
 		"content": [
 		    {
@@ -5733,7 +6036,16 @@
 			    "width": 100,
 			    "height": 100,
 			    "x": 0,
-			    "y": 0
+			    "y": 0,
+				"listeners": [
+					{
+						"type": "Touch",
+						"params": {
+							"callback": "PlaySound",
+							"arg": "cache/audio/Lu2.mp3"
+						}
+					}
+				]
 			}
 		    },
 		    {
@@ -5834,29 +6146,7 @@
 			}
 		    }
 		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Approchez-vous de Monsieur Louis et lisez cet article à voix haute.",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 60,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
+		"information": [],
 		"content": [
 		    {
 			"type": "Image",
@@ -5879,7 +6169,38 @@
 			    "x": 0,
 			    "y": 0
 			}
-		    }
+		    },
+			{
+				"type": "Group",
+				"params": {
+					"anchor": 4,
+					"width": 50,
+					"height": 100,
+					"children": [
+						{
+							"type": "Image",
+							"params": {
+								"source": "ui/cache-noir-70.png",
+								"anchor": 0,
+								"width": 100,
+								"height": 100
+							}
+						},
+						{
+							"type": "Text",
+							"params": {
+								"content": "Pour la prochaine étape de formation, vous allez devoir approchez vos tablettes l’une de l’autre.",
+								"font": "fonts/arial.ttf",
+								"fontSize": 24,
+								"anchor": 0,
+								"width": 80,
+								"height": 100
+							}
+						}
+
+					]
+				}
+			}
 		]
 	    },
 	    {
@@ -5930,29 +6251,7 @@
 			}
 		    }
 		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Demande à ton ouvrier de te lire à voix haute son article.",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 60,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
+		"information": [],
 		"content": [
 		    {
 			"type": "Image",
@@ -5995,7 +6294,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Pour poursuivre la formation de ton ouvrier, fais-lui lire un article de presse. Celui-ci pourra être lu quand les deux tablettes seront côte-à-côte.",
+					"content": "Pour la prochaine étape de formation, vous allez devoir approchez vos tablettes l’une de l’autre",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -6011,6 +6310,7 @@
 	    },
 	    {
 	    	"scene": "screen-article-player1",
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -6028,7 +6328,23 @@
 					"content": "Suivant",
 					"anchor": 0,
 					"width": 100,
-					"height": 100
+					"height": 100,
+						"listeners": [
+							{
+								"type": "Validated",
+								"params": {
+									"callback" : "LocalMessage",
+									"arg": "Dashboard:Article:infoZone"
+								}
+							},
+							{
+								"type": "Validated",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "Dashboard:Show:sugar"
+								}
+							}
+						]
 				    }
 				}
 			    ]
@@ -6069,7 +6385,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Approcher les deux tablettes pour lire l'article",
+					"content": "L’un de vous deux lit l’article à voix haute",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
@@ -6093,6 +6409,7 @@
     	    },
     	    {
 	    	"scene": "screen-article-player2",
+				"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -6110,7 +6427,23 @@
 					"content": "Suivant",
 					"anchor": 0,
 					"width": 100,
-					"height": 100
+					"height": 100,
+						"listeners": [
+							{
+								"type": "Validated",
+								"params": {
+									"callback" : "LocalMessage",
+									"arg": "Dashboard:Article:infoZone"
+								}
+							},
+							{
+								"type": "Validated",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "Dashboard:Show:sugar"
+								}
+							}
+						]
 				    }
 				}
 			    ]
@@ -6151,7 +6484,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Approchez les deux tablettes pour lire l'article",
+					"content": "L’un de vous deux lit l’article à voix haute",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 80,
@@ -6173,431 +6506,6 @@
 		    }
 		]
 
-	    },
-	    {
-		"scene": "screen-2-i-player1",
-		"dashboardTrigger": true,
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "sugarReward",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 0,
-			    "width": 15,
-			    "height": 30,
-			    "x": 0,
-			    "y": 0,
-			    "listeners": [
-			    	{
-			    	    "type": "Init",
-			    	    "params": {
-			    		"callback": "LocalMessage",
-			    		"arg": "Dashboard:Show:sugar"
-			    	    }
-			    	}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-2-i-player2",
-		"dashboardTrigger": true,
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "sugarReward",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 0,
-			    "width": 15,
-			    "height": 30,
-			    "x": 0,
-			    "y": 0,
-			    "listeners": [
-			    	{
-			    	    "type": "Init",
-			    	    "params": {
-			    		"callback": "LocalMessage",
-			    		"arg": "Dashboard:Show:sugar"
-			    	    }
-			    	}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-2-j-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-2-j-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso2left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
-			    ]
-			}
-		    }
-		]
 	    },
 	    {
 		"scene": "screen-3-a-player1",
@@ -6690,21 +6598,12 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Vous allez maintenant découvrir vos collègues grâce un jeu.Règle du jeu : Faites glisser les personnages un par un dans la zone de partage en forme de petit beurre pour les envoyer à Monsieur Louis. Il va les replacer au bon endroit et va vous indiquer les noms de métiers.",
+					"content": "Bienvenue dans l’entreprise ! Monsieur Louis va vous présenter vos collègues.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
 					"width": 80,
-					"height": 100,
-					"listeners": [
-					    {
-						"type": "Init",
-						"params": {
-						    "callback": "PlaySound",
-						    "arg": "cache/audio/nantes4.mp3"
-						}
-					    }
-					]
+					"height": 100
 
 				    }
 				}
@@ -6805,7 +6704,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Voici une manière originale de présenter ces collègues à ton ouvrier ! Règle du jeu : Lorsque l’ouvrier t’envoie un détail dans la zone de partage (en forme de petit beurre) replace le au bon endroit.",
+					"content": "Présente ses collègues à ton ouvrière.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -6827,6 +6726,7 @@
 	    },
 	    {
 		"scene": "screen-3-b-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -6901,7 +6801,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Faites glisser les personnages dans la zone de droite pour les donner à Monsieur Louis.",
+					"content": "Faites glissez les éléments de la photo de vos collègues à Monsieur Louis.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"width": 60,
@@ -6928,8 +6828,8 @@
 			"type": "Image",
 			"id": "dropArea1",
 			"params": {
-			    "source": "cache/sendingArea.png",
-			    "anchor": 4,
+			    "source": "cache/sendingArea2.png",
+			    "anchor": 8,
 			    "width": 30,
 			    "height": 100,
 			    "x": 70,
@@ -6958,7 +6858,7 @@
 			    "rows": 2,
 			    "width": 50,
 			    "height": 50,
-			    "anchor": 8,
+			    "anchor": 4,
 			    "alignItems": "center",
 			    "children": [
 				{
@@ -7152,6 +7052,7 @@
 	    },
 	    {
 		"scene": "screen-3-b-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -7253,16 +7154,25 @@
 						    "height": 80
 						}
 					    },
-					    {
-  						"type": "Text",
-  						"params": {
-  						    "content": "Replace chaque personnage que te donne ton ouvrier au bon endroit.",
-  						    "color": "0,0,0,255",
-  						    "anchor": 0,
-  						    "width": 80,
-  						    "height": 100
-  						}
-  					    }
+						{
+							"type": "Group",
+							"params": {
+								"anchor": 4,
+								"width": 95,
+								"children": [
+									{
+										"type": "Text",
+										"params": {
+											"content": "Recompose la photo à partir des éléments transmis par ton ouvrière.",
+											"color": "0,0,0,255",
+											"anchor": 0,
+											"width": 100
+										}
+									}
+
+								]
+							}
+						}
 					]
 				    }
 				}
@@ -8193,17 +8103,12 @@
 			    "x": 70,
 			    "y": 0
 			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
-			}
 		    }
 		]
 	    },
 	    {
-		"scene": "screen-3-d",
+		"scene": "screen-3-d-player1",
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -8250,7 +8155,45 @@
 			}
 		    }
 		],
-		"information": [],
+		"information": [
+			{
+				"type": "Info",
+				"params": {
+					"source": "ui/info-6.png",
+					"anchor": 6,
+					"width": 0,
+					"height": 13,
+					"children": [
+						{
+							"type": "Text",
+							"params": {
+								"content": "Laissez Monsieur Louis écouter sur votre tablette.",
+								"color": "0,0,0,255",
+								"anchor": 0,
+								"width": 60,
+								"height": 100,
+								"listeners": [
+									{
+										"type": "Validated",
+										"params": {
+											"callback": "LocalMessage",
+											"arg": "Dashboard:Colleagues:infoZone"
+										}
+									},
+									{
+										"type": "Init",
+										"params": {
+											"callback": "PlaySound",
+											"arg": "cache/audio/Lu3.mp3"
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
 		"content": [
 		    {
 			"type": "Image",
@@ -8385,217 +8328,221 @@
                     }
 		]
 	    },
-	    {
-		"scene": "screen-3-e-player1",
-		"dashboardTrigger": true,
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
+		{
+			"scene": "screen-3-d-player2",
+			"dashboardTrigger": true,
+			"navigation": [
 				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
 				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
 				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
+			],
+			"information": [
 				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le beurre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
+					"type": "Info",
+					"params": {
+						"source": "ui/info-6.png",
+						"anchor": 6,
+						"width": 0,
+						"height": 13,
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Rapproche-toi pour écouter sur la tablette de ton ouvrière.",
+									"color": "0,0,0,255",
+									"anchor": 0,
+									"width": 80,
+									"height": 100,
+									"listeners": [
+										{
+											"type": "Validated",
+											"params": {
+												"callback": "LocalMessage",
+												"arg": "Dashboard:Colleagues:infoZone"
+											}
+										}
+									]
+								}
+							}
+						]
+					}
 				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/butter.png",
-			    "anchor": 0,
-			    "width": 25,
-			    "height": 35,
-			    "x": 0,
-			    "y": 0,
-			    "listeners": [
+			],
+			"content": [
 				{
-				    "type": "Init",
-				    "params": {
-					"callback": "PlaySound",
-					"arg": "cache/audio/nantes5.mp3"
-				    }
-				}
-			    ]
-
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-3-e-player2",
-		"dashboardTrigger": true,
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
+					"type": "Image",
+					"params": {
+						"source": "cache/rightSpotImage.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 70,
+						"y": 0
+					}
+				},
 				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
+					"type": "Group",
+					"params": {
+						"anchor": 1,
+						"width": 40,
+						"height": 40,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 40,
+									"height": 30
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Dirigeants",
+									"font": "fonts/arial.ttf",
+									"fontSize": 24,
+									"width": 100,
+									"height": 100,
+									"anchor": 0
+								}
+							}
+						]
+					}
+				},
 				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
+					"type": "Group",
+					"params": {
+						"anchor": 5,
+						"width": 40,
+						"height": 40,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 40,
+									"height": 30
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Menuisiers",
+									"font": "fonts/arial.ttf",
+									"fontSize": 24,
+									"width": 100,
+									"height": 100,
+									"anchor": 0
+								}
+							}
+						]
+					}
+				},
 				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le beurre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
+					"type": "Group",
+					"params": {
+						"anchor": 6,
+						"width": 40,
+						"height": 40,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 40,
+									"height": 30
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Pâtissiers",
+									"font": "fonts/arial.ttf",
+									"fontSize": 24,
+									"width": 100,
+									"height": 100,
+									"anchor": 0
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 7,
+						"width": 40,
+						"height": 40,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 40,
+									"height": 30
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Ouvrières",
+									"font": "fonts/arial.ttf",
+									"fontSize": 24,
+									"width": 100,
+									"height": 100,
+									"anchor": 0
+								}
+							}
+						]
+					}
 				}
-			    ]
-
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/butter.png",
-			    "anchor": 0,
-			    "width": 25,
-			    "height": 35,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
-			}
-		    }
-		]
-	    },
+			]
+		},
 	    {
 		"scene": "screen-3-f-player1",
 		"navigation": [
@@ -8687,7 +8634,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"content": "Vous allez maintenant découvrir l’usine grâce à la grande maquette présente dans la salle",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -8792,7 +8739,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
+					"content": "Maintenant, fait découvrir l’usine à ton ouvrière à l’aide de la maquette présente dans la salle.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -8807,217 +8754,8 @@
 		]
 	    },
 	    {
-		"scene": "screen-4-a-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "enabled": true,
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "enabled": true,
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 50
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "« Vous allez maintenant découvrir l’usine » Regardez la photo qui apparait sur votre écran…il s’agit d’une tour de l’usine. Pouvez-vous la retrouver sur la maquette ?",
-					"fontSize": 24,
-					"width": 80,
-					"height": 100,
-					"anchor": 0
-				    }
-				}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-a-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "enabled": true,
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "enabled": true,
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 50
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Aide ton ouvrier à prendre des  repères dans l’usine. Pour cela utilise la maquette fabriquée par Paul Duchesne et qui te sert à faire la promotion de ton entreprise. ",
-					"fontSize": 24,
-					"width": 80,
-					"height": 100,
-					"anchor": 0
-				    }
-				}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
 		"scene": "screen-4-b-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -9097,23 +8835,31 @@
 					"height": 100,
 					"children": [
 					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-03.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
 						"type": "Text",
+							"id": "infoZone",
 						"params": {
-						    "content": "Faites glisser la photo dans la zone de partage et montre à Monsieur Louis où cette tour se situe.",
+						    "content": "Repérez sur la maquette cette tour encore existante aujourd’hui.",
 						    "color": "0,0,0,255",
 						    "fontSize": 20,
 						    "anchor": 0,
 						    "width": 80,
-						    "height": 100
+						    "height": 100,
+							"listeners": [
+								{
+									"type": "SuccessHint",
+									"params": {
+										"callback": "SetText",
+										"arg": "Vous avez trouvé la bonne réponse !"
+									}
+								},
+								{
+									"type": "ErrorHint",
+									"params": {
+										"callback": "SetText",
+										"arg": "Ce n'est pas la bonne réponse"
+									}
+								}
+							]
 						}
 					    }
 					]
@@ -9137,81 +8883,21 @@
 		    },
 		    {
 			"type": "Image",
-			"id": "dropArea1",
-			"params": {
-			    "source": "cache/sendingArea.png",
-			    "anchor": 4,
-			    "width": 30,
-			    "height": 100,
-			    "x": 70,
-			    "y": 0,
-			    "listeners": [
-				{
-				    "type": "Drop",
-				    "params": {
-					"callback": ""
-				    }
-				},
-				{
-				    "type": "DropEnabledBack",
-				    "params": {
-					"callback": "EnableEvent",
-					"arg": "dropArea1:Drop"
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Image",
 			"id":"TourLU1",
 			"params": {
 			    "source": "cache/TourLU.png",
-			    "anchor": 0,
+			    "anchor": 2,
 			    "width": 0,
-			    "height": 40,
+			    "height": 87,
 			    "x": 0,
-			    "y": 0,
-			    "listeners": [
-				{
-				    "type": "Move",
-				    "params": {
-					"callback": ""
-				    }
-				},
-				{
-				    "type": "Droped",
-				    "params": {
-					"callback": "Fade"
-				    }
-				},
-				{
-				    "type": "Droped",
-				    "params": {
-					"callback": "DisableEvent",
-					"arg": "dropArea1:Drop"
-				    }
-				},
-				{
-				    "type": "Droped",
-				    "params": {
-					"callback": "SendMessage",
-					"arg": "screen-4-b-player2:Show:TourLUA"
-				    }
-				},
-				{
-				    "type": "ReturnElement",
-				    "params": {
-					"callback": "ShowBack"
-				    }
-				}
-			    ]
+			    "y": 0
 			}
 		    }
 		]
 	    },
 	    {
 		"scene": "screen-4-b-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -9312,13 +8998,30 @@
 					    },
 					    {
   						"type": "Text",
+							"id": "infoZone",
   						"params": {
-  						    "content": "Lorsque ton ouvrier t’envoie le détail dans la zone de partage, demande lui de te montrer où cette tour se situe",
+  						    "content": "Avec l’aide de ton ouvrière, clique sur la tour encore existante aujourd’hui.",
   						    "color": "0,0,0,255",
 						    "fontSize": 20,
   						    "anchor": 0,
   						    "width": 80,
-  						    "height": 100
+  						    "height": 100,
+							"listeners": [
+								{
+									"type": "SuccessHint",
+									"params": {
+										"callback": "SetText",
+										"arg": "Vous avez trouvé la bonne réponse !"
+									}
+								},
+								{
+									"type": "ErrorHint",
+									"params": {
+										"callback": "SetText",
+										"arg": "Tu t'es trompé, essaie encore"
+									}
+								}
+							]
   						}
   					    }
 					]
@@ -9344,14 +9047,15 @@
 			"type": "Image",
 			"params": {
 			    "source": "cache/Maquette.png",
-			    "anchor": 8,
+			    "anchor": 2,
 			    "width": 0,
-			    "height": 70,
+			    "height": 87,
 			    "x": 0,
 			    "y": 0,
 			    "children": [
 				{
 				    "type": "Grid",
+					"id": "tours",
 				    "params": {
 					"cols": 5,
 					"rows": 2,
@@ -9423,19 +9127,33 @@
 						    "height": 100,
 						    "listeners": [
 							{
-							    "type": "Drop",
+							    "type": "Touch",
 							    "params": {
-								"callback": "AnchorEntity",
+								"callback": "Validate",
 								"arg": "TourLUA"
 							    }
 							},
 							{
-  							    "type": "Drop",
+  							    "type": "Touch",
   							    "params": {
-  								"callback": "SendMessage",
-  								"arg": "screen-4-b-player1:DropEnabledBack:dropArea1"
+  								"callback": "LocalMessage",
+  								"arg": "screen-4-b-player2:SuccessHint:infoZone"
 							    }
-							}
+							},
+								{
+									"type": "Touch",
+									"params": {
+										"callback": "DisableEvent",
+										"arg": "tours:Touch"
+									}
+								},
+								{
+									"type": "Touch",
+									"params": {
+										"callback": "SendMessage",
+										"arg": "screen-4-b-player1:SuccessHint:infoZone"
+									}
+								}
 						    ]
 						}
 					    },
@@ -9444,7 +9162,23 @@
 						"params": {
 						    "anchor": 0,
 						    "width": 100,
-						    "height": 100
+						    "height": 100,
+							"listeners": [
+								{
+									"type": "Touch",
+									"params": {
+										"callback": "LocalMessage",
+										"arg": "screen-4-b-player2:ErrorHint:infoZone"
+									}
+								},
+								{
+									"type": "Touch",
+									"params": {
+										"callback": "SendMessage",
+										"arg": "screen-4-b-player1:ErrorHint:infoZone"
+									}
+								}
+							]
 						}
 					    },
 					    {
@@ -9460,67 +9194,7 @@
 				}
 			    ]
 			}
-		    },
-		    {
-  			"type": "Image",
-  			"id": "dropArea2",
-  			"params": {
-  			    "source": "cache/sendingArea.png",
-  			    "anchor": 4,
-  			    "width": 30,
-  			    "height": 100,
-  			    "x": 70,
-  			    "y": 0,
-  			    "children": [
-  				{
-  				    "type": "Image",
-  				    "id": "TourLUA",
-  				    "params": {
-  					"source": "cache/TourLU.png",
-  					"anchor": 0,
-  					"width": 0,
-  					"height": 40,
-  					"x": 0,
-  					"y": 0,
-  					"listeners": [
-  					    {
-  						"type": "Move",
-  						"params": {
-  						    "callback": ""
-  						}
-  					    },
-  					    {
-  						"type": "Droped",
-  						"params": {
-  						    "callback": "Anchored"
-  						}
-  					    },
-  					    {
-  						"type": "Droped",
-  						"params": {
-  						    "callback": "Validate",
-  						    "arg": "TourLUA"
-  						}
-  					    },
-  					    {
-  						"type": "Show",
-  						"params": {
-  						    "callback": "Show"
-  						}
-					    },
-					    {
-						"type": "AnchoredFailed",
-						"params": {
-						    "callback": "SendMessage",
-						    "arg": "screen-4-b-player1:ReturnElement:TourLU1"
-						}
-					    }
-  					]
-  				    }
-  				}
-  			    ]
-  			}
-  		    }
+		    }
   		]
   	    },
 	    {
@@ -9583,7 +9257,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Approchez les tablettes l’une de l’autre et comparez les deux images.",
+					"content": "Raprochez-vous pour écouter sur la tablette de Monsieur Louis.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"fontSize": 20,
@@ -9607,17 +9281,35 @@
 			    "y": 0
 			}
 		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/TourLU.png",
-			    "anchor": 0,
-			    "width": 0,
-			    "height": 70,
-			    "x": 0,
-			    "y": 0
+			{
+				"type": "Group",
+				"params": {
+					"anchor": 0,
+					"width": 50,
+					"height": 100,
+					"children": [
+						{
+							"type": "Image",
+							"params": {
+								"source": "ui/cache-noir-70.png",
+								"anchor": 0,
+								"width": 100,
+								"height": 100
+							}
+						},
+						{
+							"type": "Text",
+							"params": {
+								"content": "Cette maquette a été fabriquée par Paul Duchesne. Pour en savoir plus aprochez-vous de Monsieur Louis.",
+								"anchor": 0,
+								"fontSize": 20,
+								"width": 60,
+								"height": 100
+							}
+						}
+					]
+				}
 			}
-		    }
 		]
 	    },
 	    {
@@ -9696,7 +9388,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Approchez les tablettes l’une de l’autre et comparez les deux images.",
+						    "content": "Laisse ton ouvrière écouter sur ta tablette.",
 						    "color": "0,0,0,255",
 						    "fontSize": 20,
 						    "anchor": 0,
@@ -9753,12 +9445,21 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Une partie de l'usine existe toujours. Elle se trouve en face du château. Cet emplacement n’a pas été choisi au hasard par monsieur Louis. L’usine se situe près de la gare et de La Loire. Les marchandises œufs, farine, sucre, beurre, vanille nécessaires à la fabrication des biscuits arrivent facilement dans l’usine. Une fois les biscuits fabriquées ils sont  envoyés dans toute la France.",
+					"content": "Cette maquette a longtemps servi à faire la promotion de l’entreprise. Cliquez sur l’écran pour en savoir plus.",
 					"font": "fonts/arial.ttf",
 					"fontSize": 20,
 					"anchor": 0,
 					"width": 90,
-					"height": 100
+					"height": 100,
+						"listeners": [
+							{
+								"type": "Init",
+								"params": {
+									"callback": "PlaySound",
+									"arg": "cache/audio/Lu4.mp3"
+								}
+							}
+						]
 				    }
 				}
 
@@ -9769,6 +9470,8 @@
 	    },
 	    {
 		"scene": "screen-4-d-player1",
+			"sync": true,
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -9843,7 +9546,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Observez la maquette et la photo.",
+					"content": "Aidez-vous aussi de la maquette d’époque.",
 					"color": "0,0,0,255",
 					"anchor": 0,
 					"fontSize": 20,
@@ -9870,18 +9573,38 @@
 		    {
 			"type": "Image",
 			"params": {
-			    "source": "cache/TourLU.png",
-			    "anchor": 0,
-			    "width": 0,
-			    "height": 70,
+			    "source": "cache/Maquette2.png",
+			    "anchor": 8,
+			    "width": 50,
 			    "x": 0,
 			    "y": 0
 			}
-		    }
+		    },
+			{
+				"type": "Image",
+				"params": {
+					"source": "ui/cache-noir-70.png",
+					"anchor": 4,
+					"width": 50,
+					"children": [
+						{
+							"type": "Text",
+							"params": {
+								"content": "A l'aide de la photo contemporaine qui apparait sur votre écran. Répondez à la question de Monsieur Louis.",
+								"anchor": 0,
+								"width": 90
+							}
+						}
+
+					]
+				}
+			}
 		]
 	    },
 	    {
 		"scene": "screen-4-d-player2",
+			"sync": true,
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -9982,7 +9705,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Observe la maquette et la photo qui apparait sur l’autre tablette. ",
+						    "content": "Regarde aussi la photo qui apparaît sur l’autre tablette.",
 						    "color": "0,0,0,255",
 						    "font": "fonts/arial.ttf",
 						    "fontSize": 20,
@@ -10023,7 +9746,7 @@
 				{
 				    "type": "Text",
 				    "params": {
-					"content": "Indique à ton ouvrier quels sont les deux éléments qui ont disparus aujourd ’hui",
+					"content": "Demandez à votre ouvrière quels sont les deux éléments qui ont disparu aujourd’hui",
 					"font": "fonts/arial.ttf",
 					"fontSize": 24,
 					"anchor": 0,
@@ -10039,12 +9762,22 @@
 
 		    {
 			"type": "Grid",
+				"id": "AnswersGrid",
 			"params": {
 			    "cols": 2,
 			    "rows": 2,
 			    "anchor": 0,
 			    "width": 50,
 			    "height": 40,
+				"listeners": [
+					{
+						"type": "Validate",
+						"params": {
+							"callback": "DisableEvent",
+							"arg": "AnswersGrid:Touch"
+						}
+					}
+				],
 			    "children": [
 				{
 				    "type": "Image",
@@ -10316,8 +10049,919 @@
 		    }
 		]
 	    },
+		{
+			"scene": "screen-4-f1-player1",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso6.png",
+						"anchor": 8,
+						"height": 100
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 4,
+						"width": 50,
+						"height": 100,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Vous allez maintenant découvrir les différents ateliers, soyez attentif !",
+									"anchor": 0,
+									"width": 60,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"scene": "screen-4-f1-player2",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso6.png",
+						"anchor": 8,
+						"height": 100
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 4,
+						"width": 50,
+						"height": 100,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Maintenant, fais visiter les ateliers à ton ouvrière.",
+									"font": "fonts/arial.ttf",
+									"anchor": 0,
+									"width": 90,
+									"height": 100
+								}
+							}
+
+						]
+					}
+				}
+			]
+		},
+		{
+			"scene": "screen-4-f2-player1",
+			"sync": true,
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						],
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						],
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [
+				{
+					"type": "Info",
+					"params": {
+						"source": "ui/info-6.png",
+						"anchor": 6,
+						"width": 0,
+						"height": 13,
+						"children": [
+							{
+								"type": "Group",
+								"params": {
+									"anchor": 0,
+									"width": 60,
+									"height": 100,
+									"children": [
+										{
+											"type": "Image",
+											"params": {
+												"source": "ui/Assets/PNG/Assets-03.png",
+												"anchor": 8,
+												"width": 0,
+												"height": 80
+											}
+										},
+										{
+											"type": "Text",
+											"params": {
+												"content": "Observez les images et retenez l’ordre des étapes.",
+												"color": "0,0,0,255",
+												"fontSize": 20,
+												"anchor": 0,
+												"width": 80,
+												"height": 100
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"id": "Atelier1",
+					"params": {
+						"source": "cache/Atelier1.png",
+						"anchor": 0,
+						"width": 70,
+						"height": 100,
+						"x": 0,
+						"y": 0,
+						"listeners": [
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "Show"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+								}
+							},
+							{
+								"type": "HidePhoto",
+								"params": {
+									"callback": "Show",
+									"arg": false
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Image",
+					"id": "Atelier2",
+					"params": {
+						"source": "cache/Atelier2.png",
+						"anchor": 0,
+						"width": 70,
+						"height": 100,
+						"x": 0,
+						"y": 0,
+						"listeners": [
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "Show"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+								}
+							},
+							{
+								"type": "HidePhoto",
+								"params": {
+									"callback": "Show",
+									"arg": false
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Image",
+					"id": "Atelier3",
+					"params": {
+						"source": "cache/Atelier3.png",
+						"anchor": 0,
+						"width": 70,
+						"height": 100,
+						"x": 0,
+						"y": 0,
+						"listeners": [
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "Show"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier4"
+								}
+							},
+							{
+								"type": "HidePhoto",
+								"params": {
+									"callback": "Show",
+									"arg": false
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Image",
+					"id": "Atelier4",
+					"params": {
+						"source": "cache/Atelier4.png",
+						"anchor": 0,
+						"width": 70,
+						"height": 100,
+						"x": 0,
+						"y": 0,
+						"listeners": [
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "Show"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier2"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier3"
+								}
+							},
+							{
+								"type": "ShowPhoto",
+								"params": {
+									"callback": "LocalMessage",
+									"arg": "screen-4-f-player1:HidePhoto:Atelier1"
+								}
+							},
+							{
+								"type": "HidePhoto",
+								"params": {
+									"callback": "Show",
+									"arg": false
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"scene": "screen-4-f2-player2",
+			"sync": true,
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						],
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"listeners": [
+							{
+								"type": "Validate",
+								"params": {
+									"callback": "Show"
+								}
+							}
+						],
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Validator",
+					"params": {
+						"ids": [
+							"1",
+							"2",
+							"3",
+							"4"
+						],
+						"sound": "cache/audio/xylophone.mp3"
+					}
+				}
+			],
+			"information": [
+				{
+					"type": "Info",
+					"params": {
+						"source": "ui/info-6.png",
+						"anchor": 6,
+						"width": 0,
+						"height": 13,
+						"children": [
+							{
+								"type": "Group",
+								"params": {
+									"anchor": 0,
+									"width": 60,
+									"height": 100,
+									"children": [
+										{
+											"type": "Image",
+											"params": {
+												"source": "ui/Assets/PNG/Assets-03.png",
+												"anchor": 8,
+												"width": 0,
+												"height": 80
+											}
+										},
+										{
+											"type": "Text",
+											"params": {
+												"content": "Fait découvrir les différents ateliers à ton ouvrière en cliquant sur les étapes dans l’ordre.",
+												"color": "0,0,0,255",
+												"fontSize": 20,
+												"anchor": 0,
+												"width": 80,
+												"height": 100
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/Maquette2.png",
+						"anchor": 0,
+						"width": 0,
+						"height": 80,
+						"x": 0,
+						"y": 0,
+						"children": [
+							{
+								"type": "Grid",
+								"params": {
+									"cols": 3,
+									"rows": 3,
+									"width": 100,
+									"height": 100,
+									"anchor": 0,
+									"alignItems": "center",
+									"children": [
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-blanc-50.png",
+															"anchor": 0,
+															"width": 50,
+															"height": 0,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "3",
+															"color": "0,0,0,255",
+															"fontSize": 40,
+															"anchor": 0,
+															"width": 100,
+															"height": 100
+														}
+													}
+												],
+												"listeners": [
+													{
+														"type": "Touch",
+														"params":
+														{
+															"callback": "Validate",
+															"arg": "3"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-4-f2-player1:ShowPhoto:Atelier3"
+														}
+													}
+												]
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-blanc-50.png",
+															"anchor": 0,
+															"width": 50,
+															"height": 0,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "4",
+															"color": "0,0,0,255",
+															"fontSize": 40,
+															"anchor": 0,
+															"width": 100,
+															"height": 100
+														}
+													}
+												],
+												"listeners": [
+													{
+														"type": "Touch",
+														"params":
+														{
+															"callback": "Validate",
+															"arg": "4"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-4-f2-player1:ShowPhoto:Atelier4"
+														}
+													}
+												]
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-blanc-50.png",
+															"anchor": 0,
+															"width": 50,
+															"height": 0,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "2",
+															"color": "0,0,0,255",
+															"fontSize": 40,
+															"anchor": 0,
+															"width": 100,
+															"height": 100
+														}
+													}
+												],
+												"listeners": [
+													{
+														"type": "Touch",
+														"params":
+														{
+															"callback": "Validate",
+															"arg": "2"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-4-f2-player1:ShowPhoto:Atelier2"
+														}
+													}
+												]
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100,
+												"children": [
+													{
+														"type": "Image",
+														"params": {
+															"source": "ui/cache-blanc-50.png",
+															"anchor": 0,
+															"width": 50,
+															"height": 0,
+															"x": 0,
+															"y": 0
+														}
+													},
+													{
+														"type": "Text",
+														"params": {
+															"content": "1",
+															"color": "0,0,0,255",
+															"fontSize": 40,
+															"anchor": 0,
+															"width": 100,
+															"height": 100
+														}
+													}
+												],
+												"listeners": [
+													{
+														"type": "Touch",
+														"params":
+														{
+															"callback": "Validate",
+															"arg": "1"
+														}
+													},
+													{
+														"type": "Touch",
+														"params": {
+															"callback": "SendMessage",
+															"arg": "screen-4-f2-player1:ShowPhoto:Atelier1"
+														}
+													}
+												]
+											}
+										},
+										{
+											"type": "Group",
+											"params": {
+												"anchor": 0,
+												"width": 100,
+												"height": 100
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-4-e-player1",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -10408,10 +11052,10 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Faites glisser dans la zone de partage chaque étape.",
+						    "content": "Passez à Monsieur Louis les étapes dans le bon ordre.",
 						    "color": "0,0,0,255",
 						    "anchor": 0,
-						    "width": 60,
+						    "width": 80,
 						    "height": 100
 						}
 					    }
@@ -10734,6 +11378,7 @@
 	    },
 	    {
 		"scene": "screen-4-e-player2",
+			"sync": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -10838,7 +11483,7 @@
 					    {
   						"type": "Text",
   						"params": {
-  						    "content": "Classe dans le bon ordre les étapes de fabrication d’un biscuit",
+  						    "content": "Vérifie que les étapes sont dans le bon ordre.",
   						    "color": "0,0,0,255",
   						    "anchor": 0,
   						    "width": 80,
@@ -11309,716 +11954,210 @@
 		    }
 		]
 	    },
-	    {
-		"scene": "screen-4-f-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "listeners": [
+		{
+			"scene": "screen-4-g1-player1",
+			"navigation": [
 				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Group",
-				    "params": {
-					"anchor": 0,
-					"width": 60,
-					"height": 100,
-					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-03.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
-  						"type": "Text",
-  						"params": {
-						    "content": "Sur votre écran apparait différents ateliers. Observez les.",
-  						    "color": "0,0,0,255",
-						    "fontSize": 20,
-  						    "anchor": 0,
-  						    "width": 80,
-  						    "height": 100
-  						}
-  					    }
-					]
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background3LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "Atelier1",
-			"params": {
-			    "source": "cache/Atelier1.png",
-			    "anchor": 0,
-			    "width": 70,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0,
-				"listeners": [
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "Show"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
-						}
-					},
-					{
-						"type": "HidePhoto",
-						"params": {
-							"callback": "Show",
-							"arg": false
-						}
-					}
-				]
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "Atelier2",
-			"params": {
-			    "source": "cache/Atelier2.png",
-			    "anchor": 0,
-			    "width": 70,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0,
-				"listeners": [
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "Show"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
-						}
-					},
-					{
-						"type": "HidePhoto",
-						"params": {
-							"callback": "Show",
-							"arg": false
-						}
-					}
-				]
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "Atelier3",
-			"params": {
-			    "source": "cache/Atelier3.png",
-			    "anchor": 0,
-			    "width": 70,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0,
-				"listeners": [
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "Show"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier4"
-						}
-					},
-					{
-						"type": "HidePhoto",
-						"params": {
-							"callback": "Show",
-							"arg": false
-						}
-					}
-				]
-			}
-		    },
-		    {
-			"type": "Image",
-			"id": "Atelier4",
-			"params": {
-			    "source": "cache/Atelier4.png",
-			    "anchor": 0,
-			    "width": 70,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0,
-				"listeners": [
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "Show"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier2"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier3"
-						}
-					},
-					{
-						"type": "ShowPhoto",
-						"params": {
-							"callback": "LocalMessage",
-							"arg": "screen-4-f-player1:HidePhoto:Atelier1"
-						}
-					},
-					{
-						"type": "HidePhoto",
-						"params": {
-							"callback": "Show",
-							"arg": false
-						}
-					}
-				]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-f-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "listeners": [
-				{
-				    "type": "Validate",
-				    "params": {
-					"callback": "Show"
-				    }
-				}
-			    ],
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Validator",
-			"params": {
-			    "ids": [
-				"1",
-				"2",
-				"3",
-				"4"
-			    ],
-			    "sound": "cache/audio/xylophone.mp3"
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Group",
-				    "params": {
-					"anchor": 0,
-					"width": 60,
-					"height": 100,
-					"children": [
-					    {
-						"type": "Image",
-						"params": {
-						    "source": "ui/Assets/PNG/Assets-03.png",
-						    "anchor": 8,
-						    "width": 0,
-						    "height": 80
-						}
-					    },
-					    {
-  						"type": "Text",
-  						"params": {
-						    "content": "Fait découvrir les différents ateliers de l'usine à ton ouvrier en cliquant sur les étapes dans l'ordre chronologique.",
-  						    "color": "0,0,0,255",
-						    "fontSize": 20,
-  						    "anchor": 0,
-  						    "width": 80,
-  						    "height": 100
-  						}
-  					    }
-					]
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background3LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/Maquette2.png",
-			    "anchor": 0,
-			    "width": 0,
-			    "height": 80,
-			    "x": 0,
-			    "y": 0,
-			    "children": [
-				{
-  				    "type": "Grid",
-  				    "params": {
-  					"cols": 3,
-  					"rows": 3,
-  					"width": 100,
-  					"height": 100,
-  					"anchor": 0,
-  					"alignItems": "center",
-  					"children": [
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100,
-						    "children": [
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
 							{
-      							    "type": "Image",
-      							    "params": {
-								"source": "ui/cache-blanc-50.png",
-      								"anchor": 0,
-      								"width": 50,
-      								"height": 0,
-      								"x": 0,
-      								"y": 0
-							    }
-							},
-							{
-  							    "type": "Text",
-  							    "params": {
-  								"content": "3",
-								"color": "0,0,0,255",
-								"fontSize": 40,
-  								"anchor": 0,
-  								"width": 100,
-  								"height": 100
-  							    }
-  							}
-						    ],
-						    "listeners": [
-							{
-    							    "type": "Touch",
-    							    "params":
-    							    {
-    								"callback": "Validate",
-    								"arg": "3"
-    							    }
-    							},
-    							{
-    								"type": "Touch",
-    								"params": {
-    									"callback": "SendMessage",
-    									"arg": "screen-4-f-player1:ShowPhoto:Atelier3"
-    								}
-    							}
-    						    ]
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100,
-						    "children": [
-							{
-							    "type": "Image",
-							    "params": {
-								"source": "ui/cache-blanc-50.png",
-								"anchor": 0,
-								"width": 50,
-								"height": 0,
-								"x": 0,
-								"y": 0
-							    }
-							},
-							{
-							    "type": "Text",
-							    "params": {
-								"content": "4",
-								"color": "0,0,0,255",
-								"fontSize": 40,
-								"anchor": 0,
-								"width": 100,
-								"height": 100
-							    }
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
 							}
-						    ],
-						    "listeners": [
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
 							{
-  							    "type": "Touch",
-  							    "params":
-  							    {
-  								"callback": "Validate",
-  								"arg": "4"
-  							    }
-  							},
-    							{
-    								"type": "Touch",
-    								"params": {
-    									"callback": "SendMessage",
-    									"arg": "screen-4-f-player1:ShowPhoto:Atelier4"
-    								}
-    							}
-  						    ]
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100,
-						    "children": [
-							{
-							    "type": "Image",
-							    "params": {
-								"source": "ui/cache-blanc-50.png",
-								"anchor": 0,
-								"width": 50,
-								"height": 0,
-								"x": 0,
-								"y": 0
-							    }
-							},
-							{
-							    "type": "Text",
-							    "params": {
-								"content": "2",
-								"color": "0,0,0,255",
-								"fontSize": 40,
-								"anchor": 0,
-								"width": 100,
-								"height": 100
-							    }
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
 							}
-						    ],
-						    "listeners": [
-							{
-							    "type": "Touch",
-							    "params":
-							    {
-								"callback": "Validate",
-								"arg": "2"
-							    }
-							},
-    							{
-    								"type": "Touch",
-    								"params": {
-    									"callback": "SendMessage",
-    									"arg": "screen-4-f-player1:ShowPhoto:Atelier2"
-    								}
-    							}
-						    ]
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100,
-						    "children": [
-							{
-							    "type": "Image",
-							    "params": {
-								"source": "ui/cache-blanc-50.png",
-								"anchor": 0,
-								"width": 50,
-								"height": 0,
-								"x": 0,
-								"y": 0
-							    }
-							},
-							{
-							    "type": "Text",
-							    "params": {
-								"content": "1",
-								"color": "0,0,0,255",
-								"fontSize": 40,
-								"anchor": 0,
-								"width": 100,
-								"height": 100
-							    }
-							}
-						    ],
-						    "listeners": [
-							{
-							    "type": "Touch",
-							    "params":
-							    {
-								"callback": "Validate",
-								"arg": "1"
-							    }
-							},
-    							{
-    								"type": "Touch",
-    								"params": {
-    									"callback": "SendMessage",
-    									"arg": "screen-4-f-player1:ShowPhoto:Atelier1"
-    								}
-    							}
-						    ]
-						}
-					    },
-					    {
-						"type": "Group",
-						"params": {
-						    "anchor": 0,
-						    "width": 100,
-						    "height": 100
-						}
-					    }
-					]
-				    }
+						]
+					}
 				}
-			    ]
-			}
-		    }
-		]
-	    },
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso6.png",
+						"anchor": 8,
+						"height": 100
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 4,
+						"width": 50,
+						"height": 100,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Félicitation, continuons la visite de l’usine !",
+									"anchor": 0,
+									"width": 60,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			]
+		},
+		{
+			"scene": "screen-4-g1-player2",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Suivant",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 7,
+						"normal": "ui/nav-7.png",
+						"selected": "ui/nav-7-active.png",
+						"action": "prev",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Précédent",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"information": [],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/background3LU.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso6.png",
+						"anchor": 8,
+						"height": 100
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"anchor": 4,
+						"width": 50,
+						"height": 100,
+						"children": [
+							{
+								"type": "Image",
+								"params": {
+									"source": "ui/cache-noir-70.png",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							},
+							{
+								"type": "Text",
+								"params": {
+									"content": "Fait maintenant découvrir à ton ouvrière dans quels bâtiments se situaient ces ateliers !",
+									"font": "fonts/arial.ttf",
+									"anchor": 0,
+									"width": 90,
+									"height": 100
+								}
+							}
+
+						]
+					}
+				}
+			]
+		},
 	    {
 		"scene": "screen-4-g-player1",
+			"sync": true,
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -12121,7 +12260,7 @@
 					    {
   						"type": "Text",
   						"params": {
-  						    "content": "Retrouvez l'emplacement des différents ateliers sur la maquette",
+  						    "content": "Cherchez sur la maquette, les bâtiments des 4 ateliers.",
   						    "color": "0,0,0,255",
 						    "fontSize": 20,
   						    "anchor": 0,
@@ -12680,6 +12819,8 @@
 	    },
 	    {
 		"scene": "screen-4-g-player2",
+			"sync": true,
+			"dashboardTrigger": true,
 		"navigation": [
 		    {
 			"type": "Nav",
@@ -12770,7 +12911,7 @@
 					    {
 						"type": "Text",
 						"params": {
-						    "content": "Fait glisser les différents noms des étapes de préparation dans la zone de partage à ton ouvrier.",
+						    "content": "Cherche sur la maquette, les bâtiments des 4 ateliers.",
 						    "color": "0,0,0,255",
 						    "fontSize": 20,
 						    "anchor": 0,
@@ -13090,415 +13231,6 @@
 					]
 				    }
 				}
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-h-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 0,
-			    "width": 15,
-			    "height": 30,
-			    "x": 0,
-			    "y": 0
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-h-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [
-		    {
-			"type": "Info",
-			"params": {
-			    "source": "ui/info-6.png",
-			    "anchor": 6,
-			    "width": 0,
-			    "height": 13,
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Nouvel ingrédient dans l'inventaire : le sucre !",
-					"color": "0,0,0,255",
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-			    ]
-
-			}
-		    }
-		],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/rewardbg.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/sugar.png",
-			    "anchor": 0,
-			    "width": 15,
-			    "height": 30,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Sound",
-			"params": {
-			    "source": ""
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-i-player1",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
-			    ]
-			}
-		    }
-		]
-	    },
-	    {
-		"scene": "screen-4-i-player2",
-		"navigation": [
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 5,
-			    "normal": "ui/nav-5.png",
-			    "selected": "ui/nav-5-active.png",
-			    "action": "next",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Suivant",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    },
-		    {
-			"type": "Nav",
-			"params": {
-			    "width": 0,
-			    "height": 13,
-			    "anchor": 7,
-			    "normal": "ui/nav-7.png",
-			    "selected": "ui/nav-7-active.png",
-			    "action": "prev",
-			    "children": [
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Précédent",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				}
-			    ]
-			}
-		    }
-		],
-		"information": [],
-		"content": [
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/background1LU.png",
-			    "anchor": 0,
-			    "width": 100,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Image",
-			"params": {
-			    "source": "cache/perso1left.png",
-			    "anchor": 7,
-			    "width": 0,
-			    "height": 100,
-			    "x": 0,
-			    "y": 0
-			}
-		    },
-		    {
-			"type": "Group",
-			"params": {
-			    "anchor": 4,
-			    "width": 50,
-			    "height": 100,
-			    "children": [
-				{
-				    "type": "Image",
-				    "params": {
-					"source": "ui/cache-noir-70.png",
-					"anchor": 0,
-					"width": 100,
-					"height": 100
-				    }
-				},
-				{
-				    "type": "Text",
-				    "params": {
-					"content": "Bravo, nous avons un nouvel ingrédient pour la recette.",
-					"font": "fonts/arial.ttf",
-					"fontSize": 24,
-					"anchor": 0,
-					"width": 80,
-					"height": 100
-				    }
-				}
-
 			    ]
 			}
 		    }
@@ -13861,7 +13593,82 @@
 			}
 		    }
 		]
-	    }
+	    },
+		{
+			"scene": "screen-generique",
+			"navigation": [
+				{
+					"type": "Nav",
+					"params": {
+						"width": 0,
+						"height": 13,
+						"anchor": 5,
+						"normal": "ui/nav-5.png",
+						"selected": "ui/nav-5-active.png",
+						"enabled": true,
+						"action": "next",
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Commencer",
+									"anchor": 0,
+									"width": 100,
+									"height": 100
+								}
+							}
+						]
+					}
+				}
+			],
+			"content": [
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/backgroundFactory.png",
+						"anchor": 0,
+						"width": 100,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Image",
+					"params": {
+						"source": "cache/perso4.png",
+						"anchor": 7,
+						"width": 0,
+						"height": 100,
+						"x": 0,
+						"y": 0
+					}
+				},
+				{
+					"type": "Group",
+					"params": {
+						"source": "ui/cache-noir-70.png",
+						"anchor": 4,
+						"width": 50,
+						"height": 87,
+						"children": [
+							{
+								"type": "Text",
+								"params": {
+									"content": "Ligne éditoriale\r\n Guillaume Ducongé    Laurence D'haene\r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
+									"font": "fonts/arial.ttf",
+									"fontSize": 22,
+									"width": 80,
+									"height": 100,
+									"anchor": 0,
+									"color": ""
+								}
+							}
+						]
+					}
+				}
+			]
+		}
 	]
     }
 }

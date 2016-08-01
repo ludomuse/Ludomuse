@@ -203,6 +203,7 @@ void CTouchBeganVisitor::MoveEntityBack(CEntityNode* a_pEntity)
 {
 
 	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
+		a_pEntity->GetCocosEntity()->setZOrder(0);
 		CEntityNode::Release(a_pEntity);
 	});
 	auto oMoveTo = MoveTo::create(0.25, a_pEntity->GetEntityStartLocation());
@@ -303,6 +304,7 @@ void CTouchBeganVisitor::StartTouch(CEntityNode* a_pEntity)
 void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 {
 	CEntityNode::Lock(a_pEntity);
+	a_pEntity->GetCocosEntity()->setZOrder(1);
 
 	auto oScaleTo1 = ScaleTo::create(0.1f, 2 * a_pEntity->GetEntityStartScale());
 	auto oEaseOutBack1 = EaseBackOut::create(oScaleTo1);

@@ -22,7 +22,6 @@ class CGridNode : public CGroupNode
  private:
   virtual cocos2d::Size GetVisibleSize() override;
   virtual cocos2d::Vec2 GetOrigin() override;
-
   
 };
 

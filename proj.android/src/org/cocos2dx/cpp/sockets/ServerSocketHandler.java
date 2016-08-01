@@ -621,6 +621,9 @@ class Communication implements Runnable {
 					break;
 				case FILE:
 					receiveFile(is);
+					DebugManager.print(ServerSocketHandler.getTag()
+							+ "We finished receiving a file!",
+							WifiDirectManager.DEBUGGER_CHANNEL);
 					break;
 				case FLOAT:
 					receiveFloat(is);

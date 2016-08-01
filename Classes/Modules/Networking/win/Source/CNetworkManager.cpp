@@ -5,7 +5,7 @@
 
 
 #define DEFAULT_BUFLEN 512
-#define DEFAULT_PORT "8080"
+#define DEFAULT_PORT "6666"
 
 
 namespace LM
@@ -309,9 +309,9 @@ void CNetworkManager::DiscoverPeers()
 {
 	std::cout << "discover peers" << std::endl;
 	std::vector<std::string> peers;
-	peers.push_back("PEER1");
-	peers.push_back("Holla");
-	peers.push_back("rtes");
+	peers.push_back("Jean");
+	peers.push_back("Michel");
+	peers.push_back("Wendy");
 	m_pKernel->OnGettingPeers(peers);
 }
 

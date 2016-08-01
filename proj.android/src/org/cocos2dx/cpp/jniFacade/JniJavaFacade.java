@@ -186,7 +186,7 @@ public class JniJavaFacade {
 			Log.e("[LUDO_STATS]", "Could not write to external storage");
 		}
 		
-		
+		JniCppFacade.closeApp();
 		
 	}
 

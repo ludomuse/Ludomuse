@@ -95,7 +95,9 @@ public:
 		}
 	}
 
-	virtual void readOn(bytes* msg) override
+
+
+	virtual void readOn(bytes* msg) override 
 	{
 		int iSize;
 		*msg >> iSize;
@@ -119,6 +121,7 @@ public:
 		}
 
 	}
+
 
 };
 

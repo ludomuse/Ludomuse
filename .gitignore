@@ -13,6 +13,11 @@ proj.android/bin
 proj.android/assets
 proj.android/gen
 proj.android/build-cfg.json
+proj.android/.idea
+proj.android/classes
+proj.android/LudoMuse.iml
+proj.android/out
+proj.android/proj.android.iml
 proguard-project.txt
 local.properties
 lint.xml
@@ -51,7 +56,20 @@ proj.win32/LudoMuse.v12.suo
 proj.win32/.vs
 
 LudoMuse.creator.user
+LudoMuse.creator.user
+.kdev4/
+LudoMuse.creator.user.d2607d1
+LudoMuse.kdev4
 
 proj.android/.settings/org.eclipse.jdt.core.prefs
+proj.android/.classpath
 proj.win32/LudoMuse.VC.db
 proj.win32/LudoMuse.VC.VC.opendb
+proj.android/out
+proj.win32/LudoMuse.vcxproj
+
+Resources/.idea
+proj.android/LudoMuse.iml
+proj.android/.idea
+proj.android/.idea/workspace.xml
+proj.win32/LudoMuse.vcxproj

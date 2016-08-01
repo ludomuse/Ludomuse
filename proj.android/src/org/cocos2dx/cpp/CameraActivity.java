@@ -252,7 +252,10 @@ public class CameraActivity extends Activity implements OnClickListener {
         try {
             imageFileName.createNewFile();
             out = new FileOutputStream(imageFileName);
-            bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            //bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            // Resize the picture
+            Bitmap resized = Bitmap.createScaledBitmap(bmp, (int)(bmp.getWidth() * 0.50),(int)(bmp.getHeight() * 0.50), true);
+            resized.compress(Bitmap.CompressFormat.JPEG, 100, out);
             out.flush();
             out.close();
 //            scanPhoto(imageFileName.toString());
