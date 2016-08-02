@@ -41,7 +41,7 @@ class CLabelNode : public CEntityNode
 
   virtual const std::string& GetText() const;
 
-    virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
+  virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
 
 };
 

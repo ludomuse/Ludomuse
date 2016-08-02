@@ -2,6 +2,7 @@
 #include "../Include/CLabelNode.h"
 #include "../Include/CSpriteNode.h"
 
+#include <CProjectManager.h>
 #include <QDebug>
 
 using namespace cocos2d;
@@ -115,18 +116,27 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     params.AddMember("width", this->m_iWidth, a_rAllocator);
     params.AddMember("height", this->m_iHeight, a_rAllocator);
     params.AddMember("anchor", this->m_eAnchor, a_rAllocator);
-    params.AddMember("normal", rapidjson::Value(this->m_sNormalImage.c_str(), this->m_sNormalImage.length()), a_rAllocator);
-    params.AddMember("selected", rapidjson::Value(this->m_sSelectedImage.c_str(), this->m_sSelectedImage.length()), a_rAllocator);
+
+    std::string temp = m_sNormalImage;
+    std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+    int index = temp.find(projectPath);
+    if(index != std::string::npos)
+    {
+        temp.erase(index, projectPath.length());
+    }
+    std::vector<std::string>::iterator it = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("normal", rapidjson::Value((*it).c_str(), (*it).length()) , a_rAllocator);
+
+    temp = m_sSelectedImage;
+    index = temp.find(projectPath);
+    if(index != std::string::npos)
+    {
+        temp.erase(index, projectPath.length());
+    }
+    params.AddMember("selected", rapidjson::Value((*it).c_str(), (*it).length()), a_rAllocator);
+
     params.AddMember("action", rapidjson::Value(this->m_sAction.c_str(), this->m_sAction.length()), a_rAllocator);
-    /*"width": 0,
-              "height": 13,
-              "anchor": 5,
-              "normal": "ui/nav-5.png",
-              "selected": "ui/nav-5-active.png",
-              "enabled": true,
-              "color": "",
-              "backgroundColor": "",
-              "action": "next",*/
+
     if(!this->m_mListeners.empty())
     {
         rapidjson::Value listeners(rapidjson::kArrayType);

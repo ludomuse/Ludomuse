@@ -1,6 +1,7 @@
 #include "../Include/CCameraFeedNode.h"
 #include <fstream>
 #include <string>
+#include <CProjectManager.h>
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
@@ -194,7 +195,16 @@ void CCameraFeedNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::A
         cameraFeedNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
     }
     rapidjson::Value params(rapidjson::kObjectType);
-    params.AddMember("mask", rapidjson::Value(m_sMaskPath.c_str(), m_sMaskPath.length()) , a_rAllocator);
+
+    std::string temp = m_sSpriteFilename;
+    std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+    int index = temp.find(projectPath);
+    if(index != std::string::npos)
+    {
+        temp.erase(index, projectPath.length());
+    }
+    std::vector<std::string>::iterator it = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("mask", rapidjson::Value((*it).c_str(), (*it).length()) , a_rAllocator);
     if(m_bIsReceiver)
     {
         params.AddMember("isReceiver", true, a_rAllocator);

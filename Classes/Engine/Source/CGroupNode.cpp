@@ -1,5 +1,6 @@
 #include "../Include/CGroupNode.h"
 
+#include <CProjectManager.h>
 
 using namespace cocos2d;
 
@@ -69,7 +70,15 @@ void CGroupNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::Alloca
     rapidjson::Value params(rapidjson::kObjectType);
     if(!m_sBackgroundSource.empty())
     {
-        params.AddMember("source", rapidjson::Value(m_sBackgroundSource.c_str(), m_sBackgroundSource.length()) , a_rAllocator);
+        std::string temp = m_sBackgroundSource;
+        std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+        int index = temp.find(projectPath);
+        if(index != std::string::npos)
+        {
+            temp.erase(index, projectPath.length());
+        }
+        std::vector<std::string>::iterator it = CProjectManager::Instance()->PushBackSource(temp);
+        params.AddMember("source", rapidjson::Value((*it).c_str(), (*it).length()) , a_rAllocator);
     }
     params.AddMember("anchor", m_eAnchor, a_rAllocator);
     params.AddMember("width", m_iWidth, a_rAllocator);

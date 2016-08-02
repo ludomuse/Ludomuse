@@ -3,6 +3,9 @@
 #include "../Include/CLabelNode.h"
 
 #include <QDebug>
+#include <CProjectManager.h>
+
+#include <vector>
 
 using namespace cocos2d;
 
@@ -79,7 +82,16 @@ void CSpriteNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloc
     }
 
     rapidjson::Value params(rapidjson::kObjectType);
-    params.AddMember("source", rapidjson::Value(m_sSpriteFilename.c_str(), m_sSpriteFilename.length()) , a_rAllocator);
+
+    std::string temp = m_sSpriteFilename;
+    std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+    int index = temp.find(projectPath);
+    if(index != std::string::npos)
+    {
+        temp.erase(index, projectPath.length());
+    }
+    std::vector<std::string>::iterator it = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("source", rapidjson::Value((*it).c_str(), (*it).length()) , a_rAllocator);
     params.AddMember("anchor", m_eAnchor, a_rAllocator);
     params.AddMember("width", m_iWidth, a_rAllocator);
     params.AddMember("height", m_iHeight, a_rAllocator);

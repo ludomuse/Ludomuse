@@ -2,6 +2,7 @@
 #include "../Include/CSpriteNode.h"
 
 #include <QDebug>
+#include <CProjectManager.h>
 
 using namespace cocos2d;
 
@@ -99,7 +100,15 @@ void CLabelNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
 
     rapidjson::Value params(rapidjson::kObjectType);
     params.AddMember("content", rapidjson::Value(m_sText.c_str(), m_sText.length()),a_rAllocator);
-    params.AddMember("font",rapidjson::Value(m_sFontName.c_str(), m_sFontName.length()),a_rAllocator);
+    std::string temp = m_sFontName;
+    std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+    int index = temp.find(projectPath);
+    if(index != std::string::npos)
+    {
+        temp.erase(index, projectPath.length());
+    }
+    std::vector<std::string>::iterator it = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("source", rapidjson::Value((*it).c_str(), (*it).length()) , a_rAllocator);
     params.AddMember("fontSize", m_iFontSize, a_rAllocator);
     params.AddMember("textAlign", rapidjson::Value(m_sTextAlign.c_str(), m_sTextAlign.length()),a_rAllocator);
     params.AddMember("width", m_iWidth,a_rAllocator);
