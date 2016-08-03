@@ -46,9 +46,22 @@ class CMenuNode : public CEntityNode
 
   virtual cocos2d::Node* GetCocosEntity() override;
 
+  std::string GetAction();
+
+  std::string GetText();
+
   virtual void Show(bool a_bVisible) override;
 
   virtual void ToJson(rapidjson::Value &parent, rapidjson::Document::AllocatorType &allocator);
+
+  void emitMenuNodeTouched(cocos2d::Ref* a_pRef, CEntityNode* a_pDummy);
+
+  /// \brief switch action based on argument
+  /// \param bool a_bIsNext : true -> action set at next
+  /// false -> action set at prev
+  void SetNavAction(bool a_bIsNext);
+
+  void SetText(std::string a_sText);
 
 };
 

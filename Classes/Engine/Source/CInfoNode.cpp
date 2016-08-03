@@ -34,9 +34,8 @@ void CInfoNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     {
         temp.erase(index, projectPath.length());
     }
-    std::vector<std::string>::iterator it = CProjectManager::Instance()->PushBackSource(temp);
-    params.AddMember("source", rapidjson::Value((*it).c_str(), (*it).length()) , a_rAllocator);
-    params.AddMember("source", rapidjson::Value(m_sSpriteFilename.c_str(), m_sSpriteFilename.length()), a_rAllocator);
+    std::string* string = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("source", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
     params.AddMember("anchor", m_eAnchor, a_rAllocator);
     params.AddMember("width", m_iWidth, a_rAllocator);
     params.AddMember("height", m_iHeight, a_rAllocator);

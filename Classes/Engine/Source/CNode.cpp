@@ -25,6 +25,12 @@ void CNode::AddChildNode(CNode* a_pChild)
   m_vChildren.push_back(a_pChild);
 }
 
+void CNode::AddChildNodeAtBegin(CNode *a_pChild)
+{
+    a_pChild->m_pParent = this;
+    m_vChildren.insert(m_vChildren.begin(), a_pChild);
+}
+
 void CNode::AddChildNodeAt(CNode* a_pChild, const std::string& a_rID)
 {
     for(CNode* currentNode : this->m_vChildren)

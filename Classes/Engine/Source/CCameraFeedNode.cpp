@@ -203,8 +203,8 @@ void CCameraFeedNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::A
     {
         temp.erase(index, projectPath.length());
     }
-    std::vector<std::string>::iterator it = CProjectManager::Instance()->PushBackSource(temp);
-    params.AddMember("mask", rapidjson::Value((*it).c_str(), (*it).length()) , a_rAllocator);
+    std::string* string = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("source", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
     if(m_bIsReceiver)
     {
         params.AddMember("isReceiver", true, a_rAllocator);

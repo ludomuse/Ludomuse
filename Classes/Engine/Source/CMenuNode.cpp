@@ -1,9 +1,11 @@
 #include "../Include/CMenuNode.h"
 #include "../Include/CLabelNode.h"
 #include "../Include/CSpriteNode.h"
+#include "../Include/CKernel.h"
 
 #include <CProjectManager.h>
 #include <QDebug>
+#include <CEditorKernel.h>
 
 using namespace cocos2d;
 
@@ -30,10 +32,11 @@ CMenuNode::CMenuNode(const std::string& a_rNormalImage,
 
 void CMenuNode::Init()
 {
+    CCallback<CMenuNode, cocos2d::Ref*> callback("dummyNav", this, &CMenuNode::emitMenuNodeTouched);
   m_pMenuItemImage = MenuItemImage::create(
       m_sNormalImage,
       m_sSelectedImage,
-      m_fpClickedCallback);
+      callback);
 
   m_pMenuItemImage->setPosition(Vec2::ZERO);
 
@@ -96,6 +99,24 @@ Node* CMenuNode::GetCocosEntity()
 	return m_pMenuItemImage;
 }
 
+std::string CMenuNode::GetAction()
+{
+    return m_sAction;
+}
+
+std::string CMenuNode::GetText()
+{
+    CLabelNode* textNode = dynamic_cast<CLabelNode*>(m_vChildren.at(0));
+    if(textNode)
+    {
+        return textNode->GetText();
+    }
+    else
+    {
+        return "";
+    }
+}
+
 void CMenuNode::Show(bool a_bVisible)
 {
 	m_pCocosEntity->setVisible(true);
@@ -124,8 +145,8 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     {
         temp.erase(index, projectPath.length());
     }
-    std::vector<std::string>::iterator it = CProjectManager::Instance()->PushBackSource(temp);
-    params.AddMember("normal", rapidjson::Value((*it).c_str(), (*it).length()) , a_rAllocator);
+    std::string* string = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("normal", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
 
     temp = m_sSelectedImage;
     index = temp.find(projectPath);
@@ -133,7 +154,8 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     {
         temp.erase(index, projectPath.length());
     }
-    params.AddMember("selected", rapidjson::Value((*it).c_str(), (*it).length()), a_rAllocator);
+    std::string* string2 = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("selected", rapidjson::Value(string2->c_str(), string2->length()) , a_rAllocator);
 
     params.AddMember("action", rapidjson::Value(this->m_sAction.c_str(), this->m_sAction.length()), a_rAllocator);
 
@@ -174,4 +196,30 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     a_rParent.PushBack(menu, a_rAllocator);
 }
 
+void CMenuNode::emitMenuNodeTouched (cocos2d::Ref* a_pDummy, CEntityNode* a_pDummy2)
+{
+    qDebug("Called");
+    CEditorKernel::Instance()->sendMenuNode(this);
+}
+
+void CMenuNode::SetNavAction(bool a_bIsNext)
+{
+    if(a_bIsNext)
+    {
+        this->m_sAction = "next";
+    }
+    else
+    {
+        this->m_sAction = "prev";
+    }
+}
+
+void CMenuNode::SetText(std::string a_sText)
+{
+    CLabelNode* textNode = dynamic_cast<CLabelNode*>(m_vChildren.at(0));
+    if(textNode)
+    {
+        return textNode->SetText(a_sText);
+    }
+}
 } // namespace LM

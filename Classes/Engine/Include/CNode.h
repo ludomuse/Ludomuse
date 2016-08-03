@@ -43,6 +43,8 @@ class CNode
   /// \param[in] a_pChild The child to add
   virtual void AddChildNode(CNode* a_pChild);
 
+  virtual void AddChildNodeAtBegin(CNode* a_pChild);
+
   /// \brief add the node after a node with specific id (use by behavior tree
   void AddChildNodeAt(CNode* a_pChild, const std::string& a_rID);
 
