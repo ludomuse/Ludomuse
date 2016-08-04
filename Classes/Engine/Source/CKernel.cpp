@@ -251,6 +251,10 @@ void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, co
     }
 }
 
+void CKernel::AddSceneIDAtBegin(int a_iPlayerID, const std::string &a_sNewID)
+{
+    m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin(), a_sNewID);
+}
 
 void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a_sPreviousID, std::string a_sNewID,
                           int a_iPlayerNumber, int a_iTemplateNumber)
@@ -271,8 +275,7 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
         }
         else if(a_sPreviousID.empty())
         {
-            this->AddSceneID(0, a_sNewID);
-            this->AddSceneID(1,""); // Add blank id at the other player timeline end
+            this->AddSceneIDAtBegin(0, a_sNewID);
         }
         break;
     case 1: // Player 2 only
@@ -282,8 +285,7 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
         }
         else if(a_sPreviousID.empty())
         {
-            this->AddSceneID(1, a_sNewID);
-            this->AddSceneID(0,""); // Add blank id at the other player timeline end
+            this->AddSceneIDAtBegin(1,a_sNewID); // Add blank id at the other player timeline end
         }
         break;
     }
@@ -291,7 +293,7 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
     // Adding the new scene at the right place
     if(a_sPreviousID.empty()) // Adding scene at the end
     {
-        this->m_pBehaviorTree->AddChildNode(newScene);
+        this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
         emit(addingSceneFinished());
         return;
     }

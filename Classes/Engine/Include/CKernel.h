@@ -109,6 +109,8 @@ public:
   /// \param a_bInsertEmptyID if true, insert an empty id at the same
   void AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID);
 
+  void AddSceneIDAtBegin(int a_iPlayer, const std::string& a_sNewID);
+
   /// \brief Add a whole new scene to the BehaviorTree
   /// \param previousID can be empty, if it's just add the new scene at the end of timeline
   void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID,
