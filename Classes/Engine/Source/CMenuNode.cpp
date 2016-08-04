@@ -145,6 +145,15 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     {
         temp.erase(index, projectPath.length());
     }
+    else
+    {
+        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/debug/templates/";
+        int index2 = temp.find(templatePath);
+        if(index2 != std::string::npos)
+        {
+            temp.erase(index2, templatePath.length());
+        }
+    }
     std::string* string = CProjectManager::Instance()->PushBackSource(temp);
     params.AddMember("normal", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
 
@@ -153,6 +162,15 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     if(index != std::string::npos)
     {
         temp.erase(index, projectPath.length());
+    }
+    else
+    {
+        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/debug/templates/";
+        int index2 = temp.find(templatePath);
+        if(index2 != std::string::npos)
+        {
+            temp.erase(index2, templatePath.length());
+        }
     }
     std::string* string2 = CProjectManager::Instance()->PushBackSource(temp);
     params.AddMember("selected", rapidjson::Value(string2->c_str(), string2->length()) , a_rAllocator);

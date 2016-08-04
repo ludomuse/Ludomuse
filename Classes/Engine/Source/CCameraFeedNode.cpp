@@ -203,6 +203,15 @@ void CCameraFeedNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::A
     {
         temp.erase(index, projectPath.length());
     }
+    else
+    {
+        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/debug/templates/";
+        int index2 = temp.find(templatePath);
+        if(index2 != std::string::npos)
+        {
+            temp.erase(index2, templatePath.length());
+        }
+    }
     std::string* string = CProjectManager::Instance()->PushBackSource(temp);
     params.AddMember("source", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
     if(m_bIsReceiver)

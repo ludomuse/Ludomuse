@@ -277,7 +277,7 @@ void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a
         }
         else if(a_sPreviousID.empty())
         {
-            this->AddSceneIDAtBegin(0,""); // Add blank id at the other player timeline end
+            this->AddSceneIDAtBegin(1,a_sNewID); // Add blank id at the other player timeline end
         }
         break;
     }
