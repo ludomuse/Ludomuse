@@ -72,7 +72,7 @@ public:
 	/// \details will forward the inputs to the behavior tree
 	CInputManager* m_pInputManager;
 	/// \details will manage networking events such as direct wifi
-	CNetworkManager* m_pNetworkManager;
+    CNetworkManager* m_pNetworkManager;
 
 	CSoundManager* m_pSoundManager;
 

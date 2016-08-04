@@ -5,7 +5,7 @@
 
 
 #define DEFAULT_BUFLEN 512
-#define DEFAULT_PORT "6666"
+#define DEFAULT_PORT "8080"
 
 
 namespace LM

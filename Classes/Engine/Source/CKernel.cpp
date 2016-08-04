@@ -78,7 +78,7 @@ CKernel::~CKernel()
 {
 	delete m_pBehaviorTree;
 	delete m_pInputManager;
-	delete m_pNetworkManager;
+    delete m_pNetworkManager;
 	delete m_pSoundManager;
 	delete m_pJsonParser;
 	delete m_pLocalPlayer;
@@ -394,7 +394,7 @@ int CKernel::GetCurrentPlayer()
 
 void CKernel::SendNetworkMessage(const std::string& a_rMessage)
 {
-        m_pNetworkManager->Send(a_rMessage);
+       m_pNetworkManager->Send(a_rMessage);
 }
 
 
@@ -404,7 +404,7 @@ bool CKernel::CheckPlayerInfo()
 	bytes b;
 	b << M_USER_EVENT << *m_pLocalPlayer;
 	CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
-	m_pNetworkManager->Send(b);
+    m_pNetworkManager->Send(b);
 
 	return m_pLocalPlayer->m_iPlayerID != m_pDistantPlayer->m_iPlayerID;
 }
@@ -412,7 +412,7 @@ bool CKernel::CheckPlayerInfo()
 
 void CKernel::Init(const std::string& a_sPath)
 {
-	m_pNetworkManager = new CNetworkManager(this, m_bIsServer);
+    //m_pNetworkManager = new CNetworkManager(this, m_bIsServer);
 	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
     if(a_sPath.empty())
     {
