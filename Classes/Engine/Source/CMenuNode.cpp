@@ -190,22 +190,6 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
         for(CNode* currentNode : this->m_vChildren)
         {
             currentNode->ToJson(children, a_rAllocator);
-//            // Possible type : sprite node, label node
-//            CLabelNode* pLabelNode = dynamic_cast<CLabelNode*>(currentNode);
-//            if(pLabelNode)
-//            {
-//            qDebug("cast en CLabelNode");
-//                pLabelNode->ToJson(children, a_rAllocator);
-//                continue;
-//            }
-//            CSpriteNode* pSpriteNode = dynamic_cast<CSpriteNode*>(currentNode);
-//            if(pSpriteNode)
-//            {
-//            qDebug("cast en CSpriteNode");
-//                pSpriteNode->ToJson(children, a_rAllocator);
-//                continue;
-//            }
-//            // Else do default process (content)
         }
         params.AddMember("children", children, a_rAllocator);
     }

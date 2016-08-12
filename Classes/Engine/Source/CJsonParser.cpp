@@ -9,6 +9,9 @@
 #include <QDebug>
 #include <QFileInfo>
 
+#define TEMPLATE_ID_SCENE "ID_SCENE_1" // id of the screen
+#define TEMPLATE_ID_SCENE_2 "ID_SCENE_2" // id of the synchro screen
+
 using namespace cocos2d;
 
 namespace LM
@@ -67,7 +70,8 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
   }
 }
 
-void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber)
+void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber,
+                                         const std::string& a_sScreenMate)
 {
     // init json document
     std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFileName);
@@ -82,7 +86,16 @@ void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& 
     }
     fullPath = fullPath.substr(0, lastSlash+1); // +1 to save the last slash
     m_sBasePath = fullPath;
-
+    CSceneNode* tempNode = dynamic_cast<CSceneNode*>(a_pNewScene);
+    if(tempNode)
+    {
+        m_sNewSceneID = tempNode->GetSceneID();
+    }
+    else
+    {
+        m_sNewSceneID = "";
+    }
+    m_sScreenMateID = a_sScreenMate;
     m_oDocument.Parse(sJsonString.c_str());
 
     if (m_oDocument.HasMember("templates") && m_oDocument["templates"].IsArray())
@@ -103,13 +116,38 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 
 	std::string sCallbackString = "";
 
+    std::string arg;
+    if(a_rListener["params"].HasMember("arg") && a_rListener["params"]["arg"].IsString())
+    {
+        arg = a_rListener["params"]["arg"].GetString();
+    }
+
+    if(!m_sNewSceneID.empty())
+    {
+        int index = arg.find(TEMPLATE_ID_SCENE);
+        if(index != std::string::npos)
+        {
+            std::string templateIdScene(TEMPLATE_ID_SCENE);
+            arg.replace(index, templateIdScene.length(), m_sNewSceneID);
+        }
+        else
+        {
+            index = arg.find(TEMPLATE_ID_SCENE_2);
+            if(index != std::string::npos && !m_sScreenMateID.empty())
+            {
+                std::string templateIdScene(TEMPLATE_ID_SCENE_2);
+                arg.replace(index, templateIdScene.length(), m_sScreenMateID);
+            }
+        }
+    }
+
 	if (a_rListener["params"].HasMember("callback"));
 		sCallbackString = a_rListener["params"]["callback"].GetString();
 
 	if (sCallbackString == "GotoSceneID")
 	{
         CEventCallback oCallback("GotoSceneID", m_pKernel, &CKernel::GotoScreenID,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING, a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "ValidateScene")
@@ -121,7 +159,7 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	else if (sCallbackString == "Validate")
 	{
         CEventCallback oCallback("Validate", m_pKernel, &CKernel::Validate,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING, a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "ConnectPeer")
@@ -151,7 +189,7 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	else if (sCallbackString == "SetText")
 	{
         CEventCallback oCallback("SetText", m_pKernel, &CKernel::SetText,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString(), true));
+            SEvent(SEvent::STRING, a_pEntity, arg, true));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "SetPlayerID")
@@ -163,19 +201,19 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	else  if (sCallbackString == "SetPlayerName")
 	{
         CEventCallback oCallback("SetPlayerName", m_pKernel, &CKernel::SetPlayerName,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING, a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "SendMessage")
 	{
         CEventCallback oCallback("SendMessage", m_pKernel, &CKernel::SendNetworkMessage,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING, a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "LocalMessage")
 	{
         CEventCallback oCallback("LocalMessage", m_pKernel, &CKernel::LocalMessage,
-            SEvent(SEvent::STRING,a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING,a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "Fade")
@@ -187,25 +225,25 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 	else if (sCallbackString == "DisableEvent")
 	{
         CEventCallback oCallback("DisableEvent", m_pKernel, &CKernel::DisableEvent,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING, a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "EnableEvent")
 	{
         CEventCallback oCallback("EnableEvent", m_pKernel, &CKernel::EnableEvent,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING, a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "AnchorEntity")
 	{
         CEventCallback oCallback("AnchorEntity", m_pKernel, &CKernel::AnchorEntityCallback,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING, a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "PlaySound")
 	{
         CEventCallback oCallback("PlaySound", m_pKernel, &CKernel::PlaySoundCallback,
-            SEvent(SEvent::STRING, a_pEntity, a_rListener["params"]["arg"].GetString()));
+            SEvent(SEvent::STRING, a_pEntity, arg));
 		a_pEntity->AddListener(sType, oCallback);
 	}
 	else if (sCallbackString == "RefreshPeers")

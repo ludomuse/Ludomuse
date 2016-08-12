@@ -42,6 +42,12 @@ private:
     /// \brief base path for all resources
     std::string m_sBasePath;
 
+    /// \brief id of the new scene use for parsing callback
+    std::string m_sNewSceneID;
+
+    /// \brief id of the screen synchro with the new one
+    std::string m_sScreenMateID;
+
  public:
 	 CJsonParser(CKernel* a_pKernel);
 
@@ -51,7 +57,7 @@ private:
     void BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename);
 
     /// \brief Build a new Scene node from a template file 
-    void BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber = 0);
+    void BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber = 0, const std::string& a_sScreenMate = "");
 
 	/// \brief recursive Method to parse the json file
 	/// \params[in] a_rJsonNode the json node in the file corresponging to a_pNode in the tree

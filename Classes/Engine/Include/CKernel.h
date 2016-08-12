@@ -72,7 +72,7 @@ public:
 	/// \details will forward the inputs to the behavior tree
 	CInputManager* m_pInputManager;
 	/// \details will manage networking events such as direct wifi
-    CNetworkManager* m_pNetworkManager;
+    //CNetworkManager* m_pNetworkManager;
 
 	CSoundManager* m_pSoundManager;
 
@@ -113,8 +113,8 @@ public:
 
   /// \brief Add a whole new scene to the BehaviorTree
   /// \param previousID can be empty, if it's just add the new scene at the end of timeline
-  void AddNewScene(const std::string a_sTemplatePath, const std::string previousID, std::string a_sNewID,
-                   int a_iPlayerNumber, int a_iTemplateNumber = 0);
+  void AddNewScene(const std::string& a_sTemplatePath, const std::string& previousID,const std::string& a_sNewID,
+                   int a_iPlayerNumber, int a_iTemplateNumber = 0, const std::string& a_sScreenMateID = "");
 
   void AddSyncID(const std::string& a_sID1, const std::string& a_sID2);
 

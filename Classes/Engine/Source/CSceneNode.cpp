@@ -3,6 +3,7 @@
 #include "../Include/CLabelNode.h"
 #include "../Include/CMenuNode.h"
 #include "../Include/CInfoNode.h"
+#include "../Include/CValidator.h"
 
 #include <QDebug>
 using namespace cocos2d;
@@ -157,6 +158,13 @@ void CSceneNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
             pMenuNode->ToJson(navigation, a_rAllocator);
             continue;
         }
+        CValidator* pValidator = dynamic_cast<CValidator*>(currentNode);
+        if(pValidator)
+        {
+            pValidator->ToJson(navigation, a_rAllocator);
+            continue;
+        }
+
 //        qDebug("cast en CInfoNode");
         CInfoNode* pInfoNode = dynamic_cast<CInfoNode*>(currentNode);
         if(pInfoNode)

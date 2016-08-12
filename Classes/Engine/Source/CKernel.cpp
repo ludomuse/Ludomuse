@@ -78,7 +78,7 @@ CKernel::~CKernel()
 {
 	delete m_pBehaviorTree;
 	delete m_pInputManager;
-    delete m_pNetworkManager;
+    //delete m_pNetworkManager;
 	delete m_pSoundManager;
 	delete m_pJsonParser;
 	delete m_pLocalPlayer;
@@ -256,12 +256,12 @@ void CKernel::AddSceneIDAtBegin(int a_iPlayerID, const std::string &a_sNewID)
     m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin(), a_sNewID);
 }
 
-void CKernel::AddNewScene(const std::string a_sTemplatePath, const std::string a_sPreviousID, std::string a_sNewID,
-                          int a_iPlayerNumber, int a_iTemplateNumber)
+void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID,const std::string& a_sNewID,
+                          int a_iPlayerNumber, int a_iTemplateNumber, const std::string& a_sScreenMate)
 {
     CSceneNode* newScene = new CSceneNode(a_sNewID, m_bDebugMode);
     qDebug("ckernel add new scene");
-    m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath, a_iTemplateNumber);
+    m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath, a_iTemplateNumber, a_sScreenMate);
 
     // Adding id in the map
     // can add at   after an existing id of the player number
@@ -394,7 +394,7 @@ int CKernel::GetCurrentPlayer()
 
 void CKernel::SendNetworkMessage(const std::string& a_rMessage)
 {
-       m_pNetworkManager->Send(a_rMessage);
+//       m_pNetworkManager->Send(a_rMessage);
 }
 
 
@@ -404,7 +404,7 @@ bool CKernel::CheckPlayerInfo()
 	bytes b;
 	b << M_USER_EVENT << *m_pLocalPlayer;
 	CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
-    m_pNetworkManager->Send(b);
+//    m_pNetworkManager->Send(b);
 
 	return m_pLocalPlayer->m_iPlayerID != m_pDistantPlayer->m_iPlayerID;
 }
@@ -455,7 +455,7 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 		bytes b;
 
 		b << M_STATS_EVENT << oSStats;
-		m_pNetworkManager->Send(b);
+//		m_pNetworkManager->Send(b);
 
 #ifdef __ANDROID__
 	sleep(1);
@@ -784,7 +784,7 @@ CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 void CKernel::SendNetworkMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("Sending message %s", a_oEvent.m_sStringValue.c_str());
-	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
+//	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
 }
 
 void CKernel::LocalMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
@@ -877,7 +877,7 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 
 void CKernel::GetPeers()
 {
-	m_pNetworkManager->DiscoverPeers();
+//	m_pNetworkManager->DiscoverPeers();
 }
 
 void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
@@ -915,8 +915,8 @@ void CKernel::Connect(SEvent a_oEvent, CEntityNode* a_pTarget)
 				Label* pLabel = dynamic_cast<Label*>(pLabelEntity->GetCocosEntity());
 				if (pLabel)
 				{
-					m_pNetworkManager->ConnectTo(pLabel->getString());
-					m_pNetworkManager->Send("connection:establish");
+//					m_pNetworkManager->ConnectTo(pLabel->getString());
+//					m_pNetworkManager->Send("connection:establish");
 				}
 			}
 		}
@@ -1052,7 +1052,7 @@ void CKernel::SetText(SEvent a_rEvent, CEntityNode* a_pTarget)
 
 void CKernel::RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-	m_pNetworkManager->DiscoverPeers();
+//	m_pNetworkManager->DiscoverPeers();
 }
 
 

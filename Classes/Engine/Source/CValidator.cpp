@@ -49,4 +49,31 @@ void CValidator::Validate(const std::string& a_sID)
   }
 }
 
+void CValidator::ToJson(rapidjson::Value &parent, rapidjson::Document::AllocatorType &allocator)
+{
+    rapidjson::Value validator(rapidjson::kObjectType);
+    validator.AddMember("type", "Validator", allocator);
+    rapidjson::Value params(rapidjson::kObjectType);
+    rapidjson::Value ids(rapidjson::kArrayType);
+    for(const std::string& currentString : m_oIDs)
+    {
+        ids.PushBack(rapidjson::Value(currentString.c_str(), currentString.length()), allocator);
+    }
+    params.AddMember("ids", ids, allocator);
+    params.AddMember("sound", rapidjson::Value(m_sSound.c_str(), m_sSound.length()), allocator);
+    validator.AddMember("params", params, allocator);
+    parent.PushBack(validator, allocator);
+//    {
+//                "type": "Validator",
+//                "params": {
+//                  "ids": [
+//                    "local",
+//                    "distant"
+//                  ],
+//                  "sound": "cache/audio/gong.mp3"
+//                }
+//              }
+
+}
+
 }
