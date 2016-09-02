@@ -55,8 +55,10 @@ public:
     */
     int run();
 
+    // LudoMuse inserts
     int runAndLink();
     int runLoop();
+    std::string getVersion();
 
     /**
     @brief    Get current application instance.
