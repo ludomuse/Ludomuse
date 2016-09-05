@@ -55,6 +55,11 @@ public:
     */
     int run();
 
+    // LudoMuse inserts
+    int runAndLink();
+    int runLoop();
+    std::string getVersion();
+
     /**
     @brief    Get current application instance.
     @return Current application instance pointer.
@@ -75,11 +80,6 @@ public:
      */
     virtual Platform getTargetPlatform();
     
-    /**
-    @brief Get application version
-    */
-    virtual std::string getVersion() override;
-
     /**
      @brief Open url in default browser
      @param String with url to open.

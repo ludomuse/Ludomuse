@@ -73,3 +73,7 @@ proj.android/LudoMuse.iml
 proj.android/.idea
 proj.android/.idea/workspace.xml
 proj.win32/LudoMuse.vcxproj
+
+
+!cocos2d/cocos/platform/win32/CCApplication-win32.cpp
+!cocos2d/cocos/platform/win32/CCApplication-win32.h

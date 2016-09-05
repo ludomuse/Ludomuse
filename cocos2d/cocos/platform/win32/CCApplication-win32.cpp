@@ -31,7 +31,9 @@ THE SOFTWARE.
 #include <algorithm>
 #include "platform/CCFileUtils.h"
 #include <shellapi.h>
-#include <WinVer.h>
+
+
+
 /**
 @brief    This function change the PVRFrame show/hide setting in register.
 @param  bEnable If true show the PVRFrame window, otherwise hide.
@@ -108,6 +110,97 @@ int Application::run()
     }
     glview->release();
     return 0;
+}
+
+int Application::runAndLink()
+{
+	PVRFrameEnableControlWindow(false);
+	// Main message loop:
+	LARGE_INTEGER nLast;
+	LARGE_INTEGER nNow;
+
+	QueryPerformanceCounter(&nLast);
+
+	initGLContextAttrs();
+
+	// Initialize instance and cocos2d.
+	if (!applicationDidFinishLaunching())
+	{
+		return 1;
+	}
+
+	auto director = Director::getInstance();
+	auto glview = director->getOpenGLView();
+
+	// Retain glview to avoid glview being released in the while loop
+	glview->retain();
+
+	while (!glview->windowShouldClose())
+	{
+		CCLOG("HDNW swag : %d", (int)glview->getWin32Window());
+		QueryPerformanceCounter(&nNow);
+		if (nNow.QuadPart - nLast.QuadPart > _animationInterval.QuadPart)
+		{
+			nLast.QuadPart = nNow.QuadPart - (nNow.QuadPart % _animationInterval.QuadPart);
+
+			director->mainLoop();
+			glview->pollEvents();
+			return (int)glview->getWin32Window();
+		}
+		else
+		{
+			Sleep(1);
+		}
+	}
+
+	// Director should still do a cleanup if the window was closed manually.
+	if (glview->isOpenGLReady())
+	{
+		director->end();
+		director->mainLoop();
+		director = nullptr;
+	}
+	glview->release();
+	return 0;
+}
+
+int Application::runLoop()
+{
+	PVRFrameEnableControlWindow(false);
+	CCLOG("Running main loop");
+	// Main message loop:
+	LARGE_INTEGER nLast;
+	LARGE_INTEGER nNow;
+
+	QueryPerformanceCounter(&nLast);
+
+	auto director = Director::getInstance();
+	auto glview = director->getOpenGLView();
+	while (!glview->windowShouldClose())
+	{
+		QueryPerformanceCounter(&nNow);
+		if (nNow.QuadPart - nLast.QuadPart > _animationInterval.QuadPart)
+		{
+			nLast.QuadPart = nNow.QuadPart - (nNow.QuadPart % _animationInterval.QuadPart);
+
+			director->mainLoop();
+			glview->pollEvents();
+		}
+		else
+		{
+			Sleep(1);
+		}
+	}
+
+	// Director should still do a cleanup if the window was closed manually.
+	if (glview->isOpenGLReady())
+	{
+		director->end();
+		director->mainLoop();
+		director = nullptr;
+	}
+	glview->release();
+	return 0;
 }
 
 void Application::setAnimationInterval(float interval)
@@ -220,43 +313,7 @@ Application::Platform Application::getTargetPlatform()
 
 std::string Application::getVersion()
 {
-    char verString[256] = { 0 };
-    TCHAR szVersionFile[MAX_PATH];
-    GetModuleFileName(NULL, szVersionFile, MAX_PATH);
-    DWORD  verHandle = NULL;
-    UINT   size = 0;
-    LPBYTE lpBuffer = NULL;
-    DWORD  verSize = GetFileVersionInfoSize(szVersionFile, &verHandle);
-    
-    if (verSize != NULL)
-    {
-        LPSTR verData = new char[verSize];
-        
-        if (GetFileVersionInfo(szVersionFile, verHandle, verSize, verData))
-        {
-            if (VerQueryValue(verData, L"\\", (VOID FAR* FAR*)&lpBuffer, &size))
-            {
-                if (size)
-                {
-                    VS_FIXEDFILEINFO *verInfo = (VS_FIXEDFILEINFO *)lpBuffer;
-                    if (verInfo->dwSignature == 0xfeef04bd)
-                    {
-                        
-                        // Doesn't matter if you are on 32 bit or 64 bit,
-                        // DWORD is always 32 bits, so first two revision numbers
-                        // come from dwFileVersionMS, last two come from dwFileVersionLS
-                        sprintf(verString, "%d.%d.%d.%d", (verInfo->dwFileVersionMS >> 16) & 0xffff,
-                                (verInfo->dwFileVersionMS >> 0) & 0xffff,
-                                (verInfo->dwFileVersionLS >> 16) & 0xffff,
-                                (verInfo->dwFileVersionLS >> 0) & 0xffff
-                                );
-                    }
-                }
-            }
-        }
-        delete[] verData;
-    }
-    return verString;
+    return "";
 }
 
 bool Application::openURL(const std::string &url)
