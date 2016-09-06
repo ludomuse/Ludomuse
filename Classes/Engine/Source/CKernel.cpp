@@ -413,7 +413,6 @@ bool CKernel::CheckPlayerInfo()
 void CKernel::Init(const std::string& a_sPath)
 {
     //m_pNetworkManager = new CNetworkManager(this, m_bIsServer);
-	std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
     if(a_sPath.empty())
     {
         std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
