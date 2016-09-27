@@ -4,6 +4,7 @@
 #include "../Include/CMenuNode.h"
 #include "../Include/CInfoNode.h"
 #include "../Include/CValidator.h"
+#include "../Include/CKernel.h"
 
 #include <QDebug>
 using namespace cocos2d;
@@ -90,9 +91,10 @@ bool CSceneNode::init()
   
   CNode::Init();
 
+#ifndef LUDOMUSE_EDITOR
   if (m_bDebugMode && m_sID != "none")
 	  DisplayDebugInfo();
-
+#endif
 
   return true;
 
