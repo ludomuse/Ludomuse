@@ -122,7 +122,7 @@ void CSceneNode::DisplayDebugInfo()
 	Label* pLabel = Label::createWithTTF(m_sID, "fonts/arial.ttf", 12);
 
 	Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
-	Size oVisibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size oVisibleSize = Director::getInstance()->getVisibleSize();
 
 	pLabel->setAlignment(TextHAlignment::LEFT);
 	pLabel->setAnchorPoint(Vec2(0, 1));

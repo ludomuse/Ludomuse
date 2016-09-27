@@ -49,7 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("LudoMuse", Rect(0, 0, standardResolutionSize.width, standardResolutionSize.height));
+        glview = GLViewImpl::createWithRect("LudoMuse", cocos2d::Rect(0, 0, standardResolutionSize.width, standardResolutionSize.height));
 #else
         glview = GLViewImpl::create("LudoMuse");
 #endif
@@ -64,7 +64,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // Set the design resolution
     glview->setDesignResolutionSize(standardResolutionSize.width, standardResolutionSize.height, ResolutionPolicy::NO_BORDER);
-    Size frameSize = glview->getFrameSize();
+    cocos2d::Size frameSize = glview->getFrameSize();
     // if the frame's height is larger than the height of medium size.
     if (frameSize.height > mediumResolutionSize.height)
     {        

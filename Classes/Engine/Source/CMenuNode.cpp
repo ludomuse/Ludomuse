@@ -55,7 +55,7 @@ void CMenuNode::Init()
 
   // Must be done in MenuItemImage for MenuNodes
   // Size oVisibleSize = Director::getInstance()->getVisibleSize();
-  Size oVisibleSize = GetParentVisibleSize();
+  cocos2d::Size oVisibleSize = GetParentVisibleSize();
 
   float fNewScale;
 
@@ -75,8 +75,8 @@ void CMenuNode::Init()
 
 
   // calculate the size and origin of the widget
-  Rect oBoundingBox = m_pMenuItemImage->getBoundingBox();
-  m_oSize = Size(oBoundingBox.getMaxX() - oBoundingBox.getMinX(),
+  cocos2d::Rect oBoundingBox = m_pMenuItemImage->getBoundingBox();
+  m_oSize = cocos2d::Size(oBoundingBox.getMaxX() - oBoundingBox.getMinX(),
 	  oBoundingBox.getMaxY() - oBoundingBox.getMinY());
   m_oOrigin = Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
 
@@ -84,7 +84,7 @@ void CMenuNode::Init()
 }
 
 
-Size CMenuNode::GetVisibleSize()
+cocos2d::Size CMenuNode::GetVisibleSize()
 {
 	return m_oSize;
 }

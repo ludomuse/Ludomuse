@@ -33,7 +33,7 @@ void CGroupNode::Init()
 	}
   PopulateParent(false);
 
-  Size oVisibleSize = GetParentVisibleSize();
+  cocos2d::Size oVisibleSize = GetParentVisibleSize();
 
   float fNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
   float fNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
@@ -53,7 +53,7 @@ void CGroupNode::Init()
   }
   else
   {
-	  m_pCocosEntity->setContentSize(Size(fNewWidth, fNewHeight));
+      m_pCocosEntity->setContentSize(cocos2d::Size(fNewWidth, fNewHeight));
   }
 
   CNode::Init();

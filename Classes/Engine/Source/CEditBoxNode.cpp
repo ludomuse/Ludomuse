@@ -21,9 +21,9 @@ CEditBoxNode::CEditBoxNode(EAnchor a_eAnchor,
 
 void CEditBoxNode::Init()
 {
-  Size l_oVisibleSize = Director::getInstance()->getVisibleSize();
-  Point l_oOrigin = Director::getInstance()->getVisibleOrigin();
-  ui::EditBox* pBox = ui::EditBox::create(Size(l_oVisibleSize.width/2.0f,
+  cocos2d::Size l_oVisibleSize = Director::getInstance()->getVisibleSize();
+  cocos2d::Point l_oOrigin = Director::getInstance()->getVisibleOrigin();
+  ui::EditBox* pBox = ui::EditBox::create(cocos2d::Size(l_oVisibleSize.width/2.0f,
                                                l_oVisibleSize.height / 5.0f),
                                           ui::Scale9Sprite::create("Ludomuse/Content/textfieldBackground.png"));
   pBox->setFont("fonts/Open_Sans/OpenSans-Bold.ttf", 40);

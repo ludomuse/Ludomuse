@@ -43,7 +43,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 		if (m_sListenEvent == "Touch")
 		{
 			Vec2 oTouchLocation = a_pTouch->getLocation();
-			Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+            cocos2d::Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
 				pEntity->Dispatch(m_sListenEvent);
@@ -105,7 +105,7 @@ bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 			// if listen to touch change the entity when leaving it
 			Vec2 oTouchLocation = a_pTouch->getLocation();
 
-			Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+            cocos2d::Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
 				TouchMoveIn(pEntity);
@@ -237,7 +237,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
     // Check if the entity intersects the touch event
 	  Vec2 oTouchLocation = m_pTouch->getStartLocation();
-    Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+    cocos2d::Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
     if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
       // if so and if listenning to touch/move, store the entity
