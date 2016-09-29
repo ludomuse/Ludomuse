@@ -63,6 +63,7 @@ Application::~Application()
 
 int Application::runAndLink()
 {
+
     initGLContextAttrs();
     // Initialize instance and cocos2d.
     if (! applicationDidFinishLaunching())
@@ -79,37 +80,37 @@ int Application::runAndLink()
     // Retain glview to avoid glview being released in the while loop
     glview->retain();
 
-    // get cocos frame ID and return it
     while (!glview->windowShouldClose())
     {
-            CCLOG("HDNW swag : %d", (int)glview->getX11Window());
-            QueryPerformanceCounter(&nNow);
-            if (nNow.QuadPart - nLast.QuadPart > _animationInterval.QuadPart)
-            {
-                    nLast.QuadPart = nNow.QuadPart - (nNow.QuadPart % _animationInterval.QuadPart);
 
-                    director->mainLoop();
-                    glview->pollEvents();
-                    return (int)glview->getX11Window();
-            }
-            else
-            {
-                    Sleep(1);
-            }
+        lastTime = getCurrentMillSecond();
+
+        director->mainLoop();
+        glview->pollEvents();
+
+        curTime = getCurrentMillSecond();
+
+        return 1;
+        
+        if (curTime - lastTime < _animationInterval)
+        {
+            usleep((_animationInterval - curTime + lastTime)*1000);
+        }
+
     }
-
-    // Director should still do a cleanup if the window was closed manually.
+    /* Only work on Desktop
+    *  Director::mainLoop is really one frame logic
+    *  when we want to close the window, we should call Director::end();
+    *  then call Director::mainLoop to do release of internal resources
+    */
     if (glview->isOpenGLReady())
     {
-            director->end();
-            director->mainLoop();
-            director = nullptr;
+        director->end();
+        director->mainLoop();
+        director = nullptr;
     }
     glview->release();
-
-
-    return 0;
-
+    return EXIT_SUCCESS;
 }
 
 int Application::runLoop()
