@@ -1,8 +1,8 @@
 #include <pthread.h>
 
-#ifdef __ANDROID__
+#ifdef __linux__
 #include <unistd.h>
-#endif // __ANDROID__
+#endif // __linux__
 
 #include "../Include/CSoundManager.h"
 

@@ -26,6 +26,8 @@
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
+#endif
+#ifdef __linux__
 #include <unistd.h>
 #endif
 
