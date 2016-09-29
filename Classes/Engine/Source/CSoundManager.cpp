@@ -11,8 +11,11 @@ namespace LM
 
 	void* WaitSoundFinished(void* a_pSoundManager)
 	{
+		CCLOG("[SOUND] start waitSoundFinished");
 		CSoundManager* pSoundManager = static_cast<CSoundManager*>(a_pSoundManager);
+		CCLOG("[SOUND] after cast");
 		std::string sSoundURL = pSoundManager->m_sPlayingSoundURL;
+		CCLOG("[SOUND] after getting string");
 		while (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
 		{
 #if defined _WIN32 | defined _WIN64
@@ -20,9 +23,11 @@ namespace LM
 #else
 			usleep(100000);
 #endif
+			CCLOG("[SOUND] in while");
 		}
-		if (pSoundManager->m_sPlayingSoundURL != "")
+		if (sSoundURL != "")
 		{
+			CCLOG("[SOUND] before EndSound");
 			pSoundManager->EndSound(sSoundURL);
 			pSoundManager->m_sPlayingSoundURL = "";
 		}
@@ -38,8 +43,10 @@ namespace LM
 	{
 		m_sPlayingSoundURL = a_rSoundURL;
 		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(a_rSoundURL.c_str(), false);
-		pthread_t thread;
-		pthread_create(&thread, NULL, &WaitSoundFinished, this);
+		//pthread_t thread;
+		//CCLOG("[SOUND] before creating thread");
+		//pthread_create(&thread, NULL, &WaitSoundFinished, this);
+		//CCLOG("[SOUND] after creating thread");
 	}
 
 
@@ -55,7 +62,7 @@ namespace LM
 
 	void CSoundManager::EndSound(const std::string& a_rSoundURL)
 	{
-		CCLOG("sound ended : %s", a_rSoundURL.c_str());
+		CCLOG("[SOUND] sound ended : %s", a_rSoundURL.c_str());
 	}
 
 } // namespace LM
