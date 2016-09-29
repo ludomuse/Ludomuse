@@ -74,6 +74,7 @@ proj.android/.idea
 proj.android/.idea/workspace.xml
 proj.win32/LudoMuse.vcxproj
 
+proj.tizen
 
 !cocos2d/cocos/platform/win32/CCApplication-win32.cpp
 !cocos2d/cocos/platform/win32/CCApplication-win32.h
