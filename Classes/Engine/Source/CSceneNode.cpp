@@ -198,4 +198,22 @@ bool CSceneNode::hasID(const std::string &a_rID)
     }
 }
 
+Image* CSceneNode::getPreview()
+{
+
+    RenderTexture *preview = RenderTexture::create(
+            m_pScene->getBoundingBox().getMaxX()-m_pScene->getBoundingBox().getMinX(),
+            m_pScene->getBoundingBox().getMaxY()-m_pScene->getBoundingBox().getMinY(),
+            Texture2D::PixelFormat::RGBA8888);
+    preview->retain();
+    preview->begin();
+    m_pScene->visit();
+    preview->end();
+ //   preview->saveToFile("truc.png");
+    Image *img = preview->newImage();
+    return img;
+}
+
 } // namespace LM
+
+

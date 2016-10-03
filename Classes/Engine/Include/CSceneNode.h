@@ -27,8 +27,12 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
 
 public:
 	bool m_bDashboardTrigger;
-  
+
+
  public:
+
+  cocos2d::Image *getPreview();
+
   CSceneNode(std::string a_sID = "none", bool a_bDebugMode = false);
 
   /// \returns the corresponding cocos2d scene

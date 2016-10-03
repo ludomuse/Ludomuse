@@ -1,5 +1,7 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#include "LudoMuse_src/Classes/Engine/Include/CKernel.h"
+#include "CocosQtPort/CCQGLView.h"
 
 #include <QDebug>
 
@@ -11,7 +13,18 @@ static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 static cocos2d::Size standardResolutionSize = cocos2d::Size(960, 540);
 
-AppDelegate::AppDelegate(bool a_bIsServer, const std::string& a_sPath) : m_oKernel(a_bIsServer), m_sPath(a_sPath){
+AppDelegate::AppDelegate(int argc, char *argv[]) :
+    cocos2d::CCQApplication(argc, argv),
+    m_oKernel(true)
+{
+
+}
+
+AppDelegate::AppDelegate(bool a_bIsServer, const std::string& a_sPath) :
+    cocos2d::CCQApplication(0, {}),
+    m_oKernel(a_bIsServer),
+    m_sPath(a_sPath)
+{
   /*Create the wifi direct
     and set it in the jni facade (it's like doing a singleton -> all class can now access the wifi
     trough this the jni facade class)
@@ -45,34 +58,45 @@ static int register_all_packages()
 
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
-    auto director = Director::getInstance();
+/*    auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
+
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
         glview = GLViewImpl::createWithRect("LudoMuse", Rect(0, 0, standardResolutionSize.width, standardResolutionSize.height));
 #else
         glview = GLViewImpl::create("LudoMuse");
 #endif
         director->setOpenGLView(glview);
-    }
+    }*/
+
+    Director* director = Director::getInstance();
+    CCQGLView::Create(standardResolutionSize.width, standardResolutionSize.height);
+    CCQGLView* glview = CCQGLView::getInstance();
+    glview->setBgColor(Color4B(50, 50, 50, 255));
+
+    director->setOpenGLView(glview);
 
     // turn on display FPS
     //director->setDisplayStats(true);
+
+    m_oKernel.Init(m_sPath);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
     // Set the design resolution
     glview->setDesignResolutionSize(standardResolutionSize.width, standardResolutionSize.height, ResolutionPolicy::NO_BORDER);
+
     Size frameSize = glview->getFrameSize();
     // if the frame's height is larger than the height of medium size.
     if (frameSize.height > mediumResolutionSize.height)
-    {        
+    {
         director->setContentScaleFactor(MIN(largeResolutionSize.height/designResolutionSize.height, largeResolutionSize.width/designResolutionSize.width));
     }
     // if the frame's height is larger than the height of small size.
     else if (frameSize.height > smallResolutionSize.height)
-    {        
+    {
         director->setContentScaleFactor(MIN(mediumResolutionSize.height/designResolutionSize.height, mediumResolutionSize.width/designResolutionSize.width));
     }
     // if the frame's height is smaller than the height of medium size.
@@ -88,7 +112,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     // director->runWithScene(scene);
-    m_oKernel.Init(m_sPath);
 
     return true;
 }
@@ -110,5 +133,12 @@ void AppDelegate::applicationWillEnterForeground() {
 }
 
 LM::CKernel* AppDelegate::getKernel() {
-	return &this->m_oKernel;
+    return &this->m_oKernel;
 }
+
+void AppDelegate::setPath(const std::string& a_sPath)
+{
+    m_sPath = std::string(a_sPath);
+}
+
+
