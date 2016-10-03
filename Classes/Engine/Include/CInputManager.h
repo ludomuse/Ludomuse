@@ -20,11 +20,14 @@ class CInputManager
   CKernel* m_pKernel;
   /// \brief listens to cocos2d events
   cocos2d::EventListenerTouchOneByOne* m_pEventListener;
+  cocos2d::EventListenerKeyboard* m_pKeyListener;
 
  public:
   CInputManager(CKernel* a_rKernel);
 
   cocos2d::EventListenerTouchOneByOne* GetEventListener();
+
+  void OnKeyReleased(cocos2d::EventKeyboard::KeyCode a_oKeyCode, cocos2d::Event* a_pEvent);
 };
 
 } // namespace LM

@@ -70,7 +70,8 @@ namespace LM
   // is a pointer to the root node of the tree
 
 	// build the waiting scene
-	m_pWaitingScene = new CSceneNode("WaitingScene");
+	// TODO : remove hardcoded waiting scene
+	m_pWaitingScene = new CSceneNode("WaitingScene", this);
 	CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
 		EAnchor::CENTER, 100, 100, 0, 0);
 
@@ -378,7 +379,7 @@ bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 	CCLOG("GotoScreenID : %s", a_oEvent.m_sStringValue.c_str());
-	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue);
+	CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
 	oVisitor.Traverse(m_pBehaviorTree);
 
 }

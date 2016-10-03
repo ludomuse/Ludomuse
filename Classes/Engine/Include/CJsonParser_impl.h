@@ -296,7 +296,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 template <>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
 {
-	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel->m_bDebugMode);
+	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel);
 	if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
 		m_pKernel->m_pDashboard = pSceneNode;
 	else

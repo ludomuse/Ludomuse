@@ -4,10 +4,12 @@
 #include <string>
 
 #include "CParallelNode.h"
+#include "ui/CocosGUI.h"
 
 namespace LM
 {
 
+	class CKernel;
 
 /// \class CSceneNode
 /// \ingroup  Engine
@@ -23,13 +25,15 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
 
   bool m_bIsSynced;
 
-  bool m_bDebugMode;
+  CKernel* m_pKernel;
+  cocos2d::ui::EditBox* m_pQuickBox;
+  cocos2d::MenuItemImage* m_pQuickButton;
 
 public:
 	bool m_bDashboardTrigger;
   
  public:
-  CSceneNode(std::string a_sID = "none", bool a_bDebugMode = false);
+  CSceneNode(std::string a_sID = "none", CKernel* a_pKernel = nullptr);
 
   /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();
@@ -46,6 +50,8 @@ public:
   bool IsSynced();
 
   void DisplayDebugInfo();
+
+  void ToggleQuickBox();
 
   CREATE_FUNC(CSceneNode);
 };
