@@ -7,8 +7,6 @@
 #include "CSceneNode.h"
 #include "SUser.h"
 #include "../../Modules/Util/Include/CStats.h"
-#include "CFrameWidget.h"
-
 
 #include "ui/CocosGUI.h"
 

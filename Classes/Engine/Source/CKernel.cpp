@@ -18,7 +18,6 @@
 #include "../../Modules/Networking/Networking.h"
 #include "../../Modules/Util/Include/Util.h"
 #include "../../Modules/Util/Include/CStats.h"
-#include "CFrameWidget.h"
 
 #include "ui/CocosGUI.h"
 
