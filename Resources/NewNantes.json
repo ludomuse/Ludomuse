@@ -11372,21 +11372,21 @@
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier2"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier2"
                                     }
                                 },
                                 {
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier3"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier3"
                                     }
                                 },
                                 {
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier4"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier4"
                                     }
                                 }
                             ]
@@ -11421,21 +11421,21 @@
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier1"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier1"
                                     }
                                 },
                                 {
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier3"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier3"
                                     }
                                 },
                                 {
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier4"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier4"
                                     }
                                 }
                             ]
@@ -11470,21 +11470,21 @@
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier2"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier2"
                                     }
                                 },
                                 {
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier1"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier1"
                                     }
                                 },
                                 {
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier4"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier4"
                                     }
                                 }
                             ]
@@ -11519,21 +11519,21 @@
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier2"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier2"
                                     }
                                 },
                                 {
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier3"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier3"
                                     }
                                 },
                                 {
                                     "type": "ShowPhoto",
                                     "params": {
                                         "callback": "LocalMessage",
-                                        "arg": "screen-4-f-player1:HidePhoto:Atelier1"
+                                        "arg": "screen-4-f2-player1:HidePhoto:Atelier1"
                                     }
                                 }
                             ]
