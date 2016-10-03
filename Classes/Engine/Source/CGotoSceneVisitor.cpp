@@ -9,8 +9,9 @@ using namespace cocos2d;
 namespace LM
 {
 
-CGotoSceneVisitor::CGotoSceneVisitor(const std::string& a_rSceneID) :
-    m_sSceneID(a_rSceneID)
+CGotoSceneVisitor::CGotoSceneVisitor(const std::string& a_rSceneID, CKernel* a_pKernel) :
+    m_sSceneID(a_rSceneID),
+	m_pKernel(a_pKernel)
 {
   
 }
@@ -29,6 +30,7 @@ Result CGotoSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
       pSceneNode->init();
 
       Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+	  m_pKernel->m_pCurrentScene = pSceneNode;
       return RESULT_PRUNE;
     }
   }
