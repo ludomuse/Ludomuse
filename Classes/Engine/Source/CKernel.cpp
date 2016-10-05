@@ -324,13 +324,19 @@ void CKernel::WriteStats()
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
+	
 	if (m_pCurrentScene->GetSceneID() == "screen-playerid")
 	{
 		if (!CheckPlayerInfo()) {
 			// TODO throw a toast at the user
-			
 			return;
 		}
+	}
+
+	CCMenuItemImage* pMenuItemImage = dynamic_cast<CCMenuItemImage*>(pSender);
+	if (pMenuItemImage)
+	{
+		pMenuItemImage->setEnabled(false);
 	}
 
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
@@ -343,6 +349,13 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
+
+	CCMenuItemImage* pMenuItemImage = dynamic_cast<CCMenuItemImage*>(pSender);
+	if (pMenuItemImage)
+	{
+		pMenuItemImage->setEnabled(false);
+	}
+
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
   CTransitionVisitor oVisitor(this, false);
