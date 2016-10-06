@@ -1,8 +1,8 @@
 #ifndef  _APP_DELEGATE_H_
 #define  _APP_DELEGATE_H_
 
-#include "cocos2d.h"
 #include "Engine/Include/CKernel.h"
+#include "CocosQtPort/CCQApplication.h"
 // #include "Modules/Wifi/Include/LmWifiDirectFacade.h"
 // #include "Modules/Wifi/Include/LmJniCppFacade.h"
 
@@ -11,10 +11,11 @@
 
 The reason for implement as private inheritance is to hide some interface call by Director.
 */
-class  AppDelegate : private cocos2d::Application
+class  AppDelegate : private cocos2d::CCQApplication
 {
 public:
-    AppDelegate(bool a_bIsServer = true, const std::string& a_sPath = "");
+    AppDelegate(int& argc, char *argv[]);
+
     virtual ~AppDelegate();
 
     virtual void initGLContextAttrs();
@@ -38,32 +39,36 @@ public:
     */
     virtual void applicationWillEnterForeground();
 
-	/**
-	@brief return application m_oKernel
-	*/
-	virtual LM::CKernel* getKernel();	
+    /**
+    @brief return application m_oKernel
+    */
+    virtual LM::CKernel* getKernel();
 
- private:
+    virtual void setPath(const std::string& a_sPath);
+    virtual void setParentWidget(QWidget *a_pWidget);
 
-  //********************ATTRIBUTES********************
+private:
 
-  // TODO : replace with NetworkManager
-  // LmWifiDirectFacade m_oWifiFacade;
+    //********************ATTRIBUTES********************
 
-  //handle the good behavior of the game
-  // LmGameManager* m_pLmGameManager;
-  LM::CKernel m_oKernel;
-  std::string m_sPath;
+    // TODO : replace with NetworkManager
+    // LmWifiDirectFacade m_oWifiFacade;
 
-  //this object handle log of user & wifi direct & get info to set after gamanager
-  // LmMenu* m_pLmMenu;
+    //handle the good behavior of the game
+    // LmGameManager* m_pLmGameManager;
+    LM::CKernel m_oKernel;
+    std::string m_sPath;
+    QWidget *m_pWidget;
 
-  //********************METHODS********************
+    //this object handle log of user & wifi direct & get info to set after gamanager
+    // LmMenu* m_pLmMenu;
 
-  //init paths so the app find good ressources
-  void initPathsForResolution();
+    //********************METHODS********************
 
-  bool init();
+    //init paths so the app find good ressources
+    void initPathsForResolution();
+
+    bool init();
 };
 
 #endif // _APP_DELEGATE_H_

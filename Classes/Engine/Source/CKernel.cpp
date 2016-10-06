@@ -24,6 +24,7 @@
 #include <fstream>
 #include <QDebug>
 #include <QDir>
+#include <QMouseEvent>
 
 #ifdef __ANDROID__
 #include <GLES/gl.h>
@@ -430,8 +431,7 @@ void CKernel::Init(const std::string& a_sPath)
 	pFirstScene->init();
 
     cocos2d::Director::getInstance()->runWithScene(pScene);
-
-	M_STATS->StartStats();
+    M_STATS->StartStats();
 
     this->m_oVisitor = new CEditorFindEntityTouchVisitor(this);
     this->FullfillSyncedScenes();
@@ -1059,6 +1059,49 @@ void CKernel::RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget)
 void CKernel::LogMessage(const std::string& a_sMessage)
 {
 	CCLOG("Kernel message : %s", a_sMessage.c_str());
+}
+
+void CKernel::onMousePressed(QMouseEvent* event)
+{
+    qDebug() << QString("Slot calld");
+    Touch *pTouch = new Touch();
+    pTouch->setTouchInfo(event->buttons(), event->x(), event->y());
+    Event *pEvent = new Event(Event::Type::MOUSE);
+    M_STATS_SCREEN.nbInteractions++;
+//    CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
+//    oVisistor.Traverse(m_pCurrentScene);
+
+//    m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
+    qDebug("OnTouchBegan");
+//    this->m_oVisitor->SetEvent(a_pEvent);
+//    this->m_oVisitor->SetTouch(a_pTouch);
+    this->m_oVisitor->SetVisitor(pEvent, pTouch);
+    this->m_oVisitor->Traverse(m_pCurrentScene);
+}
+
+void CKernel::onMouseReleased(QMouseEvent* event)
+{
+    Touch *pTouch = new Touch();
+    pTouch->setTouchInfo(event->buttons(), event->x(), event->y());
+    Event *pEvent = new Event(Event::Type::MOUSE);
+    std::map<int, CTouchBeganVisitor>::iterator itVisitor = m_mTouchBeganVisitors.find(pTouch->getID());
+    if(itVisitor != m_mTouchBeganVisitors.end())
+    {
+        itVisitor->second.OnTouchEnd(pTouch, pEvent);
+        m_mTouchBeganVisitors.erase(pTouch->getID());
+    }
+}
+
+void CKernel::onMouseMoved(QMouseEvent* event)
+{
+    Touch *pTouch = new Touch();
+    pTouch->setTouchInfo(event->buttons(), event->x(), event->y());
+    Event *pEvent = new Event(Event::Type::MOUSE);
+    std::map<int, CTouchBeganVisitor>::iterator itVisitor = m_mTouchBeganVisitors.find(pTouch->getID());
+    if(itVisitor != m_mTouchBeganVisitors.end())
+    {
+        itVisitor->second.OnTouchMove(pTouch, pEvent);
+    }
 }
 
 } // namespace LM
