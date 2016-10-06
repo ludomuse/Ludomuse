@@ -13,26 +13,13 @@ static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 static cocos2d::Size standardResolutionSize = cocos2d::Size(960, 540);
 
-AppDelegate::AppDelegate(int argc, char *argv[]) :
+AppDelegate::AppDelegate(int& argc, char *argv[]) :
     cocos2d::CCQApplication(argc, argv),
     m_oKernel(true)
 {
-
+    m_pWidget = Q_NULLPTR;
 }
 
-AppDelegate::AppDelegate(bool a_bIsServer, const std::string& a_sPath) :
-    cocos2d::CCQApplication(0, {}),
-    m_oKernel(a_bIsServer),
-    m_sPath(a_sPath)
-{
-  /*Create the wifi direct
-    and set it in the jni facade (it's like doing a singleton -> all class can now access the wifi
-    trough this the jni facade class)
-  */
-  // TODO replace with NetworkManager
-  // LmJniCppFacade::setWifiFacade(&m_oWifiFacade);
-  CCLOG("before gamemanager");
-}
 
 AppDelegate::~AppDelegate() 
 {
@@ -71,9 +58,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }*/
 
     Director* director = Director::getInstance();
-    CCQGLView::Create(standardResolutionSize.width, standardResolutionSize.height);
+    CCQGLView::Create(standardResolutionSize.width, standardResolutionSize.height, m_pWidget);
     CCQGLView* glview = CCQGLView::getInstance();
-    glview->setBgColor(Color4B(50, 50, 50, 255));
+    Color4B color = Color4B(50, 50, 50, 255);
+    glview->setBgColor(color);
 
     director->setOpenGLView(glview);
 
@@ -139,6 +127,11 @@ LM::CKernel* AppDelegate::getKernel() {
 void AppDelegate::setPath(const std::string& a_sPath)
 {
     m_sPath = std::string(a_sPath);
+}
+
+void AppDelegate::setParentWidget(QWidget *a_pWidget)
+{
+    m_pWidget = a_pWidget;
 }
 
 

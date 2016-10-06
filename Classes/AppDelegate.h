@@ -1,7 +1,6 @@
 #ifndef  _APP_DELEGATE_H_
 #define  _APP_DELEGATE_H_
 
-#include "cocos2d.h"
 #include "Engine/Include/CKernel.h"
 #include "CocosQtPort/CCQApplication.h"
 // #include "Modules/Wifi/Include/LmWifiDirectFacade.h"
@@ -15,8 +14,7 @@ The reason for implement as private inheritance is to hide some interface call b
 class  AppDelegate : private cocos2d::CCQApplication
 {
 public:
-    AppDelegate::AppDelegate(int argc, char *argv[]);
-    AppDelegate(bool a_bIsServer = true, const std::string& a_sPath = "");
+    AppDelegate(int& argc, char *argv[]);
 
     virtual ~AppDelegate();
 
@@ -47,6 +45,7 @@ public:
     virtual LM::CKernel* getKernel();
 
     virtual void setPath(const std::string& a_sPath);
+    virtual void setParentWidget(QWidget *a_pWidget);
 
 private:
 
@@ -59,6 +58,7 @@ private:
     // LmGameManager* m_pLmGameManager;
     LM::CKernel m_oKernel;
     std::string m_sPath;
+    QWidget *m_pWidget;
 
     //this object handle log of user & wifi direct & get info to set after gamanager
     // LmMenu* m_pLmMenu;
