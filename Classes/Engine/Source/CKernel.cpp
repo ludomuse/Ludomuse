@@ -6,6 +6,7 @@
 #include "../Include/CGotoSceneVisitor.h"
 #include "../Include/CValidateSceneVisitor.h"
 #include "../Include/CFindEntityVisitor.h"
+#include "../Include/CDispatchEventVisitor.h"
 #include "../Include/CDispatchMessageVisitor.h"
 #include "../Include/CFindEntityFromIDVisitor.h"
 #include "../Include/CFindEntityFromTypeVisitor.h"
@@ -738,6 +739,14 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 void CKernel::PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
+}
+
+
+
+void CKernel::OnSoundEnded(const std::string& a_rSoundURL)
+{
+	CDispatchEventVisitor oVisitor(std::string("SoundEnded:") + a_rSoundURL);
+	oVisitor.Traverse(m_pCurrentScene);
 }
 
 

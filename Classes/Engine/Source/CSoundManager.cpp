@@ -5,20 +5,18 @@
 #endif
 
 #include "../Include/CSoundManager.h"
+#include "../Include/CJsonParser.h"
 
 namespace LM
 {
 
 	void* WaitSoundFinished(void* a_pSoundEndedObject)
 	{
-		CCLOG("[SOUND] start waitSoundFinished");
 		SSoundEndedObject* pSoundEndedObject = static_cast<SSoundEndedObject*>(a_pSoundEndedObject);
-		CCLOG("[SOUND] after cast");
 		std::string sThreadSoundURL = pSoundEndedObject->sSoundURL;
 		CSoundManager* pSoundManager = pSoundEndedObject->pSoundManager;
 		delete pSoundEndedObject;
 
-		CCLOG("[SOUND] after getting string");
 		while (CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
 		{
 #if defined _WIN32 | defined _WIN64
@@ -26,14 +24,12 @@ namespace LM
 #else
 			usleep(100000);
 #endif
-			CCLOG("[SOUND] in while");
 			if (pSoundManager->GetSoundURL() != sThreadSoundURL)
 			{
 				return NULL;
 			}
 
 		}
-		CCLOG("[SOUND] before EndSound");
 		if (pSoundManager->GetSoundURL() == sThreadSoundURL)
 		{
 			pSoundManager->EndSound(sThreadSoundURL);
@@ -56,11 +52,11 @@ namespace LM
 		pSound->sSoundURL = m_sPlayingSoundURL;
 		pSound->pSoundManager = this;
 
-		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(a_rSoundURL.c_str(), false);
+		std::string fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
+
+		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(fullSoundPath.c_str(), false);
 		pthread_t thread;
-		CCLOG("[SOUND] before creating thread");
 		pthread_create(&thread, NULL, &WaitSoundFinished, pSound);
-		CCLOG("[SOUND] after creating thread");
 
 		m_oPlayingSoundMutex.unlock();
 
@@ -80,6 +76,7 @@ namespace LM
 	void CSoundManager::EndSound(const std::string& a_rSoundURL)
 	{
 		CCLOG("[SOUND] sound ended : %s", a_rSoundURL.c_str());
+		m_pKernel->OnSoundEnded(a_rSoundURL);
 	}
 
 	std::string CSoundManager::GetSoundURL()
