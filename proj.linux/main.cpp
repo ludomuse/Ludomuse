@@ -9,7 +9,19 @@ USING_NS_CC;
 
 int main(int argc, char **argv)
 {
-    // create the application instance
-    AppDelegate app;
-    return Application::getInstance()->run();
+
+  bool bIsServer = true;
+  std::string sFilename;
+  if (argc >= 2)
+  {
+    bIsServer = std::string(argv[1]) == "client" ? false : true;
+  }
+  if (argc >= 3)
+  {
+    sFilename = argv[2];
+  }
+
+  // create the application instance
+  AppDelegate app(bIsServer, sFilename);
+  return Application::getInstance()->run();
 }

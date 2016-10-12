@@ -144,7 +144,7 @@ public:
 
 
     /// \brief Initialize the kernel and the behavior tree
-    void Init(const std::string& a_sPath);
+  void Init(const std::string& a_sPath);
 
     void WriteStats();
 
@@ -207,6 +207,8 @@ public:
     void GetPeers();
     void OnGettingPeers(const std::vector<std::string>& a_vPeers);
 
+
+  void OnSoundEnded(const std::string& a_rSoundURL);
 
 private:
     void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);

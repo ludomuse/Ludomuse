@@ -114,6 +114,9 @@
     <ClCompile Include="..\Classes\Modules\Util\Source\CStats.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CDispatchEventVisitor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -231,6 +234,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Modules\Util\Include\CStats.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CDispatchEventVisitor.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,10 +4,12 @@
 #include <string>
 
 #include "CParallelNode.h"
+#include "ui/CocosGUI.h"
 
 namespace LM
 {
 
+	class CKernel;
 
 /// \class CSceneNode
 /// \ingroup  Engine
@@ -23,17 +25,19 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
 
   bool m_bIsSynced;
 
-  bool m_bDebugMode;
+  CKernel* m_pKernel;
+  cocos2d::ui::EditBox* m_pQuickBox;
+  cocos2d::MenuItemImage* m_pQuickButton;
 
 public:
 	bool m_bDashboardTrigger;
 
 
  public:
+  CSceneNode(std::string a_sID = "none", CKernel* a_pKernel = nullptr);
 
   cocos2d::Image *getPreview();
 
-  CSceneNode(std::string a_sID = "none", bool a_bDebugMode = false);
 
   /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();
@@ -52,6 +56,7 @@ public:
   void DisplayDebugInfo();
 
   virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+  void ToggleQuickBox();
 
   bool hasID(const std::string &a_rID);
 

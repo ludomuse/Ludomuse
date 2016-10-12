@@ -110,6 +110,7 @@ endif()
 include_directories(
   /usr/local/include/GLFW
   /usr/include/GLFW
+  /usr/lib/glib-2.0/include/
   ${COCOS2D_ROOT}/cocos
   ${COCOS2D_ROOT}/cocos/platform
   ${COCOS2D_ROOT}/cocos/audio/include/
@@ -123,7 +124,7 @@ if ( WIN32 )
 endif( WIN32 )
 
 
-file(GLOB SOURCES Classes/Engine/Source/*.cpp Classes/Modules/Networking/linux/Source/*.cpp Classes/Modules/Util/Source/*.cpp)
+file(GLOB SOURCES Classes/Modules/Networking/linux/Source/*.cpp Classes/Modules/Util/Source/*.cpp Classes/Engine/Source/*.cpp)
 
 set(GAME_SRC
   Classes/AppDelegate.cpp
@@ -133,7 +134,7 @@ set(GAME_SRC
 )
 
 
-file(GLOB INCLUDES Classes/Engine/Include/*.h Classes/Modules/Networking/linux/Include/*.h Classes/Modules/Util/Include/*.h)
+file(GLOB INCLUDES Classes/Engine/Include/*.h Classes/Modules/Networking/linux/Include/*.h Classes/Engine/Include/*.h)
 
 set(GAME_HEADERS
   Classes/AppDelegate.h

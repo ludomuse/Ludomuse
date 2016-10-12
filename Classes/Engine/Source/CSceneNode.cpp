@@ -7,16 +7,18 @@
 #include "../Include/CKernel.h"
 
 #include <QDebug>
+#include "../Include/CKernel.h"
+
 using namespace cocos2d;
 
 namespace LM
 {
 
-CSceneNode::CSceneNode(std::string a_sID, bool a_bDebugMode) : 
+CSceneNode::CSceneNode(std::string a_sID, CKernel* a_pKernel) : 
 	m_sID(a_sID),
 	m_bIsSynced(false), 
 	m_bDashboardTrigger(false),
-	m_bDebugMode(a_bDebugMode)
+	m_pKernel(a_pKernel)
 {
 }
 
@@ -45,46 +47,7 @@ bool CSceneNode::init()
   {
     return false;
   }
-//  TODO REMOVE
-//  Size visibleSize = Director::getInstance()->getVisibleSize();
-//  Vec2 origin = Director::getInstance()->getVisibleOrigin();
-//
-//
-//  auto lfCallback = [](Ref* pSender) 
-//  {
-//	  Director::getInstance()->end();
-//#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//	  exit(0);
-//#endif
-//
-//  };
-//  
-//  CMenuNode* pMenuNode = new CMenuNode("CloseNormal.png",
-//                                       "CloseSelected.png",
-//                                       lfCallback,
-//	                                   EAnchor::FLOAT,
-//                                       10,
-//                                       10);
-//
-//  AddChildNode(pMenuNode);
-//  pMenuNode->Init();
-//
-//
-//  CLabelNode* oLabel = new CLabelNode("Hello World", "fonts/Marker Felt.ttf", 24,
-//	                EAnchor::FLOAT,
-//                    origin.x + visibleSize.width/2,
-//                    origin.y + visibleSize.height/2);
-//  // add the label as a child to this layer
-//  AddChildNode(oLabel);
-//  oLabel->Init();
-//
-//  CSpriteNode* oSprite = new CSpriteNode("HelloWorld.png",
-//	                  EAnchor::FLOAT,
-//                      origin.x + visibleSize.width/2,
-//                      origin.y + visibleSize.height/2);
-//  // add the sprite as a child to this layer
-//  AddChildNode(oSprite);
-//  oSprite->Init();
+
   
 
   CCLOG("init scene : %s", m_sID.c_str());
@@ -92,7 +55,7 @@ bool CSceneNode::init()
   CNode::Init();
 
 #ifndef LUDOMUSE_EDITOR
-  if (m_bDebugMode && m_sID != "none")
+  if (m_pKernel && m_pKernel->m_bDebugMode && m_sID != "none")
 	  DisplayDebugInfo();
 #endif
 
@@ -131,6 +94,61 @@ void CSceneNode::DisplayDebugInfo()
 	pLabel->setPosition(Vec2(20 + oOrigin.x, oOrigin.y + oVisibleSize.height - 20));
 
 	m_pScene->addChild(pLabel, 2);
+
+
+
+	// TODO : add "quick travel" box
+	m_pQuickBox = ui::EditBox::create(Size(oVisibleSize.width / 2.0f,
+		oVisibleSize.height / 5.0f),
+		ui::Scale9Sprite::create("ui/textfieldBackground.png"));
+	m_pQuickBox->setFont("fonts/arial.ttf", 40);
+	m_pQuickBox->setFontColor(Color3B::BLACK);
+	m_pQuickBox->setMaxLength(50);
+	m_pQuickBox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);
+	m_pQuickBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);
+
+	m_pQuickBox->setAnchorPoint(Vec2(0, 1));
+	m_pQuickBox->setPosition(Vec2(oOrigin.x, oOrigin.y + oVisibleSize.height/2.0f));
+
+	m_pScene->addChild(m_pQuickBox, 2);
+
+
+	m_pQuickButton = MenuItemImage::create("ui/ok.png", "ui/ok.png", 
+		[this](Ref* pSender) -> void
+	{
+		CCLOG("goto scene button clicked : %s", m_pQuickBox->getText());
+		if (m_pKernel)
+		{
+			m_pQuickButton->setVisible(false);
+			m_pQuickBox->setVisible(false);
+
+			SEvent oGotoSceneEvent;
+			oGotoSceneEvent.m_sStringValue = m_pQuickBox->getText();
+			std::transform(oGotoSceneEvent.m_sStringValue.begin(),
+				oGotoSceneEvent.m_sStringValue.end(),
+				oGotoSceneEvent.m_sStringValue.begin(),
+				::tolower);
+			m_pKernel->GotoScreenID(oGotoSceneEvent, nullptr);
+		}
+	});
+
+	m_pQuickButton->setPosition(Vec2::ZERO);
+	m_pQuickButton->setScale(2.0f);
+
+	Menu* menu = Menu::create(m_pQuickButton, NULL);
+	m_pScene->addChild(menu, 3);
+
+
+	m_pQuickBox->setVisible(false);
+	m_pQuickButton->setVisible(false);
+
+}
+
+
+void CSceneNode::ToggleQuickBox()
+{
+	m_pQuickBox->setVisible(!m_pQuickBox->isVisible());
+	m_pQuickButton->setVisible(!m_pQuickButton->isVisible());
 }
 
 void CSceneNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)

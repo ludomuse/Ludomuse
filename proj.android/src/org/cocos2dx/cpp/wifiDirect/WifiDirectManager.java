@@ -1089,7 +1089,10 @@ public class WifiDirectManager {
 			@Override
 			public void onConnectionInfoAvailable(WifiP2pInfo info)
 			{
-				String ownerAddress = info.groupOwnerAddress.getHostAddress();
+				String ownerAddress = "";
+				if (info.groupOwnerAddress != null) {
+					ownerAddress = info.groupOwnerAddress.getHostAddress();
+				}
 				DebugManager.print("owner address is = " + ownerAddress, WifiDirectManager.DEBUGGER_CHANNEL);
 				DebugManager.print("<font color='red'>owner sdk ? </font>" + info.isGroupOwner, DEBUGGER_CHANNEL);
 				SocketHandler.printAllNetworkInterfaceName();

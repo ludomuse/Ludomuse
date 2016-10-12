@@ -132,7 +132,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		}
 
 		if (rParams.HasMember("sound"))
-            oValidator->SetSound( m_sBasePath + rParams["sound"].GetString());
+            oValidator->SetSound( rParams["sound"].GetString());
 
 		a_pNode->AddChildNode(oValidator);
 	}
@@ -309,7 +309,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
     CSceneNode* pSceneNode;
     if(! a_bNewScene)
     {
-        pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel->m_bDebugMode);
+        pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel);
         if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
             m_pKernel->m_pDashboard = pSceneNode;
         else

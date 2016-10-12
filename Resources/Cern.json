@@ -4479,7 +4479,7 @@
                                 "Statue3",
                                 "Statue4"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -6029,7 +6029,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -6704,7 +6704,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -9281,7 +9281,7 @@
                                 "SwordValid",
                                 "TripodeValid"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -10704,7 +10704,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -11293,7 +11293,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -14516,7 +14516,7 @@
                                 "Statuette3cValidate",
                                 "Statuette3dValidate"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -15789,7 +15789,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -16352,7 +16352,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -18905,7 +18905,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -19417,7 +19417,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "audio/gong.mp3"
                         }
                     }
                 ],
@@ -21697,7 +21697,7 @@
                                 "Leg1",
                                 "Leg2"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
@@ -26402,7 +26402,7 @@
                                 "Lotus2",
                                 "Lotus3"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],

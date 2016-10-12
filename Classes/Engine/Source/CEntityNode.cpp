@@ -358,7 +358,7 @@ void CEntityNode::Fade()
 		this->Revert();
 	});
 
-	auto oFadeOut = FadeOut::create(1.0f);
+	auto oFadeOut = FadeOut::create(0.5f);
 	auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
 
 	m_pCocosEntity->runAction(oSequence);

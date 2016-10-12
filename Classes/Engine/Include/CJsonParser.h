@@ -51,6 +51,9 @@ private:
  public:
 	 CJsonParser(CKernel* a_pKernel);
 
+	 std::string GetBasePath();
+
+
 	 /// \brief Build the tree of root a_pRoot from a_sFilename json file
 	 /// \params[in] a_pRoot the root node of the behavior tree
 	 /// \params[in] a_sFilename the filename of the json file to build the tree from
@@ -67,6 +70,7 @@ private:
 
 	/// returns true if the callback change the visibility of the node to hidden
 	bool ParseCallback(RefJsonNode a_rJsonNode, CEntityNode* a_pEntity);
+
 };
 
 

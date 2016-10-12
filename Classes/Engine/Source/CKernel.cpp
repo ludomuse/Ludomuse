@@ -6,6 +6,7 @@
 #include "../Include/CGotoSceneVisitor.h"
 #include "../Include/CValidateSceneVisitor.h"
 #include "../Include/CFindEntityVisitor.h"
+#include "../Include/CDispatchEventVisitor.h"
 #include "../Include/CDispatchMessageVisitor.h"
 #include "../Include/CFindEntityFromIDVisitor.h"
 #include "../Include/CFindEntityFromTypeVisitor.h"
@@ -25,7 +26,6 @@
 #include <QDebug>
 #include <QDir>
 #include <QMouseEvent>
-
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
@@ -68,7 +68,8 @@ namespace LM
   // is a pointer to the root node of the tree
 
 	// build the waiting scene
-	m_pWaitingScene = new CSceneNode("WaitingScene");
+	// TODO : remove hardcoded waiting scene
+	m_pWaitingScene = new CSceneNode("WaitingScene", this);
 	CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
 		EAnchor::CENTER, 100, 100, 0, 0);
 
@@ -260,7 +261,7 @@ void CKernel::AddSceneIDAtBegin(int a_iPlayerID, const std::string &a_sNewID)
 void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID,const std::string& a_sNewID,
                           int a_iPlayerNumber, int a_iTemplateNumber, const std::string& a_sScreenMate)
 {
-    CSceneNode* newScene = new CSceneNode(a_sNewID, m_bDebugMode);
+    CSceneNode* newScene = new CSceneNode(a_sNewID, this);
     qDebug("ckernel add new scene");
     m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath, a_iTemplateNumber, a_sScreenMate);
 
@@ -413,7 +414,7 @@ bool CKernel::CheckPlayerInfo()
 
 void CKernel::Init(const std::string& a_sPath)
 {
-    //m_pNetworkManager = new CNetworkManager(this, m_bIsServer);
+
     if(a_sPath.empty())
     {
         std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
@@ -597,13 +598,19 @@ void CKernel::WriteStats()
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
+	
 	if (m_pCurrentScene->GetSceneID() == "screen-playerid")
 	{
 		if (!CheckPlayerInfo()) {
 			// TODO throw a toast at the user
-			
 			return;
 		}
+	}
+
+	CCMenuItemImage* pMenuItemImage = dynamic_cast<CCMenuItemImage*>(pSender);
+	if (pMenuItemImage)
+	{
+		pMenuItemImage->setEnabled(false);
 	}
 
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
@@ -618,6 +625,13 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
+
+	CCMenuItemImage* pMenuItemImage = dynamic_cast<CCMenuItemImage*>(pSender);
+	if (pMenuItemImage)
+	{
+		pMenuItemImage->setEnabled(false);
+	}
+
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
   CTransitionVisitor oVisitor(this, false);
@@ -1035,6 +1049,14 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 void CKernel::PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
 	m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
+}
+
+
+
+void CKernel::OnSoundEnded(const std::string& a_rSoundURL)
+{
+	CDispatchEventVisitor oVisitor(std::string("SoundEnded:") + a_rSoundURL);
+	oVisitor.Traverse(m_pCurrentScene);
 }
 
 
