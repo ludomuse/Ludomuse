@@ -42,12 +42,15 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 
   if (m_oDocument.HasMember("app"))
   {
+
+#ifndef LUDOMUSE_EDITOR
 	  //ParseJsonRoot(m_oDocument["app"], a_pRoot);
 	  if (m_oDocument["app"].HasMember("debug"))
 	  {
 		  m_pKernel->m_bDebugMode = m_oDocument["app"]["debug"].GetBool();
 		  Director::getInstance()->setDisplayStats(true);
 	  }
+#endif
 
 	  assert(m_oDocument["app"].HasMember("scenes"));
 	  RefJsonNode rScenesID = m_oDocument["app"]["scenes"];
