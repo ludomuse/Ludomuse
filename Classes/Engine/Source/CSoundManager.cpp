@@ -45,6 +45,7 @@ namespace LM
 
 	void CSoundManager::PlaySound(const std::string& a_rSoundURL)
 	{
+          CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 		m_oPlayingSoundMutex.lock();
 		m_sPlayingSoundURL = a_rSoundURL;
 
