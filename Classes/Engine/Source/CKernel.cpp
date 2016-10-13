@@ -620,7 +620,7 @@ void CKernel::Connect(SEvent a_oEvent, CEntityNode* a_pTarget)
 				if (pLabel)
 				{
 					m_pNetworkManager->ConnectTo(pLabel->getString());
-					m_pNetworkManager->Send("connection:establish");
+					m_pNetworkManager->Send(std::string("connection:establish"));
 				}
 			}
 		}

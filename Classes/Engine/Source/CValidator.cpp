@@ -45,7 +45,7 @@ void CValidator::Validate(const std::string& a_sID)
     CCLOG("Validate scene");
 	m_pKernel->ValidateScene(SEvent(), nullptr);
         // TODO : quick hack, fix linux and maybe windows stack for better solution
-	// m_pKernel->SendNetworkMessage("kernel:Validate");
+	m_pKernel->SendNetworkMessage("kernel:Validate");
 
 	if (m_sSound != "")
 		m_pKernel->m_pSoundManager->PlaySound(m_sSound);

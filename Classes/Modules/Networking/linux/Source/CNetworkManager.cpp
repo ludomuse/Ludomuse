@@ -19,16 +19,29 @@ void ProcessBytes(char* recvbuf, int iResult, CNetworkManager* nm)
   printf("Bytes received: %d\n", iResult);
   if (iResult > M_BYTES.size())
   {
-    std::string sMessageStart(recvbuf, M_BYTES.size());
+    std::string sMessageStart(recvbuf+1, M_BYTES.size());
     if (sMessageStart == M_BYTES)
     {
-      byte oEvent = recvbuf[M_BYTES.size()];
-      bytes message(recvbuf + M_BYTES.size() + 1, iResult - M_BYTES.size() - 1);
+      byte oEvent = recvbuf[M_BYTES.size()+1];
+      bytes message(recvbuf + M_BYTES.size() + 2, iResult - M_BYTES.size() - 2);
       nm->m_pKernel->OnReceiving(message, oEvent);
       return;
     }
   }
-  nm->m_pKernel->OnReceivingMessage(std::string(recvbuf, iResult));
+  int buffIndex = 0;
+  while (buffIndex < iResult)
+  {
+      int messageSize;
+      messageSize = recvbuf[buffIndex];
+      char* message = new char[messageSize];
+      memcpy(message, recvbuf+buffIndex+1, messageSize);
+      buffIndex += messageSize+1;
+      std::cout << "Message size : " << messageSize << std::endl;
+      std::cout << "Message read : " << std::string(message, messageSize) << std::endl;
+      nm->m_pKernel->OnReceivingMessage(std::string(message, messageSize));
+      delete message;
+  }
+
 }
 
 
@@ -231,9 +244,10 @@ void CNetworkManager::Send(const char* buff, size_t size)
   {
 
     // Echo the buffer back to the sender
-    int iSendResult = send(ClientSocket, buff, size, 0);
+    int iSendResult = send(ClientSocket, sendBuff, size+1, 0);
     if (iSendResult == SOCKET_ERROR) {
       printf("send failed: %d\n", errno);
+      perror("send");
       closesocket(ClientSocket);
       return;
     }
@@ -246,9 +260,10 @@ void CNetworkManager::Send(const char* buff, size_t size)
     int iResult;
 
     // Send an initial buffer
-    iResult = send(ConnectSocket, buff, size, 0);
+    iResult = send(ConnectSocket, sendBuff, size+1, 0);
     if (iResult == SOCKET_ERROR) {
       printf("send failed: %d\n", errno);
+      perror("send");
       closesocket(ConnectSocket);
       return;
     }
