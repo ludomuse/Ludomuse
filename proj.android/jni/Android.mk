@@ -39,6 +39,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CFindEntityTouchVisitor.cpp \
                    ../../Classes/Engine/Source/CFindEntityFromIDVisitor.cpp \
                    ../../Classes/Engine/Source/CDispatchMessageVisitor.cpp \
+                   ../../Classes/Engine/Source/CDispatchEventVisitor.cpp \
                    ../../Classes/Engine/Source/CGroupNode.cpp \
                    ../../Classes/Engine/Source/CGridNode.cpp \
                    ../../Classes/Engine/Source/CPeerNode.cpp \
