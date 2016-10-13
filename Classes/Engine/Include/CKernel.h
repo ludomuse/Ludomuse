@@ -217,17 +217,13 @@ private:
     void FullfillSyncedScenes();
 
 signals:
-    void addingSceneFinished();
+    void addingSceneFinished(std::string a_sSceneID, int a_iPlayerID);
     void deletingSceneFinished();
 
     /// \brief signal a new scene loaded, is Nav store the fact that it's navigation transition
     /// (with next and previous button) or if it's an transtition by id
     void sendScene(LM::CSceneNode*, bool a_bIsNav);
 
-public slots:
-    void onMousePressed(QMouseEvent* event);
-    void onMouseReleased(QMouseEvent* event);
-    void onMouseMoved(QMouseEvent* event);
 };
 
 
