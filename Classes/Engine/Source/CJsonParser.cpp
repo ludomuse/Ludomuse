@@ -31,50 +31,52 @@ std::string CJsonParser::GetBasePath()
 void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename)
 {
 
-	// init json document
+  // init json document
 
-	std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFilename);
+  std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFilename);
 
-	std::string fullPath = cocos2d::FileUtils::getInstance()->fullPathForFilename(a_sFilename);
-	int lastSlash = fullPath.find_last_of("/");
-	while (lastSlash == fullPath.size() - 1)
-	{
-		fullPath = fullPath.substr(0, lastSlash);
-		lastSlash = fullPath.find_last_of("/");
-	}
-	fullPath = fullPath.substr(0, lastSlash + 1); // +1 to save the last slash
-	m_sBasePath = fullPath;
-	m_oDocument.Parse(sJsonString.c_str());
+  std::string fullPath = cocos2d::FileUtils::getInstance()->fullPathForFilename(a_sFilename);
+  int lastSlash = fullPath.find_last_of("/");
+  while(lastSlash == fullPath.size()-1)
+  {
+      fullPath = fullPath.substr(0, lastSlash);
+      lastSlash = fullPath.find_last_of("/");
+  }
+  fullPath = fullPath.substr(0, lastSlash+1); // +1 to save the last slash
+  m_sBasePath = fullPath;
+  m_oDocument.Parse(sJsonString.c_str());
 
-	if (m_oDocument.HasMember("app"))
-	{
-		//ParseJsonRoot(m_oDocument["app"], a_pRoot);
-		if (m_oDocument["app"].HasMember("debug"))
-		{
-			m_pKernel->m_bDebugMode = m_oDocument["app"]["debug"].GetBool();
-			Director::getInstance()->setDisplayStats(true);
-		}
+  if (m_oDocument.HasMember("app"))
+  {
 
-		assert(m_oDocument["app"].HasMember("scenes"));
-		RefJsonNode rScenesID = m_oDocument["app"]["scenes"];
-		for (int i = 0; i < rScenesID.Size(); ++i)
-		{
-			for (int j = 0; j < rScenesID[i].Size(); ++j)
-			{
-				m_pKernel->AddSceneID(i, rScenesID[i][j].GetString());
-			}
-		}
+#ifndef LUDOMUSE_EDITOR
+	  //ParseJsonRoot(m_oDocument["app"], a_pRoot);
+	  if (m_oDocument["app"].HasMember("debug"))
+	  {
+		  m_pKernel->m_bDebugMode = m_oDocument["app"]["debug"].GetBool();
+		  Director::getInstance()->setDisplayStats(true);
+	  }
+#endif
 
-		assert(m_oDocument["app"].HasMember("screens"));
-		RefJsonNode rScenes = m_oDocument["app"]["screens"];
-		for (int i = 0; i < rScenes.Size(); ++i)
-		{
-			// recursively parse all the nodes in the json file
-			// using the specialised template where needed
-			ParseJson(rScenes[i], a_pRoot);
-		}
-	}
+	  assert(m_oDocument["app"].HasMember("scenes"));
+	  RefJsonNode rScenesID = m_oDocument["app"]["scenes"];
+	  for (int i = 0; i < rScenesID.Size(); ++i)
+	  {
+		  for (int j = 0; j < rScenesID[i].Size(); ++j)
+		  {
+              m_pKernel->AddSceneID(i, rScenesID[i][j].GetString());
+		  }
+	  }
 
+	  assert(m_oDocument["app"].HasMember("screens"));
+	  RefJsonNode rScenes = m_oDocument["app"]["screens"];
+	  for (int i = 0; i < rScenes.Size(); ++i)
+	  {
+		// recursively parse all the nodes in the json file
+		// using the specialised template where needed
+	  	ParseJson(rScenes[i], a_pRoot);
+	  }
+  }
 }
 
 void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber,

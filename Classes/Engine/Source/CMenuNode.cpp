@@ -147,7 +147,7 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     }
     else
     {
-        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/debug/templates/";
+        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/templates/";
         int index2 = temp.find(templatePath);
         if(index2 != std::string::npos)
         {
@@ -165,7 +165,7 @@ void CMenuNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
     }
     else
     {
-        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/debug/templates/";
+        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/templates/";
         int index2 = temp.find(templatePath);
         if(index2 != std::string::npos)
         {
