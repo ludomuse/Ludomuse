@@ -13,7 +13,7 @@ CGotoSceneVisitor::CGotoSceneVisitor(const std::string& a_rSceneID, CKernel* a_p
     m_sSceneID(a_rSceneID),
     m_pKernel(a_pKernel)
 {
-  
+
 }
 
 
@@ -24,12 +24,13 @@ Result CGotoSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
   {
     if (pSceneNode->GetSceneID() == m_sSceneID)
     {
-		CSequenceNode* pSequence = dynamic_cast<CSequenceNode*>(pSceneNode->GetParent());
-		pSequence->SetCurrentNode(pSceneNode);
+        CSequenceNode* pSequence = dynamic_cast<CSequenceNode*>(pSceneNode->GetParent());
+        pSequence->SetCurrentNode(pSceneNode);
       Scene* pNewScene = pSceneNode->CreateScene();
       pSceneNode->init();
 
-      Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+      //Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+      Director::getInstance()->replaceScene(pNewScene);
       m_pKernel->m_pCurrentScene = pSceneNode;
       return RESULT_PRUNE;
     }

@@ -50,40 +50,40 @@ using namespace cocos2d;
 namespace LM
 {
 
-	CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
-		m_pJsonParser(new CJsonParser(this)),
-		m_bIsServer(a_bIsServer),
-		//m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
-		m_pSoundManager(new CSoundManager(this)),
-		m_pBehaviorTree(new CSequenceNode()),
-		m_bDebugMode(false),
-		m_pLocalPlayer(new SUser()),
-		m_pDistantPlayer(new SUser()),
-		m_pDashboard(nullptr),
-		m_pCurrentScene(nullptr),
-		m_pWaitingScene(nullptr),
-		m_pRemoteStats(nullptr)
-	{
+    CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
+        m_pJsonParser(new CJsonParser(this)),
+        m_bIsServer(a_bIsServer),
+        //m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
+        m_pSoundManager(new CSoundManager(this)),
+        m_pBehaviorTree(new CSequenceNode()),
+        m_bDebugMode(false),
+        m_pLocalPlayer(new SUser()),
+        m_pDistantPlayer(new SUser()),
+        m_pDashboard(nullptr),
+        m_pCurrentScene(nullptr),
+        m_pWaitingScene(nullptr),
+        m_pRemoteStats(nullptr)
+    {
   // the BehaviorTree member of the kernel
   // is a pointer to the root node of the tree
 
-	// build the waiting scene
-	m_pWaitingScene = new CSceneNode("WaitingScene");
-	CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
-		EAnchor::CENTER, 100, 100, 0, 0);
+    // build the waiting scene
+    m_pWaitingScene = new CSceneNode("WaitingScene");
+    CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
+        EAnchor::CENTER, 100, 100, 0, 0);
 
-	m_pWaitingScene->AddChildNode(pBackgroundSprite);
+    m_pWaitingScene->AddChildNode(pBackgroundSprite);
 }
 
 CKernel::~CKernel()
 {
-	delete m_pBehaviorTree;
-	delete m_pInputManager;
+    delete m_pBehaviorTree;
+    delete m_pInputManager;
     //delete m_pNetworkManager;
-	delete m_pSoundManager;
-	delete m_pJsonParser;
-	delete m_pLocalPlayer;
-	delete m_pDistantPlayer;
+    delete m_pSoundManager;
+    delete m_pJsonParser;
+    delete m_pLocalPlayer;
+    delete m_pDistantPlayer;
 }
 
 
@@ -95,7 +95,7 @@ CNode* CKernel::GetBehaviorTree()
 
 CJsonParser* CKernel::GetJsonParser()
 {
-	return m_pJsonParser;
+    return m_pJsonParser;
 }
 
 const std::vector<std::string> CKernel::GetSceneIDPlayer(int a_iPlayerID)
@@ -235,7 +235,7 @@ CEditorFindEntityTouchVisitor* CKernel::GetEditorVisitor()
 
 void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 {
-	m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
+    m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
 }
 
 void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID)
@@ -295,12 +295,12 @@ void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string&
     if(a_sPreviousID.empty()) // Adding scene at the end
     {
         this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
-        emit(addingSceneFinished());
+        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
         return;
     }
     // Adding scene after an existing
     this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
-    emit(addingSceneFinished());
+    emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
 }
 
 void CKernel::AddSyncID(const std::string& a_sID1, const std::string& a_sID2)
@@ -312,7 +312,7 @@ void CKernel::AddSyncID(const std::string& a_sID1, const std::string& a_sID2)
 void CKernel::DeleteScene(const std::string &a_sSceneID)
 {
     //Change current screen Trying to go to previous screen
-    CSceneNode* tempNode = m_pCurrentScene;
+/*    CSceneNode* tempNode = m_pCurrentScene;
     CTransitionVisitor oVisitor(this, false);
     oVisitor.Traverse(m_pBehaviorTree);
     if(tempNode == m_pCurrentScene)
@@ -326,7 +326,7 @@ void CKernel::DeleteScene(const std::string &a_sSceneID)
             qDebug("Dernier screen");
             return;
         }
-    }
+    }*/
     this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
     // Clear id from vector for both player
     this->RemoveIDFromPlayer(a_sSceneID, 0);
@@ -337,7 +337,7 @@ void CKernel::DeleteScene(const std::string &a_sSceneID)
 void CKernel::DeleteSyncScenes(const std::string &a_sSceneID)
 {
     // Change current screen by the previous or next
-    CSceneNode* tempNode = m_pCurrentScene;
+/*    CSceneNode* tempNode = m_pCurrentScene;
     CTransitionVisitor oVisitor(this, false);
     oVisitor.Traverse(m_pBehaviorTree);
     if(tempNode == m_pCurrentScene)
@@ -351,7 +351,7 @@ void CKernel::DeleteSyncScenes(const std::string &a_sSceneID)
             qDebug("Dernier screen");
             return;
         }
-    }
+    }*/
     std::string otherID = m_mSceneSynced[a_sSceneID];
     // Removing scene from behavior, idlist and synced scene map
     this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
@@ -382,14 +382,13 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID, int a_iPlayerID)
             return true;
         }
     }
-
-	return false;
+    return false;
 }
 
 
 int CKernel::GetCurrentPlayer()
 {
-	return m_pLocalPlayer->m_iPlayerID;
+    return m_pLocalPlayer->m_iPlayerID;
 }
 
 
@@ -402,12 +401,12 @@ void CKernel::SendNetworkMessage(const std::string& a_rMessage)
 
 bool CKernel::CheckPlayerInfo()
 {
-	bytes b;
-	b << M_USER_EVENT << *m_pLocalPlayer;
-	CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
+    bytes b;
+    b << M_USER_EVENT << *m_pLocalPlayer;
+    CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
 //    m_pNetworkManager->Send(b);
 
-	return m_pLocalPlayer->m_iPlayerID != m_pDistantPlayer->m_iPlayerID;
+    return m_pLocalPlayer->m_iPlayerID != m_pDistantPlayer->m_iPlayerID;
 }
 
 
@@ -425,48 +424,48 @@ void CKernel::Init(const std::string& a_sPath)
         m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, a_sPath);
     }
 
-	CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
-	m_pCurrentScene = pFirstScene;
-	Scene* pScene = pFirstScene->CreateScene();
-	pFirstScene->init();
+    CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
+    m_pCurrentScene = pFirstScene;
+    Scene* pScene = pFirstScene->CreateScene();
+    pFirstScene->init();
 
     cocos2d::Director::getInstance()->runWithScene(pScene);
     M_STATS->StartStats();
 
     this->m_oVisitor = new CEditorFindEntityTouchVisitor(this);
     this->FullfillSyncedScenes();
-	//M_STATS->PushStats("test");
-	//CSerializableStats oSStats(M_STATS->GetStats());
-	//WriteStats(&oSStats);
+    //M_STATS->PushStats("test");
+    //CSerializableStats oSStats(M_STATS->GetStats());
+    //WriteStats(&oSStats);
 
 }
 
 
 void CKernel::EndGame(SEvent, CEntityNode*)
 {
-	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+    M_STATS->PushStats(m_pCurrentScene->GetSceneID());
 
-	m_pLocalPlayer->m_bGameEnded = true;
+    m_pLocalPlayer->m_bGameEnded = true;
 
-	if (m_pLocalPlayer->m_iPlayerID == 1)
-	{
-		CSerializableStats oSStats(M_STATS->GetStats());
-		bytes b;
+    if (m_pLocalPlayer->m_iPlayerID == 1)
+    {
+        CSerializableStats oSStats(M_STATS->GetStats());
+        bytes b;
 
-		b << M_STATS_EVENT << oSStats;
+        b << M_STATS_EVENT << oSStats;
 //		m_pNetworkManager->Send(b);
 
 #ifdef __ANDROID__
-	sleep(1);
+    sleep(1);
 #endif // __ANDROID__
 
-	Director::getInstance()->end();
+    Director::getInstance()->end();
 
-	}
-	else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
-	{
-		WriteStats();
-	}
+    }
+    else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
+    {
+        WriteStats();
+    }
 
 }
 
@@ -474,151 +473,151 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 void CKernel::WriteStats()
 {
 
-	// TODO write stats to file on filesystem
-	std::stringstream ss;
-	ss << *m_pRemoteStats;
-	CCLOG("[LUDO_STATS] ******************************************************************");
-	CCLOG("[LUDO_STATS] remote peer : ");
-	CCLOG("%s", ss.str().c_str());
+    // TODO write stats to file on filesystem
+    std::stringstream ss;
+    ss << *m_pRemoteStats;
+    CCLOG("[LUDO_STATS] ******************************************************************");
+    CCLOG("[LUDO_STATS] remote peer : ");
+    CCLOG("%s", ss.str().c_str());
 
 
-	std::map<std::string, SScreenStats> mLocalStats = M_STATS->GetStats();
-	std::map<std::string, SScreenStats> mRemoteStats = m_pRemoteStats->m_mScreensStats;
+    std::map<std::string, SScreenStats> mLocalStats = M_STATS->GetStats();
+    std::map<std::string, SScreenStats> mRemoteStats = m_pRemoteStats->m_mScreensStats;
 
-	std::stringstream fileStream;
-
-
-	std::map<std::string, SScreenStats>::const_iterator itLocal;
-	std::map<std::string, SScreenStats>::const_iterator itRemote;
-
-	for (itLocal = mLocalStats.begin(), itRemote = mRemoteStats.begin(); 
-		itLocal != mLocalStats.end() || itRemote != mRemoteStats.end(); 
-		++itLocal, ++itRemote)
-	{
-
-		const SScreenStats& rLocalStat = itLocal->second;
-		const SScreenStats& rRemoteStat = itRemote->second;
-		
-		fileStream << rLocalStat.time << ","
-			<< rLocalStat.nbInteractions << ","
-			<< rLocalStat.nbTouches << ","
-			<< rLocalStat.nbMoves << ","
-			<< rLocalStat.nbValidTouches << ","
-			<< rLocalStat.nbValidDrops << ","
-			<< rLocalStat.nbInvalidDrops << ","
-			<< rLocalStat.nbValidAnswers << ","
-			<< rLocalStat.nbInvalidAnswers << ",";
-
-		fileStream << ",";
-
-		fileStream << rRemoteStat.time << ","
-			<< rRemoteStat.nbInteractions << ","
-			<< rRemoteStat.nbTouches << ","
-			<< rRemoteStat.nbMoves << ","
-			<< rRemoteStat.nbValidTouches << ","
-			<< rRemoteStat.nbValidDrops << ","
-			<< rRemoteStat.nbInvalidDrops << ","
-			<< rRemoteStat.nbValidAnswers << ","
-			<< rRemoteStat.nbInvalidAnswers << ",";
-
-		fileStream << ",,";
+    std::stringstream fileStream;
 
 
-		//fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
-		//fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
-		//fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
-		//fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
-		//fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
-		//fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
-		//fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
-		//fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
-		//fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
-		//fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
+    std::map<std::string, SScreenStats>::const_iterator itLocal;
+    std::map<std::string, SScreenStats>::const_iterator itRemote;
 
-	}
+    for (itLocal = mLocalStats.begin(), itRemote = mRemoteStats.begin();
+        itLocal != mLocalStats.end() || itRemote != mRemoteStats.end();
+        ++itLocal, ++itRemote)
+    {
 
-	fileStream << std::endl;
+        const SScreenStats& rLocalStat = itLocal->second;
+        const SScreenStats& rRemoteStat = itRemote->second;
+
+        fileStream << rLocalStat.time << ","
+            << rLocalStat.nbInteractions << ","
+            << rLocalStat.nbTouches << ","
+            << rLocalStat.nbMoves << ","
+            << rLocalStat.nbValidTouches << ","
+            << rLocalStat.nbValidDrops << ","
+            << rLocalStat.nbInvalidDrops << ","
+            << rLocalStat.nbValidAnswers << ","
+            << rLocalStat.nbInvalidAnswers << ",";
+
+        fileStream << ",";
+
+        fileStream << rRemoteStat.time << ","
+            << rRemoteStat.nbInteractions << ","
+            << rRemoteStat.nbTouches << ","
+            << rRemoteStat.nbMoves << ","
+            << rRemoteStat.nbValidTouches << ","
+            << rRemoteStat.nbValidDrops << ","
+            << rRemoteStat.nbInvalidDrops << ","
+            << rRemoteStat.nbValidAnswers << ","
+            << rRemoteStat.nbInvalidAnswers << ",";
+
+        fileStream << ",,";
 
 
-	//std::string sPath = CCFileUtils::getInstance()->getWritablePath() + "stats.csv";
-	//
-	//CCLOG("[LUDO_STATS] trying to write stats to file : %s", sPath.c_str());
+        //fileStream << "Scene," << itLocal->first << "," << itRemote->first << std::endl;
+        //fileStream << "Time," << rLocalStat.time  << "," << rRemoteStat.time << std::endl;
+        //fileStream << "Interactions," << rLocalStat.nbInteractions << "," << rRemoteStat.nbInteractions << std::endl;
+        //fileStream << "Touches," << rLocalStat.nbTouches << "," << rRemoteStat.nbTouches << std::endl;
+        //fileStream << "Moves," << rLocalStat.nbMoves << "," << rRemoteStat.nbMoves << std::endl;
+        //fileStream << "ValidTouches," << rLocalStat.nbValidTouches << "," << rRemoteStat.nbValidTouches << std::endl;
+        //fileStream << "ValidDrops," << rLocalStat.nbValidDrops << "," << rRemoteStat.nbValidDrops << std::endl;
+        //fileStream << "InvalidDrops," << rLocalStat.nbInvalidDrops << "," << rRemoteStat.nbInvalidDrops << std::endl;
+        //fileStream << "ValidAnswers," << rLocalStat.nbValidAnswers << "," << rRemoteStat.nbValidAnswers << std::endl;
+        //fileStream << "InvalidAnswers," << rLocalStat.nbInvalidAnswers << "," << rRemoteStat.nbInvalidAnswers << std::endl;
 
-	//bool bWriteSuccess = CCFileUtils::getInstance()->writeStringToFile(fileStream.str(), sPath);
+    }
 
-	//if (bWriteSuccess)
-	//{
-	//	CCLOG("[LUDO_STATS] Stats were successfully written to %s", sPath.c_str());
-	//}
-	//else
-	//{
-	//	CCLOG("[LUDO_STATS] Error while writing stats. Stats could not be written");
-	//}
+    fileStream << std::endl;
 
-	//CCLOG("%s", fileStream.str().c_str());
 
-	//FILE* statsFile = fopen(sPath.c_str(), "wb");
-	//if (statsFile != NULL)
-	//{
-	//	const std::string sData = fileStream.str();
-	//	const char* pData = sData.c_str();
-	//	fputs(pData, statsFile);
+    //std::string sPath = CCFileUtils::getInstance()->getWritablePath() + "stats.csv";
+    //
+    //CCLOG("[LUDO_STATS] trying to write stats to file : %s", sPath.c_str());
 
-	//	int iError = ferror(statsFile);
-	//	if (iError == 0)
-	//	{
-	//		CCLOG("[LUDO_STATS] Stats were successfully written to %s", sPath.c_str());
-	//	}
-	//	else
-	//	{
-	//		CCLOG("[LUDO_STATS] stats could not be written to file. write failed with error code : %d", iError);
-	//	}
+    //bool bWriteSuccess = CCFileUtils::getInstance()->writeStringToFile(fileStream.str(), sPath);
 
-	//}
-	//else
-	//{
-	//	CCLOG("File could not be open");
-	//}
-	//fflush(statsFile);
-	//fclose(statsFile);
+    //if (bWriteSuccess)
+    //{
+    //	CCLOG("[LUDO_STATS] Stats were successfully written to %s", sPath.c_str());
+    //}
+    //else
+    //{
+    //	CCLOG("[LUDO_STATS] Error while writing stats. Stats could not be written");
+    //}
 
-	CCLOG("[LUDO_STATS] end WriteStats");
+    //CCLOG("%s", fileStream.str().c_str());
+
+    //FILE* statsFile = fopen(sPath.c_str(), "wb");
+    //if (statsFile != NULL)
+    //{
+    //	const std::string sData = fileStream.str();
+    //	const char* pData = sData.c_str();
+    //	fputs(pData, statsFile);
+
+    //	int iError = ferror(statsFile);
+    //	if (iError == 0)
+    //	{
+    //		CCLOG("[LUDO_STATS] Stats were successfully written to %s", sPath.c_str());
+    //	}
+    //	else
+    //	{
+    //		CCLOG("[LUDO_STATS] stats could not be written to file. write failed with error code : %d", iError);
+    //	}
+
+    //}
+    //else
+    //{
+    //	CCLOG("File could not be open");
+    //}
+    //fflush(statsFile);
+    //fclose(statsFile);
+
+    CCLOG("[LUDO_STATS] end WriteStats");
 
 #ifdef __ANDROID__
-	CCLOG("[LUDO_STATS] calling jni saveStringToFile");
-	LmJniJavaFacade::saveStringToFile(fileStream.str());
+    CCLOG("[LUDO_STATS] calling jni saveStringToFile");
+    LmJniJavaFacade::saveStringToFile(fileStream.str());
 #endif // __ANDROID__
 
 #if defined _WIN32 | defined _WIN64
-	Director::getInstance()->end();
+    Director::getInstance()->end();
 #endif	// WINDOWS
 }
 
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
-	if (m_pCurrentScene->GetSceneID() == "screen-playerid")
-	{
-		if (!CheckPlayerInfo()) {
-			// TODO throw a toast at the user
-			
-			return;
-		}
-	}
+    if (m_pCurrentScene->GetSceneID() == "screen-playerid")
+    {
+        if (!CheckPlayerInfo()) {
+            // TODO throw a toast at the user
 
-	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+            return;
+        }
+    }
+
+    M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
-	CDispatchMessageVisitor oMessageVisitor("Validated");
-	oMessageVisitor.Traverse(m_pCurrentScene);
-	CTransitionVisitor oVisitor(this, true);
-	oVisitor.Traverse(m_pBehaviorTree);
-	
-	emit sendScene(m_pCurrentScene, true);
+    CDispatchMessageVisitor oMessageVisitor("Validated");
+    oMessageVisitor.Traverse(m_pCurrentScene);
+    CTransitionVisitor oVisitor(this, true);
+    oVisitor.Traverse(m_pBehaviorTree);
+
+    emit sendScene(m_pCurrentScene, true);
 }
 
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
-	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+    M_STATS->PushStats(m_pCurrentScene->GetSceneID());
   m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
   CTransitionVisitor oVisitor(this, false);
   oVisitor.Traverse(m_pBehaviorTree);
@@ -629,7 +628,7 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
-	M_STATS_SCREEN.nbInteractions++;
+    M_STATS_SCREEN.nbInteractions++;
 //    CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
 //    oVisistor.Traverse(m_pCurrentScene);
 
@@ -639,7 +638,7 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 //    this->m_oVisitor->SetTouch(a_pTouch);
     this->m_oVisitor->SetVisitor(a_pEvent, a_pTouch);
     this->m_oVisitor->Traverse(m_pCurrentScene);
-	return true;
+    return true;
 }
 
 bool CKernel::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
@@ -651,7 +650,7 @@ bool CKernel::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
         m_mTouchBeganVisitors.erase(a_pTouch->getID());
     }
 
-	return true;
+    return true;
 }
 
 bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
@@ -668,10 +667,10 @@ bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 
 void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("GotoScreenID : %s", a_oEvent.m_sStringValue.c_str());
+    CCLOG("GotoScreenID : %s", a_oEvent.m_sStringValue.c_str());
     m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
     CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
-	oVisitor.Traverse(m_pBehaviorTree);
+    oVisitor.Traverse(m_pBehaviorTree);
     emit sendScene(this->m_pCurrentScene, false);
 }
 
@@ -703,175 +702,175 @@ void CKernel::afterCaptured(bool succeed, const std::string& outputFile)
 
 void CKernel::ValidateScene(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("CKernel::ValidateScene");
-	CValidateSceneVisitor oVisitor(a_oEvent);
-	oVisitor.Traverse(m_pBehaviorTree);
-	CCLOG("Scene validated successfully");
+    CCLOG("CKernel::ValidateScene");
+    CValidateSceneVisitor oVisitor(a_oEvent);
+    oVisitor.Traverse(m_pBehaviorTree);
+    CCLOG("Scene validated successfully");
 }
 
 void CKernel::Validate(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	// find CValidator element in tree and validator->Validate(a_oEvent.m_sStringValue);
-	Desc<CNode> pNode;
-	CFindEntityFromTypeVisitor<CValidator> oVisitor(pNode);
-	oVisitor.Traverse(m_pBehaviorTree);
-	CCLOG("CKernel::Validate");
-	if (pNode.IsValid())
-	{
-		CValidator* pValidator = static_cast<CValidator*>(pNode.Get());
-		if (pValidator)
-		{
-			ON_CC_THREAD(CValidator::Validate, pValidator, a_oEvent.m_sStringValue);
-		}
-	}
+    // find CValidator element in tree and validator->Validate(a_oEvent.m_sStringValue);
+    Desc<CNode> pNode;
+    CFindEntityFromTypeVisitor<CValidator> oVisitor(pNode);
+    oVisitor.Traverse(m_pBehaviorTree);
+    CCLOG("CKernel::Validate");
+    if (pNode.IsValid())
+    {
+        CValidator* pValidator = static_cast<CValidator*>(pNode.Get());
+        if (pValidator)
+        {
+            ON_CC_THREAD(CValidator::Validate, pValidator, a_oEvent.m_sStringValue);
+        }
+    }
 }
 
 void CKernel::SetNodeVisible(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("CKernel::SetNodeVisible");
-	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
-	if (pEntity)
-	{
-		pEntity->Show(a_oEvent.m_bBoolValue);
-	}
+    CCLOG("CKernel::SetNodeVisible");
+    CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+    if (pEntity)
+    {
+        pEntity->Show(a_oEvent.m_bBoolValue);
+    }
 }
 
 void CKernel::FadeEntity(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 
-	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+    CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
 
-	if (pEntity)
-	{
-		pEntity->Fade();
-	}
+    if (pEntity)
+    {
+        pEntity->Fade();
+    }
 }
 
 void CKernel::SetPlayerID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
-	CheckPlayerInfo();
+    m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
+    CheckPlayerInfo();
 }
 
 void CKernel::SetPlayerName(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-	Desc<CNode> pNode;
-	CFindEntityFromIDVisitor oVisitor(pNode, a_rEvent.m_sStringValue);
-	oVisitor.Traverse(m_pBehaviorTree);
-	CEditBoxNode* pEntity = dynamic_cast<CEditBoxNode*>(pNode.Get());
-	if (pEntity)
-	{
-		cocos2d::ui::EditBox* pBox = dynamic_cast<cocos2d::ui::EditBox*>(pEntity->GetCocosEntity());
-		if (pBox)
-		{
-			m_pLocalPlayer->m_sName = pBox->getText();
-			CCLOG("Player name set to %s", m_pLocalPlayer->m_sName.c_str());
-		}
-	}
+    Desc<CNode> pNode;
+    CFindEntityFromIDVisitor oVisitor(pNode, a_rEvent.m_sStringValue);
+    oVisitor.Traverse(m_pBehaviorTree);
+    CEditBoxNode* pEntity = dynamic_cast<CEditBoxNode*>(pNode.Get());
+    if (pEntity)
+    {
+        cocos2d::ui::EditBox* pBox = dynamic_cast<cocos2d::ui::EditBox*>(pEntity->GetCocosEntity());
+        if (pBox)
+        {
+            m_pLocalPlayer->m_sName = pBox->getText();
+            CCLOG("Player name set to %s", m_pLocalPlayer->m_sName.c_str());
+        }
+    }
 }
 
 
 CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 {
-	Desc<CNode> pEntity;
-	CFindEntityTouchVisitor oVisitor(a_pTouch, pEntity, a_sEvent);
-	oVisitor.Traverse(m_pBehaviorTree);
-	return dynamic_cast<CEntityNode*>(pEntity.Get());
+    Desc<CNode> pEntity;
+    CFindEntityTouchVisitor oVisitor(a_pTouch, pEntity, a_sEvent);
+    oVisitor.Traverse(m_pBehaviorTree);
+    return dynamic_cast<CEntityNode*>(pEntity.Get());
 }
 
 
 void CKernel::SendNetworkMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("Sending message %s", a_oEvent.m_sStringValue.c_str());
+    CCLOG("Sending message %s", a_oEvent.m_sStringValue.c_str());
 //	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
 }
 
 void CKernel::LocalMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("processing Local message %s", a_oEvent.m_sStringValue.c_str());
-	ProcessMessage(a_oEvent.m_sStringValue);
+    CCLOG("processing Local message %s", a_oEvent.m_sStringValue.c_str());
+    ProcessMessage(a_oEvent.m_sStringValue);
 }
 
 
 
 void CKernel::ProcessMessage(const std::string& a_rMessage)
 {
-	std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
-	if (vSplittedMessage[0] == "kernel")
-	{
-		if (vSplittedMessage[1] == "waiting")
-		{
+    std::vector<std::string> vSplittedMessage = StringSplit(a_rMessage);
+    if (vSplittedMessage[0] == "kernel")
+    {
+        if (vSplittedMessage[1] == "waiting")
+        {
 
-			m_oSyncMutex.lock();
+            m_oSyncMutex.lock();
 
-			if (m_pLocalPlayer->m_bWaiting)
-			{
-				std::chrono::milliseconds oTimeSinceTransitionStarted = duration_cast<milliseconds>(
-					std::chrono::system_clock::now() - m_oSyncTransitionStart);
-				
+            if (m_pLocalPlayer->m_bWaiting)
+            {
+                std::chrono::milliseconds oTimeSinceTransitionStarted = duration_cast<milliseconds>(
+                    std::chrono::system_clock::now() - m_oSyncTransitionStart);
 
-				int iDelay = 600 - oTimeSinceTransitionStarted.count();
 
-				if (iDelay > 0)
-				{
+                int iDelay = 600 - oTimeSinceTransitionStarted.count();
+
+                if (iDelay > 0)
+                {
 #if defined __linux__ | defined TARGET_OS_MAC
-					usleep(iDelay * 1000);
+                    usleep(iDelay * 1000);
 #else
-					Sleep(iDelay);
+                    Sleep(iDelay);
 #endif
-				}
+                }
 
-				ON_CC_THREAD(CKernel::NavNext, this, nullptr, nullptr);
+                ON_CC_THREAD(CKernel::NavNext, this, nullptr, nullptr);
 
-			}
-			else
-			{
-				m_pDistantPlayer->m_bWaiting = true;
-			}
+            }
+            else
+            {
+                m_pDistantPlayer->m_bWaiting = true;
+            }
 
-			m_oSyncMutex.unlock();
-		}
+            m_oSyncMutex.unlock();
+        }
 
-		else if (vSplittedMessage[1] == "Validate")
-		{
-			ValidateScene(SEvent(), nullptr);
-		}
-	}
-	else if (vSplittedMessage[0] == "Dashboard")
-	{
-		CDispatchMessageVisitor oVisitor(a_rMessage);
-		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pDashboard);
-	}
-	else 
-	{
-		CDispatchMessageVisitor oVisitor(a_rMessage);
-		ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pBehaviorTree);
-	}
+        else if (vSplittedMessage[1] == "Validate")
+        {
+            ValidateScene(SEvent(), nullptr);
+        }
+    }
+    else if (vSplittedMessage[0] == "Dashboard")
+    {
+        CDispatchMessageVisitor oVisitor(a_rMessage);
+        ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pDashboard);
+    }
+    else
+    {
+        CDispatchMessageVisitor oVisitor(a_rMessage);
+        ON_CC_THREAD(CDispatchMessageVisitor::Traverse, oVisitor, m_pBehaviorTree);
+    }
 }
 
 void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 {
-	ProcessMessage(a_rMessage);
+    ProcessMessage(a_rMessage);
 }
 
 void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 {
-	switch (a_cEventID)
-	{
-	case M_USER_EVENT:
-		CCLOG("CKernel : On Receiving MSg");
-		a_rByteArray >> &m_pDistantPlayer;
-		CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
-		break;
-	case M_STATS_EVENT:
-		a_rByteArray >> &m_pRemoteStats;
-		m_pDistantPlayer->m_bGameEnded = true;
-		if (m_pLocalPlayer->m_bGameEnded && m_pDistantPlayer->m_bGameEnded)
-		{
-			WriteStats();
-		}
-		break;
-	}
+    switch (a_cEventID)
+    {
+    case M_USER_EVENT:
+        CCLOG("CKernel : On Receiving MSg");
+        a_rByteArray >> &m_pDistantPlayer;
+        CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
+        break;
+    case M_STATS_EVENT:
+        a_rByteArray >> &m_pRemoteStats;
+        m_pDistantPlayer->m_bGameEnded = true;
+        if (m_pLocalPlayer->m_bGameEnded && m_pDistantPlayer->m_bGameEnded)
+        {
+            WriteStats();
+        }
+        break;
+    }
 }
 
 void CKernel::GetPeers()
@@ -881,152 +880,152 @@ void CKernel::GetPeers()
 
 void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 {
-	CCLOG("peers : ");
-	for (const std::string& itString : a_vPeers)
-	{
-		CCLOG("found peer : %s", itString.c_str());
-	}
-	Desc<CNode> pEntity;
-	CFindEntityVisitor oVisitor(pEntity, "Peers");
-	oVisitor.Traverse(m_pBehaviorTree);
-	if (pEntity.IsValid())
-	{
-		CPeerNode* pPeerNode = static_cast<CPeerNode*>(pEntity.Get());
-		if (pPeerNode)
-		{
-			ON_CC_THREAD(CPeerNode::AddPeers, pPeerNode, a_vPeers);
-		}
-	}
+    CCLOG("peers : ");
+    for (const std::string& itString : a_vPeers)
+    {
+        CCLOG("found peer : %s", itString.c_str());
+    }
+    Desc<CNode> pEntity;
+    CFindEntityVisitor oVisitor(pEntity, "Peers");
+    oVisitor.Traverse(m_pBehaviorTree);
+    if (pEntity.IsValid())
+    {
+        CPeerNode* pPeerNode = static_cast<CPeerNode*>(pEntity.Get());
+        if (pPeerNode)
+        {
+            ON_CC_THREAD(CPeerNode::AddPeers, pPeerNode, a_vPeers);
+        }
+    }
 }
 
 void CKernel::Connect(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
-	if (pEntity)
-	{
-		Desc<CNode> pLabelDesc;
-		CFindEntityVisitor oVisitor(pLabelDesc, "GetText");
-		oVisitor.Traverse(pEntity);
-		if (pLabelDesc.IsValid())
-		{
-			CEntityNode* pLabelEntity = dynamic_cast<CEntityNode*>(pLabelDesc.Get());
-			if (pLabelEntity) {
-				Label* pLabel = dynamic_cast<Label*>(pLabelEntity->GetCocosEntity());
-				if (pLabel)
-				{
+    CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+    if (pEntity)
+    {
+        Desc<CNode> pLabelDesc;
+        CFindEntityVisitor oVisitor(pLabelDesc, "GetText");
+        oVisitor.Traverse(pEntity);
+        if (pLabelDesc.IsValid())
+        {
+            CEntityNode* pLabelEntity = dynamic_cast<CEntityNode*>(pLabelDesc.Get());
+            if (pLabelEntity) {
+                Label* pLabel = dynamic_cast<Label*>(pLabelEntity->GetCocosEntity());
+                if (pLabel)
+                {
 //					m_pNetworkManager->ConnectTo(pLabel->getString());
 //					m_pNetworkManager->Send("connection:establish");
-				}
-			}
-		}
-	}
+                }
+            }
+        }
+    }
 }
 
 void CKernel::DisableEvent(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-	// string value should be build : "targetID:Event"
-	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
-	if (vArgs.size() > 1) {
-		Desc<CNode> pNode;
-		CFindEntityFromIDVisitor oVisitor(pNode, vArgs[0]);
-		oVisitor.Traverse(m_pBehaviorTree);
-		if (pNode.IsValid())
-		{
-			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(pNode.Get());
-			if (pEntity)
-				pEntity->DisableEvent(vArgs[1]);
-		}
-	}
+    // string value should be build : "targetID:Event"
+    std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
+    if (vArgs.size() > 1) {
+        Desc<CNode> pNode;
+        CFindEntityFromIDVisitor oVisitor(pNode, vArgs[0]);
+        oVisitor.Traverse(m_pBehaviorTree);
+        if (pNode.IsValid())
+        {
+            CEntityNode* pEntity = dynamic_cast<CEntityNode*>(pNode.Get());
+            if (pEntity)
+                pEntity->DisableEvent(vArgs[1]);
+        }
+    }
 }
 
 
 void CKernel::EnableEvent(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-	std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
-	if (vArgs.size() > 1)
-	{
-		Desc<CNode> pNode;
-		CFindEntityFromIDVisitor oVisitor(pNode, vArgs[0]);
-		oVisitor.Traverse(m_pBehaviorTree);
-		if (pNode.IsValid())
-		{
-			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(pNode.Get());
-			if (pEntity)
-				pEntity->EnableEvent(vArgs[1]);
-		}
-	}
+    std::vector<std::string> vArgs = StringSplit(a_rEvent.m_sStringValue);
+    if (vArgs.size() > 1)
+    {
+        Desc<CNode> pNode;
+        CFindEntityFromIDVisitor oVisitor(pNode, vArgs[0]);
+        oVisitor.Traverse(m_pBehaviorTree);
+        if (pNode.IsValid())
+        {
+            CEntityNode* pEntity = dynamic_cast<CEntityNode*>(pNode.Get());
+            if (pEntity)
+                pEntity->EnableEvent(vArgs[1]);
+        }
+    }
 }
 
 
 void CKernel::AnchorEntityCallback(SEvent a_rEvent, CEntityNode* a_pAnchoredEntity)
 {
-	std::string sExpectedID = a_rEvent.m_sStringValue;
-	std::vector<std::string> vExpectedIDs = StringSplit(sExpectedID);
-	std::vector<std::string>::iterator it;
-	it = std::find(vExpectedIDs.begin(), vExpectedIDs.end(), a_pAnchoredEntity->GetID());
-	CCLOG("AnchorEntity callback : %s", sExpectedID.c_str());
-	CEntityNode* pAnchorEntity = dynamic_cast<CEntityNode*>(a_rEvent.m_pSender);
-	if (pAnchorEntity)
-	{
-		CCLOG("pAnchoredEntity ID : %s", a_pAnchoredEntity->GetID().c_str());
-		CCLOG("expected ID : %s", sExpectedID.c_str());
-		if (a_pAnchoredEntity && it != vExpectedIDs.end())
-		{
-			AnchorEntity(pAnchorEntity, a_pAnchoredEntity);
-			a_pAnchoredEntity->Dispatch("Anchored");
-		}
-		else {
-			// put entity back
-			CCLOG("put anchored entity back");
-			auto dispatchMessage = CallFunc::create([a_pAnchoredEntity]() {
-				CEntityNode::Release(a_pAnchoredEntity);
-				a_pAnchoredEntity->Dispatch("AnchoredFailed");
-			});
+    std::string sExpectedID = a_rEvent.m_sStringValue;
+    std::vector<std::string> vExpectedIDs = StringSplit(sExpectedID);
+    std::vector<std::string>::iterator it;
+    it = std::find(vExpectedIDs.begin(), vExpectedIDs.end(), a_pAnchoredEntity->GetID());
+    CCLOG("AnchorEntity callback : %s", sExpectedID.c_str());
+    CEntityNode* pAnchorEntity = dynamic_cast<CEntityNode*>(a_rEvent.m_pSender);
+    if (pAnchorEntity)
+    {
+        CCLOG("pAnchoredEntity ID : %s", a_pAnchoredEntity->GetID().c_str());
+        CCLOG("expected ID : %s", sExpectedID.c_str());
+        if (a_pAnchoredEntity && it != vExpectedIDs.end())
+        {
+            AnchorEntity(pAnchorEntity, a_pAnchoredEntity);
+            a_pAnchoredEntity->Dispatch("Anchored");
+        }
+        else {
+            // put entity back
+            CCLOG("put anchored entity back");
+            auto dispatchMessage = CallFunc::create([a_pAnchoredEntity]() {
+                CEntityNode::Release(a_pAnchoredEntity);
+                a_pAnchoredEntity->Dispatch("AnchoredFailed");
+            });
 
-			auto revert = CallFunc::create([a_pAnchoredEntity]() {
-				a_pAnchoredEntity->Revert();
-			});
+            auto revert = CallFunc::create([a_pAnchoredEntity]() {
+                a_pAnchoredEntity->Revert();
+            });
 
-			auto oSequence = Sequence::create(dispatchMessage, revert, nullptr);
+            auto oSequence = Sequence::create(dispatchMessage, revert, nullptr);
 
-			a_pAnchoredEntity->GetCocosEntity()->runAction(oSequence);
-		}
-	}
+            a_pAnchoredEntity->GetCocosEntity()->runAction(oSequence);
+        }
+    }
 }
 
 void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity)
 {
-	CCLOG("Tests passed");
-	Node* pAnchor = a_pAnchorEntity->GetCocosEntity();
-	Node* pAnchored = a_pAnchoredEntity->GetCocosEntity();
+    CCLOG("Tests passed");
+    Node* pAnchor = a_pAnchorEntity->GetCocosEntity();
+    Node* pAnchored = a_pAnchoredEntity->GetCocosEntity();
 
-	Vec2 oAnchorPoint = pAnchor->getAnchorPoint();
-	pAnchor->setAnchorPoint(Vec2(0.5f, 0.5f));
-	Vec2 oLocation = pAnchor->getPosition();
-	pAnchor->setAnchorPoint(oAnchorPoint);
+    Vec2 oAnchorPoint = pAnchor->getAnchorPoint();
+    pAnchor->setAnchorPoint(Vec2(0.5f, 0.5f));
+    Vec2 oLocation = pAnchor->getPosition();
+    pAnchor->setAnchorPoint(oAnchorPoint);
 
-	pAnchored->setAnchorPoint(Vec2(0.5f, 0.5f));
-	pAnchored->setPosition(oLocation);
-
-
-	float fOldWidth = pAnchored->getBoundingBox().getMaxX() - pAnchored->getBoundingBox().getMinX();
-	float fNewWidth = pAnchor->getBoundingBox().getMaxX() - pAnchor->getBoundingBox().getMinX();
-	float fNewScale = fNewWidth / fOldWidth;
+    pAnchored->setAnchorPoint(Vec2(0.5f, 0.5f));
+    pAnchored->setPosition(oLocation);
 
 
-	auto oScaleBy = ScaleBy::create(0.25, fNewScale);
-	pAnchored->runAction(oScaleBy);
+    float fOldWidth = pAnchored->getBoundingBox().getMaxX() - pAnchored->getBoundingBox().getMinX();
+    float fNewWidth = pAnchor->getBoundingBox().getMaxX() - pAnchor->getBoundingBox().getMinX();
+    float fNewScale = fNewWidth / fOldWidth;
 
 
-	for (CNode* itNode : *a_pAnchoredEntity)
-	{
-		CCLOG("Child node");
-		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-		if (pEntity)
-		{
-			AnchorEntity(a_pAnchorEntity, pEntity);
-		}
-	}
+    auto oScaleBy = ScaleBy::create(0.25, fNewScale);
+    pAnchored->runAction(oScaleBy);
+
+
+    for (CNode* itNode : *a_pAnchoredEntity)
+    {
+        CCLOG("Child node");
+        CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+        if (pEntity)
+        {
+            AnchorEntity(a_pAnchorEntity, pEntity);
+        }
+    }
 
 }
 
@@ -1034,18 +1033,18 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 
 void CKernel::PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-	m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
+    m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
 }
 
 
 void CKernel::SetText(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-	CCLOG("CKernel::SetText");
-	CLabelNode* pLabel = dynamic_cast<CLabelNode*>(a_rEvent.m_pSender);
-	if (pLabel)
-	{
-		ON_CC_THREAD(CLabelNode::SetText, pLabel, a_rEvent.m_sStringValue);
-	}
+    CCLOG("CKernel::SetText");
+    CLabelNode* pLabel = dynamic_cast<CLabelNode*>(a_rEvent.m_pSender);
+    if (pLabel)
+    {
+        ON_CC_THREAD(CLabelNode::SetText, pLabel, a_rEvent.m_sStringValue);
+    }
 }
 
 
@@ -1058,50 +1057,7 @@ void CKernel::RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget)
 
 void CKernel::LogMessage(const std::string& a_sMessage)
 {
-	CCLOG("Kernel message : %s", a_sMessage.c_str());
-}
-
-void CKernel::onMousePressed(QMouseEvent* event)
-{
-    qDebug() << QString("Slot calld");
-    Touch *pTouch = new Touch();
-    pTouch->setTouchInfo(event->buttons(), event->x(), event->y());
-    Event *pEvent = new Event(Event::Type::MOUSE);
-    M_STATS_SCREEN.nbInteractions++;
-//    CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
-//    oVisistor.Traverse(m_pCurrentScene);
-
-//    m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
-    qDebug("OnTouchBegan");
-//    this->m_oVisitor->SetEvent(a_pEvent);
-//    this->m_oVisitor->SetTouch(a_pTouch);
-    this->m_oVisitor->SetVisitor(pEvent, pTouch);
-    this->m_oVisitor->Traverse(m_pCurrentScene);
-}
-
-void CKernel::onMouseReleased(QMouseEvent* event)
-{
-    Touch *pTouch = new Touch();
-    pTouch->setTouchInfo(event->buttons(), event->x(), event->y());
-    Event *pEvent = new Event(Event::Type::MOUSE);
-    std::map<int, CTouchBeganVisitor>::iterator itVisitor = m_mTouchBeganVisitors.find(pTouch->getID());
-    if(itVisitor != m_mTouchBeganVisitors.end())
-    {
-        itVisitor->second.OnTouchEnd(pTouch, pEvent);
-        m_mTouchBeganVisitors.erase(pTouch->getID());
-    }
-}
-
-void CKernel::onMouseMoved(QMouseEvent* event)
-{
-    Touch *pTouch = new Touch();
-    pTouch->setTouchInfo(event->buttons(), event->x(), event->y());
-    Event *pEvent = new Event(Event::Type::MOUSE);
-    std::map<int, CTouchBeganVisitor>::iterator itVisitor = m_mTouchBeganVisitors.find(pTouch->getID());
-    if(itVisitor != m_mTouchBeganVisitors.end())
-    {
-        itVisitor->second.OnTouchMove(pTouch, pEvent);
-    }
+    CCLOG("Kernel message : %s", a_sMessage.c_str());
 }
 
 } // namespace LM
