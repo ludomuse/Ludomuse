@@ -4,6 +4,7 @@
 #include "../Include/CMenuNode.h"
 #include "../Include/CInfoNode.h"
 #include "../Include/CValidator.h"
+#include "../Include/CKernel.h"
 
 #include <QDebug>
 using namespace cocos2d;
@@ -90,9 +91,10 @@ bool CSceneNode::init()
   
   CNode::Init();
 
+#ifndef LUDOMUSE_EDITOR
   if (m_bDebugMode && m_sID != "none")
 	  DisplayDebugInfo();
-
+#endif
 
   return true;
 
@@ -122,7 +124,7 @@ void CSceneNode::DisplayDebugInfo()
 	Label* pLabel = Label::createWithTTF(m_sID, "fonts/arial.ttf", 12);
 
 	Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
-	Size oVisibleSize = Director::getInstance()->getVisibleSize();
+    cocos2d::Size oVisibleSize = Director::getInstance()->getVisibleSize();
 
 	pLabel->setAlignment(TextHAlignment::LEFT);
 	pLabel->setAnchorPoint(Vec2(0, 1));

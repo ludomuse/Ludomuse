@@ -142,7 +142,7 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 
 	// Size oVisibleSize = Director::getInstance()->getVisibleSize();
 	// Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
-  Size oVisibleSize = GetParentVisibleSize();
+  cocos2d::Size oVisibleSize = GetParentVisibleSize();
   Vec2 oOrigin = GetParentOrigin();
 	
 	switch (m_eAnchor)
@@ -253,7 +253,7 @@ CSceneNode* CEntityNode::GetParentSceneNode()
     }
 }
 
-Size CEntityNode::GetParentVisibleSize()
+cocos2d::Size CEntityNode::GetParentVisibleSize()
 {
 
   CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
@@ -278,17 +278,17 @@ Vec2 CEntityNode::GetParentOrigin()
 }
 
 
-Size CEntityNode::GetVisibleSize()
+cocos2d::Size CEntityNode::GetVisibleSize()
 {
 	//return m_pCocosEntity->getContentSize();
-	Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
-	return Size(oBoundingBox.getMaxX() - oBoundingBox.getMinX(),
+    cocos2d::Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
+    return cocos2d::Size(oBoundingBox.getMaxX() - oBoundingBox.getMinX(),
 		oBoundingBox.getMaxY() - oBoundingBox.getMinY());
 }
 
 Vec2 CEntityNode::GetOrigin()
 {
-	Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
+    cocos2d::Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
 	return Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
 }
 

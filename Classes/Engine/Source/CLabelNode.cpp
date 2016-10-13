@@ -38,7 +38,7 @@ void CLabelNode::Init()
   PopulateParent(false);
   
   // Size oVisibleSize = Director::getInstance()->getVisibleSize();
-  Size oVisibleSize = GetParentVisibleSize();
+  cocos2d::Size oVisibleSize = GetParentVisibleSize();
 
   if (m_sTextAlign == "left")
   {

@@ -22,6 +22,9 @@
 #include <QObject>
 #include <QWidget>
 
+#define LUDOMUSE_EDITOR
+
+
 namespace LM 
 {
 

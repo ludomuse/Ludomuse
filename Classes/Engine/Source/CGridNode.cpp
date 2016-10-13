@@ -32,10 +32,10 @@ namespace LM
 	}
 
 
-Size CGridNode::GetVisibleSize()
+cocos2d::Size CGridNode::GetVisibleSize()
 {
-	Size oGridSize = CEntityNode::GetVisibleSize();
-	return Size(oGridSize.width / m_iCols, oGridSize.height / m_iRows);
+    cocos2d::Size oGridSize = CEntityNode::GetVisibleSize();
+    return cocos2d::Size(oGridSize.width / m_iCols, oGridSize.height / m_iRows);
 }
 
 Vec2 CGridNode::GetOrigin()
