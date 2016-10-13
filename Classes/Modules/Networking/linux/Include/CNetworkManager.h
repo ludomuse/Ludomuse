@@ -3,6 +3,20 @@
 
 #include "../../../../Engine/Include/CKernel.h"
 
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h> /* close */
+#include <netdb.h> /* gethostbyname */
+#define INVALID_SOCKET -1
+#define SOCKET_ERROR -1
+#define closesocket(s) close(s)
+typedef int SOCKET;
+typedef char byte;
+typedef struct sockaddr_in SOCKADDR_IN;
+typedef struct sockaddr SOCKADDR;
+typedef struct in_addr IN_ADDR;
 
 
 namespace LM
@@ -13,14 +27,14 @@ class CNetworkManager
 
  public:
   CKernel* m_pKernel;
-  // SOCKET ConnectSocket;
-  // SOCKET ClientSocket;
-  // SOCKET ListenSocket;
+  SOCKET ConnectSocket;
+  SOCKET ClientSocket;
+  SOCKET ListenSocket;
 
   bool m_bIsServer;
 
-  // struct addrinfo *ptr;
-  // struct addrinfo *result;
+  struct addrinfo *ptr;
+  struct addrinfo *result;
 
  public:
 

@@ -124,7 +124,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		}
 
 		if (rParams.HasMember("sound"))
-            oValidator->SetSound( m_sBasePath + rParams["sound"].GetString());
+            oValidator->SetSound( rParams["sound"].GetString());
 
 		a_pNode->AddChildNode(oValidator);
 	}

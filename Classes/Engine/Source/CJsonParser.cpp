@@ -16,6 +16,12 @@ CJsonParser::CJsonParser(CKernel* a_pKernel) : m_pKernel(a_pKernel)
 
 }
 
+
+std::string CJsonParser::GetBasePath()
+{
+	return m_sBasePath;
+}
+
 void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename)
 {
 

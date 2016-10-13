@@ -13,9 +13,8 @@ class CSoundManager
 {
 private:
 	CKernel* m_pKernel;
-
-public:
 	std::string m_sPlayingSoundURL;
+	std::mutex m_oPlayingSoundMutex;
   
  public:
   CSoundManager(CKernel* a_pKernel);
@@ -23,6 +22,16 @@ public:
   void PreloadSound(const std::string& a_rSoundURL);
   void PauseSound();
   void EndSound(const std::string& a_rSoundURL);
+
+  std::string GetSoundURL();
+  void SetSoundURL(const std::string& a_sNewSound);
+};
+
+
+struct SSoundEndedObject
+{
+	std::string sSoundURL;
+	CSoundManager* pSoundManager;
 };
 
 } // namespace LM

@@ -146,6 +146,8 @@ public:
   void OnGettingPeers(const std::vector<std::string>& a_vPeers);
 
 
+  void OnSoundEnded(const std::string& a_rSoundURL);
+
 private:
 	void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
 	void ProcessMessage(const std::string& a_rMessage);
