@@ -223,6 +223,9 @@ void CNetworkManager::Send(const char* buff, size_t size)
 {
   std::cout << "send message " << buff << std::endl;
   //m_pKernel->OnReceivingMessage(s);
+  char* sendBuff = new char[size + 1];
+  *sendBuff = size;
+  memcpy(sendBuff+1, buff, size);
 
   if (m_bIsServer) // Server : use ClientSocket
   {

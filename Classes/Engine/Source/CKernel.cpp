@@ -555,6 +555,7 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 
 void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 {
+  CCLOG("Message received : %s", a_rMessage.c_str());
 	ProcessMessage(a_rMessage);
 }
 

@@ -25,24 +25,27 @@ void CValidator::AddID(const std::string& a_sID)
 
 void CValidator::Validate(const std::string& a_sID)
 {
-	int iOldSize = m_oIDs.size();
+  int iOldSize = m_oIDs.size();
   std::set<std::string>::iterator itID = m_oIDs.find(a_sID);
   if (itID != m_oIDs.end())
   {
+    CCLOG("validating id : %s", (*itID).c_str());
     m_oIDs.erase(itID);
 
-	M_STATS_SCREEN.nbValidAnswers++;
+    M_STATS_SCREEN.nbValidAnswers++;
   }
   else
   {
-	  M_STATS_SCREEN.nbInvalidAnswers++;
+    M_STATS_SCREEN.nbInvalidAnswers++;
   }
 
 
   if (m_oIDs.size() == 0 && iOldSize > m_oIDs.size())
   {
+    CCLOG("Validate scene");
 	m_pKernel->ValidateScene(SEvent(), nullptr);
-	m_pKernel->SendNetworkMessage("kernel:Validate");
+        // TODO : quick hack, fix linux and maybe windows stack for better solution
+	// m_pKernel->SendNetworkMessage("kernel:Validate");
 
 	if (m_sSound != "")
 		m_pKernel->m_pSoundManager->PlaySound(m_sSound);
