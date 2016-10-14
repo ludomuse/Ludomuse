@@ -2,7 +2,7 @@
 #define _NETWORKING_H_
 
 #ifdef TARGET_OS_MAC
-#include "./osx/Include/CNetworkManager.h"
+#include "./linux/Include/CNetworkManager.h"
 #elif defined __ANDROID__
 #include "./android/Include/CNetworkManager.h"
 #elif defined __linux__
