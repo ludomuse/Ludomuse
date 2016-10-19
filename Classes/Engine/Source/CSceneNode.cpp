@@ -98,7 +98,7 @@ void CSceneNode::DisplayDebugInfo()
 
 
 	// TODO : add "quick travel" box
-	m_pQuickBox = ui::EditBox::create(Size(oVisibleSize.width / 2.0f,
+    m_pQuickBox = ui::EditBox::create(cocos2d::Size(oVisibleSize.width / 2.0f,
 		oVisibleSize.height / 5.0f),
 		ui::Scale9Sprite::create("ui/textfieldBackground.png"));
 	m_pQuickBox->setFont("fonts/arial.ttf", 40);
