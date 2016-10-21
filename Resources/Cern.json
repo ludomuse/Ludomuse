@@ -8901,13 +8901,6 @@
                             "action": "next",
                             "listeners": [
                                 {
-                                    "type": "DistValidate",
-                                    "params": {
-                                        "callback": "Validate",
-                                        "arg": "distant"
-                                    }
-                                },
-                                {
                                     "type": "Validate",
                                     "params": {
                                         "callback": "Show",
@@ -9252,7 +9245,7 @@
                                     "type": "Validate",
                                     "params": {
                                         "callback": "SendMessage",
-                                        "arg": "screen-2-e-player:DistValidate"
+                                        "arg": "kernel:Validate"
                                     }
                                 }
                             ],
