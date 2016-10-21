@@ -86,6 +86,13 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			x, y);
 	}
 
+	else if (sType == "Video")
+	{
+		pEntity = new CVideoNode(m_sBasePath + rParams["source"].GetString(),
+			IntToAnchor(rParams["anchor"].GetInt()),
+				width, height, x, y);
+	}
+
 
 	else if (sType == "Input")
 	{

@@ -28,6 +28,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CEntityNode.cpp \
                    ../../Classes/Engine/Source/CLabelNode.cpp \
                    ../../Classes/Engine/Source/CSpriteNode.cpp \
+                   ../../Classes/Engine/Source/CVideoNode.cpp \
                    ../../Classes/Engine/Source/CMenuNode.cpp \
                    ../../Classes/Engine/Source/CEditBoxNode.cpp \
                    ../../Classes/Engine/Source/CValidator.cpp \
@@ -50,6 +51,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Modules/Networking/android/Source/LmJniCppFacade.cpp \
                    ../../Classes/Modules/Util/Source/Util.cpp \
                    ../../Classes/Modules/Util/Source/CStats.cpp \
+
 
 
 
