@@ -28,6 +28,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CEntityNode.cpp \
                    ../../Classes/Engine/Source/CLabelNode.cpp \
                    ../../Classes/Engine/Source/CSpriteNode.cpp \
+                   ../../Classes/Engine/Source/CVideoNode.cpp \
                    ../../Classes/Engine/Source/CMenuNode.cpp \
                    ../../Classes/Engine/Source/CEditBoxNode.cpp \
                    ../../Classes/Engine/Source/CValidator.cpp \
