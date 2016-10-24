@@ -20,6 +20,8 @@ import android.app.ProgressDialog;
 import android.view.KeyEvent;
 import android.os.AsyncTask;
 import android.util.Log;
+
+import java.io.FileInputStream;
 import java.util.Calendar;
 import android.content.DialogInterface;
 import com.IHMTEK.LudoMuse.R;
@@ -100,16 +102,16 @@ public class CameraActivity extends Activity implements OnClickListener {
         
         String maskPath = getIntent().getStringExtra("maskPath");
         try {
-    		URL url = getClass().getResource("/assets/" + maskPath);
+    		//URL url = getClass().getResource("/assets/" + maskPath);
+            File file = new File(maskPath);
     		
 //    		String path = getFilesDir().getAbsolutePath() + "/assets/" + maskPath;
 //			URL url = new URL(path);
-			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//			Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            FileInputStream stream = new FileInputStream(file);
+            Bitmap bmp = BitmapFactory.decodeStream(stream);
 	        imageView = (ImageView) findViewById(R.id.imageView);
 	        imageView.setImageBitmap(bmp);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
