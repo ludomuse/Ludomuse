@@ -96,15 +96,15 @@ void CSceneNode::DisplayDebugInfo()
 
 
 
-    // TODO : add "quick travel" box
-    m_pQuickBox = ui::EditBox::create(Size(oVisibleSize.width / 2.0f,
-                                           oVisibleSize.height / 5.0f),
-                                      ui::Scale9Sprite::create("ui/textfieldBackground.png"));
-    m_pQuickBox->setFont("fonts/arial.ttf", 40);
-    m_pQuickBox->setFontColor(Color3B::BLACK);
-    m_pQuickBox->setMaxLength(50);
-    m_pQuickBox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);
-    m_pQuickBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);
+	// TODO : add "quick travel" box
+    m_pQuickBox = ui::EditBox::create(cocos2d::Size(oVisibleSize.width / 2.0f,
+		oVisibleSize.height / 5.0f),
+		ui::Scale9Sprite::create("ui/textfieldBackground.png"));
+	m_pQuickBox->setFont("fonts/arial.ttf", 40);
+	m_pQuickBox->setFontColor(Color3B::BLACK);
+	m_pQuickBox->setMaxLength(50);
+	m_pQuickBox->setReturnType(ui::EditBox::KeyboardReturnType::DONE);
+	m_pQuickBox->setInputMode(ui::EditBox::InputMode::SINGLE_LINE);
 
     m_pQuickBox->setAnchorPoint(Vec2(0, 1));
     m_pQuickBox->setPosition(Vec2(oOrigin.x, oOrigin.y + oVisibleSize.height/2.0f));
