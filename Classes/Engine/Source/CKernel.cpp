@@ -1,3 +1,5 @@
+#include "functional"
+
 #include "../Include/CKernel.h"
 #include "../Include/CSequenceNode.h"
 #include "../Include/CSceneNode.h"
@@ -22,8 +24,11 @@
 
 #include "ui/CocosGUI.h"
 
+#include <iostream>
+#include <vector>
 #include <fstream>
 #include <QDebug>
+#include <QString>
 #include <QDir>
 #include <QMouseEvent>
 #ifdef __ANDROID__
@@ -50,28 +55,28 @@ using namespace cocos2d;
 namespace LM
 {
 
-    CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
-        m_pJsonParser(new CJsonParser(this)),
-        m_bIsServer(a_bIsServer),
-        //m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
-        m_pSoundManager(new CSoundManager(this)),
-        m_pBehaviorTree(new CSequenceNode()),
-        m_bDebugMode(false),
-        m_pLocalPlayer(new SUser()),
-        m_pDistantPlayer(new SUser()),
-        m_pDashboard(nullptr),
-        m_pCurrentScene(nullptr),
-        m_pWaitingScene(nullptr),
-        m_pRemoteStats(nullptr)
-    {
-  // the BehaviorTree member of the kernel
-  // is a pointer to the root node of the tree
+CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
+    m_pJsonParser(new CJsonParser(this)),
+    m_bIsServer(a_bIsServer),
+    //m_pNetworkManager(new CNetworkManager(this, a_bIsServer)),
+    m_pSoundManager(new CSoundManager(this)),
+    m_pBehaviorTree(new CSequenceNode()),
+    m_bDebugMode(false),
+    m_pLocalPlayer(new SUser()),
+    m_pDistantPlayer(new SUser()),
+    m_pDashboard(nullptr),
+    m_pCurrentScene(nullptr),
+    m_pWaitingScene(nullptr),
+    m_pRemoteStats(nullptr)
+{
+    // the BehaviorTree member of the kernel
+    // is a pointer to the root node of the tree
 
     // build the waiting scene
-	// TODO : remove hardcoded waiting scene
-	m_pWaitingScene = new CSceneNode("WaitingScene", this);
+    // TODO : remove hardcoded waiting scene
+    m_pWaitingScene = new CSceneNode("WaitingScene", this);
     CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
-        EAnchor::CENTER, 100, 100, 0, 0);
+                                                     EAnchor::CENTER, 100, 100, 0, 0);
 
     m_pWaitingScene->AddChildNode(pBackgroundSprite);
 }
@@ -90,7 +95,7 @@ CKernel::~CKernel()
 
 CNode* CKernel::GetBehaviorTree()
 {
-  return m_pBehaviorTree;
+    return m_pBehaviorTree;
 }
 
 
@@ -121,7 +126,7 @@ std::string CKernel::ToJson(){
 
     rapidjson::PrettyWriter<rapidjson::StringBuffer> writer(s);
 
-//    rapidjson::Writer<rapidjson::StringBuffer> writer(s);
+    //    rapidjson::Writer<rapidjson::StringBuffer> writer(s);
 
     qDebug()<<"Lancement de la traduction vers Json";
 
@@ -172,12 +177,12 @@ void CKernel::ScenesToJson(rapidjson::Value& a_rParent, rapidjson::Document::All
     for (itSceneIDP1 = m_mScenesID[0].begin(); itSceneIDP1 != m_mScenesID[0].end(); ++itSceneIDP1)
     {
         if(itSceneIDP1->compare(""))
-        player1IDs.PushBack(rapidjson::Value(itSceneIDP1->c_str(), itSceneIDP1->length()), a_rAllocator);
+            player1IDs.PushBack(rapidjson::Value(itSceneIDP1->c_str(), itSceneIDP1->length()), a_rAllocator);
     }
     for (itSceneIDP2 = m_mScenesID[1].begin(); itSceneIDP2 != m_mScenesID[1].end(); ++itSceneIDP2)
     {
         if(itSceneIDP2->compare(""))
-        player2IDs.PushBack(rapidjson::Value(itSceneIDP2->c_str(), itSceneIDP2->length()), a_rAllocator);
+            player2IDs.PushBack(rapidjson::Value(itSceneIDP2->c_str(), itSceneIDP2->length()), a_rAllocator);
     }
     a_rParent.PushBack(player1IDs, a_rAllocator);
     a_rParent.PushBack(player2IDs, a_rAllocator);
@@ -188,13 +193,15 @@ void CKernel::ScreensToJson(rapidjson::Value& a_rParent, rapidjson::Document::Al
     this->m_pBehaviorTree->ToJson(a_rParent, a_rAllocator);
 }
 
-void CKernel::RemoveIDFromPlayer(const std::string &a_sSceneID, int a_iPlayerID)
+bool CKernel::RemoveIDFromPlayer(const std::string &a_sSceneID, int a_iPlayerID)
 {
     int index = find(this->m_mScenesID[a_iPlayerID].begin(), this->m_mScenesID[a_iPlayerID].end(), a_sSceneID) - this->m_mScenesID[a_iPlayerID].begin();
     if(index < m_mScenesID[a_iPlayerID].size())
     {
         this->m_mScenesID[a_iPlayerID].erase(this->m_mScenesID[a_iPlayerID].begin() + index);
+        return true;
     }
+    return false;
 }
 
 void CKernel::FullfillSyncedScenes()
@@ -246,7 +253,7 @@ void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, co
         if(currentString == a_rPreviousID)
         {
             int pos = find(m_mScenesID[a_iPlayerID].begin(), m_mScenesID[a_iPlayerID].end(), currentString) - m_mScenesID[a_iPlayerID].begin();
-//            qDebug()<<"Found id at index :"<<pos;
+            //            qDebug()<<"Found id at index :"<<pos;
             m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin() + pos + 1, a_rSceneID);
             break;
         }
@@ -293,15 +300,20 @@ void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string&
     }
 
     // Adding the new scene at the right place
-    if(a_sPreviousID.empty()) // Adding scene at the end
+    if(a_sPreviousID.empty()) // Adding scene at the beginning
     {
         this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
-        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
+        //        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
         return;
     }
-    // Adding scene after an existing
-    this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
-    emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
+    else// Adding scene after an existing
+    {
+        this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
+        //        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
+    }
+    emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
+                             QString::fromStdString(a_sNewID),
+                             a_iPlayerNumber));
 }
 
 void CKernel::AddSyncID(const std::string& a_sID1, const std::string& a_sID2)
@@ -313,7 +325,7 @@ void CKernel::AddSyncID(const std::string& a_sID1, const std::string& a_sID2)
 void CKernel::DeleteScene(const std::string &a_sSceneID)
 {
     //Change current screen Trying to go to previous screen
-/*    CSceneNode* tempNode = m_pCurrentScene;
+    /*    CSceneNode* tempNode = m_pCurrentScene;
     CTransitionVisitor oVisitor(this, false);
     oVisitor.Traverse(m_pBehaviorTree);
     if(tempNode == m_pCurrentScene)
@@ -329,16 +341,30 @@ void CKernel::DeleteScene(const std::string &a_sSceneID)
         }
     }*/
     this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
-    // Clear id from vector for both player
-    this->RemoveIDFromPlayer(a_sSceneID, 0);
-    this->RemoveIDFromPlayer(a_sSceneID, 1);
-    emit deletingSceneFinished();
+    //     Clear id from vector for both player
+    //        this->RemoveIDFromPlayer(a_sSceneID, 0);
+    //        this->RemoveIDFromPlayer(a_sSceneID, 1);
+    bool bRemoved1 = this->RemoveIDFromPlayer(a_sSceneID, 0);
+    bool bRemoved2 = this->RemoveIDFromPlayer(a_sSceneID, 1);
+    if (bRemoved1 && !bRemoved2)
+    {
+        emit deletingSceneFinished(QString::fromStdString(a_sSceneID), 0);
+    }
+    if (!bRemoved1 && bRemoved2)
+    {
+        emit deletingSceneFinished(QString::fromStdString(a_sSceneID), 1);
+    }
+    if (bRemoved1 && bRemoved2)
+    {
+        emit deletingSceneFinished(QString::fromStdString(a_sSceneID), 2);
+    }
+    //        emit deletingSceneFinished();
 }
 
 void CKernel::DeleteSyncScenes(const std::string &a_sSceneID)
 {
     // Change current screen by the previous or next
-/*    CSceneNode* tempNode = m_pCurrentScene;
+    /*    CSceneNode* tempNode = m_pCurrentScene;
     CTransitionVisitor oVisitor(this, false);
     oVisitor.Traverse(m_pBehaviorTree);
     if(tempNode == m_pCurrentScene)
@@ -355,15 +381,33 @@ void CKernel::DeleteSyncScenes(const std::string &a_sSceneID)
     }*/
     std::string otherID = m_mSceneSynced[a_sSceneID];
     // Removing scene from behavior, idlist and synced scene map
-    this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
+   /* this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
     this->m_pBehaviorTree->DeleteChildByID(otherID);
-    this->RemoveIDFromPlayer(a_sSceneID, 0);
-    this->RemoveIDFromPlayer(a_sSceneID, 1);
-    this->RemoveIDFromPlayer(otherID, 0);
-    this->RemoveIDFromPlayer(otherID, 1);
+    if (this->RemoveIDFromPlayer(a_sSceneID, 0))
+    {
+        emit deletingSceneFinished(QString::fromStdString(a_sSceneID), 0);
+    }
+    if (this->RemoveIDFromPlayer(a_sSceneID, 1))
+    {
+        emit deletingSceneFinished(QString::fromStdString(a_sSceneID), 1);
+    }
+    if (this->RemoveIDFromPlayer(otherID, 0))
+    {
+        emit deletingSceneFinished(QString::fromStdString(otherID), 0);
+    }
+    if (this->RemoveIDFromPlayer(otherID, 1))
+    {
+        emit deletingSceneFinished(QString::fromStdString(otherID), 1);
+    }*/
+    DeleteScene(a_sSceneID);
+    DeleteScene(otherID);
+    //    this->RemoveIDFromPlayer(a_sSceneID, 0);
+    //    this->RemoveIDFromPlayer(a_sSceneID, 1);
+    //    this->RemoveIDFromPlayer(a_sSceneID, 0);
+    //    this->RemoveIDFromPlayer(otherID, 1);
     this->m_mSceneSynced.erase(a_sSceneID);
     this->m_mSceneSynced.erase(otherID);
-    emit deletingSceneFinished();
+    //    emit deletingSceneFinished();
 }
 
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
@@ -375,8 +419,8 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID, int a_iPlayerID)
 {
     std::vector<std::string>::iterator itSceneID;
     for (itSceneID = m_mScenesID[a_iPlayerID].begin();
-            itSceneID != m_mScenesID[a_iPlayerID].end();
-            ++itSceneID)
+         itSceneID != m_mScenesID[a_iPlayerID].end();
+         ++itSceneID)
     {
         if (*itSceneID == a_rSceneID)
         {
@@ -395,7 +439,7 @@ int CKernel::GetCurrentPlayer()
 
 void CKernel::SendNetworkMessage(const std::string& a_rMessage)
 {
-//       m_pNetworkManager->Send(a_rMessage);
+    //       m_pNetworkManager->Send(a_rMessage);
 }
 
 
@@ -405,7 +449,7 @@ bool CKernel::CheckPlayerInfo()
     bytes b;
     b << M_USER_EVENT << *m_pLocalPlayer;
     CCLOG("local player : %d", m_pLocalPlayer->m_iPlayerID);
-//    m_pNetworkManager->Send(b);
+    //    m_pNetworkManager->Send(b);
 
     return m_pLocalPlayer->m_iPlayerID != m_pDistantPlayer->m_iPlayerID;
 }
@@ -454,13 +498,13 @@ void CKernel::EndGame(SEvent, CEntityNode*)
         bytes b;
 
         b << M_STATS_EVENT << oSStats;
-//		m_pNetworkManager->Send(b);
+        //		m_pNetworkManager->Send(b);
 
 #ifdef __ANDROID__
-    sleep(1);
+        sleep(1);
 #endif // __ANDROID__
 
-    Director::getInstance()->end();
+        Director::getInstance()->end();
 
     }
     else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
@@ -492,34 +536,34 @@ void CKernel::WriteStats()
     std::map<std::string, SScreenStats>::const_iterator itRemote;
 
     for (itLocal = mLocalStats.begin(), itRemote = mRemoteStats.begin();
-        itLocal != mLocalStats.end() || itRemote != mRemoteStats.end();
-        ++itLocal, ++itRemote)
+         itLocal != mLocalStats.end() || itRemote != mRemoteStats.end();
+         ++itLocal, ++itRemote)
     {
 
         const SScreenStats& rLocalStat = itLocal->second;
         const SScreenStats& rRemoteStat = itRemote->second;
 
         fileStream << rLocalStat.time << ","
-            << rLocalStat.nbInteractions << ","
-            << rLocalStat.nbTouches << ","
-            << rLocalStat.nbMoves << ","
-            << rLocalStat.nbValidTouches << ","
-            << rLocalStat.nbValidDrops << ","
-            << rLocalStat.nbInvalidDrops << ","
-            << rLocalStat.nbValidAnswers << ","
-            << rLocalStat.nbInvalidAnswers << ",";
+                   << rLocalStat.nbInteractions << ","
+                   << rLocalStat.nbTouches << ","
+                   << rLocalStat.nbMoves << ","
+                   << rLocalStat.nbValidTouches << ","
+                   << rLocalStat.nbValidDrops << ","
+                   << rLocalStat.nbInvalidDrops << ","
+                   << rLocalStat.nbValidAnswers << ","
+                   << rLocalStat.nbInvalidAnswers << ",";
 
         fileStream << ",";
 
         fileStream << rRemoteStat.time << ","
-            << rRemoteStat.nbInteractions << ","
-            << rRemoteStat.nbTouches << ","
-            << rRemoteStat.nbMoves << ","
-            << rRemoteStat.nbValidTouches << ","
-            << rRemoteStat.nbValidDrops << ","
-            << rRemoteStat.nbInvalidDrops << ","
-            << rRemoteStat.nbValidAnswers << ","
-            << rRemoteStat.nbInvalidAnswers << ",";
+                   << rRemoteStat.nbInteractions << ","
+                   << rRemoteStat.nbTouches << ","
+                   << rRemoteStat.nbMoves << ","
+                   << rRemoteStat.nbValidTouches << ","
+                   << rRemoteStat.nbValidDrops << ","
+                   << rRemoteStat.nbInvalidDrops << ","
+                   << rRemoteStat.nbValidAnswers << ","
+                   << rRemoteStat.nbInvalidAnswers << ",";
 
         fileStream << ",,";
 
@@ -597,7 +641,7 @@ void CKernel::WriteStats()
 
 void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 {
-	
+
     if (m_pCurrentScene->GetSceneID() == "screen-playerid")
     {
         if (!CheckPlayerInfo()) {
@@ -607,14 +651,14 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
         }
     }
 
-	CCMenuItemImage* pMenuItemImage = dynamic_cast<CCMenuItemImage*>(pSender);
-	if (pMenuItemImage)
-	{
-		pMenuItemImage->setEnabled(false);
-	}
+    CCMenuItemImage* pMenuItemImage = dynamic_cast<CCMenuItemImage*>(pSender);
+    if (pMenuItemImage)
+    {
+        pMenuItemImage->setEnabled(false);
+    }
 
     M_STATS->PushStats(m_pCurrentScene->GetSceneID());
-  m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+    m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
     CDispatchMessageVisitor oMessageVisitor("Validated");
     oMessageVisitor.Traverse(m_pCurrentScene);
     CTransitionVisitor oVisitor(this, true);
@@ -626,16 +670,16 @@ void CKernel::NavNext(Ref* pSender, CEntityNode* a_pTarget)
 void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 {
 
-	CCMenuItemImage* pMenuItemImage = dynamic_cast<CCMenuItemImage*>(pSender);
-	if (pMenuItemImage)
-	{
-		pMenuItemImage->setEnabled(false);
-	}
+    CCMenuItemImage* pMenuItemImage = dynamic_cast<CCMenuItemImage*>(pSender);
+    if (pMenuItemImage)
+    {
+        pMenuItemImage->setEnabled(false);
+    }
 
     M_STATS->PushStats(m_pCurrentScene->GetSceneID());
-  m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
-  CTransitionVisitor oVisitor(this, false);
-  oVisitor.Traverse(m_pBehaviorTree);
+    m_pSoundManager->PlaySound("ui/audio/buttonClicked.mp3");
+    CTransitionVisitor oVisitor(this, false);
+    oVisitor.Traverse(m_pBehaviorTree);
 
     emit sendScene(m_pCurrentScene, true);
 }
@@ -644,13 +688,13 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
     M_STATS_SCREEN.nbInteractions++;
-//    CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
-//    oVisistor.Traverse(m_pCurrentScene);
+    //    CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
+    //    oVisistor.Traverse(m_pCurrentScene);
 
-//    m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
+    //    m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
     qDebug("OnTouchBegan");
-//    this->m_oVisitor->SetEvent(a_pEvent);
-//    this->m_oVisitor->SetTouch(a_pTouch);
+    //    this->m_oVisitor->SetEvent(a_pEvent);
+    //    this->m_oVisitor->SetTouch(a_pTouch);
     this->m_oVisitor->SetVisitor(a_pEvent, a_pTouch);
     this->m_oVisitor->Traverse(m_pCurrentScene);
     return true;
@@ -686,9 +730,29 @@ void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
     m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
     CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
     oVisitor.Traverse(m_pBehaviorTree);
+    qDebug() << QString::fromStdString("New scene : "+m_pCurrentScene->GetSceneID());
     emit sendScene(this->m_pCurrentScene, false);
 }
 
+//void CKernel::GotoScreenID(const std::string &a_sSceneID, int a_iPlayerID)
+//{
+//    m_pLocalPlayer->m_iPlayerID = a_iPlayerID;
+//    CGotoSceneVisitor oVisitor(a_sSceneID, this);
+//    oVisitor.Traverse(m_pBehaviorTree);
+//    qDebug() << QString::fromStdString("New scene : "+m_pCurrentScene->GetSceneID());
+
+//    emit sendScene(this->m_pCurrentScene, false);
+//}
+
+void CKernel::CaptureScreen(const std::string& a_sFolder)
+{
+    //    cocos2d::utils::captureScreen(CC_CALLBACK_2(CKernel::afterCaptured, this),
+    //                                  a_sFolder + m_pCurrentScene->GetSceneID()+".png");
+    std::function<void(RenderTexture*, const std::string&)> callback =
+            std::bind(&CKernel::ImageSaved, this, std::placeholders::_1, std::placeholders::_2);
+    qDebug() << QString::fromStdString(m_pCurrentScene->GetSceneID());
+    m_pCurrentScene->SaveImage(a_sFolder, callback, 1);
+}
 
 void CKernel::CaptureScreenByID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
@@ -696,7 +760,7 @@ void CKernel::CaptureScreenByID(SEvent a_oEvent, CEntityNode* a_pTarget)
     m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
     CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
     oVisitor.Traverse(m_pBehaviorTree);
-    std::string sFilePath = "D:\\IHMTEK\\LudoMuseEditorCocos\\build-LudoMuseEditor-Clone_de_Desktop_Qt_5_6_0_MSVC2015_32bit-Debug\\debug\\thumbnails\\";
+    std::string sFilePath = "";
     sFilePath += a_oEvent.m_sStringValue;
     sFilePath += ".png";
     cocos2d::utils::captureScreen(CC_CALLBACK_2(CKernel::afterCaptured, this), sFilePath);
@@ -708,11 +772,31 @@ void CKernel::afterCaptured(bool succeed, const std::string& outputFile)
     {
         // show screenshot
         qDebug("Capture screen succeed");
+        qDebug() << QString::fromStdString(outputFile);
     }
     else
     {
         qDebug("Capture screen failed.");
     }
+}
+
+void CKernel::ImageSaved(RenderTexture* a_pRender, const std::string& a_sOutputFile)
+{
+    qDebug() << QString::fromStdString("Capture saved : " + a_sOutputFile);
+    std::string sSceneID = a_sOutputFile;
+    const size_t last_slash_idx = sSceneID.find_last_of("\\/");
+    if (std::string::npos != last_slash_idx)
+    {
+        sSceneID.erase(0, last_slash_idx + 1);
+    }
+
+    // Remove extension if present.
+    const size_t period_idx = sSceneID.rfind('.');
+    if (std::string::npos != period_idx)
+    {
+        sSceneID.erase(period_idx);
+    }
+    emit captureFinished(QString::fromStdString(sSceneID));
 }
 
 void CKernel::ValidateScene(SEvent a_oEvent, CEntityNode* a_pTarget)
@@ -797,7 +881,7 @@ CEntityNode* CKernel::FindEntity(Touch* a_pTouch, const std::string& a_sEvent)
 void CKernel::SendNetworkMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
     CCLOG("Sending message %s", a_oEvent.m_sStringValue.c_str());
-//	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
+    //	m_pNetworkManager->Send(a_oEvent.m_sStringValue);
 }
 
 void CKernel::LocalMessage(SEvent a_oEvent, CEntityNode* a_pTarget)
@@ -821,7 +905,7 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
             if (m_pLocalPlayer->m_bWaiting)
             {
                 std::chrono::milliseconds oTimeSinceTransitionStarted = duration_cast<milliseconds>(
-                    std::chrono::system_clock::now() - m_oSyncTransitionStart);
+                            std::chrono::system_clock::now() - m_oSyncTransitionStart);
 
 
                 int iDelay = 600 - oTimeSinceTransitionStarted.count();
@@ -890,7 +974,7 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 
 void CKernel::GetPeers()
 {
-//	m_pNetworkManager->DiscoverPeers();
+    //	m_pNetworkManager->DiscoverPeers();
 }
 
 void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
@@ -928,8 +1012,8 @@ void CKernel::Connect(SEvent a_oEvent, CEntityNode* a_pTarget)
                 Label* pLabel = dynamic_cast<Label*>(pLabelEntity->GetCocosEntity());
                 if (pLabel)
                 {
-//					m_pNetworkManager->ConnectTo(pLabel->getString());
-//					m_pNetworkManager->Send("connection:establish");
+                    //					m_pNetworkManager->ConnectTo(pLabel->getString());
+                    //					m_pNetworkManager->Send("connection:establish");
                 }
             }
         }
@@ -1055,8 +1139,8 @@ void CKernel::PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget)
 
 void CKernel::OnSoundEnded(const std::string& a_rSoundURL)
 {
-	CDispatchEventVisitor oVisitor(std::string("SoundEnded:") + a_rSoundURL);
-	oVisitor.Traverse(m_pCurrentScene);
+    CDispatchEventVisitor oVisitor(std::string("SoundEnded:") + a_rSoundURL);
+    oVisitor.Traverse(m_pCurrentScene);
 }
 
 
@@ -1073,7 +1157,7 @@ void CKernel::SetText(SEvent a_rEvent, CEntityNode* a_pTarget)
 
 void CKernel::RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-//	m_pNetworkManager->DiscoverPeers();
+    //	m_pNetworkManager->DiscoverPeers();
 }
 
 

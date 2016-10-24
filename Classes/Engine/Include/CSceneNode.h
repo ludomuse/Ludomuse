@@ -5,6 +5,7 @@
 
 #include "CParallelNode.h"
 #include "ui/CocosGUI.h"
+#include "cocos2d.h"
 
 namespace LM
 {
@@ -36,9 +37,6 @@ public:
  public:
   CSceneNode(std::string a_sID = "none", CKernel* a_pKernel = nullptr);
 
-  cocos2d::Image *getPreview();
-
-
   /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();
   
@@ -59,6 +57,8 @@ public:
   void ToggleQuickBox();
 
   bool hasID(const std::string &a_rID);
+
+  void SaveImage(std::string a_sPath, std::function<void(cocos2d::RenderTexture*, const std::string&)> callback, float a_fScale = 1);
 
   CREATE_FUNC(CSceneNode);
 };

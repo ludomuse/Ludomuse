@@ -144,7 +144,7 @@ public:
 
 
     /// \brief Initialize the kernel and the behavior tree
-  void Init(const std::string& a_sPath);
+    void Init(const std::string& a_sPath);
 
     void WriteStats();
 
@@ -170,12 +170,16 @@ public:
     void NavPrevious(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
 
     void GotoScreenID(SEvent a_rEvent, CEntityNode* a_pTarget);
+//    void GotoScreenID(const std::string& a_sSceneID, int a_iPlayerID);
 
+    /// \brief capture current screen
+    void CaptureScreen(const std::string &a_sFolder);
     /// \brief go to scene and capture it!
     void CaptureScreenByID(SEvent a_rEvent, CEntityNode* a_pTarget);
 
     /// Callback called after capturing screen
     void afterCaptured(bool a_bSucceed, const std::string& outputFile);
+    void ImageSaved(cocos2d::RenderTexture* render, const std::string& a_sOutputFile);
 
     /// \brief automatically validate the current scene
     void ValidateScene(SEvent a_rEvent, CEntityNode* a_pTarget);
@@ -208,20 +212,22 @@ public:
     void OnGettingPeers(const std::vector<std::string>& a_vPeers);
 
 
-  void OnSoundEnded(const std::string& a_rSoundURL);
+    void OnSoundEnded(const std::string& a_rSoundURL);
 
 private:
     void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
     void ProcessMessage(const std::string& a_rMessage);
     void ScenesToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
     void ScreensToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
-    void RemoveIDFromPlayer(const std::string& a_sSceneID, int a_iPlayerID = 0);
+    bool RemoveIDFromPlayer(const std::string& a_sSceneID, int a_iPlayerID = 0);
     void FullfillSyncedScenes();
 
 signals:
-    void addingSceneFinished(std::string a_sSceneID, int a_iPlayerID);
-    void deletingSceneFinished();
-
+//    void addingSceneFinished(std::string a_sSceneID, int a_iPlayerID);
+//    void deletingSceneFinished();
+    void addingSceneFinished(const QString a_sPrevSceneID, const QString a_sSceneID, int a_iPlayerID);
+    void deletingSceneFinished(const QString a_sSceneID, int a_iPlayerID);
+    void captureFinished(const QString a_sSceneID);
     /// \brief signal a new scene loaded, is Nav store the fact that it's navigation transition
     /// (with next and previous button) or if it's an transtition by id
     void sendScene(LM::CSceneNode*, bool a_bIsNav);
