@@ -34,7 +34,7 @@ import android.widget.Toast;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import java.io.Console;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

@@ -149,6 +149,11 @@ void LmJniJavaFacade::takePicture(const std::string& maskPath)
 	callJavaMethod("takePicture", (void*) &maskPath, PARAM_STRING);
 }
 
+void LmJniJavaFacade::showVideo(const std::string& videoPath)
+{
+	callJavaMethod("showVideo", (void*) &videoPath, PARAM_STRING);
+}
+
 void LmJniJavaFacade::saveStringToFile(const std::string& text)
 {
 	CCLOG("in saveStringToFile");
