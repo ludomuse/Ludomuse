@@ -173,7 +173,7 @@ public:
 //    void GotoScreenID(const std::string& a_sSceneID, int a_iPlayerID);
 
     /// \brief capture current screen
-    void CaptureScreen(const std::string &a_sFolder);
+    void CaptureScreen();
     /// \brief go to scene and capture it!
     void CaptureScreenByID(SEvent a_rEvent, CEntityNode* a_pTarget);
 

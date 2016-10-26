@@ -35,7 +35,7 @@ public:
 
 
  public:
-  CSceneNode(std::string a_sID = "none", CKernel* a_pKernel = nullptr);
+  CSceneNode(const std::string& a_rID = "none", CKernel* a_pKernel = nullptr);
 
   /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();
@@ -58,7 +58,7 @@ public:
 
   bool hasID(const std::string &a_rID);
 
-  void SaveImage(std::string a_sPath, std::function<void(cocos2d::RenderTexture*, const std::string&)> callback, float a_fScale = 1);
+  void SaveImage(std::function<void(cocos2d::RenderTexture*, const std::string&)> callback, float a_fScale = 1);
 
   CREATE_FUNC(CSceneNode);
 };

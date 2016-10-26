@@ -6,15 +6,19 @@
 #include "../Include/CValidator.h"
 #include "../Include/CKernel.h"
 
+#include <functional>
+
 #include <QDebug>
+#include <CProjectManager.h>
+
 
 using namespace cocos2d;
 
 namespace LM
 {
 
-CSceneNode::CSceneNode(std::string a_sID, CKernel* a_pKernel) : 
-    m_sID(a_sID),
+CSceneNode::CSceneNode(const std::string& a_rID, CKernel* a_pKernel) :
+    m_sID(a_rID),
     m_bIsSynced(false),
     m_bDashboardTrigger(false),
     m_pKernel(a_pKernel)
@@ -217,8 +221,7 @@ bool CSceneNode::hasID(const std::string &a_rID)
     }
 }
 
-void CSceneNode::SaveImage(std::string a_sPath,
-                           std::function<void(RenderTexture*, const std::string&)> callback,
+void CSceneNode::SaveImage(std::function<void(RenderTexture*, const std::string&)> callback,
                            float a_fScale)
 {
     RenderTexture* renderTexture = RenderTexture::create(m_pScene->getContentSize().width*a_fScale,
@@ -229,11 +232,9 @@ void CSceneNode::SaveImage(std::string a_sPath,
     m_pScene->visit();
     renderTexture->end();
 
-    std::string sOldPath = FileUtils::getInstance()->getWritablePath();
-    FileUtils::getInstance()->setWritablePath(a_sPath);
-    renderTexture->saveToFile(m_sID + ".png", true, callback);
+
+    renderTexture->saveToFile(CProjectManager::Instance()->GetRelativeWritablePath() + "/" + m_sID + ".png", true, callback);
     Director::getInstance()->getRenderer()->render();
-    FileUtils::getInstance()->setWritablePath(sOldPath);
 }
 } // namespace LM
 
