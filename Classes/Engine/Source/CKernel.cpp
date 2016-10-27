@@ -26,8 +26,6 @@
 
 #include <iostream>
 #include <vector>
-#include <map>
-#include <iterator>
 #include <fstream>
 #include <QDebug>
 #include <QString>
@@ -786,13 +784,13 @@ void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
 //    emit sendScene(this->m_pCurrentScene, false);
 //}
 
-void CKernel::CaptureScreen(const std::string& a_sFolder)
+void CKernel::CaptureScreen()
 {
     //    cocos2d::utils::captureScreen(CC_CALLBACK_2(CKernel::afterCaptured, this),
     //                                  a_sFolder + m_pCurrentScene->GetSceneID()+".png");
     std::function<void(RenderTexture*, const std::string&)> callback =
             std::bind(&CKernel::ImageSaved, this, std::placeholders::_1, std::placeholders::_2);
-    m_pCurrentScene->SaveImage(a_sFolder, callback, 1);
+    m_pCurrentScene->SaveImage(callback, 1);
 }
 
 void CKernel::CaptureScreenByID(SEvent a_oEvent, CEntityNode* a_pTarget)
