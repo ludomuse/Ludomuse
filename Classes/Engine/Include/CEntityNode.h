@@ -132,6 +132,9 @@ class CEntityNode : public CNode
   virtual std::string GetID();
   virtual void SetID(const std::string& a_rID);
 
+  /// \brief return the first non blank ID in entity node upper hierarchy
+  virtual std::string GetHierarchyID();
+
   /// \change the visibility
   /// \param[in] a_bVisible true to show the item
   virtual void Show(bool a_bVisible = true);
@@ -163,6 +166,10 @@ class CEntityNode : public CNode
 
   static void Release(CEntityNode* a_pEntity);
 
+  virtual CSceneNode* GetParentSceneNode();
+
+  virtual void Copy(CEntityNode *a_sNode, bool a_bRecCopy = true);
+
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
   ///        function to populate parent class in the tree
@@ -170,8 +177,6 @@ class CEntityNode : public CNode
   virtual void PopulateParent(bool a_bDoScaling = true);
 
   virtual cocos2d::Scene* GetParentScene();
-
-  virtual CSceneNode* GetParentSceneNode();
 
   virtual cocos2d::Size GetParentVisibleSize();
 
@@ -181,9 +186,11 @@ class CEntityNode : public CNode
 
   virtual cocos2d::Vec2 GetOrigin();
 
-  void ChangeWidth(int a_iWidth);
+//  void ChangeWidth(int a_iWidth);
 
-  void ChangeHeight(int a_iHeight);
+//  void ChangeHeight(int a_iHeight);
+
+  virtual void Update();
 
 
 };

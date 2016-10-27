@@ -16,25 +16,25 @@ namespace LM
 
 
 CSpriteNode::CSpriteNode(const std::string& a_rFilename,
-	                     EAnchor a_eAnchor,
-						 int a_iWidth,
-						 int a_iHeight,
+                         EAnchor a_eAnchor,
+                         int a_iWidth,
+                         int a_iHeight,
                          int a_iXPosition,
                          int a_iYPosition) :
     CEntityNode(a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition),
     m_sSpriteFilename(a_rFilename)
 {
-  
+
 }
 
 void CSpriteNode::Init()
 {
-  m_pCocosEntity = Sprite::create(m_sSpriteFilename);
-  //m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
+    m_pCocosEntity = Sprite::create(m_sSpriteFilename);
+    //m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
-  PopulateParent();
+    PopulateParent();
 
-  CNode::Init();
+    CNode::Init();
 }
 
 
@@ -47,16 +47,16 @@ void CSpriteNode::SetPath(const std::string &a_sPath)
 {
     //this->m_pCocosEntity = Sprite::create(a_sPath);
     //CCameraFeedNode::DisplayPicture, this, LmJniCppFacade::getCurrentPicturePath()
-    ON_CC_THREAD(CSpriteNode::DisplayNewImage, this, a_sPath);
+    m_sSpriteFilename = a_sPath;
+    ON_CC_THREAD(CSpriteNode::Update, this);
 }
 
-void CSpriteNode::DisplayNewImage(const std::string &a_sPath)
-{
-    m_sSpriteFilename = a_sPath;
-    CSceneNode* pSceneNode = GetParentSceneNode();
-    pSceneNode->UnInit();
-    pSceneNode->Init();
-}
+//void CSpriteNode::DisplayNewImage()
+//{
+//    CSceneNode* pSceneNode = GetParentSceneNode();
+//    pSceneNode->UnInit();
+//    pSceneNode->Init();
+//}
 
 void CSpriteNode::ChangeAnchor(int a_anchor)
 {
@@ -139,6 +139,16 @@ void CSpriteNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloc
             }
           },
           */
+}
+
+void CSpriteNode::Copy(CEntityNode* a_pSprite, bool a_bRecCopy)
+{
+    CSpriteNode* pSprite = dynamic_cast<CSpriteNode*>(a_pSprite);
+    if (pSprite)
+    {
+        m_sSpriteFilename = pSprite->GetPath();
+    }
+    CEntityNode::Copy(a_pSprite, a_bRecCopy);
 }
 
 } // namespace LM

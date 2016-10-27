@@ -128,6 +128,12 @@ public:
     /// \brief Delete the sync scene and it's matching screen for the other player
     void DeleteSyncScenes(const std::string& a_sSceneID);
 
+    /// \brief return the synced ID of a given scene (enpty string if the scene isnt synced)
+    std::string GetSyncedScene(std::string a_sSceneID);
+    CSceneNode* GetSyncedScene(CSceneNode* a_pScene);
+
+    /// \brief return the CSceneNode object which has a_sSceneID has ID
+    CSceneNode* GetSceneNode(std::string a_sSceneID);
 
     /// \brief checks if the current player has this scene in his list
     bool PlayerHasScene(const std::string& a_sSceneID);
@@ -136,6 +142,7 @@ public:
     bool PlayerHasScene(const std::string& a_sSceneID, int a_iPlayerID);
 
     int GetCurrentPlayer();
+    int GetActivePlayer();
 
     void SendNetworkMessage(const std::string& a_rMessage);
 
@@ -170,7 +177,7 @@ public:
     void NavPrevious(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
 
     void GotoScreenID(SEvent a_rEvent, CEntityNode* a_pTarget);
-//    void GotoScreenID(const std::string& a_sSceneID, int a_iPlayerID);
+    //    void GotoScreenID(const std::string& a_sSceneID, int a_iPlayerID);
 
     /// \brief capture current screen
     void CaptureScreen(const std::string &a_sFolder);
@@ -223,8 +230,8 @@ private:
     void FullfillSyncedScenes();
 
 signals:
-//    void addingSceneFinished(std::string a_sSceneID, int a_iPlayerID);
-//    void deletingSceneFinished();
+    //    void addingSceneFinished(std::string a_sSceneID, int a_iPlayerID);
+    //    void deletingSceneFinished();
     void addingSceneFinished(const QString a_sPrevSceneID, const QString a_sSceneID, int a_iPlayerID);
     void deletingSceneFinished(const QString a_sSceneID, int a_iPlayerID);
     void captureFinished(const QString a_sSceneID);

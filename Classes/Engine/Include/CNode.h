@@ -49,6 +49,7 @@ class CNode
   void AddChildNodeAt(CNode* a_pChild, const std::string& a_rID);
 
   void DeleteChildByID(const std::string& a_sID);
+  CNode* FindChildByID(const std::string& a_sID, bool a_bRecSearch = false);
 
   // begin and en in order to iterate node through foreach loop
   CNode::Iterator begin();

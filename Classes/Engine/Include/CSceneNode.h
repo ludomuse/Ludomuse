@@ -39,6 +39,9 @@ public:
 
   /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();
+
+  /// \returns the scene ID
+  std::string GetID();
   
   /// \brief initialize the scene of the game
   cocos2d::Scene* CreateScene();

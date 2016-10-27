@@ -40,8 +40,10 @@ class CSpriteNode : public CEntityNode
 
   virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
 
+  virtual void Copy(CEntityNode* a_pSprite, bool a_bRecCopy = true) override;
+
  private:
-  void DisplayNewImage(const std::string&);
+  void DisplayNewImage();
 };
 
 } // namespace LM

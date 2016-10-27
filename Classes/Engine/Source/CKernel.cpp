@@ -26,6 +26,8 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
+#include <iterator>
 #include <fstream>
 #include <QDebug>
 #include <QString>
@@ -304,7 +306,7 @@ void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string&
     {
         this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
         //        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
-        return;
+        //        return;
     }
     else// Adding scene after an existing
     {
@@ -381,7 +383,7 @@ void CKernel::DeleteSyncScenes(const std::string &a_sSceneID)
     }*/
     std::string otherID = m_mSceneSynced[a_sSceneID];
     // Removing scene from behavior, idlist and synced scene map
-   /* this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
+    /* this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
     this->m_pBehaviorTree->DeleteChildByID(otherID);
     if (this->RemoveIDFromPlayer(a_sSceneID, 0))
     {
@@ -410,6 +412,35 @@ void CKernel::DeleteSyncScenes(const std::string &a_sSceneID)
     //    emit deletingSceneFinished();
 }
 
+CSceneNode* CKernel::GetSyncedScene(CSceneNode* a_pScene)
+{
+    if (a_pScene->IsSynced())
+    {
+        std::string sSyncedScene = GetSyncedScene(m_pCurrentScene->GetID());
+        return GetSceneNode(sSyncedScene);
+    }
+    return nullptr;
+}
+
+std::string CKernel::GetSyncedScene(std::string a_sSceneID)
+{
+    std::map<std::string,std::string>::iterator sFound;
+    sFound = m_mSceneSynced.find(a_sSceneID);
+    if (sFound != m_mSceneSynced.end())
+    {
+        return sFound->second;
+    }
+    else
+    {
+        return "";
+    }
+}
+
+CSceneNode* CKernel::GetSceneNode(std::string a_sSceneID)
+{
+    return dynamic_cast<CSceneNode*>(m_pBehaviorTree->FindChildByID(a_sSceneID));
+}
+
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 {
     return PlayerHasScene(a_rSceneID, m_pLocalPlayer->m_iPlayerID);
@@ -434,6 +465,18 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID, int a_iPlayerID)
 int CKernel::GetCurrentPlayer()
 {
     return m_pLocalPlayer->m_iPlayerID;
+}
+
+int CKernel::GetActivePlayer()
+{
+    if (PlayerHasScene(m_pCurrentScene->GetID(),1))
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 
@@ -730,7 +773,6 @@ void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
     m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
     CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
     oVisitor.Traverse(m_pBehaviorTree);
-    qDebug() << QString::fromStdString("New scene : "+m_pCurrentScene->GetSceneID());
     emit sendScene(this->m_pCurrentScene, false);
 }
 
@@ -750,7 +792,6 @@ void CKernel::CaptureScreen(const std::string& a_sFolder)
     //                                  a_sFolder + m_pCurrentScene->GetSceneID()+".png");
     std::function<void(RenderTexture*, const std::string&)> callback =
             std::bind(&CKernel::ImageSaved, this, std::placeholders::_1, std::placeholders::_2);
-    qDebug() << QString::fromStdString(m_pCurrentScene->GetSceneID());
     m_pCurrentScene->SaveImage(a_sFolder, callback, 1);
 }
 
@@ -782,7 +823,6 @@ void CKernel::afterCaptured(bool succeed, const std::string& outputFile)
 
 void CKernel::ImageSaved(RenderTexture* a_pRender, const std::string& a_sOutputFile)
 {
-    qDebug() << QString::fromStdString("Capture saved : " + a_sOutputFile);
     std::string sSceneID = a_sOutputFile;
     const size_t last_slash_idx = sSceneID.find_last_of("\\/");
     if (std::string::npos != last_slash_idx)

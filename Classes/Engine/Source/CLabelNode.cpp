@@ -157,4 +157,18 @@ void CLabelNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
     a_rParent.PushBack(labelNode, a_rAllocator);
 }
 
+void CLabelNode::Copy(CEntityNode* a_pLabel, bool a_bRecCopy)
+{
+    CLabelNode* pLabel = dynamic_cast<CLabelNode*>(a_pLabel);
+    if (pLabel)
+    {
+        m_sText = pLabel->m_sText;
+        m_sFontName = pLabel->m_sFontName;
+        m_iFontSize = pLabel->m_iFontSize;
+        m_sTextAlign = pLabel->m_sTextAlign;
+        m_sFontColor = pLabel->m_sFontColor;
+    }
+    CEntityNode::Copy(a_pLabel, a_bRecCopy);
+}
+
 } // namespace LM

@@ -40,6 +40,11 @@ cocos2d::Scene* CSceneNode::GetScene()
     return m_pScene;
 }
 
+std::string CSceneNode::GetID()
+{
+    return m_sID;
+}
+
 bool CSceneNode::init()
 {
     if (!cocos2d::Layer::init())
@@ -228,7 +233,6 @@ void CSceneNode::SaveImage(std::string a_sPath,
     m_pScene->setScale(a_fScale);
     m_pScene->visit();
     renderTexture->end();
-
     std::string sOldPath = FileUtils::getInstance()->getWritablePath();
     FileUtils::getInstance()->setWritablePath(a_sPath);
     renderTexture->saveToFile(m_sID + ".png", true, callback);

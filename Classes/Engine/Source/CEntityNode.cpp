@@ -12,17 +12,17 @@ namespace LM
 {
 
 CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
-						 int a_iXPosition, int a_iYPosition, const std::string& a_sID) :
+                         int a_iXPosition, int a_iYPosition, const std::string& a_sID) :
     m_eAnchor(a_eAnchor),
-	m_iXPosition(a_iXPosition),
+    m_iXPosition(a_iXPosition),
     m_iYPosition(a_iYPosition),
-	m_iWidth(a_iWidth),
-	m_iHeight(a_iHeight),
-	m_bVisible(true),
-	m_bLocked(false),
-	m_sID(a_sID),
-	m_fEntityStartScale(0),
-	m_pCocosEntity(nullptr)
+    m_iWidth(a_iWidth),
+    m_iHeight(a_iHeight),
+    m_bVisible(true),
+    m_bLocked(false),
+    m_sID(a_sID),
+    m_fEntityStartScale(0),
+    m_pCocosEntity(nullptr)
 {
 }
 
@@ -40,193 +40,193 @@ bool CEntityNode::hasID(const std::string& a_sID)
 
 void CEntityNode::UnInit(bool removeChild)
 {
-	//m_pCocosEntity->autorelease();
-	//m_pCocosEntity->release();
-	if (m_pCocosEntity != nullptr) {
-		if(removeChild)
-			GetParentScene()->removeChild(m_pCocosEntity);
+    //m_pCocosEntity->autorelease();
+    //m_pCocosEntity->release();
+    if (m_pCocosEntity != nullptr) {
+        if(removeChild)
+            GetParentScene()->removeChild(m_pCocosEntity);
 
-		m_pCocosEntity = nullptr;
-		CNode::UnInit(removeChild);
-	}
-	else {
-		return;
-	}
+        m_pCocosEntity = nullptr;
+        CNode::UnInit(removeChild);
+    }
+    else {
+        return;
+    }
 }
 
 
 
 void CEntityNode::Revert(bool a_bVisible)
 {
-	Show(a_bVisible);
-	if (m_sID != "")
-		CCLOG("reverting : %s", m_sID.c_str());
-	m_pCocosEntity->setPosition(m_oEntityStartLocation);
-	m_pCocosEntity->setScale(m_fEntityStartScale);
-        for (CNode* itNode : m_vChildren)
+    Show(a_bVisible);
+    if (m_sID != "")
+        CCLOG("reverting : %s", m_sID.c_str());
+    m_pCocosEntity->setPosition(m_oEntityStartLocation);
+    m_pCocosEntity->setScale(m_fEntityStartScale);
+    for (CNode* itNode : m_vChildren)
+    {
+        CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+        if (pEntity)
         {
-          CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-          if (pEntity)
-          {
             pEntity->Revert(a_bVisible);
-          }
         }
+    }
 }
 
 
 cocos2d::Node* CEntityNode::GetCocosEntity()
 {
-	return m_pCocosEntity;
+    return m_pCocosEntity;
 }
 
 
 void CEntityNode::AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback)
 {
-	std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
-	if (it != m_mListeners.end())
-	{
-		it->second.push_back(a_rCallback);
-	}
-	else
-	{
-		std::vector<CEventCallback> oCallbacks;
-		oCallbacks.push_back(a_rCallback);
-		m_mListeners.insert(std::pair<std::string, std::vector<CEventCallback>>(a_rEvent, oCallbacks));
-	}
+    std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
+    if (it != m_mListeners.end())
+    {
+        it->second.push_back(a_rCallback);
+    }
+    else
+    {
+        std::vector<CEventCallback> oCallbacks;
+        oCallbacks.push_back(a_rCallback);
+        m_mListeners.insert(std::pair<std::string, std::vector<CEventCallback>>(a_rEvent, oCallbacks));
+    }
 }
 
 void CEntityNode::DisableEvent(const std::string& a_rEvent)
 {
-	m_oDisabledEvents.insert(a_rEvent);
+    m_oDisabledEvents.insert(a_rEvent);
 }
 
 void CEntityNode::EnableEvent(const std::string& a_rEvent)
 {
-	m_oDisabledEvents.erase(a_rEvent);
+    m_oDisabledEvents.erase(a_rEvent);
 }
 
 
 bool CEntityNode::EventIsDisabled(const std::string& a_rEvent)
 {
-	return (m_oDisabledEvents.find(a_rEvent) != m_oDisabledEvents.end());
+    return (m_oDisabledEvents.find(a_rEvent) != m_oDisabledEvents.end());
 }
 
 bool CEntityNode::IsListeningTo(const std::string& a_rEvent)
 {
-	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
-	{
-		std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
-		return (it != m_mListeners.end());
-	}
+    if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
+    {
+        std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
+        return (it != m_mListeners.end());
+    }
 }
 
 
 void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pSender)
 {
-	if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
-	{
-		std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
-		if (it != m_mListeners.end())
-		{
-			for (CEventCallback oCallback : it->second)
-			{
-				CCLOG("CEntity::Dispatch : Calling callback %s on entity %s", a_rEvent.c_str(), m_sID.c_str());
-				oCallback(a_pSender);
-			}
-		}
-	}
+    if (m_oDisabledEvents.find(a_rEvent) == m_oDisabledEvents.end())
+    {
+        std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
+        if (it != m_mListeners.end())
+        {
+            for (CEventCallback oCallback : it->second)
+            {
+                CCLOG("CEntity::Dispatch : Calling callback %s on entity %s", a_rEvent.c_str(), m_sID.c_str());
+                oCallback(a_pSender);
+            }
+        }
+    }
 }
 
 void CEntityNode::PopulateParent(bool a_bDoScaling)
 {
 
-	// Size oVisibleSize = Director::getInstance()->getVisibleSize();
-	// Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
-  cocos2d::Size oVisibleSize = GetParentVisibleSize();
-  Vec2 oOrigin = GetParentOrigin();
-	
-	switch (m_eAnchor)
-	{
-	case LM::CENTER:
-		m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0.5));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width/2, oOrigin.y + oVisibleSize.height/2));
-		break;
-	case LM::BOTTOM_LEFT:
-		m_pCocosEntity->setAnchorPoint(Vec2(0, 0));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y));
-		break;
-	case LM::LEFT:
-		m_pCocosEntity->setAnchorPoint(Vec2(0, 0.5));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y + oVisibleSize.height / 2));
-		break;
-	case LM::TOP_LEFT:
-		m_pCocosEntity->setAnchorPoint(Vec2(0, 1));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y + oVisibleSize.height));
-		break;
-	case LM::TOP:
-		m_pCocosEntity->setAnchorPoint(Vec2(0.5, 1));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width / 2, oOrigin.y + oVisibleSize.height));
-		break;
-	case LM::TOP_RIGHT:
-		m_pCocosEntity->setAnchorPoint(Vec2(1, 1));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y + oVisibleSize.height));
-		break;
-	case LM::RIGHT:
-		m_pCocosEntity->setAnchorPoint(Vec2(1, 0.5));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y + oVisibleSize.height / 2));
-		break;
-	case LM::BOTTOM_RIGHT:
-		m_pCocosEntity->setAnchorPoint(Vec2(1, 0));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y));
-		break;
-	case LM::BOTTOM:
-		m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0));
-		m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width / 2, oOrigin.y));
-		break;
-	case LM::FLOAT:
-		m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0.5));
-		m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
-		break;
-	default:
-		break;
-	}
+    // Size oVisibleSize = Director::getInstance()->getVisibleSize();
+    // Vec2 oOrigin = Director::getInstance()->getVisibleOrigin();
+    cocos2d::Size oVisibleSize = GetParentVisibleSize();
+    Vec2 oOrigin = GetParentOrigin();
+
+    switch (m_eAnchor)
+    {
+    case LM::CENTER:
+        m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0.5));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width/2, oOrigin.y + oVisibleSize.height/2));
+        break;
+    case LM::BOTTOM_LEFT:
+        m_pCocosEntity->setAnchorPoint(Vec2(0, 0));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y));
+        break;
+    case LM::LEFT:
+        m_pCocosEntity->setAnchorPoint(Vec2(0, 0.5));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y + oVisibleSize.height / 2));
+        break;
+    case LM::TOP_LEFT:
+        m_pCocosEntity->setAnchorPoint(Vec2(0, 1));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x, oOrigin.y + oVisibleSize.height));
+        break;
+    case LM::TOP:
+        m_pCocosEntity->setAnchorPoint(Vec2(0.5, 1));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width / 2, oOrigin.y + oVisibleSize.height));
+        break;
+    case LM::TOP_RIGHT:
+        m_pCocosEntity->setAnchorPoint(Vec2(1, 1));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y + oVisibleSize.height));
+        break;
+    case LM::RIGHT:
+        m_pCocosEntity->setAnchorPoint(Vec2(1, 0.5));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y + oVisibleSize.height / 2));
+        break;
+    case LM::BOTTOM_RIGHT:
+        m_pCocosEntity->setAnchorPoint(Vec2(1, 0));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width, oOrigin.y));
+        break;
+    case LM::BOTTOM:
+        m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0));
+        m_pCocosEntity->setPosition(Vec2(oOrigin.x + oVisibleSize.width / 2, oOrigin.y));
+        break;
+    case LM::FLOAT:
+        m_pCocosEntity->setAnchorPoint(Vec2(0.5, 0.5));
+        m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
+        break;
+    default:
+        break;
+    }
 
 
-	if (a_bDoScaling) {
+    if (a_bDoScaling) {
 
-		float fNewScale;
+        float fNewScale;
 
-		if (m_iWidth != 0)
-		{
-			float fOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
-			float fNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
-			fNewScale = fNewWidth / fOldWidth;
-		}
-		else 
-		{
-			float fOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
-			float fNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
-			fNewScale = fNewHeight / fOldHeight;
-		}
-
-
-
-		m_pCocosEntity->setScale(fNewScale);
-
-	}
-	cocos2d::Scene* pScene = GetParentScene();
-	if (pScene)
-	{
-		pScene->addChild(m_pCocosEntity, 0);
-	}
+        if (m_iWidth != 0)
+        {
+            float fOldWidth = m_pCocosEntity->getBoundingBox().getMaxX() - m_pCocosEntity->getBoundingBox().getMinX();
+            float fNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
+            fNewScale = fNewWidth / fOldWidth;
+        }
+        else
+        {
+            float fOldHeight = m_pCocosEntity->getBoundingBox().getMaxY() - m_pCocosEntity->getBoundingBox().getMinY();
+            float fNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
+            fNewScale = fNewHeight / fOldHeight;
+        }
 
 
-	m_pCocosEntity->setVisible(m_bVisible);
 
-	m_oEntityStartLocation = m_pCocosEntity->getPosition();
-	m_fEntityStartScale = m_pCocosEntity->getScale();
+        m_pCocosEntity->setScale(fNewScale);
 
-	Dispatch("Init");
+    }
+    cocos2d::Scene* pScene = GetParentScene();
+    if (pScene)
+    {
+        pScene->addChild(m_pCocosEntity, 0);
+    }
+
+
+    m_pCocosEntity->setVisible(m_bVisible);
+
+    m_oEntityStartLocation = m_pCocosEntity->getPosition();
+    m_fEntityStartScale = m_pCocosEntity->getScale();
+
+    Dispatch("Init");
 }
 
 
@@ -256,138 +256,150 @@ CSceneNode* CEntityNode::GetParentSceneNode()
 cocos2d::Size CEntityNode::GetParentVisibleSize()
 {
 
-  CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
-  if (pParentEntity)
-  {
-    return pParentEntity->GetVisibleSize();
-  }
-  
-  return Director::getInstance()->getVisibleSize();
-  
+    CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
+    if (pParentEntity)
+    {
+        return pParentEntity->GetVisibleSize();
+    }
+
+    return Director::getInstance()->getVisibleSize();
+
 }
 
 Vec2 CEntityNode::GetParentOrigin()
 {
-  CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
-  if (pParentEntity)
-  {
-    return pParentEntity->GetOrigin();
-  }
+    CEntityNode* pParentEntity = dynamic_cast<CEntityNode*>(m_pParent);
+    if (pParentEntity)
+    {
+        return pParentEntity->GetOrigin();
+    }
 
-  return Director::getInstance()->getVisibleOrigin();
+    return Director::getInstance()->getVisibleOrigin();
 }
 
 
 cocos2d::Size CEntityNode::GetVisibleSize()
 {
-	//return m_pCocosEntity->getContentSize();
+    //return m_pCocosEntity->getContentSize();
     cocos2d::Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
     return cocos2d::Size(oBoundingBox.getMaxX() - oBoundingBox.getMinX(),
-		oBoundingBox.getMaxY() - oBoundingBox.getMinY());
+                         oBoundingBox.getMaxY() - oBoundingBox.getMinY());
 }
 
 Vec2 CEntityNode::GetOrigin()
 {
     cocos2d::Rect oBoundingBox = m_pCocosEntity->getBoundingBox();
-	return Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
+    return Vec2(oBoundingBox.getMinX(), oBoundingBox.getMinY());
 }
 
 void CEntityNode::SetVisible(bool a_bVisible)
 {
-	m_bVisible = a_bVisible;
+    m_bVisible = a_bVisible;
 }
 
 bool CEntityNode::IsVisible()
 {
-	return m_bVisible;
+    return m_bVisible;
 }
 
 std::string CEntityNode::GetID()
 {
-	return m_sID;
+    return m_sID;
+}
+
+std::string CEntityNode::GetHierarchyID()
+{
+    if (m_sID != "" || !dynamic_cast<CEntityNode*>(m_pParent))
+    {
+        return m_sID;
+    }
+    else
+    {
+        return dynamic_cast<CEntityNode*>(m_pParent)->GetHierarchyID();
+    }
 }
 
 void CEntityNode::SetID(const std::string& a_rID)
 {
-	m_sID = a_rID;
+    m_sID = a_rID;
 }
 
 void CEntityNode::Show(bool a_bVisible)
 {
-	if (GetID() != "" && a_bVisible)
-		CCLOG("Showing entity : %s", GetID().c_str());
+    if (GetID() != "" && a_bVisible)
+        CCLOG("Showing entity : %s", GetID().c_str());
 
-	m_bVisible = a_bVisible;
-	if (m_pCocosEntity) 
-	{
-		m_pCocosEntity->setVisible(a_bVisible);
-		FadeIn();
-	}
-	
-	for (CNode* itNode : *this)
-	{
-		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-		if (pEntity && (!pEntity->IsListeningTo("Show") || !a_bVisible))
-		{
-			pEntity->Show(a_bVisible);
-		}
-	}
+    m_bVisible = a_bVisible;
+    if (m_pCocosEntity)
+    {
+        m_pCocosEntity->setVisible(a_bVisible);
+        FadeIn();
+    }
+
+    for (CNode* itNode : *this)
+    {
+        CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+        if (pEntity && (!pEntity->IsListeningTo("Show") || !a_bVisible))
+        {
+            pEntity->Show(a_bVisible);
+        }
+    }
 
 }
 
 bool CEntityNode::IsLocked()
 {
-	return m_bLocked;
+    return m_bLocked;
 }
 
 Vec2 CEntityNode::GetEntityStartLocation()
 {
-	return m_oEntityStartLocation;
+    return m_oEntityStartLocation;
 }
 
 float CEntityNode::GetEntityStartScale()
 {
-	return m_fEntityStartScale;
+    return m_fEntityStartScale;
 }
 
 
 void CEntityNode::Fade()
 {
-	auto fpReleaseEntity = CallFunc::create([this]() {
-		CEntityNode::Release(this);
-		this->Revert();
-	});
+    auto fpReleaseEntity = CallFunc::create([this]() {
+        CEntityNode::Release(this);
+        this->Revert();
+    });
 
-	auto oFadeOut = FadeOut::create(0.5f);
-	auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
+    auto oFadeOut = FadeOut::create(0.5f);
+    auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
 
-	m_pCocosEntity->runAction(oSequence);
+    m_pCocosEntity->runAction(oSequence);
 
-	for (CNode* itNode : m_vChildren)
-	{
-		CEntityNode* pChildEntity = dynamic_cast<CEntityNode*>(itNode);
-		if (pChildEntity)
-		{
-			pChildEntity->Fade();
-		}
-	}
+    for (CNode* itNode : m_vChildren)
+    {
+        CEntityNode* pChildEntity = dynamic_cast<CEntityNode*>(itNode);
+        if (pChildEntity)
+        {
+            pChildEntity->Fade();
+        }
+    }
 }
 
 void CEntityNode::FadeIn()
 {
-	CCLOG("CEntityNode::FadeIn %s", m_sID.c_str());
-	auto oFadeIn = FadeIn::create(0.5f);
+    CCLOG("CEntityNode::FadeIn %s", m_sID.c_str());
+    auto oFadeIn = FadeIn::create(0.5f);
 
-	m_pCocosEntity->runAction(oFadeIn);
+    m_pCocosEntity->runAction(oFadeIn);
 
-	/*for (CNode* itNode : m_vChildren)
-	{
-		CEntityNode* pChildEntity = dynamic_cast<CEntityNode*>(itNode);
-		if (pChildEntity)
-		{
-			pChildEntity->FadeIn();
-		}
-	}*/
+    /*for (CNode* itNode : m_vChildren)
+    {
+        CEntityNode* pChildEntity = dynamic_cast<CEntityNode*>(itNode);
+        if (pChildEntity)
+        {
+            pChildEntity->FadeIn();
+        }
+    }*/
 }
 
 
@@ -447,63 +459,105 @@ int CEntityNode::GetHeight()
     return this->m_iHeight;
 }
 
-void CEntityNode::SetWidth(int a_iWidth)
-{
-    ON_CC_THREAD(CEntityNode::ChangeWidth, this, a_iWidth);
-}
-
-void CEntityNode::SetHeight(int a_iHeight)
-{
-    ON_CC_THREAD(CEntityNode::ChangeHeight, this, a_iHeight);
-}
-
 bool CEntityNode::Lock(CEntityNode* a_pEntity)
 {
-	if (!a_pEntity->IsLocked())
-	{
-		a_pEntity->m_bLocked = true;
-		for (CNode* itNode : *a_pEntity)
-		{
-			CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-			if (pEntity)
-			{
-				CEntityNode::Lock(pEntity);
-			}
-		}
-		return true;
-	}
-	return false;
+    if (!a_pEntity->IsLocked())
+    {
+        a_pEntity->m_bLocked = true;
+        for (CNode* itNode : *a_pEntity)
+        {
+            CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+            if (pEntity)
+            {
+                CEntityNode::Lock(pEntity);
+            }
+        }
+        return true;
+    }
+    return false;
 }
 
 void CEntityNode::Release(CEntityNode* a_pEntity)
 {
-	a_pEntity->m_bLocked = false;
-	for (CNode* itNode : *a_pEntity)
-	{
-		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-		if (pEntity)
-		{
-			CEntityNode::Release(pEntity);
-		}
-	}
+    a_pEntity->m_bLocked = false;
+    for (CNode* itNode : *a_pEntity)
+    {
+        CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+        if (pEntity)
+        {
+            CEntityNode::Release(pEntity);
+        }
+    }
 }
 
+//void CEntityNode::SetWidth(int a_iWidth)
+//{
+//    ON_CC_THREAD(CEntityNode::ChangeWidth, this, a_iWidth);
+//}
 
-void CEntityNode::ChangeWidth(int a_iWidth)
+//void CEntityNode::SetHeight(int a_iHeight)
+//{
+//    ON_CC_THREAD(CEntityNode::ChangeHeight, this, a_iHeight);
+//}
+
+//void CEntityNode::ChangeWidth(int a_iWidth)
+//{
+//    this->m_iWidth = a_iWidth;
+//    CSceneNode* pSceneNode = GetParentSceneNode();
+//    pSceneNode->UnInit();
+//    pSceneNode->Init();
+//}
+
+//void CEntityNode::ChangeHeight(int a_iHeight)
+//{
+//    this->m_iHeight = a_iHeight;
+//    CSceneNode* pSceneNode = GetParentSceneNode();
+//    pSceneNode->UnInit();
+//    pSceneNode->Init();
+//}
+
+
+
+void CEntityNode::SetWidth(int a_iWidth)
 {
     this->m_iWidth = a_iWidth;
-    CSceneNode* pSceneNode = GetParentSceneNode();
-    pSceneNode->UnInit();
-    pSceneNode->Init();
+    ON_CC_THREAD(CEntityNode::Update, this);
 }
 
-void CEntityNode::ChangeHeight(int a_iHeight)
+void CEntityNode::SetHeight(int a_iHeight)
 {
     this->m_iHeight = a_iHeight;
+    ON_CC_THREAD(CEntityNode::Update, this);
+}
+
+void CEntityNode::Update()
+{
     CSceneNode* pSceneNode = GetParentSceneNode();
     pSceneNode->UnInit();
     pSceneNode->Init();
 }
 
+void CEntityNode::Copy(CEntityNode* a_pNode, bool a_bRecCopy)
+{
+    m_iWidth = a_pNode->GetWidth();
+    m_iHeight = a_pNode->GetHeight();
+    if (a_bRecCopy)
+    {
+        std::vector<CNode*>::const_iterator i1;
+        std::vector<CNode*>::const_iterator i2;
+        for( i1 = m_vChildren.begin(), i2 = a_pNode->m_vChildren.begin();
+             i1 != m_vChildren.end() && i2 != a_pNode->m_vChildren.end();
+             ++i1, ++i2 )
+        {
+            CEntityNode* pChild = dynamic_cast<CEntityNode*>(*i1);
+            CEntityNode* pChildCopy = dynamic_cast<CEntityNode*>(*i2);
+            if (pChild && pChildCopy)
+            {
+                pChild->Copy(pChildCopy, true);
+            }
+        }
+
+    }
+}
 
 } // namespace LM

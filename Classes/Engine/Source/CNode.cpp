@@ -11,18 +11,18 @@ CNode::CNode() : m_iCurrentNode(0), m_pParent(nullptr)
 
 CNode::~CNode()
 {
-	for (CNode* itChild : *this)
-	{
-		delete itChild;
-	};
+    for (CNode* itChild : *this)
+    {
+        delete itChild;
+    };
 }
 
 
 
 void CNode::AddChildNode(CNode* a_pChild)
 {
-  a_pChild->m_pParent = this;
-  m_vChildren.push_back(a_pChild);
+    a_pChild->m_pParent = this;
+    m_vChildren.push_back(a_pChild);
 }
 
 void CNode::AddChildNodeAtBegin(CNode *a_pChild)
@@ -65,65 +65,94 @@ void CNode::DeleteChildByID(const std::string& a_sID)
     delete(tempNode);
 }
 
+CNode* CNode::FindChildByID(const std::string& a_sID, bool a_bRecSearch)
+{
+    std::list<CNode*> frontier(1, this);
+    while (!frontier.empty()) {
+        for(CNode* currentNode : frontier.front()->m_vChildren)
+        {
+            if(currentNode->hasID(a_sID))
+            {
+                return currentNode;
+            }
+            if (a_bRecSearch)
+            {
+                frontier.push_back(currentNode);
+            }
+        }
+        frontier.pop_front();
+    }
+    return nullptr;
+    //    for(CNode* currentNode : this->m_vChildren)
+    //    {
+    //        if(currentNode->hasID(a_sID))
+    //        {
+    //            return currentNode;
+    //        }
+    //    }
+    //    return nullptr;
+}
+
+
 CNode::Iterator CNode::begin()
 {
-  return m_vChildren.begin();
+    return m_vChildren.begin();
 }
 
 CNode::Iterator CNode::end()
 {
-  return m_vChildren.end();
+    return m_vChildren.end();
 }
 
 
 CNode* CNode::operator[](const int i)
 {
-	return m_vChildren[i];
+    return m_vChildren[i];
 }
 
 /*void CNode::DoForEachChildNode(void(*a_fpCallback)(CNode* a_pChild))
 {
-	std::for_each(begin(), end(), a_fpCallback);
+    std::for_each(begin(), end(), a_fpCallback);
 }*/
 
 
 void CNode::Finish()
 {
-  m_pParent->Finish();
+    m_pParent->Finish();
 }
 
 CNode* CNode::GetCurrentNode()
 {
-	if (m_iCurrentNode >= 0 && m_iCurrentNode < m_vChildren.size())
-		return m_vChildren[m_iCurrentNode];
+    if (m_iCurrentNode >= 0 && m_iCurrentNode < m_vChildren.size())
+        return m_vChildren[m_iCurrentNode];
 
-	return nullptr;
+    return nullptr;
 }
 
 bool CNode::OffsetCurrentNode(bool a_bNext)
 {
-	int i = a_bNext ? 1 : -1;
-	if (m_iCurrentNode + i < m_vChildren.size())
-	{
-		m_iCurrentNode += i;
-		return true;
-	}
+    int i = a_bNext ? 1 : -1;
+    if (m_iCurrentNode + i < m_vChildren.size())
+    {
+        m_iCurrentNode += i;
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 
 bool CNode::SetCurrentNode(CNode* a_pNode)
 {
-	for (int i = 0; i < m_vChildren.size(); ++i)
-	{
-		if (a_pNode == m_vChildren[i])
-		{
-			m_iCurrentNode = i;
-			return true;
-		}
-	}
-	return false;
+    for (int i = 0; i < m_vChildren.size(); ++i)
+    {
+        if (a_pNode == m_vChildren[i])
+        {
+            m_iCurrentNode = i;
+            return true;
+        }
+    }
+    return false;
 }
 
 bool CNode::hasID(const std::string &a_rID)
@@ -133,38 +162,38 @@ bool CNode::hasID(const std::string &a_rID)
 
 CNode* CNode::GetOffsetNode(bool a_bNext)
 {
-	int i = a_bNext ? 1 : -1;
-	if (m_iCurrentNode + i < m_vChildren.size() && m_iCurrentNode + i >= 0)
-	{
-		return m_vChildren[m_iCurrentNode + i];
-	}
-	return nullptr;
+    int i = a_bNext ? 1 : -1;
+    if (m_iCurrentNode + i < m_vChildren.size() && m_iCurrentNode + i >= 0)
+    {
+        return m_vChildren[m_iCurrentNode + i];
+    }
+    return nullptr;
 }
 
 std::vector<CNode*> CNode::GetChildren()
 {
-	return m_vChildren;
+    return m_vChildren;
 }
 
 CNode* CNode::GetParent()
 {
-	return m_pParent;
+    return m_pParent;
 }
 
 void CNode::Init()
 {
-	for (CNode* pChildNode : m_vChildren) 
-	{
-		pChildNode->Init();
-	}
+    for (CNode* pChildNode : m_vChildren)
+    {
+        pChildNode->Init();
+    }
 }
 
 void CNode::UnInit(bool removeChild)
 {
-	for (CNode* pChildNode : m_vChildren)
-	{
-		pChildNode->UnInit(removeChild);
-	}
+    for (CNode* pChildNode : m_vChildren)
+    {
+        pChildNode->UnInit(removeChild);
+    }
 }
 
 void CNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
