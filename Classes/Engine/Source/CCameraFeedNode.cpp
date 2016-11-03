@@ -191,7 +191,10 @@ void CCameraFeedNode::Init()
 	{
 		LmJniJavaFacade::takePicture(m_sMaskPath);
 	}
+#else
+    m_sSpriteFilename = m_sMaskPath;
 #endif
+
 	CSpriteNode::Init();
 }
 
