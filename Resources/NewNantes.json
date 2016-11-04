@@ -103,6 +103,22 @@
             ]
         ],
         "screens": [
+	    {
+		"scene": "WaitingScene",
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "ui/waiting.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
+	    },
             {
                 "scene": "Dashboard",
                 "navigation": [
