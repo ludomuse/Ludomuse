@@ -71,11 +71,11 @@ namespace LM
 
 	// build the waiting scene
 	// TODO : remove hardcoded waiting scene
-	m_pWaitingScene = new CSceneNode("WaitingScene", this);
-	CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
-		EAnchor::CENTER, 100, 100, 0, 0);
+// 	m_pWaitingScene = new CSceneNode("WaitingScene", this);
+// 	CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
+// 		EAnchor::CENTER, 100, 100, 0, 0);
 
-	m_pWaitingScene->AddChildNode(pBackgroundSprite);
+// 	m_pWaitingScene->AddChildNode(pBackgroundSprite);
 }
 
 CKernel::~CKernel()
