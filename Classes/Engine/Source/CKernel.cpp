@@ -74,11 +74,11 @@ CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
 
     // build the waiting scene
     // TODO : remove hardcoded waiting scene
-    m_pWaitingScene = new CSceneNode("WaitingScene", this);
-    CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
-                                                     EAnchor::CENTER, 100, 100, 0, 0);
+//    m_pWaitingScene = new CSceneNode("WaitingScene", this);
+//    CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
+//                                                     EAnchor::CENTER, 100, 100, 0, 0);
 
-    m_pWaitingScene->AddChildNode(pBackgroundSprite);
+//    m_pWaitingScene->AddChildNode(pBackgroundSprite);
 }
 
 CKernel::~CKernel()
@@ -159,7 +159,7 @@ std::string CKernel::ToJson(){
 
 
     document.Accept(writer);
-    qDebug()<<s.GetString();
+//    qDebug()<<s.GetString();
     qDebug()<<"Fin de la traduction ----- Resultat";
     return s.GetString();
 }
