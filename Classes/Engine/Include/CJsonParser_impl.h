@@ -236,7 +236,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		else
 		{
 			pEntity = new CCameraFeedNode(
-                 m_sBasePath + rParams["source"].GetString(),
+                m_sBasePath + rParams["source"].GetString(),
 				IntToAnchor(rParams["anchor"].GetInt()),
 				width,
 				height,
