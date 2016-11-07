@@ -112,6 +112,9 @@ class CEntityNode : public CNode
   /// \brief subscribe the entity to a_rEvent
   void AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback);
 
+  std::pair<std::string,CEventCallback>* GetCallback(const std::string& a_sCallbackName);
+  void RemoveCallbacks(const std::string& a_sCallbackName);
+
   void DisableEvent(const std::string& a_rEvent);
 
   void EnableEvent(const std::string& a_rEvent);
@@ -160,6 +163,8 @@ class CEntityNode : public CNode
   void SetWidth(int a_iWidth);
 
   void SetHeight(int a_iHeight);
+
+  bool IsMovable();
 
   ////////////////////////// Static methods
   static bool Lock(CEntityNode* a_pEntity);

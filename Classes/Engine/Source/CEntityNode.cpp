@@ -95,6 +95,51 @@ void CEntityNode::AddListener(const std::string& a_rEvent, const CEventCallback&
     }
 }
 
+std::pair<std::string,CEventCallback>* CEntityNode::GetCallback(const std::string& a_sCallbackName)
+{
+    std::map<std::string, std::vector<CEventCallback>>::iterator mIt;
+    for (mIt = m_mListeners.begin(); mIt != m_mListeners.end(); mIt++)
+    {
+        std::vector<CEventCallback>::iterator vIt;
+        for (vIt = mIt->second.begin(); vIt != mIt->second.end(); vIt++)
+        {
+            if (vIt->getCallbackName() == a_sCallbackName)
+            {
+                return new std::pair<std::string,CEventCallback>(mIt->first, *vIt);
+            }
+        }
+    }
+    return nullptr;
+}
+
+void CEntityNode::RemoveCallbacks(const std::string& a_sCallbackName)
+{
+    std::map<std::string, std::vector<CEventCallback>>::iterator mIt;
+    for (mIt = m_mListeners.begin(); mIt != m_mListeners.end();)
+    {
+        std::vector<CEventCallback>::iterator vIt;
+        for (vIt = mIt->second.begin(); vIt != mIt->second.end();)
+        {
+            if (vIt->getCallbackName() == a_sCallbackName)
+            {
+                vIt = mIt->second.erase(vIt);
+            }
+            else
+            {
+                vIt++;
+            }
+        }
+        if (mIt->second.empty())
+        {
+            mIt = m_mListeners.erase(mIt);
+        }
+        else
+        {
+            mIt++;
+        }
+    }
+}
+
 void CEntityNode::DisableEvent(const std::string& a_rEvent)
 {
     m_oDisabledEvents.insert(a_rEvent);
@@ -558,6 +603,11 @@ void CEntityNode::Copy(CEntityNode* a_pNode, bool a_bRecCopy)
         }
 
     }
+}
+
+bool CEntityNode::IsMovable()
+{
+   return IsListeningTo("Move");
 }
 
 } // namespace LM
