@@ -86,6 +86,14 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			x, y);
 	}
 
+	else if (sType == "Scratch")
+	  {
+	    std::string imageSource = m_sBasePath + rParams["source"].GetString();
+	    pEntity = new CScratchNode(imageSource,
+				       IntToAnchor(rParams["anchor"].GetInt()),
+				       width, height, x, y);
+	  }
+
 	else if (sType == "Video")
 	{
 		pEntity = new CVideoNode(m_sBasePath + rParams["source"].GetString(),
@@ -307,12 +315,18 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 {
 	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel);
 	if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
+    {
 		m_pKernel->m_pDashboard = pSceneNode;
-	else if (a_rJsonNode["scene"].GetString() == std::string("WaitingScene"))
-	  m_pKernel->m_pWaitingScene = pSceneNode;
-	else
+    }
+    else if (a_rJsonNode["scene"].GetString() == std::string("WaitingScene"))
+    {
+        m_pKernel->m_pWaitingScene = pSceneNode;
+    }
+    else
+    {
 		a_pNode->AddChildNode(pSceneNode);
-
+    }
+    
 	if (a_rJsonNode.HasMember("sync"))
 	{
 		pSceneNode->SetSynced(a_rJsonNode["sync"].GetBool());
