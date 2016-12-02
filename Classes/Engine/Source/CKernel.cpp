@@ -147,16 +147,18 @@ std::string CKernel::ToJson(){
     this->ScenesToJson(scenes, allocator);
     app.AddMember("scenes", scenes, allocator);
     rapidjson::Value screens(rapidjson::kArrayType);
-    if(this->m_pDashboard != nullptr)
+    if(m_pDashboard != nullptr)
     {
         m_pDashboard->ToJson(screens, allocator);
+    }
+    if (m_pWaitingScene != nullptr)
+    {
+        m_pWaitingScene->ToJson(screens, allocator);
     }
     this->ScreensToJson(screens, allocator);
     app.AddMember("screens", screens, allocator);
 
-
     document.AddMember("app", app, allocator);
-
 
     document.Accept(writer);
 //    qDebug()<<s.GetString();
