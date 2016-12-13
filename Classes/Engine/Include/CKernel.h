@@ -177,15 +177,16 @@ public:
     void NavPrevious(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
 
     void GotoScreenID(SEvent a_rEvent, CEntityNode* a_pTarget);
-    //    void GotoScreenID(const std::string& a_sSceneID, int a_iPlayerID);
+//    void GotoScreenID(const std::string& a_sSceneID, int a_iPlayerID);
+    void ClearScreen();
 
     /// \brief capture current screen
     void CaptureScreen();
     /// \brief go to scene and capture it!
-    void CaptureScreenByID(SEvent a_rEvent, CEntityNode* a_pTarget);
+    //    void CaptureScreenByID(SEvent a_rEvent, CEntityNode* a_pTarget);
 
     /// Callback called after capturing screen
-    void afterCaptured(bool a_bSucceed, const std::string& outputFile);
+    //    void afterCaptured(bool a_bSucceed, const std::string& outputFile);
     void ImageSaved(cocos2d::RenderTexture* render, const std::string& a_sOutputFile);
 
     /// \brief automatically validate the current scene

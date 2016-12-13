@@ -774,6 +774,12 @@ void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
     emit sendScene(this->m_pCurrentScene, false);
 }
 
+void CKernel::ClearScreen()
+{
+    m_pCurrentScene = new CSceneNode();
+    Director::getInstance()->replaceScene(new Scene());
+}
+
 //void CKernel::GotoScreenID(const std::string &a_sSceneID, int a_iPlayerID)
 //{
 //    m_pLocalPlayer->m_iPlayerID = a_iPlayerID;
@@ -793,31 +799,31 @@ void CKernel::CaptureScreen()
     m_pCurrentScene->SaveImage(callback, 1);
 }
 
-void CKernel::CaptureScreenByID(SEvent a_oEvent, CEntityNode* a_pTarget)
-{
-    qDebug()<<"Save screenshot of %s" << a_oEvent.m_sStringValue.c_str();
-    m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
-    CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
-    oVisitor.Traverse(m_pBehaviorTree);
-    std::string sFilePath = "";
-    sFilePath += a_oEvent.m_sStringValue;
-    sFilePath += ".png";
-    cocos2d::utils::captureScreen(CC_CALLBACK_2(CKernel::afterCaptured, this), sFilePath);
-}
+//void CKernel::CaptureScreenByID(SEvent a_oEvent, CEntityNode* a_pTarget)
+//{
+//    qDebug()<<"Save screenshot of %s" << a_oEvent.m_sStringValue.c_str();
+//    m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
+//    CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
+//    oVisitor.Traverse(m_pBehaviorTree);
+//    std::string sFilePath = "";
+//    sFilePath += a_oEvent.m_sStringValue;
+//    sFilePath += ".png";
+//    cocos2d::utils::captureScreen(CC_CALLBACK_2(CKernel::afterCaptured, this), sFilePath);
+//}
 
-void CKernel::afterCaptured(bool succeed, const std::string& outputFile)
-{
-    if (succeed)
-    {
-        // show screenshot
-        qDebug("Capture screen succeed");
-        qDebug() << QString::fromStdString(outputFile);
-    }
-    else
-    {
-        qDebug("Capture screen failed.");
-    }
-}
+//void CKernel::afterCaptured(bool succeed, const std::string& outputFile)
+//{
+//    if (succeed)
+//    {
+//        // show screenshot
+//        qDebug("Capture screen succeed");
+//        qDebug() << QString::fromStdString(outputFile);
+//    }
+//    else
+//    {
+//        qDebug("Capture screen failed.");
+//    }
+//}
 
 void CKernel::ImageSaved(RenderTexture* a_pRender, const std::string& a_sOutputFile)
 {
