@@ -129,7 +129,8 @@ public:
     void DeleteSyncScenes(const std::string& a_sSceneID);
 
     /// \brief return the synced ID of a given scene (enpty string if the scene isnt synced)
-    std::string GetSyncedScene(std::string a_sSceneID);
+    std::string GetSyncedScene(const std::string& a_sSceneID);
+    QString GetSyncedScene(const QString& a_sSceneID);
     CSceneNode* GetSyncedScene(CSceneNode* a_pScene);
 
     /// \brief return the CSceneNode object which has a_sSceneID has ID

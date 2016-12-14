@@ -422,7 +422,7 @@ CSceneNode* CKernel::GetSyncedScene(CSceneNode* a_pScene)
     return nullptr;
 }
 
-std::string CKernel::GetSyncedScene(std::string a_sSceneID)
+std::string CKernel::GetSyncedScene(const std::string &a_sSceneID)
 {
     std::map<std::string,std::string>::iterator sFound;
     sFound = m_mSceneSynced.find(a_sSceneID);
@@ -434,6 +434,11 @@ std::string CKernel::GetSyncedScene(std::string a_sSceneID)
     {
         return "";
     }
+}
+
+QString CKernel::GetSyncedScene(const QString& a_sSceneID)
+{
+    return QString.fromStdString(GetSyncedScene(a_sSceneID.toStdString()));
 }
 
 CSceneNode* CKernel::GetSceneNode(std::string a_sSceneID)
