@@ -438,7 +438,7 @@ std::string CKernel::GetSyncedScene(const std::string &a_sSceneID)
 
 QString CKernel::GetSyncedScene(const QString& a_sSceneID)
 {
-    return QString.fromStdString(GetSyncedScene(a_sSceneID.toStdString()));
+    return QString::fromStdString(GetSyncedScene(a_sSceneID.toStdString()));
 }
 
 CSceneNode* CKernel::GetSceneNode(std::string a_sSceneID)
