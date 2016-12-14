@@ -74,11 +74,11 @@ CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
 
     // build the waiting scene
     // TODO : remove hardcoded waiting scene
-//    m_pWaitingScene = new CSceneNode("WaitingScene", this);
-//    CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
-//                                                     EAnchor::CENTER, 100, 100, 0, 0);
+    //    m_pWaitingScene = new CSceneNode("WaitingScene", this);
+    //    CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
+    //                                                     EAnchor::CENTER, 100, 100, 0, 0);
 
-//    m_pWaitingScene->AddChildNode(pBackgroundSprite);
+    //    m_pWaitingScene->AddChildNode(pBackgroundSprite);
 }
 
 CKernel::~CKernel()
@@ -161,7 +161,7 @@ std::string CKernel::ToJson(){
     document.AddMember("app", app, allocator);
 
     document.Accept(writer);
-//    qDebug()<<s.GetString();
+    //    qDebug()<<s.GetString();
     qDebug()<<"Fin de la traduction ----- Resultat";
     return s.GetString();
 }
@@ -348,18 +348,7 @@ void CKernel::DeleteScene(const std::string &a_sSceneID)
     //        this->RemoveIDFromPlayer(a_sSceneID, 1);
     bool bRemoved1 = this->RemoveIDFromPlayer(a_sSceneID, 0);
     bool bRemoved2 = this->RemoveIDFromPlayer(a_sSceneID, 1);
-    if (bRemoved1 && !bRemoved2)
-    {
-        emit deletingSceneFinished(QString::fromStdString(a_sSceneID), 0);
-    }
-    if (!bRemoved1 && bRemoved2)
-    {
-        emit deletingSceneFinished(QString::fromStdString(a_sSceneID), 1);
-    }
-    if (bRemoved1 && bRemoved2)
-    {
-        emit deletingSceneFinished(QString::fromStdString(a_sSceneID), 2);
-    }
+    emit deletingSceneFinished(QString::fromStdString(a_sSceneID));
     //        emit deletingSceneFinished();
 }
 

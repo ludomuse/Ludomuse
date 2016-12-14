@@ -235,7 +235,7 @@ signals:
     //    void addingSceneFinished(std::string a_sSceneID, int a_iPlayerID);
     //    void deletingSceneFinished();
     void addingSceneFinished(const QString a_sPrevSceneID, const QString a_sSceneID, int a_iPlayerID);
-    void deletingSceneFinished(const QString a_sSceneID, int a_iPlayerID);
+    void deletingSceneFinished(const QString a_sSceneID);
     void captureFinished(const QString a_sSceneID);
     /// \brief signal a new scene loaded, is Nav store the fact that it's navigation transition
     /// (with next and previous button) or if it's an transtition by id
