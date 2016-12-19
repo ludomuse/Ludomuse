@@ -53,12 +53,13 @@ namespace LM
 		pSound->sSoundURL = m_sPlayingSoundURL;
 		pSound->pSoundManager = this;
 
-#ifndef __ANDROID__
+//#ifndef __ANDROID__
+//		std::string fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
+//		CCLOG("FULLSOUNDPATH : %s", fullSoundPath.c_str());
+//#else // !__ANDROID__
+//		std::string fullSoundPath = a_rSoundURL;
+//#endif
 		std::string fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
-		CCLOG("FULLSOUNDPATH : %s", fullSoundPath.c_str());
-#else // !__ANDROID__
-		std::string fullSoundPath = a_rSoundURL;
-#endif
 
 		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(fullSoundPath.c_str(), false);
 		//pthread_t thread;
