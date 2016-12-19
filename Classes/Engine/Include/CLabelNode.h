@@ -45,6 +45,20 @@ public:
 
     virtual void Copy(CEntityNode* a_pLabel, bool a_bRecCopy = true) override;
 
+    virtual int GetFontSize();
+
+    virtual void SetFontSize(int a_iFontSize);
+
+    virtual const std::string& GetFont() const;
+
+    virtual void SetFont(const std::string& a_rFontName);
+
+    virtual void SetColor(const std::string& a_rFontColor);
+
+    virtual const std::string& GetColor() const;
+
+    virtual cocos2d::Color4B ParseColor(const std::string& a_rFontColor) const;
+
 };
 
 } // namespace LM

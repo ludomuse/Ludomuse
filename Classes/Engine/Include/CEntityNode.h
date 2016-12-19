@@ -164,6 +164,10 @@ class CEntityNode : public CNode
 
   void SetHeight(int a_iHeight);
 
+  void ChangeAnchor(int a_anchor);
+
+  int GetAnchor();
+
   bool IsMovable();
 
   ////////////////////////// Static methods

@@ -14,7 +14,7 @@ CLabelNode::CLabelNode(const std::string& a_rText,
                        const std::string& a_rFontName,
                        int a_iFontSize,
 					   const std::string& a_sTextAlign,
-					   const std::string& a_sFontColor,
+                       const std::string& a_sFontColor,
 					   EAnchor a_eAnchor,
 					   int a_iWidth,
 					   int a_iHeight,
@@ -55,21 +55,28 @@ void CLabelNode::Init()
 
   pLabel->setMaxLineWidth(oVisibleSize.width * (float)m_iWidth / 100.0f);
 
+//  try
+//  {
+    pLabel->setTextColor(ParseColor(m_sFontColor));
+//  }
+//  catch (std::string e)
+//  {
+//    m_sFontColor("255,255,255,255");
+//  }
+//  std::vector<int> oRGBAValues;
+//  std::string sValue;
+//  std::istringstream oStream(m_sFontColor);
 
-  std::vector<int> oRGBAValues;
-  std::string sValue;
-  std::istringstream oStream(m_sFontColor);
+//  while (std::getline(oStream, sValue, ','))
+//  {
+//	  int iValue = atoi(sValue.c_str());
+//	  oRGBAValues.push_back(iValue);
+//  }
 
-  while (std::getline(oStream, sValue, ','))
-  {
-	  int iValue = atoi(sValue.c_str());
-	  oRGBAValues.push_back(iValue);
-  }
-
-  if (oRGBAValues.size() >= 4) // if color is not properly set, do nothing
-  {
-	  pLabel->setTextColor(Color4B(oRGBAValues[0], oRGBAValues[1], oRGBAValues[2], oRGBAValues[3]));
-  }
+//  if (oRGBAValues.size() >= 4) // if color is not properly set, do nothing
+//  {
+//	  pLabel->setTextColor(Color4B(oRGBAValues[0], oRGBAValues[1], oRGBAValues[2], oRGBAValues[3]));
+//  }
   CNode::Init();
 }
 
@@ -171,4 +178,75 @@ void CLabelNode::Copy(CEntityNode* a_pLabel, bool a_bRecCopy)
     CEntityNode::Copy(a_pLabel, a_bRecCopy);
 }
 
+int CLabelNode::GetFontSize()
+{
+    return m_iFontSize;
+}
+
+void CLabelNode::SetFontSize(int a_iFontSize)
+{
+    m_iFontSize = a_iFontSize;
+    Label* pLabel = dynamic_cast<Label*>(m_pCocosEntity);
+    if (pLabel)
+    {
+        TTFConfig font = pLabel->getTTFConfig();
+        font.fontSize = a_iFontSize;
+        pLabel->setTTFConfig(font);
+    }
+}
+
+const std::string& CLabelNode::GetFont() const
+{
+    return m_sFontName;
+}
+
+void CLabelNode::SetFont(const std::string& a_rFontName)
+{
+    m_sFontName = a_rFontName;
+    Label* pLabel = dynamic_cast<Label*>(m_pCocosEntity);
+    if (pLabel)
+    {
+        TTFConfig font = pLabel->getTTFConfig();
+        font.fontFilePath = m_sFontName;
+        pLabel->setTTFConfig(font);
+    }
+}
+
+void CLabelNode::SetColor(const std::string &a_rFontColor)
+{
+    m_sFontColor = a_rFontColor;
+    Label* pLabel = dynamic_cast<Label*>(m_pCocosEntity);
+    if (pLabel)
+    {
+        pLabel->setTextColor(ParseColor(m_sFontColor));
+    }
+}
+
+const std::string & CLabelNode::GetColor() const
+{
+    return m_sFontColor;
+}
+
+Color4B CLabelNode::ParseColor(const std::string& a_rFontColor) const
+{
+    std::vector<int> oRGBAValues;
+    std::string sValue;
+    std::istringstream oStream(a_rFontColor);
+
+    while (std::getline(oStream, sValue, ','))
+    {
+        int iValue = atoi(sValue.c_str());
+        oRGBAValues.push_back(iValue);
+    }
+
+    if (oRGBAValues.size() >= 4) // if color is not properly set, do nothing
+    {
+        return (Color4B(oRGBAValues[0], oRGBAValues[1], oRGBAValues[2], oRGBAValues[3]));
+    }
+    else
+    {
+//        throw "Incorrect color format " + a_rFontColor;
+        return Color4B(255,255,255,255);
+    }
+}
 } // namespace LM

@@ -27,6 +27,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 #include <QDebug>
 #include <QString>
 #include <QDir>
@@ -765,14 +766,20 @@ void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
     CCLOG("GotoScreenID : %s", a_oEvent.m_sStringValue.c_str());
     m_pLocalPlayer->m_iPlayerID = a_oEvent.m_iIntValue;
-    CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
-    oVisitor.Traverse(m_pBehaviorTree);
-    emit sendScene(this->m_pCurrentScene, false);
+    if (a_oEvent.m_sStringValue == "") {
+        ClearScreen();
+    }
+    else
+    {
+        CGotoSceneVisitor oVisitor(a_oEvent.m_sStringValue, this);
+        oVisitor.Traverse(m_pBehaviorTree);
+        emit sendScene(this->m_pCurrentScene, false);
+    }
 }
 
 void CKernel::ClearScreen()
 {
-    m_pCurrentScene = new CSceneNode();
+    m_pCurrentScene = /*new CSceneNode();*/ nullptr;
     Director::getInstance()->replaceScene(new Scene());
 }
 
@@ -790,9 +797,12 @@ void CKernel::CaptureScreen()
 {
     //    cocos2d::utils::captureScreen(CC_CALLBACK_2(CKernel::afterCaptured, this),
     //                                  a_sFolder + m_pCurrentScene->GetSceneID()+".png");
-    std::function<void(RenderTexture*, const std::string&)> callback =
-            std::bind(&CKernel::ImageSaved, this, std::placeholders::_1, std::placeholders::_2);
-    m_pCurrentScene->SaveImage(callback, 1);
+    if (this->m_pCurrentScene != nullptr)
+    {
+        std::function<void(RenderTexture*, const std::string&)> callback =
+                std::bind(&CKernel::ImageSaved, this, std::placeholders::_1, std::placeholders::_2);
+        m_pCurrentScene->SaveImage(callback, 1);
+    }
 }
 
 //void CKernel::CaptureScreenByID(SEvent a_oEvent, CEntityNode* a_pTarget)

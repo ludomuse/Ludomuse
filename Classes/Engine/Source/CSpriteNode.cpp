@@ -58,18 +58,18 @@ void CSpriteNode::SetPath(const std::string &a_sPath)
 //    pSceneNode->Init();
 //}
 
-void CSpriteNode::ChangeAnchor(int a_anchor)
-{
-    this->m_eAnchor = IntToAnchor(a_anchor);
-    CSceneNode* pSceneNode = GetParentSceneNode();
-    pSceneNode->UnInit();
-    pSceneNode->Init();
-}
+//void CSpriteNode::ChangeAnchor(int a_anchor)
+//{
+//    this->m_eAnchor = IntToAnchor(a_anchor);
+//    CSceneNode* pSceneNode = GetParentSceneNode();
+//    pSceneNode->UnInit();
+//    pSceneNode->Init();
+//}
 
-int CSpriteNode::GetAnchor()
-{
-    return this->m_eAnchor;
-}
+//int CSpriteNode::GetAnchor()
+//{
+//    return this->m_eAnchor;
+//}
 
 void CSpriteNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
 {

@@ -79,7 +79,6 @@ cocos2d::Node* CEntityNode::GetCocosEntity()
     return m_pCocosEntity;
 }
 
-
 void CEntityNode::AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback)
 {
     std::map<std::string, std::vector<CEventCallback>>::iterator it = m_mListeners.find(a_rEvent);
@@ -502,6 +501,19 @@ int CEntityNode::GetHeight()
 {
 
     return this->m_iHeight;
+}
+
+void CEntityNode::ChangeAnchor(int a_anchor)
+{
+    this->m_eAnchor = IntToAnchor(a_anchor);
+    CSceneNode* pSceneNode = GetParentSceneNode();
+    pSceneNode->UnInit();
+    pSceneNode->Init();
+}
+
+int CEntityNode::GetAnchor()
+{
+    return this->m_eAnchor;
 }
 
 bool CEntityNode::Lock(CEntityNode* a_pEntity)

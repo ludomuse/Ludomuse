@@ -33,10 +33,10 @@ class CSpriteNode : public CEntityNode
   void SetPath(const std::string&);
 
   /// \brief Update sprite with the new anchor
-  void ChangeAnchor(int a_anchor);
+//  void ChangeAnchor(int a_anchor);
 
   /// \brief return current anchor
-  int GetAnchor();
+//  int GetAnchor();
 
   virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
 
