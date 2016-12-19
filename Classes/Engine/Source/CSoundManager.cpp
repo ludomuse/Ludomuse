@@ -46,7 +46,7 @@ namespace LM
 	void CSoundManager::PlaySound(const std::string& a_rSoundURL)
 	{
         CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
-		m_oPlayingSoundMutex.lock();
+		//m_oPlayingSoundMutex.lock();
 		m_sPlayingSoundURL = a_rSoundURL;
 
 		SSoundEndedObject* pSound = new SSoundEndedObject;
@@ -61,10 +61,10 @@ namespace LM
 #endif
 
 		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(fullSoundPath.c_str(), false);
-		pthread_t thread;
-		pthread_create(&thread, NULL, &WaitSoundFinished, pSound);
+		//pthread_t thread;
+		//pthread_create(&thread, NULL, &WaitSoundFinished, pSound);
 
-		m_oPlayingSoundMutex.unlock();
+		//m_oPlayingSoundMutex.unlock();
 
 	}
 
