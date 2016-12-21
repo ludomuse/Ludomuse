@@ -14,6 +14,7 @@
 #include "CSceneNode.h"
 #include "CEntityNode.h"
 #include "CSpriteNode.h"
+#include "CScratchNode.h"
 #include "CVideoNode.h"
 #include "CMenuNode.h"
 #include "CLabelNode.h"
