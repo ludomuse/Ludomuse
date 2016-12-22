@@ -50,7 +50,9 @@ public class AppActivity extends Cocos2dxActivity {
                 try // to create logcat redirection file
                 {
                   filename.createNewFile();
-                  String cmd = "logcat -f " + filename.getAbsolutePath();
+                  String cmd = "logcat -c";
+                  Runtime.getRuntime().exec(cmd);
+                  cmd = "logcat -f " + filename.getAbsolutePath();
                   Runtime.getRuntime().exec(cmd);
                 }
                 catch (IOException e)
