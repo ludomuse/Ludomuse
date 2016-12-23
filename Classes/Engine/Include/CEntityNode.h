@@ -76,6 +76,8 @@ class CEntityNode : public CNode
 
   bool m_bVisible;
 
+  bool m_bColored;
+
   bool m_bLocked;
 
   std::string m_sID;
@@ -132,6 +134,10 @@ class CEntityNode : public CNode
   /// \change the visibility
   /// \param[in] a_bVisible true to show the item
   virtual void Show(bool a_bVisible = true);
+
+  /// \add color to a darken node
+  /// \param[in] a_bColorize true to enable the colors
+  virtual void Colorize(bool a_bColored = true);
 
   virtual bool IsLocked();
 

@@ -314,7 +314,30 @@ void CEntityNode::Show(bool a_bVisible)
 			pEntity->Show(a_bVisible);
 		}
 	}
+}
 
+void CEntityNode::Colorize(bool a_bColored)
+{
+	if (GetID() != "" && a_bColored)
+		CCLOG("Colorize entity : %s", GetID().c_str());
+
+	m_bColored = a_bColored;
+	if (a_bColored && dynamic_cast<Sprite*>(m_pCocosEntity))
+	{
+		BlendFunc oColoredBlend;
+		oColoredBlend.src = GL_SRC_ALPHA;
+		oColoredBlend.dst = GL_ONE_MINUS_SRC_ALPHA;
+		dynamic_cast<Sprite*>(m_pCocosEntity)->setBlendFunc(oColoredBlend);
+	}
+
+	for (CNode* itNode : *this)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity && (!pEntity->IsListeningTo("Colorize") || !a_bColored))
+		{
+			pEntity->Colorize(a_bColored);
+		}
+	}
 }
 
 bool CEntityNode::IsLocked()

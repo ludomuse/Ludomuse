@@ -440,6 +440,16 @@ void CKernel::SetNodeVisible(SEvent a_oEvent, CEntityNode* a_pTarget)
 	}
 }
 
+void CKernel::SetNodeColored(SEvent a_oEvent, CEntityNode* a_pTarget)
+{
+	CCLOG("CKernel::SetNodeColored");
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	if (pEntity)
+	{
+		pEntity->Colorize(a_oEvent.m_bBoolValue);
+	}
+}
+
 void CKernel::FadeEntity(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 
