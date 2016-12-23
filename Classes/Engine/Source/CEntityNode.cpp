@@ -20,7 +20,8 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 	m_bLocked(false),
 	m_sID(a_sID),
 	m_fEntityStartScale(0),
-	m_pCocosEntity(nullptr)
+    m_pCocosEntity(nullptr),
+    m_bColored(true)
 {
 }
 
