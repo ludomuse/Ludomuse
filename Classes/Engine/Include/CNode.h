@@ -69,11 +69,17 @@ class CNode
 
   virtual bool hasID(const std::string& a_rID);
 
+  virtual const std::string& GetSceneID() const;
+
   virtual CNode* GetOffsetNode(bool a_bNext);
 
   virtual std::vector<CNode*> GetChildren();
 
+  virtual void SetChildren(const std::vector<CNode*>& a_vChildren);
+
   virtual CNode* GetParent();
+
+  virtual void SetParent(CNode* a_pParent);
 
   virtual void Init();
 

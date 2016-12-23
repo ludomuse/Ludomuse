@@ -175,9 +175,19 @@ std::vector<CNode*> CNode::GetChildren()
     return m_vChildren;
 }
 
+void CNode::SetChildren(const std::vector<CNode*> &a_vChildren)
+{
+    m_vChildren = a_vChildren;
+}
+
 CNode* CNode::GetParent()
 {
     return m_pParent;
+}
+
+void CNode::SetParent(CNode *a_pParent)
+{
+    m_pParent = a_pParent;
 }
 
 void CNode::Init()
@@ -202,6 +212,11 @@ void CNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorTy
     {
         pChildNode->ToJson(a_rParent, a_rAllocator);
     }
+}
+
+const std::string& CNode::GetSceneID() const
+{
+    return "";
 }
 
 } // namespace LM

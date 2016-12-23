@@ -48,7 +48,6 @@ private:
     /// \details a pointer to the root node of the tree, usually a SequenceNode
     CNode* m_pBehaviorTree;
 
-
     /// \brief The parser that will build the behavior tree from the json file
     CJsonParser* m_pJsonParser;
 
@@ -118,7 +117,8 @@ public:
     /// \param previousID can be empty, if it's just add the new scene at the end of timeline
     void AddNewScene(const std::string& a_sTemplatePath, const std::string& previousID,const std::string& a_sNewID,
                      int a_iPlayerNumber, int a_iTemplateNumber = 0, const std::string& a_sScreenMateID = "");
-
+    void AddNewSharedScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID1, const std::string& a_sPreviousID2,
+                           const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate);
     void AddSyncID(const std::string& a_sID1, const std::string& a_sID2);
 
     /// \brief Delete scene matching id in arg
@@ -235,6 +235,7 @@ signals:
     //    void addingSceneFinished(std::string a_sSceneID, int a_iPlayerID);
     //    void deletingSceneFinished();
     void addingSceneFinished(const QString a_sPrevSceneID, const QString a_sSceneID, int a_iPlayerID);
+    void addingSharedSceneFinished(const QString a_sPrevSceneID1, const QString a_sPrevSceneID2, const QString a_sSceneID);
     void deletingSceneFinished(const QString a_sSceneID);
     void captureFinished(const QString a_sSceneID);
     /// \brief signal a new scene loaded, is Nav store the fact that it's navigation transition

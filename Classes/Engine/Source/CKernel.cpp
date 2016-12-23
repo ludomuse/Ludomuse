@@ -268,7 +268,7 @@ void CKernel::AddSceneIDAtBegin(int a_iPlayerID, const std::string &a_sNewID)
     m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin(), a_sNewID);
 }
 
-void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID,const std::string& a_sNewID,
+void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID, const std::string& a_sNewID,
                           int a_iPlayerNumber, int a_iTemplateNumber, const std::string& a_sScreenMate)
 {
     CSceneNode* newScene = new CSceneNode(a_sNewID, this);
@@ -317,6 +317,115 @@ void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string&
     emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
                              QString::fromStdString(a_sNewID),
                              a_iPlayerNumber));
+}
+
+void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID1, const std::string& a_sPreviousID2,
+                                const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate)
+{
+    CSceneNode* newScene = new CSceneNode(a_sNewID, this);
+    qDebug("ckernel add new scene");
+    m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath, a_iTemplateNumber, a_sScreenMate);
+    // Adding id in the map
+    // can add at   after an existing id of the player number
+    //              at the end of only one player (the player number)
+    if(a_sPreviousID1.empty())
+    {
+        this->AddSceneIDAtBegin(0, a_sNewID);
+    }
+    else if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID1) != m_mScenesID[0].end())
+    {
+        this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID1);
+    }
+    if(a_sPreviousID2.empty())
+    {
+        this->AddSceneIDAtBegin(1, a_sNewID);
+    }
+    else if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID2) != m_mScenesID[1].end())
+    {
+        this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID2); // Add blank id at the other player timeline end
+    }
+
+    // Adding the new scene at the right place in the behavior tree
+    if(a_sPreviousID1.empty() && a_sPreviousID2.empty()) // Adding scene at the beginning
+    {
+        this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
+    }
+    else if (a_sPreviousID1.empty())// Adding scene after an existing
+    {
+        this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID2);
+    }
+    else if (a_sPreviousID2.empty())// Adding scene after an existing
+    {
+        this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID1);
+    }
+    else if (a_sPreviousID1 == a_sPreviousID2)
+    {
+        this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID1);
+    }
+    else
+    {
+        std::vector<CNode*> vChildren = this->m_pBehaviorTree->GetChildren();
+        std::vector<CNode*>::iterator pPrevScene1;
+        std::vector<CNode*>::iterator pPrevScene2;
+        for (pPrevScene1 = vChildren.begin(); pPrevScene1 != vChildren.end(); pPrevScene1++)
+        {
+            if ((*pPrevScene1)->hasID(a_sPreviousID1)) {
+                break;
+            }
+        }
+        for (pPrevScene2 = vChildren.begin(); pPrevScene2 != vChildren.end(); pPrevScene2++)
+        {
+            if ((*pPrevScene2)->hasID(a_sPreviousID2)) {
+                break;
+            }
+        }
+        std::vector<CNode*>::iterator iBegin;
+        std::vector<CNode*>::iterator iEnd;
+        std::string sLastScene;
+        int iPullPlayer;
+        if (std::distance(pPrevScene1, pPrevScene2) > 0)
+        {
+            iEnd = pPrevScene2;
+            iBegin = pPrevScene1;
+            iPullPlayer = 1;
+            sLastScene = a_sPreviousID2;
+        }
+        else
+        {
+            iEnd = pPrevScene1;
+            iBegin = pPrevScene2;
+            iPullPlayer = 0;
+            sLastScene = a_sPreviousID1;
+        }
+        std::vector<CNode*>::iterator iFirst = iBegin + 1;
+        std::vector<CNode*>::iterator iLast = iFirst + 1;
+        while ((*iFirst)->GetSceneID() != sLastScene)
+        {
+            if (PlayerHasScene((*iFirst)->GetSceneID(), iPullPlayer))
+            {
+                iFirst++;
+                iLast = iFirst + 1;
+            }
+            else if (iLast > iFirst && PlayerHasScene((*iLast)->GetSceneID(), iPullPlayer))
+            {
+                std::iter_swap(iLast-1, iLast);
+                iLast --;
+            }
+            else
+            {
+                iLast++;
+            }
+        }
+        newScene->SetParent(m_pBehaviorTree);
+        vChildren.insert(iFirst, newScene);
+        m_pBehaviorTree->SetChildren(vChildren);
+    }
+//    emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
+//                             QString::fromStdString(a_sNewID),
+//                             a_iPlayerNumber));
+    emit(addingSharedSceneFinished(QString::fromStdString(a_sPreviousID1),
+                             QString::fromStdString(a_sPreviousID2),
+                             QString::fromStdString(a_sNewID)));
 }
 
 void CKernel::AddSyncID(const std::string& a_sID1, const std::string& a_sID2)
