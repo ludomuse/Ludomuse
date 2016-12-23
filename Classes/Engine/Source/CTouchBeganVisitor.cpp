@@ -2,6 +2,7 @@
 
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
+#include "../Include/CScratchNode.h"
 
 #include "../../Modules/Util/Include/CStats.h"
 
@@ -85,6 +86,10 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			}
 
 		}
+		else
+		  {
+		    CEntityNode::Release(pEntity);
+		  }
 	}
 	return true;
 }
@@ -97,6 +102,14 @@ bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 
 	if (m_pEntityToFind.IsValid())
 	{
+	  CScratchNode* pScratch = dynamic_cast<CScratchNode*>(m_pEntityToFind.Get());
+	  if (pScratch)
+	    {
+	      CCLOG("Moved in CScratchNode");
+	      pScratch->DrawTouch(a_pTouch->getLocation());
+	      return true;
+	    }
+	  
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(m_pEntityToFind.Get());
 		if (!pEntity) return false;
 
@@ -230,7 +243,7 @@ void CTouchBeganVisitor::MoveEntityBack(CEntityNode* a_pEntity)
 
 Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 {
-  
+
   CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
   if (pEntity)
   {
@@ -240,6 +253,15 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
     if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
+      CCLOG("casting to scratchNode");
+      CScratchNode* pScratch = dynamic_cast<CScratchNode*>(pEntity);
+      if (pScratch)
+	{
+        CCLOG("Touched in CScratchNode entity");
+        pScratch->DrawTouch(oTouchLocation);
+        m_pEntityToFind.Set(pScratch);
+        return RESULT_PRUNE;
+	}
       // if so and if listenning to touch/move, store the entity
 		if (pEntity->EventIsDisabled("Touch"))
 		{

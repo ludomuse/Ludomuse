@@ -158,7 +158,7 @@ class CEntityNode : public CNode
   /// \brief must be called at the end of the Init overloaded
   ///        function to populate parent class in the tree
   /// \param[in] a_bDoScaling if the function must handle the scaling or not
-  virtual void PopulateParent(bool a_bDoScaling = true);
+  virtual void PopulateParent(bool a_bDoScaling = true, bool a_bAddToParent = true);
 
   virtual cocos2d::Scene* GetParentScene();
 

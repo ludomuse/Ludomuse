@@ -35,9 +35,16 @@
         			android:screenOrientation="landscape"
         			android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
         			android:configChanges="orientation|screenSize">
-        			
-        				
+
      	</activity>
+
+        <activity android:name="org.cocos2dx.cpp.VideoActivity"
+                  android:label="videoActivity"
+                  android:screenOrientation="landscape"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:configChanges="orientation|screenSize">
+
+        </activity>
     </application>
 
     <supports-screens android:anyDensity="true"

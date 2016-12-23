@@ -125,7 +125,7 @@ void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pSender)
 	}
 }
 
-void CEntityNode::PopulateParent(bool a_bDoScaling)
+void CEntityNode::PopulateParent(bool a_bDoScaling, bool a_bAddToParent)
 {
 
 	// Size oVisibleSize = Director::getInstance()->getVisibleSize();
@@ -202,12 +202,15 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 		m_pCocosEntity->setScale(fNewScale);
 
 	}
-	cocos2d::Scene* pScene = GetParentScene();
-	if (pScene)
-	{
-		pScene->addChild(m_pCocosEntity, 0);
-	}
-
+    
+    if (a_bAddToParent)
+    {
+        cocos2d::Scene* pScene = GetParentScene();
+        if (pScene)
+        {
+            pScene->addChild(m_pCocosEntity, 0);
+        }
+    }
 
 	m_pCocosEntity->setVisible(m_bVisible);
 
