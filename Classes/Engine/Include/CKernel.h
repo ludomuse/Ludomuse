@@ -122,6 +122,7 @@ public:
   /// \brief change the visibility of the node
   /// \param[in] a_rEvent.m_bBoolValue is the chosen visibility
   void SetNodeVisible(SEvent a_rEvent, CEntityNode* a_pTarget);
+  void SetNodeColored(SEvent a_rEvent, CEntityNode* a_pTarget);
   void FadeEntity(SEvent a_rEvent, CEntityNode* a_pTarget);
   /// \brief change the current player ID
   void SetPlayerID(SEvent a_rEvent, CEntityNode* a_pTarget);

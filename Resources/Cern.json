@@ -9,7 +9,7 @@
             [
                 "screen-0",
                 "screen-peers-dummy",
-                "screen-0",
+                "screen-0bis",
                 "screen-playerid",
                 "screen-0-a-player1",
                 "screen-0-b-1",
@@ -84,7 +84,7 @@
             [
                 "screen-0",
                 "screen-peers-dummy",
-                "screen-0",
+                "screen-0bis",
                 "screen-playerid",
                 "screen-0-a-player2",
                 "screen-0-b",
@@ -1120,7 +1120,7 @@
                 ]
             },
             {
-                "scene": "screen-0",
+                "scene": "screen-0bis",
                 "navigation": [
                     {
                         "type": "Nav",

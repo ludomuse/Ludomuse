@@ -21,9 +21,24 @@ CSpriteNode::CSpriteNode(const std::string& a_rFilename,
 
 void CSpriteNode::Init()
 {
-  m_pCocosEntity = Sprite::create(m_sSpriteFilename);
+  Sprite* pSprite = Sprite::create(m_sSpriteFilename);
   //m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
+	  if (!m_bColored)
+	  {
+		  BlendFunc oColoredBlend;
+		  oColoredBlend.src = GL_ZERO;
+		  oColoredBlend.dst = GL_ONE_MINUS_SRC_ALPHA;
+		  pSprite->setBlendFunc(oColoredBlend);
+	  }
+	  //else
+	  //{
+		 // BlendFunc oColoredBlend;
+		 // oColoredBlend.src = GL_SRC_ALPHA;
+		 // oColoredBlend.dst = GL_ONE_MINUS_SRC_ALPHA;
+		 // pBlendedNode->setBlendFunc(oColoredBlend);
+	  //}
+	m_pCocosEntity = pSprite;
   PopulateParent();
 
   CNode::Init();
