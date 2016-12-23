@@ -19426,7 +19426,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],
