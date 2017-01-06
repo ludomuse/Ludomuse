@@ -1,5 +1,6 @@
 #include "../Include/CSpriteNode.h"
 #include "../Include/CSceneNode.h"
+#include "../Include/CMacroManager.h"
 
 using namespace cocos2d;
 
@@ -21,7 +22,7 @@ CSpriteNode::CSpriteNode(const std::string& a_rFilename,
 
 void CSpriteNode::Init()
 {
-  Sprite* pSprite = Sprite::create(m_sSpriteFilename);
+  Sprite* pSprite = Sprite::create(CMacroManager::Instance()->CheckDefinition(m_sSpriteFilename));
   //m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
 	  if (!m_bColored)

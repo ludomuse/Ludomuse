@@ -48,6 +48,8 @@ private:
 
 	 std::string GetBasePath();
 
+	 /// return the complete path of the given filename, or the macro if it begins with a #
+	 std::string NormalizePath(const std::string& a_sFileName);
 
 	 /// \brief Build the tree of root a_pRoot from a_sFilename json file
 	 /// \params[in] a_pRoot the root node of the behavior tree

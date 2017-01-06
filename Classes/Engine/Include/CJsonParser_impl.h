@@ -48,7 +48,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		if (rParams.HasMember("source"))
 		{
 			sBackgroundSource = rParams["source"].GetString();
-            sBackgroundSource = m_sBasePath + sBackgroundSource;
+            //sBackgroundSource = m_sBasePath + sBackgroundSource;
+			sBackgroundSource = NormalizePath(sBackgroundSource);
 		}
 		pEntity = new CGroupNode(
 			IntToAnchor(rParams["anchor"].GetInt()),
@@ -79,7 +80,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "Image" || sType == "Info")
 	{
-        std::string imageSource = m_sBasePath + rParams["source"].GetString();
+        //std::string imageSource = m_sBasePath + rParams["source"].GetString();
+		std::string imageSource = NormalizePath(rParams["source"].GetString()	);
         pEntity = new CSpriteNode(imageSource,
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width, height,

@@ -5,6 +5,7 @@
 #include "../../cocos2d/external/json/stringbuffer.h"
 
 #include "../Include/CValidateSceneVisitor.h"
+#include "Classes\Engine\Include\CMacroManager.h"
 
 using namespace cocos2d;
 
@@ -20,6 +21,18 @@ CJsonParser::CJsonParser(CKernel* a_pKernel) : m_pKernel(a_pKernel)
 std::string CJsonParser::GetBasePath()
 {
 	return m_sBasePath;
+}
+
+std::string CJsonParser::NormalizePath(const std::string& a_sFileName)
+{
+	if (a_sFileName.size() > 0 && a_sFileName.at(0) == '#')
+	{
+		return a_sFileName;
+	}
+	else
+	{
+		return (m_sBasePath + a_sFileName);
+	}
 }
 
 void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename)
@@ -47,6 +60,12 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 		{
 			m_pKernel->m_bDebugMode = m_oDocument["app"]["debug"].GetBool();
 			Director::getInstance()->setDisplayStats(true);
+		}
+
+		if (m_oDocument["app"].HasMember("macros"))
+		{
+			RefJsonNode rMacros = m_oDocument["app"]["macros"];
+			CMacroManager::Instance()->ParseJSON(rMacros, m_sBasePath);
 		}
 
 		assert(m_oDocument["app"].HasMember("scenes"));

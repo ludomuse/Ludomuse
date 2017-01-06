@@ -1,5 +1,6 @@
 #include "../Include/CVideoNode.h"
 #include "cocos2d.h"
+#include "../Include/CMacroManager.h"
 
 #ifdef __ANDROID__
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
