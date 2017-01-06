@@ -103,6 +103,22 @@
             ]
         ],
         "screens": [
+	    {
+		"scene": "WaitingScene",
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "ui/waiting.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
+	    },
             {
                 "scene": "Dashboard",
                 "navigation": [
@@ -5342,7 +5358,7 @@
                                 "flour1",
                                 "water1"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/xylophone.mp3"
+                            "sound": "cache/audio/xylophone.mp3"
                         }
                     }
                 ],
@@ -7755,7 +7771,7 @@
                                 "PuzzleC",
                                 "PuzzleD"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/xylophone.mp3"
+                            "sound": "cache/audio/xylophone.mp3"
                         }
                     }
                 ],
@@ -9834,7 +9850,7 @@
                             "ids": [
                                 "TourLUA"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/xylophone.mp3"
+                            "sound": "cache/audio/xylophone.mp3"
                         }
                     }
                 ],
@@ -10634,7 +10650,7 @@
                                 "Loire",
                                 "Tour"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/xylophone.mp3"
+                            "sound": "cache/audio/xylophone.mp3"
                         }
                     }
                 ],
@@ -11686,7 +11702,7 @@
                                 "3",
                                 "4"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/xylophone.mp3"
+                            "sound": "cache/audio/xylophone.mp3"
                         }
                     }
                 ],
@@ -12590,7 +12606,7 @@
                                 "AnswerC",
                                 "AnswerD"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/xylophone.mp3"
+                            "sound": "cache/audio/xylophone.mp3"
                         }
                     }
                 ],
@@ -13470,7 +13486,7 @@
                                 "AnswerC",
                                 "AnswerD"
                             ],
-                            "sound": "/home/babouchot/workspace/IHMTEK/LudoMuse/Resources/cache/audio/xylophone.mp3"
+                            "sound": "cache/audio/xylophone.mp3"
                         }
                     }
                 ],

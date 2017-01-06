@@ -16,13 +16,14 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
     m_eAnchor(a_eAnchor),
     m_iXPosition(a_iXPosition),
     m_iYPosition(a_iYPosition),
-    m_iWidth(a_iWidth),
-    m_iHeight(a_iHeight),
-    m_bVisible(true),
-    m_bLocked(false),
-    m_sID(a_sID),
-    m_fEntityStartScale(0),
-    m_pCocosEntity(nullptr)
+	m_iWidth(a_iWidth),
+	m_iHeight(a_iHeight),
+	m_bVisible(true),
+	m_bLocked(false),
+	m_sID(a_sID),
+	m_fEntityStartScale(0),
+    m_pCocosEntity(nullptr),
+    m_bColored(true)
 {
 }
 
@@ -181,7 +182,7 @@ void CEntityNode::Dispatch(const std::string& a_rEvent, CEntityNode* a_pSender)
     }
 }
 
-void CEntityNode::PopulateParent(bool a_bDoScaling)
+void CEntityNode::PopulateParent(bool a_bDoScaling, bool a_bAddToParent)
 {
 
     // Size oVisibleSize = Director::getInstance()->getVisibleSize();
@@ -255,13 +256,15 @@ void CEntityNode::PopulateParent(bool a_bDoScaling)
 
 
 
-        m_pCocosEntity->setScale(fNewScale);
-
-    }
-    cocos2d::Scene* pScene = GetParentScene();
-    if (pScene)
+	}
+    
+    if (a_bAddToParent)
     {
-        pScene->addChild(m_pCocosEntity, 0);
+        cocos2d::Scene* pScene = GetParentScene();
+        if (pScene)
+        {
+            pScene->addChild(m_pCocosEntity, 0);
+        }
     }
 
 
@@ -379,16 +382,30 @@ void CEntityNode::Show(bool a_bVisible)
         m_pCocosEntity->setVisible(a_bVisible);
         FadeIn();
     }
+}
 
-    for (CNode* itNode : *this)
-    {
-        CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-        if (pEntity && (!pEntity->IsListeningTo("Show") || !a_bVisible))
-        {
-            pEntity->Show(a_bVisible);
-        }
-    }
+void CEntityNode::Colorize(bool a_bColored)
+{
+	if (GetID() != "" && a_bColored)
+		CCLOG("Colorize entity : %s", GetID().c_str());
 
+	m_bColored = a_bColored;
+	if (a_bColored && dynamic_cast<Sprite*>(m_pCocosEntity))
+	{
+		BlendFunc oColoredBlend;
+		oColoredBlend.src = GL_SRC_ALPHA;
+		oColoredBlend.dst = GL_ONE_MINUS_SRC_ALPHA;
+		dynamic_cast<Sprite*>(m_pCocosEntity)->setBlendFunc(oColoredBlend);
+	}
+
+	for (CNode* itNode : *this)
+	{
+		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+		if (pEntity && (!pEntity->IsListeningTo("Colorize") || !a_bColored))
+		{
+			pEntity->Colorize(a_bColored);
+		}
+	}
 }
 
 bool CEntityNode::IsLocked()

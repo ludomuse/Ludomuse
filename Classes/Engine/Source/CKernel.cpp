@@ -73,13 +73,13 @@ CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
     // the BehaviorTree member of the kernel
     // is a pointer to the root node of the tree
 
-    // build the waiting scene
-    // TODO : remove hardcoded waiting scene
-    //    m_pWaitingScene = new CSceneNode("WaitingScene", this);
-    //    CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
-    //                                                     EAnchor::CENTER, 100, 100, 0, 0);
+	// build the waiting scene
+	// TODO : remove hardcoded waiting scene
+// 	m_pWaitingScene = new CSceneNode("WaitingScene", this);
+// 	CSpriteNode* pBackgroundSprite = new CSpriteNode("ui/waiting.png",
+// 		EAnchor::CENTER, 100, 100, 0, 0);
 
-    //    m_pWaitingScene->AddChildNode(pBackgroundSprite);
+// 	m_pWaitingScene->AddChildNode(pBackgroundSprite);
 }
 
 CKernel::~CKernel()
@@ -993,6 +993,16 @@ void CKernel::SetNodeVisible(SEvent a_oEvent, CEntityNode* a_pTarget)
     }
 }
 
+void CKernel::SetNodeColored(SEvent a_oEvent, CEntityNode* a_pTarget)
+{
+	CCLOG("CKernel::SetNodeColored");
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	if (pEntity)
+	{
+		pEntity->Colorize(a_oEvent.m_bBoolValue);
+	}
+}
+
 void CKernel::FadeEntity(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
 
@@ -1158,25 +1168,25 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 
 void CKernel::Connect(SEvent a_oEvent, CEntityNode* a_pTarget)
 {
-    CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
-    if (pEntity)
-    {
-        Desc<CNode> pLabelDesc;
-        CFindEntityVisitor oVisitor(pLabelDesc, "GetText");
-        oVisitor.Traverse(pEntity);
-        if (pLabelDesc.IsValid())
-        {
-            CEntityNode* pLabelEntity = dynamic_cast<CEntityNode*>(pLabelDesc.Get());
-            if (pLabelEntity) {
-                Label* pLabel = dynamic_cast<Label*>(pLabelEntity->GetCocosEntity());
-                if (pLabel)
-                {
-                    //					m_pNetworkManager->ConnectTo(pLabel->getString());
-                    //					m_pNetworkManager->Send("connection:establish");
-                }
-            }
-        }
-    }
+	CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_oEvent.m_pSender);
+	if (pEntity)
+	{
+		Desc<CNode> pLabelDesc;
+		CFindEntityVisitor oVisitor(pLabelDesc, "GetText");
+		oVisitor.Traverse(pEntity);
+		if (pLabelDesc.IsValid())
+		{
+			CEntityNode* pLabelEntity = dynamic_cast<CEntityNode*>(pLabelDesc.Get());
+			if (pLabelEntity) {
+				Label* pLabel = dynamic_cast<Label*>(pLabelEntity->GetCocosEntity());
+				if (pLabel)
+				{
+					m_pNetworkManager->ConnectTo(pLabel->getString());
+					m_pNetworkManager->Send(std::string("connection:establish"));
+				}
+			}
+		}
+	}
 }
 
 void CKernel::DisableEvent(SEvent a_rEvent, CEntityNode* a_pTarget)

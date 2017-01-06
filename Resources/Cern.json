@@ -9,7 +9,7 @@
             [
                 "screen-0",
                 "screen-peers-dummy",
-                "screen-0",
+                "screen-0bis",
                 "screen-playerid",
                 "screen-0-a-player1",
                 "screen-0-b-1",
@@ -84,7 +84,7 @@
             [
                 "screen-0",
                 "screen-peers-dummy",
-                "screen-0",
+                "screen-0bis",
                 "screen-playerid",
                 "screen-0-a-player2",
                 "screen-0-b",
@@ -161,6 +161,22 @@
             ]
         ],
         "screens": [
+	    {
+		"scene": "WaitingScene",
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "ui/waiting.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
+	    },
             {
                 "scene": "Dashboard",
                 "navigation": [
@@ -1104,7 +1120,7 @@
                 ]
             },
             {
-                "scene": "screen-0",
+                "scene": "screen-0bis",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -8901,13 +8917,6 @@
                             "action": "next",
                             "listeners": [
                                 {
-                                    "type": "DistValidate",
-                                    "params": {
-                                        "callback": "Validate",
-                                        "arg": "distant"
-                                    }
-                                },
-                                {
                                     "type": "Validate",
                                     "params": {
                                         "callback": "Show",
@@ -9252,7 +9261,7 @@
                                     "type": "Validate",
                                     "params": {
                                         "callback": "SendMessage",
-                                        "arg": "screen-2-e-player:DistValidate"
+                                        "arg": "kernel:Validate"
                                     }
                                 }
                             ],
@@ -19417,7 +19426,7 @@
                                 "distant",
                                 "local"
                             ],
-                            "sound": "audio/gong.mp3"
+                            "sound": "cache/audio/gong.mp3"
                         }
                     }
                 ],

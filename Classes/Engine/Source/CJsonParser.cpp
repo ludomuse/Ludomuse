@@ -5,6 +5,7 @@
 #include "stringbuffer.h"
 
 #include "../Include/CValidateSceneVisitor.h"
+#include "Classes\Engine\Include\CMacroManager.h"
 
 #include <QDebug>
 #include <QFileInfo>
@@ -28,6 +29,18 @@ std::string CJsonParser::GetBasePath()
 	return m_sBasePath;
 }
 
+std::string CJsonParser::NormalizePath(const std::string& a_sFileName)
+{
+	if (a_sFileName.size() > 0 && a_sFileName.at(0) == '#')
+	{
+		return a_sFileName;
+	}
+	else
+	{
+		return (m_sBasePath + a_sFileName);
+	}
+}
+
 void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename)
 {
 
@@ -49,6 +62,11 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
   if (m_oDocument.HasMember("app"))
   {
 
+		if (m_oDocument["app"].HasMember("macros"))
+		{
+			RefJsonNode rMacros = m_oDocument["app"]["macros"];
+			CMacroManager::Instance()->ParseJSON(rMacros, m_sBasePath);
+		}
 #ifndef LUDOMUSE_EDITOR
 	  //ParseJsonRoot(m_oDocument["app"], a_pRoot);
 	  if (m_oDocument["app"].HasMember("debug"))
@@ -193,6 +211,18 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
         CEventCallback oCallback("ShowBack", m_pKernel, &CKernel::SetNodeVisible,
             SEvent(SEvent::BOOLEAN, a_pEntity, sCallbackString, true));
 		a_pEntity->AddListener(sType, oCallback);
+		return true;
+	}
+	else if (sCallbackString == "Colorize")
+	{
+		bool bColor = true;
+		if (a_rListener["params"].HasMember("arg"))
+			bColor = a_rListener["params"]["arg"].GetBool();
+
+		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeColored,
+			SEvent(a_pEntity, sCallbackString, bColor));
+		a_pEntity->AddListener(sType, oCallback);
+		a_pEntity->Colorize(false);
 		return true;
 	}
 	else if (sCallbackString == "SetText")

@@ -77,6 +77,8 @@ class CEntityNode : public CNode
 
   bool m_bVisible;
 
+  bool m_bColored;
+
   bool m_bLocked;
 
   std::string m_sID;
@@ -142,6 +144,10 @@ class CEntityNode : public CNode
   /// \param[in] a_bVisible true to show the item
   virtual void Show(bool a_bVisible = true);
 
+  /// \add color to a darken node
+  /// \param[in] a_bColorize true to enable the colors
+  virtual void Colorize(bool a_bColored = true);
+
   virtual bool IsLocked();
 
   virtual cocos2d::Vec2 GetEntityStartLocation();
@@ -183,7 +189,7 @@ class CEntityNode : public CNode
   /// \brief must be called at the end of the Init overloaded
   ///        function to populate parent class in the tree
   /// \param[in] a_bDoScaling if the function must handle the scaling or not
-  virtual void PopulateParent(bool a_bDoScaling = true);
+  virtual void PopulateParent(bool a_bDoScaling = true, bool a_bAddToParent = true);
 
   virtual cocos2d::Scene* GetParentScene();
 

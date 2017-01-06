@@ -47,7 +47,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		if (rParams.HasMember("source"))
 		{
 			sBackgroundSource = rParams["source"].GetString();
-            sBackgroundSource = m_sBasePath + sBackgroundSource;
+            //sBackgroundSource = m_sBasePath + sBackgroundSource;
+			sBackgroundSource = NormalizePath(sBackgroundSource);
 		}
 		pEntity = new CGroupNode(
 			IntToAnchor(rParams["anchor"].GetInt()),
@@ -78,21 +79,29 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
     else if (sType == "Image")
 	{
-        std::string imageSource = m_sBasePath + rParams["source"].GetString();
+        //std::string imageSource = m_sBasePath + rParams["source"].GetString();
+		std::string imageSource = NormalizePath(rParams["source"].GetString()	);
         pEntity = new CSpriteNode(imageSource,
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width, height,
 			x, y);
 	}
 
-    else if (sType == "Info")
-    {
-        std::string imageSource = m_sBasePath + rParams["source"].GetString();
-        pEntity = new CInfoNode(imageSource,
-            IntToAnchor(rParams["anchor"].GetInt()),
-            width, height,
-            x, y);
-    }
+	else if (sType == "Scratch")
+	  {
+	    std::string imageSource = m_sBasePath + rParams["source"].GetString();
+	    pEntity = new CScratchNode(imageSource,
+				       IntToAnchor(rParams["anchor"].GetInt()),
+				       width, height, x, y);
+	  }
+
+	else if (sType == "Video")
+	{
+		pEntity = new CVideoNode(m_sBasePath + rParams["source"].GetString(),
+			IntToAnchor(rParams["anchor"].GetInt()),
+				width, height, x, y);
+	}
+
 
 	else if (sType == "Input")
 	{
@@ -153,7 +162,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	else if (sType == "Text")
 	{
 		std::string sFontName = "";
-        if (rParams.HasMember("source"))
+		if (rParams.HasMember("source"))
 		{
             sFontName =  m_sBasePath + rParams["source"].GetString();
 		}
@@ -325,7 +334,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
             return;
         }
     }
-
+    }
+    
 	if (a_rJsonNode.HasMember("sync"))
 	{
 		pSceneNode->SetSynced(a_rJsonNode["sync"].GetBool());

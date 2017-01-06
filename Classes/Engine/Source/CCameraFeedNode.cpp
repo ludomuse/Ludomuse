@@ -157,7 +157,7 @@ void CCameraGLView::draw(Renderer* a_pRenderer,
 
 
 CCameraFeedNode::CCameraFeedNode(const std::string& a_rMaskPath, EAnchor a_eAnchor, int width, int height, int x, int y, bool a_bIsReceiver) :
-	CSpriteNode("cache/bouddha1.png", a_eAnchor, width, height, x, y),
+	CSpriteNode(a_rMaskPath, a_eAnchor, width, height, x, y),
 	m_bIsReceiver(a_bIsReceiver),
 	m_sMaskPath(a_rMaskPath)
 {

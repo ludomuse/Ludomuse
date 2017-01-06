@@ -10,6 +10,7 @@ import java.util.Calendar;
 import org.cocos2dx.cpp.AppActivity;
 import org.cocos2dx.cpp.CameraActivity;
 import org.cocos2dx.cpp.DebugManager;
+import org.cocos2dx.cpp.VideoActivity;
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 
 import android.os.Environment;
@@ -121,6 +122,15 @@ public class JniJavaFacade {
 		intent.putExtra("maskPath", maskPath);
 		//appActivity.startActivity(intent);
 		appActivity.startActivityForResult(intent, 1);
+	}
+
+	public static void showVideo(String videoPath)
+	{
+		AppActivity appActivity = (AppActivity) _wifiDirectFacade.getActivity();
+		Intent intent = new Intent(appActivity, VideoActivity.class);
+		intent.putExtra("videoPath", videoPath);
+		Log.d("LudoMuse", "starting video activity with path : " + videoPath);
+		appActivity.startActivity(intent);
 	}
 	
 	public static void saveStringToFile(String text)
