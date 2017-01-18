@@ -40,6 +40,9 @@ class CKernel
 
   CSerializableStats* m_pRemoteStats;
 
+  std::mutex m_oCountdownMutex;
+
+
 public:
 	/// \brief a reference to the dashboard with the timeline of the game
 	CSceneNode* m_pDashboard;
@@ -138,6 +141,8 @@ public:
   void SetText(SEvent a_rEvent, CEntityNode* a_pTarget);
   void RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget);
   void EndGame(SEvent, CEntityNode*);
+  void CountdownPressed(SEvent, CEntityNode*);
+  void CountdownReleased(SEvent, CEntityNode*);
 
 
   //////////////// network callbacks
@@ -152,6 +157,8 @@ public:
 private:
 	void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
 	void ProcessMessage(const std::string& a_rMessage);
+	void StartCountdownThread();
+	void StopCountdownThread();
 
 };
 

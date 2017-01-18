@@ -86,6 +86,10 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			}
 
 		}
+		else if (m_sListenEvent == "CountdownPressed")
+		{
+			pEntity->Dispatch("CountdownReleased");
+		}
 		else
 		  {
 		    CEntityNode::Release(pEntity);
@@ -293,6 +297,12 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 		  pEntity->Dispatch("Move");
 
 		  return RESULT_PRUNE;
+	  }
+	  else if (pEntity->IsListeningTo("CountdownPressed"))
+	  {
+		  m_pEntityToFind.Set(pEntity);
+		  m_sListenEvent = "CountdownPressed";
+		  pEntity->Dispatch("CountdownPressed");
 	  }
       
     }
