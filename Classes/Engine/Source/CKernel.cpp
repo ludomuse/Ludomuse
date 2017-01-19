@@ -569,6 +569,9 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 				StartCountdownThread();
 			}
 			m_oCountdownMutex.unlock();
+			CDispatchMessageVisitor oVisitor("RemoteCountdownPressed");
+			oVisitor.Traverse(m_pCurrentScene);
+
 		}
 
 		else if (vSplittedMessage[1] == "CountdownReleased")
@@ -580,6 +583,8 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 				StopCountdownThread();
 			}
 			m_oCountdownMutex.unlock();
+			CDispatchMessageVisitor oVisitor("RemoteCountdownReleased");
+			oVisitor.Traverse(m_pCurrentScene);
 		}
 	}
 	else if (vSplittedMessage[0] == "Dashboard")
@@ -857,6 +862,7 @@ void* ChronoLoop(void* arg)
 
 		if (!g_pChrono->m_bIsActive)
 		{
+			pthread_mutex_unlock(&g_oCountdownMutex);
 			break;
 		}
 		else
