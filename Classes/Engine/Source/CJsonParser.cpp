@@ -219,8 +219,8 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 		if (a_rListener["params"].HasMember("arg"))
 			bColor = a_rListener["params"]["arg"].GetBool();
 
-		CEventCallback oCallback(m_pKernel, &CKernel::SetNodeColored,
-			SEvent(a_pEntity, sCallbackString, bColor));
+        CEventCallback oCallback("Colorize", m_pKernel, &CKernel::SetNodeColored,
+            SEvent(SEvent::BOOLEAN, a_pEntity, sCallbackString, bColor));
 		a_pEntity->AddListener(sType, oCallback);
 		a_pEntity->Colorize(false);
 		return true;

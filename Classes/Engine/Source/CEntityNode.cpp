@@ -255,7 +255,7 @@ void CEntityNode::PopulateParent(bool a_bDoScaling, bool a_bAddToParent)
         }
 
 
-
+		m_pCocosEntity->setScale(fNewScale);
 	}
     
     if (a_bAddToParent)

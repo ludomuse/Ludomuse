@@ -6,6 +6,7 @@
 
 #include "../Include/CSoundManager.h"
 #include "../Include/CJsonParser.h"
+#include "../Include/CMacroManager.h"
 
 namespace LM
 {
@@ -47,8 +48,16 @@ namespace LM
 	{
         CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 		//m_oPlayingSoundMutex.lock();
-		m_sPlayingSoundURL = a_rSoundURL;
-
+//        m_sPlayingSoundURL = a_rSoundURL;
+        std::string fullSoundPath;
+        if (CMacroManager::Instance()->HasDefinition(a_rSoundURL))
+        {
+            fullSoundPath = CMacroManager::Instance()->GetDefinition(a_rSoundURL);
+        }
+        else
+        {
+            fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
+        }
 		//SSoundEndedObject* pSound = new SSoundEndedObject;
 		//pSound->sSoundURL = m_sPlayingSoundURL;
 		//pSound->pSoundManager = this;
@@ -59,7 +68,7 @@ namespace LM
 //#else // !__ANDROID__
 //		std::string fullSoundPath = a_rSoundURL;
 //#endif
-		std::string fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
+//		std::string fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
 
 		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(fullSoundPath.c_str(), false);
 		//pthread_t thread;

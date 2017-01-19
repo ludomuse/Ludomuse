@@ -1,5 +1,6 @@
 #include "../Include/CLabelNode.h"
 #include "../Include/CSpriteNode.h"
+#include "../Include/CMacroManager.h"
 
 #include <QDebug>
 #include <CProjectManager.h>
@@ -32,7 +33,7 @@ CLabelNode::CLabelNode(const std::string& a_rText,
 
 void CLabelNode::Init()
 {
-  Label* pLabel = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
+  Label* pLabel = Label::createWithTTF(m_sText, CMacroManager::Instance()->CheckDefinition(m_sFontName), m_iFontSize);
   m_pCocosEntity = pLabel;
 
   PopulateParent(false);
@@ -207,7 +208,7 @@ void CLabelNode::SetFont(const std::string& a_rFontName)
     if (pLabel)
     {
         TTFConfig font = pLabel->getTTFConfig();
-        font.fontFilePath = m_sFontName;
+        font.fontFilePath = CMacroManager::Instance()->CheckDefinition(m_sFontName);
         pLabel->setTTFConfig(font);
     }
 }

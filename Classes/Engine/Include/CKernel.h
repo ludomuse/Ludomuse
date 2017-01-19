@@ -180,6 +180,7 @@ public:
     void GotoScreenID(SEvent a_rEvent, CEntityNode* a_pTarget);
 //    void GotoScreenID(const std::string& a_sSceneID, int a_iPlayerID);
     void ClearScreen();
+    void ReloadScreen();
 
     /// \brief capture current screen
     void CaptureScreen();
@@ -198,6 +199,7 @@ public:
     /// \brief change the visibility of the node
     /// \param[in] a_rEvent.m_bBoolValue is the chosen visibility
     void SetNodeVisible(SEvent a_rEvent, CEntityNode* a_pTarget);
+    void SetNodeColored(SEvent a_oEvent, CEntityNode* a_pTarget);
     void FadeEntity(SEvent a_rEvent, CEntityNode* a_pTarget);
     /// \brief change the current player ID
     void SetPlayerID(SEvent a_rEvent, CEntityNode* a_pTarget);

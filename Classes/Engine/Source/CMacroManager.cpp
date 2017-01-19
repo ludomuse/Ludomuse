@@ -1,5 +1,8 @@
 #include "Classes\Engine\Include\CMacroManager.h"
 
+#include <QDebug>
+#include "ETypes.h"
+#include "CProjectManager.h"
 #include "../../cocos2d/external/json/rapidjson.h"
 #include "../../cocos2d/external/json/document.h"
 
@@ -23,11 +26,14 @@ namespace LM
 
 	void CMacroManager::AddDefinition(const std::string& a_sMacroName, const std::string& a_sMacroDefinition)
 	{
+        qDebug() << "Add macro: " << QString::fromStdString(a_sMacroName)
+                 << " - " << QString::fromStdString(a_sMacroDefinition);
 		m_mMacros[a_sMacroName] = a_sMacroDefinition;
 	}
 
 	void CMacroManager::RemoveDefinition(const std::string& a_sMacroName)
 	{
+        qDebug() << "Remove macro: " << QString::fromStdString(a_sMacroName);
 		m_mMacros.erase(a_sMacroName);
 	}
 
@@ -41,6 +47,18 @@ namespace LM
 			return "";
 		}
 	}
+
+    bool CMacroManager::HasDefinition(const std::string& a_sMacroName)
+    {
+        try {
+            m_mMacros.at(a_sMacroName);
+        }
+        catch (std::out_of_range)
+        {
+            return false;
+        }
+        return true;
+    }
 
 	void CMacroManager::ParseJSON(RefJsonNode a_rJNode, const std::string& a_sBasePath)
 	{
@@ -61,9 +79,46 @@ namespace LM
 			}
 			catch (std::out_of_range)
 			{
-				return a_sFileName;
+                return "";
 			}
 		}
 		return a_sFileName;
 	}
+
+    void CMacroManager::GetIterator(std::map<std::string, std::string>::const_iterator* a_itBegin,
+                                    std::map<std::string, std::string>::const_iterator* a_itEnd)
+    {
+        *a_itBegin = m_mMacros.cbegin();
+        *a_itEnd = m_mMacros.cend();
+    }
+
+    void CMacroManager::ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator)
+    {
+        std::map<std::string,std::string>::iterator itr;
+        for (itr = m_mMacros.begin(); itr != m_mMacros.end(); itr ++)
+        {
+//            parent.AddMember(rapidjson::Value((*itr).first.c_str(), (*itr).first.length()),
+//                             rapidjson::Value((*itr).second.c_str(), (*itr).second.length()),
+//                             allocator);
+            std::string temp = (*itr).second;
+            std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+            int index = temp.find(projectPath);
+            if(index != std::string::npos)
+            {
+                temp.erase(index, projectPath.length());
+            }
+            else
+            {
+                std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/templates/";
+                int index2 = temp.find(templatePath);
+                if(index2 != std::string::npos)
+                {
+                    temp.erase(index2, templatePath.length());
+                }
+            }
+            std::string* string = CProjectManager::Instance()->PushBackSource(temp);
+            parent.AddMember(rapidjson::Value((*itr).first.c_str(), (*itr).first.length()),
+                             rapidjson::Value(string->c_str(), string->length()) , allocator);
+        }
+    }
 }

@@ -24,6 +24,7 @@
 #include "CValidator.h"
 #include "CEditBoxNode.h"
 #include "CInfoNode.h"
+#include <QDebug>
 
 namespace LM
 {

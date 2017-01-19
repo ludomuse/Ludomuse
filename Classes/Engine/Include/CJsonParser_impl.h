@@ -1,6 +1,5 @@
 //////////////////////////////// templates specializations 
 
-
 /// \brief the specialisation building entities in a scene or subentities
 template <typename T>
 inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible, bool a_bNewScene)
@@ -26,8 +25,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	{
 		height = rParams["height"].GetInt();
 	}
-
-	CEntityNode* pEntity(nullptr);
+    CEntityNode* pEntity(nullptr);
 
 	if (sType == "Grid")
 	{
@@ -77,7 +75,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		   CCLOG("grid constructed");
     }*/
 
-    else if (sType == "Image")
+    else if (sType == "Image" || sType == "Info")
 	{
         //std::string imageSource = m_sBasePath + rParams["source"].GetString();
 		std::string imageSource = NormalizePath(rParams["source"].GetString()	);
@@ -201,7 +199,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			height,
 			x,
 			y);
-
 	}
 
 
@@ -330,10 +327,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
     {
         pSceneNode = dynamic_cast<CSceneNode*>(a_pNode);
         if(!pSceneNode){
-            qDebug("Error - root node is not a scene Node when trying to edit behavior Tree");
+//            qDebug("Error - root node is not a scene Node when trying to edit behavior Tree");
             return;
         }
-    }
     }
     
 	if (a_rJsonNode.HasMember("sync"))

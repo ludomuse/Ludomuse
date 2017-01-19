@@ -22,6 +22,8 @@
 #include "../../Modules/Util/Include/Util.h"
 #include "../../Modules/Util/Include/CStats.h"
 
+#include "../Include/CMacroManager.h"
+
 #include "ui/CocosGUI.h"
 
 #include <iostream>
@@ -144,6 +146,9 @@ std::string CKernel::ToJson(){
     app.AddMember("videos", videos, allocator);
     rapidjson::Value sounds(rapidjson::kArrayType);
     app.AddMember("sounds", sounds, allocator);
+    rapidjson::Value macros(rapidjson::kObjectType);
+    CMacroManager::Instance()->ToJson(macros, allocator);
+    app.AddMember("macros", macros, allocator);
     rapidjson::Value scenes(rapidjson::kArrayType);
     this->ScenesToJson(scenes, allocator);
     app.AddMember("scenes", scenes, allocator);
@@ -417,7 +422,7 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
             }
         }
         newScene->SetParent(m_pBehaviorTree);
-        vChildren.insert(iFirst, newScene);
+        vChildren.insert(iFirst+1, newScene);
         m_pBehaviorTree->SetChildren(vChildren);
     }
 //    emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
@@ -892,6 +897,13 @@ void CKernel::ClearScreen()
     Director::getInstance()->replaceScene(new Scene());
 }
 
+void CKernel::ReloadScreen()
+{
+    m_pCurrentScene->UnInit();
+    m_pCurrentScene->Init();
+//    Director::getInstance()->replaceScene();
+}
+
 //void CKernel::GotoScreenID(const std::string &a_sSceneID, int a_iPlayerID)
 //{
 //    m_pLocalPlayer->m_iPlayerID = a_iPlayerID;
@@ -1181,8 +1193,8 @@ void CKernel::Connect(SEvent a_oEvent, CEntityNode* a_pTarget)
 				Label* pLabel = dynamic_cast<Label*>(pLabelEntity->GetCocosEntity());
 				if (pLabel)
 				{
-					m_pNetworkManager->ConnectTo(pLabel->getString());
-					m_pNetworkManager->Send(std::string("connection:establish"));
+//					m_pNetworkManager->ConnectTo(pLabel->getString());
+//					m_pNetworkManager->Send(std::string("connection:establish"));
 				}
 			}
 		}
@@ -1301,7 +1313,9 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 
 void CKernel::PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
+#ifndef LUDOMUSE_EDITOR
     m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
+#endif
 }
 
 
