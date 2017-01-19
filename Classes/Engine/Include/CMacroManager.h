@@ -16,6 +16,7 @@ namespace LM
 		void AddDefinition(const std::string& a_sMacroName, const std::string& a_sMacroDefinition);
 		void RemoveDefinition(const std::string& a_sMacroName);
 		std::string GetDefinition(const std::string& a_sMacroName);
+		bool HasDefinition(const std::string& a_sMacroName);
 		void ParseJSON(RefJsonNode a_rJNode, const std::string& a_sBasePath);
 
 	private:

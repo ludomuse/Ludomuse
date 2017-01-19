@@ -42,6 +42,18 @@ namespace LM
 		}
 	}
 
+	bool CMacroManager::HasDefinition(const std::string& a_sMacroName)
+	{
+		try {
+			m_mMacros.at(a_sMacroName);
+		}
+		catch (std::out_of_range)
+		{
+			return false;
+		}
+		return true;
+	}
+
 	void CMacroManager::ParseJSON(RefJsonNode a_rJNode, const std::string& a_sBasePath)
 	{
 		for (rapidjson::Value::ConstMemberIterator itr = a_rJNode.MemberBegin();
@@ -61,7 +73,7 @@ namespace LM
 			}
 			catch (std::out_of_range)
 			{
-				return a_sFileName;
+				return "";
 			}
 		}
 		return a_sFileName;

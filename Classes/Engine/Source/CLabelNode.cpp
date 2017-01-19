@@ -1,4 +1,5 @@
 #include "../Include/CLabelNode.h"
+#include "../Include/CMacroManager.h"
 
 using namespace cocos2d;
 
@@ -28,12 +29,12 @@ CLabelNode::CLabelNode(const std::string& a_rText,
 
 void CLabelNode::Init()
 {
-  Label* pLabel = Label::createWithTTF(m_sText, m_sFontName, m_iFontSize);
+  Label* pLabel = Label::createWithTTF(m_sText, CMacroManager::Instance()->CheckDefinition(m_sFontName), m_iFontSize);
   m_pCocosEntity = pLabel;
 
   PopulateParent(false);
   
-  // Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  // Size oVisiblesSize = Director::getInstance()->getVisibleSize();
   Size oVisibleSize = GetParentVisibleSize();
 
   if (m_sTextAlign == "left")
