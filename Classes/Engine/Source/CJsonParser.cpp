@@ -227,6 +227,18 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			SEvent(a_pEntity));
 		a_pEntity->AddListener(sType, oCallback);
 	}
+	else if (sCallbackString == "CountdownPressed")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::CountdownPressed,
+			SEvent(a_pEntity));
+		a_pEntity->AddListener(sType, oCallback);
+	}
+	else if (sCallbackString == "CountdownReleased")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::CountdownReleased,
+			SEvent(a_pEntity));
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else
 	{
 		CEventCallback oCallback(m_pKernel, nullptr);

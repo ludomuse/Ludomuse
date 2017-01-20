@@ -52,6 +52,25 @@ using namespace cocos2d;
 namespace LM
 {
 
+
+	//////////////////// Countdown thread variables
+
+	pthread_mutex_t g_oCountdownMutex = PTHREAD_MUTEX_INITIALIZER;
+	pthread_mutex_t g_oChronoLoopMutex = PTHREAD_MUTEX_INITIALIZER;
+	struct SChrono
+	{
+		bool m_bIsActive;
+		std::chrono::time_point<system_clock> m_oStartTime;
+
+		CKernel* m_pKernel;
+	};
+
+	SChrono* g_pChrono = new SChrono();
+#define M_CHRONO_WAIT_TIME 100
+
+
+
+
 	CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
 		m_pJsonParser(new CJsonParser(this)),
 		m_bIsServer(a_bIsServer),
@@ -76,17 +95,7 @@ namespace LM
 // 		EAnchor::CENTER, 100, 100, 0, 0);
 
 // 	m_pWaitingScene->AddChildNode(pBackgroundSprite);
-}
-
-CKernel::~CKernel()
-{
-	delete m_pBehaviorTree;
-	delete m_pInputManager;
-	delete m_pNetworkManager;
-	delete m_pSoundManager;
-	delete m_pJsonParser;
-	delete m_pLocalPlayer;
-	delete m_pDistantPlayer;
+		g_pChrono->m_pKernel = this;
 }
 
 
@@ -550,6 +559,33 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 		{
 			ValidateScene(SEvent(), nullptr);
 		}
+
+		else if (vSplittedMessage[1] == "CountdownPressed")
+		{
+			m_oCountdownMutex.lock();
+			m_pDistantPlayer->m_bInCountdown = true;
+			if (m_pLocalPlayer->m_iPlayerID == 0 && m_pLocalPlayer->m_bInCountdown)
+			{
+				StartCountdownThread();
+			}
+			m_oCountdownMutex.unlock();
+			CDispatchMessageVisitor oVisitor("RemoteCountdownPressed");
+			oVisitor.Traverse(m_pCurrentScene);
+
+		}
+
+		else if (vSplittedMessage[1] == "CountdownReleased")
+		{
+			m_oCountdownMutex.lock();
+			m_pDistantPlayer->m_bInCountdown = false;
+			if (m_pLocalPlayer->m_iPlayerID == 0)
+			{
+				StopCountdownThread();
+			}
+			m_oCountdownMutex.unlock();
+			CDispatchMessageVisitor oVisitor("RemoteCountdownReleased");
+			oVisitor.Traverse(m_pCurrentScene);
+		}
 	}
 	else if (vSplittedMessage[0] == "Dashboard")
 	{
@@ -779,9 +815,120 @@ void CKernel::RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget)
 
 
 
+void CKernel::CountdownPressed(SEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	m_oCountdownMutex.lock();
+	m_pLocalPlayer->m_bInCountdown = true;
+	SendNetworkMessage("kernel:CountdownPressed");
+
+	if (m_pDistantPlayer->m_bInCountdown && m_pLocalPlayer->m_iPlayerID == 0)
+	{
+		StartCountdownThread();
+	}
+	m_oCountdownMutex.unlock();
+}
+
+
+void CKernel::CountdownReleased(SEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	m_oCountdownMutex.lock();
+	m_pLocalPlayer->m_bInCountdown = false;
+	SendNetworkMessage("kernel:CountdownReleased");
+
+	if (m_pLocalPlayer->m_iPlayerID == 0)
+	{
+		StopCountdownThread();
+	}
+	m_oCountdownMutex.unlock();
+}
+
+
+
+void* ChronoLoop(void* arg)
+{
+	pthread_mutex_lock(&g_oChronoLoopMutex);
+
+
+	pthread_mutex_lock(&g_oCountdownMutex);
+
+	g_pChrono->m_bIsActive = true;
+	g_pChrono->m_oStartTime = std::chrono::system_clock::now();
+
+	pthread_mutex_unlock(&g_oCountdownMutex);
+
+	while (true)
+	{
+		pthread_mutex_lock(&g_oCountdownMutex);
+
+		if (!g_pChrono->m_bIsActive)
+		{
+			pthread_mutex_unlock(&g_oCountdownMutex);
+			break;
+		}
+		else
+		{
+
+			std::chrono::milliseconds oTimeSinceChronoStarted = std::chrono::duration_cast<milliseconds>(
+				std::chrono::system_clock::now() - g_pChrono->m_oStartTime);
+
+
+			int iDelay = 3000 - oTimeSinceChronoStarted.count();
+
+
+			if (iDelay < 0)
+			{
+				// validate countdown interaction and send validation to other player
+				g_pChrono->m_pKernel->ValidateScene(SEvent(), nullptr);
+				g_pChrono->m_pKernel->SendNetworkMessage("kernel:Validate");
+			}
+
+		}
+
+		pthread_mutex_unlock(&g_oCountdownMutex);
+
+#if defined _WIN32 | defined _WIN64
+		Sleep(M_CHRONO_WAIT_TIME);
+#else
+		usleep(M_CHRONO_WAIT_TIME * 1000);
+#endif
+	}
+
+	pthread_mutex_unlock(&g_oChronoLoopMutex);
+	return NULL;
+}
+
+void CKernel::StartCountdownThread()
+{
+	pthread_t thread;
+
+	pthread_create(&thread, NULL, &ChronoLoop, &g_pChrono);
+}
+
+void CKernel::StopCountdownThread()
+{
+	pthread_mutex_lock(&g_oCountdownMutex);
+
+	g_pChrono->m_bIsActive = false;
+
+	pthread_mutex_unlock(&g_oCountdownMutex);
+}
+
 void CKernel::LogMessage(const std::string& a_sMessage)
 {
 	CCLOG("Kernel message : %s", a_sMessage.c_str());
+}
+
+
+CKernel::~CKernel()
+{
+	delete m_pBehaviorTree;
+	delete m_pInputManager;
+	delete m_pNetworkManager;
+	delete m_pSoundManager;
+	delete m_pJsonParser;
+	delete m_pLocalPlayer;
+	delete m_pDistantPlayer;
+	delete g_pChrono;
 }
 
 } // namespace LM
