@@ -1,4 +1,4 @@
-#include "Classes\Engine\Include\CMacroManager.h"
+#include "../Include/CMacroManager.h"
 
 #include "../../cocos2d/external/json/rapidjson.h"
 #include "../../cocos2d/external/json/document.h"
