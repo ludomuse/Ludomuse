@@ -1,6 +1,6 @@
 /****************************************************************************
 Copyright (c) 2010-2012 cocos2d-x.org
-Copyright (c) 2013-2014 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
 
@@ -55,11 +55,6 @@ public:
     */
     int run();
 
-    // LudoMuse inserts
-    int runAndLink();
-    int runLoop();
-    std::string getVersion();
-
     /**
     @brief    Get current application instance.
     @return Current application instance pointer.
@@ -80,6 +75,11 @@ public:
      */
     virtual Platform getTargetPlatform();
     
+    /**
+    @brief Get application version
+    */
+    virtual std::string getVersion() override;
+
     /**
      @brief Open url in default browser
      @param String with url to open.

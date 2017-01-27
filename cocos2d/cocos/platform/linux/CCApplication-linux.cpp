@@ -1,6 +1,6 @@
 /****************************************************************************
 Copyright (c) 2011      Laschweinski
-Copyright (c) 2013-2014 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
 
@@ -37,14 +37,14 @@ NS_CC_BEGIN
 
 
 // sharedApplication pointer
-Application * Application::sm_pSharedApplication = 0;
+Application * Application::sm_pSharedApplication = nullptr;
 
 static long getCurrentMillSecond() {
     long lLastTime;
     struct timeval stCurrentTime;
 
     gettimeofday(&stCurrentTime,NULL);
-    lLastTime = stCurrentTime.tv_sec*1000+stCurrentTime.tv_usec*0.001; //millseconds
+    lLastTime = stCurrentTime.tv_sec*1000+stCurrentTime.tv_usec*0.001; // milliseconds
     return lLastTime;
 }
 
@@ -58,106 +58,11 @@ Application::Application()
 Application::~Application()
 {
     CC_ASSERT(this == sm_pSharedApplication);
-    sm_pSharedApplication = NULL;
-}
-
-int Application::runAndLink()
-{
-
-    initGLContextAttrs();
-    // Initialize instance and cocos2d.
-    if (! applicationDidFinishLaunching())
-    {
-        return 0;
-    }
-
-    long lastTime = 0L;
-    long curTime = 0L;
-
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-
-    // Retain glview to avoid glview being released in the while loop
-    glview->retain();
-
-    while (!glview->windowShouldClose())
-    {
-
-        lastTime = getCurrentMillSecond();
-
-        director->mainLoop();
-        glview->pollEvents();
-
-        curTime = getCurrentMillSecond();
-
-        return 1;
-        
-        if (curTime - lastTime < _animationInterval)
-        {
-            usleep((_animationInterval - curTime + lastTime)*1000);
-        }
-
-    }
-    /* Only work on Desktop
-    *  Director::mainLoop is really one frame logic
-    *  when we want to close the window, we should call Director::end();
-    *  then call Director::mainLoop to do release of internal resources
-    */
-    if (glview->isOpenGLReady())
-    {
-        director->end();
-        director->mainLoop();
-        director = nullptr;
-    }
-    glview->release();
-    return EXIT_SUCCESS;
-}
-
-int Application::runLoop()
-{
-
-    long lastTime = 0L;
-    long curTime = 0L;
-
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-
-    // Retain glview to avoid glview being released in the while loop
-    glview->retain();
-
-    while (!glview->windowShouldClose())
-    {
-
-        lastTime = getCurrentMillSecond();
-
-        director->mainLoop();
-        glview->pollEvents();
-
-        curTime = getCurrentMillSecond();
-        if (curTime - lastTime < _animationInterval)
-        {
-            usleep((_animationInterval - curTime + lastTime)*1000);
-        }
-
-    }
-    /* Only work on Desktop
-    *  Director::mainLoop is really one frame logic
-    *  when we want to close the window, we should call Director::end();
-    *  then call Director::mainLoop to do release of internal resources
-    */
-    if (glview->isOpenGLReady())
-    {
-        director->end();
-        director->mainLoop();
-        director = nullptr;
-    }
-    glview->release();
-    return EXIT_SUCCESS;
+    sm_pSharedApplication = nullptr;
 }
 
 int Application::run()
 {
-
     initGLContextAttrs();
     // Initialize instance and cocos2d.
     if (! applicationDidFinishLaunching())
@@ -176,7 +81,6 @@ int Application::run()
 
     while (!glview->windowShouldClose())
     {
-
         lastTime = getCurrentMillSecond();
 
         director->mainLoop();
@@ -187,7 +91,6 @@ int Application::run()
         {
             usleep((_animationInterval - curTime + lastTime)*1000);
         }
-
     }
     /* Only work on Desktop
     *  Director::mainLoop is really one frame logic
@@ -240,7 +143,7 @@ std::string Application::getVersion()
 
 bool Application::openURL(const std::string &url)
 {
-    std::string op = std::string("open ").append(url);
+    std::string op = std::string("xdg-open ").append(url);
     return system(op.c_str())!=-1;
 }
 
