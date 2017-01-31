@@ -5,7 +5,7 @@
 #include "stringbuffer.h"
 
 #include "../Include/CValidateSceneVisitor.h"
-#include "Classes\Engine\Include\CMacroManager.h"
+#include "../Include/CMacroManager.h"
 
 #include <QDebug>
 #include <QFileInfo>

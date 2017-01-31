@@ -2,7 +2,7 @@
 #include <iostream>
 #include <map>
 
-#include "Classes\Engine\Include\CJsonParser.h"
+#include "../Include/CJsonParser.h"
 
 namespace LM
 {
