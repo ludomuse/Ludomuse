@@ -5,7 +5,7 @@
 #include "../../cocos2d/external/json/stringbuffer.h"
 
 #include "../Include/CValidateSceneVisitor.h"
-#include "Classes\Engine\Include\CMacroManager.h"
+#include "../Include/CMacroManager.h"
 
 using namespace cocos2d;
 

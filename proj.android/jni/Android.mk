@@ -23,6 +23,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CParallelNode.cpp \
                    ../../Classes/Engine/Source/CSceneNode.cpp \
                    ../../Classes/Engine/Source/CJsonParser.cpp \
+                   ../../Classes/Engine/Source/CMacroManager.cpp \
                    ../../Classes/Engine/Source/CSelectorNode.cpp \
                    ../../Classes/Engine/Source/CVisitor.cpp \
                    ../../Classes/Engine/Source/CEntityNode.cpp \

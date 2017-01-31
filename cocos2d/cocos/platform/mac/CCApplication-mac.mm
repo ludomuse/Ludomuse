@@ -1,6 +1,6 @@
 /****************************************************************************
 Copyright (c) 2010-2012 cocos2d-x.org
-Copyright (c) 2013-2014 Chukong Technologies Inc.
+Copyright (c) 2013-2016 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
 
@@ -42,11 +42,11 @@ static long getCurrentMillSecond()
     struct timeval stCurrentTime;
     
     gettimeofday(&stCurrentTime,NULL);
-    lLastTime = stCurrentTime.tv_sec*1000+stCurrentTime.tv_usec*0.001; //millseconds
+    lLastTime = stCurrentTime.tv_sec*1000+stCurrentTime.tv_usec*0.001; // milliseconds
     return lLastTime;
 }
 
-Application* Application::sm_pSharedApplication = 0;
+Application* Application::sm_pSharedApplication = nullptr;
 
 Application::Application()
 : _animationInterval(1.0f/60.0f*1000.0f)
@@ -105,95 +105,6 @@ int Application::run()
     
     glview->release();
     
-    return 0;
-}
-
-int Application::runAndLink()
-{
-    initGLContextAttrs();
-    if(!applicationDidFinishLaunching())
-    {
-        return 1;
-    }
-
-    long lastTime = 0L;
-    long curTime = 0L;
-
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-
-    // Retain glview to avoid glview being released in the while loop
-    glview->retain();
-
-    while (!glview->windowShouldClose())
-    {
-        lastTime = getCurrentMillSecond();
-
-        director->mainLoop();
-        glview->pollEvents();
-        return 0;
-        curTime = getCurrentMillSecond();
-        if (curTime - lastTime < _animationInterval)
-        {
-            usleep(static_cast<useconds_t>((_animationInterval - curTime + lastTime)*1000));
-        }
-    }
-
-    /* Only work on Desktop
-    *  Director::mainLoop is really one frame logic
-    *  when we want to close the window, we should call Director::end();
-    *  then call Director::mainLoop to do release of internal resources
-    */
-    if (glview->isOpenGLReady())
-    {
-        director->end();
-        director->mainLoop();
-    }
-
-    glview->release();
-
-    return 0;
-}
-
-int Application::runLoop()
-{
-
-    long lastTime = 0L;
-    long curTime = 0L;
-
-    auto director = Director::getInstance();
-    auto glview = director->getOpenGLView();
-
-    // Retain glview to avoid glview being released in the while loop
-    glview->retain();
-
-    while (!glview->windowShouldClose())
-    {
-        lastTime = getCurrentMillSecond();
-
-        director->mainLoop();
-        glview->pollEvents();
-
-        curTime = getCurrentMillSecond();
-        if (curTime - lastTime < _animationInterval)
-        {
-            usleep(static_cast<useconds_t>((_animationInterval - curTime + lastTime)*1000));
-        }
-    }
-
-    /* Only work on Desktop
-    *  Director::mainLoop is really one frame logic
-    *  when we want to close the window, we should call Director::end();
-    *  then call Director::mainLoop to do release of internal resources
-    */
-    if (glview->isOpenGLReady())
-    {
-        director->end();
-        director->mainLoop();
-    }
-
-    glview->release();
-
     return 0;
 }
 
