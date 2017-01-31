@@ -10,7 +10,12 @@ namespace LM
   class CScratchNode : public CSpriteNode
   {
   private:
-    cocos2d::DrawNode* m_pDrawNode;
+    //cocos2d::DrawNode* m_pDrawNode;
+
+	// draw node defines where the sprite is revealed
+	cocos2d::DrawNode* m_pDrawNode;
+	// the render texture used to combine the draw node and the sprite
+	cocos2d::RenderTexture* m_pRenderTexture;
     
   public:
     
