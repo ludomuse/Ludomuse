@@ -1,6 +1,6 @@
 {
     "app": {
-        "debug": true,
+        "debug": false,
         "colors": [],
         "images": [],
         "videos": [],
@@ -168,6 +168,22 @@
             ]
         ],
         "screens": [
+            {
+		"scene": "WaitingScene",
+		"content": [
+		    {
+			"type": "Image",
+			"params": {
+			    "source": "ui/waiting.png",
+			    "anchor": 0,
+			    "width": 100,
+			    "height": 100,
+			    "x": 0,
+			    "y": 0
+			}
+		    }
+		]
+	    },
             {
                 "scene": "Dashboard",
                 "navigation": [
@@ -711,16 +727,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -748,26 +764,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
-            },
-            {
-                "scene": "WaitingScene",
-                "navigation": [],
-                "content": [
-                    {
-                        "type": "Image",
-                        "params": {
-                            "source": "ui/waiting.png",
-                            "anchor": 0,
-                            "width": 100,
-                            "height": 100,
-                            "x": 0,
-                            "y": 0
-                        }
-                    }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0",
@@ -891,154 +888,154 @@
                             "y": 0
                         }
                     },
-                  {
-                    "type": "Group",
-                    "params": {
-                      "anchor": 0,
-                      "width": 100,
-                      "height": 90,
-                      "x": 0,
-                      "y": 0,
-                      "children": [
-                        {
-                          "type": "Peers",
-                          "params": {
+                    {
+                        "type": "Group",
+                        "params": {
                             "anchor": 0,
-                            "width": 80,
-                            "height": 50,
+                            "width": 100,
+                            "height": 90,
                             "x": 0,
                             "y": 0,
-                            "listeners": [
-                              {
-                                "type": "Peers",
-                                "params": {
-                                  "callback": "BuildPeerNodes"
-                                }
-                              }
-                            ],
                             "children": [
-                              {
-                                "type": "Group",
-                                "params": {
-                                  "anchor": 0,
-                                  "width": 100,
-                                  "height": 100,
-                                  "x": 0,
-                                  "y": 0,
-                                  "listeners": [
-                                    {
-                                      "type": "Touch",
-                                      "params": {
-                                        "callback": "ConnectPeer"
-                                      }
-                                    },
-                                    {
-                                      "type": "Touch",
-                                      "params": {
-                                        "callback": "ValidateScene",
-                                        "arg": true
-                                      }
-                                    },
-                                    {
-                                      "type": "Touch",
-                                      "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "screen-peers-dummy:PeerChoose:infoPeer"
-                                      }
-                                    },
-                                    {
-                                      "type": "Touch",
-                                      "params": {
-                                        "callback": "SendMessage",
-                                        "arg": "screen-peers-dummy:PeerChooseDist:infoPeer"
-                                      }
-                                    }
-                                  ],
-                                  "children": [
-                                    {
-                                      "type": "Image",
-                                      "params": {
-                                        "source": "ui/cache-noir-70.png",
+                                {
+                                    "type": "Peers",
+                                    "params": {
                                         "anchor": 0,
                                         "width": 80,
-                                        "height": 80,
+                                        "height": 50,
                                         "x": 0,
-                                        "y": 0
-                                      }
-                                    },
-                                    {
-                                      "type": "Text",
-                                      "params": {
-                                        "content": "Scène 1",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 24,
-                                        "textAlign": "center",
-                                        "width": 100,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": "",
+                                        "y": 0,
                                         "listeners": [
-                                          {
-                                            "type": "GetText",
-                                            "params": {
-                                              "callback": ""
+                                            {
+                                                "type": "Peers",
+                                                "params": {
+                                                    "callback": "BuildPeerNodes"
+                                                }
                                             }
-                                          }
+                                        ],
+                                        "children": [
+                                            {
+                                                "type": "Group",
+                                                "params": {
+                                                    "anchor": 0,
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "listeners": [
+                                                        {
+                                                            "type": "Touch",
+                                                            "params": {
+                                                                "callback": "ConnectPeer"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Touch",
+                                                            "params": {
+                                                                "callback": "ValidateScene",
+                                                                "arg": true
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Touch",
+                                                            "params": {
+                                                                "callback": "LocalMessage",
+                                                                "arg": "screen-peers-dummy:PeerChoose:infoPeer"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Touch",
+                                                            "params": {
+                                                                "callback": "SendMessage",
+                                                                "arg": "screen-peers-dummy:PeerChooseDist:infoPeer"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "type": "Image",
+                                                            "params": {
+                                                                "source": "ui/cache-noir-70.png",
+                                                                "anchor": 0,
+                                                                "width": 80,
+                                                                "height": 80,
+                                                                "x": 0,
+                                                                "y": 0
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Text",
+                                                            "params": {
+                                                                "content": "Scène 1",
+                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "fontSize": 24,
+                                                                "textAlign": "center",
+                                                                "width": 100,
+                                                                "height": 100,
+                                                                "anchor": 0,
+                                                                "color": "",
+                                                                "listeners": [
+                                                                    {
+                                                                        "type": "GetText",
+                                                                        "params": {
+                                                                            "callback": ""
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
                                         ]
-                                      }
                                     }
-                                  ]
+                                },
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "ui/cache-noir-50.png",
+                                        "anchor": 4,
+                                        "width": 20,
+                                        "height": 20,
+                                        "x": 0,
+                                        "y": 0,
+                                        "listeners": [
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "RefreshPeers"
+                                                }
+                                            }
+                                        ],
+                                        "children": [
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "ACTUALISER",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 24,
+                                                    "textAlign": "center",
+                                                    "width": 50,
+                                                    "height": 50,
+                                                    "anchor": 0,
+                                                    "color": ""
+                                                }
+                                            }
+                                        ]
+                                    }
                                 }
-                              }
                             ]
-                          }
-                        },
-                        {
-                          "type": "Image",
-                          "params": {
-                            "source": "ui/cache-noir-50.png",
-                            "anchor": 4,
-                            "width": 20,
-                            "height": 20,
-                            "x": 0,
-                            "y": 0,
-                            "listeners": [
-                              {
-                                "type": "Touch",
-                                "params": {
-                                  "callback": "RefreshPeers"
-                                }
-                              }
-                            ],
-                            "children": [
-                              {
-                                "type": "Text",
-                                "params": {
-                                  "content": "ACTUALISER",
-                                  "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                  "fontSize": 24,
-                                  "textAlign": "center",
-                                  "width": 50,
-                                  "height": 50,
-                                  "anchor": 0,
-                                  "color": ""
-                                }
-                              }
-                            ]
-                          }
                         }
-                      ]
                     }
-                  },
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -1104,14 +1101,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -1129,8 +1124,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0bis",
@@ -1493,16 +1487,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -1544,14 +1538,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -1569,8 +1561,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-tutoButton-1",
@@ -2022,16 +2013,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -2049,8 +2040,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0-a-player2",
@@ -2142,16 +2132,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -2169,8 +2159,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0-b-1",
@@ -2288,16 +2277,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -2315,8 +2304,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0-b",
@@ -2443,16 +2431,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -2470,8 +2458,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0-c-1",
@@ -2600,16 +2587,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -2627,8 +2614,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0-c",
@@ -2766,16 +2752,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -2793,8 +2779,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0-d-1",
@@ -2912,16 +2897,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -2939,8 +2924,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-0-d",
@@ -3067,16 +3051,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -3094,8 +3078,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-a-player1",
@@ -3187,16 +3170,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -3214,8 +3197,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-a-player2",
@@ -3379,16 +3361,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -3406,8 +3388,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-b-player2",
@@ -3488,16 +3469,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -3515,8 +3496,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-c-player1",
@@ -3645,16 +3625,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -3672,8 +3652,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-c-player2",
@@ -3811,16 +3790,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -3838,8 +3817,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-c-1-player1",
@@ -3968,16 +3946,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -3995,8 +3973,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-c-1-player2",
@@ -4134,16 +4111,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -4161,8 +4138,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-d-player1",
@@ -4280,16 +4256,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -4307,8 +4283,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-d-player2",
@@ -4426,16 +4401,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -4453,8 +4428,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-e-player1",
@@ -4755,16 +4729,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -4783,14 +4757,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -4825,8 +4797,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-e-player2",
@@ -5414,16 +5385,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -5482,14 +5453,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -5519,8 +5488,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-f-player1",
@@ -5628,16 +5596,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -5655,8 +5623,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-f-player2",
@@ -5764,16 +5731,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -5791,8 +5758,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-g-player1",
@@ -5910,16 +5876,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -5937,8 +5903,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-g-player2",
@@ -6067,16 +6032,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -6094,8 +6059,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-h-player1",
@@ -6213,16 +6177,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -6240,8 +6204,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-h-player2",
@@ -6359,16 +6322,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -6386,8 +6349,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-i-player1",
@@ -6926,16 +6888,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -7039,14 +7001,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -7064,8 +7024,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-i-player2",
@@ -7529,16 +7488,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -7642,14 +7601,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -7667,8 +7624,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-j-player1",
@@ -7775,16 +7731,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -7802,8 +7758,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-j-player2",
@@ -7910,16 +7865,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -7937,8 +7892,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-k-player1",
@@ -8067,16 +8021,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -8094,8 +8048,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-1-k-player2",
@@ -8233,16 +8186,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -8260,8 +8213,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-a-player1",
@@ -8353,16 +8305,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -8380,8 +8332,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-a-player2",
@@ -8462,16 +8413,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -8489,8 +8440,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-b-player1",
@@ -8571,16 +8521,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -8598,8 +8548,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-b-player2",
@@ -8680,16 +8629,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -8707,8 +8656,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-c-player1",
@@ -8837,16 +8785,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -8864,8 +8812,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-c-player2",
@@ -9003,16 +8950,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -9030,8 +8977,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-d-player1",
@@ -9149,16 +9095,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -9176,8 +9122,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-d-player2",
@@ -9295,16 +9240,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -9322,8 +9267,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-e-player1",
@@ -9582,16 +9526,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -9610,14 +9554,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -9652,8 +9594,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-e-player2",
@@ -10129,16 +10070,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -10174,14 +10115,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -10199,8 +10138,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-f-player1",
@@ -10307,16 +10245,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -10334,8 +10272,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-f-player2",
@@ -10442,16 +10379,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -10469,8 +10406,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-g-player1",
@@ -10599,16 +10535,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -10626,8 +10562,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-g-player2",
@@ -10765,16 +10700,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -10792,8 +10727,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-g-2-player1",
@@ -10911,16 +10845,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -10938,8 +10872,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-g-2-player2",
@@ -11057,16 +10990,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -11084,8 +11017,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-h-player1",
@@ -11512,16 +11444,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -11625,14 +11557,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -11650,8 +11580,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-h-player2",
@@ -12104,16 +12033,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -12217,14 +12146,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -12242,8 +12169,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-i-player1",
@@ -12350,16 +12276,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -12377,8 +12303,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-i-player2",
@@ -12485,16 +12410,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -12512,8 +12437,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-j-player1",
@@ -12642,16 +12566,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -12669,8 +12593,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-2-j-player2",
@@ -12808,16 +12731,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -12835,8 +12758,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-0-player1",
@@ -12928,16 +12850,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -12955,8 +12877,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-0-player2",
@@ -13037,16 +12958,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -13064,8 +12985,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-a-player1",
@@ -13134,16 +13054,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -13161,8 +13081,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-a-player2",
@@ -13231,16 +13150,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -13258,8 +13177,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-a-1-player2",
@@ -13328,16 +13246,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -13355,8 +13273,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-b-player1",
@@ -13485,16 +13402,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -13512,8 +13429,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-b-player2",
@@ -13651,16 +13567,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -13678,8 +13594,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-b-a-1",
@@ -13797,16 +13712,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -13824,8 +13739,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-b-a",
@@ -13952,16 +13866,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -13979,8 +13893,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-b-b-1",
@@ -14098,16 +14011,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -14125,8 +14038,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-b-b",
@@ -14253,16 +14165,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -14280,8 +14192,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-b-2-player1",
@@ -14399,16 +14310,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -14426,8 +14337,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-b-2-player2",
@@ -14545,16 +14455,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -14572,8 +14482,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-c-player1",
@@ -14858,16 +14767,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -14903,14 +14812,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -14928,8 +14835,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-c-player2",
@@ -15570,16 +15476,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -15615,14 +15521,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -15640,8 +15544,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-d-player1",
@@ -15748,16 +15651,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -15775,8 +15678,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-d-player2",
@@ -15883,16 +15785,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -15910,8 +15812,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-e-player1",
@@ -16029,16 +15930,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -16056,8 +15957,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-e-player2",
@@ -16175,16 +16075,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -16202,8 +16102,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-f-player1",
@@ -16630,16 +16529,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -16743,14 +16642,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -16768,8 +16665,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-f-player2",
@@ -17196,16 +17092,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -17309,14 +17205,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -17334,8 +17228,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-g-player1",
@@ -17442,16 +17335,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -17469,8 +17362,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-g-player2",
@@ -17577,16 +17469,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -17604,8 +17496,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-h-player1",
@@ -17734,16 +17625,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -17761,8 +17652,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-3-h-player2",
@@ -17900,16 +17790,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -17927,8 +17817,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-0-player2",
@@ -17997,16 +17886,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -18024,8 +17913,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-a-player1",
@@ -18105,16 +17993,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -18132,8 +18020,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-a-player2",
@@ -18202,16 +18089,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -18229,8 +18116,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-b-player1",
@@ -18299,16 +18185,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -18326,8 +18212,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-b-player2",
@@ -18396,16 +18281,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -18423,8 +18308,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-c-player1",
@@ -18553,16 +18437,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -18580,8 +18464,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-c-player2",
@@ -18719,16 +18602,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -18746,8 +18629,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-c-a-player1",
@@ -18865,16 +18747,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -18892,8 +18774,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-c-a-player2",
@@ -19020,16 +18901,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -19047,8 +18928,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-d-player1",
@@ -19166,16 +19046,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -19193,8 +19073,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-d-player2",
@@ -19312,16 +19191,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -19339,8 +19218,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-e-player1",
@@ -19716,16 +19594,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -19829,14 +19707,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -19854,8 +19730,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-e-player2",
@@ -20231,16 +20106,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -20344,14 +20219,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -20369,8 +20242,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-g-player1",
@@ -20477,16 +20349,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -20504,8 +20376,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-g-player2",
@@ -20612,16 +20483,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -20639,8 +20510,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-h-player1",
@@ -20769,16 +20639,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -20796,8 +20666,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-h-player2",
@@ -20935,16 +20804,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -20962,8 +20831,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-h-2-player1",
@@ -21092,16 +20960,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -21119,8 +20987,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-h-2-player2",
@@ -21258,16 +21125,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -21285,8 +21152,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-i-0-player1",
@@ -21404,16 +21270,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -21431,8 +21297,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-i-0-player2",
@@ -21550,16 +21415,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -21577,8 +21442,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-i-player1",
@@ -22052,16 +21916,6 @@
                                             }
                                         ]
                                     }
-                                },
-                                {
-                                    "type": "Group",
-                                    "params": {
-                                        "anchor": 0,
-                                        "width": 100,
-                                        "height": 100,
-                                        "x": 0,
-                                        "y": 0
-                                    }
                                 }
                             ]
                         }
@@ -22085,16 +21939,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -22130,14 +21984,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -22155,8 +22007,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-i-player2",
@@ -22995,16 +22846,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -23063,14 +22914,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Group",
@@ -23100,8 +22949,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-j-player1",
@@ -23208,16 +23056,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -23235,8 +23083,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-j-player2",
@@ -23343,16 +23190,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -23370,8 +23217,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-k-player1",
@@ -23500,16 +23346,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -23527,8 +23373,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-4-k-player2",
@@ -23666,16 +23511,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -23693,8 +23538,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-0-player2",
@@ -23763,16 +23607,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -23790,8 +23634,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-a-player1",
@@ -23871,16 +23714,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -23898,8 +23741,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-a-player2",
@@ -23968,16 +23810,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -23995,8 +23837,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-b-player1",
@@ -24065,16 +23906,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -24092,8 +23933,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-b-player2",
@@ -24162,16 +24002,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -24189,8 +24029,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-c-player1",
@@ -24319,16 +24158,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -24346,8 +24185,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-c-player2",
@@ -24485,16 +24323,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -24512,8 +24350,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-d-player1",
@@ -24642,16 +24479,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -24669,8 +24506,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-d-player2",
@@ -24808,16 +24644,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -24835,8 +24671,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-d-1-player1",
@@ -24965,16 +24800,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -24992,8 +24827,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-d-1-player2",
@@ -25131,16 +24965,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25158,8 +24992,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-d-a-player1",
@@ -25278,16 +25111,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25305,8 +25138,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-d-a-player2",
@@ -25425,16 +25257,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25452,8 +25284,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-e-player1",
@@ -25559,16 +25390,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25587,14 +25418,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25612,8 +25441,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-e-player2",
@@ -25719,16 +25547,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25747,14 +25575,12 @@
                         }
                     },
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-2.png",
                             "anchor": 2,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25772,8 +25598,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-camera-player1",
@@ -25843,16 +25668,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25870,8 +25695,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-camera-player2",
@@ -25967,16 +25791,16 @@
                             "x": 0,
                             "y": 0
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -25994,8 +25818,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-f-player1",
@@ -26111,16 +25934,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -26138,8 +25961,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-f-player2",
@@ -26246,16 +26068,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "listeners": [
                                 {
                                     "type": "Init",
@@ -26282,8 +26104,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-g-player1",
@@ -26412,16 +26233,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -26439,8 +26260,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-g-player2",
@@ -26578,16 +26398,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -26605,8 +26425,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-h-player1",
@@ -26724,16 +26543,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -26751,8 +26570,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-h-player2",
@@ -26870,16 +26688,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -26897,8 +26715,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-i-player1",
@@ -28595,16 +28412,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -28622,8 +28439,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-l-player2",
@@ -28746,16 +28562,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -28773,8 +28589,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-m-player1",
@@ -28903,16 +28718,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -28930,8 +28745,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-5-m-player2",
@@ -29069,16 +28883,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -29096,8 +28910,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-6-a-player1",
@@ -29226,16 +29039,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -29253,8 +29066,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-6-a-player2",
@@ -29392,16 +29204,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -29419,8 +29231,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-6-b-player1",
@@ -29538,16 +29349,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -29565,8 +29376,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-6-b-player2",
@@ -29693,16 +29503,16 @@
                                 }
                             ]
                         }
-                    },
+                    }
+                ],
+                "information": [
                     {
-                        "type": "Image",
+                        "type": "Info",
                         "params": {
                             "source": "ui/info-6.png",
                             "anchor": 6,
                             "width": 0,
                             "height": 13,
-                            "x": 0,
-                            "y": 0,
                             "children": [
                                 {
                                     "type": "Text",
@@ -29720,8 +29530,7 @@
                             ]
                         }
                     }
-                ],
-                "information": []
+                ]
             },
             {
                 "scene": "screen-generique-player1",
@@ -29825,7 +29634,32 @@
                         }
                     }
                 ],
-                "information": []
+                "information": [
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "A bientôt !",
+                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
             },
             {
                 "scene": "screen-generique-player2",
@@ -29929,7 +29763,32 @@
                         }
                     }
                 ],
-                "information": []
+                "information": [
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "A bientôt !",
+                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
         ]
     }
