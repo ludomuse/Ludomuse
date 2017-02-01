@@ -41,13 +41,15 @@ namespace LM
 
 	  BlendFunc bf;
 	  // apply blending function to draw node
+	  //bf.dst = GL_ONE_MINUS_SRC_ALPHA;
+	  //bf.src = GL_SRC_ALPHA;
 	  bf.dst = GL_ONE_MINUS_SRC_ALPHA;
-	  bf.src = GL_SRC_ALPHA;
+	  bf.src = GL_ZERO;
 	  m_pDrawNode->setBlendFunc(bf);
 	  // apply blending function to sprite
-	  bf.src = GL_SRC_ALPHA;
-	  bf.dst = GL_ONE_MINUS_SRC_ALPHA;
-	 static_cast <Sprite*>(m_pCocosEntity)->setBlendFunc(bf);
+	  //bf.src = GL_SRC_ALPHA;
+	  //bf.dst = GL_ONE_MINUS_SRC_ALPHA;
+	 //static_cast <Sprite*>(m_pCocosEntity)->setBlendFunc(bf);
 
 	  // OLD CODE BELOW:
     
@@ -77,7 +79,7 @@ namespace LM
   {
     //m_pDrawNode->drawDot(a_oTouchLocation - Vec2(100, 100), 200, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
 	  Vec2 oLocalTouch = a_oTouchLocation - Vec2(m_pCocosEntity->getBoundingBox().getMinX(), m_pCocosEntity->getBoundingBox().getMinY());
-	  m_pDrawNode->drawDot(oLocalTouch, 40, Color4F(1.0f, 1.0f, 1.0f, 0.1f));
+	  m_pDrawNode->drawDot(oLocalTouch, 40, Color4F(0.0f, 0.0f, 0.0f, 0.5f));
 	  m_pRenderTexture->begin();
 	  m_pDrawNode->visit();
 	  //static_cast <Sprite*>(m_pCocosEntity)->visit();
