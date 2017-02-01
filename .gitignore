@@ -48,6 +48,7 @@ build
 
 cocos2d
 proj.win32/Debug.win32
+proj.win32/Release.win32
 proj.win32/LudoMuse.sdf
 proj.win32/res
 proj.win32/LudoMuse.VC.opendb
