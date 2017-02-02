@@ -26,11 +26,21 @@ namespace LM
   {
 	  CSpriteNode::Init();
 	  m_pDrawNode = DrawNode::create();
-	  m_pRenderTexture = RenderTexture::create(m_pCocosEntity->getBoundingBox().size.width, m_pCocosEntity->getBoundingBox().size.height);
-	  //m_pRenderTexture->retain();
+	  //m_pRenderTexture = RenderTexture::create(m_pCocosEntity->getBoundingBox().size.width, m_pCocosEntity->getBoundingBox().size.height);
+	  //m_pRenderTexture->setPosition(m_pCocosEntity->getPosition().x, m_pCocosEntity->getPosition().y);
+	  Vec2 minCorner = Vec2(
+		  MAX(0, m_pCocosEntity->getBoundingBox().getMinX()),
+		  MAX(0, m_pCocosEntity->getBoundingBox().getMinY())
+	  );
+	  Vec2 maxCorner = Vec2(
+		  MIN(Director::getInstance()->getWinSize().width, m_pCocosEntity->getBoundingBox().getMaxX()),
+		  MIN(Director::getInstance()->getWinSize().height, m_pCocosEntity->getBoundingBox().getMaxY())
+		  );
+	  m_pRenderTexture = RenderTexture::create(maxCorner.x - minCorner.x, maxCorner.y - minCorner.y);
+	  m_pRenderTexture->setPosition((maxCorner.x + minCorner.x) / 2, (maxCorner.y + minCorner.y) / 2);
+	  m_pDrawNode->setPosition(-minCorner);
+	  m_pRenderTexture->retain();
 	  m_pDrawNode->retain();
-	  m_pRenderTexture->setPosition(m_pCocosEntity->getPosition().x, m_pCocosEntity->getPosition().y);
-	  //m_pRenderTexture->beginWithClear(0.0f, 0.0f, 0.0f, 0.0f);
 	  cocos2d::Scene* pScene = GetParentScene();
 	  if (pScene)
 	  {
@@ -46,6 +56,16 @@ namespace LM
 	  bf.dst = GL_ONE_MINUS_SRC_ALPHA;
 	  bf.src = GL_ZERO;
 	  m_pDrawNode->setBlendFunc(bf);
+	
+	  std::function<void(EventCustom*)> callback =
+		  std::bind(&CScratchNode::DrawEvent, this, std::placeholders::_1);
+	  //Director::getInstance()->getEventDispatcher()->addCustomEventListener("director_after_draw", callback);
+	  // create a cocos EventListener and bind touchBegan to InputManager
+	  auto pEventListener = EventListenerCustom::create("director_after_draw", callback);
+	  auto pEventDispatcher = Director::getInstance()->getEventDispatcher();
+	  pEventDispatcher->addEventListenerWithFixedPriority(pEventListener, 1);
+
+	  m_bNodeDrawn = false;
 	  // apply blending function to sprite
 	  //bf.src = GL_SRC_ALPHA;
 	  //bf.dst = GL_ONE_MINUS_SRC_ALPHA;
@@ -78,14 +98,26 @@ namespace LM
   void CScratchNode::DrawTouch(const Vec2& a_oTouchLocation)
   {
     //m_pDrawNode->drawDot(a_oTouchLocation - Vec2(100, 100), 200, Color4F(1.0f, 1.0f, 1.0f, 1.0f));
-	  Vec2 oLocalTouch = a_oTouchLocation - Vec2(m_pCocosEntity->getBoundingBox().getMinX(), m_pCocosEntity->getBoundingBox().getMinY());
-	  m_pDrawNode->drawDot(oLocalTouch, 40, Color4F(0.0f, 0.0f, 0.0f, 0.5f));
+	  //Vec2 oLocalTouch = a_oTouchLocation - Vec2(m_pRenderTexture->getBoundingBox().getMinX(), m_pRenderTexture->getBoundingBox().getMinY());
+	  if (m_bNodeDrawn == true) {
+		  return;
+	  }
+
+	  //m_pDrawNode->drawDot(a_oTouchLocation, 40, Color4F(0.0f, 0.0f, 0.0f, 0.5f));
+	  m_pDrawNode->drawSolidCircle(a_oTouchLocation, 40, 0, 24,Color4F(0.0f, 0.0f, 0.0f, 1.0f));
 	  m_pRenderTexture->begin();
 	  m_pDrawNode->visit();
 	  //static_cast <Sprite*>(m_pCocosEntity)->visit();
 	  m_pRenderTexture->end();
-	  Director::getInstance()->getRenderer()->render();
+	  //Director::getInstance()->getRenderer()->render();
+	  //m_pDrawNode->clear();
+	  m_bNodeDrawn = true;
+  }
+
+  void CScratchNode::DrawEvent(EventCustom* ev) {
 	  m_pDrawNode->clear();
+	  m_bNodeDrawn = false;
+
   }
 
 } // namespace LM
