@@ -75,7 +75,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		   CCLOG("grid constructed");
     }*/
 
-    else if (sType == "Image" || sType == "Info")
+    else if (sType == "Image")
 	{
         //std::string imageSource = m_sBasePath + rParams["source"].GetString();
 		std::string imageSource = NormalizePath(rParams["source"].GetString()	);
@@ -84,6 +84,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			width, height,
 			x, y);
 	}
+
+    else if (sType == "Info")
+    {
+        //std::string imageSource = m_sBasePath + rParams["source"].GetString();
+        std::string imageSource = NormalizePath(rParams["source"].GetString()	);
+        pEntity = new CInfoNode(imageSource,
+            IntToAnchor(rParams["anchor"].GetInt()),
+            width, height,
+            x, y);
+    }
 
 	else if (sType == "Scratch")
 	  {

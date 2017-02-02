@@ -19,7 +19,7 @@ CPeerNode::CPeerNode(CKernel* a_pKernel,
     m_pKernel(a_pKernel),
     m_rChildrenStyle(a_rJsonNode)
 {
-  
+
 }
 
 
@@ -27,8 +27,10 @@ void CPeerNode::Init()
 {
 	ClearChildren();
 
+    m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
 	CGridNode::Init();
-	m_pKernel->GetPeers();
+//	m_pKernel->GetPeers();
+    ReplaceLabelValue(m_vChildren[0], tr("Pair"));
 }
 
 
