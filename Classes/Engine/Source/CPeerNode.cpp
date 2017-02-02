@@ -30,7 +30,7 @@ void CPeerNode::Init()
     m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
 	CGridNode::Init();
 //	m_pKernel->GetPeers();
-    ReplaceLabelValue(m_vChildren[0], tr("Pair"));
+    ReplaceLabelValue(m_vChildren[0], "Pair");
 }
 
 
