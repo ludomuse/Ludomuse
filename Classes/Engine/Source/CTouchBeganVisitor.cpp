@@ -110,7 +110,6 @@ bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 	  CScratchNode* pScratch = dynamic_cast<CScratchNode*>(m_pEntityToFind.Get());
 	  if (pScratch)
 	    {
-	      CCLOG("Moved in CScratchNode");
 	      pScratch->DrawTouch(a_pTouch->getLocation());
 	      return true;
 	    }

@@ -59,7 +59,7 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 		if (m_oDocument["app"].HasMember("debug"))
 		{
 			m_pKernel->m_bDebugMode = m_oDocument["app"]["debug"].GetBool();
-			Director::getInstance()->setDisplayStats(true);
+			Director::getInstance()->setDisplayStats(m_pKernel->m_bDebugMode);
 		}
 
 		if (m_oDocument["app"].HasMember("macros"))
