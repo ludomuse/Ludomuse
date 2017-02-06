@@ -22,15 +22,15 @@ CPeerNode::CPeerNode(CKernel* a_pKernel,
 
 }
 
-
 void CPeerNode::Init()
 {
-	ClearChildren();
-
-    m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
+//	ClearChildren();
+    if (m_vChildren.size() == 0) {
+        m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
+    }
 	CGridNode::Init();
 //	m_pKernel->GetPeers();
-    ReplaceLabelValue(m_vChildren[0], tr("Pair"));
+    ReplaceLabelValue(m_vChildren[0], "Pair");
 }
 
 
