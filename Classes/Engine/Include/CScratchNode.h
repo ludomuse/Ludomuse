@@ -18,6 +18,10 @@ namespace LM
 	// the render texture used to combine the draw node and the sprite
 	cocos2d::RenderTexture* m_pRenderTexture;
     
+	void DrawEvent(cocos2d::EventCustom* ev);
+
+	bool m_bNodeDrawn;
+
   public:
     
     CScratchNode(const std::string& a_rSpriteFilename,
