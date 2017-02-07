@@ -23,6 +23,7 @@
 #include "CCameraFeedNode.h"
 #include "CValidator.h"
 #include "CEditBoxNode.h"
+#include "CTeamNode.h"
 
 namespace LM
 {

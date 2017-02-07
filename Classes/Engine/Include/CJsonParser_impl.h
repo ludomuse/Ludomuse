@@ -1,4 +1,4 @@
-//////////////////////////////// templates specializations 
+﻿//////////////////////////////// templates specializations 
 
 
 /// \brief the specialisation building entities in a scene or subentities
@@ -60,23 +60,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			sBackgroundSource);
 	}
 
-	// dummy element to test Wifi Direct
-	/*else if (sType == "Dummy")
-	{
-		CCLOG("Grid construction");
-           pEntity = new CMenuNode(
-               rParams["normal"].GetString(),
-               rParams["selected"].GetString(),
-               CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
-				   std::string(rParams["action"].GetString()) == "connect" ?
-                         &CKernel::Connect : &CKernel::SendMessage),
-               IntToAnchor(rParams["anchor"].GetInt()),
-               width,
-               height,
-               x,
-               y);
-		   CCLOG("grid constructed");
-    }*/
 
 	else if (sType == "Image" || sType == "Info")
 	{
@@ -104,20 +87,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	}
 
 
-	else if (sType == "Input")
-	{
-
-	}
-
-
 	else if (sType == "Nav")
 	{
-		// TODO
-		//auto lambda = [this](cocos2d::Ref* pSender)
-		//{
-		//	m_pKernel->NavNext(pSender);
-		//	//CCLOG("HI");
-		//};
+
 		pEntity = new CMenuNode(
             m_sBasePath + rParams["normal"].GetString(),
             m_sBasePath + rParams["selected"].GetString(),
@@ -146,17 +118,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		a_pNode->AddChildNode(oValidator);
 	}
 
-
-	else if (sType == "Reward")
-	{
-
-	}
-
-
-	else if (sType == "Sound")
-	{
-
-	}
 
 
 	else if (sType == "Text")
@@ -212,10 +173,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		pEntity->AddChildNode(pEditBox);
 	}
 
-	else if (sType == "Video")
-	{
-
-	}
 
 
 	else if (sType == "Peers")
@@ -253,7 +210,35 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 				y);
 		}
 		
-	}
+        }
+
+        else if (sType == "Team")
+        {
+
+          RefJsonNode rTasks = rParams["tasks"];
+
+          TTasksArray oTasksArray;
+
+          assert(rTasks.Size() == 8 && "Tasks array's size must be exactly 4");
+          
+          for (int i = 0; i < 8; ++i)
+          {
+            RefJsonNode rTask = rTasks[i];
+            std::array<std::string, 2> oTaskArray;
+            oTaskArray[0] = rTask[0].GetString();
+            oTaskArray[1] = rTask[1].GetString();
+
+            oTasksArray[i] = oTaskArray;
+            
+          }
+
+          pEntity = new CTeamNode(oTasksArray,
+                                  IntToAnchor(rParams["anchor"].GetInt()),
+                                  width, height, x, y);
+          
+        }
+
+
 
 
 	// check listeners
