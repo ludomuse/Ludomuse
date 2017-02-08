@@ -2,12 +2,15 @@
 #define _CTEAMNODE_H_
 
 #include "CEntityNode.h"
+#include <array>
 
+
+#define M_NB_TASK 8
 
 namespace LM
 {
 
-typedef std::array<std::array<std::string, 2>, 4> TTasksArray;
+typedef std::array<std::array<std::string, 2>, M_NB_TASK> TTasksArray;
 
 
 class CTeamNode : public CEntityNode
@@ -15,6 +18,12 @@ class CTeamNode : public CEntityNode
 
  private:
   TTasksArray m_oTasksArray;
+  std::array<std::string, M_NB_TASK / 2> m_oPlayer1Tasks;
+  std::array<std::string, M_NB_TASK / 2> m_oPlayer2Tasks;
+  std::array<std::string, M_NB_TASK / 2> m_oPlayer1Actions;
+  std::array<std::string, M_NB_TASK / 2> m_oPlayer2Actions;
+
+  int m_iTaskNum;
 
  public:
   CTeamNode(TTasksArray a_oTasksArray,
