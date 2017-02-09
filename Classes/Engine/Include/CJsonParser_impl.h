@@ -233,6 +233,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
           }
 
           pEntity = new CTeamNode(oTasksArray,
+								  m_pKernel,
                                   IntToAnchor(rParams["anchor"].GetInt()),
                                   width, height, x, y);
           

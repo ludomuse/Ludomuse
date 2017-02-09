@@ -639,7 +639,12 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
 
 					std::array<std::string, M_NB_TASK / 2> oActions;
-					std::iota(oActions.begin(), oActions.end(), vSplittedMessage.begin() + 3);
+					
+					for (int i = 0; i < M_NB_TASK / 2; ++i)
+					{
+						oActions[i] = vSplittedMessage[i + 3];
+					}
+					//std::iota(oActions.begin(), oActions.end(), vSplittedMessage.begin() + 3);
 
 					pTeamNode->UpdateActions(oActions);
 

@@ -98,6 +98,8 @@ bool CTeamNode::ValidateTask(int a_iTaskNum)
 		{
 			UpdateTask(m_oPlayer1Tasks[++m_iPlayer1CurrentTask]);
 		}
+		
+		return true;
 	
 	}
 	else if (a_iTaskNum == m_iPlayer2CurrentTask)
@@ -113,7 +115,11 @@ bool CTeamNode::ValidateTask(int a_iTaskNum)
 		{
 			SendTask();
 		}
+
+		return true;
 	}
+
+	return false;
 }
 
 
