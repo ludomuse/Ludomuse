@@ -23,6 +23,8 @@
 #include <fstream>
 #include <pthread.h>
 
+#include <numeric>
+
 #ifdef __ANDROID__
 #include <GLES/gl.h>
 #include "../../Modules/Networking/android/Include/LmJniJavaFacade.h"
@@ -586,7 +588,72 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 			CDispatchMessageVisitor oVisitor("RemoteCountdownReleased");
 			oVisitor.Traverse(m_pCurrentScene);
 		}
-	}
+
+		else if (vSplittedMessage[1] == "TeamNode")
+		{
+
+			if (vSplittedMessage[2] == "ValidateTask")
+			{
+
+				if (m_pLocalPlayer->m_iPlayerID == 0)
+				{
+
+					Desc<CNode> oTeamNode;
+					CFindEntityFromTypeVisitor<CTeamNode> oVisitor(oTeamNode);
+					oVisitor.Traverse(m_pCurrentScene);
+
+					if (oTeamNode.IsValid())
+					{
+						CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
+						bool bSuccess = pTeamNode->ValidateTask(std::stoi(vSplittedMessage[3]));
+					}
+
+				}
+				else
+				{
+					// if local player is "slave" player send validation to "master" player
+					SendNetworkMessage(a_rMessage);
+				}
+
+			}
+			else if (vSplittedMessage[2] == "NewTask")
+			{
+				Desc<CNode> oTeamNode;
+				CFindEntityFromTypeVisitor<CTeamNode> oVisitor(oTeamNode);
+				oVisitor.Traverse(m_pCurrentScene);
+				if (oTeamNode.IsValid())
+				{
+					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
+					pTeamNode->UpdateTask(vSplittedMessage[3]);
+				}
+
+			}
+
+			else if (vSplittedMessage[2] == "Actions")
+			{
+				Desc<CNode> oTeamNode;
+				CFindEntityFromTypeVisitor<CTeamNode> oVisitor(oTeamNode);
+				oVisitor.Traverse(m_pCurrentScene);
+				if (oTeamNode.IsValid())
+				{
+					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
+
+					std::array<std::string, M_NB_TASK / 2> oActions;
+					std::iota(oActions.begin(), oActions.end(), vSplittedMessage.begin() + 3);
+
+					pTeamNode->UpdateActions(oActions);
+
+				}
+
+			}
+
+
+		} // TeamNode
+
+
+	} // kernel message
+
+
 	else if (vSplittedMessage[0] == "Dashboard")
 	{
 		CDispatchMessageVisitor oVisitor(a_rMessage);
