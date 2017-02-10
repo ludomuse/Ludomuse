@@ -33,6 +33,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CVideoNode.cpp \
                    ../../Classes/Engine/Source/CMenuNode.cpp \
                    ../../Classes/Engine/Source/CEditBoxNode.cpp \
+                   ../../Classes/Engine/Source/CTeamNode.cpp \
                    ../../Classes/Engine/Source/CValidator.cpp \
                    ../../Classes/Engine/Source/CTransitionVisitor.cpp \
                    ../../Classes/Engine/Source/CTouchBeganVisitor.cpp \
@@ -41,6 +42,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/Engine/Source/CFindEntityVisitor.cpp \
                    ../../Classes/Engine/Source/CFindEntityTouchVisitor.cpp \
                    ../../Classes/Engine/Source/CFindEntityFromIDVisitor.cpp \
+                   ../../Classes/Engine/Source/CFindTeamNodeIDVisitor.cpp \
+                   ../../Classes/Engine/Source/CFindTeamNodeVisitor.cpp \
                    ../../Classes/Engine/Source/CDispatchMessageVisitor.cpp \
                    ../../Classes/Engine/Source/CDispatchEventVisitor.cpp \
                    ../../Classes/Engine/Source/CGroupNode.cpp \
