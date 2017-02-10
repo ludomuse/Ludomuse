@@ -875,6 +875,21 @@ bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
     return true;
 }
 
+void CKernel::GotoDashboard() {
+    Scene* pScene = m_pDashboard->CreateScene();
+    m_pDashboard->Init();
+    cocos2d::Director::getInstance()->replaceScene(pScene);
+    m_pCurrentScene = m_pDashboard;
+    emit sendScene(this->m_pCurrentScene, false);
+}
+
+void CKernel::GotoWaitingScene() {
+    Scene* pScene = m_pWaitingScene->CreateScene();
+    m_pWaitingScene->Init();
+    cocos2d::Director::getInstance()->replaceScene(pScene);
+    m_pCurrentScene = m_pWaitingScene;
+    emit sendScene(this->m_pCurrentScene, false);
+}
 
 void CKernel::GotoScreenID(SEvent a_oEvent, CEntityNode* a_pTarget)
 {

@@ -31,7 +31,9 @@ Result CGotoSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
       //Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
       Director::getInstance()->replaceScene(pNewScene);
+      CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
       m_pKernel->m_pCurrentScene = pSceneNode;
+      pOldScene->UnInit(false);
       return RESULT_PRUNE;
     }
   }

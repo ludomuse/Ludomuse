@@ -176,7 +176,8 @@ public:
     void NavNext(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
     /// \brief go to the previous scene in the tree
     void NavPrevious(cocos2d::Ref* pSender, CEntityNode* a_pTarget);
-
+    void GotoDashboard();
+    void GotoWaitingScene();
     void GotoScreenID(SEvent a_rEvent, CEntityNode* a_pTarget);
 //    void GotoScreenID(const std::string& a_sSceneID, int a_iPlayerID);
     void ClearScreen();
