@@ -212,7 +212,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		
         }
 
-        else if (sType == "Team")
+        else if (sType == "TeamNode")
         {
 
           RefJsonNode rTasks = rParams["tasks"];

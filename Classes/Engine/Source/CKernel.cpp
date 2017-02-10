@@ -10,6 +10,7 @@
 #include "../Include/CDispatchMessageVisitor.h"
 #include "../Include/CFindEntityFromIDVisitor.h"
 #include "../Include/CFindEntityFromTypeVisitor.h"
+#include "../Include/CFindTeamNodeVisitor.h"
 
 #include "../Include/CInputManager.h"
 #include "../Include/CSoundManager.h"
@@ -592,35 +593,30 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 		else if (vSplittedMessage[1] == "TeamNode")
 		{
 
-			if (vSplittedMessage[2] == "ValidateTask")
+			if (vSplittedMessage[2] == "ValidateTeamTask")
 			{
 
 				if (m_pLocalPlayer->m_iPlayerID == 0)
 				{
 
 					Desc<CNode> oTeamNode;
-					CFindEntityFromTypeVisitor<CTeamNode> oVisitor(oTeamNode);
-					oVisitor.Traverse(m_pCurrentScene);
+					CFindTeamNodeVisitor oVisitor(oTeamNode);
+					oVisitor.Traverse(m_pBehaviorTree);
 
 					if (oTeamNode.IsValid())
 					{
 						CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
-						bool bSuccess = pTeamNode->ValidateTask(std::stoi(vSplittedMessage[3]));
+						bool bSuccess = pTeamNode->ValidateTask(vSplittedMessage[3]);
 					}
 
-				}
-				else
-				{
-					// if local player is "slave" player send validation to "master" player
-					SendNetworkMessage(a_rMessage);
 				}
 
 			}
 			else if (vSplittedMessage[2] == "NewTask")
 			{
 				Desc<CNode> oTeamNode;
-				CFindEntityFromTypeVisitor<CTeamNode> oVisitor(oTeamNode);
-				oVisitor.Traverse(m_pCurrentScene);
+				CFindTeamNodeVisitor oVisitor(oTeamNode);
+				oVisitor.Traverse(m_pBehaviorTree);
 				if (oTeamNode.IsValid())
 				{
 					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
@@ -632,8 +628,8 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 			else if (vSplittedMessage[2] == "Actions")
 			{
 				Desc<CNode> oTeamNode;
-				CFindEntityFromTypeVisitor<CTeamNode> oVisitor(oTeamNode);
-				oVisitor.Traverse(m_pCurrentScene);
+				CFindTeamNodeVisitor oVisitor(oTeamNode);
+				oVisitor.Traverse(m_pBehaviorTree);
 				if (oTeamNode.IsValid())
 				{
 					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
@@ -650,6 +646,18 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 
 				}
 
+			}
+
+			else if (vSplittedMessage[2] == "TeamTasksFinished")
+			{
+				Desc<CNode> oTeamNode;
+				CFindTeamNodeVisitor oVisitor(oTeamNode);
+				oVisitor.Traverse(m_pBehaviorTree);
+				if (oTeamNode.IsValid())
+				{
+					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
+					pTeamNode->TasksFinished();
+				}
 			}
 
 
@@ -988,6 +996,37 @@ void CKernel::StopCountdownThread()
 void CKernel::LogMessage(const std::string& a_sMessage)
 {
 	CCLOG("Kernel message : %s", a_sMessage.c_str());
+}
+
+
+
+void CKernel::ValidateTeamTask(SEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	std::vector<CNode*> oSenderChildren = a_rEvent.m_pSender->GetChildren();
+	if (oSenderChildren.size() > 0)
+	{
+		CLabelNode* pLabel = dynamic_cast<CLabelNode*>(oSenderChildren[0]);
+		if (pLabel)
+		{
+			std::string sAction = pLabel->GetText();
+			if (m_pLocalPlayer->m_iPlayerID == 0)
+			{
+				Desc<CNode> oTeamNode;
+				CFindTeamNodeVisitor oVisitor(oTeamNode);
+				oVisitor.Traverse(m_pBehaviorTree);
+
+				if (oTeamNode.IsValid())
+				{
+					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
+					bool bSuccess = pTeamNode->ValidateTask(sAction);
+				}
+			}
+			else
+			{
+				SendNetworkMessage(std::string("kernel:TeamNode:ValidateTeamTask:") + sAction);
+			}
+		}
+	}
 }
 
 

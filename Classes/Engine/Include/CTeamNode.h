@@ -1,7 +1,7 @@
 #ifndef _CTEAMNODE_H_
 #define _CTEAMNODE_H_
 
-#include "CEntityNode.h"
+#include "CGroupNode.h"
 #include "CKernel.h"
 #include <array>
 
@@ -14,7 +14,7 @@ namespace LM
 typedef std::array<std::array<std::string, 2>, M_NB_TASK> TTasksArray;
 
 
-class CTeamNode : public CEntityNode
+class CTeamNode : public CGroupNode
 {
 
  private:
@@ -39,13 +39,15 @@ class CTeamNode : public CEntityNode
             int a_iXPosition,
             int a_iYPosition);
 
+  void Init() override;
 
-  bool ValidateTask(int a_iTaskNum);
-  void UpdateTask(const std::string& a_sNextTask);
+  bool ValidateTask(const std::string& a_rAction);
+  void UpdateTask(const std::string& a_rNextTask);
   void UpdateActions(const std::array<std::string, M_NB_TASK / 2>& a_rActions);
-  
+  void TasksFinished();
+
 private:
-	void SendTask();
+	void SendTask(const std::string& a_rNextTask);
 
 };
 
