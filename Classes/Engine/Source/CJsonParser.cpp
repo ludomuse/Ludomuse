@@ -239,6 +239,12 @@ bool CJsonParser::ParseCallback(RefJsonNode a_rListener, CEntityNode* a_pEntity)
 			SEvent(a_pEntity));
 		a_pEntity->AddListener(sType, oCallback);
 	}
+	else if (sCallbackString == "ValidateTeamTask")
+	{
+		CEventCallback oCallback(m_pKernel, &CKernel::ValidateTeamTask,
+			SEvent(a_pEntity));
+		a_pEntity->AddListener(sType, oCallback);
+	}
 	else
 	{
 		CEventCallback oCallback(m_pKernel, nullptr);

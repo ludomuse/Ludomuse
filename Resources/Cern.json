@@ -21598,13 +21598,6 @@
                                 {
                                     "type": "Validate",
                                     "params": {
-                                        "callback": "Show",
-                                        "arg": true
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
                                         "callback": "Playsound"
                                     }
                                 },
@@ -21614,7 +21607,14 @@
                                         "callback": "LocalMessage",
                                         "arg": "Dashboard:Show:Demon"
                                     }
+                                },
+                              {
+                                "type": "Validate",
+                                "params": {
+                                  "callback": "Show",
+                                  "arg": true
                                 }
+                              }
                             ],
                             "children": [
                                 {
@@ -25879,7 +25879,7 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
-														"listeners": [
+                            "listeners": [
                                 {
                                     "type": "Validate",
                                     "params": {
@@ -25943,15 +25943,15 @@
                             "height": 73,
                             "x": 0,
                             "y": 0,
-														"listeners": [
-                                {
-																		"type": "Display",
-																		"params": {
-																				"callback": "ValidateScene",
-                                        "arg": true
-																		}
-																}
-														]
+							"listeners": [
+                              {
+                                  "type": "Display",
+                                  "params": {
+                                    "callback": "ValidateScene",
+                                    "arg": true
+                                  }
+						      }
+							]
                         }
                     },
                     {

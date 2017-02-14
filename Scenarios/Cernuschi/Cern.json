@@ -1,6 +1,6 @@
 {
     "app": {
-        "debug": false,
+        "debug": true,
         "colors": [],
         "images": [],
         "videos": [],
@@ -25777,6 +25777,7 @@
             },
             {
                 "scene": "screen-camera-player1",
+                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25787,6 +25788,15 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
+														"listeners": [
+                                {
+                                    "type": "Validate",
+                                    "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                    }
+                                }
+                            ],
                             "children": [
                                 {
                                     "type": "Text",
@@ -25795,32 +25805,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -25841,7 +25825,16 @@
                             "width": 0,
                             "height": 73,
                             "x": 0,
-                            "y": 0
+                            "y": 0,
+														"listeners": [
+                                {
+																		"type": "Display",
+																		"params": {
+																				"callback": "ValidateScene",
+                                        "arg": true
+																		}
+																}
+														]
                         }
                     },
                     {
@@ -25875,6 +25868,7 @@
             },
             {
                 "scene": "screen-camera-player2",
+                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25885,6 +25879,15 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
+														"listeners": [
+                                {
+                                    "type": "Validate",
+                                    "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                    }
+                                }
+                            ],
                             "children": [
                                 {
                                     "type": "Text",
@@ -25893,32 +25896,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -25965,7 +25942,16 @@
                             "width": 0,
                             "height": 73,
                             "x": 0,
-                            "y": 0
+                            "y": 0,
+														"listeners": [
+                                {
+																		"type": "Display",
+																		"params": {
+																				"callback": "ValidateScene",
+                                        "arg": true
+																		}
+																}
+														]
                         }
                     },
                     {

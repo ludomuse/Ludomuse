@@ -38,6 +38,7 @@ class CLabelNode : public CEntityNode
   virtual void Init();
 
   virtual void SetText(const std::string& a_rText);
+  virtual std::string GetText() const;
 
 };
 

@@ -297,9 +297,9 @@ public class CameraActivity extends Activity implements OnClickListener {
     }
 
     public void onBack() {
-        Log.e("onBack :", "yes");
-        camera.takePicture(null, null, photoCallback);
-        inPreview = false;
+        //Log.e("onBack :", "yes");
+        //camera.takePicture(null, null, photoCallback);
+        //inPreview = false;
     }
 
 }

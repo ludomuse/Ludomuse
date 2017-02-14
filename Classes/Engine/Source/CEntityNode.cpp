@@ -1,4 +1,4 @@
-#include "../Include/CEntityNode.h"
+﻿#include "../Include/CEntityNode.h"
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
 
@@ -50,16 +50,20 @@ void CEntityNode::Revert(bool a_bVisible)
 	Show(a_bVisible);
 	if (m_sID != "")
 		CCLOG("reverting : %s", m_sID.c_str());
-	m_pCocosEntity->setPosition(m_oEntityStartLocation);
-	m_pCocosEntity->setScale(m_fEntityStartScale);
-        for (CNode* itNode : m_vChildren)
-        {
-          CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
-          if (pEntity)
-          {
-            pEntity->Revert(a_bVisible);
-          }
-        }
+
+    if (m_pCocosEntity != nullptr)
+    {
+        m_pCocosEntity->setPosition(m_oEntityStartLocation);
+        m_pCocosEntity->setScale(m_fEntityStartScale);
+    }
+    for (CNode* itNode : m_vChildren)
+    {
+      CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+      if (pEntity)
+      {
+        pEntity->Revert(a_bVisible);
+      }
+    }
 }
 
 
@@ -370,7 +374,8 @@ void CEntityNode::Fade()
 	auto oFadeOut = FadeOut::create(0.5f);
 	auto oSequence = Sequence::create(oFadeOut, fpReleaseEntity, nullptr);
 
-	m_pCocosEntity->runAction(oSequence);
+    if (m_pCocosEntity)
+        m_pCocosEntity->runAction(oSequence);
 
 	for (CNode* itNode : m_vChildren)
 	{
@@ -387,7 +392,8 @@ void CEntityNode::FadeIn()
 	CCLOG("CEntityNode::FadeIn %s", m_sID.c_str());
 	auto oFadeIn = FadeIn::create(0.5f);
 
-	m_pCocosEntity->runAction(oFadeIn);
+    if (m_pCocosEntity)
+        m_pCocosEntity->runAction(oFadeIn);
 
 	/*for (CNode* itNode : m_vChildren)
 	{

@@ -24,10 +24,6 @@ class CTouchBeganVisitor;
 class CKernel
 {
  private:
-  /// \brief the Behavior Tree of the game
-  /// \details a pointer to the root node of the tree, usually a SequenceNode
-  CNode* m_pBehaviorTree;
-
   
   /// \brief The parser that will build the behavior tree from the json file
   CJsonParser* m_pJsonParser;
@@ -46,6 +42,10 @@ class CKernel
 public:
 	/// \brief a reference to the dashboard with the timeline of the game
 	CSceneNode* m_pDashboard;
+
+	/// \brief the Behavior Tree of the game
+	/// \details a pointer to the root node of the tree, usually a SequenceNode
+	CNode* m_pBehaviorTree;
 
 	CSceneNode* m_pCurrentScene;
 
@@ -143,7 +143,7 @@ public:
   void EndGame(SEvent, CEntityNode*);
   void CountdownPressed(SEvent, CEntityNode*);
   void CountdownReleased(SEvent, CEntityNode*);
-
+  void ValidateTeamTask(SEvent, CEntityNode*);
 
   //////////////// network callbacks
   void OnReceivingMessage(const std::string& a_rMessage);
