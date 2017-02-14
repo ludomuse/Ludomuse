@@ -26,7 +26,8 @@ private:
 
 private:
 	void GotoScene(CSequenceNode* a_pSequence);
-	void InitScene(CSceneNode* a_pScene);
+	void InitScene(CSceneNode* a_pScene, bool a_bWaitScene = false);
+	void LoadInitScene();
 
 };
 

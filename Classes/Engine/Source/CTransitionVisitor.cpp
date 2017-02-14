@@ -88,7 +88,8 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 			{
 				m_pKernel->m_pLocalPlayer->m_bWaiting = false;
 				a_pSequence->OffsetCurrentNode(m_bTransitionNext);
-				InitScene(pNewSceneNode);
+				//InitScene(pNewSceneNode);
+				LoadInitScene();
 			}
 			else
 			{
@@ -98,7 +99,7 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 
 				// init waiting scene
 				m_pKernel->m_pLocalPlayer->m_bWaiting = true;
-				InitScene(m_pKernel->m_pWaitingScene);
+				InitScene(pNewSceneNode, true);
 				m_pKernel->m_oSyncTransitionStart = std::chrono::system_clock::now();
 			}
 
@@ -114,17 +115,32 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 
 }
 
-void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
+void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 {
-	Scene* pNewScene = a_pSceneNode->CreateScene();
-	a_pSceneNode->init();
-	if (m_bTransitionNext)
+	if (a_bWaitScene)
 	{
-		Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+		Scene* pWaitingScene = m_pKernel->m_pWaitingScene->CreateScene();
+		m_pKernel->m_pWaitingScene->init();
+		if (m_bTransitionNext)
+		{
+			Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pWaitingScene));
+		}
+		else
+		{
+			Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pWaitingScene));
+		}
 	}
-	else
-	{
-		Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
+	else {
+		Scene* pNewScene = a_pSceneNode->CreateScene();
+		a_pSceneNode->init();
+		if (m_bTransitionNext)
+		{
+			Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+		}
+		else
+		{
+			Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
+		}
 	}
 
 	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
@@ -137,6 +153,29 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 	auto oSequence = Sequence::create(DelayTime::create(0.6f), fpUnInitScene, nullptr);
 	m_pKernel->m_pCurrentScene->runAction(oSequence);*/
 	M_STATS->StartStats();
+}
+
+void CTransitionVisitor::LoadInitScene() {
+	//if (m_bTransitionNext)
+	//{
+	//	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, m_pKernel->m_pCurrentScene->GetScene()));
+	//}
+	//else
+	//{
+	//	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, m_pKernel->m_pCurrentScene->GetScene()));
+	//}
+	//Director::getInstance()->popScene();
+	Scene* pNewScene = m_pKernel->m_pCurrentScene->CreateScene();
+	m_pKernel->m_pCurrentScene->init();
+	if (m_bTransitionNext)
+	{
+		Director::getInstance()->replaceScene(pNewScene);
+	}
+	else
+	{
+		Director::getInstance()->replaceScene(pNewScene);
+	}
+	m_pKernel->m_pWaitingScene->UnInit(false);
 }
 
 } // namespace LM
