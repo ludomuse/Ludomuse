@@ -218,6 +218,7 @@ void CCameraFeedNode::DisplayPicture(std::string sPicturePath)
 #endif
 
 	PopulateParent();
+	Dispatch("Display");
 	CCLOG("LUDOMUSE - DisplayPicture ended");
 }
 
