@@ -4,6 +4,9 @@
 #include "../Include/CFindTeamNodeIDVisitor.h"
 #include <cocos2d.h>
 
+#ifdef __ANDROID__
+#include "../../Modules/Util/Include/FToString.h"
+#endif
 namespace LM
 {
 
