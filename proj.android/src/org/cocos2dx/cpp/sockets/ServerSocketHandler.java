@@ -275,14 +275,18 @@ class Communication implements Runnable {
 
 		// notify SocketHandler that this device client should
 		// connect to the ip and port previously got.
-		master.setRemoteHost(clientIP.split("!")[0],
-				Integer.parseInt(clientIP.split("!")[1]));
-		master.send();
-		// send an accuse message with the client newly created and
-		// connected
-		// to the remost server.
-
-		master.sendAccuse(id);
+		String splittedClientIP = clientIP.split("!");
+		if (splittedClientIP.length() >= 2)
+		{
+			master.setRemoteHost(splittedClientIP[0],
+					Integer.parseInt(splittedClientIP[1]));
+			master.send();
+			// send an accuse message with the client newly created and
+			// connected
+			// to the remost server.
+	
+			master.sendAccuse(id);
+		}
 	}
 
 	/**
