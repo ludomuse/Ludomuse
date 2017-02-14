@@ -275,8 +275,8 @@ class Communication implements Runnable {
 
 		// notify SocketHandler that this device client should
 		// connect to the ip and port previously got.
-		String splittedClientIP = clientIP.split("!");
-		if (splittedClientIP.length() >= 2)
+		String[] splittedClientIP = clientIP.split("!");
+		if (splittedClientIP.length >= 2)
 		{
 			master.setRemoteHost(splittedClientIP[0],
 					Integer.parseInt(splittedClientIP[1]));
