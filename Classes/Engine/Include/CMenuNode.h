@@ -1,4 +1,4 @@
-#ifndef _CMENUNODE_H_
+﻿#ifndef _CMENUNODE_H_
 #define _CMENUNODE_H_
 
 #include "cocos2d.h"
@@ -42,8 +42,6 @@ class CMenuNode : public CEntityNode
   virtual cocos2d::Vec2 GetOrigin() override;
 
   virtual cocos2d::Node* GetCocosEntity() override;
-
-  virtual void Show(bool a_bVisible) override;
 
 };
 

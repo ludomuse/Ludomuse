@@ -1,4 +1,4 @@
-#include "../Include/CMenuNode.h"
+﻿#include "../Include/CMenuNode.h"
 
 using namespace cocos2d;
 
@@ -89,10 +89,6 @@ Node* CMenuNode::GetCocosEntity()
 	return m_pMenuItemImage;
 }
 
-void CMenuNode::Show(bool a_bVisible)
-{
-	m_pCocosEntity->setVisible(true);
-	CEntityNode::Show();
-}
+
 
 } // namespace LM
