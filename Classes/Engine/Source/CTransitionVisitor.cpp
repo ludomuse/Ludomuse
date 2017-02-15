@@ -145,7 +145,10 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 
 	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
 	m_pKernel->m_pCurrentScene = a_pSceneNode;
-	pOldScene->UnInit(false);
+	if (pOldScene != nullptr)
+	{
+		pOldScene->UnInit(false);
+	}
 	/*auto fpUnInitScene = CallFunc::create([pOldScene]() {
 		pOldScene->UnInit(false);
 	});
@@ -169,11 +172,11 @@ void CTransitionVisitor::LoadInitScene() {
 	m_pKernel->m_pCurrentScene->init();
 	if (m_bTransitionNext)
 	{
-		Director::getInstance()->replaceScene(pNewScene);
+		Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
 	}
 	else
 	{
-		Director::getInstance()->replaceScene(pNewScene);
+		Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
 	}
 	m_pKernel->m_pWaitingScene->UnInit(false);
 }

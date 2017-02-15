@@ -249,7 +249,7 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 {
 
   CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
-  if (pEntity)
+  if (pEntity && pEntity->GetCocosEntity() != nullptr)
   {
 
     // Check if the entity intersects the touch event
