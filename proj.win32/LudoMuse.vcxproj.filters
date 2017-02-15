@@ -120,6 +120,17 @@
     <ClCompile Include="..\Classes\Engine\Source\CVideoNode.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CMacroManager.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CScratchNode.cpp" />
+    <ClCompile Include="..\Classes\Engine\Source\CTeamNode.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CFindTeamNodeIDVisitor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CFindTeamNodeVisitor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -243,6 +254,17 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CVideoNode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CMacroManager.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CScratchNode.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CTeamNode.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CFindTeamNodeIDVisitor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CFindTeamNodeVisitor.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

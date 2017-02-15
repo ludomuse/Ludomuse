@@ -385,6 +385,9 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
+	if (m_pLocalPlayer->m_bWaiting) {
+		return false;
+	}
 	M_STATS_SCREEN.nbInteractions++;
 	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
 	oVisistor.Traverse(m_pCurrentScene);
