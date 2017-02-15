@@ -38,9 +38,6 @@ void CEntityNode::UnInit(bool removeChild)
 		m_pCocosEntity = nullptr;
 		CNode::UnInit(removeChild);
 	}
-	else {
-		return;
-	}
 }
 
 
