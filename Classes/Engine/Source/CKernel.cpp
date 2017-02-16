@@ -399,16 +399,27 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 
 bool CKernel::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
-	m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchEnd(a_pTouch, a_pEvent);
-	m_mTouchBeganVisitors.erase(a_pTouch->getID());
-
-	return true;
+	try {
+		m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchEnd(a_pTouch, a_pEvent);
+		m_mTouchBeganVisitors.erase(a_pTouch->getID());
+		return true;
+	}
+	catch (const std::out_of_range&)
+	{
+		return false;
+	}
 }
 
 bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 {
-	m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchMove(a_pTouch, a_pEvent);
-	return true;
+	try {
+		m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchMove(a_pTouch, a_pEvent);
+		return true;
+	}
+	catch (const std::out_of_range&)
+	{
+		return false;
+	}
 }
 
 

@@ -31,11 +31,12 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 
 	if (m_pEntityToFind.IsValid())
 	{
-
+		CCLOG("m_pEntityToFind is valid");
 		// must release the entity at the end of the sequence, after animations have ended
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(m_pEntityToFind.Get());
 		if (!pEntity)
 			return false;
+		CCLOG("Touch entity : %s", pEntity->GetID());
 
 		auto fpReleaseEntity = CallFunc::create([pEntity]() {
 			CEntityNode::Release(pEntity);
@@ -338,7 +339,6 @@ void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 {
 	CEntityNode::Lock(a_pEntity);
 	a_pEntity->GetCocosEntity()->setZOrder(1);
-
 	auto oScaleTo1 = ScaleTo::create(0.1f, 2 * a_pEntity->GetEntityStartScale());
 	auto oEaseOutBack1 = EaseBackOut::create(oScaleTo1);
 
