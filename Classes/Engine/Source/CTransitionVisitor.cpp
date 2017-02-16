@@ -129,7 +129,10 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
 
 	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
 	m_pKernel->m_pCurrentScene = a_pSceneNode;
-	pOldScene->UnInit(false);
+    if (pOldScene != nullptr)
+    {
+        pOldScene->UnInit(false);
+    }
 	/*auto fpUnInitScene = CallFunc::create([pOldScene]() {
 		pOldScene->UnInit(false);
 	});

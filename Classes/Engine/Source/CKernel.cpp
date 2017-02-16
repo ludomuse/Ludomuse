@@ -457,6 +457,9 @@ void CKernel::DeleteScene(const std::string &a_sSceneID)
             return;
         }
     }*/
+    if (m_pCurrentScene != nullptr && a_sSceneID == m_pCurrentScene->GetSceneID()) {
+        m_pCurrentScene = nullptr;
+    }
     this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
     //     Clear id from vector for both player
     //        this->RemoveIDFromPlayer(a_sSceneID, 0);

@@ -33,7 +33,9 @@ Result CGotoSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
       Director::getInstance()->replaceScene(pNewScene);
       CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
       m_pKernel->m_pCurrentScene = pSceneNode;
-      pOldScene->UnInit(false);
+      if (pOldScene != nullptr) {
+        pOldScene->UnInit(false);
+      }
       return RESULT_PRUNE;
     }
   }
