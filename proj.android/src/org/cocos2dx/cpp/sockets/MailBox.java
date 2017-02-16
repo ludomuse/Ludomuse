@@ -179,10 +179,11 @@ public class MailBox {
 		else
 		{
 			// else send the first message in the list
-			messages.get(0).send();
+			Message message = messages.get(0);
+			message.send();
 			// arm timer in order to send this message again if no accuse is
 			// received
-			if(messages.get(0).parameterTypes[0] == File.class){
+			if(message.parameterTypes[0] == File.class){
 				Log.d("debug", "Ludomuse - LudoMuse - Message à base d'un file trop style c'est une grand ligne pour prendre de la place est resortir dans le caca qu'est le debug");
 			}
 			else{

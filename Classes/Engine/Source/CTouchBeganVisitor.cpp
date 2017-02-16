@@ -1,4 +1,4 @@
-#include "../Include/CTouchBeganVisitor.h"
+﻿#include "../Include/CTouchBeganVisitor.h"
 
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
@@ -36,11 +36,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(m_pEntityToFind.Get());
 		if (!pEntity)
 			return false;
-		CCLOG("Touch entity : %s", pEntity->GetID());
 
-		auto fpReleaseEntity = CallFunc::create([pEntity]() {
-			CEntityNode::Release(pEntity);
-		});
 
 		if (m_sListenEvent == "Touch")
 		{
@@ -198,6 +194,7 @@ void CTouchBeganVisitor::TouchStop(CEntityNode* a_pEntity)
 {
 
 	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
+        CCLOG("Releasing entity : %s", a_pEntity->GetID().c_str());
 		CEntityNode::Release(a_pEntity);
 	});
 
@@ -221,7 +218,8 @@ void CTouchBeganVisitor::MoveEntityBack(CEntityNode* a_pEntity)
 {
 
 	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
-		a_pEntity->GetCocosEntity()->setZOrder(0);
+        //a_pEntity->GetCocosEntity()->setZOrder(0);
+        a_pEntity->GetCocosEntity()->setGlobalZOrder(0);
 		CEntityNode::Release(a_pEntity);
 	});
 	auto oMoveTo = MoveTo::create(0.25, a_pEntity->GetEntityStartLocation());
@@ -258,7 +256,6 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
     Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
     if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
-      CCLOG("casting to scratchNode");
       CScratchNode* pScratch = dynamic_cast<CScratchNode*>(pEntity);
       if (pScratch)
 	{
@@ -338,7 +335,8 @@ void CTouchBeganVisitor::StartTouch(CEntityNode* a_pEntity)
 void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 {
 	CEntityNode::Lock(a_pEntity);
-	a_pEntity->GetCocosEntity()->setZOrder(1);
+    //a_pEntity->GetCocosEntity()->setZOrder(1);
+    a_pEntity->GetCocosEntity()->setGlobalZOrder(1);
 	auto oScaleTo1 = ScaleTo::create(0.1f, 2 * a_pEntity->GetEntityStartScale());
 	auto oEaseOutBack1 = EaseBackOut::create(oScaleTo1);
 

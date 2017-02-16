@@ -15212,7 +15212,274 @@
                             "x": 0,
                             "y": 0,
                             "children": [
-                                {
+                              {
+                                "type": "Image",
+                                "id": "Statuette3d",
+                                "params": {
+                                  "source": "cache/Statuette3d.png",
+                                  "anchor": 0,
+                                  "width": 0,
+                                  "height": 80,
+                                  "x": 0,
+                                  "y": 0,
+                                  "listeners": [
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "EnableEvent",
+                                        "arg": "dropAreaC:Drop"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "Validate",
+                                        "arg": "Statuette3dValidate"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:ReturnElement:Statuette3d"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "Anchored"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
+                                      }
+                                    },
+                                    {
+                                      "type": "Move",
+                                      "params": {
+                                        "callback": ""
+                                      }
+                                    },
+                                    {
+                                      "type": "Show",
+                                      "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "id": "Statuette3c",
+                                "params": {
+                                  "source": "cache/Statuette3c.png",
+                                  "anchor": 0,
+                                  "width": 0,
+                                  "height": 80,
+                                  "x": 0,
+                                  "y": 0,
+                                  "listeners": [
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "EnableEvent",
+                                        "arg": "dropAreaB:Drop"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "Validate",
+                                        "arg": "Statuette3cValidate"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:ReturnElement:Statuette3c"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "Anchored"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
+                                      }
+                                    },
+                                    {
+                                      "type": "Move",
+                                      "params": {
+                                        "callback": ""
+                                      }
+                                    },
+                                    {
+                                      "type": "Show",
+                                      "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "id": "Statuette3b",
+                                "params": {
+                                  "source": "cache/Statuette3b.png",
+                                  "anchor": 0,
+                                  "width": 0,
+                                  "height": 80,
+                                  "x": 0,
+                                  "y": 0,
+                                  "listeners": [
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "EnableEvent",
+                                        "arg": "dropAreaA:Drop"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "Validate",
+                                        "arg": "Statuette3bValidate"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:ReturnElement:Statuette3b"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "Anchored"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
+                                      }
+                                    },
+                                    {
+                                      "type": "Move",
+                                      "params": {
+                                        "callback": ""
+                                      }
+                                    },
+                                    {
+                                      "type": "Show",
+                                      "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
                                     "type": "Image",
                                     "id": "Statuette3a",
                                     "params": {
@@ -15270,273 +15537,6 @@
                                                 "params": {
                                                     "callback": "SendMessage",
                                                     "arg": "screen-3-c-player1:ReturnElement:Statuette3a"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "Anchored"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                                                }
-                                            },
-                                            {
-                                                "type": "Move",
-                                                "params": {
-                                                    "callback": ""
-                                                }
-                                            },
-                                            {
-                                                "type": "Show",
-                                                "params": {
-                                                    "callback": "Show",
-                                                    "arg": true
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Image",
-                                    "id": "Statuette3b",
-                                    "params": {
-                                        "source": "cache/Statuette3b.png",
-                                        "anchor": 0,
-                                        "width": 0,
-                                        "height": 80,
-                                        "x": 0,
-                                        "y": 0,
-                                        "listeners": [
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "EnableEvent",
-                                                    "arg": "dropAreaA:Drop"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "Validate",
-                                                    "arg": "Statuette3bValidate"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:ReturnElement:Statuette3b"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "Anchored"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                                                }
-                                            },
-                                            {
-                                                "type": "Move",
-                                                "params": {
-                                                    "callback": ""
-                                                }
-                                            },
-                                            {
-                                                "type": "Show",
-                                                "params": {
-                                                    "callback": "Show",
-                                                    "arg": true
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Image",
-                                    "id": "Statuette3c",
-                                    "params": {
-                                        "source": "cache/Statuette3c.png",
-                                        "anchor": 0,
-                                        "width": 0,
-                                        "height": 80,
-                                        "x": 0,
-                                        "y": 0,
-                                        "listeners": [
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "EnableEvent",
-                                                    "arg": "dropAreaB:Drop"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "Validate",
-                                                    "arg": "Statuette3cValidate"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:ReturnElement:Statuette3c"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "Anchored"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                                                }
-                                            },
-                                            {
-                                                "type": "Move",
-                                                "params": {
-                                                    "callback": ""
-                                                }
-                                            },
-                                            {
-                                                "type": "Show",
-                                                "params": {
-                                                    "callback": "Show",
-                                                    "arg": true
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Image",
-                                    "id": "Statuette3d",
-                                    "params": {
-                                        "source": "cache/Statuette3d.png",
-                                        "anchor": 0,
-                                        "width": 0,
-                                        "height": 80,
-                                        "x": 0,
-                                        "y": 0,
-                                        "listeners": [
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "EnableEvent",
-                                                    "arg": "dropAreaC:Drop"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "Validate",
-                                                    "arg": "Statuette3dValidate"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:ReturnElement:Statuette3d"
                                                 }
                                             },
                                             {
