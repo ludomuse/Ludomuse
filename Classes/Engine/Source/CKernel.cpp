@@ -385,8 +385,14 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
-	if (m_pLocalPlayer->m_bWaiting) {
+	if (m_pLocalPlayer->m_bWaiting)
+	{
 		return false;
+	}
+	if (m_mTouchBeganVisitors.find(a_pTouch->getID()) != m_mTouchBeganVisitors.end())
+	{
+		m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchEnd(a_pTouch, a_pEvent);
+		m_mTouchBeganVisitors.erase(a_pTouch->getID());
 	}
 	M_STATS_SCREEN.nbInteractions++;
 	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);

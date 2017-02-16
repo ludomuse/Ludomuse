@@ -41,13 +41,15 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 		if (m_sListenEvent == "Touch")
 		{
 			Vec2 oTouchLocation = a_pTouch->getLocation();
-			Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-			if (oBoundingBox.containsPoint(oTouchLocation))
+			if (pEntity->GetCocosEntity() != nullptr)
 			{
-				pEntity->Dispatch(m_sListenEvent);
-				M_STATS_SCREEN.nbValidTouches++;
+				Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+				if (oBoundingBox.containsPoint(oTouchLocation))
+				{
+					pEntity->Dispatch(m_sListenEvent);
+					M_STATS_SCREEN.nbValidTouches++;
+				}
 			}
-
 			TouchStop(pEntity);
 
 
