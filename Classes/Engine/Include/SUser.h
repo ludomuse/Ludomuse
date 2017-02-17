@@ -1,4 +1,4 @@
-#ifndef _CUSER_H_
+﻿#ifndef _CUSER_H_
 #define _CUSER_H_
 
 #include <string>
@@ -22,7 +22,7 @@ namespace LM
 	volatile bool m_bWaiting;
 	volatile bool m_bInCountdown;
 
-	bool m_bGameEnded;
+    volatile bool m_bGameEnded;
 
 	SUser() : m_iPlayerID(0), 
 		m_sName(""), 

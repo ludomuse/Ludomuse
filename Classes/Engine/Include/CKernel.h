@@ -1,4 +1,4 @@
-#ifndef _CKERNEL_H_
+﻿#ifndef _CKERNEL_H_
 #define _CKERNEL_H_
 
 
@@ -63,6 +63,7 @@ public:
 	SUser* m_pLocalPlayer;
 	SUser* m_pDistantPlayer;
 	std::mutex m_oSyncMutex;
+    std::mutex m_oStatMutex;
 
 	std::chrono::time_point<system_clock> m_oSyncTransitionStart;
 
