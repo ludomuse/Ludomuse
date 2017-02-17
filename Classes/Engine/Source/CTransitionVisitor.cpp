@@ -117,6 +117,10 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 
 void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 {
+	Scene* pNewScene = a_pSceneNode->CreateScene();
+	a_pSceneNode->init();
+	pNewScene->retain();
+	//a_pSceneNode->retain();
 	if (a_bWaitScene)
 	{
 		Scene* pWaitingScene = m_pKernel->m_pWaitingScene->CreateScene();
@@ -131,8 +135,6 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 		}
 	}
 	else {
-		Scene* pNewScene = a_pSceneNode->CreateScene();
-		a_pSceneNode->init();
 		if (m_bTransitionNext)
 		{
 			Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
@@ -168,8 +170,8 @@ void CTransitionVisitor::LoadInitScene() {
 	//	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, m_pKernel->m_pCurrentScene->GetScene()));
 	//}
 	//Director::getInstance()->popScene();
-	Scene* pNewScene = m_pKernel->m_pCurrentScene->CreateScene();
-	m_pKernel->m_pCurrentScene->init();
+	Scene* pNewScene = m_pKernel->m_pCurrentScene->GetScene();
+	//m_pKernel->m_pCurrentScene->init();
 	if (m_bTransitionNext)
 	{
 		Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
