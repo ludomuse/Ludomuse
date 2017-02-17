@@ -1960,32 +1960,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -2072,32 +2046,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -5551,32 +5499,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -5687,32 +5609,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -5814,32 +5710,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -5960,32 +5830,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -7699,32 +7543,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -7834,32 +7652,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -7960,32 +7752,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -8126,32 +7892,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -10231,32 +9971,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -10366,32 +10080,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -10492,32 +10180,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -10658,32 +10320,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -12274,32 +11910,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -12409,32 +12019,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -12535,32 +12119,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -12701,32 +12259,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -15672,32 +15204,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -15807,32 +15313,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -15933,32 +15413,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -16079,32 +15533,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -17366,32 +16794,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -17501,32 +16903,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -17627,32 +17003,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -17793,32 +17143,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -20401,32 +19725,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -20536,32 +19834,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -20662,32 +19934,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -20828,32 +20074,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -23132,32 +22352,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -23267,32 +22461,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -23393,32 +22561,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -23559,32 +22701,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -25163,7 +24279,6 @@
             },
             {
                 "scene": "screen-5-d-a-player1",
-                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25310,7 +24425,6 @@
             },
             {
                 "scene": "screen-5-d-a-player2",
-                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -26021,32 +25135,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -26148,32 +25236,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -26291,32 +25353,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -26457,32 +25493,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -28505,32 +27515,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -28656,32 +27640,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -28782,32 +27740,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -28948,32 +27880,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
