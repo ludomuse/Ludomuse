@@ -171,6 +171,10 @@ void CSceneNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
     {
         newScene.AddMember("sync", rapidjson::Value(true), a_rAllocator);
     }
+    if(this->m_sRewardID != "")
+    {
+        newScene.AddMember("rewardID", rapidjson::Value(this->m_sRewardID.c_str(), this->m_sRewardID.length()), a_rAllocator);
+    }
     rapidjson::Value navigation(rapidjson::kArrayType);
     rapidjson::Value content(rapidjson::kArrayType);
     rapidjson::Value information(rapidjson::kArrayType);
@@ -239,6 +243,16 @@ void CSceneNode::SaveImage(std::function<void(RenderTexture*, const std::string&
 
     renderTexture->saveToFile(CProjectManager::Instance()->GetRelativeWritablePath() + "/" + m_sID + ".png", true, callback);
     Director::getInstance()->getRenderer()->render();
+}
+
+std::string CSceneNode::GetRewardID()
+{
+    return m_sRewardID;
+}
+
+void CSceneNode::SetRewardID(std::string a_sRewardID)
+{
+    m_sRewardID = a_sRewardID;
 }
 } // namespace LM
 

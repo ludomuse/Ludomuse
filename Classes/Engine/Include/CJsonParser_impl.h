@@ -380,6 +380,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 	{
 		pSceneNode->m_bDashboardTrigger = a_rJsonNode["dashboardTrigger"].GetBool();
 	}
+    if (a_rJsonNode.HasMember("rewardID"))
+    {
+        pSceneNode->SetRewardID(a_rJsonNode["rewardID"].GetString());
+    }
 }
 
 

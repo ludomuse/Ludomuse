@@ -30,6 +30,8 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
   cocos2d::ui::EditBox* m_pQuickBox;
   cocos2d::MenuItemImage* m_pQuickButton;
 
+  std::string m_sRewardID;
+
 public:
 	bool m_bDashboardTrigger;
 
@@ -62,6 +64,9 @@ public:
   bool hasID(const std::string &a_rID);
 
   void SaveImage(std::function<void(cocos2d::RenderTexture*, const std::string&)> callback, float a_fScale = 1);
+
+  std::string GetRewardID();
+  void SetRewardID(std::string a_sRewardID);
 
   CREATE_FUNC(CSceneNode);
 };
