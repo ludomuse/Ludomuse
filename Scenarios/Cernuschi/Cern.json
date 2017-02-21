@@ -168,589 +168,469 @@
             ]
         ],
         "screens": [
-            {
-                "scene": "Dashboard",
-                "navigation": [
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 5,
-                            "normal": "ui/nav-5.png",
-                            "selected": "ui/nav-5-active.png",
-                            "action": "next",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 24,
-                                        "textAlign": "center",
-                                        "width": 100,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "content": [
-                    {
-                        "type": "Image",
-                        "params": {
-                            "source": "cache/background2.png",
-                            "anchor": 0,
-                            "width": 100,
-                            "height": 100,
-                            "x": 0,
-                            "y": 0
-                        }
-                    },
-                    {
-                        "type": "Grid",
-                        "params": {
-                            "cols": 1,
-                            "rows": 2,
-                            "anchor": 2,
-                            "width": 90,
-                            "height": 85,
-                            "x": 0,
-                            "y": 0,
-                            "children": [
-                                {
-                                    "type": "Grid",
-                                    "params": {
-                                        "cols": 5,
-                                        "rows": 1,
-                                        "anchor": 2,
-                                        "width": 100,
-                                        "height": 100,
-                                        "x": 0,
-                                        "y": 0,
-                                        "children": [
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Tigresse_cache",
-                                                            "params": {
-                                                                "source": "cache/Tigresse_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Tigresse",
-                                                            "params": {
-                                                                "source": "cache/Statuette2.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Pot1_cache",
-                                                            "params": {
-                                                                "source": "cache/Pot1_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Pot1",
-                                                            "params": {
-                                                                "source": "cache/Pot1.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 0,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Tour_cache",
-                                                            "params": {
-                                                                "source": "cache/Tour_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Tour",
-                                                            "params": {
-                                                                "source": "cache/Statuette3.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Demon_cache",
-                                                            "params": {
-                                                                "source": "cache/demon1_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Demon",
-                                                            "params": {
-                                                                "source": "cache/demon1.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Bouddha_cache",
-                                                            "params": {
-                                                                "source": "cache/Bouddha_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Bouddha",
-                                                            "params": {
-                                                                "source": "cache/Bouddha.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Grid",
-                                    "params": {
-                                        "cols": 5,
-                                        "rows": 1,
-                                        "anchor": 2,
-                                        "width": 100,
-                                        "height": 100,
-                                        "x": 0,
-                                        "y": 0,
-                                        "children": [
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Amulette_cache",
-                                                            "params": {
-                                                                "source": "cache/AmuletteTigre_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Amulette",
-                                                            "params": {
-                                                                "source": "cache/AmuletteTigre.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Masque_cache",
-                                                            "params": {
-                                                                "source": "cache/Masque1_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Masque",
-                                                            "params": {
-                                                                "source": "cache/Masque1.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "YinYang_cache",
-                                                            "params": {
-                                                                "source": "cache/yin_et_yang_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "YinYang",
-                                                            "params": {
-                                                                "source": "cache/yin_et_yang.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Miroir_cache",
-                                                            "params": {
-                                                                "source": "cache/miroir1_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Miroir",
-                                                            "params": {
-                                                                "source": "cache/miroir1.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/Quest_Cern.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Lotus_cache",
-                                                            "params": {
-                                                                "source": "cache/lotus1_cache.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Lotus",
-                                                            "params": {
-                                                                "source": "cache/lotus1.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 95,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Show",
-                                                                        "params": {
-                                                                            "callback": "Show",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Image",
-                        "params": {
-                            "source": "ui/info-6.png",
-                            "anchor": 6,
-                            "width": 0,
-                            "height": 13,
-                            "x": 0,
-                            "y": 0,
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "id": "CollectionText",
-                                    "params": {
-                                        "content": "Votre Collection",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
-                                        "width": 80,
-                                        "height": 0,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255",
-                                        "listeners": [
-                                            {
-                                                "type": "Ended",
-                                                "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Votre Collection"
-                                                }
-                                            }
-                                        ]
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "information": []
-            },
+          {
+              "scene": "Dashboard",
+              "navigation": [
+                  {
+                      "type": "Nav",
+                      "params": {
+                          "width": 0,
+                          "height": 13,
+                          "anchor": 5,
+                          "normal": "ui/nav-5.png",
+                          "selected": "ui/nav-5-active.png",
+                          "action": "next",
+                          "children": [
+                              {
+                                  "type": "Text",
+                                  "params": {
+                                      "content": "Suivant",
+                                      "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                      "fontSize": 24,
+                                      "textAlign": "center",
+                                      "width": 100,
+                                      "height": 100,
+                                      "anchor": 0,
+                                      "color": ""
+                                  }
+                              }
+                          ]
+                      }
+                  }
+              ],
+              "content": [
+                  {
+                      "type": "Image",
+                      "params": {
+                          "source": "cache/background2.png",
+                          "anchor": 0,
+                          "width": 100,
+                          "height": 100,
+                          "x": 0,
+                          "y": 0
+                      }
+                  },
+                  {
+                      "type": "Grid",
+                      "params": {
+                          "cols": 1,
+                          "rows": 2,
+                          "anchor": 2,
+                          "width": 90,
+                          "height": 85,
+                          "x": 0,
+                          "y": 0,
+                          "children": [
+                              {
+                                  "type": "Grid",
+                                  "params": {
+                                      "cols": 5,
+                                      "rows": 1,
+                                      "anchor": 2,
+                                      "width": 100,
+                                      "height": 100,
+                                      "x": 0,
+                                      "y": 0,
+                                      "children": [
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Tigresse",
+                                                          "params": {
+                                                              "source": "cache/Statuette2.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          },
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Pot1",
+                                                          "params": {
+                                                              "source": "cache/Pot1.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          },
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 0,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Tour",
+                                                          "params": {
+                                                              "source": "cache/Statuette3.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          },
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Demon",
+                                                          "params": {
+                                                              "source": "cache/demon1.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          },
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Bouddha",
+                                                          "params": {
+                                                              "source": "cache/Bouddha.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          }
+                                      ]
+                                  }
+                              },
+                              {
+                                  "type": "Grid",
+                                  "params": {
+                                      "cols": 5,
+                                      "rows": 1,
+                                      "anchor": 2,
+                                      "width": 100,
+                                      "height": 100,
+                                      "x": 0,
+                                      "y": 0,
+                                      "children": [
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Amulette",
+                                                          "params": {
+                                                              "source": "cache/AmuletteTigre.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          },
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Masque",
+                                                          "params": {
+                                                              "source": "cache/Masque1.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          },
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "YinYang",
+                                                          "params": {
+                                                              "source": "cache/yin_et_yang.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          },
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Miroir",
+                                                          "params": {
+                                                              "source": "cache/miroir1.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          },
+                                          {
+                                              "type": "Image",
+                                              "params": {
+                                                  "source": "cache/Quest_Cern.png",
+                                                  "anchor": 0,
+                                                  "width": 90,
+                                                  "height": 90,
+                                                  "x": 0,
+                                                  "y": 0,
+                                                  "children": [
+                                                      {
+                                                          "type": "Image",
+                                                          "id": "Lotus",
+                                                          "params": {
+                                                              "source": "cache/lotus1.png",
+                                                              "anchor": 0,
+                                                              "width": 0,
+                                                              "height": 95,
+                                                              "x": 0,
+                                                              "y": 0,
+                                                              "listeners": [
+                                                                  {
+                                                                      "type": "Unlock",
+                                                                      "params": {
+                                                                          "callback": "Colorize",
+                                                                          "arg": true
+                                                                      }
+                                                                  }
+                                                              ]
+                                                          }
+                                                      }
+                                                  ]
+                                              }
+                                          }
+                                      ]
+                                  }
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "type": "Image",
+                      "params": {
+                          "source": "ui/info-6.png",
+                          "anchor": 6,
+                          "width": 0,
+                          "height": 13,
+                          "x": 0,
+                          "y": 0,
+                          "children": [
+                              {
+                                  "type": "Text",
+                                  "id": "CollectionText",
+                                  "params": {
+                                      "content": "Votre Collection",
+                                      "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                      "fontSize": 20,
+                                      "textAlign": "center",
+                                      "width": 80,
+                                      "height": 0,
+                                      "anchor": 0,
+                                      "color": "0,0,0,255",
+                                      "listeners": [
+                                          {
+                                              "type": "Ended",
+                                              "params": {
+                                                  "callback": "SetText",
+                                                  "arg": "Votre Collection"
+                                              }
+                                          }
+                                      ]
+                                  }
+                              }
+                          ]
+                      }
+                  }
+              ],
+              "information": []
+          },
             {
                 "scene": "WaitingScene",
                 "navigation": [],
@@ -1960,32 +1840,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -2072,32 +1926,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -4476,13 +4304,6 @@
                                         "callback": "Show",
                                         "arg": true
                                     }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Amulette"
-                                    }
                                 }
                             ],
                             "children": [
@@ -4848,13 +4669,6 @@
                                     "params": {
                                         "callback": "Show",
                                         "arg": true
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Amulette"
                                     }
                                 },
                                 {
@@ -5525,6 +5339,7 @@
             {
                 "scene": "screen-1-f-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Amulette",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -5543,32 +5358,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -5661,6 +5450,7 @@
             {
                 "scene": "screen-1-f-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Amulette",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -5679,32 +5469,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -5814,32 +5578,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -5960,32 +5698,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -6416,13 +6128,6 @@
                                     "params": {
                                         "callback": "Show",
                                         "arg": true
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Tigresse"
                                     }
                                 }
                             ],
@@ -7095,13 +6800,6 @@
                                         "callback": "Show",
                                         "arg": true
                                     }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Tigresse"
-                                    }
                                 }
                             ],
                             "children": [
@@ -7673,6 +7371,7 @@
             {
                 "scene": "screen-1-j-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Tigresse",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -7691,32 +7390,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -7808,6 +7481,7 @@
             {
                 "scene": "screen-1-j-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Tigresse",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -7826,32 +7500,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -7960,32 +7608,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -8126,32 +7748,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -9349,13 +8945,6 @@
                                 {
                                     "type": "Validate",
                                     "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Masque"
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
                                         "callback": "PlaySound",
                                         "arg": "cache/audio/gong.mp3"
                                     }
@@ -9674,13 +9263,6 @@
                                     "params": {
                                         "callback": "Show",
                                         "arg": true
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Masque"
                                     }
                                 },
                                 {
@@ -10205,6 +9787,7 @@
             {
                 "scene": "screen-2-f-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Masque",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -10223,32 +9806,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -10340,6 +9897,7 @@
             {
                 "scene": "screen-2-f-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Masque",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -10358,32 +9916,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -10492,32 +10024,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -10658,32 +10164,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -11114,13 +10594,6 @@
                                     "params": {
                                         "callback": "Show",
                                         "arg": true
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Pot1"
                                     }
                                 }
                             ],
@@ -11681,13 +11154,6 @@
                                         "callback": "Show",
                                         "arg": true
                                     }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Pot1"
-                                    }
                                 }
                             ],
                             "children": [
@@ -11698,32 +11164,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -12248,6 +11688,7 @@
             {
                 "scene": "screen-2-i-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Pot1",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -12266,32 +11707,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -12383,6 +11798,7 @@
             {
                 "scene": "screen-2-i-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Pot1",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -12401,32 +11817,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -12535,32 +11925,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -12701,32 +12065,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -14600,13 +13938,6 @@
                                 {
                                     "type": "Validate",
                                     "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:YinYang"
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
                                         "callback": "Playsound"
                                     }
                                 }
@@ -14951,13 +14282,6 @@
                                         "callback": "Show",
                                         "arg": true
                                     }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:YinYang"
-                                    }
                                 }
                             ],
                             "children": [
@@ -15212,7 +14536,274 @@
                             "x": 0,
                             "y": 0,
                             "children": [
-                                {
+                              {
+                                "type": "Image",
+                                "id": "Statuette3d",
+                                "params": {
+                                  "source": "cache/Statuette3d.png",
+                                  "anchor": 0,
+                                  "width": 0,
+                                  "height": 80,
+                                  "x": 0,
+                                  "y": 0,
+                                  "listeners": [
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "EnableEvent",
+                                        "arg": "dropAreaC:Drop"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "Validate",
+                                        "arg": "Statuette3dValidate"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:ReturnElement:Statuette3d"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "Anchored"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
+                                      }
+                                    },
+                                    {
+                                      "type": "Move",
+                                      "params": {
+                                        "callback": ""
+                                      }
+                                    },
+                                    {
+                                      "type": "Show",
+                                      "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "id": "Statuette3c",
+                                "params": {
+                                  "source": "cache/Statuette3c.png",
+                                  "anchor": 0,
+                                  "width": 0,
+                                  "height": 80,
+                                  "x": 0,
+                                  "y": 0,
+                                  "listeners": [
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "EnableEvent",
+                                        "arg": "dropAreaB:Drop"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "Validate",
+                                        "arg": "Statuette3cValidate"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:ReturnElement:Statuette3c"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "Anchored"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
+                                      }
+                                    },
+                                    {
+                                      "type": "Move",
+                                      "params": {
+                                        "callback": ""
+                                      }
+                                    },
+                                    {
+                                      "type": "Show",
+                                      "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Image",
+                                "id": "Statuette3b",
+                                "params": {
+                                  "source": "cache/Statuette3b.png",
+                                  "anchor": 0,
+                                  "width": 0,
+                                  "height": 80,
+                                  "x": 0,
+                                  "y": 0,
+                                  "listeners": [
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "EnableEvent",
+                                        "arg": "dropAreaA:Drop"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropGood:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "Anchored",
+                                      "params": {
+                                        "callback": "Validate",
+                                        "arg": "Statuette3bValidate"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "LocalMessage",
+                                        "arg": "screen-3-c-player2:DropBad:InfoText"
+                                      }
+                                    },
+                                    {
+                                      "type": "AnchoredFailed",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:ReturnElement:Statuette3b"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "Anchored"
+                                      }
+                                    },
+                                    {
+                                      "type": "Droped",
+                                      "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
+                                      }
+                                    },
+                                    {
+                                      "type": "Move",
+                                      "params": {
+                                        "callback": ""
+                                      }
+                                    },
+                                    {
+                                      "type": "Show",
+                                      "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
                                     "type": "Image",
                                     "id": "Statuette3a",
                                     "params": {
@@ -15270,273 +14861,6 @@
                                                 "params": {
                                                     "callback": "SendMessage",
                                                     "arg": "screen-3-c-player1:ReturnElement:Statuette3a"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "Anchored"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                                                }
-                                            },
-                                            {
-                                                "type": "Move",
-                                                "params": {
-                                                    "callback": ""
-                                                }
-                                            },
-                                            {
-                                                "type": "Show",
-                                                "params": {
-                                                    "callback": "Show",
-                                                    "arg": true
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Image",
-                                    "id": "Statuette3b",
-                                    "params": {
-                                        "source": "cache/Statuette3b.png",
-                                        "anchor": 0,
-                                        "width": 0,
-                                        "height": 80,
-                                        "x": 0,
-                                        "y": 0,
-                                        "listeners": [
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "EnableEvent",
-                                                    "arg": "dropAreaA:Drop"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "Validate",
-                                                    "arg": "Statuette3bValidate"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:ReturnElement:Statuette3b"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "Anchored"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                                                }
-                                            },
-                                            {
-                                                "type": "Move",
-                                                "params": {
-                                                    "callback": ""
-                                                }
-                                            },
-                                            {
-                                                "type": "Show",
-                                                "params": {
-                                                    "callback": "Show",
-                                                    "arg": true
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Image",
-                                    "id": "Statuette3c",
-                                    "params": {
-                                        "source": "cache/Statuette3c.png",
-                                        "anchor": 0,
-                                        "width": 0,
-                                        "height": 80,
-                                        "x": 0,
-                                        "y": 0,
-                                        "listeners": [
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "EnableEvent",
-                                                    "arg": "dropAreaB:Drop"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "Validate",
-                                                    "arg": "Statuette3cValidate"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:ReturnElement:Statuette3c"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "Anchored"
-                                                }
-                                            },
-                                            {
-                                                "type": "Droped",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropEnabledBack:dropArea1"
-                                                }
-                                            },
-                                            {
-                                                "type": "Move",
-                                                "params": {
-                                                    "callback": ""
-                                                }
-                                            },
-                                            {
-                                                "type": "Show",
-                                                "params": {
-                                                    "callback": "Show",
-                                                    "arg": true
-                                                }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Image",
-                                    "id": "Statuette3d",
-                                    "params": {
-                                        "source": "cache/Statuette3d.png",
-                                        "anchor": 0,
-                                        "width": 0,
-                                        "height": 80,
-                                        "x": 0,
-                                        "y": 0,
-                                        "listeners": [
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "EnableEvent",
-                                                    "arg": "dropAreaC:Drop"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "Anchored",
-                                                "params": {
-                                                    "callback": "Validate",
-                                                    "arg": "Statuette3dValidate"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
-                                                }
-                                            },
-                                            {
-                                                "type": "AnchoredFailed",
-                                                "params": {
-                                                    "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:ReturnElement:Statuette3d"
                                                 }
                                             },
                                             {
@@ -15646,6 +14970,7 @@
             {
                 "scene": "screen-3-d-player1",
                 "dashboardTrigger": true,
+								"rewardID": "YinYang",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -15664,32 +14989,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -15781,6 +15080,7 @@
             {
                 "scene": "screen-3-d-player2",
                 "dashboardTrigger": true,
+								"rewardID": "YinYang",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -15799,32 +15099,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -15933,32 +15207,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -16087,32 +15335,6 @@
                                 }
                             ]
                         }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
                     }
                 ],
                 "content": [
@@ -16232,13 +15454,6 @@
                                     "params": {
                                         "callback": "Show",
                                         "arg": true
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Tour"
                                     }
                                 }
                             ],
@@ -16799,13 +16014,6 @@
                                         "callback": "Show",
                                         "arg": true
                                     }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Tour"
-                                    }
                                 }
                             ],
                             "children": [
@@ -17340,6 +16548,7 @@
             {
                 "scene": "screen-3-g-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Tour",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -17358,32 +16567,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -17475,6 +16658,7 @@
             {
                 "scene": "screen-3-g-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Tour",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -17493,32 +16677,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -17627,32 +16785,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -17793,32 +16925,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -19370,13 +18476,6 @@
                                         "callback": "Show",
                                         "arg": true
                                     }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Miroir"
-                                    }
                                 }
                             ],
                             "children": [
@@ -19885,13 +18984,6 @@
                                         "callback": "Show",
                                         "arg": true
                                     }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Miroir"
-                                    }
                                 }
                             ],
                             "children": [
@@ -20375,6 +19467,7 @@
             {
                 "scene": "screen-4-g-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Miroir",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -20393,32 +19486,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -20510,6 +19577,7 @@
             {
                 "scene": "screen-4-g-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Miroir",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -20528,32 +19596,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -20662,32 +19704,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -20828,32 +19844,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -21598,23 +20588,16 @@
                                 {
                                     "type": "Validate",
                                     "params": {
-                                        "callback": "Show",
-                                        "arg": true
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
                                         "callback": "Playsound"
                                     }
                                 },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Demon"
-                                    }
-                                }
+																{
+																	"type": "Validate",
+																	"params": {
+																		"callback": "Show",
+																		"arg": true
+																	}
+																}
                             ],
                             "children": [
                                 {
@@ -22185,13 +21168,6 @@
                                     "params": {
                                         "callback": "SendMessage",
                                         "arg": "kernel:Validate"
-                                    }
-                                },
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Demon"
                                     }
                                 }
                             ],
@@ -23106,6 +22082,7 @@
             {
                 "scene": "screen-4-j-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Demon",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -23124,32 +22101,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -23241,6 +22192,7 @@
             {
                 "scene": "screen-4-j-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Demon",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -23259,32 +22211,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -23393,32 +22319,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -23559,32 +22459,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -25163,7 +24037,6 @@
             },
             {
                 "scene": "screen-5-d-a-player1",
-                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25310,7 +24183,6 @@
             },
             {
                 "scene": "screen-5-d-a-player2",
-                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25879,7 +24751,7 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
-														"listeners": [
+                            "listeners": [
                                 {
                                     "type": "Validate",
                                     "params": {
@@ -25943,15 +24815,15 @@
                             "height": 73,
                             "x": 0,
                             "y": 0,
-														"listeners": [
-                                {
-																		"type": "Display",
-																		"params": {
-																				"callback": "ValidateScene",
-                                        "arg": true
-																		}
-																}
-														]
+							"listeners": [
+                              {
+                                  "type": "Display",
+                                  "params": {
+                                    "callback": "ValidateScene",
+                                    "arg": true
+                                  }
+						      }
+							]
                         }
                     },
                     {
@@ -25986,6 +24858,7 @@
             {
                 "scene": "screen-5-f-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Lotus",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25996,15 +24869,6 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
-                            "listeners": [
-                                {
-                                    "type": "Init",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Lotus"
-                                    }
-                                }
-                            ],
                             "children": [
                                 {
                                     "type": "Text",
@@ -26013,32 +24877,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -26130,6 +24968,7 @@
             {
                 "scene": "screen-5-f-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Lotus",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -26148,32 +24987,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -26242,15 +25055,6 @@
                             "height": 13,
                             "x": 0,
                             "y": 0,
-                            "listeners": [
-                                {
-                                    "type": "Init",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Lotus"
-                                    }
-                                }
-                            ],
                             "children": [
                                 {
                                     "type": "Text",
@@ -26291,32 +25095,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -26457,32 +25235,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -28463,6 +27215,7 @@
             {
                 "scene": "screen-5-l-player1",
                 "dashboardTrigger": true,
+								"rewardID": "Bouddha",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -28474,13 +27227,6 @@
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
                             "listeners": [
-                                {
-                                    "type": "Init",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Bouddha"
-                                    }
-                                },
                                 {
                                     "type": "Init",
                                     "params": {
@@ -28497,32 +27243,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -28614,6 +27334,7 @@
             {
                 "scene": "screen-5-l-player2",
                 "dashboardTrigger": true,
+								"rewardID": "Bouddha",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -28625,13 +27346,6 @@
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
                             "listeners": [
-                                {
-                                    "type": "Init",
-                                    "params": {
-                                        "callback": "LocalMessage",
-                                        "arg": "Dashboard:Show:Bouddha"
-                                    }
-                                },
                                 {
                                     "type": "Init",
                                     "params": {
@@ -28648,32 +27362,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -28782,32 +27470,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
@@ -28948,32 +27610,6 @@
                                         "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
                                         "fontSize": 20,
                                         "textAlign": "right",
-                                        "width": 80,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": ""
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Nav",
-                        "params": {
-                            "width": 0,
-                            "height": 13,
-                            "anchor": 7,
-                            "normal": "ui/nav-7.png",
-                            "selected": "ui/nav-7-active.png",
-                            "action": "prev",
-                            "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "left",
                                         "width": 80,
                                         "height": 100,
                                         "anchor": 0,
