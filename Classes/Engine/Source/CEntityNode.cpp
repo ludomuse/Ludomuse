@@ -25,7 +25,11 @@ CEntityNode::CEntityNode(EAnchor a_eAnchor, int a_iWidth, int a_iHeight,
 {
 }
 
-
+void CEntityNode::Init()
+{
+	Dispatch("Init");
+	CNode::Init();
+}
 
 void CEntityNode::UnInit(bool removeChild)
 {

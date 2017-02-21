@@ -120,7 +120,6 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 	Scene* pNewScene = a_pSceneNode->CreateScene();
 	a_pSceneNode->init();
 	pNewScene->retain();
-	//a_pSceneNode->retain();
 	if (a_bWaitScene)
 	{
 		Scene* pWaitingScene = m_pKernel->m_pWaitingScene->CreateScene();

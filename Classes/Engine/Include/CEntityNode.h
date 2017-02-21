@@ -98,7 +98,7 @@ class CEntityNode : public CNode
 		 int a_iYPosition = 0,
 		 const std::string& a_sID = "");
 
-  
+	 virtual void Init() override;
   /// \brief called when the scene is initialized
   //virtual void Init() = 0;
   virtual void UnInit(bool removeChild = true) override;

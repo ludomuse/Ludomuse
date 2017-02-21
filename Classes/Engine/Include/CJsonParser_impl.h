@@ -352,6 +352,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 	{
 		pSceneNode->m_bDashboardTrigger = a_rJsonNode["dashboardTrigger"].GetBool();
 	}
+	if (a_rJsonNode.HasMember("rewardID"))
+	{
+		CEntityNode* pNodeEvent = new CEntityNode();
+		std::string sArg = "Dashboard:Unlock:";
+		sArg  += a_rJsonNode["rewardID"].GetString();
+		CEventCallback oCallback(m_pKernel, &CKernel::LocalMessage,
+			SEvent(pNodeEvent, sArg));
+		pNodeEvent->AddListener("Init", oCallback);
+		pSceneNode->AddChildNode(pNodeEvent);
+	}
 }
 
 
