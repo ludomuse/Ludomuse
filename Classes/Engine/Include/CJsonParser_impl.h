@@ -25,7 +25,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	{
 		height = rParams["height"].GetInt();
 	}
-    CEntityNode* pEntity(nullptr);
+	CEntityNode* pEntity(nullptr);
 
 	if (sType == "Grid")
 	{
@@ -57,25 +57,8 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			sBackgroundSource);
 	}
 
-	// dummy element to test Wifi Direct
-	/*else if (sType == "Dummy")
-	{
-		CCLOG("Grid construction");
-           pEntity = new CMenuNode(
-               rParams["normal"].GetString(),
-               rParams["selected"].GetString(),
-               CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
-				   std::string(rParams["action"].GetString()) == "connect" ?
-                         &CKernel::Connect : &CKernel::SendMessage),
-               IntToAnchor(rParams["anchor"].GetInt()),
-               width,
-               height,
-               x,
-               y);
-		   CCLOG("grid constructed");
-    }*/
 
-    else if (sType == "Image")
+	else if (sType == "Image" || sType == "Info")
 	{
         //std::string imageSource = m_sBasePath + rParams["source"].GetString();
 		std::string imageSource = NormalizePath(rParams["source"].GetString()	);
@@ -84,16 +67,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			width, height,
 			x, y);
 	}
-
-    else if (sType == "Info")
-    {
-        //std::string imageSource = m_sBasePath + rParams["source"].GetString();
-        std::string imageSource = NormalizePath(rParams["source"].GetString()	);
-        pEntity = new CInfoNode(imageSource,
-            IntToAnchor(rParams["anchor"].GetInt()),
-            width, height,
-            x, y);
-    }
 
 	else if (sType == "Scratch")
 	  {
@@ -111,20 +84,9 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	}
 
 
-	else if (sType == "Input")
-	{
-
-	}
-
-
 	else if (sType == "Nav")
 	{
-		// TODO
-		//auto lambda = [this](cocos2d::Ref* pSender)
-		//{
-		//	m_pKernel->NavNext(pSender);
-		//	//CCLOG("HI");
-		//};
+
 		pEntity = new CMenuNode(
             m_sBasePath + rParams["normal"].GetString(),
             m_sBasePath + rParams["selected"].GetString(),
@@ -155,25 +117,13 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	}
 
 
-	else if (sType == "Reward")
-	{
-
-	}
-
-
-	else if (sType == "Sound")
-	{
-
-	}
-
 
 	else if (sType == "Text")
 	{
 		std::string sFontName = "";
 		if (rParams.HasMember("source"))
 		{
-//            sFontName =  m_sBasePath + rParams["source"].GetString();
-            sFontName = NormalizePath(rParams["source"].GetString()	);
+			sFontName = NormalizePath(rParams["source"].GetString());
 		}
 		if (sFontName == "") // apply default font
 		{
@@ -210,6 +160,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			height,
 			x,
 			y);
+
 	}
 
 
@@ -220,10 +171,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		pEntity->AddChildNode(pEditBox);
 	}
 
-	else if (sType == "Video")
-	{
-
-	}
 
 
 	else if (sType == "Peers")
@@ -253,7 +200,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		else
 		{
 			pEntity = new CCameraFeedNode(
-                m_sBasePath + rParams["source"].GetString(),
+                 m_sBasePath + rParams["source"].GetString(),
 				IntToAnchor(rParams["anchor"].GetInt()),
 				width,
 				height,
@@ -261,7 +208,36 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 				y);
 		}
 		
-	}
+        }
+
+        else if (sType == "TeamNode")
+        {
+
+          RefJsonNode rTasks = rParams["tasks"];
+
+          TTasksArray oTasksArray;
+
+          assert(rTasks.Size() == 8 && "Tasks array's size must be exactly 4");
+          
+          for (int i = 0; i < 8; ++i)
+          {
+            RefJsonNode rTask = rTasks[i];
+            std::array<std::string, 2> oTaskArray;
+            oTaskArray[0] = rTask[0].GetString();
+            oTaskArray[1] = rTask[1].GetString();
+
+            oTasksArray[i] = oTaskArray;
+            
+          }
+
+          pEntity = new CTeamNode(oTasksArray,
+								  m_pKernel,
+                                  IntToAnchor(rParams["anchor"].GetInt()),
+                                  width, height, x, y);
+          
+        }
+
+
 
 
 	// check listeners

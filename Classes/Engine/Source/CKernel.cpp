@@ -12,6 +12,7 @@
 #include "../Include/CDispatchMessageVisitor.h"
 #include "../Include/CFindEntityFromIDVisitor.h"
 #include "../Include/CFindEntityFromTypeVisitor.h"
+#include "../Include/CFindTeamNodeVisitor.h"
 #include "../Include/CEditorFindEntityTouchVisitor.h"
 #include "../Include/CFindSceneFromIDVisitor.h"
 
@@ -57,6 +58,9 @@ using namespace cocos2d;
 
 namespace LM
 {
+
+
+
 
 CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
     m_pJsonParser(new CJsonParser(this)),
@@ -1358,8 +1362,9 @@ void CKernel::SetText(SEvent a_rEvent, CEntityNode* a_pTarget)
 
 void CKernel::RefreshPeers(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-    //	m_pNetworkManager->DiscoverPeers();
+	//m_pNetworkManager->DiscoverPeers();
 }
+
 
 
 
@@ -1367,5 +1372,38 @@ void CKernel::LogMessage(const std::string& a_sMessage)
 {
     CCLOG("Kernel message : %s", a_sMessage.c_str());
 }
+
+
+
+void CKernel::ValidateTeamTask(SEvent a_rEvent, CEntityNode* a_pTarget)
+{
+	std::vector<CNode*> oSenderChildren = a_rEvent.m_pSender->GetChildren();
+	if (oSenderChildren.size() > 0)
+	{
+		CLabelNode* pLabel = dynamic_cast<CLabelNode*>(oSenderChildren[0]);
+		if (pLabel)
+		{
+			std::string sAction = pLabel->GetText();
+			if (m_pLocalPlayer->m_iPlayerID == 0)
+			{
+				Desc<CNode> oTeamNode;
+				CFindTeamNodeVisitor oVisitor(oTeamNode);
+				oVisitor.Traverse(m_pBehaviorTree);
+
+				if (oTeamNode.IsValid())
+				{
+					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
+					bool bSuccess = pTeamNode->ValidateTask(sAction);
+				}
+			}
+			else
+			{
+				SendNetworkMessage(std::string("kernel:TeamNode:ValidateTeamTask:") + sAction);
+			}
+		}
+	}
+}
+
+
 
 } // namespace LM
