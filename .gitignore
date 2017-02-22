@@ -79,3 +79,11 @@ proj.tizen
 
 !cocos2d/cocos/platform/win32/CCApplication-win32.cpp
 !cocos2d/cocos/platform/win32/CCApplication-win32.h
+
+
+Scenarios/Cernuschi/res_templ
+Scenarios/Cernuschi/temp.json
+Scenarios/*.zip
+ResourcesFiles/res_templ
+ResourcesFiles/temp.json
+*.zip
