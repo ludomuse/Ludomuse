@@ -40,7 +40,7 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 {
-	if (m_pKernel->m_pCurrentScene->m_bDashboardTrigger && m_bTransitionNext)
+	if (m_pKernel->m_pCurrentScene->m_bDashboardTrigger && m_bTransitionNext && !m_pKernel->m_pLocalPlayer->m_bWaiting)
 	{
 		// init dashboard
 		InitScene(m_pKernel->m_pDashboard);

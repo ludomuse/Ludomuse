@@ -385,6 +385,7 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 
 bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 {
+	//CCLOG("ON TOUCH BEGAN");
 	if (m_pLocalPlayer->m_bWaiting)
 	{
 		return false;
@@ -405,6 +406,7 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 
 bool CKernel::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 {
+	//CCLOG("ON TOUCH END");
 	try {
 		m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchEnd(a_pTouch, a_pEvent);
 		m_mTouchBeganVisitors.erase(a_pTouch->getID());
@@ -418,6 +420,7 @@ bool CKernel::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 
 bool CKernel::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 {
+	//CCLOG("ON TOUCH MOVE");
 	try {
 		m_mTouchBeganVisitors.at(a_pTouch->getID()).OnTouchMove(a_pTouch, a_pEvent);
 		return true;
