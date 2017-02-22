@@ -72,6 +72,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 				{
 					CEntityNode::Release(pEntity);
 				}
+				pEntity->GetCocosEntity()->setGlobalZOrder(0);
 			}
 			//else if (pDropEntity = m_pKernel->FindEntity(a_pTouch, "Anchor"))
 			//{

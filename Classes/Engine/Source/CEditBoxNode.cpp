@@ -25,7 +25,7 @@ void CEditBoxNode::Init()
   Point l_oOrigin = Director::getInstance()->getVisibleOrigin();
   ui::EditBox* pBox = ui::EditBox::create(Size(l_oVisibleSize.width/2.0f,
                                                l_oVisibleSize.height / 5.0f),
-                                          ui::Scale9Sprite::create("Ludomuse/Content/textfieldBackground.png"));
+                                          ui::Scale9Sprite::create("ui/textfieldBackground.png"));
   pBox->setFont("fonts/Open_Sans/OpenSans-Bold.ttf", 40);
   pBox->setFontColor(Color3B::BLACK);
   //pBox->setPlaceHolder("Nom de joueur");

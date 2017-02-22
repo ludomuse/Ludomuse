@@ -583,7 +583,8 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 
 		else if (vSplittedMessage[1] == "Validate")
 		{
-			ValidateScene(SEvent(), nullptr);
+			//ValidateScene(SEvent(), nullptr);
+			ON_CC_THREAD(CKernel::ValidateScene, this, SEvent(), nullptr);
 		}
 
 		else if (vSplittedMessage[1] == "CountdownPressed")
@@ -706,6 +707,7 @@ void CKernel::OnReceivingMessage(const std::string& a_rMessage)
 {
   CCLOG("Message received : %s", a_rMessage.c_str());
 	ProcessMessage(a_rMessage);
+	//ON_CC_THREAD(CKernel::ProcessMessage, this, a_rMessage);
 }
 
 void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
