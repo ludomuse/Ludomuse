@@ -365,7 +365,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 	}
 	if (a_rJsonNode.HasMember("initSound"))
 	{
-		std::string sArg = NormalizePath(a_rJsonNode["initSound"].GetString());
+		std::string sArg = a_rJsonNode["initSound"].GetString();
 		CEventCallback oCallback(m_pKernel, &CKernel::PlaySoundCallback,
 			SEvent(pNodeEvent, sArg));
 		pNodeEvent->AddListener("Init", oCallback);
@@ -373,7 +373,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 	}
 	if (a_rJsonNode.HasMember("validSound"))
 	{
-		std::string sArg = NormalizePath(a_rJsonNode["validSound"].GetString());
+		std::string sArg = a_rJsonNode["validSound"].GetString();
 		CEventCallback oCallback(m_pKernel, &CKernel::PlaySoundCallback,
 			SEvent(pNodeEvent, sArg));
 		pNodeEvent->AddListener("Validate", oCallback);
