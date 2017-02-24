@@ -31,6 +31,8 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
   cocos2d::MenuItemImage* m_pQuickButton;
 
   std::string m_sRewardID;
+  std::string m_sInitSound;
+  std::string m_sValidSound;
 
 public:
 	bool m_bDashboardTrigger;
@@ -67,6 +69,10 @@ public:
 
   std::string GetRewardID();
   void SetRewardID(std::string a_sRewardID);
+  std::string GetInitSound();
+  void SetInitSound(std::string a_sInitSound);
+  std::string GetValidSound();
+  void SetValidSound(std::string a_sValidSound);
 
   CREATE_FUNC(CSceneNode);
 };

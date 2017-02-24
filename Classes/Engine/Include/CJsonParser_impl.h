@@ -384,6 +384,14 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
     {
         pSceneNode->SetRewardID(a_rJsonNode["rewardID"].GetString());
     }
+    if (a_rJsonNode.HasMember("initSound"))
+    {
+        pSceneNode->SetInitSound(a_rJsonNode["initSound"].GetString());
+    }
+    if (a_rJsonNode.HasMember("validSound"))
+    {
+        pSceneNode->SetValidSound(a_rJsonNode["validSound"].GetString());
+    }
 }
 
 

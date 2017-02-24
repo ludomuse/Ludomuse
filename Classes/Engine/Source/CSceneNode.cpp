@@ -21,7 +21,10 @@ CSceneNode::CSceneNode(const std::string& a_rID, CKernel* a_pKernel) :
     m_sID(a_rID),
     m_bIsSynced(false),
     m_bDashboardTrigger(false),
-    m_pKernel(a_pKernel)
+    m_pKernel(a_pKernel),
+    m_sRewardID(""),
+    m_sInitSound(""),
+    m_sValidSound("")
 {
 }
 
@@ -175,6 +178,16 @@ void CSceneNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Alloca
     {
         newScene.AddMember("rewardID", rapidjson::Value(this->m_sRewardID.c_str(), this->m_sRewardID.length()), a_rAllocator);
     }
+    if(this->m_sInitSound != "")
+    {
+        std::string* sInitSound = new std::string(CProjectManager::Instance()->GetRelativePathForFile(m_sInitSound));
+        newScene.AddMember("initSound", rapidjson::Value(sInitSound->c_str(), sInitSound->length()), a_rAllocator);
+    }
+    if(this->m_sValidSound != "")
+    {
+        std::string* sValidSound = new std::string(CProjectManager::Instance()->GetRelativePathForFile(m_sValidSound));
+        newScene.AddMember("validSound", rapidjson::Value(sValidSound->c_str(), sValidSound->length()), a_rAllocator);
+    }
     rapidjson::Value navigation(rapidjson::kArrayType);
     rapidjson::Value content(rapidjson::kArrayType);
     rapidjson::Value information(rapidjson::kArrayType);
@@ -253,6 +266,26 @@ std::string CSceneNode::GetRewardID()
 void CSceneNode::SetRewardID(std::string a_sRewardID)
 {
     m_sRewardID = a_sRewardID;
+}
+
+std::string CSceneNode::GetInitSound()
+{
+    return m_sInitSound;
+}
+
+void CSceneNode::SetInitSound(std::string a_sInitSound)
+{
+    m_sInitSound = a_sInitSound;
+}
+
+std::string CSceneNode::GetValidSound()
+{
+    return m_sValidSound;
+}
+
+void CSceneNode::SetValidSound(std::string a_sValidSound)
+{
+    m_sValidSound = a_sValidSound;
 }
 } // namespace LM
 
