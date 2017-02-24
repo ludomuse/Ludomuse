@@ -5798,6 +5798,29 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             },
@@ -6196,6 +6219,29 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
@@ -7509,6 +7555,29 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             },
@@ -8460,6 +8529,29 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
@@ -9468,6 +9560,29 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             },
@@ -9772,6 +9887,29 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             },
@@ -9871,6 +10009,29 @@
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
                                         "height": 100,
                                         "anchor": 0,
                                         "color": "0,0,0,255"
@@ -10027,6 +10188,29 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             },
@@ -10138,6 +10322,29 @@
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
                                         "height": 100,
                                         "anchor": 0,
                                         "color": "0,0,0,255"
@@ -11074,6 +11281,29 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             },
@@ -11470,6 +11700,29 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
@@ -11902,6 +12155,29 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
@@ -12511,6 +12787,29 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
@@ -13402,6 +13701,29 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             },
@@ -13831,6 +14153,29 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Info",
+                        "params": {
+                            "source": "ui/info-2.png",
+                            "anchor": 2,
+                            "height": 13,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Instructions scénario",
+                                        "font": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
