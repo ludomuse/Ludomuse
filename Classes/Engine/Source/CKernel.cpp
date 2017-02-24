@@ -191,6 +191,7 @@ void CKernel::Init(const std::string& a_sPath)
 
 void CKernel::EndGame(SEvent, CEntityNode*)
 {
+    m_oStatMutex.lock();
 	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
 
 	m_pLocalPlayer->m_bGameEnded = true;
@@ -203,18 +204,12 @@ void CKernel::EndGame(SEvent, CEntityNode*)
 		b << M_STATS_EVENT << oSStats;
 		m_pNetworkManager->Send(b);
 
-#ifdef __ANDROID__
-	sleep(1);
-#endif // __ANDROID__
-
-	Director::getInstance()->end();
-
 	}
 	else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
 	{
 		WriteStats();
 	}
-
+    m_oStatMutex.unlock();
 }
 
 
@@ -334,11 +329,10 @@ void CKernel::WriteStats()
 #ifdef __ANDROID__
 	CCLOG("[LUDO_STATS] calling jni saveStringToFile");
 	LmJniJavaFacade::saveStringToFile(fileStream.str());
-#endif // __ANDROID__
+#else
+    Director::getInstance()->end();
+#endif
 
-#if defined _WIN32 | defined _WIN64
-	Director::getInstance()->end();
-#endif	// WINDOWS
 }
 
 
@@ -687,6 +681,10 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 
 		} // TeamNode
 
+        else if (vSplittedMessage[1] == "Close")
+        {
+            Director::getInstance()->end();
+        }
 
 	} // kernel message
 
@@ -720,12 +718,15 @@ void CKernel::OnReceiving(bytes a_rByteArray, char a_cEventID)
 		CCLOG("CKernel : Distant player : %d", m_pDistantPlayer->m_iPlayerID);
 		break;
 	case M_STATS_EVENT:
+        m_oStatMutex.lock();
+        SendNetworkMessage("kernel:Close"); // close remote app
 		a_rByteArray >> &m_pRemoteStats;
 		m_pDistantPlayer->m_bGameEnded = true;
 		if (m_pLocalPlayer->m_bGameEnded && m_pDistantPlayer->m_bGameEnded)
 		{
 			WriteStats();
 		}
+        m_oStatMutex.unlock();
 		break;
 	}
 }
