@@ -74,7 +74,6 @@ private:
 // include template implementation and specializations
 #include "CJsonParser_impl.h"
 
-
 } // namespace LM
 
 #endif /* _CJSONPARSER_H_ */
