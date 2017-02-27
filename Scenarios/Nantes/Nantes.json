@@ -1137,13 +1137,17 @@
                                     "params": {
                                         "anchor": 8,
                                         "width": 60,
+                                        "height": 0,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "EditBox",
                                                 "id": "nameBox",
                                                 "params": {
                                                     "anchor": 0,
-                                                    "width": 100
+                                                    "width": 100,
+                                                    "height": 0
                                                 }
                                             }
                                         ]
