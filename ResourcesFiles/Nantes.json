@@ -7,7 +7,7 @@
         "sounds": [],
         "macros": {
             "#default-background": "cache/background1LU.png",
-            "#default-police": "fonts/Open_Sans/OpenSans-Regular.ttf",
+            "#default-font": "fonts/Open_Sans/OpenSans-Regular.ttf",
             "#game-background": "cache/background3LU.png"
         },
         "scenes": [
@@ -125,7 +125,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -547,7 +547,7 @@
                                     "id": "CollectionText",
                                     "params": {
                                         "content": "Votre Collection",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -615,7 +615,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "PRÊT!",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -719,7 +719,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "Pair",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -814,7 +814,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "ACTUALISER",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 50,
@@ -864,7 +864,7 @@
                                                 "id": "infoPeer",
                                                 "params": {
                                                     "content": "Choisis ton partenaire!",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -916,7 +916,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Avec qui veux-tu jouer ?",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -948,7 +948,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Commencer",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -974,7 +974,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "PRÉCÉDENT",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -1024,7 +1024,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Bienvenue, moi c’est Pierre !",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 50,
@@ -1072,7 +1072,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -1098,7 +1098,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -1295,7 +1295,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Inscris ton nom de joueur dans le champ.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -1324,7 +1324,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "étape 1: Quel est ton nom ?",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -1365,7 +1365,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -1391,7 +1391,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -1498,7 +1498,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "JE SUIS UN GRAND !",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -1612,7 +1612,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "JE SUIS UN PETIT !",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -1692,7 +1692,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Choisis si tu es un grand ou un petit.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -1721,7 +1721,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "étape 2 : Quel est ton âge ?",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -1769,7 +1769,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -1795,7 +1795,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2030,7 +2030,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Choisis si tu es un garçon ou une fille.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -2059,7 +2059,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "étape 1: Quel est ton sexe ?",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -2091,7 +2091,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2117,7 +2117,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2146,7 +2146,7 @@
                         "type": "Text",
                         "params": {
                             "content": "Tu va participer à un jeu découverte de la biscuiterie LU. Tu seras amené(e) à collaborer avec ton partenaire en échangeant des objets ou des informations d’une tablette à l’autre.",
-                            "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                            "source": "#default-font",
                             "fontSize": 20,
                             "textAlign": "center",
                             "width": 80,
@@ -2176,7 +2176,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2202,7 +2202,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2262,7 +2262,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Vous devez créer une nouvelle recette de biscuit. Pour réussir cette mission, vous devrez travailler en collaboration avec le patron de la biscuiterie, “Monsieur Louis”.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -2295,7 +2295,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -2321,7 +2321,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -2381,7 +2381,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Tu es le directeur de la biscuiterie LU. Tout le monde t’appelle, “Monsieur Louis”. Tu vas créer une recette de biscuit avec l'aide d’une nouvelle ouvrière.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 22,
                                         "textAlign": "center",
                                         "width": 80,
@@ -2413,7 +2413,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2439,7 +2439,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2499,7 +2499,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Ecoutez ce que Monsieur Louis vous demande. Attention, c’est un test d’embauche ! Vous devez le réussir pour rejoindre l’entreprise",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -2531,7 +2531,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2557,7 +2557,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2617,7 +2617,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Demande à ta future ouvrière de compter les marches jusqu’à la salle 23.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 50,
@@ -2649,7 +2649,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2675,7 +2675,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2735,7 +2735,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Commencez à compter les marches à l’endroit de la photo.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -2767,7 +2767,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2793,7 +2793,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2853,7 +2853,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Vérifie que ton ouvrière commence à compter les marches à partir d’ici, puis guide la en cliquant sur SUIVANT.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -2885,7 +2885,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2911,7 +2911,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -2971,7 +2971,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivez Monsieur Louis qui connaît le chemin…",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -3003,7 +3003,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3029,7 +3029,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3089,7 +3089,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Prend ce petit escalier à droite, puis clique sur SUIVANT.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -3121,7 +3121,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3147,7 +3147,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3207,7 +3207,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivez Monsieur Louis qui connaît le chemin…",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -3239,7 +3239,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3265,7 +3265,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3325,7 +3325,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Prend maintenant ce petit escalier. Vérifie que ton ouvrière est toujours derrière toi, puis clique sur SUIVANT.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -3357,7 +3357,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3383,7 +3383,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3443,7 +3443,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Entrez dans la salle. Gardez bien en mémoire le nombre de marches !",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -3475,7 +3475,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3501,7 +3501,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3561,7 +3561,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Entre dans la salle 23 avec votre ouvrière pour lui faire passer son premier test d’embauche.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -3604,7 +3604,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3665,7 +3665,7 @@
                                     "id": "hintText",
                                     "params": {
                                         "content": "",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 90,
@@ -3708,7 +3708,7 @@
                                     "id": "infoZone",
                                     "params": {
                                         "content": "Répondez à la question de Monsieur Louis.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -3759,7 +3759,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -3798,7 +3798,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Demande à ton ouvrière le nombre de marches qu’elle a compté",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 60,
@@ -3859,7 +3859,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "84",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -3936,7 +3936,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "66",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -4013,7 +4013,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "70",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -4118,7 +4118,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "72",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -4189,7 +4189,7 @@
                                                 "id": "infoZone",
                                                 "params": {
                                                     "content": "Touche la bonne réponse",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -4233,7 +4233,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -4293,7 +4293,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Félicitations Marie, vous avez été embauchée dans l’entreprise LU !",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -4328,7 +4328,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Essayez maintenant de gagner un premier ingréditent",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -4363,7 +4363,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -4423,7 +4423,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Bravo, tu as maintenant une nouvelle ouvrière dans ton équipe ! Elle s’appelle Marie",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -4458,7 +4458,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Essaie maintenant de gagner un premier ingréditent.",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -4493,7 +4493,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -4519,7 +4519,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -4579,7 +4579,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Approchez-vous du grand portrait de Monsieur Louis.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -4611,7 +4611,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -4637,7 +4637,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -4697,7 +4697,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Montre ton portrait à ton ouvrière.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -4739,7 +4739,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -4787,7 +4787,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Isolez-vous pour écouter ce que j’ai à vous raconter.",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -4832,7 +4832,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -4925,7 +4925,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Clique sur ton portrait pour m’écouter t’en parler.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -4963,7 +4963,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Isole-toi pour écouter ce que j’ai à te raconter",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -4998,7 +4998,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -5058,7 +5058,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Questionnez votre patron sur l’origine des biscuits.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -5090,7 +5090,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -5150,7 +5150,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Les premiers biscuits étaient fabriqués par les boulangers pour les marins. On les appelait des “biscuits de mer”",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -5182,7 +5182,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -5208,7 +5208,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -5268,7 +5268,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Selon vous, quels sont les ingrédients composant les biscuits de mer ? Envoyez les à votre patron en les glissant vers le biscuit.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -5300,7 +5300,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -5326,7 +5326,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -5386,7 +5386,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Récupère les ingrédients et glisse les dans le plat pour vérifier qu’ils étaient dans la recette des biscuits de mer.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -5429,7 +5429,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -5561,7 +5561,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "Farine",
-                                                                "source": "fonts/arial.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -5658,7 +5658,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "Beurre",
-                                                                "source": "fonts/arial.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -5755,7 +5755,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "Eau",
-                                                                "source": "fonts/arial.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -5852,7 +5852,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "Sucre",
-                                                                "source": "fonts/arial.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -5913,7 +5913,7 @@
                                     "id": "infoText",
                                     "params": {
                                         "content": "Place les bons ingrédients dans le plat.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -5955,7 +5955,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -5997,7 +5997,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -6110,7 +6110,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Farine",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -6172,7 +6172,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Beurre",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -6234,7 +6234,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Eau",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -6296,7 +6296,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Sucre",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -6346,7 +6346,7 @@
                                                 "id": "infoZone",
                                                 "params": {
                                                     "content": "Donnez les bons ingrédients à Mr Louis en les faisant glisser dans la zone de droite.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -6384,7 +6384,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -6416,7 +6416,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -6476,7 +6476,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Félicitation, il s’agissait bien de l’eau et la farine. Pour en savoir plus, interroge Monsieur Louis.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -6502,7 +6502,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Rapprochez-vous pour écouter sur la tablette de Monsieur Louis.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 60,
@@ -6534,7 +6534,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -6603,7 +6603,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Bravo ! Écoute l’explication pour renseigner ton ouvrier.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -6649,7 +6649,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Clique sur l’écran pour écouter l’explication de Pierre",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -6687,7 +6687,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Laisse écouter ton ouvrière sur ta tablette.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -6722,7 +6722,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -6748,7 +6748,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -6808,7 +6808,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Pour la prochaine étape de formation, vous allez devoir approchez vos tablettes l’une de l’autre.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -6840,7 +6840,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -6866,7 +6866,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -6926,7 +6926,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Pour la prochaine étape de formation, vous allez devoir approchez vos tablettes l’une de l’autre",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -6959,7 +6959,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7001,7 +7001,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7040,7 +7040,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "L’un de vous deux lit l’article à voix haute",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -7073,7 +7073,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7115,7 +7115,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7154,7 +7154,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "L’un de vous deux lit l’article à voix haute",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -7186,7 +7186,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7212,7 +7212,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7272,7 +7272,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Bienvenue dans l’entreprise ! Monsieur Louis va vous présenter vos collègues.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -7304,7 +7304,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7330,7 +7330,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7390,7 +7390,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Présente ses collègues à ton ouvrière.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -7432,7 +7432,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -7700,7 +7700,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Faites glissez les éléments de la photo de vos collègues à Monsieur Louis.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 60,
@@ -7726,7 +7726,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -7769,7 +7769,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -8676,7 +8676,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "Recompose la photo à partir des éléments transmis par ton ouvrière.",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -8708,7 +8708,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -8740,7 +8740,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -8779,7 +8779,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Bravo, la photo est complète !",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -8811,7 +8811,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -8850,7 +8850,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Bravo, la photo est complète !",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -8883,7 +8883,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -8909,7 +8909,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -8958,7 +8958,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Dirigeants",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -8994,7 +8994,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Menuisiers",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9030,7 +9030,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Pâtissiers",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9066,7 +9066,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Ouvrières",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9092,7 +9092,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Laissez Monsieur Louis écouter sur votre tablette.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 60,
@@ -9141,7 +9141,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9167,7 +9167,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9216,7 +9216,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Dirigeants",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9252,7 +9252,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Menuisiers",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9288,7 +9288,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Pâtissiers",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9324,7 +9324,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Ouvrières",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9350,7 +9350,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Rapproche-toi pour écouter sur la tablette de ton ouvrière.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -9391,7 +9391,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9417,7 +9417,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9477,7 +9477,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Vous allez maintenant découvrir l’usine grâce à la grande maquette présente dans la salle",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -9509,7 +9509,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9535,7 +9535,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9595,7 +9595,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Maintenant, fait découvrir l’usine à ton ouvrière à l’aide de la maquette présente dans la salle.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -9637,7 +9637,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -9698,7 +9698,7 @@
                                                 "id": "infoZone",
                                                 "params": {
                                                     "content": "Repérez sur la maquette cette tour encore existante aujourd’hui.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -9743,7 +9743,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -9786,7 +9786,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -10029,7 +10029,7 @@
                                                 "id": "infoZone",
                                                 "params": {
                                                     "content": "Avec l’aide de ton ouvrière, clique sur la tour encore existante aujourd’hui.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -10074,7 +10074,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -10106,7 +10106,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -10155,7 +10155,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Cette maquette a été fabriquée par Paul Duchesne. Pour en savoir plus aprochez-vous de Monsieur Louis.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 60,
@@ -10181,7 +10181,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Raprochez-vous pour écouter sur la tablette de Monsieur Louis.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 60,
@@ -10207,7 +10207,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -10239,7 +10239,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -10299,7 +10299,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Cette maquette a longtemps servi à faire la promotion de l’entreprise. Cliquez sur l’écran pour en savoir plus.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 90,
@@ -10354,7 +10354,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Laisse ton ouvrière écouter sur ta tablette.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -10383,7 +10383,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -10426,7 +10426,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -10476,7 +10476,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "A l'aide de la photo contemporaine qui apparait sur votre écran. Répondez à la question de Monsieur Louis.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 90,
@@ -10502,7 +10502,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Aidez-vous aussi de la maquette d’époque.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 60,
@@ -10528,7 +10528,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -10571,7 +10571,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -10620,7 +10620,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Demandez à votre ouvrière quels sont les deux éléments qui ont disparu aujourd’hui",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 60,
@@ -10684,7 +10684,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "La Loire",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -10754,7 +10754,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "La gare",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -10824,7 +10824,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Le chateau",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -10895,7 +10895,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Une tour",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -10972,7 +10972,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Regarde aussi la photo qui apparaît sur l’autre tablette.",
-                                                    "source": "fonts/arial.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -11007,7 +11007,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -11067,7 +11067,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Vous allez maintenant découvrir les différents ateliers, soyez attentif !",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 60,
@@ -11099,7 +11099,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -11159,7 +11159,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Maintenant, fais visiter les ateliers à ton ouvrière.",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 90,
@@ -11201,7 +11201,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -11456,7 +11456,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Observez les images et retenez l’ordre des étapes.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -11485,7 +11485,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -11527,7 +11527,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -11655,7 +11655,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "3",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 40,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -11707,7 +11707,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "4",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 40,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -11759,7 +11759,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "2",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 40,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -11821,7 +11821,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "1",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 40,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -11883,7 +11883,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Fait découvrir les différents ateliers à ton ouvrière en cliquant sur les étapes dans l’ordre.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -11912,7 +11912,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -11954,7 +11954,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -12077,7 +12077,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Mise en boite des biscuits",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -12149,7 +12149,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Préparation des caisses en bois pour les expéditions",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -12221,7 +12221,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Préparation des pâtes",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -12293,7 +12293,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Cuisson des biscuits",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -12342,7 +12342,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Passez à Monsieur Louis les étapes dans le bon ordre.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -12371,7 +12371,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -12414,7 +12414,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -12501,7 +12501,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "3",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 30,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -12542,7 +12542,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "4",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 30,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -12583,7 +12583,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "1",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 30,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -12624,7 +12624,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "2",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 30,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -12713,7 +12713,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Mise en boite des biscuits",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -12785,7 +12785,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Préparation des caisses en bois pour les expéditions",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -12857,7 +12857,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Préparation des pâtes",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -12929,7 +12929,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Cuisson des biscuits",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -12978,7 +12978,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Vérifie que les étapes sont dans le bon ordre.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -13007,7 +13007,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -13039,7 +13039,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -13099,7 +13099,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Félicitation, continuons la visite de l’usine !",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 60,
@@ -13131,7 +13131,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -13191,7 +13191,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Fait maintenant découvrir à ton ouvrière dans quels bâtiments se situaient ces ateliers !",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 90,
@@ -13234,7 +13234,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -13362,7 +13362,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "3",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 40,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -13414,7 +13414,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "4",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 40,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -13466,7 +13466,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "2",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 40,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -13528,7 +13528,7 @@
                                                             "type": "Text",
                                                             "params": {
                                                                 "content": "1",
-                                                                "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                                "source": "#default-font",
                                                                 "fontSize": 40,
                                                                 "textAlign": "center",
                                                                 "width": 100,
@@ -13627,7 +13627,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Mise en boite des biscuits",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -13699,7 +13699,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Préparation des caisses en bois pour les expéditions",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -13771,7 +13771,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Préparation des pâtes",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -13843,7 +13843,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Cuisson des biscuits",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -13892,7 +13892,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Cherchez sur la maquette, les bâtiments des 4 ateliers.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -13921,7 +13921,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -13964,7 +13964,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -14087,7 +14087,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Mise en boite des biscuits",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -14159,7 +14159,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Préparation des caisses en bois pour les expéditions",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -14231,7 +14231,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Préparation des pâtes",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -14303,7 +14303,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Cuisson des biscuits",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 100,
@@ -14352,7 +14352,7 @@
                                                 "type": "Text",
                                                 "params": {
                                                     "content": "Cherche sur la maquette, les bâtiments des 4 ateliers.",
-                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
@@ -14381,7 +14381,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Instructions scénario",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
@@ -14413,7 +14413,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -14473,7 +14473,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Bravo, rendez-vous maintenant à la salle 24 !",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -14505,7 +14505,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -14565,7 +14565,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Bravo, rends-toi maintenant à la salle 24 !",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 80,
@@ -14597,7 +14597,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -14623,7 +14623,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -14679,7 +14679,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Suivant",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -14705,7 +14705,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Précédent",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -14761,7 +14761,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Commencer",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 100,
@@ -14811,7 +14811,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Ligne éditoriale\r\n Guillaume Ducongé    Laurence D'haene\r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
-                                        "source": "fonts/arial.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 22,
                                         "textAlign": "center",
                                         "width": 80,
