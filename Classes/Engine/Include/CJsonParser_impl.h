@@ -1,4 +1,4 @@
-//////////////////////////////// templates specializations 
+﻿//////////////////////////////// templates specializations 
 
 /// \brief the specialisation building entities in a scene or subentities
 template <typename T>
@@ -166,9 +166,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "EditBox")
 	{
-        pEntity = new CSpriteNode( m_sBasePath + "ui/textfieldBackground.png", IntToAnchor(rParams["anchor"].GetInt()), width, height, x, y);
+        //pEntity = new CSpriteNode( m_sBasePath + "ui/textfieldBackground.png", IntToAnchor(rParams["anchor"].GetInt()), width, height, x, y);
 		CEditBoxNode* pEditBox = new CEditBoxNode(EAnchor::CENTER, 100);
-		pEntity->AddChildNode(pEditBox);
+        //pEntity->AddChildNode(pEditBox);
+        pEntity = pEditBox;
 	}
 
 
