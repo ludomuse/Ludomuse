@@ -220,9 +220,9 @@
                                                             "type": "Image",
                                                             "id": "Recompense7",
                                                             "params": {
-                                                                "source": "cache/quest.png",
+                                                                "source": "cache/Sweetbutter.png",
                                                                 "anchor": 0,
-                                                                "width": 0,
+                                                                "width": 80,
                                                                 "height": 95,
                                                                 "x": 0,
                                                                 "y": 0,
@@ -254,9 +254,9 @@
                                                             "type": "Image",
                                                             "id": "Recompense8",
                                                             "params": {
-                                                                "source": "cache/quest.png",
+                                                                "source": "cache/Beurresale.png",
                                                                 "anchor": 0,
-                                                                "width": 0,
+                                                                "width": 80,
                                                                 "height": 95,
                                                                 "x": 0,
                                                                 "y": 0,
@@ -288,10 +288,10 @@
                                                             "type": "Image",
                                                             "id": "Recompense9",
                                                             "params": {
-                                                                "source": "cache/quest.png",
+                                                                "source": "cache/recipe.png",
                                                                 "anchor": 0,
                                                                 "width": 0,
-                                                                "height": 95,
+                                                                "height": 65,
                                                                 "x": 0,
                                                                 "y": 0,
                                                                 "listeners": [
@@ -322,10 +322,10 @@
                                                             "type": "Image",
                                                             "id": "Recompense10",
                                                             "params": {
-                                                                "source": "cache/quest.png",
+                                                                "source": "cache/lubiscuit.png",
                                                                 "anchor": 0,
                                                                 "width": 0,
-                                                                "height": 95,
+                                                                "height": 80,
                                                                 "x": 0,
                                                                 "y": 0,
                                                                 "listeners": [
@@ -1133,87 +1133,17 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Image",
-                                    "id": "nameBox",
+                                    "type": "Group",
                                     "params": {
-                                        "source": "ui/textfieldBackground.png",
                                         "anchor": 8,
                                         "width": 60,
-                                        "height": 0,
-                                        "x": 0,
-                                        "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "EditBox",
+                                                "id": "nameBox",
                                                 "params": {
-                                                    "source": "ui/textfieldBackground.png",
                                                     "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 0,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "params": {
-                                                                "source": "ui/textfieldBackground.png",
-                                                                "anchor": 0,
-                                                                "width": 100,
-                                                                "height": 0,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "children": [
-                                                                    {
-                                                                        "type": "Image",
-                                                                        "params": {
-                                                                            "source": "ui/textfieldBackground.png",
-                                                                            "anchor": 0,
-                                                                            "width": 100,
-                                                                            "height": 0,
-                                                                            "x": 0,
-                                                                            "y": 0,
-                                                                            "children": [
-                                                                                {
-                                                                                    "type": "Image",
-                                                                                    "params": {
-                                                                                        "source": "ui/textfieldBackground.png",
-                                                                                        "anchor": 0,
-                                                                                        "width": 100,
-                                                                                        "height": 0,
-                                                                                        "x": 0,
-                                                                                        "y": 0,
-                                                                                        "children": [
-                                                                                            {
-                                                                                                "type": "Image",
-                                                                                                "params": {
-                                                                                                    "source": "ui/textfieldBackground.png",
-                                                                                                    "anchor": 0,
-                                                                                                    "width": 100,
-                                                                                                    "height": 0,
-                                                                                                    "x": 0,
-                                                                                                    "y": 0,
-                                                                                                    "children": [
-                                                                                                        {
-                                                                                                            "type": "EditBox",
-                                                                                                            "params": {
-                                                                                                                "anchor": 0,
-                                                                                                                "width": 100,
-                                                                                                                "height": 0
-                                                                                                            }
-                                                                                                        }
-                                                                                                    ]
-                                                                                                }
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
+                                                    "width": 100
                                                 }
                                             }
                                         ]
