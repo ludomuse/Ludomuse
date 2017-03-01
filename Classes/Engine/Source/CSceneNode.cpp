@@ -76,7 +76,7 @@ bool CSceneNode::init()
 
 
 
-const std::string& CSceneNode::GetSceneID() const
+std::string CSceneNode::GetSceneID()
 {
     return m_sID;
 }
@@ -286,6 +286,11 @@ std::string CSceneNode::GetValidSound()
 void CSceneNode::SetValidSound(std::string a_sValidSound)
 {
     m_sValidSound = a_sValidSound;
+}
+
+bool CSceneNode::UseFile(const std::string &a_sFilename)
+{
+    return a_sFilename == m_sInitSound || a_sFilename == m_sValidSound;
 }
 } // namespace LM
 

@@ -250,4 +250,10 @@ Color4B CLabelNode::ParseColor(const std::string& a_rFontColor) const
         return Color4B(255,255,255,255);
     }
 }
+
+bool CLabelNode::UseFile(const std::string &a_sFilename)
+{
+    return m_sFontName == a_sFilename || CEntityNode::UseFile(a_sFilename);
+}
+
 } // namespace LM

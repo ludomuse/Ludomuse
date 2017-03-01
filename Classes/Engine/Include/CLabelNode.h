@@ -59,6 +59,7 @@ public:
 
     virtual cocos2d::Color4B ParseColor(const std::string& a_rFontColor) const;
 
+    virtual bool UseFile(const std::string &a_sFilename) override;
 };
 
 } // namespace LM

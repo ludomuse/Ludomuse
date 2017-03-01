@@ -42,6 +42,8 @@ class CSpriteNode : public CEntityNode
 
   virtual void Copy(CEntityNode* a_pSprite, bool a_bRecCopy = true) override;
 
+  virtual bool UseFile(const std::string& a_sFilename);
+
  private:
   void DisplayNewImage();
 };

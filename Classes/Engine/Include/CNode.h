@@ -69,7 +69,7 @@ class CNode
 
   virtual bool hasID(const std::string& a_rID);
 
-  virtual const std::string& GetSceneID() const;
+  virtual std::string GetSceneID();
 
   virtual CNode* GetOffsetNode(bool a_bNext);
 
@@ -86,6 +86,8 @@ class CNode
   virtual void UnInit( bool removeChild = true);
 
   virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+
+  virtual bool UseFile(const std::string &a_sFilename);
 
 };
 

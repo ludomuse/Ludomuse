@@ -184,6 +184,10 @@ class CEntityNode : public CNode
   virtual CSceneNode* GetParentSceneNode();
 
   virtual void Copy(CEntityNode *a_sNode, bool a_bRecCopy = true);
+  virtual bool UseFile(const std::string &a_sFilename);
+  virtual bool UseFileInCallbacks(const std::string &a_sFilename);
+
+  virtual std::string GetSceneID() override;
 
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
@@ -206,7 +210,6 @@ class CEntityNode : public CNode
 //  void ChangeHeight(int a_iHeight);
 
   virtual void Update();
-
 
 };
 

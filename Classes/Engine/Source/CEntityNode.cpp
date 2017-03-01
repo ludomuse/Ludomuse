@@ -639,4 +639,31 @@ bool CEntityNode::IsMovable()
    return IsListeningTo("Move");
 }
 
+bool CEntityNode::UseFile(const std::string& a_sFilename)
+{
+    return UseFileInCallbacks(a_sFilename);
+}
+
+bool CEntityNode::UseFileInCallbacks(const std::string& a_sFilename)
+{
+    std::map<std::string, std::vector<CEventCallback>>::iterator mIt;
+    for (mIt = m_mListeners.begin(); mIt != m_mListeners.end(); mIt++)
+    {
+        std::vector<CEventCallback>::iterator vIt;
+        for (vIt = mIt->second.begin(); vIt != mIt->second.end(); vIt++)
+        {
+            if (vIt->getArg().m_sStringValue == a_sFilename)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+std::string CEntityNode::GetSceneID()
+{
+    return GetParentSceneNode()->GetSceneID();
+}
+
 } // namespace LM

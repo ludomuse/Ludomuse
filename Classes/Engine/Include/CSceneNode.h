@@ -52,7 +52,7 @@ public:
 
   virtual bool init();
 
-  const std::string& GetSceneID() const;
+  std::string GetSceneID();
 
   void SetSynced(bool a_bIsSynced);
 
@@ -73,6 +73,8 @@ public:
   void SetInitSound(std::string a_sInitSound);
   std::string GetValidSound();
   void SetValidSound(std::string a_sValidSound);
+
+  virtual bool UseFile(const std::string &a_sFilename) override;
 
   CREATE_FUNC(CSceneNode);
 };

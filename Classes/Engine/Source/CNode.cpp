@@ -214,9 +214,14 @@ void CNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorTy
     }
 }
 
-const std::string& CNode::GetSceneID() const
+std::string CNode::GetSceneID()
 {
     return "";
+}
+
+bool CNode::UseFile(const std::string &a_sFilename)
+{
+    return false;
 }
 
 } // namespace LM

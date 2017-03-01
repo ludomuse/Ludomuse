@@ -166,4 +166,9 @@ void CSpriteNode::Copy(CEntityNode* a_pSprite, bool a_bRecCopy)
     CEntityNode::Copy(a_pSprite, a_bRecCopy);
 }
 
+bool CSpriteNode::UseFile(const std::string& a_sFilename)
+{
+    return m_sSpriteFilename == a_sFilename || CEntityNode::UseFile(a_sFilename);
+}
+
 } // namespace LM
