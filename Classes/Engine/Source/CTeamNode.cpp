@@ -1,4 +1,4 @@
-#include <numeric>
+﻿#include <numeric>
 #include "../Include/CTeamNode.h"
 #include "../Include/CLabelNode.h"
 #include "../Include/CFindTeamNodeIDVisitor.h"
@@ -214,6 +214,56 @@ void CTeamNode::SendTask(const std::string& a_rNextTask)
 }
 
 
+void CTeamNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator)
+{
+    rapidjson::Value teamNode(rapidjson::kObjectType);
+    teamNode.AddMember("type", "TeamNode", a_rAllocator);
+
+    if (!m_sID.empty())
+    {
+        teamNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
+
+    rapidjson::Value params(rapidjson::kObjectType);
+
+    params.AddMember("anchor", m_eAnchor, a_rAllocator);
+    params.AddMember("width", m_iWidth, a_rAllocator);
+    params.AddMember("height", m_iHeight, a_rAllocator);
+    params.AddMember("x", m_iXPosition, a_rAllocator);
+    params.AddMember("y", m_iYPosition, a_rAllocator);
+
+    rapidjson::Value tasks(rapidjson::kArrayType);
+    for (int i = 0; i < M_NB_TASK; ++i)
+    {
+        rapidjson::Value taskAction(rapidjson::kArrayType);
+        taskAction.PushBack(rapidjson::Value(m_oTasksArray[i][0].c_str(), m_oTasksArray[i][0].length()), a_rAllocator); // task string
+        taskAction.PushBack(rapidjson::Value(m_oTasksArray[i][1].c_str(), m_oTasksArray[i][1].length()), a_rAllocator); // action string
+
+        tasks.PushBack(taskAction, a_rAllocator);
+    }
+
+    params.AddMember("tasks", tasks, a_rAllocator);
+
+    if (!m_mListeners.empty())
+    {
+        rapidjson::Value listeners(rapidjson::kArrayType);
+        CEntityNode::ToJsonListener(listeners, a_rAllocator);
+        params.AddMember("listeners", listeners, a_rAllocator);
+    }
+
+    if (!m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    teamNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(teamNode, a_rAllocator);
+}
 
 
 } // namespace LM

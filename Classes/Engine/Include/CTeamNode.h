@@ -1,4 +1,4 @@
-#ifndef _CTEAMNODE_H_
+﻿#ifndef _CTEAMNODE_H_
 #define _CTEAMNODE_H_
 
 #include "CGroupNode.h"
@@ -45,6 +45,8 @@ class CTeamNode : public CGroupNode
   void UpdateTask(const std::string& a_rNextTask);
   void UpdateActions(const std::array<std::string, M_NB_TASK / 2>& a_rActions);
   void TasksFinished();
+
+  virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
 
 private:
 	void SendTask(const std::string& a_rNextTask);
