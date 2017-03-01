@@ -1,6 +1,6 @@
 ﻿#include "../Include/CAnimationNode.h"
 #include "../../Modules/Util/Include/Util.h"
-
+#include <libgen.h>
 
 using namespace cocos2d;
 
@@ -33,7 +33,7 @@ CAnimationNode::CAnimationNode(const std::string& a_rSpriteSheet,
         SpriteFrame* frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(str);
         animFrames.pushBack(frame);
     }
-    m_pAnimation = Animation::createWithSpriteFrames(animFrames, 0.04f);
+    m_pAnimation = Animation::createWithSpriteFrames(animFrames, 0.0255f);
 
     m_pSpriteBatchNode->retain();
     m_pAnimation->retain();

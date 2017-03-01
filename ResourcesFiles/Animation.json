@@ -7,10 +7,12 @@
         "sounds": [],
         "scenes": [
             [
-                "screen-0"
+                "screen-0",
+                "screen-1"
             ],
             [
-                "screen-0"
+                "screen-0",
+                "screen-1"
             ]
         ],
         "screens": [
@@ -662,6 +664,47 @@
                     }
                 ],
                 "information": []
+            },
+            {
+                "scene": "screen-1",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SORTEZ",
+                                        "source": "fonts/Open_Sans/OpenSans-Bold.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/white.png",
+                            "anchor": 0,
+                            "width": 100
+                        }
+                    }
+                ]
             }
         ]
     }
