@@ -352,35 +352,35 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 	{
 		pSceneNode->m_bDashboardTrigger = a_rJsonNode["dashboardTrigger"].GetBool();
 	}
-	bool addNodeEvent = false;
-	CEntityNode* pNodeEvent = new CEntityNode();
 	if (a_rJsonNode.HasMember("rewardID"))
 	{
+		CEntityNode* pNodeEvent = new CEntityNode();
 		std::string sArg = "Dashboard:Unlock:";
 		sArg  += a_rJsonNode["rewardID"].GetString();
 		CEventCallback oCallback(m_pKernel, &CKernel::LocalMessage,
 			SEvent(pNodeEvent, sArg));
 		pNodeEvent->AddListener("Init", oCallback);
-		addNodeEvent = true;
+		pSceneNode->AddChildNode(pNodeEvent);
 	}
 	if (a_rJsonNode.HasMember("initSound"))
 	{
+		CSpriteNode* pNodeEvent = new CSpriteNode(m_sBasePath + "ui/nav-1.png", LM::EAnchor::TOP_LEFT, 0, 13, 0, 0);
+		CSpriteNode* pNodeIcon = new CSpriteNode(m_sBasePath + "ui/replay.png", LM::EAnchor::CENTER, 0, 50);
+		pNodeEvent->AddChildNode(pNodeIcon);
 		std::string sArg = a_rJsonNode["initSound"].GetString();
 		CEventCallback oCallback(m_pKernel, &CKernel::PlaySoundCallback,
 			SEvent(pNodeEvent, sArg));
 		pNodeEvent->AddListener("Init", oCallback);
-		addNodeEvent = true;
+		pNodeEvent->AddListener("Touch", oCallback);
+		pSceneNode->AddChildNode(pNodeEvent);
 	}
 	if (a_rJsonNode.HasMember("validSound"))
 	{
+		CEntityNode* pNodeEvent = new CEntityNode();
 		std::string sArg = a_rJsonNode["validSound"].GetString();
 		CEventCallback oCallback(m_pKernel, &CKernel::PlaySoundCallback,
 			SEvent(pNodeEvent, sArg));
 		pNodeEvent->AddListener("Validate", oCallback);
-		addNodeEvent = true;
-	}
-	if (addNodeEvent)
-	{ 
 		pSceneNode->AddChildNode(pNodeEvent);
 	}
 }
