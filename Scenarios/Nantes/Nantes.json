@@ -25,6 +25,7 @@
                 "screen-1-f-player1",
                 "screen-1-g-player1",
                 "screen-1-h-player1",
+                "screen-reward1",
                 "screen-1-h-player1-fail",
                 "screen-1-j-player1",
                 "screen-2-a-player1",
@@ -74,6 +75,7 @@
                 "screen-1-f-player2",
                 "screen-1-g-player2",
                 "screen-1-h-player2",
+                "screen-reward1",
                 "screen-1-j-player2",
                 "screen-2-a-player2",
                 "screen-2-b-player2",
@@ -370,7 +372,7 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense1",
+                                                            "id": "Farine",
                                                             "params": {
                                                                 "source": "cache/flour.png",
                                                                 "anchor": 0,
@@ -4144,6 +4146,128 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
+                "scene": "screen-reward1",
+                "dashboardTrigger": true,
+                "rewardID": "Farine",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "res_templ/ui/nav-5.png",
+                            "selected": "res_templ/ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "res_templ/fonts/Open_Sans/OpenSans-Bold.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "res_templ/ui/nav-7.png",
+                            "selected": "res_templ/ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "res_templ/fonts/Open_Sans/OpenSans-Bold.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/flour.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 80,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as obtenu la farine !",
+                                        "source": "res_templ/fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
