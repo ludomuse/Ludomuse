@@ -71,6 +71,16 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 			x, y);
 	}
 
+    else if (sType == "Animation")
+    {
+        std::string animationSource = NormalizePath(rParams["animation"].GetString());
+        std::string spriteSheetSource = NormalizePath(rParams["sheet"].GetString());
+        pEntity = new CAnimationNode(spriteSheetSource,
+                                     animationSource,
+                                     IntToAnchor(rParams["anchor"].GetInt()),
+                                     width, height, x, y);
+    }
+
 	else if (sType == "Scratch")
 	  {
 	    std::string imageSource = m_sBasePath + rParams["source"].GetString();
@@ -168,9 +178,10 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 	else if (sType == "EditBox")
 	{
-        pEntity = new CSpriteNode( m_sBasePath + "ui/textfieldBackground.png", IntToAnchor(rParams["anchor"].GetInt()), width, height, x, y);
+        //pEntity = new CSpriteNode( m_sBasePath + "ui/textfieldBackground.png", IntToAnchor(rParams["anchor"].GetInt()), width, height, x, y);
 		CEditBoxNode* pEditBox = new CEditBoxNode(EAnchor::CENTER, 100);
-		pEntity->AddChildNode(pEditBox);
+        //pEntity->AddChildNode(pEditBox);
+        pEntity = pEditBox;
 	}
 
 
