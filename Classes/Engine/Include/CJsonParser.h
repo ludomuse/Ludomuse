@@ -1,4 +1,4 @@
-#ifndef _CJSONPARSER_H_
+﻿#ifndef _CJSONPARSER_H_
 #define _CJSONPARSER_H_
 
 #include "rapidjson.h"
@@ -14,6 +14,7 @@
 #include "CSceneNode.h"
 #include "CEntityNode.h"
 #include "CSpriteNode.h"
+#include "CAnimationNode.h"
 #include "CScratchNode.h"
 #include "CVideoNode.h"
 #include "CMenuNode.h"

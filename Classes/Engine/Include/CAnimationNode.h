@@ -28,6 +28,8 @@ class CAnimationNode : public CEntityNode
 
   virtual void Init() override;
 
+  virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
+
 };
 
 
