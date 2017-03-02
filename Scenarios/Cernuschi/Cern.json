@@ -24432,32 +24432,56 @@
                             ]
                         }
                     },
-                    {
-                        "type": "Image",
-                        "params": {
-                            "source": "ui/info-6.png",
-                            "anchor": 6,
-                            "width": 0,
-                            "height": 13,
+                  {
+                    "type": "Image",
+                    "params": {
+                      "source": "ui/info-6.png",
+                      "anchor": 6,
+                      "width": 0,
+                      "height": 13,
+                      "x": 0,
+                      "y": 0,
+                      "children": [
+                        {
+                          "type": "Group",
+                          "params": {
+                            "anchor": 0,
+                            "width": 70,
+                            "height": 100,
                             "x": 0,
                             "y": 0,
                             "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "Quand votre coéquipier est prêt, touchez \"PHOTO\"",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
-                                        "width": 60,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
-                                    }
+                              {
+                                "type": "Animation",
+                                "params": {
+                                  "animation": "ui/animations/photo.plist",
+                                  "sheet": "ui/animations/photo.png",
+                                  "anchor": 8,
+                                  "width": 0,
+                                  "height": 90,
+                                  "x": 0,
+                                  "y": 0
                                 }
+                              },
+                              {
+                                "type": "Text",
+                                "params": {
+                                  "content": "Quand votre coéquipier est prêt, touchez \"PHOTO\"",
+                                  "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                  "fontSize": 20,
+                                  "textAlign": "center",
+                                  "width": 70,
+                                  "height": 100,
+                                  "anchor": 0,
+                                  "color": "0,0,0,255"
+                                }
+                              }
                             ]
+                          }
                         }
-                    },
+                      ]
+                    }
+                  },
                     {
                         "type": "Image",
                         "params": {
@@ -24592,32 +24616,56 @@
                             ]
                         }
                     },
-                    {
-                        "type": "Image",
-                        "params": {
-                            "source": "ui/info-6.png",
-                            "anchor": 6,
-                            "width": 0,
-                            "height": 13,
+                  {
+                    "type": "Image",
+                    "params": {
+                      "source": "ui/info-6.png",
+                      "anchor": 6,
+                      "width": 0,
+                      "height": 13,
+                      "x": 0,
+                      "y": 0,
+                      "children": [
+                        {
+                          "type": "Group",
+                          "params": {
+                            "anchor": 0,
+                            "width": 70,
+                            "height": 100,
                             "x": 0,
                             "y": 0,
                             "children": [
-                                {
-                                    "type": "Text",
-                                    "params": {
-                                        "content": "Défi n°5",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
-                                        "width": 60,
-                                        "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
-                                    }
+                              {
+                                "type": "Animation",
+                                "params": {
+                                  "animation": "ui/animations/photo.plist",
+                                  "sheet": "ui/animations/photo.png",
+                                  "anchor": 8,
+                                  "width": 0,
+                                  "height": 90,
+                                  "x": 0,
+                                  "y": 0
                                 }
+                              },
+                              {
+                                "type": "Text",
+                                "params": {
+                                  "content": "Passe à la prochaine scène et prends la pose !",
+                                  "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                  "fontSize": 20,
+                                  "textAlign": "center",
+                                  "width": 70,
+                                  "height": 100,
+                                  "anchor": 0,
+                                  "color": "0,0,0,255"
+                                }
+                              }
                             ]
+                          }
                         }
-                    },
+                      ]
+                    }
+                  },
                     {
                         "type": "Image",
                         "params": {
