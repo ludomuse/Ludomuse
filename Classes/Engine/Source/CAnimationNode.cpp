@@ -1,6 +1,9 @@
 ﻿#include "../Include/CAnimationNode.h"
 #include "../../Modules/Util/Include/Util.h"
+
+#ifdef __ANDROID__
 #include <libgen.h>
+#endif
 
 using namespace cocos2d;
 
