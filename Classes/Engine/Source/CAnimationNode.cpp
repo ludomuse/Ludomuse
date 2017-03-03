@@ -1,7 +1,7 @@
 ﻿#include "../Include/CAnimationNode.h"
 #include "../../Modules/Util/Include/Util.h"
 #include "CProjectManager.h"
-#include <libgen.h>
+
 
 using namespace cocos2d;
 
