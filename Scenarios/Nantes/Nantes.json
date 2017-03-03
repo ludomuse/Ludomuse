@@ -853,9 +853,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -1219,9 +1220,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -1616,9 +1618,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -1954,9 +1957,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -4112,9 +4116,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -4960,9 +4965,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -4971,9 +4977,10 @@
                                                 }
                                             },
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-06.png",
+                                                    "animation": "ui/animations/listen.plist",
+                                                    "sheet": "ui/animations/listen.png",
                                                     "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
@@ -6391,9 +6398,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -6695,9 +6703,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-06.png",
+                                                    "animation": "ui/animations/listen.plist",
+                                                    "sheet": "ui/animations/listen.png",
                                                     "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
@@ -8713,9 +8722,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -10074,9 +10084,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -10400,9 +10411,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-06.png",
+                                                    "animation": "ui/animations/listen.plist",
+                                                    "sheet": "ui/animations/listen.png",
                                                     "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
@@ -11018,9 +11030,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -11502,9 +11515,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -11929,9 +11943,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -12388,9 +12403,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -13024,9 +13040,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -13938,9 +13955,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -14398,9 +14416,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/Assets-03.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
