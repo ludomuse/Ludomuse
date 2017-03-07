@@ -4,753 +4,768 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>photo_00000.png</key>
+            <key>touch_00000.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{0,0},{100,100}}</string>
+                <string>{{0,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00001.png</key>
+            <key>touch_00001.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{100,0},{100,100}}</string>
+                <string>{{400,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00002.png</key>
+            <key>touch_00002.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{200,0},{100,100}}</string>
+                <string>{{800,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00003.png</key>
+            <key>touch_00003.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{300,0},{100,100}}</string>
+                <string>{{1200,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00004.png</key>
+            <key>touch_00004.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{400,0},{100,100}}</string>
+                <string>{{1600,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00005.png</key>
+            <key>touch_00005.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{500,0},{100,100}}</string>
+                <string>{{2000,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00006.png</key>
+            <key>touch_00006.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{600,0},{100,100}}</string>
+                <string>{{2400,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00007.png</key>
+            <key>touch_00007.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{700,0},{100,100}}</string>
+                <string>{{2800,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00008.png</key>
+            <key>touch_00008.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{800,0},{100,100}}</string>
+                <string>{{3200,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00009.png</key>
+            <key>touch_00009.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{900,0},{100,100}}</string>
+                <string>{{3600,0},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00010.png</key>
+            <key>touch_00010.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{0,100},{100,100}}</string>
+                <string>{{0,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00011.png</key>
+            <key>touch_00011.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{100,100},{100,100}}</string>
+                <string>{{400,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00012.png</key>
+            <key>touch_00012.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{200,100},{100,100}}</string>
+                <string>{{800,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00013.png</key>
+            <key>touch_00013.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{300,100},{100,100}}</string>
+                <string>{{1200,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00014.png</key>
+            <key>touch_00014.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{400,100},{100,100}}</string>
+                <string>{{1600,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00015.png</key>
+            <key>touch_00015.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{500,100},{100,100}}</string>
+                <string>{{2000,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00016.png</key>
+            <key>touch_00016.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{600,100},{100,100}}</string>
+                <string>{{2400,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00017.png</key>
+            <key>touch_00017.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{700,100},{100,100}}</string>
+                <string>{{2800,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00018.png</key>
+            <key>touch_00018.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{800,100},{100,100}}</string>
+                <string>{{3200,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00019.png</key>
+            <key>touch_00019.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{900,100},{100,100}}</string>
+                <string>{{3600,400},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00020.png</key>
+            <key>touch_00020.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{0,200},{100,100}}</string>
+                <string>{{0,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00021.png</key>
+            <key>touch_00021.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{100,200},{100,100}}</string>
+                <string>{{400,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00022.png</key>
+            <key>touch_00022.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{200,200},{100,100}}</string>
+                <string>{{800,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00023.png</key>
+            <key>touch_00023.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{300,200},{100,100}}</string>
+                <string>{{1200,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00024.png</key>
+            <key>touch_00024.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{400,200},{100,100}}</string>
+                <string>{{1600,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00025.png</key>
+            <key>touch_00025.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{500,200},{100,100}}</string>
+                <string>{{2000,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00026.png</key>
+            <key>touch_00026.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{600,200},{100,100}}</string>
+                <string>{{2400,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00027.png</key>
+            <key>touch_00027.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{700,200},{100,100}}</string>
+                <string>{{2800,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00028.png</key>
+            <key>touch_00028.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{800,200},{100,100}}</string>
+                <string>{{3200,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00029.png</key>
+            <key>touch_00029.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{900,200},{100,100}}</string>
+                <string>{{3600,800},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00030.png</key>
+            <key>touch_00030.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{0,300},{100,100}}</string>
+                <string>{{0,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00031.png</key>
+            <key>touch_00031.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{100,300},{100,100}}</string>
+                <string>{{400,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00032.png</key>
+            <key>touch_00032.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{200,300},{100,100}}</string>
+                <string>{{800,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00033.png</key>
+            <key>touch_00033.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{300,300},{100,100}}</string>
+                <string>{{1200,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00034.png</key>
+            <key>touch_00034.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{400,300},{100,100}}</string>
+                <string>{{1600,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00035.png</key>
+            <key>touch_00035.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{500,300},{100,100}}</string>
+                <string>{{2000,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00036.png</key>
+            <key>touch_00036.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{600,300},{100,100}}</string>
+                <string>{{2400,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00037.png</key>
+            <key>touch_00037.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{700,300},{100,100}}</string>
+                <string>{{2800,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00038.png</key>
+            <key>touch_00038.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{800,300},{100,100}}</string>
+                <string>{{3200,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00039.png</key>
+            <key>touch_00039.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{900,300},{100,100}}</string>
+                <string>{{3600,1200},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00040.png</key>
+            <key>touch_00040.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{0,400},{100,100}}</string>
+                <string>{{0,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00041.png</key>
+            <key>touch_00041.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{100,400},{100,100}}</string>
+                <string>{{400,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00042.png</key>
+            <key>touch_00042.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{200,400},{100,100}}</string>
+                <string>{{800,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00043.png</key>
+            <key>touch_00043.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{300,400},{100,100}}</string>
+                <string>{{1200,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00044.png</key>
+            <key>touch_00044.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{400,400},{100,100}}</string>
+                <string>{{1600,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00045.png</key>
+            <key>touch_00045.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{500,400},{100,100}}</string>
+                <string>{{2000,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00046.png</key>
+            <key>touch_00046.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{600,400},{100,100}}</string>
+                <string>{{2400,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00047.png</key>
+            <key>touch_00047.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{700,400},{100,100}}</string>
+                <string>{{2800,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00048.png</key>
+            <key>touch_00048.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{800,400},{100,100}}</string>
+                <string>{{3200,1600},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>photo_00049.png</key>
+            <key>touch_00049.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>spriteSourceSize</key>
-                <string>{100,100}</string>
+                <string>{400,400}</string>
                 <key>textureRect</key>
-                <string>{{900,400},{100,100}}</string>
+                <string>{{3600,1600},{400,400}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>touch_00050.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{400,400}</string>
+                <key>spriteSourceSize</key>
+                <string>{400,400}</string>
+                <key>textureRect</key>
+                <string>{{0,2000},{400,400}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -764,13 +779,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>photo.png</string>
+            <string>touch.png</string>
             <key>size</key>
-            <string>{1000,500}</string>
+            <string>{4096,4096}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:474bd1f28c168cf957c86418cc77b0f2:e3186487e8d1d04460abc66c048d0d3a:f744beaff98b08d0a4ef176a03b2a9aa$</string>
+            <string>$TexturePacker:SmartUpdate:ea186a4a35e0c8806fbe4c74c0790857:a739502c4770d7772d30adda22cab753:af5a5cd9823f1ef5234117fa473d8721$</string>
             <key>textureFileName</key>
-            <string>photo.png</string>
+            <string>touch.png</string>
         </dict>
     </dict>
 </plist>

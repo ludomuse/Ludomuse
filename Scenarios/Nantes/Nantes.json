@@ -4979,8 +4979,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/listen.plist",
-                                                    "sheet": "ui/animations/listen.png",
+                                                    "animation": "ui/animations/notemusique.plist",
+                                                    "sheet": "ui/animations/notemusique.png",
                                                     "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
@@ -6705,8 +6705,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/listen.plist",
-                                                    "sheet": "ui/animations/listen.png",
+                                                    "animation": "ui/animations/notemusique.plist",
+                                                    "sheet": "ui/animations/notemusique.png",
                                                     "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
@@ -10413,8 +10413,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/listen.plist",
-                                                    "sheet": "ui/animations/listen.png",
+                                                    "animation": "ui/animations/notemusique.plist",
+                                                    "sheet": "ui/animations/notemusique.png",
                                                     "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
