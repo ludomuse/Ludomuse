@@ -57,7 +57,7 @@ void CAnimationNode::Init()
     std::string file = StringSplit(basename(m_sSpriteSheet.c_str()), '.')[0];
 
     Sprite* sprite = Sprite::createWithSpriteFrameName(file + "_00000.png");
-    m_pSpriteBatchNode->addChild(sprite);
+    //m_pSpriteBatchNode->addChild(sprite);
 
     m_pCocosEntity = sprite;
     PopulateParent();
