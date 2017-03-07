@@ -930,9 +930,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -1576,9 +1577,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -1756,9 +1758,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -26067,18 +26070,20 @@
                                                     "sheet": "ui/animations/gratter.png",
                                                     "anchor": 8,
                                                     "width": 0,
-                                                    "height": 80
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Gratte l'écran",
+                                                    "content": "Gratte l'écran pour découvrir l'objet",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
-                                                    "width": 60,
+                                                    "width": 75,
                                                     "height": 100,
                                                     "anchor": 0,
                                                     "color": "0,0,0,255"

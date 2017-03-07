@@ -930,9 +930,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -1394,9 +1395,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -1576,9 +1578,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -1756,9 +1759,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -5249,9 +5253,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -21992,9 +21997,10 @@
                                         "y": 0,
                                         "children": [
                                             {
-                                                "type": "Image",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "source": "ui/Assets/PNG/picto_doigt.png",
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
