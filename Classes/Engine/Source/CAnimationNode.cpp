@@ -28,15 +28,15 @@ CAnimationNode::CAnimationNode(const std::string& a_rSpriteSheet,
 
     std::string file = StringSplit(basename(m_sSpriteSheet.c_str()), '.')[0];
 
-    Vector<SpriteFrame*> animFrames(51);
+    Vector<SpriteFrame*> animFrames(50);
     char str[100] = {0};
-    for (int i = 0; i < 51; ++i)
+    for (int i = 0; i < 50; ++i)
     {
         sprintf(str, "%s_%05d.png", file.c_str(), i);
         SpriteFrame* frame = SpriteFrameCache::getInstance()->getSpriteFrameByName(str);
         animFrames.pushBack(frame);
     }
-    m_pAnimation = Animation::createWithSpriteFrames(animFrames, 0.0255f);
+    m_pAnimation = Animation::createWithSpriteFrames(animFrames, 0.04f);
 
     m_pSpriteBatchNode->retain();
     m_pAnimation->retain();
