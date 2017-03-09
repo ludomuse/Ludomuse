@@ -1,9 +1,6 @@
 ﻿#include "../Include/CAnimationNode.h"
 #include "../../Modules/Util/Include/Util.h"
 
-#ifdef __ANDROID__
-#include <libgen.h>
-#endif
 
 using namespace cocos2d;
 
@@ -26,7 +23,7 @@ CAnimationNode::CAnimationNode(const std::string& a_rSpriteSheet,
     m_pSpriteBatchNode = SpriteBatchNode::create(m_sSpriteSheet);
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile(m_sFrameFile);
 
-    std::string file = StringSplit(basename(m_sSpriteSheet.c_str()), '.')[0];
+    std::string file = StringSplit(LM::basename(m_sSpriteSheet.c_str()), '.')[0];
 
     Vector<SpriteFrame*> animFrames(50);
     char str[100] = {0};
