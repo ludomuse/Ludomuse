@@ -3031,16 +3031,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous dans la salle Shang.",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
-                                        "width": 100,
-                                        "height": 100,
                                         "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "width": 60,
+                                        "height": 100,
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous dans la salle Shang.",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 100,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -4618,30 +4637,54 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
-                                    "id": "InfoText",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Etape 1/5 premier défi",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255",
-                                        "listeners": [
+                                        "x": 0,
+                                        "y": 0,
+                                        "children": [
                                             {
-                                                "type": "DropBad",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Votre ami explorateur n'a pas trouvé l'animal ! Renvoyez-lui la photo!"
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
+                                                    "anchor": 8,
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
-                                                "type": "DropGood",
+                                                "type": "Text",
+                                                "id": "InfoText",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Votre ami explorateur a trouvé l'animal! Envoyez-lui une nouvelle photo!"
+                                                    "content": "Glisse et dépose les éléments",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 80,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255",
+                                                    "listeners": [
+                                                        {
+                                                            "type": "DropBad",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "Mal placé!"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "DropGood",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "Bien placé!"
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
@@ -5255,8 +5298,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -5268,7 +5311,7 @@
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Glisse chaque photos que te donne ton ami collectionneur vers le bon animal",
+                                                    "content": "Glisse et dépose les éléments",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -6661,7 +6704,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -6689,7 +6732,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -6713,10 +6756,19 @@
                                                 }
                                             },
                                             {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Question N°1",
+                                                    "content": "Touche la bonne réponse",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -7257,7 +7309,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -7285,7 +7337,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -7309,10 +7361,19 @@
                                                 }
                                             },
                                             {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Question N°1",
+                                                    "content": "Touche la bonne réponse",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -7966,16 +8027,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous dans la salle suivante",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
-                                        "width": 80,
-                                        "height": 100,
                                         "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "width": 60,
+                                        "height": 100,
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous dans la salle suivante",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 80,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -8075,16 +8155,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous dans la salle suivante",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous dans la salle suivante",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 80,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -9188,16 +9287,46 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Écoutez les sons - Associez les sons avec les objets sur votre tablette ou celle de votre coéquipier!",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
-                                        "width": 70,
-                                        "height": 100,
                                         "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "width": 60,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/notemusique.plist",
+                                                    "sheet": "ui/animations/notemusique.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 4,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Ecoute et envoie les éléments",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 80,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -9217,7 +9346,7 @@
                                     "type": "Text",
                                     "id": "InfoText",
                                     "params": {
-                                        "content": " Glisser/relier les bruits avec les fonctions des objets plusieurs objets visibles dans la salle Zhou",
+                                        "content": "Associe les sons avec les objets\nPlusieurs sont visibles dans la salle Zhou",
                                         "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                         "fontSize": 20,
                                         "textAlign": "center",
@@ -9728,30 +9857,43 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
-                                    "id": "InfoText",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Écoutez les sons - Associez les sons avec les objets sur votre tablette ou celle de votre coéquipier!",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
-                                        "width": 70,
-                                        "height": 100,
                                         "anchor": 0,
-                                        "color": "0,0,0,255",
-                                        "listeners": [
+                                        "width": 60,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0,
+                                        "children": [
                                             {
-                                                "type": "DropBad",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Dommage, ce n'était pas la bonne association.."
+                                                    "animation": "ui/animations/notemusique.plist",
+                                                    "sheet": "ui/animations/notemusique.png",
+                                                    "anchor": 8,
+                                                    "height": 80
                                                 }
                                             },
                                             {
-                                                "type": "DropGood",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Bravo! Tu as relié le son au bon objet"
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 4,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Ecoute et associe les éléments reçus",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 80,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
                                                 }
                                             }
                                         ]
@@ -9773,7 +9915,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Glisser / relier les bruits avec les fonctions des objets plusieurs objets visibles dans la salle Zhou",
+                                        "content": "Associe les sons avec les objets\nPlusieurs sont visibles dans la salle Zhou",
                                         "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                         "fontSize": 20,
                                         "textAlign": "center",
@@ -11015,7 +11157,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -11043,7 +11185,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -11067,10 +11209,19 @@
                                                 }
                                             },
                                             {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Question N°1",
+                                                    "content": "Touche la bonne réponse",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -11574,7 +11725,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -11602,7 +11753,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -11626,10 +11777,19 @@
                                                 }
                                             },
                                             {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Question N°1",
+                                                    "content": "Touche la bonne réponse",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -12283,16 +12443,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous devant la tour de plaisance",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous devant la tour de plaisance",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -12392,16 +12571,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous devant la tour de plaisance",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous devant la tour de plaisance",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -14206,30 +14404,49 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
-                                    "id": "InfoText",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Etape 3/5 : premier défi",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
-                                        "width": 80,
-                                        "height": 100,
                                         "anchor": 0,
-                                        "color": "0,0,0,255",
-                                        "listeners": [
+                                        "width": 60,
+                                        "height": 100,
+                                        "children": [
                                             {
-                                                "type": "DropBad",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Ce n'était pas le bon étage, envoyez une autre photo."
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
+                                                    "anchor": 8,
+                                                    "height": 80
                                                 }
                                             },
                                             {
-                                                "type": "DropGood",
+                                                "type": "Text",
+                                                "id": "InfoText",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Bravo, vous avez construit un nouvel étage!"
+                                                    "content": "Glisse une photo dans la zone de partage",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 80,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255",
+                                                    "listeners": [
+                                                        {
+                                                            "type": "DropBad",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "Ce n'était pas le bon étage, envoyez une autre photo."
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "DropGood",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "Bravo, vous avez construit un nouvel étage!"
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
@@ -14911,30 +15128,49 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
-                                    "id": "InfoText",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Etape 3/5 : premier défi",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255",
-                                        "listeners": [
+                                        "children": [
                                             {
-                                                "type": "DropBad",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Ce n'était pas le bon étage, demande une autre photo."
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
+                                                    "anchor": 8,
+                                                    "height": 80
                                                 }
                                             },
                                             {
-                                                "type": "DropGood",
+                                                "type": "Text",
+                                                "id": "InfoText",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Bravo, vous avez construit un nouvel étage!"
+                                                    "content": "Ancre la photo reçue dans le bon emplacement",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255",
+                                                    "listeners": [
+                                                        {
+                                                            "type": "DropBad",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "Ce n'était pas le bon étage, demande une autre photo."
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "DropGood",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "Bravo, vous avez construit un nouvel étage!"
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
@@ -15875,7 +16111,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -15903,7 +16139,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -15927,10 +16163,19 @@
                                                 }
                                             },
                                             {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Etape 3/5 : second défi",
+                                                    "content": "Touche la bonne réponse",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -16434,7 +16679,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -16462,7 +16707,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -16486,10 +16731,19 @@
                                                 }
                                             },
                                             {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Etape 3/5 : second défi",
+                                                    "content": "Touche la bonne réponse",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -17120,16 +17374,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous devant le “Gardien de tombe”",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous devant le “Gardien de tombe”",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -17228,16 +17501,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous devant le “Gardien de tombe”",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous devant le “Gardien de tombe”",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -17325,16 +17617,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous devant le “Gardien de tombe”",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous devant le “Gardien de tombe”",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -17422,16 +17733,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous devant le “Gardien de tombe”",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous devant le “Gardien de tombe”",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -17519,16 +17849,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Rendez-vous devant le “Gardien de tombe”",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Rendez-vous devant le “Gardien de tombe”",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -18845,7 +19194,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -18873,7 +19222,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -18897,10 +19246,19 @@
                                                 }
                                             },
                                             {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Etape 4/5 : premier défi",
+                                                    "content": "Touche la bonne réponse",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -19353,7 +19711,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -19381,7 +19739,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -19405,10 +19763,19 @@
                                                 }
                                             },
                                             {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Etape 4/5 : premier défi",
+                                                    "content": "Touche la bonne réponse",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -21085,30 +21452,49 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
-                                    "id": "InfoText",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Défi n°4",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255",
-                                        "listeners": [
+                                        "children": [
                                             {
-                                                "type": "DropBad",
+                                                "type": "Animation",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "La pièce d'armure a été mal placée renvoyez en une!"
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
+                                                    "anchor": 8,
+                                                    "height": 80
                                                 }
                                             },
                                             {
-                                                "type": "DropGood",
+                                                "type": "Text",
+                                                "id": "InfoText",
                                                 "params": {
-                                                    "callback": "SetText",
-                                                    "arg": "Le gardien retrouve son armure grace à toi. Continue comme ca!"
+                                                    "content": "Glisse les éléments sur la zone de partage",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255",
+                                                    "listeners": [
+                                                        {
+                                                            "type": "DropBad",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "La pièce d'armure a été mal placée renvoyez en une!"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "DropGood",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "Le gardien retrouve son armure grace à toi. Continue comme ca!"
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
@@ -21999,8 +22385,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -22012,7 +22398,7 @@
                                                 "type": "Text",
                                                 "id": "InfoText",
                                                 "params": {
-                                                    "content": "Défi n°4",
+                                                    "content": "Ancre les éléments reçus sur le personnage",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
@@ -22655,16 +23041,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Placez-vous devant le Grand Bouddha",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Placez-vous devant le Grand Bouddha",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -22763,16 +23168,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Placez-vous devant le Grand Bouddha",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Placez-vous devant le Grand Bouddha",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -22860,16 +23284,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Placez-vous devant le Grand Bouddha",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Placez-vous devant le Grand Bouddha",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -22957,16 +23400,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Placez­vous devant le grand Bouddha",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Placez­vous devant le grand Bouddha",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -23054,16 +23516,35 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Place-toi devant le grand Bouddha",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/go.plist",
+                                                    "sheet": "ui/animations/go.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Place-toi devant le grand Bouddha",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -24873,16 +25354,60 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Voila une belle photo, Tu pourras la récupérer plus tard en souvenir de ton voyage!",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/wait.plist",
+                                                    "sheet": "ui/animations/wait.png",
+                                                    "anchor": 8,
+                                                    "height": 80,
+                                                    "listeners": [
+                                                        {
+                                                            "type": "Validate",
+                                                            "params": {
+                                                                "callback": "Show",
+                                                                "arg": false
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Init",
+                                                            "params": {
+                                                                "callback": "Show",
+                                                                "arg": true
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "params": {
+                                                    "content": "Patiente le temps de recevoir la photo",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255",
+                                                    "listeners": [
+                                                        {
+                                                            "type": "Validate",
+                                                            "params": {
+                                                                "callback": "SetText",
+                                                                "arg": "Voila une belle photo, Tu pourras la récupérer plus tard en souvenir de ton voyage!"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -26206,17 +26731,36 @@
                             "y": 0,
                             "children": [
                                 {
-                                    "type": "Text",
-                                    "id": "InfoText",
+                                    "type": "Group",
                                     "params": {
-                                        "content": "Etape 5/5 second défi",
-                                        "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                        "fontSize": 20,
-                                        "textAlign": "center",
+                                        "anchor": 0,
                                         "width": 60,
                                         "height": 100,
-                                        "anchor": 0,
-                                        "color": "0,0,0,255"
+                                        "children": [
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/listen.plist",
+                                                    "sheet": "ui/animations/listen.png",
+                                                    "anchor": 8,
+                                                    "height": 80
+                                                }
+                                            },
+                                            {
+                                                "type": "Text",
+                                                "id": "InfoText",
+                                                "params": {
+                                                    "content": "Ecoute ton partenaire",
+                                                    "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
+                                                    "fontSize": 20,
+                                                    "textAlign": "center",
+                                                    "width": 60,
+                                                    "height": 100,
+                                                    "anchor": 0,
+                                                    "color": "0,0,0,255"
+                                                }
+                                            }
+                                        ]
                                     }
                                 }
                             ]
@@ -26661,7 +27205,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -26689,7 +27233,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -26710,6 +27254,15 @@
                                                             }
                                                         }
                                                     ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
                                                 }
                                             },
                                             {
@@ -27152,7 +27705,7 @@
                                                 "id": "SuccessSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_bonne_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -27180,7 +27733,7 @@
                                                 "id": "FailSmile",
                                                 "params": {
                                                     "source": "ui/Assets/PNG/picto_mauvaise_reponse.png",
-                                                    "anchor": 8,
+                                                    "anchor": 4,
                                                     "width": 0,
                                                     "height": 80,
                                                     "x": 0,
@@ -27201,6 +27754,15 @@
                                                             }
                                                         }
                                                     ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Animation",
+                                                "params": {
+                                                    "animation": "ui/animations/touch.plist",
+                                                    "sheet": "ui/animations/touch.png",
+                                                    "anchor": 8,
+                                                    "height": 80
                                                 }
                                             },
                                             {
