@@ -3036,6 +3036,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -3043,7 +3045,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -6761,7 +6766,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -7366,7 +7374,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -8032,6 +8043,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -8039,7 +8052,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -8160,6 +8176,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -8167,7 +8185,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -9301,7 +9322,10 @@
                                                     "animation": "ui/animations/notemusique.plist",
                                                     "sheet": "ui/animations/notemusique.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -9310,7 +9334,10 @@
                                                     "animation": "ui/animations/move.plist",
                                                     "sheet": "ui/animations/move.png",
                                                     "anchor": 4,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -9871,7 +9898,10 @@
                                                     "animation": "ui/animations/notemusique.plist",
                                                     "sheet": "ui/animations/notemusique.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -9880,7 +9910,10 @@
                                                     "animation": "ui/animations/move.plist",
                                                     "sheet": "ui/animations/move.png",
                                                     "anchor": 4,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -11215,7 +11248,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -11783,7 +11819,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -12449,6 +12488,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -12456,7 +12497,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -12577,6 +12621,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -12584,7 +12630,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -14410,6 +14459,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -14417,7 +14468,10 @@
                                                     "animation": "ui/animations/move.plist",
                                                     "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -15134,6 +15188,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -15141,7 +15197,10 @@
                                                     "animation": "ui/animations/move.plist",
                                                     "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -16169,7 +16228,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -16737,7 +16799,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -17380,6 +17445,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -17387,7 +17454,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -17507,6 +17577,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -17514,7 +17586,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -17623,6 +17698,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -17630,7 +17707,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -17739,6 +17819,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -17746,7 +17828,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -17855,6 +17940,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -17862,7 +17949,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -19252,7 +19342,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -19769,7 +19862,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -21458,6 +21554,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -21465,7 +21563,10 @@
                                                     "animation": "ui/animations/move.plist",
                                                     "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -21476,7 +21577,7 @@
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
-                                                    "width": 60,
+                                                    "width": 70,
                                                     "height": 100,
                                                     "anchor": 0,
                                                     "color": "0,0,0,255",
@@ -22401,7 +22502,7 @@
                                                 "params": {
                                                     "content": "Ancre les éléments reçus sur le personnage",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
-                                                    "fontSize": 24,
+                                                    "fontSize": 20,
                                                     "textAlign": "center",
                                                     "width": 80,
                                                     "height": 100,
@@ -23047,6 +23148,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -23054,7 +23157,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -23174,6 +23280,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -23181,7 +23289,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -23290,6 +23401,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -23297,7 +23410,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -23406,6 +23522,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -23413,7 +23531,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -23522,6 +23643,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -23529,7 +23652,10 @@
                                                     "animation": "ui/animations/go.plist",
                                                     "sheet": "ui/animations/go.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -25360,6 +25486,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -25367,20 +25495,23 @@
                                                     "animation": "ui/animations/wait.plist",
                                                     "sheet": "ui/animations/wait.png",
                                                     "anchor": 8,
+                                                    "width": 0,
                                                     "height": 80,
+                                                    "x": 0,
+                                                    "y": 0,
                                                     "listeners": [
-                                                        {
-                                                            "type": "Validate",
-                                                            "params": {
-                                                                "callback": "Show",
-                                                                "arg": false
-                                                            }
-                                                        },
                                                         {
                                                             "type": "Init",
                                                             "params": {
                                                                 "callback": "Show",
                                                                 "arg": true
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Validate",
+                                                            "params": {
+                                                                "callback": "Show",
+                                                                "arg": false
                                                             }
                                                         }
                                                     ]
@@ -26736,6 +26867,8 @@
                                         "anchor": 0,
                                         "width": 60,
                                         "height": 100,
+                                        "x": 0,
+                                        "y": 0,
                                         "children": [
                                             {
                                                 "type": "Animation",
@@ -26743,7 +26876,10 @@
                                                     "animation": "ui/animations/listen.plist",
                                                     "sheet": "ui/animations/listen.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -27261,7 +27397,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
@@ -27761,7 +27900,10 @@
                                                     "animation": "ui/animations/touch.plist",
                                                     "sheet": "ui/animations/touch.png",
                                                     "anchor": 8,
-                                                    "height": 80
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
                                                 }
                                             },
                                             {
