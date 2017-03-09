@@ -4659,9 +4659,9 @@
                                             },
                                             {
                                                 "type": "Text",
-                                                "id": "InfoText",
+                                                "id": "InfoText1",
                                                 "params": {
-                                                    "content": "Glisse et dépose les éléments",
+                                                    "content": "Glisse et dépose les éléments dans la zone de partage",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -4936,14 +4936,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-1-e-player1:DropGood:InfoText"
+                                                    "arg": "screen-1-e-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-1-e-player2:DropGood:InfoText"
+                                                    "arg": "screen-1-e-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
@@ -4963,14 +4963,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-1-e-player1:DropBad:InfoText"
+                                                    "arg": "screen-1-e-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-1-e-player2:DropBad:InfoText"
+                                                    "arg": "screen-1-e-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
@@ -5024,14 +5024,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-1-e-player2:DropGood:InfoText"
+                                                    "arg": "screen-1-e-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-1-e-player1:DropGood:InfoText"
+                                                    "arg": "screen-1-e-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
@@ -5051,14 +5051,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-1-e-player2:DropBad:InfoText"
+                                                    "arg": "screen-1-e-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-1-e-player1:DropBad:InfoText"
+                                                    "arg": "screen-1-e-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
@@ -5112,14 +5112,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-1-e-player2:DropGood:InfoText"
+                                                    "arg": "screen-1-e-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-1-e-player1:DropGood:InfoText"
+                                                    "arg": "screen-1-e-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
@@ -5139,14 +5139,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-1-e-player2:DropBad:InfoText"
+                                                    "arg": "screen-1-e-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-1-e-player1:DropBad:InfoText"
+                                                    "arg": "screen-1-e-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
@@ -5200,14 +5200,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-1-e-player2:DropGood:InfoText"
+                                                    "arg": "screen-1-e-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-1-e-player1:DropGood:InfoText"
+                                                    "arg": "screen-1-e-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
@@ -5227,14 +5227,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-1-e-player2:DropBad:InfoText"
+                                                    "arg": "screen-1-e-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-1-e-player1:DropBad:InfoText"
+                                                    "arg": "screen-1-e-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
@@ -5309,9 +5309,9 @@
                                             },
                                             {
                                                 "type": "Text",
-                                                "id": "InfoText",
+                                                "id": "InfoText2",
                                                 "params": {
-                                                    "content": "Glisse et dépose les éléments",
+                                                    "content": "Associe les éléments reçus aux animaux",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -9307,8 +9307,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 4,
                                                     "height": 80
                                                 }
@@ -9877,8 +9877,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 4,
                                                     "height": 80
                                                 }
@@ -9914,6 +9914,7 @@
                             "children": [
                                 {
                                     "type": "Text",
+                                    "id": "InfoText",
                                     "params": {
                                         "content": "Associe les sons avec les objets\nPlusieurs sont visibles dans la salle Zhou",
                                         "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
@@ -14421,7 +14422,7 @@
                                             },
                                             {
                                                 "type": "Text",
-                                                "id": "InfoText",
+                                                "id": "InfoText1",
                                                 "params": {
                                                     "content": "Glisse une photo dans la zone de partage",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
@@ -14780,14 +14781,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
+                                                    "arg": "screen-3-c-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
+                                                    "arg": "screen-3-c-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
@@ -14801,14 +14802,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
+                                                    "arg": "screen-3-c-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
+                                                    "arg": "screen-3-c-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
@@ -14869,14 +14870,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
+                                                    "arg": "screen-3-c-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
+                                                    "arg": "screen-3-c-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
@@ -14890,7 +14891,7 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
+                                                    "arg": "screen-3-c-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
@@ -14904,7 +14905,7 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
+                                                    "arg": "screen-3-c-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
@@ -14958,14 +14959,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
+                                                    "arg": "screen-3-c-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
+                                                    "arg": "screen-3-c-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
@@ -14979,14 +14980,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
+                                                    "arg": "screen-3-c-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
+                                                    "arg": "screen-3-c-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
@@ -15040,14 +15041,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropGood:InfoText"
+                                                    "arg": "screen-3-c-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropGood:InfoText"
+                                                    "arg": "screen-3-c-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
@@ -15068,14 +15069,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-3-c-player1:DropBad:InfoText"
+                                                    "arg": "screen-3-c-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-3-c-player2:DropBad:InfoText"
+                                                    "arg": "screen-3-c-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
@@ -15145,7 +15146,7 @@
                                             },
                                             {
                                                 "type": "Text",
-                                                "id": "InfoText",
+                                                "id": "InfoText2",
                                                 "params": {
                                                     "content": "Ancre la photo reçue dans le bon emplacement",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
@@ -21469,7 +21470,7 @@
                                             },
                                             {
                                                 "type": "Text",
-                                                "id": "InfoText",
+                                                "id": "InfoText1",
                                                 "params": {
                                                     "content": "Glisse les éléments sur la zone de partage",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
@@ -21935,14 +21936,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
@@ -21956,14 +21957,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
@@ -22023,14 +22024,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
@@ -22044,14 +22045,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
@@ -22111,14 +22112,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
@@ -22132,14 +22133,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
@@ -22199,14 +22200,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
@@ -22220,14 +22221,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
@@ -22287,14 +22288,14 @@
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player2:DropGood:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "Anchored",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropGood:InfoText"
+                                                    "arg": "screen-4-i-player1:DropGood:InfoText1"
                                                 }
                                             },
                                             {
@@ -22308,14 +22309,14 @@
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "LocalMessage",
-                                                    "arg": "screen-4-i-player2:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player2:DropBad:InfoText2"
                                                 }
                                             },
                                             {
                                                 "type": "AnchoredFailed",
                                                 "params": {
                                                     "callback": "SendMessage",
-                                                    "arg": "screen-4-i-player1:DropBad:InfoText"
+                                                    "arg": "screen-4-i-player1:DropBad:InfoText1"
                                                 }
                                             },
                                             {
@@ -22396,7 +22397,7 @@
                                             },
                                             {
                                                 "type": "Text",
-                                                "id": "InfoText",
+                                                "id": "InfoText2",
                                                 "params": {
                                                     "content": "Ancre les éléments reçus sur le personnage",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
@@ -26604,7 +26605,6 @@
                                             },
                                             {
                                                 "type": "Text",
-                                                "id": "InfoText",
                                                 "params": {
                                                     "content": "Gratte l'écran pour découvrir l'objet",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
@@ -26748,7 +26748,6 @@
                                             },
                                             {
                                                 "type": "Text",
-                                                "id": "InfoText",
                                                 "params": {
                                                     "content": "Ecoute ton partenaire",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
