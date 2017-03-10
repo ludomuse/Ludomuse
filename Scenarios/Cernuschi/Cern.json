@@ -25359,7 +25359,16 @@
                             "width": 0,
                             "height": 73,
                             "x": 0,
-                            "y": 0
+                            "y": 0,
+                            "listeners": [
+                                {
+                                    "type": "Display",
+                                    "params": {
+                                        "callback": "ValidateScene",
+                                        "arg": true
+                                    }
+                                }
+                            ]
                         }
                     },
                     {
@@ -25467,7 +25476,16 @@
                             "width": 0,
                             "height": 73,
                             "x": 0,
-                            "y": 0
+                            "y": 0,
+                            "listeners": [
+                                {
+                                    "type": "Display",
+                                    "params": {
+                                        "callback": "ValidateScene",
+                                        "arg": true
+                                    }
+                                }
+                            ]
                         }
                     },
                     {
