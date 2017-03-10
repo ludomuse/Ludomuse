@@ -14,7 +14,6 @@ SOURCE_FILES := $(wildcard ../../Classes/Engine/Source/*.cpp)
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp \
                    ../../Classes/Engine/Source/CKernel.cpp \
                    ../../Classes/Engine/Source/CNode.cpp \
                    ../../Classes/Engine/Source/CSequenceNode.cpp \
