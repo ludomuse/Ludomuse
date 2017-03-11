@@ -128,7 +128,6 @@ file(GLOB SOURCES Classes/Modules/Networking/linux/Source/*.cpp Classes/Modules/
 
 set(GAME_SRC
   Classes/AppDelegate.cpp
-  Classes/HelloWorldScene.cpp
   ${SOURCES}
   ${PLATFORM_SPECIFIC_SRC}
 )
@@ -138,7 +137,6 @@ file(GLOB INCLUDES Classes/Engine/Include/*.h Classes/Modules/Networking/linux/I
 
 set(GAME_HEADERS
   Classes/AppDelegate.h
-  Classes/HelloWorldScene.h
   ${INCLUDES}
   ${PLATFORM_SPECIFIC_HEADERS}
 )
