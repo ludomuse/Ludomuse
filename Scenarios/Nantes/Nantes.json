@@ -5124,9 +5124,9 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Questionnez votre patron sur l’origine des biscuits.",
+                                        "content": "Interrogez votre patron sur les premiers biscuits appelés biscuits de mer.",
                                         "source": "#default-font",
-                                        "fontSize": 24,
+                                        "fontSize": 26,
                                         "textAlign": "center",
                                         "width": 80,
                                         "height": 100,
@@ -5216,7 +5216,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Les premiers biscuits étaient fabriqués par les boulangers pour les marins. On les appelait des “biscuits de mer”",
+                                        "content": "Les premiers biscuits étaient fabriqués par les boulangers pour les marins. \nOn les appelait\ndes biscuits de mer.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -5334,9 +5334,9 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Selon vous, quels sont les ingrédients composant les biscuits de mer ? Envoyez les à votre patron en les glissant vers le biscuit.",
+                                        "content": "Quels sont les ingrédients composant les biscuits de mer ? ",
                                         "source": "#default-font",
-                                        "fontSize": 24,
+                                        "fontSize": 22,
                                         "textAlign": "center",
                                         "width": 80,
                                         "height": 100,
@@ -5452,7 +5452,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Récupère les ingrédients et glisse les dans le plat pour vérifier qu’ils étaient dans la recette des biscuits de mer.",
+                                        "content": "Récupère les ingrédients qui entrent dans la recette\ndes biscuits de mer.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -6413,7 +6413,7 @@
                                                 "type": "Text",
                                                 "id": "infoZone",
                                                 "params": {
-                                                    "content": "Donnez les bons ingrédients à Mr Louis en les faisant glisser dans la zone de droite.",
+                                                    "content": "Faites glisser les bons ingrédients\ndans la zone de gauche.",
                                                     "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -6543,7 +6543,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Félicitation, il s’agissait bien de l’eau et la farine. Pour en savoir plus, interroge Monsieur Louis.",
+                                        "content": "Félicitations, il s’agit bien\nde l’eau et la farine.\nPour en savoir plus,\ninterroge Monsieur Louis.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -6670,7 +6670,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Bravo ! Écoute l’explication pour renseigner ton ouvrier.",
+                                        "content": "Bravo ! Écoute l’explication avec ton ouvrière.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -6717,11 +6717,11 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Clique sur l’écran pour écouter l’explication de Pierre",
+                                                    "content": "Appuie sur l’écran pour écouter.",
                                                     "source": "#default-font",
-                                                    "fontSize": 24,
+                                                    "fontSize": 21,
                                                     "textAlign": "center",
-                                                    "width": 80,
+                                                    "width": 75,
                                                     "height": 100,
                                                     "anchor": 0,
                                                     "color": "0,0,0,255"
@@ -6757,7 +6757,7 @@
                                                 "params": {
                                                     "content": "Laisse écouter ton ouvrière sur ta tablette.",
                                                     "source": "#default-font",
-                                                    "fontSize": 24,
+                                                    "fontSize": 21,
                                                     "textAlign": "center",
                                                     "width": 80,
                                                     "height": 100,
@@ -6876,7 +6876,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Pour la prochaine étape de formation, vous allez devoir approchez vos tablettes l’une de l’autre.",
+                                        "content": "Pour la prochaine étape, approchez vos appareils \nl’un de l’autre.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -6994,7 +6994,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Pour la prochaine étape de formation, vous allez devoir approchez vos tablettes l’une de l’autre",
+                                        "content": "Pour la prochaine étape, approchez vos appareils \nl’un de l’autre.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -7340,9 +7340,9 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Bienvenue dans l’entreprise ! Monsieur Louis va vous présenter vos collègues.",
+                                        "content": "Monsieur Louis va vous présenter les employés de l'usine.",
                                         "source": "#default-font",
-                                        "fontSize": 24,
+                                        "fontSize": 29,
                                         "textAlign": "center",
                                         "width": 80,
                                         "height": 100,
@@ -7458,9 +7458,9 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Présente ses collègues à ton ouvrière.",
+                                        "content": "Présente les employés\nde l'usine\nà ton ouvrière.",
                                         "source": "#default-font",
-                                        "fontSize": 24,
+                                        "fontSize": 31,
                                         "textAlign": "center",
                                         "width": 80,
                                         "height": 100,
@@ -7768,11 +7768,11 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Faites glissez les éléments de la photo de vos collègues à Monsieur Louis.",
+                                        "content": "Approchez-vous des photos exposées.\nPuis faites glisser les détails sur la partie de gauche.",
                                         "source": "#default-font",
-                                        "fontSize": 24,
+                                        "fontSize": 19,
                                         "textAlign": "center",
-                                        "width": 60,
+                                        "width": 70,
                                         "height": 100,
                                         "anchor": 0,
                                         "color": "0,0,0,255"
@@ -8745,9 +8745,9 @@
                                                         {
                                                             "type": "Text",
                                                             "params": {
-                                                                "content": "Recompose la photo à partir des éléments transmis par ton ouvrière.",
+                                                                "content": "Recompose la photo à partir des détails envoyés.",
                                                                 "source": "#default-font",
-                                                                "fontSize": 24,
+                                                                "fontSize": 21,
                                                                 "textAlign": "center",
                                                                 "width": 100,
                                                                 "height": 0,
@@ -9161,7 +9161,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Laissez Monsieur Louis écouter sur votre tablette.",
+                                        "content": "Écoutez l'explication \navec Monsieur Louis.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -9419,7 +9419,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Rapproche-toi pour écouter sur la tablette de ton ouvrière.",
+                                        "content": "Rapproche-toi pour écouter\nla tablette de ton ouvrière.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -9546,9 +9546,9 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Vous allez maintenant découvrir l’usine grâce à la grande maquette présente dans la salle",
+                                        "content": "Approchez-vous de la grande maquette de l'usine.",
                                         "source": "#default-font",
-                                        "fontSize": 24,
+                                        "fontSize": 36,
                                         "textAlign": "center",
                                         "width": 80,
                                         "height": 100,
@@ -9664,9 +9664,9 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Maintenant, fait découvrir l’usine à ton ouvrière à l’aide de la maquette présente dans la salle.",
+                                        "content": "Tu vas maintenant visiter l’usine avec ton ouvrière\nà l’aide de la maquette.",
                                         "source": "#default-font",
-                                        "fontSize": 24,
+                                        "fontSize": 27,
                                         "textAlign": "center",
                                         "width": 80,
                                         "height": 100,
@@ -9767,11 +9767,11 @@
                                                 "type": "Text",
                                                 "id": "infoZone",
                                                 "params": {
-                                                    "content": "Repérez sur la maquette cette tour encore existante aujourd’hui.",
+                                                    "content": "Avec l’aide de Marie, appuie sur la tour\nencore présente aujourd’hui.",
                                                     "source": "#default-font",
-                                                    "fontSize": 20,
+                                                    "fontSize": 19,
                                                     "textAlign": "center",
-                                                    "width": 80,
+                                                    "width": 100,
                                                     "height": 100,
                                                     "anchor": 0,
                                                     "color": "0,0,0,255",
@@ -10099,11 +10099,11 @@
                                                 "type": "Text",
                                                 "id": "infoZone",
                                                 "params": {
-                                                    "content": "Avec l’aide de ton ouvrière, clique sur la tour encore existante aujourd’hui.",
+                                                    "content": "Avec l’aide de Marie, appuie sur la tour\nencore présente aujourd’hui.",
                                                     "source": "#default-font",
-                                                    "fontSize": 20,
+                                                    "fontSize": 19,
                                                     "textAlign": "center",
-                                                    "width": 80,
+                                                    "width": 100,
                                                     "height": 100,
                                                     "anchor": 0,
                                                     "color": "0,0,0,255",
@@ -10225,11 +10225,11 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Cette maquette a été fabriquée par Paul Duchesne. Pour en savoir plus aprochez-vous de Monsieur Louis.",
+                                        "content": "Cette maquette a été fabriquée\npar Paul Duchesne.",
                                         "source": "#default-font",
-                                        "fontSize": 20,
+                                        "fontSize": 31,
                                         "textAlign": "center",
-                                        "width": 60,
+                                        "width": 88,
                                         "height": 100,
                                         "anchor": 0,
                                         "color": ""
@@ -10251,9 +10251,9 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Raprochez-vous pour écouter sur la tablette de Monsieur Louis.",
+                                        "content": "Raprochez-vous pour écouter sur l'appareil de Monsieur Louis.",
                                         "source": "#default-font",
-                                        "fontSize": 20,
+                                        "fontSize": 23,
                                         "textAlign": "center",
                                         "width": 60,
                                         "height": 100,
@@ -10369,9 +10369,9 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Cette maquette a longtemps servi à faire la promotion de l’entreprise. Cliquez sur l’écran pour en savoir plus.",
+                                        "content": "Cette maquette a longtemps servi à faire la promotion\nde l’entreprise. \nAppuie sur l’écran\npour en savoir plus.",
                                         "source": "#default-font",
-                                        "fontSize": 20,
+                                        "fontSize": 24,
                                         "textAlign": "center",
                                         "width": 90,
                                         "height": 100,
@@ -10425,9 +10425,9 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Laisse ton ouvrière écouter sur ta tablette.",
+                                                    "content": "Écoute sur ta tablette\navec ton ouvrière.",
                                                     "source": "#default-font",
-                                                    "fontSize": 20,
+                                                    "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 80,
                                                     "height": 100,
@@ -10547,7 +10547,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "A l'aide de la photo contemporaine qui apparait sur votre écran. Répondez à la question de Monsieur Louis.",
+                                        "content": "À l'aide de la photo qui apparait sur votre écran, répondez à la question de Monsieur Louis.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -10573,7 +10573,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Aidez-vous aussi de la maquette d’époque.",
+                                        "content": "Comparez avec la maquette.",
                                         "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
@@ -10691,11 +10691,11 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Demandez à votre ouvrière quels sont les deux éléments qui ont disparu aujourd’hui",
+                                        "content": "Demande à ton ouvrière quels sont \nles deux éléments qui ont disparu aujourd’hui",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
-                                        "width": 60,
+                                        "width": 70,
                                         "height": 100,
                                         "anchor": 0,
                                         "color": "0,0,0,255"
@@ -11046,7 +11046,7 @@
                                                 "params": {
                                                     "content": "Regarde aussi la photo qui apparaît sur l’autre tablette.",
                                                     "source": "#default-font",
-                                                    "fontSize": 20,
+                                                    "fontSize": 22,
                                                     "textAlign": "center",
                                                     "width": 80,
                                                     "height": 100,
@@ -11139,11 +11139,11 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Vous allez maintenant découvrir les différents ateliers, soyez attentif !",
+                                        "content": "Découvrez maintenant\nles différents ateliers\navec Monsieur Louis.",
                                         "source": "#default-font",
-                                        "fontSize": 24,
+                                        "fontSize": 31,
                                         "textAlign": "center",
-                                        "width": 60,
+                                        "width": 88,
                                         "height": 100,
                                         "anchor": 0,
                                         "color": ""
@@ -11957,11 +11957,11 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Fait découvrir les différents ateliers à ton ouvrière en cliquant sur les étapes dans l’ordre.",
+                                                    "content": " Appuie sur chaque étape dans l’ordre.\nRegarde chaque image qui apparaît.",
                                                     "source": "#default-font",
-                                                    "fontSize": 20,
+                                                    "fontSize": 19,
                                                     "textAlign": "center",
-                                                    "width": 80,
+                                                    "width": 100,
                                                     "height": 100,
                                                     "anchor": 0,
                                                     "color": "0,0,0,255"
@@ -12151,7 +12151,7 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Mise en boite des biscuits",
+                                                    "content": "Mise en boite\ndes biscuits",
                                                     "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
@@ -12223,9 +12223,9 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Préparation des caisses en bois pour les expéditions",
+                                                    "content": "Fabrication des caisses en bois pour les expéditions",
                                                     "source": "#default-font",
-                                                    "fontSize": 22,
+                                                    "fontSize": 19,
                                                     "textAlign": "center",
                                                     "width": 100,
                                                     "height": 100,
@@ -12295,7 +12295,7 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Préparation des pâtes",
+                                                    "content": "Mélange des ingrédients",
                                                     "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
@@ -12417,9 +12417,9 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Passez à Monsieur Louis les étapes dans le bon ordre.",
+                                                    "content": "Passez à Monsieur Louis\nles étapes dans le bon ordre.",
                                                     "source": "#default-font",
-                                                    "fontSize": 24,
+                                                    "fontSize": 23,
                                                     "textAlign": "center",
                                                     "width": 80,
                                                     "height": 100,
@@ -13054,7 +13054,7 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Vérifie que les étapes sont dans le bon ordre.",
+                                                    "content": "Mets les étapes\n dans le bon ordre.",
                                                     "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
@@ -13175,7 +13175,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Félicitation, continuons la visite de l’usine !",
+                                        "content": "Félicitations ! Continuons\nla visite de l’usine.",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -13267,7 +13267,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Fait maintenant découvrir à ton ouvrière dans quels bâtiments se situaient ces ateliers !",
+                                        "content": "Fais maintenant découvrir\nà ton ouvrière dans quels bâtiments se situaient\nles ateliers !",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -13969,7 +13969,7 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Cherchez sur la maquette, les bâtiments des 4 ateliers.",
+                                                    "content": "Retrouvez sur la maquette\nles bâtiments des 4 ateliers.",
                                                     "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
@@ -14164,7 +14164,7 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Mise en boite des biscuits",
+                                                    "content": "Mise en boite\ndes biscuits",
                                                     "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
@@ -14238,7 +14238,7 @@
                                                 "params": {
                                                     "content": "Préparation des caisses en bois pour les expéditions",
                                                     "source": "#default-font",
-                                                    "fontSize": 22,
+                                                    "fontSize": 19,
                                                     "textAlign": "center",
                                                     "width": 100,
                                                     "height": 100,
@@ -14643,7 +14643,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Bravo, rends-toi maintenant à la salle 24 !",
+                                        "content": "Bravo, rends-toi maintenant\nà la salle 24 !",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
