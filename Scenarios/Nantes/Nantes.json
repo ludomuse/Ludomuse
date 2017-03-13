@@ -2226,7 +2226,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Texte d'information",
+                                        "content": "Rendez vous au départ du jeu.",
                                         "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
@@ -2360,7 +2360,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Texte d'information",
+                                        "content": "Rendez vous au départ du jeu.",
                                         "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
@@ -2494,7 +2494,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Texte d'information",
+                                        "content": "Rendez vous au départ du jeu.",
                                         "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
@@ -2628,7 +2628,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Texte d'information",
+                                        "content": "Rendez vous au départ du jeu.",
                                         "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
