@@ -18,6 +18,10 @@
                 "screen-sex",
                 "screen-playerid",
                 "screen-manual",
+                "screen-0-a",
+                "screen-0-b",
+                "screen-0-c",
+                "screen-0-d",
                 "screen-1-b-player1",
                 "screen-1-c-player1",
                 "screen-1-d-player1",
@@ -68,6 +72,10 @@
                 "screen-sex",
                 "screen-playerid",
                 "screen-manual",
+                "screen-0-a",
+                "screen-0-b",
+                "screen-0-c",
+                "screen-0-d",
                 "screen-1-b-player2",
                 "screen-1-c-player2",
                 "screen-1-d-player2",
@@ -2095,6 +2103,542 @@
                             "height": 100,
                             "anchor": 0,
                             "color": ""
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
+                "scene": "screen-0-a",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "res_templ/ui/nav-5.png",
+                            "selected": "res_templ/ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "JOUER",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "res_templ/ui/nav-7.png",
+                            "selected": "res_templ/ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "#default-background",
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/photo_guidage_Screen0A.jpg",
+                            "anchor": 8,
+                            "width": 50,
+                            "height": 60,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/cache-noir-70.png",
+                            "anchor": 4,
+                            "width": 50,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Suivez la flèche pour vous placer au point de départ du jeu.",
+                                        "source": "#default-font",
+                                        "fontSize": 24,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 90,
+                                        "anchor": 0,
+                                        "color": "255,255,255,255"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Texte d'information",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
+                "scene": "screen-0-b",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "res_templ/ui/nav-5.png",
+                            "selected": "res_templ/ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "JOUER",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "res_templ/ui/nav-7.png",
+                            "selected": "res_templ/ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "#default-background",
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/photo_guidage_Screen0B.jpg",
+                            "anchor": 8,
+                            "width": 50,
+                            "height": 60,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/cache-noir-70.png",
+                            "anchor": 4,
+                            "width": 50,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Suivez la flèche pour vous placer au point de départ du jeu.",
+                                        "source": "#default-font",
+                                        "fontSize": 24,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 90,
+                                        "anchor": 0,
+                                        "color": "255,255,255,255"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Texte d'information",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
+                "scene": "screen-0-c",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "res_templ/ui/nav-5.png",
+                            "selected": "res_templ/ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "JOUER",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "res_templ/ui/nav-7.png",
+                            "selected": "res_templ/ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "#default-background",
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/photo_guidage_Screen0C.jpg",
+                            "anchor": 8,
+                            "width": 50,
+                            "height": 60,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/cache-noir-70.png",
+                            "anchor": 4,
+                            "width": 50,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Suivez la flèche pour vous placer au point de départ du jeu.",
+                                        "source": "#default-font",
+                                        "fontSize": 24,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 90,
+                                        "anchor": 0,
+                                        "color": "255,255,255,255"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Texte d'information",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
+                "scene": "screen-0-d",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "res_templ/ui/nav-5.png",
+                            "selected": "res_templ/ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "JOUER",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "res_templ/ui/nav-7.png",
+                            "selected": "res_templ/ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "#default-background",
+                            "anchor": 0,
+                            "width": 100,
+                            "height": 100,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/Photo_guidage_Screen1D.jpg",
+                            "anchor": 8,
+                            "width": 50,
+                            "height": 60,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/cache-noir-70.png",
+                            "anchor": 4,
+                            "width": 50,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Suivez la flèche pour vous placer au point de départ du jeu.",
+                                        "source": "#default-font",
+                                        "fontSize": 24,
+                                        "textAlign": "center",
+                                        "width": 80,
+                                        "height": 90,
+                                        "anchor": 0,
+                                        "color": "255,255,255,255"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "res_templ/ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Texte d'information",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
                         }
                     }
                 ],
