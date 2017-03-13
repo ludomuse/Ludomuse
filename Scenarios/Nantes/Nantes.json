@@ -2645,9 +2645,9 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Escalier1.JPG",
+                            "source": "cache/Photo_guidage_Screen1D.jpg",
                             "anchor": 8,
-                            "width": 0,
+                            "width": 50,
                             "height": 100,
                             "x": 0,
                             "y": 0
@@ -2763,9 +2763,9 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Escalier1.JPG",
+                            "source": "cache/Photo_guidage_Screen1D.jpg",
                             "anchor": 8,
-                            "width": 0,
+                            "width": 50,
                             "height": 100,
                             "x": 0,
                             "y": 0
@@ -2881,7 +2881,7 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Escalier2.JPG",
+                            "source": "cache/Photo_guidage_Screen1E.jpg",
                             "anchor": 8,
                             "width": 0,
                             "height": 100,
@@ -2999,7 +2999,7 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Escalier2.JPG",
+                            "source": "cache/Photo_guidage_Screen1E.jpg",
                             "anchor": 8,
                             "width": 0,
                             "height": 100,
@@ -3117,7 +3117,7 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Escalier3.JPG",
+                            "source": "cache/Photo_guidage_Screen1F.jpg",
                             "anchor": 8,
                             "width": 0,
                             "height": 100,
@@ -3235,7 +3235,7 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Escalier3.JPG",
+                            "source": "cache/Photo_guidage_Screen1F.jpg",
                             "anchor": 8,
                             "width": 0,
                             "height": 100,
@@ -3353,7 +3353,7 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Escalier4.JPG",
+                            "source": "cache/photo_guidage_Screen1G.jpg",
                             "anchor": 8,
                             "width": 0,
                             "height": 100,
@@ -3471,7 +3471,7 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Escalier4.JPG",
+                            "source": "cache/photo_guidage_Screen1G.jpg",
                             "anchor": 8,
                             "width": 0,
                             "height": 100,
