@@ -11018,6 +11018,7 @@
                 "scene": "screen-4-d-player1",
                 "dashboardTrigger": true,
                 "sync": true,
+                "validSound": "cache/audio/xylophone.mp3",
                 "navigation": [
                     {
                         "type": "Nav",
@@ -11163,6 +11164,7 @@
                 "scene": "screen-4-d-player2",
                 "dashboardTrigger": true,
                 "sync": true,
+                "validSound": "cache/audio/xylophone.mp3",
                 "navigation": [
                     {
                         "type": "Nav",
