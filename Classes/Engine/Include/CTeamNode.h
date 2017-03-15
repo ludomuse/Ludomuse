@@ -46,6 +46,9 @@ class CTeamNode : public CGroupNode
   void UpdateActions(const std::array<std::string, M_NB_TASK / 2>& a_rActions);
   void TasksFinished();
 
+  TTasksArray GetTasks();
+  void SetTasks(TTasksArray a_oTasks);
+
   virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
 
 private:

@@ -5,6 +5,7 @@
 #include "CNode.h"
 #include "CLabelNode.h"
 #include "CSpriteNode.h"
+#include "CTeamNode.h"
 
 
 #include <QObject>
@@ -25,6 +26,7 @@ public:
 signals:
     void labelClicked(LM::CLabelNode*);
     void spriteClicked(LM::CSpriteNode*);
+    void teamNodeClicked(LM::CTeamNode*);
 
 protected:
     virtual Result ProcessNodeTopDown(CNode* a_pNode) override;

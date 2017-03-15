@@ -207,6 +207,17 @@ void CTeamNode::TasksFinished()
 }
 
 
+TTasksArray CTeamNode::GetTasks()
+{
+    return m_oTasksArray;
+}
+
+void CTeamNode::SetTasks(TTasksArray a_oTasks)
+{
+    m_oTasksArray = a_oTasks;
+}
+
+
 // send new task to remote player 
 void CTeamNode::SendTask(const std::string& a_rNextTask)
 {
