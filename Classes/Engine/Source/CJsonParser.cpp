@@ -6,6 +6,7 @@
 
 #include "../Include/CValidateSceneVisitor.h"
 #include "../Include/CMacroManager.h"
+#include "CProjectManager.h"
 
 #include <QDebug>
 #include <QFileInfo>
@@ -104,15 +105,7 @@ void CJsonParser::BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& 
     std::string sJsonString = cocos2d::FileUtils::getInstance()->getStringFromFile(a_sFileName);
 
     // update path
-    std::string fullPath = cocos2d::FileUtils::getInstance()->fullPathForFilename(a_sFileName);
-    int lastSlash = fullPath.find_last_of("/");
-    while(lastSlash == fullPath.size()-1)
-    {
-        fullPath = fullPath.substr(0, lastSlash);
-        lastSlash = fullPath.find_last_of("/");
-    }
-    fullPath = fullPath.substr(0, lastSlash+1); // +1 to save the last slash
-    m_sBasePath = fullPath;
+    m_sBasePath = CProjectManager::Instance()->GetProjectPath();
     CSceneNode* tempNode = dynamic_cast<CSceneNode*>(a_pNewScene);
     if(tempNode)
     {
