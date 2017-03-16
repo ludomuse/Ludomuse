@@ -768,7 +768,7 @@
             <key>size</key>
             <string>{1000,500}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:2a1a4b3afda9c0336d7ffe1a0c31d0f1:55e9f368ad3d00c6256f09f2f8eb9da9:7ae83fff139d24398c5eff0c51b232f5$</string>
+            <string>$TexturePacker:SmartUpdate:90fd910bf6f0e35f011c769899c33ae7:d7878c9d56cc7c7d742b8f81a7a50dc1:7ae83fff139d24398c5eff0c51b232f5$</string>
             <key>textureFileName</key>
             <string>move.png</string>
         </dict>
