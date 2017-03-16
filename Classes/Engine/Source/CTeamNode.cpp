@@ -217,6 +217,16 @@ void CTeamNode::SetTasks(TTasksArray a_oTasks)
     m_oTasksArray = a_oTasks;
 }
 
+void CTeamNode::SetTask(int a_iIndex, const std::string &a_rTask)
+{
+    m_oTasksArray[a_iIndex][0] = a_rTask;
+}
+
+void CTeamNode::SetAction(int a_iIndex, const std::string &a_rAction)
+{
+    m_oTasksArray[a_iIndex][1] = a_rAction;
+}
+
 
 // send new task to remote player 
 void CTeamNode::SendTask(const std::string& a_rNextTask)

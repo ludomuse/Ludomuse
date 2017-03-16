@@ -37,23 +37,6 @@ bool CEditorFindEntityTouchVisitor::SetVisitor(cocos2d::Event* a_pEvent, cocos2d
 
 Result CEditorFindEntityTouchVisitor::ProcessNodeTopDown(CNode* a_pNode)
 {
-    CEntityNode* pEntity = dynamic_cast<CEntityNode*>(a_pNode);
-    if (pEntity)
-    {
-
-        cocos2d::Vec2 oTouchLocation = m_pTouch->getStartLocation();
-        cocos2d::Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-        if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
-        {
-            CTeamNode* pTeam = dynamic_cast<CTeamNode*>(pEntity);
-            if (pTeam && !m_bStopVisiting)
-            {
-                m_bStopVisiting = true;
-                emit teamNodeClicked(pTeam);
-                return RESULT_STOP;
-            }
-        }
-    }
     return RESULT_CONTINUE;
 }
 
@@ -87,6 +70,13 @@ Result CEditorFindEntityTouchVisitor::ProcessNodeBottomUp(CNode* a_pNode)
 //                m_pEntityToFind.Set(pSprite);
                 m_bStopVisiting = true;
                 emit spriteClicked(pSprite);
+                return RESULT_STOP;
+            }
+            CTeamNode* pTeam = dynamic_cast<CTeamNode*>(pEntity);
+            if (pTeam && !m_bStopVisiting)
+            {
+                m_bStopVisiting = true;
+                emit teamNodeClicked(pTeam);
                 return RESULT_STOP;
             }
         }
