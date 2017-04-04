@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <fstream>
+#include <sstream>
 
 #define  LOG_TAG    "main"
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
@@ -44,8 +46,16 @@ void cocos_android_app_init(JNIEnv* env) {
         fflush(stdout);
         fflush(stderr);
         
+		std::ifstream infile("/sdcard/LudoMuse/LudoMuse.conf");
+		std::string line;
+		std::string filename = "/sdcard/LudoMuse/";
+		if (std::getline(infile, line))
+		{
+			std::stringstream ss(line);
+			filename += ss.str();
+		}
         
-	AppDelegate *pAppDelegate = new AppDelegate(false, "/sdcard/LudoMuse/main.json");
+		AppDelegate *pAppDelegate = new AppDelegate(false, filename);
 
         close(out);
         close(err);
