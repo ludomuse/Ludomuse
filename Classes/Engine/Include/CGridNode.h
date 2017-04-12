@@ -19,6 +19,9 @@ class CGridNode : public CGroupNode
   CGridNode(int a_iRows, int a_iCols, EAnchor a_eAnchor, int a_iWidth, int a_iHeight, int a_iXPosition, int a_iYPosition);
   virtual void Init() override;
   virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
+  void SetGrid(int a_iRows, int a_iCols);
+  int GetRowCount();
+  int GetColCount();
 
  private:
   virtual cocos2d::Size GetVisibleSize() override;

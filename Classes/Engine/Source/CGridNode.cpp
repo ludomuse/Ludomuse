@@ -19,6 +19,8 @@ namespace LM
 
 	void CGridNode::Init()
 	{
+        m_iColIndex = 0;
+        m_iRowIndex = 0;
 		// populate empty slots in the grid with placeholder groups
 		for (int iNbPlaceholders = m_iRows * m_iCols - m_vChildren.size();
 			iNbPlaceholders > 0;
@@ -31,11 +33,32 @@ namespace LM
 		CGroupNode::Init();
 	}
 
+    void CGridNode::SetGrid(int a_iRows, int a_iCols)
+    {
+        m_iRows = a_iRows;
+        m_iCols = a_iCols;
+        ON_CC_THREAD(LM::CGridNode::Update, this);
+    }
+
+    int CGridNode::GetRowCount()
+    {
+        return m_iRows;
+    }
+
+    int CGridNode::GetColCount()
+    {
+        return m_iCols;
+    }
+
 
 cocos2d::Size CGridNode::GetVisibleSize()
 {
     cocos2d::Size oGridSize = CEntityNode::GetVisibleSize();
-    return cocos2d::Size(oGridSize.width / m_iCols, oGridSize.height / m_iRows);
+    if (m_iRowIndex < m_iRows && m_iColIndex < m_iCols)
+    {
+        return cocos2d::Size(oGridSize.width / m_iCols, oGridSize.height / m_iRows);
+    }
+    return cocos2d::Size(0, 0);
 }
 
 Vec2 CGridNode::GetOrigin()
@@ -43,10 +66,10 @@ Vec2 CGridNode::GetOrigin()
 	Vec2 oGridOrigin = CEntityNode::GetOrigin();
 
 	// return the origin of the cell of the grid for the item
-	Vec2 oNodeOrigin = Vec2(oGridOrigin.x + m_iColIndex * GetVisibleSize().width,
-		oGridOrigin.y + m_iRowIndex * GetVisibleSize().height);
+    Vec2 oNodeOrigin = Vec2(oGridOrigin.x + m_iColIndex * GetVisibleSize().width,
+        oGridOrigin.y + (m_iRows - m_iRowIndex - 1) * GetVisibleSize().height);
 
-	if (m_iColIndex < m_iCols - 1)
+    if (m_iRowIndex < m_iRows && m_iColIndex < m_iCols - 1)
 	{
 		m_iColIndex++;
 	}
@@ -54,12 +77,6 @@ Vec2 CGridNode::GetOrigin()
 	{
 		m_iRowIndex++;
 		m_iColIndex = 0;
-	}
-
-	/// TODO : WARNING may bug with incomplete grids
-	if (m_iRowIndex >= m_iRows)
-	{
-		m_iRowIndex = 0;
 	}
 
 	return oNodeOrigin;
