@@ -6918,8 +6918,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -9242,8 +9242,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -12037,8 +12037,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/waitpartner.plist",
+                                                    "sheet": "ui/animations/waitpartner.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -12925,8 +12925,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -13562,8 +13562,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -14477,8 +14477,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
@@ -14938,8 +14938,8 @@
                                             {
                                                 "type": "Animation",
                                                 "params": {
-                                                    "animation": "ui/animations/touch.plist",
-                                                    "sheet": "ui/animations/touch.png",
+                                                    "animation": "ui/animations/move.plist",
+                                                    "sheet": "ui/animations/move.png",
                                                     "anchor": 8,
                                                     "width": 0,
                                                     "height": 80,
