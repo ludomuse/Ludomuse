@@ -37,6 +37,7 @@
                 "screen-2-c-player1",
                 "screen-2-d-player1",
                 "screen-2-e-player1",
+                "screen-reward2",
                 "screen-2-f",
                 "screen-2-g-player1",
                 "screen-2-h-player1",
@@ -45,24 +46,31 @@
                 "screen-2-j-player1",
                 "screen-3-a-player1",
                 "screen-3-b-player1",
+                "screen-reward3",
                 "screen-3-c-player1",
                 "screen-3-d-player1",
                 "screen-3-e-player1",
                 "screen-3-f-player1",
                 "screen-4-a-player1",
                 "screen-4-b-player1",
+                "screen-reward4",
                 "screen-4-c-player1",
                 "screen-4-d-player1",
+                "screen-reward5",
                 "screen-4-f1-player1",
                 "screen-4-f2-player1",
+                "screen-reward6",
                 "screen-4-e-player1",
+                "screen-reward7",
                 "screen-4-g1-player1",
                 "screen-4-g-player1",
+                "screen-reward8",
                 "screen-4-h-player1",
                 "screen-4-i-player1",
                 "screen-4-j-player1",
                 "screen-4-k-player1",
                 "screen-recipe",
+                "screen-reward10",
                 "screen-generique"
             ],
             [
@@ -90,6 +98,7 @@
                 "screen-2-c-player2",
                 "screen-2-d-player2",
                 "screen-2-e-player2",
+                "screen-reward2",
                 "screen-2-f",
                 "screen-2-g-player2",
                 "screen-2-h-player2",
@@ -98,24 +107,31 @@
                 "screen-2-j-player2",
                 "screen-3-a-player2",
                 "screen-3-b-player2",
+                "screen-reward3",
                 "screen-3-c-player2",
                 "screen-3-d-player2",
                 "screen-3-e-player2",
                 "screen-3-f-player2",
                 "screen-4-a-player2",
                 "screen-4-b-player2",
+                "screen-reward4",
                 "screen-4-c-player2",
                 "screen-4-d-player2",
+                "screen-reward5",
                 "screen-4-f1-player2",
                 "screen-4-f2-player2",
+                "screen-reward6",
                 "screen-4-e-player2",
+                "screen-reward7",
                 "screen-4-g1-player2",
                 "screen-4-g-player2",
+                "screen-reward8",
                 "screen-4-h-player2",
                 "screen-4-i-player2",
                 "screen-4-j-player2",
                 "screen-4-k-player2",
                 "screen-recipe",
+                "screen-reward10",
                 "screen-generique"
             ]
         ],
@@ -186,7 +202,7 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense6",
+                                                            "id": "Sucre vanille",
                                                             "params": {
                                                                 "source": "cache/vanillasugar.png",
                                                                 "anchor": 0,
@@ -220,7 +236,7 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense7",
+                                                            "id": "Beurre doux",
                                                             "params": {
                                                                 "source": "cache/Sweetbutter.png",
                                                                 "anchor": 0,
@@ -254,7 +270,7 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense8",
+                                                            "id": "Beurre sale",
                                                             "params": {
                                                                 "source": "cache/Beurresale.png",
                                                                 "anchor": 0,
@@ -288,7 +304,7 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense9",
+                                                            "id": "Recette",
                                                             "params": {
                                                                 "source": "cache/recipe.png",
                                                                 "anchor": 0,
@@ -322,7 +338,7 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense10",
+                                                            "id": "Petit Beurre",
                                                             "params": {
                                                                 "source": "cache/lubiscuit.png",
                                                                 "anchor": 0,
@@ -391,41 +407,7 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense2",
-                                                            "params": {
-                                                                "source": "cache/sugar.png",
-                                                                "anchor": 0,
-                                                                "width": 0,
-                                                                "height": 70,
-                                                                "x": 0,
-                                                                "y": 0,
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "Unlock",
-                                                                        "params": {
-                                                                            "callback": "Colorize",
-                                                                            "arg": true
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Image",
-                                                "params": {
-                                                    "source": "cache/quest-background.png",
-                                                    "anchor": 0,
-                                                    "width": 90,
-                                                    "height": 90,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "id": "Recompense3",
+                                                            "id": "Eau",
                                                             "params": {
                                                                 "source": "cache/water.png",
                                                                 "anchor": 0,
@@ -459,7 +441,41 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense4",
+                                                            "id": "Sucre",
+                                                            "params": {
+                                                                "source": "cache/sugar.png",
+                                                                "anchor": 0,
+                                                                "width": 0,
+                                                                "height": 70,
+                                                                "x": 0,
+                                                                "y": 0,
+                                                                "listeners": [
+                                                                    {
+                                                                        "type": "Unlock",
+                                                                        "params": {
+                                                                            "callback": "Colorize",
+                                                                            "arg": true
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Image",
+                                                "params": {
+                                                    "source": "cache/quest-background.png",
+                                                    "anchor": 0,
+                                                    "width": 90,
+                                                    "height": 90,
+                                                    "x": 0,
+                                                    "y": 0,
+                                                    "children": [
+                                                        {
+                                                            "type": "Image",
+                                                            "id": "Levure",
                                                             "params": {
                                                                 "source": "cache/bakingpowder.png",
                                                                 "anchor": 0,
@@ -493,7 +509,7 @@
                                                     "children": [
                                                         {
                                                             "type": "Image",
-                                                            "id": "Recompense5",
+                                                            "id": "Sel",
                                                             "params": {
                                                                 "source": "cache/salt.png",
                                                                 "anchor": 0,
@@ -532,7 +548,7 @@
                                     "type": "Text",
                                     "id": "CollectionText",
                                     "params": {
-                                        "content": "Votre Collection",
+                                        "content": "Vos ingrédients",
                                         "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
@@ -4784,7 +4800,7 @@
                                     "type": "Text",
                                     "params": {
                                         "content": "Tu as obtenu la farine !",
-                                        "source": "res_templ/fonts/Open_Sans/OpenSans-Regular.ttf",
+                                        "source": "#default-font",
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 60,
@@ -6986,6 +7002,128 @@
                 "information": []
             },
             {
+                "scene": "screen-reward2",
+                "dashboardTrigger": true,
+                "rewardID": "Eau",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "ui/nav-7.png",
+                            "selected": "ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/water.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 50,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as obtenu l'eau !",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
                 "scene": "screen-2-g-player1",
                 "navigation": [
                     {
@@ -7530,7 +7668,6 @@
             },
             {
                 "scene": "screen-article-player1",
-                "dashboardTrigger": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -7644,7 +7781,6 @@
             },
             {
                 "scene": "screen-article-player2",
-                "dashboardTrigger": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -9312,6 +9448,128 @@
                 "information": []
             },
             {
+                "scene": "screen-reward3",
+                "dashboardTrigger": true,
+                "rewardID": "Sucre",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "ui/nav-7.png",
+                            "selected": "ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/sugar.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 50,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as obtenu le sucre !",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
                 "scene": "screen-3-c-player1",
                 "navigation": [
                     {
@@ -9455,7 +9713,6 @@
             },
             {
                 "scene": "screen-3-d-player1",
-                "dashboardTrigger": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -9713,7 +9970,6 @@
             },
             {
                 "scene": "screen-3-d-player2",
-                "dashboardTrigger": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -10679,6 +10935,128 @@
                 "information": []
             },
             {
+                "scene": "screen-reward4",
+                "dashboardTrigger": true,
+                "rewardID": "Levure",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "ui/nav-7.png",
+                            "selected": "ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/bakingpowder.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 50,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as obtenu la levure !",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
                 "scene": "screen-4-c-player1",
                 "navigation": [
                     {
@@ -10990,7 +11368,6 @@
             },
             {
                 "scene": "screen-4-d-player1",
-                "dashboardTrigger": true,
                 "sync": true,
                 "validSound": "cache/audio/xylophone.mp3",
                 "navigation": [
@@ -11045,7 +11422,7 @@
                     {
                         "type": "Image",
                         "params": {
-                            "source": "cache/Maquette2.png",
+                            "source": "cache/screen-4-d-player1.jpg",
                             "anchor": 8,
                             "width": 50,
                             "height": 0,
@@ -11136,7 +11513,6 @@
             },
             {
                 "scene": "screen-4-d-player2",
-                "dashboardTrigger": true,
                 "sync": true,
                 "validSound": "cache/audio/xylophone.mp3",
                 "navigation": [
@@ -11575,6 +11951,128 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
+                "scene": "screen-reward5",
+                "dashboardTrigger": true,
+                "rewardID": "Sel",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "ui/nav-7.png",
+                            "selected": "ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/salt.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 50,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as obtenu le sel !",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
@@ -12523,6 +13021,128 @@
                 "information": []
             },
             {
+                "scene": "screen-reward6",
+                "dashboardTrigger": true,
+                "rewardID": "Sucre vanille",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "ui/nav-7.png",
+                            "selected": "ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/vanillasugar.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 50,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as obtenu le sucre vanillé",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
                 "scene": "screen-4-e-player1",
                 "sync": true,
                 "navigation": [
@@ -12670,6 +13290,7 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "Answer1Text",
                                                 "params": {
                                                     "content": "Mise en boite\ndes biscuits",
                                                     "source": "#default-font",
@@ -12742,8 +13363,9 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "Answer2Text",
                                                 "params": {
-                                                    "content": "Fabrication des caisses en bois pour les expéditions",
+                                                    "content": "Préparation des caisses en bois pour les expéditions",
                                                     "source": "#default-font",
                                                     "fontSize": 19,
                                                     "textAlign": "center",
@@ -12814,8 +13436,9 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "Answer3Text",
                                                 "params": {
-                                                    "content": "Mélange des ingrédients",
+                                                    "content": "Préparation des pâtes",
                                                     "source": "#default-font",
                                                     "fontSize": 22,
                                                     "textAlign": "center",
@@ -12886,6 +13509,7 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "Answer4Text",
                                                 "params": {
                                                     "content": "Cuisson des biscuits",
                                                     "source": "#default-font",
@@ -13307,6 +13931,7 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "Answer1Text",
                                                 "params": {
                                                     "content": "Mise en boite des biscuits",
                                                     "source": "#default-font",
@@ -13379,10 +14004,11 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "Answer2Text",
                                                 "params": {
                                                     "content": "Préparation des caisses en bois pour les expéditions",
                                                     "source": "#default-font",
-                                                    "fontSize": 22,
+                                                    "fontSize": 14,
                                                     "textAlign": "center",
                                                     "width": 100,
                                                     "height": 100,
@@ -13451,6 +14077,7 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "Answer3Text",
                                                 "params": {
                                                     "content": "Préparation des pâtes",
                                                     "source": "#default-font",
@@ -13523,6 +14150,7 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "Answer4Text",
                                                 "params": {
                                                     "content": "Cuisson des biscuits",
                                                     "source": "#default-font",
@@ -13608,6 +14236,128 @@
                                         "fontSize": 20,
                                         "textAlign": "center",
                                         "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
+                "scene": "screen-reward7",
+                "dashboardTrigger": true,
+                "rewardID": "Beurre doux",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "ui/nav-7.png",
+                            "selected": "ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/Sweetbutter.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 50,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as obtenu le beurre doux !",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
                                         "height": 100,
                                         "anchor": 0,
                                         "color": "0,0,0,255"
@@ -13805,7 +14555,6 @@
             },
             {
                 "scene": "screen-4-g-player1",
-                "dashboardTrigger": true,
                 "sync": true,
                 "navigation": [
                     {
@@ -14222,10 +14971,11 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "AnswerAText",
                                                 "params": {
                                                     "content": "Mise en boite des biscuits",
                                                     "source": "#default-font",
-                                                    "fontSize": 22,
+                                                    "fontSize": 19,
                                                     "textAlign": "center",
                                                     "width": 100,
                                                     "height": 100,
@@ -14294,10 +15044,11 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "AnswerBText",
                                                 "params": {
                                                     "content": "Préparation des caisses en bois pour les expéditions",
                                                     "source": "#default-font",
-                                                    "fontSize": 22,
+                                                    "fontSize": 14,
                                                     "textAlign": "center",
                                                     "width": 100,
                                                     "height": 100,
@@ -14366,10 +15117,11 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "AnswerCText",
                                                 "params": {
                                                     "content": "Préparation des pâtes",
                                                     "source": "#default-font",
-                                                    "fontSize": 22,
+                                                    "fontSize": 19,
                                                     "textAlign": "center",
                                                     "width": 100,
                                                     "height": 100,
@@ -14438,6 +15190,7 @@
                                             },
                                             {
                                                 "type": "Text",
+                                                "id": "AnswerDText",
                                                 "params": {
                                                     "content": "Cuisson des biscuits",
                                                     "source": "#default-font",
@@ -14536,7 +15289,6 @@
             },
             {
                 "scene": "screen-4-g-player2",
-                "dashboardTrigger": true,
                 "sync": true,
                 "navigation": [
                     {
@@ -14996,6 +15748,128 @@
                 "information": []
             },
             {
+                "scene": "screen-reward8",
+                "dashboardTrigger": true,
+                "rewardID": "Beurre sale",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "ui/nav-7.png",
+                            "selected": "ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/Beurresale.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 50,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as obtenu le beurre salé !",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
                 "scene": "screen-4-j-player1",
                 "navigation": [
                     {
@@ -15071,7 +15945,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Bravo, rendez-vous maintenant à la salle 24 !",
+                                        "content": "Rends toi maintenant \nsalle 24 et place toi devant le tableau présentoir \nà biscuits",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -15163,7 +16037,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Bravo, rends-toi maintenant\nà la salle 24 !",
+                                        "content": "Rends toi maintenant \nsalle 24 et place toi devant le tableau présentoir \nà biscuits",
                                         "source": "#default-font",
                                         "fontSize": 24,
                                         "textAlign": "center",
@@ -15462,7 +16336,7 @@
                                                 "type": "Text",
                                                 "id": "TeamNode:Task",
                                                 "params": {
-                                                    "content": "Incorpore la farine",
+                                                    "content": "Mélange le beurre demi-sel !",
                                                     "source": "res_templ/fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
@@ -15550,7 +16424,7 @@
                                                             "type": "Text",
                                                             "id": "TeamNode:Action1",
                                                             "params": {
-                                                                "content": "Eau",
+                                                                "content": "Sucre vanillé",
                                                                 "source": "res_templ/fonts/Open_Sans/OpenSans-Regular.ttf",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
@@ -15620,7 +16494,7 @@
                                                             "type": "Text",
                                                             "id": "TeamNode:Action3",
                                                             "params": {
-                                                                "content": "Farine",
+                                                                "content": "Levure",
                                                                 "source": "res_templ/fonts/Open_Sans/OpenSans-Regular.ttf",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
@@ -15655,7 +16529,7 @@
                                                             "type": "Text",
                                                             "id": "TeamNode:Action4",
                                                             "params": {
-                                                                "content": "Sucre vanillé",
+                                                                "content": "Beurre doux",
                                                                 "source": "res_templ/fonts/Open_Sans/OpenSans-Regular.ttf",
                                                                 "fontSize": 24,
                                                                 "textAlign": "center",
@@ -15669,6 +16543,128 @@
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "information": []
+            },
+            {
+                "scene": "screen-reward10",
+                "dashboardTrigger": true,
+                "rewardID": "Petit Beurre",
+                "navigation": [
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 5,
+                            "normal": "ui/nav-5.png",
+                            "selected": "ui/nav-5-active.png",
+                            "action": "next",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "SUIVANT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "right",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Nav",
+                        "params": {
+                            "width": 0,
+                            "height": 13,
+                            "anchor": 7,
+                            "normal": "ui/nav-7.png",
+                            "selected": "ui/nav-7-active.png",
+                            "action": "prev",
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "PRÉCÉDENT",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "left",
+                                        "width": 80,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": ""
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "cache/rewardbg.png",
+                            "anchor": 6,
+                            "width": 100,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    },
+                    {
+                        "type": "Group",
+                        "params": {
+                            "anchor": 0,
+                            "width": 50,
+                            "height": 50,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Image",
+                                    "params": {
+                                        "source": "cache/lubiscuit.png",
+                                        "anchor": 0,
+                                        "width": 0,
+                                        "height": 78,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/info-6.png",
+                            "anchor": 6,
+                            "width": 0,
+                            "height": 13,
+                            "x": 0,
+                            "y": 0,
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "Tu as réussi à cuisiner un véritable petit beurre LU !",
+                                        "source": "#default-font",
+                                        "fontSize": 20,
+                                        "textAlign": "center",
+                                        "width": 60,
+                                        "height": 100,
+                                        "anchor": 0,
+                                        "color": "0,0,0,255"
                                     }
                                 }
                             ]
@@ -15743,11 +16739,11 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Ligne éditoriale\r\n Guillaume Ducongé    Laurence D'haene\r\n\r\nDéveloppeurs\r\nRani Baghezza    Gregoire Cattan\r\n Alix Thiebault    Valentin Machado \r\n Bastien Maureille     Sarah Kauffmann\r\nVincent Rigaud    Cesar Mendoza\r\n\r\n Testeurs\r\n Maxime Chabance    Vincent Rigaud\r\n\r\n ",
+                                        "content": "Ligne éditoriale\nGuillaume Ducongé   Laurence D'haene\n\nDéveloppeurs\nRani Baghezza    Gregoire Cattan\nAlix Thiebault    Valentin Machado \nBastien Maureille    Sarah Kauffmann\nVincent Rigaud     Cesar Mendoza\nEtienne Viallet",
                                         "source": "#default-font",
                                         "fontSize": 22,
                                         "textAlign": "center",
-                                        "width": 80,
+                                        "width": 100,
                                         "height": 100,
                                         "anchor": 0,
                                         "color": ""
