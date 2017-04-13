@@ -37,7 +37,7 @@ namespace LM
     {
         m_iRows = a_iRows;
         m_iCols = a_iCols;
-        ON_CC_THREAD(LM::CGridNode::Update, this);
+        // ON_CC_THREAD(LM::CGridNode::Update, this); // editor only
     }
 
     int CGridNode::GetRowCount()
@@ -54,11 +54,11 @@ namespace LM
 Size CGridNode::GetVisibleSize()
 {
 	Size oGridSize = CEntityNode::GetVisibleSize();
-    if (m_iRowIndex < m_iRows && m_iColIndex < m_iCols)
-    {
+    //if (m_iRowIndex < m_iRows && m_iColIndex < m_iCols)
+    //{
         return cocos2d::Size(oGridSize.width / m_iCols, oGridSize.height / m_iRows);
-    }
-    return cocos2d::Size(0, 0);
+    //}
+    //return cocos2d::Size(0, 0);
 }
 
 Vec2 CGridNode::GetOrigin()
@@ -67,7 +67,7 @@ Vec2 CGridNode::GetOrigin()
 
 	// return the origin of the cell of the grid for the item
     Vec2 oNodeOrigin = Vec2(oGridOrigin.x + m_iColIndex * GetVisibleSize().width,
-        oGridOrigin.y + (m_iRows - m_iRowIndex - 1) * GetVisibleSize().height);
+        oGridOrigin.y + m_iRowIndex * GetVisibleSize().height);
 
     if (m_iRowIndex < m_iRows && m_iColIndex < m_iCols - 1)
 	{
