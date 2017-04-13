@@ -54,11 +54,11 @@ namespace LM
 cocos2d::Size CGridNode::GetVisibleSize()
 {
     cocos2d::Size oGridSize = CEntityNode::GetVisibleSize();
-    if (m_iRowIndex < m_iRows && m_iColIndex < m_iCols)
-    {
+//    if (m_iRowIndex < m_iRows && m_iColIndex < m_iCols)
+//    {
         return cocos2d::Size(oGridSize.width / m_iCols, oGridSize.height / m_iRows);
-    }
-    return cocos2d::Size(0, 0);
+//    }
+//    return cocos2d::Size(0, 0);
 }
 
 Vec2 CGridNode::GetOrigin()
@@ -67,7 +67,7 @@ Vec2 CGridNode::GetOrigin()
 
 	// return the origin of the cell of the grid for the item
     Vec2 oNodeOrigin = Vec2(oGridOrigin.x + m_iColIndex * GetVisibleSize().width,
-        oGridOrigin.y + (m_iRows - m_iRowIndex - 1) * GetVisibleSize().height);
+        oGridOrigin.y + m_iRowIndex * GetVisibleSize().height);
 
     if (m_iRowIndex < m_iRows && m_iColIndex < m_iCols - 1)
 	{
