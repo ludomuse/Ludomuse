@@ -213,7 +213,7 @@
                     {
                         "type": "Grid",
                         "params": {
-                            "cols": 1,
+                            "cols": 5,
                             "rows": 2,
                             "anchor": 2,
                             "width": 90,
@@ -221,17 +221,7 @@
                             "x": 0,
                             "y": 0,
                             "children": [
-                                {
-                                    "type": "Grid",
-                                    "params": {
-                                        "cols": 5,
-                                        "rows": 1,
-                                        "anchor": 2,
-                                        "width": 100,
-                                        "height": 100,
-                                        "x": 0,
-                                        "y": 0,
-                                        "children": [
+
                                             {
                                                 "type": "Image",
                                                 "params": {
@@ -401,21 +391,7 @@
                                                         }
                                                     ]
                                                 }
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "Grid",
-                                    "params": {
-                                        "cols": 5,
-                                        "rows": 1,
-                                        "anchor": 2,
-                                        "width": 100,
-                                        "height": 100,
-                                        "x": 0,
-                                        "y": 0,
-                                        "children": [
+                                            },
                                             {
                                                 "type": "Image",
                                                 "params": {
@@ -586,9 +562,7 @@
                                                     ]
                                                 }
                                             }
-                                        ]
-                                    }
-                                }
+
                             ]
                         }
                     },
