@@ -581,6 +581,11 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 			ON_CC_THREAD(CKernel::ValidateScene, this, SEvent(), nullptr);
 		}
 
+        else if (vSplittedMessage[1] =="PlaySound")
+        {
+            m_pSoundManager->PlaySound(vSplittedMessage[2]);
+        }
+
 		else if (vSplittedMessage[1] == "CountdownPressed")
 		{
 			m_oCountdownMutex.lock();
@@ -891,7 +896,15 @@ void CKernel::AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchore
 
 void CKernel::PlaySoundCallback(SEvent a_rEvent, CEntityNode* a_pTarget)
 {
-	m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
+    std::vector<std::string> args = LM::StringSplit(a_rEvent.m_sStringValue);
+    if (args.size() > 1 && args[1] == "distant")
+    {
+        SendNetworkMessage(std::string("kernel:PlaySound:") + args[0]);
+    }
+    else
+    {
+        m_pSoundManager->PlaySound(a_rEvent.m_sStringValue);
+    }
 }
 
 
