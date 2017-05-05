@@ -284,6 +284,12 @@ void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string&
     qDebug("ckernel add new scene");
     m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath, a_iTemplateNumber, a_sScreenMate);
 
+    AddScene(newScene, a_sPreviousID, a_sNewID, a_iPlayerNumber);
+}
+
+void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
+                       const std::string& a_sNewID, int a_iPlayerNumber)
+{
     // Adding id in the map
     // can add at   after an existing id of the player number
     //              at the end of only one player (the player number)
