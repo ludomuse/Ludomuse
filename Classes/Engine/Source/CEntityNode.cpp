@@ -592,16 +592,18 @@ void CEntityNode::Release(CEntityNode* a_pEntity)
 
 
 
-void CEntityNode::SetWidth(int a_iWidth)
+void CEntityNode::SetWidth(int a_iWidth, bool a_bUpdate)
 {
     this->m_iWidth = a_iWidth;
-    ON_CC_THREAD(CEntityNode::Update, this);
+    if (a_bUpdate)
+        ON_CC_THREAD(CEntityNode::Update, this);
 }
 
-void CEntityNode::SetHeight(int a_iHeight)
+void CEntityNode::SetHeight(int a_iHeight, bool a_bUpdate)
 {
     this->m_iHeight = a_iHeight;
-    ON_CC_THREAD(CEntityNode::Update, this);
+    if (a_bUpdate)
+        ON_CC_THREAD(CEntityNode::Update, this);
 }
 
 void CEntityNode::Update()

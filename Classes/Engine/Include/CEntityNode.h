@@ -166,9 +166,9 @@ class CEntityNode : public CNode
 
   int GetHeight();
 
-  void SetWidth(int a_iWidth);
+  void SetWidth(int a_iWidth, bool a_bUpdate = true);
 
-  void SetHeight(int a_iHeight);
+  void SetHeight(int a_iHeight, bool a_bUpdate = true);
 
   void ChangeAnchor(int a_anchor);
 
