@@ -1143,6 +1143,10 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
         {
             ValidateScene(SEvent(), nullptr);
         }
+        else if (vSplittedMessage[1] == "ValidateID")
+        {
+            Validate(SEvent(SEvent::STRING, nullptr, vSplittedMessage[2]), nullptr);
+        }
         else if (vSplittedMessage[1] == "PlaySound")
         {
             m_pSoundManager->PlaySound(vSplittedMessage[2]);
