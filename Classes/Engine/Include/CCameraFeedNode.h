@@ -39,6 +39,8 @@ private:
      virtual void Init() override;
      virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
 
+     virtual void SetPath(const std::string& a_sPath) override;
+
   void PictureTaken();
 
   void DisplayPicture(std::string);

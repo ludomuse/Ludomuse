@@ -30,7 +30,7 @@ class CSpriteNode : public CEntityNode
   virtual const std::string& GetPath() const;
 
   /// \brief update sprite image with new image path
-  void SetPath(const std::string&);
+  virtual void SetPath(const std::string&);
 
   /// \brief Update sprite with the new anchor
 //  void ChangeAnchor(int a_anchor);

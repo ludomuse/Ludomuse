@@ -248,6 +248,13 @@ void CCameraFeedNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::A
 //                }
 //              }
 
+    if(!this->m_mListeners.empty())
+    {
+        rapidjson::Value listeners(rapidjson::kArrayType);
+        CEntityNode::ToJsonListener(listeners, a_rAllocator);
+        params.AddMember("listeners", listeners, a_rAllocator);
+    }
+
     if(!this->m_vChildren.empty())
     {
         rapidjson::Value children(rapidjson::kArrayType);
@@ -262,6 +269,17 @@ void CCameraFeedNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::A
     a_rParent.PushBack(cameraFeedNode, a_rAllocator);
 
 }
+
+
+
+
+void CCameraFeedNode::SetPath(const std::string &a_sPath)
+{
+    m_sMaskPath = a_sPath;
+    CSpriteNode::SetPath(a_sPath);
+}
+
+
 
 void CCameraFeedNode::PictureTaken()
 {
