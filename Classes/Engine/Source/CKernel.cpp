@@ -580,6 +580,10 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 			//ValidateScene(SEvent(), nullptr);
 			ON_CC_THREAD(CKernel::ValidateScene, this, SEvent(), nullptr);
 		}
+		else if (vSplittedMessage[1] == "ValidateID")
+		{
+			Validate(SEvent(nullptr, vSplittedMessage[2]), nullptr);
+		}
 
         else if (vSplittedMessage[1] =="PlaySound")
         {
