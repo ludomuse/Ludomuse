@@ -21,7 +21,12 @@ Result CFindEntityTouchVisitor::ProcessNodeTopDown(CNode* a_pNode)
   if (pEntity)
   {
     Vec2 oTouchLocation = m_pTouch->getLocation();
-    Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+	cocos2d::Node* pCocosEntity = pEntity->GetCocosEntity();
+	if (!pCocosEntity)
+	{
+		return RESULT_CONTINUE;
+	}
+	cocos2d::Rect oBoundingBox = pCocosEntity->getBoundingBox();
 
     if (oBoundingBox.containsPoint(oTouchLocation) && pEntity->IsVisible())
     {
