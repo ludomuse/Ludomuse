@@ -49,7 +49,13 @@ Result CEditorFindEntityTouchVisitor::ProcessNodeBottomUp(CNode* a_pNode)
     {
 
         cocos2d::Vec2 oTouchLocation = m_pTouch->getStartLocation();
-        cocos2d::Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+		// Check if entity is not null before getBoundingBox
+		cocos2d::Node* pCocosEntity = pEntity->GetCocosEntity();
+		if (!pCocosEntity)
+		{
+			return RESULT_CONTINUE;
+		}
+        cocos2d::Rect oBoundingBox = pCocosEntity->getBoundingBox();
         if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
         {
             // forget about touch and move events in the editor :
