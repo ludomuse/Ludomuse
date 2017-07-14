@@ -84,6 +84,7 @@ proj.tizen
 Scenarios/Cernuschi/res_templ
 Scenarios/Cernuschi/temp.json
 Scenarios/*.zip
+Scenarios/old
 ResourcesFiles/res_templ
 ResourcesFiles/temp.json
 *.zip
