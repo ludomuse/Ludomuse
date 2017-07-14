@@ -53,7 +53,12 @@ void cocos_android_app_init(JNIEnv* env) {
 		{
 			std::stringstream ss(line);
 			filename += ss.str();
+                        CCLOG("LUDOMUSE_SCENARIO : %s", filename.c_str());
 		}
+                else
+                {
+                  CCLOG("LUDOMUSE_SCENARIO error, cannot get scenario from LudoMuse.conf");
+                }
         
 		AppDelegate *pAppDelegate = new AppDelegate(false, filename);
 
