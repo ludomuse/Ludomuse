@@ -51,6 +51,19 @@ et en remplaçant <platform> par une des plateformes suivantes :
 remplacez compile par run pour lancer directement sur le périphérique.
   
 
+Déploiement Editeur
+===================
+étape supplémentaire sur linux après avoir compilé avec cocos :
+``
+$ bash changeExeRPATH.sh
+``
+Ce script va modifier l'endroit ou l'executable va chercher ses dépendances. Icii dans le sous dossier lib.
+
+
+Lors du déploiement de LudoMuse dans l'éditeur (simulateur) copier l'exécutable situé dans le sous dossier bin/debug/platform/ dans le dossier de l'exécutable LudoMuseEditor
+
+
+
 
 Problèmes connus
 ================
