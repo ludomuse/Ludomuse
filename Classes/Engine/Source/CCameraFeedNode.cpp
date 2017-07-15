@@ -175,6 +175,7 @@ CCameraFeedNode::CCameraFeedNode(const std::string& a_rMaskPath, EAnchor a_eAnch
 
 void CCameraFeedNode::Init()
 {
+  m_bIsInit = true;
 	if (m_bIsReceiver)
 	{
 		CCLOG("LUDOMUSE - Construction CCameraFeedNode in receiver mode : %s", this->m_sID.c_str());
@@ -194,6 +195,12 @@ void CCameraFeedNode::Init()
 	CSpriteNode::Init();
 }
 
+void CCameraFeedNode::UnInit(bool removeChild)
+{
+  m_bIsInit = false;
+  CSpriteNode::UnInit(removeChild);
+}
+
 void CCameraFeedNode::PictureTaken()
 {
 #ifdef __ANDROID__
@@ -205,6 +212,14 @@ void CCameraFeedNode::PictureTaken()
 
 void CCameraFeedNode::DisplayPicture(std::string sPicturePath) 
 {
+
+  // if the entity is not initialized then leave
+  // example : if the DisplayPicture callback is called when the scene is not loaded anymore
+  if (!m_bIsInit)
+  {
+    return;
+  }
+  
 	CCLOG("LUDOMUSE - DisplayPicture %s begin", sPicturePath.c_str());
 	m_pCocosEntity = Sprite::create(sPicturePath);
 

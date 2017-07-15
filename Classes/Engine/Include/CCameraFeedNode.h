@@ -33,10 +33,12 @@ class CCameraFeedNode : public CSpriteNode
 private:
 	std::string m_sMaskPath;
 	bool m_bIsReceiver;
+  bool m_bIsInit;
 
  public:
 	 CCameraFeedNode(const std::string& a_rMaskPath, EAnchor a_eAnchor, int width, int height, int x, int y, bool a_bIsReceiver = false);
   virtual void Init() override;
+  virtual void UnInit(bool removeChild = true) override;
 
   void PictureTaken();
 
