@@ -25296,15 +25296,6 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
-                            "listeners": [
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "Show",
-                                        "arg": true
-                                    }
-                                }
-                            ],
                             "children": [
                                 {
                                     "type": "Text",
@@ -25333,16 +25324,7 @@
                             "width": 0,
                             "height": 73,
                             "x": 0,
-                            "y": 0,
-                            "listeners": [
-                                {
-                                    "type": "Display",
-                                    "params": {
-                                        "callback": "ValidateScene",
-                                        "arg": true
-                                    }
-                                }
-                            ]
+                            "y": 0
                         }
                     },
                     {
@@ -25387,15 +25369,6 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
-                            "listeners": [
-                                {
-                                    "type": "Validate",
-                                    "params": {
-                                        "callback": "Show",
-                                        "arg": true
-                                    }
-                                }
-                            ],
                             "children": [
                                 {
                                     "type": "Text",
@@ -25450,17 +25423,7 @@
                             "width": 0,
                             "height": 73,
                             "x": 0,
-                            "y": 0,
-                            "listeners": [
-                                {
-                                    "type": "Display",
-                                    "params": {
-                                        "callback": "ValidateScene",
-                                        "arg": true
-                                    }
-                                }
-                            ]
-                        }
+                            "y": 0                        }
                     },
                     {
                         "type": "Image",
