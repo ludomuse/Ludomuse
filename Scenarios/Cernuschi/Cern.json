@@ -25285,7 +25285,6 @@
             },
             {
                 "scene": "screen-camera-player1",
-                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25358,7 +25357,6 @@
             },
             {
                 "scene": "screen-camera-player2",
-                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25423,7 +25421,8 @@
                             "width": 0,
                             "height": 73,
                             "x": 0,
-                            "y": 0                        }
+                            "y": 0
+                        }
                     },
                     {
                         "type": "Image",
@@ -26580,7 +26579,6 @@
             },
             {
                 "scene": "screen-5-j-player1",
-                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -26713,7 +26711,6 @@
             },
             {
                 "scene": "screen-5-j-player2",
-                "sync": true,
                 "navigation": [
                     {
                         "type": "Nav",
