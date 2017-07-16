@@ -1,6 +1,6 @@
 {
     "app": {
-        "debug": true,
+        "debug": false,
         "colors": [],
         "images": [],
         "videos": [],
