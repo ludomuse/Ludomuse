@@ -262,7 +262,11 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
       CScratchNode* pScratch = dynamic_cast<CScratchNode*>(pEntity);
       if (pScratch)
 	{
-        CCLOG("Touched in CScratchNode entity");
+		CCLOG("Touched in CScratchNode entity");
+		if (pScratch->IsListeningTo("Touch"))
+		{
+			m_sListenEvent = "Touch";
+		}
         pScratch->DrawTouch(oTouchLocation);
         m_pEntityToFind.Set(pScratch);
         return RESULT_PRUNE;
