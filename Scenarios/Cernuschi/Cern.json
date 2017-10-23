@@ -1,6 +1,6 @@
 {
     "app": {
-        "debug": false,
+        "debug": true,
         "colors": [],
         "images": [],
         "videos": [],
@@ -26589,6 +26589,15 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
+                            "listeners": [
+                                {
+                                    "type": "Validate",
+                                    "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                    }
+                                }
+                            ],
                             "children": [
                                 {
                                     "type": "Text",
@@ -26627,7 +26636,23 @@
                             "width": 0,
                             "height": 70,
                             "x": 0,
-                            "y": 0
+                            "y": 0,
+                            "listeners": [
+                                {
+                                    "type": "Touch",
+                                    "params": {
+                                        "callback": "ValidateScene",
+                                        "arg": true
+                                    }
+                                },
+                                {
+                                    "type": "Touch",
+                                    "params": {
+                                        "callback": "SendMessage",
+                                        "arg": "kernel:Validate"
+                                    }
+                                }
+                            ]
                         }
                     },
                     {
@@ -26721,6 +26746,15 @@
                             "normal": "ui/nav-5.png",
                             "selected": "ui/nav-5-active.png",
                             "action": "next",
+                            "listeners": [
+                                {
+                                    "type": "Validate",
+                                    "params": {
+                                        "callback": "Show",
+                                        "arg": true
+                                    }
+                                }
+                            ],
                             "children": [
                                 {
                                     "type": "Text",
