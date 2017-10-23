@@ -191,25 +191,27 @@ void CKernel::Init(const std::string& a_sPath)
 
 void CKernel::EndGame(SEvent, CEntityNode*)
 {
-    m_oStatMutex.lock();
-	M_STATS->PushStats(m_pCurrentScene->GetSceneID());
+    // m_oStatMutex.lock();
+	// M_STATS->PushStats(m_pCurrentScene->GetSceneID());
 
-	m_pLocalPlayer->m_bGameEnded = true;
+	// m_pLocalPlayer->m_bGameEnded = true;
 
-	if (m_pLocalPlayer->m_iPlayerID == 1)
-	{
-		CSerializableStats oSStats(M_STATS->GetStats());
-		bytes b;
+	// if (m_pLocalPlayer->m_iPlayerID == 1)
+	// {
+	// 	CSerializableStats oSStats(M_STATS->GetStats());
+	// 	bytes b;
 
-		b << M_STATS_EVENT << oSStats;
-		m_pNetworkManager->Send(b);
+	// 	b << M_STATS_EVENT << oSStats;
+	// 	m_pNetworkManager->Send(b);
 
-	}
-	else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
-	{
-		WriteStats();
-	}
-    m_oStatMutex.unlock();
+	// }
+	// else if (m_pDistantPlayer->m_bGameEnded && m_pLocalPlayer->m_bGameEnded)
+	// {
+	// 	WriteStats();
+	// }
+	// m_oStatMutex.unlock();
+	
+	Director::getInstance()->end();
 }
 
 
