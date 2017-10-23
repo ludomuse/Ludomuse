@@ -1799,7 +1799,7 @@
                                                 "type": "Text",
                                                 "id": "infoPeer",
                                                 "params": {
-                                                    "content": "Appuie en même temps que ton partenaire pour former le symbole du Taiji",
+                                                    "content": "Appuie 3 secondes en même temps que ton partenaire pour former le symbole du Taiji",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 18,
                                                     "textAlign": "center",
@@ -25825,7 +25825,7 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Quand votre coéquipier est prêt, prenez une photo souvenir avec votre appareil personnel !",
+                                                    "content": "Quand votre coéquipier est prêt, prenez une photo souvenir avec votre tablette !",
                                                     "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                                     "fontSize": 17,
                                                     "textAlign": "center",
@@ -26066,7 +26066,7 @@
                                 {
                                     "type": "Text",
                                     "params": {
-                                        "content": "Tu vas réaliser la position du lotus en te faisant aider par ton partenaire. Il pourra prendre une photo en souvenir de ton grand voyage en Chine",
+                                        "content": "Tu vas réaliser la position du lotus en te faisant aider par ton partenaire. Il va te prendre une photo en souvenir de ton grand voyage en Chine",
                                         "source": "fonts/Open_Sans/OpenSans-Regular.ttf",
                                         "fontSize": 20,
                                         "textAlign": "center",
@@ -26263,11 +26263,11 @@
                                             {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "Patiente le temps de recevoir la photo de ton partenaire",
+                                                    "content": "Patiente 15 secondes le temps de recevoir la photo de ton partenaire",
                                                     "source": "#default-font",
                                                     "fontSize": 20,
                                                     "textAlign": "center",
-                                                    "width": 60,
+                                                    "width": 82,
                                                     "height": 100,
                                                     "anchor": 0,
                                                     "color": "0,0,0,255",
