@@ -27,8 +27,6 @@ Classes/Modules/Networking/INetworkManager.h
 Classes/Modules/Networking/Networking.h
 Classes/AppDelegate.cpp
 Classes/AppDelegate.h
-Classes/HelloWorldScene.cpp
-Classes/HelloWorldScene.h
 cocos2d/cocos/2d/libcocos2d_8_1/libcocos2d_8_1/libcocos2d_8_1.Shared/targetver.h
 cocos2d/cocos/2d/CCAction.cpp
 cocos2d/cocos/2d/CCAction.h

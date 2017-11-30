@@ -2,7 +2,7 @@
 #define _SOUNDMANAGER_H_
 
 
-#include "cocos2d.h"
+//#include "cocos2d.h"
 #include "SimpleAudioEngine.h"
 #include "CKernel.h"
 

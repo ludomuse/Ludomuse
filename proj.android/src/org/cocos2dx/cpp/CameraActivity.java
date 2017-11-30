@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.util.FloatMath;
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -196,7 +198,7 @@ public class CameraActivity extends Activity implements OnClickListener {
 
     Camera.PictureCallback photoCallback = new Camera.PictureCallback() {
         public void onPictureTaken(final byte[] data, final Camera camera) {
-            dialog = ProgressDialog.show(CameraActivity.this, "", "Saving Photo");
+            dialog = ProgressDialog.show(CameraActivity.this, "", "On enregistre la photo et puis on l'envoie à l'autre tablette");
             new Thread() {
                 public void run() {
                     try{
@@ -245,6 +247,8 @@ public class CameraActivity extends Activity implements OnClickListener {
 
 
     public void savePhoto(Bitmap bmp) {
+
+
         imageFileFolder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "Cern");
         imageFileFolder.mkdir();
         FileOutputStream out = null;
@@ -256,8 +260,9 @@ public class CameraActivity extends Activity implements OnClickListener {
             out = new FileOutputStream(imageFileName);
             //bmp.compress(Bitmap.CompressFormat.JPEG, 100, out);
             // Resize the picture
-            Bitmap resized = Bitmap.createScaledBitmap(bmp, (int)(bmp.getWidth() * 0.50),(int)(bmp.getHeight() * 0.50), true);
-            resized.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            //Bitmap resized = Bitmap.createScaledBitmap(bmp, 256,256, false);
+            Bitmap resized = resizeImage2(bmp,256);
+            resized.compress(Bitmap.CompressFormat.JPEG, 80, out);
             out.flush();
             out.close();
 //            scanPhoto(imageFileName.toString());
@@ -269,6 +274,44 @@ public class CameraActivity extends Activity implements OnClickListener {
         intent.putExtra("imageName", imageFileName.getPath());
         JniCppFacade.setCurrentPicturePath(imageFileName.getPath());
     }
+
+
+    private static Bitmap resizeImage2(Bitmap bitmap, int newSize){
+
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+
+        int newWidth = 0;
+        int newHeight = 0;
+
+        if(width > height)
+        {
+            newWidth = newSize;
+            newHeight = (newSize * height)/width;
+        }
+        else if(width < height)
+        {
+            newHeight = newSize;
+            newWidth = (newSize * width)/height;
+        }
+        else if (width == height)
+        {
+            newHeight = newSize;
+            newWidth = newSize;
+        }
+
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0,
+                width, height, matrix, true);
+
+        return resizedBitmap;
+    }
+
 
     public String fromInt(int val) {
         return String.valueOf(val);

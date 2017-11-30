@@ -815,7 +815,7 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 				WifiDirectManager.DEBUGGER_CHANNEL);
 	}
 
-	public static int ACCEPT_TIMEOUT = 5000;
+	public static int ACCEPT_TIMEOUT = 30000;
 	/**
 	 * return from this function when a client connect to this server at the
 	 * specified address and port

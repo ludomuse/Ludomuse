@@ -152,8 +152,8 @@ public class AppActivity extends Cocos2dxActivity {
 	    if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
 	        Bundle extras = data.getExtras();
 	        Bitmap imageBitmap = (Bitmap) extras.get("data");
-	        imageBitmap = Bitmap.createScaledBitmap(imageBitmap, Math.min(imageBitmap.getWidth(), 4096), Math.min(imageBitmap.getHeight(), 4096), true);
-	      
+	        imageBitmap = Bitmap.createScaledBitmap(imageBitmap, Math.min(imageBitmap.getWidth(), 256), Math.min(imageBitmap.getHeight(), 256), false);
+
 	        FileOutputStream fos;
 			try
 			{

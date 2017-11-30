@@ -1,5 +1,6 @@
 package org.cocos2dx.cpp.wifiDirect;
 
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +14,8 @@ import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.sockets.CallBackMethod;
 import org.cocos2dx.cpp.sockets.SocketHandler;
 
+import java.lang.Object;
+import  android.opengl.Matrix;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -315,6 +318,10 @@ public class WifiDirectManager {
 
 	public void reconnectToPeer()
 	{
+		DebugManager.print("Trying to reconnect to peer", WifiDirectManager.DEBUGGER_CHANNEL);
+
+	
+
 		if(lastPeerName != null && !lastPeerName.equals("") && socket.wasPreviouslyAttached())
 		{
 			//socket.attachToRemoteHost();
@@ -327,7 +334,7 @@ public class WifiDirectManager {
 				{
 					connectToPeer(lastPeerName, _cmPeerConnected);
 					
-				}}, 2000);
+				}}, 10000);
 			
 		}
 
@@ -373,6 +380,8 @@ public class WifiDirectManager {
 		lastPeerName = peerName;
 		String devAddress = _mapAddressNameAllDevices.get(peerName);
 
+		DebugManager.print(peerName, WifiDirectManager.DEBUGGER_CHANNEL);
+
 		if (devAddress == null)
 		{
 			// The name isn't mapped with any address in the Address - Name Map.
@@ -380,6 +389,7 @@ public class WifiDirectManager {
 			// Java to C++ the first time, or there was a mistake while filling
 			// up
 			// the map.
+			 DebugManager.print("PeerName not found", WifiDirectManager.DEBUGGER_CHANNEL);
 			return;
 		}
 

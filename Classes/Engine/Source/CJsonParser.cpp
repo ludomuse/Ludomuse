@@ -1,7 +1,8 @@
 #include "../Include/CJsonParser.h"
 
 #include "../../cocos2d/external/json/reader.h"
-#include "../../cocos2d/external/json/filestream.h"
+#include "../../cocos2d/external/json/filereadstream.h"
+#include "../../cocos2d/external/json/filewritestream.h"
 #include "../../cocos2d/external/json/stringbuffer.h"
 
 #include "../Include/CValidateSceneVisitor.h"

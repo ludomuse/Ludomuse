@@ -79,7 +79,7 @@ public class MailBox {
 	private boolean _sendFirstMessageWhenPosted = false;
 
 	// When this timer expire, last message send will be send again
-	public static int timeBeforeConsideringMessageLost = 1000;
+	public static int timeBeforeConsideringMessageLost = 5000;
 
 	private Handler timeout = new Handler();
 	private Runnable worker = new Runnable() {
@@ -115,7 +115,7 @@ public class MailBox {
 	{
 		Message msg = new Message(client, methodName, args, argType);
 		messages.add(position, msg);
-		DebugManager.print(ClientSocketHandler.GetTag() + " MailBox = "
+		DebugManager.print(ClientSocketHandler.GetTag() + "Debug info MailBox = "
 				+ messages.size() + "/" + position,
 				WifiDirectManager.DEBUGGER_CHANNEL);
 		if (_sendFirstMessageWhenPosted && messages.size() == 1)
