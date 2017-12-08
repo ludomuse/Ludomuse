@@ -101,7 +101,8 @@ public class SocketHandler {
 	 */
 	public void notifyIsDisconnectedFromNetwork()
 	{
-		//stop();
+		DebugManager.print("Notifying disconnection to server & client", WifiDirectManager.DEBUGGER_CHANNEL);
+		stop();
 		//dettachFromRemoteHost();
 	}
 
@@ -556,6 +557,9 @@ public class SocketHandler {
 	 */
 	void setRemoteHost(String hostAddress, int listenningPort)
 	{
+		DebugManager.print("Set remote host " + hostAddress + "  listeningPort " + listenningPort ,
+				WifiDirectManager.DEBUGGER_CHANNEL);
+
 		this.listenningPort = listenningPort;
 		client.setRemoteHost(hostAddress, listenningPort);
 	}

@@ -79,7 +79,7 @@ public class MailBox {
 	private boolean _sendFirstMessageWhenPosted = false;
 
 	// When this timer expire, last message send will be send again
-	public static int timeBeforeConsideringMessageLost = 5000;
+	public static int timeBeforeConsideringMessageLost = 4000;
 
 	private Handler timeout = new Handler();
 	private Runnable worker = new Runnable() {

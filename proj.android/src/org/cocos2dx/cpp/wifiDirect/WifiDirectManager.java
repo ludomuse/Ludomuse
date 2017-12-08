@@ -229,6 +229,8 @@ public class WifiDirectManager {
 		turnOnWifi();
 		askToClearAllRequestsAndLocalServices();
 		DebugManager.clear();
+
+		DebugManager.print("cesar Clear all !", WifiDirectManager.DEBUGGER_CHANNEL);
 	}
 
 	public void stopHandlers()
@@ -259,6 +261,10 @@ public class WifiDirectManager {
 
 	public void launchServicePeersDiscovering(CallBackMethod cm)
 	{
+		DebugManager.print(
+				"Peer discovering launched",
+				DEBUGGER_CHANNEL);
+
 		if (requestForServicePeersDiscoveringAlreadyLaunched)
 		{
 			/*DebugManager
@@ -318,14 +324,23 @@ public class WifiDirectManager {
 
 	public void reconnectToPeer()
 	{
-		DebugManager.print("Trying to reconnect to peer", WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("cesar Trying to reconnect to peer", WifiDirectManager.DEBUGGER_CHANNEL);
+	    DebugManager.print( "cesar peer " + lastPeerName, WifiDirectManager.DEBUGGER_CHANNEL);
 
-	
+	    if ( socket == null )
+		{
+			DebugManager.print("cesar the socket is null", WifiDirectManager.DEBUGGER_CHANNEL );
+		}
+	    //Debug
+		if ( socket.wasPreviouslyAttached() == false )
+		{
+			DebugManager.print("cesar the socket was not previously attached,", WifiDirectManager.DEBUGGER_CHANNEL );
+		}
+
 
 		if(lastPeerName != null && !lastPeerName.equals("") && socket.wasPreviouslyAttached())
 		{
 			//socket.attachToRemoteHost();
-			
 			Handler handler = new Handler();
 			handler.postDelayed(new Runnable(){
 
@@ -334,7 +349,7 @@ public class WifiDirectManager {
 				{
 					connectToPeer(lastPeerName, _cmPeerConnected);
 					
-				}}, 10000);
+				}}, 4000);
 			
 		}
 
@@ -377,7 +392,7 @@ public class WifiDirectManager {
 		// WifiDirectManager.DEBUGGER_CHANNEL);
 		_cmPeerConnected = cmPeerConnected;
 
-		lastPeerName = peerName;
+		setPeerName(peerName);
 		String devAddress = _mapAddressNameAllDevices.get(peerName);
 
 		DebugManager.print(peerName, WifiDirectManager.DEBUGGER_CHANNEL);
@@ -390,13 +405,15 @@ public class WifiDirectManager {
 			// up
 			// the map.
 			 DebugManager.print("PeerName not found", WifiDirectManager.DEBUGGER_CHANNEL);
+			reconnectToPeer();
 			return;
 		}
 
+		String strAddres = devAddress;
 		WifiP2pConfig config = new WifiP2pConfig();
 		config.deviceAddress = devAddress;
 		config.wps.setup = WpsInfo.PBC;
-
+		DebugManager.print(strAddres, WifiDirectManager.DEBUGGER_CHANNEL);
 		_manager.connect(_channel, config, new WifiP2pManager.ActionListener() {
 
 			@Override
@@ -567,6 +584,12 @@ public class WifiDirectManager {
 
 	public void launchServiceRequestPeers()
 	{
+		DebugManager
+				.print("lastPeerName = " + lastPeerName + " in launchServiceRequestPeers",
+						DEBUGGER_CHANNEL);
+
+
+
 		if (requestForServiceRequestPeersAlreadyLaunched)
 		{
 			DebugManager
@@ -585,6 +608,7 @@ public class WifiDirectManager {
 				@Override
 				public void onPeersAvailable(WifiP2pDeviceList peers)
 				{
+
 					int previousSize = _deviceList.size();
 
 					if (enabledAutoRelanchingServiceDiscoverPeers
@@ -624,6 +648,7 @@ public class WifiDirectManager {
 
 						DebugManager.print("there is " + _deviceList.size()
 								+ " peers available", DEBUGGER_CHANNEL);
+
 
 						// once the list is written
 						requestForServiceRequestPeersAlreadyLaunched = false;
@@ -929,7 +954,9 @@ public class WifiDirectManager {
 
 	public void setPeerName(String name)
 	{
-		lastPeerName = name;
+		DebugManager.print("setting peer name " + name, WifiDirectManager.DEBUGGER_CHANNEL);
+		if(lastPeerName == "" || lastPeerName == null)
+			lastPeerName = name;
 	}
 
 	public void discoverAndConnect()
@@ -939,7 +966,7 @@ public class WifiDirectManager {
 			if (_allDeviceList == null || _allDeviceList.size() == 0)
 			{
 				DebugManager
-						.print("Peers are not discovered yet. Launching required service",
+						.print("cesar Peers are not discovered yet. Launching required service",
 								WifiDirectManager.DEBUGGER_CHANNEL);
 				this.launchServicePeersDiscovering(new CallBackMethod() {
 
@@ -954,7 +981,7 @@ public class WifiDirectManager {
 			else
 			{
 				DebugManager.print(
-						"Device is not connected. Launching required service",
+						"cesar Device is not connected. Launching required service",
 						WifiDirectManager.DEBUGGER_CHANNEL);
 				this.connectToPeer(lastPeerName.equals("") ? _deviceList.get(0)
 						: lastPeerName, null);

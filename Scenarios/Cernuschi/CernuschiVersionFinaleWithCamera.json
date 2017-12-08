@@ -25677,6 +25677,7 @@
             },
             {
                 "scene": "screen-5-e-player1",
+				"sync" : true, 
                 "navigation": [
                     {
                         "type": "Nav",
@@ -25955,6 +25956,7 @@
             },
             {
                 "scene": "screen-5-e-player2",
+				"sync" : true,
                 "initSound": "cache/audio/V2/etape5_05-moine-jeu.mp3",
                 "navigation": [
                     {
@@ -27429,6 +27431,7 @@
             },
             {
                 "scene": "screen-5-j-player1",
+				"sync" : true,
                 "navigation": [
                     {
                         "type": "Nav",
@@ -27586,6 +27589,7 @@
             },
             {
                 "scene": "screen-5-j-player2",
+				"sync" : true,
                 "navigation": [
                     {
                         "type": "Nav",

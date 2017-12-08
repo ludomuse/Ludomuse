@@ -84,10 +84,12 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
 		else if (action
 				.equals(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION))
 		{
+
 			// TODO
 			// Respond to this device's wifi state changing
 			WifiP2pDevice device = (WifiP2pDevice) intent
 					.getParcelableExtra(WifiP2pManager.EXTRA_WIFI_P2P_DEVICE);
+			DebugManager.print("the new device name is " + device.deviceName, WifiDirectManager.DEBUGGER_CHANNEL);
 			_wifiDirectManager.setThisDeviceName(device.deviceName);
 		}
 

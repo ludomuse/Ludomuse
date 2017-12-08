@@ -76,6 +76,7 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 
 			if (m_pKernel->m_pDistantPlayer->m_bWaiting)
 			{
+				CCLOG("distant player waiting : set to not waiting");
 				SEvent oMessage;
 				oMessage.m_sStringValue = "kernel:waiting";
 				m_pKernel->SendNetworkMessage(oMessage, nullptr);
@@ -86,6 +87,8 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 			}
 			else if (m_pKernel->m_pLocalPlayer->m_bWaiting)
 			{
+				CCLOG("local player waiting : set to not waiting");
+
 				m_pKernel->m_pLocalPlayer->m_bWaiting = false;
 				a_pSequence->OffsetCurrentNode(m_bTransitionNext);
 				//InitScene(pNewSceneNode);
@@ -96,7 +99,7 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 				SEvent oMessage;
 				oMessage.m_sStringValue = "kernel:waiting";
 				m_pKernel->SendNetworkMessage(oMessage, nullptr);
-
+				CCLOG("set local player to waiting");
 				// init waiting scene
 				m_pKernel->m_pLocalPlayer->m_bWaiting = true;
 				InitScene(pNewSceneNode, true);

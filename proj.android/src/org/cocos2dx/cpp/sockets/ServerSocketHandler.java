@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.SocketException;
 import java.io.InputStream;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -270,7 +271,7 @@ class Communication implements Runnable {
 		String clientIP = getStringFromInputStream(stream);
 
 		DebugManager.print(ServerSocketHandler.getTag()
-				+ "client address is : " + clientIP + ". i'm the host.",
+				+ "client address is : " + clientIP + ". i'm the host. cesar",
 				WifiDirectManager.DEBUGGER_CHANNEL);
 
 		// notify SocketHandler that this device client should
@@ -588,7 +589,7 @@ class Communication implements Runnable {
 		boolean msgAlreadyReceived = isMessageAlreadyReceived(is);
 
 		DebugManager.print(ServerSocketHandler.getTag()
-				+ "We received a packet of type " + type
+				+ "cesar We received a packet of type " + type
 				+ ". was already received ? " + msgAlreadyReceived,
 				WifiDirectManager.DEBUGGER_CHANNEL);
 
@@ -780,6 +781,9 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 
 		try
 		{
+			if(serverSocket != null)
+				closeServerSocket();
+
 			serverSocket = new ServerSocket();
 			System.setProperty("sun.net.useExclusiveBind","false");
 			serverSocket.setReuseAddress(true);
@@ -825,21 +829,27 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 	private Socket waitForClient()
 	{
 		Socket client = null;
-
-		try
-		{
+		try {
 			//set serversocket timeout
 			serverSocket.setSoTimeout(ACCEPT_TIMEOUT);
 			client = serverSocket.accept();
+			DebugManager.print(ServerSocketHandler.getTag()
+					+ "new client connected", WifiDirectManager.DEBUGGER_CHANNEL);
+		}
+		catch(SocketException se)
+		{
+			DebugManager.print( ServerSocketHandler.getTag()
+							+ "server.accept() failed because it's closed. Trying to open it again.",
+					WifiDirectManager.DEBUGGER_CHANNEL);
+			//openServerSocket();
 		}
 		catch (IOException e1)
 		{
 			DebugManager.print(ServerSocketHandler.getTag()
-					+ "server.accept() failed" + e1,
+					+ "server.accept() failed " + e1,
 					WifiDirectManager.DEBUGGER_CHANNEL);
 		}
-		DebugManager.print(ServerSocketHandler.getTag()
-				+ "new client connected", WifiDirectManager.DEBUGGER_CHANNEL);
+
 
 
 		return client;
@@ -850,6 +860,8 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 		try
 		{
 			serverSocket.close();
+			DebugManager.print(ServerSocketHandler.getTag() + "server is closed",
+					WifiDirectManager.DEBUGGER_CHANNEL);
 		}
 		catch (IOException e)
 		{
@@ -857,8 +869,7 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 					+ "server.close() failed",
 					WifiDirectManager.DEBUGGER_CHANNEL);
 		}
-		DebugManager.print(ServerSocketHandler.getTag() + "server is closed",
-				WifiDirectManager.DEBUGGER_CHANNEL);
+
 	}
 
 

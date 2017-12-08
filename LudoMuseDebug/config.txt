@@ -18,3 +18,7 @@ Kernel
 clientAddress
 serverAddress
 LUDO_STATS
+ON_CHANNEL
+CESARDEBUG
+peer
+cesar

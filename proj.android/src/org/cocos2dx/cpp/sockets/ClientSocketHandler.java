@@ -169,6 +169,11 @@ public class ClientSocketHandler {
 
 	public void setRemoteHost(String ip, int port)
 	{
+		DebugManager.print(ClientSocketHandler.GetTag()
+						+ "setting RemoteHost with IP = " + ip + " port =" + port,
+				WifiDirectManager.DEBUGGER_CHANNEL);
+
+
 		remoteIp = ip;
 		remotePort = port;
 		isAttachedToRemoteHost = true;
@@ -206,6 +211,9 @@ public class ClientSocketHandler {
 	
 	public boolean wasPreviouslyAttached()
 	{
+		DebugManager.print(ClientSocketHandler.GetTag() + "cesar was previously attached to IP=" + remoteIp,
+				WifiDirectManager.DEBUGGER_CHANNEL);
+
 		return remoteIp != null;
 	}
 	

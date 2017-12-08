@@ -10,6 +10,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Classes">
+      <UniqueIdentifier>{b1bc871f-0bad-486a-bac4-97ec1a645d41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,118 +21,125 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CInputManager.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Engine\Source\CAnimationNode.cpp">
+      <Filter>src\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CJsonParser.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CKernel.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CParallelNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CSceneNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CSelectorNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CSequenceNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CSpriteNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CLabelNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CEntityNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CMenuNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CTransitionVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Modules\Networking\win\Source\CNetworkManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CGridNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CGroupNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CTouchBeganVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CGotoSceneVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CValidateSceneVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CFindEntityVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CPeerNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CFindEntityTouchVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CDispatchMessageVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Modules\Util\Source\Util.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CFindEntityFromIDVisitor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CValidator.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CEditBoxNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CSoundManager.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Engine\Source\CCallback.cpp">
+      <Filter>src\Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Engine\Source\CCameraFeedNode.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Modules\Util\Source\CStats.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Engine\Source\CDispatchEventVisitor.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CVideoNode.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Engine\Source\CDispatchMessageVisitor.cpp">
+      <Filter>src\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CMacroManager.cpp" />
-    <ClCompile Include="..\Classes\Engine\Source\CScratchNode.cpp" />
-    <ClCompile Include="..\Classes\Engine\Source\CTeamNode.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Engine\Source\CEditBoxNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CEntityNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CFindEntityFromIDVisitor.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CFindEntityTouchVisitor.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CFindEntityVisitor.cpp">
+      <Filter>src\Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Engine\Source\CFindTeamNodeIDVisitor.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Engine\Source\CFindTeamNodeVisitor.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CAnimationNode.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Engine\Source\CGotoSceneVisitor.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CGridNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CGroupNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CInputManager.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CJsonParser.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CKernel.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CLabelNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CMacroManager.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CMenuNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CParallelNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CPeerNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CSceneNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CScratchNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CSelectorNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CSequenceNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CSoundManager.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CSpriteNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CTeamNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CTouchBeganVisitor.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CTransitionVisitor.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CValidateSceneVisitor.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CValidator.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CVideoNode.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Source\CVisitor.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Modules\Util\Source\CStats.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Modules\Util\Source\Util.cpp">
+      <Filter>src\Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Modules\Networking\win\Source\CNetworkManager.cpp">
+      <Filter>src\Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,133 +149,147 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CInputManager.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CJsonParser.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CKernel.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CParallelNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CSceneNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CSelectorNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CSequenceNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CSpriteNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CEntityNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CLabelNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CMenuNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CJsonParser_impl.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Engine\Include\CAnimationNode.h">
+      <Filter>src\Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CCallback.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CTransitionVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Modules\Networking\win\Include\CNetworkManager.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CGridNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CGroupNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CTouchBeganVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CGotoSceneVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CValidateSceneVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CFindEntityVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CPeerNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Modules\Util\Include\Desc.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CFindEntityTouchVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CDispatchMessageVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Modules\Util\Include\Util.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromIDVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CValidator.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromTypeVisitor.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\SUser.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CEditBoxNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CSoundManager.h">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CCameraFeedNode.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Modules\Util\Include\CStats.h">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CDispatchEventVisitor.h">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CVideoNode.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\Engine\Include\CDispatchMessageVisitor.h">
+      <Filter>src\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CMacroManager.h" />
-    <ClInclude Include="..\Classes\Engine\Include\CScratchNode.h" />
-    <ClInclude Include="..\Classes\Engine\Include\CTeamNode.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\Engine\Include\CEditBoxNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CEntityNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromIDVisitor.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityFromTypeVisitor.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityTouchVisitor.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CFindEntityVisitor.h">
+      <Filter>src\Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CFindTeamNodeIDVisitor.h">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Engine\Include\CFindTeamNodeVisitor.h">
-      <Filter>src</Filter>
+      <Filter>src\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Engine\Include\CAnimationNode.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\Engine\Include\CGotoSceneVisitor.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CGridNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CGroupNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CInputManager.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CJsonParser.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CJsonParser_impl.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CKernel.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CLabelNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CMacroManager.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CMenuNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CParallelNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CPeerNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CSceneNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CScratchNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CSelectorNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CSequenceNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CSoundManager.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CSpriteNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CTeamNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CTouchBeganVisitor.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CTransitionVisitor.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CValidateSceneVisitor.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CValidator.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CVideoNode.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\CVisitor.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\SUser.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Util\Include\CStats.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Util\Include\Desc.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Util\Include\FToString.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Util\Include\Util.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Networking\INetworkManager.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Networking\Networking.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Modules\Networking\win\Include\CNetworkManager.h">
+      <Filter>src\Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
