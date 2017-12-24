@@ -88,7 +88,7 @@ int Application::run()
         QueryPerformanceCounter(&nNow);
         if (nNow.QuadPart - nLast.QuadPart > _animationInterval.QuadPart)
         {
-            nLast.QuadPart = nNow.QuadPart - (nNow.QuadPart % _animationInterval.QuadPart);
+			nLast.QuadPart = nNow.QuadPart;// -(nNow.QuadPart % _animationInterval.QuadPart);
             
             director->mainLoop();
             glview->pollEvents();
