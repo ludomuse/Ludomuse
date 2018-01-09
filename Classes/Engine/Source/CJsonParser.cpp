@@ -1,7 +1,7 @@
-#include "../Include/CJsonParser.h"
+﻿#include "../Include/CJsonParser.h"
 
 #include "reader.h"
-#include "filestream.h"
+#include "stream.h"
 #include "stringbuffer.h"
 
 #include "../Include/CValidateSceneVisitor.h"
