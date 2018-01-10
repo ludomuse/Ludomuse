@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <pthread.h>
 
 #include "../Include/CNetworkManager.h"
@@ -180,13 +180,15 @@ CNetworkManager::CNetworkManager(CKernel* a_pKernel, bool a_bIsServer) :
     struct addrinfo hints;
     result = ptr = NULL;
 
-    hints.ai_family = AF_UNSPEC;
+    hints.ai_family = AF_INET;
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
+    hints.ai_flags = AI_ALL;
+
     int iResult = getaddrinfo("127.0.0.1", DEFAULT_PORT, &hints, &result);
     if (iResult != 0)
     {
-      std::cout << "getaddrinfo failed with code " << iResult << std::endl;
+      std::cout << "client socket getaddrinfo failed with code " << iResult << std::endl;
       return;
     }
 
