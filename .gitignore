@@ -69,6 +69,8 @@ proj.win32/LudoMuse.VC.VC.opendb
 proj.android/out
 proj.win32/LudoMuse.vcxproj
 
+CMakeLists.txt.user
+
 Resources/.idea
 proj.android/LudoMuse.iml
 proj.android/.idea
