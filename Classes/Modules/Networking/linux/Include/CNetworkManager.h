@@ -1,4 +1,4 @@
-#ifndef _CNETWORKMANAGER_H_
+﻿#ifndef _CNETWORKMANAGER_H_
 #define _CNETWORKMANAGER_H_
 
 #include "../../../../Engine/Include/CKernel.h"
@@ -9,6 +9,7 @@
 #include <arpa/inet.h>
 #include <unistd.h> /* close */
 #include <netdb.h> /* gethostbyname */
+
 #define INVALID_SOCKET -1
 #define SOCKET_ERROR -1
 #define closesocket(s) close(s)
@@ -36,7 +37,9 @@ class CNetworkManager
   struct addrinfo *ptr;
   struct addrinfo *result;
 
- public:
+  bool m_bConnectionClosed;
+  pthread_mutex_t m_oConnectionMutex;
+
 
   CNetworkManager(CKernel* a_pKernel, bool a_bIsServer = true);
   ~CNetworkManager();
@@ -47,7 +50,9 @@ class CNetworkManager
   void DiscoverPeers();
   void ConnectTo(const std::string& a_sDeviceName);
   
-  
+private:
+ pthread_t m_oThread;
+
 };
 
 } // namespace LM

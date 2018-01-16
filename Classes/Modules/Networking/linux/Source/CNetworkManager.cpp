@@ -38,6 +38,12 @@ void ProcessBytes(char* recvbuf, int iResult, CNetworkManager* nm)
       buffIndex += messageSize+1;
       std::cout << "Message size : " << messageSize << std::endl;
       std::cout << "Message read : " << std::string(message, messageSize) << std::endl;
+      if (strcmp(message, "LUDOMUSE_SIMULATOR_SHUTDOWN") == 0)
+      {
+          cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread(std::bind(&cocos2d::Director::end, cocos2d::Director::getInstance()));
+          delete message;
+          return;
+      }
       nm->m_pKernel->OnReceivingMessage(std::string(message, messageSize));
       delete message;
   }
@@ -74,15 +80,22 @@ void* ServerWaitMessages(void* networkManager)
       ProcessBytes(recvbuf, iResult, nm);
     }
     else if (iResult == 0)
-      printf("Connection closing...\n");
+    {
+      printf("Remote client shut down connection\n");
+      shutdown(nm->ClientSocket, SHUT_RDWR);
+    }
     else {
       printf("recv failed: %d\n", errno);
-      closesocket(nm->ClientSocket);
-      return NULL;
     }
 
   } while (iResult > 0);
 
+  closesocket(nm->ClientSocket);
+  closesocket(nm->ListenSocket);
+  pthread_mutex_lock(&(nm->m_oConnectionMutex));
+  nm->m_bConnectionClosed = true;
+  pthread_mutex_unlock(&(nm->m_oConnectionMutex));
+  cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread(std::bind(&cocos2d::Director::end, cocos2d::Director::getInstance()));
   return NULL;
 };
 
@@ -103,11 +116,15 @@ void* ClientWaitMessages(void* networkManager)
       ProcessBytes(recvbuf, iResult, nm);
     }
     else if (iResult == 0)
-      printf("Connection closed\n");
+    {
+        printf("Remote server shut down connection\n");
+        shutdown(nm->ConnectSocket, SHUT_RDWR);
+    }
     else
       printf("recv failed: %d\n", errno);
   } while (iResult > 0);
 
+  closesocket(nm->ConnectSocket);
   return NULL;
 };
 
@@ -115,7 +132,9 @@ void* ClientWaitMessages(void* networkManager)
 
 CNetworkManager::CNetworkManager(CKernel* a_pKernel, bool a_bIsServer) : 
     m_pKernel(a_pKernel),
-    m_bIsServer(a_bIsServer)
+    m_bIsServer(a_bIsServer),
+    m_bConnectionClosed(false),
+    m_oConnectionMutex(PTHREAD_MUTEX_INITIALIZER)
 {
   ConnectSocket = NULL;
   ClientSocket = NULL;
@@ -169,8 +188,7 @@ CNetworkManager::CNetworkManager(CKernel* a_pKernel, bool a_bIsServer) :
       return;
     }
 
-    pthread_t thread;
-    pthread_create(&thread, NULL, &ServerWaitMessages, this);
+    pthread_create(&m_oThread, NULL, &ServerWaitMessages, this);
   }
 
 
@@ -225,8 +243,7 @@ CNetworkManager::CNetworkManager(CKernel* a_pKernel, bool a_bIsServer) :
       return;
     }
 
-    pthread_t thread;
-    pthread_create(&thread, NULL, &ClientWaitMessages, this);
+    pthread_create(&m_oThread, NULL, &ClientWaitMessages, this);
 
   }
 
@@ -321,38 +338,50 @@ void CNetworkManager::ConnectTo(const std::string& a_sDeviceName)
 
 CNetworkManager::~CNetworkManager()
 {
-  if (m_bIsServer)
-  {
-    // shutdown the send half of the connection since no more data will be sent
-    int iResult = shutdown(ClientSocket, SHUT_RDWR);
-    if (iResult == SOCKET_ERROR) {
-      printf("shutdown failed: %d\n", errno);
-      closesocket(ClientSocket);
-      return;
+
+    pthread_mutex_lock(&m_oConnectionMutex);
+    if (!m_bConnectionClosed)
+    {
+        if (m_bIsServer)
+        {
+          // shutdown the send half of the connection since no more data will be sent
+//            if (ClientSocket != INVALID_SOCKET)
+//            {
+//                int iResult = shutdown(ClientSocket, SHUT_RDWR);
+//                if (iResult == SOCKET_ERROR) {
+//                    printf("shutdown failed: %d\n", errno);
+//                }
+//            }
+
+            Send("LUDOMUSE_SIMULATOR_SHUTDOWN");
+
+          // cleanup
+      //    closesocket(ClientSocket);
+      //    closesocket(ListenSocket);
+
+      //    return;
+        }
+        else
+        {
+          // shutdown the connection for sending since no more data will be sent
+          // the client can still use the ConnectSocket for receiving data
+          int iResult = shutdown(ConnectSocket, SHUT_RDWR);
+          if (iResult == SOCKET_ERROR) {
+            printf("shutdown failed: %d\n", errno);
+      //      closesocket(ConnectSocket);
+      //      return;
+          }
+
+          // cleanup
+      //    closesocket(ConnectSocket);
+
+      //    return;
+        }
+        m_bConnectionClosed = true;
     }
+    pthread_mutex_unlock(&m_oConnectionMutex);
 
-    // cleanup
-    closesocket(ClientSocket);
-
-    return;
-  }
-  else
-  {
-    // shutdown the connection for sending since no more data will be sent
-    // the client can still use the ConnectSocket for receiving data
-    int iResult = shutdown(ConnectSocket, SHUT_RDWR);
-    if (iResult == SOCKET_ERROR) {
-      printf("shutdown failed: %d\n", errno);
-      closesocket(ConnectSocket);
-      return;
-    }
-
-    // cleanup
-    closesocket(ConnectSocket);
-
-    return;
-  }
-
+  pthread_join(m_oThread, NULL);
 }
 
 
