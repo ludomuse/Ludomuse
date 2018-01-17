@@ -345,15 +345,19 @@ CNetworkManager::~CNetworkManager()
         if (m_bIsServer)
         {
           // shutdown the send half of the connection since no more data will be sent
-//            if (ClientSocket != INVALID_SOCKET)
-//            {
+            if (ClientSocket != INVALID_SOCKET)
+            {
 //                int iResult = shutdown(ClientSocket, SHUT_RDWR);
 //                if (iResult == SOCKET_ERROR) {
 //                    printf("shutdown failed: %d\n", errno);
 //                }
-//            }
+                Send("LUDOMUSE_SIMULATOR_SHUTDOWN");
+            }
+            else
+            {
+                closesocket(ListenSocket);
+            }
 
-            Send("LUDOMUSE_SIMULATOR_SHUTDOWN");
 
           // cleanup
       //    closesocket(ClientSocket);
@@ -381,7 +385,7 @@ CNetworkManager::~CNetworkManager()
     }
     pthread_mutex_unlock(&m_oConnectionMutex);
 
-  pthread_join(m_oThread, NULL);
+    pthread_join(m_oThread, NULL);
 }
 
 
