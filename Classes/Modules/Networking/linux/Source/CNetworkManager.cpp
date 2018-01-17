@@ -58,6 +58,29 @@ void* ServerWaitMessages(void* networkManager)
 
   nm->ClientSocket = INVALID_SOCKET;
 
+  // check if the socket is ready to be accepted
+//  fd_set rfds;
+//  struct timeval tv;
+//  tv.tv_sec = 1;
+//  tv.tv_usec = 0;
+
+//  FD_ZERO(&rfds);
+//  FD_SET(nm->ClientSocket, &rfds);
+
+//  while (true)
+//  {
+//      pthread_mutex_lock(&(nm->m_oConnectionMutex));
+//      if (nm->m_bConnectionClosed)
+//      {
+//          return NULL;
+//      }
+//      pthread_mutex_unlock(&(nm->m_oConnectionMutex));
+
+//      if (select(1, &rfds, NULL, NULL, &tv))
+//      {
+//          break;
+//      }
+//  }
   // Accept a client socket
   nm->ClientSocket = accept(nm->ListenSocket, NULL, NULL);
   if (nm->ClientSocket == INVALID_SOCKET) {
@@ -355,6 +378,7 @@ CNetworkManager::~CNetworkManager()
             }
             else
             {
+                shutdown(ListenSocket, SHUT_RDWR);
                 closesocket(ListenSocket);
             }
 
@@ -369,11 +393,15 @@ CNetworkManager::~CNetworkManager()
         {
           // shutdown the connection for sending since no more data will be sent
           // the client can still use the ConnectSocket for receiving data
-          int iResult = shutdown(ConnectSocket, SHUT_RDWR);
-          if (iResult == SOCKET_ERROR) {
-            printf("shutdown failed: %d\n", errno);
-      //      closesocket(ConnectSocket);
-      //      return;
+          if (ConnectSocket != INVALID_SOCKET)
+          {
+              int iResult = shutdown(ConnectSocket, SHUT_RDWR);
+              if (iResult == SOCKET_ERROR) {
+                printf("shutdown failed: %d\n", errno);
+          //      closesocket(ConnectSocket);
+          //      return;
+              }
+
           }
 
           // cleanup
