@@ -141,7 +141,7 @@ std::string CKernel::ToJson(){
     document.SetObject();
     rapidjson::Document::AllocatorType& allocator = document.GetAllocator();
     rapidjson::Value app(rapidjson::kObjectType);
-    app.AddMember("debug", true, allocator);
+    app.AddMember("debug", false, allocator);
     rapidjson::Value colors(rapidjson::kArrayType);
     app.AddMember("colors", colors, allocator);
     rapidjson::Value images(rapidjson::kArrayType);
