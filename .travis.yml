@@ -52,4 +52,5 @@ before_install:
 
 script:
   - cd ../LudoMuse
+  - source /home/travis/.bashrc
   - cocos compile -p android -m release
