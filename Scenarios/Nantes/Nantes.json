@@ -965,6 +965,17 @@
                             "x": 0,
                             "y": 0
                         }
+                    },
+                    {
+                        "type": "Video",
+                        "params": {
+                            "source": "cache/video.mp4",
+                            "anchor": 0,
+                            "width": 0,
+                            "height": 0,
+                            "x": 0,
+                            "y": 0
+                        }
                     }
                 ],
                 "information": []
