@@ -24,9 +24,6 @@ android:
     #- sys-img-armeabi-v7a-android-24
     #- sys-img-armeabi-v7a-android-17
 
-  env:
-    ANDROID_SDK_ROOT=/usr/local/android-sdk/
-
     
 #  licenses:
 #    - 'android-sdk-license-.+'
