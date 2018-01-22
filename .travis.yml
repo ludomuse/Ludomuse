@@ -46,7 +46,7 @@ git:
 before_install:
   - echo -e "machine github.com\n login $GITHUB_TOKEN" >> ~/.netrc
   # - git lfs pull
-  - bash configure-cocos-android.sh
+  - ./configure-cocos-android.sh
 
 script:
   - cd ../LudoMuse
