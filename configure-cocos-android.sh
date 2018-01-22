@@ -4,6 +4,9 @@
 echo "Before install path : $PWD"
 export PREF=$PWD/../
 cd $PREF
+wget --quiet https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
+unzip -q android-ndk-r13b-linux-x86_64.zip
+export NDK_ROOT=$PREF/android-ndk-r13b-linux-x86_64
 wget --quiet http://cdn.cocos2d-x.org/cocos2d-x-3.16.zip
 unzip -q cocos2d-x-3.16.zip
 cd cocos2d-x-3.16/
