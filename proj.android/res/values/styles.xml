@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StatusC"  parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/background_dialog</item>
+        <item name="android:textAppearanceMedium">@android:attr/borderlessButtonStyle</item>
+        <item name="android:textColor">#32CD32</item>
+
+    </style>
+
+    <style name="StatusD"  parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/background_dialog</item>
+        <item name="android:textAppearanceMedium">@android:attr/borderlessButtonStyle</item>
+        <item name="android:textColor">#FF0000</item>
+
+    </style>
+
+    <style name="StatusW"  parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/background_dialog</item>
+        <item name="android:textAppearanceMedium">@android:attr/borderlessButtonStyle</item>
+        <item name="android:textColor">#FF7F50</item>
+
+    </style>
+
+</resources>

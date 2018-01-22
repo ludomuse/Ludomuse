@@ -88,3 +88,10 @@ Scenarios/old
 ResourcesFiles/res_templ
 ResourcesFiles/temp.json
 *.zip
+proj.android/gradle/wrapper/gradle-wrapper.properties
+proj.android/gradle/wrapper/gradle-wrapper.jar
+proj.android/settings.gradle
+proj.android/path/to/library/libraryName.iml
+proj.android/gradlew.bat
+proj.android/gradlew
+proj.android/build.gradle

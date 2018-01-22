@@ -16,7 +16,8 @@ import android.media.Image;
 import android.media.MediaScannerConnection;
 import android.media.MediaScannerConnection.MediaScannerConnectionClient;
 import android.view.Display;
-import android.graphics.PointF;
+import android.graphics.PointF;import com.IHMTEK.LudoMuse.R;
+
 import android.graphics.drawable.Drawable;
 import android.app.ProgressDialog;
 import android.view.KeyEvent;
@@ -26,7 +27,6 @@ import android.util.Log;
 import java.io.FileInputStream;
 import java.util.Calendar;
 import android.content.DialogInterface;
-import com.IHMTEK.LudoMuse.R;
 
 
 import android.net.Uri;

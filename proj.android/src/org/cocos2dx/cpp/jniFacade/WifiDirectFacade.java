@@ -19,15 +19,15 @@ import android.util.Log;
  */
 public class WifiDirectFacade {
 
-	private WifiDirectManager _manager;
+	private WifiDirectManager _wifiDirectManager;
 	
 	//There, we set callback that are going to be called by the WifiDirectManager
 	//when receiving data such as int, char, byte, string, ....
-	private CallBackMethod cmOnGettingsPeers = new CallBackMethod() {
+	private CallBackMethod _cmOnGettingsPeers = new CallBackMethod() {
 		@Override
 		public void Do(Object... vars)
 		{
-			onGettingPeers(_manager.getDeviceList());
+			onGettingPeers(_wifiDirectManager.getDeviceList());
 		}
 	};
 	private CallBackMethod cmOnReceiveString = new CallBackMethod() {
@@ -100,10 +100,12 @@ public class WifiDirectFacade {
 			onReceiving((Character) vars[0]);
 		}
 	};
-	
+
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public WifiDirectFacade(Activity activity)
 	{
-
 		JniJavaFacade._wifiDirectFacade = this;
 
 		WifiDirectManager.registerCallBackReceiver(cmOnReceiveString,
@@ -111,43 +113,49 @@ public class WifiDirectFacade {
 				cmOnReceiveDouble, cmOnReceiveByte, cmOnReceiveLong,
 				cmOnReceiveFile, cmOnReceiveByteArray, cmOnReceiveChar);
 
-		_manager = new WifiDirectManager(activity);
+		_wifiDirectManager = new WifiDirectManager(activity);
+
 		//If true, wifi manager will automatically reconnect when is deconnected
-		_manager.autoReconnect = true;
-		//allow wifi manager to relaunch discovery service when the list of found devices
-		//decrease
-		_manager.enabledAutoRelanchingServiceDiscoverPeers = false;
+		_wifiDirectManager.autoReconnect = true;
+
+		//allow wifi manager to relaunch discovery service when the list of found devices decrease
+		_wifiDirectManager.enabledAutoRelanchingServiceDiscoverPeers = false;
+
 		//If true, it will launch a connection request, even if a connection was already launched
 		//(but still not answered)
-		_manager.forceConnectionRequest = false;
-		_manager.initialize();
+		_wifiDirectManager.bForceConnectionRequest = false;
+		_wifiDirectManager.initialize();
+
 		//should be done in the exit method of the application
-		_manager.clear();
+		_wifiDirectManager.clear();
+
 //		LudoMuseThread.stopAllLudoMuseThread();
 		
-		DebugManager.print("WifiDirectFacade is created !",
-				WifiDirectManager.DEBUGGER_CHANNEL);
-		
-		
-		DebugManager.print("tablet name is",
-				WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("WifiDirectFacade is created !",  WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("tablet name is",  WifiDirectManager.DEBUGGER_CHANNEL);
+
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onGettingPeers(List<String> peers)
 	{
-		DebugManager.print("facade has got peers !",
-				WifiDirectManager.DEBUGGER_CHANNEL);
 		JniCppFacade.onGettingPeers(peers);
-		DebugManager.print("facade has got peers ! - end",
-				WifiDirectManager.DEBUGGER_CHANNEL);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(String s)
 	{
-		Log.d("debug","LUDOMUSE - string");
+		DebugManager.print("onReceive string= " + s,  WifiDirectManager.DEBUGGER_CHANNEL);
 		JniCppFacade.onReceivingString(s);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(int i)
 	{
 		DebugManager.print("Java WifiDirectFacade received int",
@@ -155,18 +163,27 @@ public class WifiDirectFacade {
 		JniCppFacade.onReceivingInt(i);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(boolean b)
 	{
 		Log.d("debug","LUDOMUSE - bool");
 		JniCppFacade.onReceivingBool(b);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(long l)
 	{
 		Log.d("debug","LUDOMUSE - long");
 		JniCppFacade.onReceivingLong(l);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(File f)
 	{
 		if (f != null)
@@ -177,122 +194,191 @@ public class WifiDirectFacade {
 		}
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(double d)
 	{
 		Log.d("debug","LUDOMUSE - double");
 		JniCppFacade.onReceivingDouble(d);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(float f)
 	{
 		Log.d("debug","LUDOMUSE - float");
 		JniCppFacade.onReceivingFloat(f);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(char c)
 	{
 		Log.d("debug","LUDOMUSE - char");
 		JniCppFacade.onReceivingChar(c);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(byte b)
 	{
 		Log.d("debug","LUDOMUSE - byte");
 		JniCppFacade.onReceivingByte(b);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void onReceiving(byte[] bytes)
 	{
 		Log.d("debug","LUDOMUSE - bytes");
 		JniCppFacade.onReceivingBytes(bytes);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void discoverPeers()
 	{
-		_manager.launchServicePeersDiscovering(cmOnGettingsPeers);
+		_wifiDirectManager.launchServicePeersDiscovering(_cmOnGettingsPeers);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void connectTo(String deviceName)
 	{
 		DebugManager.print("peer is: " + deviceName, WifiDirectManager.DEBUGGER_CHANNEL);
-		_manager.setPeerName(deviceName);
+		_wifiDirectManager.setPeerName(deviceName);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(String s)
 	{
-		_manager.send(s);
+		_wifiDirectManager.send(s);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(int i)
 	{
-		_manager.send(i);
+		_wifiDirectManager.send(i);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(boolean b)
 	{
-		_manager.send(b);
+		_wifiDirectManager.send(b);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(long l)
 	{
-		_manager.send(l);
+		_wifiDirectManager.send(l);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(File f)
 	{
-		_manager.send(f);
+		_wifiDirectManager.send(f);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(double d)
 	{
-		_manager.send(d);
+		_wifiDirectManager.send(d);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(float f)
 	{
-		_manager.send(f);
+		_wifiDirectManager.send(f);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(char c)
 	{
-		_manager.send(c);
+		_wifiDirectManager.send(c);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(byte b)
 	{
-		_manager.send(b);
+		_wifiDirectManager.send(b);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void send(byte[] bytes)
 	{
-		_manager.send(bytes);
+		_wifiDirectManager.send(bytes);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void pause()
 	{
-		_manager.pause();
+		_wifiDirectManager.pause();
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void resume()
 	{
-		_manager.resume();
+		_wifiDirectManager.resume();
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public void clear()
 	{
-		_manager.clear();	
+		_wifiDirectManager.clear();
 	}
-	
+
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public Activity getActivity()
 	{
-		return _manager.getActivity();
+		return _wifiDirectManager.getActivity();
 	}
-	
+
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public String getThisDeviceName()
 	{
-		return _manager.getThisDeviceName();
+		return _wifiDirectManager.get_strThisDeviceName();
 	}
-	
+
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void setServerTempFileName(String name)
 	{
 		WifiDirectManager.setServerTempFileName(name);

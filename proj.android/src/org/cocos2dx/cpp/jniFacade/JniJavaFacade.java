@@ -26,93 +26,140 @@ import android.content.Intent;
  * @author Rani, Gregoire
  * 
  */
-public class JniJavaFacade {
+public class JniJavaFacade
+{
 
 	public static WifiDirectFacade _wifiDirectFacade;
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void send(String s)
 	{
 		_wifiDirectFacade.send(s);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void send(boolean b)
 	{
 		_wifiDirectFacade.send(b);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void send(int i)
 	{
 		DebugManager.print("sending int", WifiDirectManager.DEBUGGER_CHANNEL);
 		_wifiDirectFacade.send(i);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void send(long l)
 	{
 		_wifiDirectFacade.send(l);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void send(char c)
 	{
 		_wifiDirectFacade.send(c);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void send(double d)
 	{
 		_wifiDirectFacade.send(d);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void sendFile(String path)
 	{
 		File f = new File(path);
-		DebugManager.print("send file called from c++. File exists? " + f.exists(),
-				WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("send file called from c++. File exists? " + f.exists(), WifiDirectManager.DEBUGGER_CHANNEL);
 		_wifiDirectFacade.send(f);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void setServerTempFileName(String name)
 	{
 		WifiDirectFacade.setServerTempFileName(name);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void sendByte(byte b)
 	{
-		DebugManager.print("send byte is called from c++",
-				WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("send byte is called from c++",  WifiDirectManager.DEBUGGER_CHANNEL);
 		_wifiDirectFacade.send(b);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void sendBytes(byte[] bytes)
 	{
 		_wifiDirectFacade.send(bytes);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void send(float f)
 	{
 		_wifiDirectFacade.send(f);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//																									Called from c++
+	//------------------------------------------------------------------------------------------------------------------
 	public static void discoverPeers()
 	{
-		DebugManager.print("discover peers is called from c++",
-				WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("discover peers is called from c++", WifiDirectManager.DEBUGGER_CHANNEL);
 		_wifiDirectFacade.discoverPeers();
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//																									Called from c++
+	//------------------------------------------------------------------------------------------------------------------
 	public static void connectTo(String deviceName)
 	{
+		DebugManager.print("connectTo " + deviceName + " is called from c++ ", WifiDirectManager.DEBUGGER_CHANNEL);
 		_wifiDirectFacade.connectTo(deviceName);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//																								Called from c++
+	//------------------------------------------------------------------------------------------------------------------
 	public static void getTabletName()
 	{
 		JniCppFacade.setTabletName(_wifiDirectFacade.getThisDeviceName());
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void clean()
 	{
 		_wifiDirectFacade.clear();
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void takePicture(String maskPath)
 	{
 		AppActivity appActivity = (AppActivity) _wifiDirectFacade.getActivity();
@@ -124,6 +171,9 @@ public class JniJavaFacade {
 		appActivity.startActivityForResult(intent, 1);
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void showVideo(String videoPath)
 	{
 		AppActivity appActivity = (AppActivity) _wifiDirectFacade.getActivity();
@@ -132,7 +182,10 @@ public class JniJavaFacade {
 		Log.d("LudoMuse", "starting video activity with path : " + videoPath);
 		appActivity.startActivity(intent);
 	}
-	
+
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void saveStringToFile(String text)
 	{
 //		Log.d("[LUDO_STATS]", "saveStringToFile in Java");
@@ -200,7 +253,10 @@ public class JniJavaFacade {
 		
 	}
 
-	public static void getApplicationDirectory()
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
+	public static void getApplicationDirectory( )
 	{
 		AppActivity appActivity = (AppActivity) _wifiDirectFacade.getActivity();
 		JniCppFacade.setApplicationDirectory(appActivity.createOrReturnAppDir());

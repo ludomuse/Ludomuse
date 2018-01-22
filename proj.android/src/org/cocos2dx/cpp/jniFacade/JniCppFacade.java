@@ -14,8 +14,12 @@ import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
  * @author Gregoire
  *
  */
-public class JniCppFacade {
+public class JniCppFacade
+{
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	public static void onGettingPeers(List<String> peers)
 	{
 		DebugManager.print("Jni cpp facade has got peers !", WifiDirectManager.DEBUGGER_CHANNEL);
@@ -23,7 +27,10 @@ public class JniCppFacade {
 		DebugManager.print("Devices are: " + devices, WifiDirectManager.DEBUGGER_CHANNEL);
 		onGettingPeers(devices);
 	}
-	
+
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	private static String concat(List<String> peers)
 	{
 		String res = "";

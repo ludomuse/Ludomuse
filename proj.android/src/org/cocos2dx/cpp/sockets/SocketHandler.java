@@ -71,8 +71,10 @@ public class SocketHandler {
 	 */
 	public void stop()
 	{
-		if (server != null)
+		if ( server != null )
+		{
 			server.stop();
+		}
 	}
 
 	public boolean isDettachedFromRemoteHost()
@@ -102,8 +104,9 @@ public class SocketHandler {
 	public void notifyIsDisconnectedFromNetwork()
 	{
 		DebugManager.print("Notifying disconnection to server & client", WifiDirectManager.DEBUGGER_CHANNEL);
+
 		stop();
-		//dettachFromRemoteHost();
+		dettachFromRemoteHost();
 	}
 
 	/**

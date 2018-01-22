@@ -28,16 +28,23 @@ import java.lang.Override;
  * depend on any graphics component as stated earlier.
  */
 
-public class AppActivity extends Cocos2dxActivity {
-	private static AppActivity instance;
+public class AppActivity extends Cocos2dxActivity
+{
 
+	private static AppActivity instance;
 	private WifiDirectFacade _wifiFacade;
 
-	public static Activity getInstance()
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
+	public static Activity getInstance( )
 	{
 		return instance;
 	}
 
+	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -45,23 +52,24 @@ public class AppActivity extends Cocos2dxActivity {
 		instance = this;
 		super.onCreate(savedInstanceState);
 
-                // redirects logcat to filesystem
-                File filename = new File("/sdcard/LudoMuse/logcat.log");
-                try // to create logcat redirection file
-                {
-                  filename.createNewFile();
-                  String cmd = "logcat -c";
-                  Runtime.getRuntime().exec(cmd);
-                  cmd = "logcat -f " + filename.getAbsolutePath();
-                  Runtime.getRuntime().exec(cmd);
-                }
-                catch (IOException e)
-                {
-                  e.printStackTrace();
-                  Log.e("LudoMuse", "could not open logcat log file", e);
-                }
+		// redirects logcat to filesystem
+		File filename = new File("/sdcard/LudoMuse/logcat.log");
 
+		try // to create logcat redirection file
+		{
+			filename.createNewFile();
+			String cmd = "logcat -c";
+			Runtime.getRuntime().exec(cmd);
+			cmd = "logcat -f " + filename.getAbsolutePath();
+			Runtime.getRuntime().exec(cmd);
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+			Log.e("LudoMuse", "could not open logcat log file", e);
+		}
 
+		// Create WIFI direct
 		_wifiFacade = new WifiDirectFacade(this);
 		
 		if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) 
@@ -85,7 +93,11 @@ public class AppActivity extends Cocos2dxActivity {
 		}
 	}*/
 
-	/* register the broadcast receiver with the intent values to be matched */
+
+
+	//------------------------------------------------------------------------------------------------------------------
+	// 												Register the broadcast receiver with the intent values to be matched
+	//------------------------------------------------------------------------------------------------------------------
 	@Override
 	protected void onResume()
 	{
@@ -93,7 +105,9 @@ public class AppActivity extends Cocos2dxActivity {
 		_wifiFacade.resume();
 	}
 
-	/* unregister the broadcast receiver */
+	//------------------------------------------------------------------------------------------------------------------
+	// 																				Unregister the broadcast receiver
+	//------------------------------------------------------------------------------------------------------------------
 	@Override
 	protected void onPause()
 	{

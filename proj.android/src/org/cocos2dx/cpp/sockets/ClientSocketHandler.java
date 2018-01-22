@@ -14,7 +14,6 @@ import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import org.cocos2dx.cpp.AppActivity;
 import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 
@@ -24,14 +23,14 @@ class ConnectTask2 implements Runnable {
 	private String host;
 	private int port;
 	private Socket socket;
-	private CallBackMethod cm;
+	private CallBackMethod _cm;
 
 	public ConnectTask2(String host, int port, Socket socket, CallBackMethod cm)
 	{
 		this.host = host;
 		this.port = port;
 		this.socket = socket;
-		this.cm = cm;
+		this._cm = cm;
 	}
 
 	public void execute()
@@ -45,15 +44,13 @@ class ConnectTask2 implements Runnable {
 		try
 		{
 			//socket.bind(null);
-			DebugManager.print(ClientSocketHandler.GetTag()
-					+ "Trying to reach address " + host + ":" + port,
-					WifiDirectManager.DEBUGGER_CHANNEL);
+			DebugManager.print(ClientSocketHandler.GetTag() + "Trying to reach address host: " + host + "with port:" + port,  WifiDirectManager.DEBUGGER_CHANNEL);
 			socket.connect(new InetSocketAddress(host, port), 500);
 			// socket.connect((new InetSocketAddress(host, port)), 500);
 			// DebugManager.print(socket.isConnected() ? "connected to server" :
 			// "connection to server fail", WifiDirectManager.DEBUGGER_CHANNEL);
-			if (cm != null)
-				cm.Do();
+			if (_cm != null)
+				_cm.Do();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -69,7 +66,7 @@ class ConnectTask2 implements Runnable {
 			// Log.d("A", e.getMessage() + "");
 			DebugManager
 					.print(ClientSocketHandler.GetTag()
-							+ "IO Exception occure during connection to server at "
+							+ "IO Exception occured during connection to server at "
 							+ host + ":" + port + ". Error: "
 							+ e.getLocalizedMessage(),
 							WifiDirectManager.DEBUGGER_CHANNEL);
@@ -211,7 +208,7 @@ public class ClientSocketHandler {
 	
 	public boolean wasPreviouslyAttached()
 	{
-		DebugManager.print(ClientSocketHandler.GetTag() + "cesar was previously attached to IP=" + remoteIp,
+		DebugManager.print(ClientSocketHandler.GetTag() + " was previously attached to IP=" + remoteIp,
 				WifiDirectManager.DEBUGGER_CHANNEL);
 
 		return remoteIp != null;
@@ -235,12 +232,9 @@ public class ClientSocketHandler {
 	private void connect(final CallBackMethod cm)
 	{
 		// If there is not remote host set, stop connection
-		if (isDettachedFromRemoteHost())
+		if ( isDettachedFromRemoteHost() )
 		{
-			DebugManager.print(ClientSocketHandler.GetTag()
-					+ "Not connected to host",
-					WifiDirectManager.DEBUGGER_CHANNEL);
-
+			DebugManager.print(ClientSocketHandler.GetTag() + " Not connected to host",  WifiDirectManager.DEBUGGER_CHANNEL);
 			return;
 		}
 
@@ -250,20 +244,15 @@ public class ClientSocketHandler {
 			public void run()
 			{
 				// If there is not remote host set, stop connection and timer
-				if (isDettachedFromRemoteHost())
+				if ( isDettachedFromRemoteHost() )
 				{
-					DebugManager
-							.print("Ip from remost host is null. Stoping connection now.",
-									WifiDirectManager.DEBUGGER_CHANNEL);
+					DebugManager.print("Ip from remost host is null. Stoping connection now.",  WifiDirectManager.DEBUGGER_CHANNEL);
 					return;
 				}
-				if (socket != null && socket.isConnected()
-						&& !socket.isClosed())
+				if (socket != null && socket.isConnected() && !socket.isClosed())
 				{
 					// if socket is connected, call the given callback method
-					DebugManager.print(ClientSocketHandler.GetTag()
-							+ "Connected to server !",
-							WifiDirectManager.DEBUGGER_CHANNEL);
+					DebugManager.print(ClientSocketHandler.GetTag()  + " Connected to server !",  WifiDirectManager.DEBUGGER_CHANNEL);
 					cm.Do();
 				}
 				else
@@ -271,12 +260,9 @@ public class ClientSocketHandler {
 					// if no connection, try to connect by initiating a
 					// ConnectTask2
 
-					DebugManager.print(ClientSocketHandler.GetTag()
-							+ "Connection to server fail. Trying again...",
-							WifiDirectManager.DEBUGGER_CHANNEL);
+					DebugManager.print(ClientSocketHandler.GetTag() + "Connection to server fail. Trying again...", WifiDirectManager.DEBUGGER_CHANNEL);
 					socket = new Socket();
-					ConnectTask2 connectTask = new ConnectTask2(remoteIp,
-							remotePort, socket, cm);
+					ConnectTask2 connectTask = new ConnectTask2(remoteIp, remotePort, socket, cm);
 					connectTask.execute();
 					/*
 					 * uncomment to enable timer to work. But this is not a good
@@ -507,10 +493,7 @@ public class ClientSocketHandler {
 					// open a new stream to communicate with remote server
 					OutputStream outputStream = openOutputStream();
 
-
-
-					// Check if we need to concatenate a message accuse to this
-					// message
+					// Check if we need to concatenate a message accuse to this message
 					// @see sendAccuse method from SocketHandler class for more
 					// details
 					if (concatAccuseInNextSend)
@@ -549,17 +532,11 @@ public class ClientSocketHandler {
 					closeOutputStream(outputStream);
 					socket.close();
 
-
-
 					// rearmServerNotificator();
 				}
 				catch (Exception e)
 				{
-					DebugManager.print(
-							ClientSocketHandler.GetTag()
-									+ "error occure while sending stream : "
-									+ e.getLocalizedMessage(),
-							WifiDirectManager.DEBUGGER_CHANNEL);
+					DebugManager.print( ClientSocketHandler.GetTag()  + " error occure while sending stream : "  + e.getLocalizedMessage(),  WifiDirectManager.DEBUGGER_CHANNEL);
 				}
 
 
