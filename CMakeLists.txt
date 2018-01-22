@@ -96,14 +96,20 @@ set(PLATFORM_SPECIFIC_HEADERS
 elseif(LINUX) #assume linux
 set(PLATFORM_SPECIFIC_SRC
   proj.linux/main.cpp
+  Classes/Modules/Networking/linux/Source/*.cpp
+)
+set(PLATFORM_SPECIFIC_HEADERS
+  Classes/Modules/Networking/linux/Include/*.h
 )
 elseif ( WIN32 )
 set(PLATFORM_SPECIFIC_SRC
   proj.win32/main.cpp
+  Classes/Modules/Networking/win/Source/CNetworkManager.cpp
 )
 set(PLATFORM_SPECIFIC_HEADERS
   proj.win32/main.h
   proj.win32/resource.h
+  Classes/Modules/Networking/win/Include/CNetworkManager.h
 )
 endif()
 
@@ -124,7 +130,7 @@ if ( WIN32 )
 endif( WIN32 )
 
 
-file(GLOB SOURCES Classes/Modules/Networking/linux/Source/*.cpp Classes/Modules/Util/Source/*.cpp Classes/Engine/Source/*.cpp)
+file(GLOB SOURCES Classes/Modules/Util/Source/*.cpp Classes/Engine/Source/*.cpp)
 
 set(GAME_SRC
   Classes/AppDelegate.cpp
