@@ -48,10 +48,10 @@ git:
 before_install:
   - echo -e "machine github.com\n login $GITHUB_TOKEN" >> ~/.netrc
   # - git lfs pull
+  - export ANDROID_SDK_ROOT=/usr/local/android-sdk/
   - ./configure-cocos-android.sh
 
 script:
   - cd ../LudoMuse
-  - cat /home/travis/.bashrc
   - source /home/travis/.bashrc
   - cocos compile -p android -m release
