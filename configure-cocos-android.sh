@@ -12,8 +12,8 @@ if test ! -e $HOME/android-sdk-dl/sdk-tools.zip; then
     mkdir -p $HOME/android-sdk-dl/
     mkdir -p $HOME/android-sdk/
     
-    curl -s https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip > $HOME/android-sdk-dl/sdk-tools.zip ;
-    curl -s https://dl.google.com/android/repository/tools_r25.2.5-linux.zip > $HOME/android-sdk-dl/sdk-tools-25.zip ;
+    #curl -s https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip > $HOME/android-sdk-dl/sdk-tools.zip ;
+    curl -s https://dl.google.com/android/repository/tools_r25.2.5-linux.zip > $HOME/android-sdk-dl/sdk-tools.zip ;
 
     echo "unzipping tools"
     unzip -qq -n $HOME/android-sdk-dl/sdk-tools.zip -d $HOME/android-sdk
@@ -23,7 +23,7 @@ if test ! -e $HOME/android-sdk-dl/sdk-tools.zip; then
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;23.0.1' > /dev/null
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-22' > /dev/null
     # echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
-    unzip -qq -o $HOME/android-sdk-dl/sdk-tools-25.zip -d $HOME/android-sdk
+    #unzip -qq -o $HOME/android-sdk-dl/sdk-tools-25.zip -d $HOME/android-sdk
 
 fi
 
