@@ -51,6 +51,8 @@ before_install:
   - echo -e "machine github.com\n login $GITHUB_TOKEN" >> ~/.netrc
   # - git lfs pull
   - export ANDROID_SDK_ROOT=/usr/local/android-sdk/
+  - echo "sdk manager version"
+  - $ANDROID_SDK_ROOT/sdkmanager --version
   - ./configure-cocos-android.sh
 
 script:
