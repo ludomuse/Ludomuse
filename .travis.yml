@@ -57,16 +57,18 @@ before_install:
 install:
   - ./configure-cocos-android.sh
 
-cache:
-  directories:
-    - $HOME/android-sdk
-    - $HOME/android-sdk-dl
-    - $HOME/android-ndk
-    - $HOME/android-ndk-dl
-    - $HOME/cocos
-    - $HOME/cocos-dl
+# cache:
+#   directories:
+#     - $HOME/android-sdk
+#     - $HOME/android-sdk-dl
+#     - $HOME/android-ndk
+#     - $HOME/android-ndk-dl
+#     - $HOME/cocos
+#     - $HOME/cocos-dl
 
 script:
   - cd $HOME/LudoMuse
+  - export ANDROID_SDK_ROOT=$HOME/android-sdk
   - source $HOME/.bashrc
+  - echo $ANDROID_SDK_ROOT
   - cocos compile -p android -m release

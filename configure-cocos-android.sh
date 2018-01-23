@@ -20,7 +20,7 @@ if test ! -e $HOME/android-sdk-dl/sdk-tools.zip; then
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;23.0.1' > /dev/null
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-22' > /dev/null
     # echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
-    unzip -qq -n $HOME/android-sdk-dl/sdk-tools-25.zip -d $HOME/android-sdk
+    unzip -qq $HOME/android-sdk-dl/sdk-tools-25.zip -d $HOME/android-sdk
 
 fi
 
