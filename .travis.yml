@@ -55,15 +55,16 @@ before_install:
   # - git lfs pull
 
 install:
-  - curl -s https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip > $HOME/sdk-tools.zip
-  - unzip -qq -n $HOME/sdk-tools.zip -d $HOME/android-sdk
-  - export ANDROID_SDK_ROOT=$HOME/android-sdk
-  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
-  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
-  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;23.0.1' > /dev/null
-  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-22' > /dev/null
-  #- echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
   - ./configure-cocos-android.sh
+
+cache:
+  directories:
+    - $HOME/android-sdk
+    - $HOME/android-sdk-dl
+    - $HOME/android-ndk
+    - $HOME/android-ndk-dl
+    - $HOME/cocos
+    - $HOME/cocos-dl
 
 script:
   - cd ../LudoMuse
