@@ -9,6 +9,9 @@ cd $PREF
 # setup sdk
 if test ! -e $HOME/android-sdk-dl/sdk-tools.zip; then
     echo "no cached sdk, downloading ..."
+    mkdir -p $HOME/android-sdk-dl/
+    mkdir -p $HOME/android-sdk/
+    
     curl -s https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip > $HOME/android-sdk-dl/sdk-tools.zip ;
     curl -s https://dl.google.com/android/repository/tools_r25.2.5-linux.zip > $HOME/android-sdk-dl/sdk-tools-25.zip ;
 
@@ -29,6 +32,9 @@ export ANDROID_SDK_ROOT=$HOME/android-sdk
 
 # setup ndk
 if test ! -e $HOME/android-ndk-dl/android-ndk.zip; then
+    mkdir -p $HOME/android-ndk-dl/
+    mkdir -p $HOME/android-ndk/
+    
     curl -s https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip > $HOME/android-ndk-dl/android-ndk.zip ;
 fi
 unzip -qq -n $HOME/android-ndk-dl/android-ndk.zip -d $HOME/android-ndk
@@ -37,6 +43,9 @@ export NDK_ROOT=$HOME/android-ndk
 
 # setup cocos
 if test ! -e $HOME/cocos-dl/cocos.zip; then
+    mkdir -p $HOME/cocos-dl/
+    mkdir -p $HOME/cocos/
+    
     curl -s http://cdn.cocos2d-x.org/cocos2d-x-3.16.zip > $HOME/cocos-dl/cocos.zip ;
 fi
 unzip -qq -n $HOME/cocos-dl/cocos.zip -d $HOME/cocos/
