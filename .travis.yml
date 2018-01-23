@@ -13,6 +13,9 @@ android:
     - android-22
     - ant
     - platform-tools
+    - extra
+    - addon
+    - sys-img-armeabi-v7a-android-22
 
     # Additional components
     # - extra-google-google_play_services
@@ -50,11 +53,10 @@ before_install:
   - sudo apt-get update -qq
   - echo -e "machine github.com\n login $GITHUB_TOKEN" >> ~/.netrc
   # - git lfs pull
-  - export ANDROID_SDK_ROOT=/usr/local/android-sdk/
-  - sdkmanager --version
-  - ls $ANDROID_SDK_ROOT
+  - which adb
+  - export ANDROID_SDK_ROOT=$(which adb)/../
   - echo "sdk manager version"
-  - $ANDROID_SDK_ROOT/tools/bin/sdkmanager --version
+  - $(ANDROID_SDK_ROOT)/tools/bin/sdkmanager --version
   - ./configure-cocos-android.sh
 
 script:
