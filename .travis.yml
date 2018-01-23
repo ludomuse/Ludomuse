@@ -7,15 +7,15 @@ android:
     # - platform-tools
 
     # The BuildTools version used by your project
-    - build-tools-26.1.1
+    # - build-tools-26.1.1
 
     # The SDK version used to compile your project
-    - android-22
+    # - android-22
     - ant
-    - platform-tools
-    - extra
-    - addon
-    - sys-img-armeabi-v7a-android-22
+    # - platform-tools
+    # - extra
+    # - addon
+    # - sys-img-armeabi-v7a-android-22
 
     # Additional components
     # - extra-google-google_play_services
@@ -53,10 +53,16 @@ before_install:
   - sudo apt-get update -qq
   - echo -e "machine github.com\n login $GITHUB_TOKEN" >> ~/.netrc
   # - git lfs pull
-  - echo $ANDROID_HOME
-  - export ANDROID_SDK_ROOT=$ANDROID_HOME
-  # - echo "sdk manager version"
-  # - $(ANDROID_SDK_ROOT)/tools/bin/sdkmanager --version
+
+install:
+  - curl -s https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip > $HOME/sdk-tools.zip
+  - unzip -qq -n sdk-tools.zip -d $HOME/android-sdk
+  - export ANDROID_SDK_ROOT=$HOME/android-sdk
+  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
+  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
+  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;26.1.1' > /dev/null
+  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-22' > /dev/null
+  #- echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
   - ./configure-cocos-android.sh
 
 script:
