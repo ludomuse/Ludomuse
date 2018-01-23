@@ -67,6 +67,6 @@ cache:
     - $HOME/cocos-dl
 
 script:
-  - cd ../LudoMuse
-  - source /home/travis/.bashrc
+  - cd $HOME/LudoMuse
+  - source $HOME/.bashrc
   - cocos compile -p android -m release

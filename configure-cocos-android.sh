@@ -36,11 +36,11 @@ if test ! -e $HOME/cocos-dl/cocos.zip; then
     curl -s http://cdn.cocos2d-x.org/cocos2d-x-3.16.zip > $HOME/cocos-dl/cocos.zip ;
 fi
 unzip -qq -n $HOME/cocos-dl/cocos.zip -d $HOME/cocos/
-python2 $HOME/cocos/setup.py
+python2 $HOME/cocos/cocos2d-x-3.16/setup.py
 export COCOS=$HOME/cocos/tools/cocos2d-console/bin/cocos
 
 
-cd $PREF
+cd $HOME
 yes N | $COCOS new LudoMuse -l cpp -p com.IHMTEK.LudoMuse
-cp -r Ludomuse/* LudoMuse
-cd LudoMuse
+cp -r Ludomuse/* $HOME/LudoMuse
+cd $HOME/LudoMuse
