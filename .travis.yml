@@ -68,4 +68,10 @@ script:
   - ./configure-cocos-android.sh
   - cd $HOME/LudoMuse
   - source $HOME/.bashrc
+  - export ANDROID_SDK_ROOT=$HOME/android-sdk
+  - export NDK_ROOT=$HOME/android-ndk
+  - export ANT_ROOT=/usr/share/ant/bin
+  - export COCOS_TEMPLATES_ROOT=/home/travis/cocos/cocos2d-x-3.16/templates
+  - export COCOS_X_ROOT=/home/travis/cocos
+  - export COCOS_CONSOLE_ROOT=/home/travis/cocos/cocos2d-x-3.16/tools/cocos2d-console/bin
   - cocos compile -p android --ap android-22 -m release
