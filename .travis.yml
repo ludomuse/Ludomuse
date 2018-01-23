@@ -54,8 +54,6 @@ before_install:
   - echo -e "machine github.com\n login $GITHUB_TOKEN" >> ~/.netrc
   # - git lfs pull
 
-install:
-  - ./configure-cocos-android.sh
 
 # cache:
 #   directories:
@@ -67,8 +65,7 @@ install:
 #     - $HOME/cocos-dl
 
 script:
+  - ./configure-cocos-android.sh
   - cd $HOME/LudoMuse
-  - export ANDROID_SDK_ROOT=$HOME/android-sdk
   - source $HOME/.bashrc
-  - echo $ANDROID_SDK_ROOT
   - cocos compile -p android --ap android-22 -m release
