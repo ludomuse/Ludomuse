@@ -7,7 +7,7 @@ android:
     # - platform-tools
 
     # The BuildTools version used by your project
-    # - build-tools-26.1.1
+    # - build-tools-23.0.1
 
     # The SDK version used to compile your project
     # - android-22
@@ -60,7 +60,7 @@ install:
   - export ANDROID_SDK_ROOT=$HOME/android-sdk
   - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
   - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
-  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;26.1.1' > /dev/null
+  - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;23.0.1' > /dev/null
   - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-22' > /dev/null
   #- echo y | $HOME/android-sdk/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
   - ./configure-cocos-android.sh
