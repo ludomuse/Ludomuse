@@ -96,10 +96,10 @@ set(PLATFORM_SPECIFIC_HEADERS
 elseif(LINUX) #assume linux
 set(PLATFORM_SPECIFIC_SRC
   proj.linux/main.cpp
-  Classes/Modules/Networking/linux/Source/*.cpp
+  Classes/Modules/Networking/linux/Source/CNetworkManager.cpp
 )
 set(PLATFORM_SPECIFIC_HEADERS
-  Classes/Modules/Networking/linux/Include/*.h
+  Classes/Modules/Networking/linux/Include/CNetworkManager.h
 )
 elseif ( WIN32 )
 set(PLATFORM_SPECIFIC_SRC
