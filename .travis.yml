@@ -53,10 +53,10 @@ before_install:
   - sudo apt-get update -qq
   - echo -e "machine github.com\n login $GITHUB_TOKEN" >> ~/.netrc
   # - git lfs pull
-  - which adb
-  - export ANDROID_SDK_ROOT=$(which adb)/../
-  - echo "sdk manager version"
-  - $(ANDROID_SDK_ROOT)/tools/bin/sdkmanager --version
+  - echo $ANDROID_HOME
+  - export ANDROID_SDK_ROOT=$ANDROID_HOME
+  # - echo "sdk manager version"
+  # - $(ANDROID_SDK_ROOT)/tools/bin/sdkmanager --version
   - ./configure-cocos-android.sh
 
 script:
