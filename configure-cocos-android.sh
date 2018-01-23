@@ -14,7 +14,6 @@ if test ! -e $HOME/android-sdk-dl/sdk-tools.zip; then
 
     echo "unzipping tools"
     unzip -qq -n $HOME/android-sdk-dl/sdk-tools.zip -d $HOME/android-sdk
-    export ANDROID_SDK_ROOT=$HOME/android-sdk
     echo "downloading build and platform tools"
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
@@ -24,6 +23,8 @@ if test ! -e $HOME/android-sdk-dl/sdk-tools.zip; then
     unzip -qq -n $HOME/android-sdk-dl/sdk-tools-25.zip -d $HOME/android-sdk
 
 fi
+
+export ANDROID_SDK_ROOT=$HOME/android-sdk
 
 
 # setup ndk
