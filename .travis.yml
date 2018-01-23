@@ -56,7 +56,7 @@ before_install:
 
 install:
   - curl -s https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip > $HOME/sdk-tools.zip
-  - unzip -qq -n sdk-tools.zip -d $HOME/android-sdk
+  - unzip -qq -n $HOME/sdk-tools.zip -d $HOME/android-sdk
   - export ANDROID_SDK_ROOT=$HOME/android-sdk
   - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
   - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
