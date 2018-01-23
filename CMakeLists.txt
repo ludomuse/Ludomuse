@@ -88,18 +88,20 @@ set(PLATFORM_SPECIFIC_SRC
   proj.ios_mac/ios/main.m
   proj.ios_mac/ios/RootViewController.mm
   proj.ios_mac/ios/AppController.mm
+  Classes/Modules/Networking/unix/Source/CNetworkManager.cpp
 )
 set(PLATFORM_SPECIFIC_HEADERS
   proj.ios_mac/ios/RootViewController.h
   proj.ios_mac/ios/AppController.h
+  Classes/Modules/Networking/unix/Include/CNetworkManager.h
 )
 elseif(LINUX) #assume linux
 set(PLATFORM_SPECIFIC_SRC
   proj.linux/main.cpp
-  Classes/Modules/Networking/linux/Source/CNetworkManager.cpp
+  Classes/Modules/Networking/unix/Source/CNetworkManager.cpp
 )
 set(PLATFORM_SPECIFIC_HEADERS
-  Classes/Modules/Networking/linux/Include/CNetworkManager.h
+  Classes/Modules/Networking/unix/Include/CNetworkManager.h
 )
 elseif ( WIN32 )
 set(PLATFORM_SPECIFIC_SRC
