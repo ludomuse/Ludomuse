@@ -28,6 +28,8 @@ android:
     #- sys-img-armeabi-v7a-android-24
     #- sys-img-armeabi-v7a-android-17
 
+jdk:
+  - oraclejdk8
     
 #  licenses:
 #    - 'android-sdk-license-.+'
