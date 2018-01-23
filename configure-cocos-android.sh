@@ -18,7 +18,7 @@ if test ! -e $HOME/android-sdk-dl/sdk-tools.zip; then
     echo "unzipping tools"
     unzip -qq -n $HOME/android-sdk-dl/sdk-tools.zip -d $HOME/android-sdk
     echo "downloading build tools and sdk"
-    #echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools' > /dev/null
+    echo y | $HOME/android-sdk/tools/bin/sdkmanager 'tools;25.2.5' > /dev/null
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'build-tools;23.0.1' > /dev/null
     echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platforms;android-22' > /dev/null
