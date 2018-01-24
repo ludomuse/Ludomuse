@@ -13,7 +13,7 @@ if test ! -e $HOME/android-sdk-dl/sdk-tools.zip; then
     mkdir -p $HOME/android-sdk/
     
     #curl -s https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip > $HOME/android-sdk-dl/sdk-tools.zip ;
-    curl -s https://dl.google.com/android/repository/tools_r24.3.2-linux.zip > $HOME/android-sdk-dl/sdk-tools.zip ;
+    curl -s https://dl.google.com/android/repository/tools_r25.2.5-linux.zip > $HOME/android-sdk-dl/sdk-tools.zip ;
 
     echo "unzipping tools"
     unzip -qq -n $HOME/android-sdk-dl/sdk-tools.zip -d $HOME/android-sdk
