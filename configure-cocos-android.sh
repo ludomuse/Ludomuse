@@ -35,7 +35,7 @@ if test ! -e $HOME/android-ndk-dl/android-ndk.zip; then
     mkdir -p $HOME/android-ndk-dl/
     mkdir -p $HOME/android-ndk/
     
-    curl -s https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip > $HOME/android-ndk-dl/android-ndk.zip ;
+    curl -s https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip > $HOME/android-ndk-dl/android-ndk.zip ;
 fi
 unzip -qq -n $HOME/android-ndk-dl/android-ndk.zip -d $HOME/android-ndk
 export NDK_ROOT=$HOME/android-ndk
