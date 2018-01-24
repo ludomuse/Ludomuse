@@ -68,6 +68,8 @@ before_install:
 
 script:
   - ./configure-cocos-android.sh
+  - stat /home/travis/LudoMuse/cocos2d/cocos/platform/android/java
+  - stat /home/travis/android-sdk/build-tools/23.0.1/aidl
   - cd $HOME/LudoMuse
   - source $HOME/.bashrc
   - export ANDROID_SDK_ROOT=$HOME/android-sdk
