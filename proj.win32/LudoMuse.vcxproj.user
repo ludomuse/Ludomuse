@@ -5,7 +5,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>
     </LocalDebuggerEnvironment>
-    <LocalDebuggerCommandArguments>server  ../Scenarios/Nantes/Nantes.json</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>server  ../../Scenarios/Nantes/Nantes.json</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='LudoMuse Client|Win32'">
     <LocalDebuggerWorkingDirectory>$(ProjectDir)..\Resources</LocalDebuggerWorkingDirectory>
@@ -16,6 +16,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LocalDebuggerWorkingDirectory>$(ProjectDir)..\Resources</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommandArguments>server  ../Scenarios/Nantes/Nantes.json</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>server  ../../Scenarios/Nantes/Nantes.json</LocalDebuggerCommandArguments>
   </PropertyGroup>
 </Project>
