@@ -73,7 +73,7 @@ script:
   - cd $HOME/LudoMuse
   - source $HOME/.bashrc
   - export ANDROID_SDK_ROOT=$HOME/android-sdk
-  - export NDK_ROOT=$HOME/android-ndk/android-ndk-r13b/
+  - export NDK_ROOT=$HOME/android-ndk/android-ndk-r10e/
   - export ANT_ROOT=/usr/share/ant/bin
   - export COCOS_TEMPLATES_ROOT=/home/travis/cocos/cocos2d-x-3.16/templates
   - export COCOS_X_ROOT=/home/travis/cocos
