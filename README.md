@@ -4,7 +4,7 @@ Jeu coopératif et éducatif pour les musées.
 
 ## Téléchargement
 Vous pouvez télécharger la dernière version stable de LudoMuseEditor en cliquant sur le lien ci-dessous : 
-## [Télécharger LudoMuseEditor version stable](https://github.com/ludomuse/LudoMuse/releases/latest)
+## [Télécharger LudoMuse version stable](https://github.com/ludomuse/LudoMuse/releases/latest)
 
 Les version de développement (nightlies) sont disponibles ici :
 
