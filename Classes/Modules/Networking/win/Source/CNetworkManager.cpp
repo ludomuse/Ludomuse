@@ -327,6 +327,19 @@ void CNetworkManager::DiscoverPeers()
 	peers.push_back("Jean");
 	peers.push_back("Michel");
 	peers.push_back("Wendy");
+	peers.push_back("Nana");
+	peers.push_back("Peter");
+	peers.push_back("Clochette");
+	peers.push_back("Lily");
+	peers.push_back("Jack");
+	peers.push_back("Maggie");
+	peers.push_back("Rufio");
+	peers.push_back("Tootles");
+	peers.push_back("Pockets");
+	peers.push_back("Trop Petit");
+	peers.push_back("James");
+	peers.push_back("Mouche");
+	peers.push_back("Crocodile");
 	m_pKernel->OnGettingPeers(peers);
 }
 

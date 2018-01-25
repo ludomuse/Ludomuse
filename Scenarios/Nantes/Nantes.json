@@ -633,189 +633,177 @@
                         }
                     },
                     {
-                        "type": "Group",
+                        "type": "Peers",
                         "params": {
-                            "anchor": 0,
-                            "width": 100,
-                            "height": 90,
+                            "anchor": 8,
+                            "width": 80,
+                            "height": 70,
                             "x": 0,
                             "y": 0,
-                            "children": [
+                            "listeners": [
                                 {
                                     "type": "Peers",
                                     "params": {
-                                        "anchor": 0,
-                                        "width": 80,
-                                        "height": 50,
-                                        "x": 0,
-                                        "y": 0,
-                                        "listeners": [
-                                            {
-                                                "type": "Peers",
-                                                "params": {
-                                                    "callback": "BuildPeerNodes"
-                                                }
-                                            }
-                                        ],
-                                        "children": [
-                                            {
-                                                "type": "Group",
-                                                "params": {
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0,
-                                                    "listeners": [
-                                                        {
-                                                            "type": "Touch",
-                                                            "params": {
-                                                                "callback": "ConnectPeer"
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Touch",
-                                                            "params": {
-                                                                "callback": "ValidateScene",
-                                                                "arg": true
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Touch",
-                                                            "params": {
-                                                                "callback": "LocalMessage",
-                                                                "arg": "screen-peers-dummy:PeerChoose:infoPeer"
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Touch",
-                                                            "params": {
-                                                                "callback": "SendMessage",
-                                                                "arg": "screen-peers-dummy:PeerChooseDist:infoPeer"
-                                                            }
-                                                        }
-                                                    ],
-                                                    "children": [
-                                                        {
-                                                            "type": "Image",
-                                                            "params": {
-                                                                "source": "ui/cache-noir-70.png",
-                                                                "anchor": 0,
-                                                                "width": 80,
-                                                                "height": 80,
-                                                                "x": 0,
-                                                                "y": 0
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Text",
-                                                            "params": {
-                                                                "content": "Pair",
-                                                                "source": "#default-font",
-                                                                "fontSize": 24,
-                                                                "textAlign": "center",
-                                                                "width": 100,
-                                                                "height": 100,
-                                                                "anchor": 0,
-                                                                "color": "",
-                                                                "listeners": [
-                                                                    {
-                                                                        "type": "GetText",
-                                                                        "params": {
-                                                                            "callback": ""
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Group",
-                                                "params": {
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0
-                                                }
-                                            },
-                                            {
-                                                "type": "Group",
-                                                "params": {
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0
-                                                }
-                                            },
-                                            {
-                                                "type": "Group",
-                                                "params": {
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0
-                                                }
-                                            },
-                                            {
-                                                "type": "Group",
-                                                "params": {
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0
-                                                }
-                                            },
-                                            {
-                                                "type": "Group",
-                                                "params": {
-                                                    "anchor": 0,
-                                                    "width": 100,
-                                                    "height": 100,
-                                                    "x": 0,
-                                                    "y": 0
-                                                }
-                                            }
-                                        ]
+                                        "callback": "BuildPeerNodes"
                                     }
-                                },
+                                }
+                            ],
+                            "children": [
                                 {
-                                    "type": "Image",
+                                    "type": "Group",
                                     "params": {
-                                        "source": "ui/cache-noir-50.png",
-                                        "anchor": 4,
-                                        "width": 20,
-                                        "height": 20,
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
                                         "x": 0,
                                         "y": 0,
                                         "listeners": [
                                             {
                                                 "type": "Touch",
                                                 "params": {
-                                                    "callback": "RefreshPeers"
+                                                    "callback": "ConnectPeer"
+                                                }
+                                            },
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "ValidateScene",
+                                                    "arg": true
+                                                }
+                                            },
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "LocalMessage",
+                                                    "arg": "screen-peers-dummy:PeerChoose:infoPeer"
+                                                }
+                                            },
+                                            {
+                                                "type": "Touch",
+                                                "params": {
+                                                    "callback": "SendMessage",
+                                                    "arg": "screen-peers-dummy:PeerChooseDist:infoPeer"
                                                 }
                                             }
                                         ],
                                         "children": [
                                             {
+                                                "type": "Image",
+                                                "params": {
+                                                    "source": "ui/cache-noir-70.png",
+                                                    "anchor": 0,
+                                                    "width": 0,
+                                                    "height": 80,
+                                                    "x": 0,
+                                                    "y": 0
+                                                }
+                                            },
+                                            {
                                                 "type": "Text",
                                                 "params": {
-                                                    "content": "ACTUALISER",
+                                                    "content": "Pair",
                                                     "source": "#default-font",
                                                     "fontSize": 24,
                                                     "textAlign": "center",
-                                                    "width": 50,
-                                                    "height": 50,
+                                                    "width": 100,
+                                                    "height": 100,
                                                     "anchor": 0,
-                                                    "color": ""
+                                                    "color": "",
+                                                    "listeners": [
+                                                        {
+                                                            "type": "GetText",
+                                                            "params": {
+                                                                "callback": ""
+                                                            }
+                                                        }
+                                                    ]
                                                 }
                                             }
                                         ]
+                                    }
+                                },
+                                {
+                                    "type": "Group",
+                                    "params": {
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                },
+                                {
+                                    "type": "Group",
+                                    "params": {
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                },
+                                {
+                                    "type": "Group",
+                                    "params": {
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                },
+                                {
+                                    "type": "Group",
+                                    "params": {
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                },
+                                {
+                                    "type": "Group",
+                                    "params": {
+                                        "anchor": 0,
+                                        "width": 100,
+                                        "height": 100,
+                                        "x": 0,
+                                        "y": 0
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "Image",
+                        "params": {
+                            "source": "ui/cache-noir-50.png",
+                            "anchor": 4,
+                            "width": 20,
+                            "height": 20,
+                            "x": 0,
+                            "y": 0,
+                            "listeners": [
+                                {
+                                    "type": "Touch",
+                                    "params": {
+                                        "callback": "RefreshPeers"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "type": "Text",
+                                    "params": {
+                                        "content": "ACTUALISER",
+                                        "source": "#default-font",
+                                        "fontSize": 24,
+                                        "textAlign": "center",
+                                        "width": 50,
+                                        "height": 50,
+                                        "anchor": 0,
+                                        "color": ""
                                     }
                                 }
                             ]
