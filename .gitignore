@@ -3,7 +3,6 @@ proj.win8.1-universal
 linux-build
 Debug.win32
 proj.ios_mac
-proj.android-studio
 bin
 .cocos-project.json
 proj.android/obj
