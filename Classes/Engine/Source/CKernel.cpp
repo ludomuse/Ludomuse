@@ -258,6 +258,50 @@ void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
     m_mScenesID[a_iPlayerID].push_back(a_rSceneID);
 }
 
+/*CHAPTERSPROTOTYPE************************************************************************************************************************/
+int CKernel::ChapterExist(std::string chapterName){
+    int j =0;
+    while (j<mChapters.size() && mChapters[j].mName != chapterName){
+        qDebug() << "HELLO CHAPTER EXIST";
+        j++;
+    }
+    return j;
+}
+void CKernel::AddChapter(std::string chapterName, int playerId,std::string sceneName){
+    //Need to check if chapter not already present
+    int res = 0;
+    if (!mChapters.empty()){
+        res = ChapterExist(chapterName);
+    }
+    if (mChapters.empty() || res == mChapters.size()){
+        chapterStruct newChapter;
+        newChapter.mName = chapterName;
+        newChapter.mScenes[playerId].push_back(sceneName);
+        mChapters.push_back(newChapter);
+    } else {
+        mChapters[res].mScenes[playerId].push_back(sceneName);
+    }
+
+    //mChapters[chapterName].push_back(sceneName);
+}
+
+void CKernel::SeeChapters(){
+    qDebug() << "KERNEL CHAPTERS MAP CONTAINS " << mChapters.size();
+    for (int i=0;i< mChapters.size();++i){
+        std::cout << "CHAPITRE NAME: " << mChapters[i].mName << '\n';
+    }
+    //std::map<std::string,std::vector<std::string> >::iterator it;
+    /*for (it = mChapters.begin(); it != mChapters.end();it++  )
+    {
+        qDebug() << it-> << "CONTIENT ";
+    }*/
+    /*for(const auto& sm_pair : mChapters)
+    {
+        std::cout <<"FIRST: " << sm_pair.first << '\n';
+    }*/
+}
+/******************************************************************************************************************************************/
+
 void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID)
 {
     for(std::string currentString : m_mScenesID[a_iPlayerID])

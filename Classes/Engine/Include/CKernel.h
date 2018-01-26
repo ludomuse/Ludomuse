@@ -1,7 +1,8 @@
 #ifndef _CKERNEL_H_
 #define _CKERNEL_H_
 
-
+#include <QObject>
+#include <QWidget>
 
 #include "cocos2d.h"
 #include "CSceneNode.h"
@@ -19,8 +20,7 @@
 #include "stringbuffer.h"
 #include "prettywriter.h"
 
-#include <QObject>
-#include <QWidget>
+#include "CChapterStruct.h"
 
 #define LUDOMUSE_EDITOR
 
@@ -50,7 +50,12 @@ private:
 
     CEditorFindEntityTouchVisitor* m_oVisitor;
 
+
+
     std::map<int, std::vector<std::string> > m_mScenesID;
+    std::vector<chapterStruct> mChapters;
+    //std::map<std::string,std::vector<std::string> > mChapters;
+
 
     std::map<std::string, std::string> m_mSceneSynced;
 
@@ -107,6 +112,13 @@ public:
 
     /// \brief Add the m_sSceneID to a_iPlayerID
     void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
+
+    /*CHAPTERSPROTOTYPE************************************************************************************************************************/
+    void AddChapter(std::string chapterName,int playerId, std::string sceneName);
+    int ChapterExist(std::string chapterName);
+    void SeeChapters();
+    /******************************************************************************************************************************************/
+
 
     /// \brief Add the m_sSceneID after the a_rPreviousID to a_iPlayerID
     /// \attention no test done to check if the id really exist in a_iPlayer scene ids !

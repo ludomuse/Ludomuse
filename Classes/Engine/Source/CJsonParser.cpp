@@ -77,15 +77,30 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 	  }
 #endif
 
-	  assert(m_oDocument["app"].HasMember("scenes"));
-	  RefJsonNode rScenesID = m_oDocument["app"]["scenes"];
+/*CHAPTERSPROTOTYPE************************************************************************************************************************/
+      assert(m_oDocument["app"].HasMember("chapters"));
+      RefJsonNode rChapters =  m_oDocument["app"]["chapters"];
+      qDebug() << "CHAPTERS JSON" << rChapters.Size();
+      for (int i=0; i < rChapters.Size();++i){
+          RefJsonNode rScenesID = rChapters[i]["scenes"];
+                for (int k = 0; k < rScenesID.Size(); ++k)
+                {
+                    for (int j = 0; j < rScenesID[i].Size(); ++j)
+                    {
+                        m_pKernel->AddChapter(rChapters[i]["name"].GetString(),k,rScenesID[k][j].GetString());
+                    }
+                }
+      }
+/******************************************************************************************************************************************/
+      //assert(m_oDocument["app"].HasMember("scenes"));
+      /*RefJsonNode rScenesID = m_oDocument["app"]["scenes"];
 	  for (int i = 0; i < rScenesID.Size(); ++i)
 	  {
 		  for (int j = 0; j < rScenesID[i].Size(); ++j)
 		  {
               m_pKernel->AddSceneID(i, rScenesID[i][j].GetString());
 		  }
-	  }
+      }*/
 
 	  assert(m_oDocument["app"].HasMember("screens"));
 	  RefJsonNode rScenes = m_oDocument["app"]["screens"];
