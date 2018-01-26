@@ -84,7 +84,7 @@ script:
   - cd proj.android-studio
   - ./gradlew assembleDebug
   - $UPLOAD_TO_SERVER/LudoMuse-$TRAVIS_BUILD_NUMBER.apk
-  - mv proj.android-studio/app/build/outputs/apk/debug/LudoMuse-debug.apk proj.android-studio/app/build/outputs/apk/debug/LudoMuse.apk
+  - mv app/build/outputs/apk/debug/LudoMuse-debug.apk app/build/outputs/apk/debug/LudoMuse.apk
   
 deploy:
   provider: releases
