@@ -8,7 +8,7 @@ Vous pouvez télécharger la dernière version stable de LudoMuse en cliquant su
 
 Les version de développement (nightlies) sont disponibles ici :
 
-[Parcourir les versions de développement](https://ihmtek-services.com/files/LudoMuse/releases/nightlies)
+[Parcourir les versions de développement](https://ihmtek-services.com/files/LudoMuse/releases/nightlies/LudoMuse)
 
 
 ## Pré-requis
