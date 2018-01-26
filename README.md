@@ -78,7 +78,7 @@ Lors du déploiement de LudoMuse dans l'éditeur (simulateur) copier l'exécutab
 
 Pour les vieilles versions d'android, pensez bien à préciser la version de l'API à utiliser ou LudoMuse risque de craser avec pour seul message d'erreur l'impossiblité de résoudre certains symboles.
 
-Example pour l'API 19:
+Example pour l'API 22 utilisée pour le développement de LudoMuse:
 ``
-$ cocos compile -p android --ap android-19
+$ cocos compile -p android --ap android-22
 ``
