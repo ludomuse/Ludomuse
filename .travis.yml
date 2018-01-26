@@ -83,3 +83,14 @@ script:
 #  - cocos compile -p android --ap android-22
   - cd proj.android-studio
   - ./gradlew assembleDebug
+  - $UPLOAD_TO_SERVER/LudoMuse-$TRAVIS_BUILD_NUMBER.apk
+  - mv proj.android-studio/app/build/outputs/apk/debug/LudoMuse-debug.apk proj.android-studio/app/build/outputs/apk/debug/LudoMuse.apk
+  
+deploy:
+  provider: releases
+  api_key:
+    secure: $GITHUB_TOKEN
+  file: "$TRAVIS_BUILD_DIR/proj.android-studio/app/build/outputs/apk/debug/LudoMuse.apk"
+  skip_cleanup: true
+  on:
+    tags: true
