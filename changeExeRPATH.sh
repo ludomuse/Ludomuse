@@ -1,4 +1,6 @@
-mv bin/debug/linux/LudoMuse bin/debug/linux/LudoMuse.exe
-chrpath -r '$ORIGIN:$ORIGIN/../' bin/debug/linux/LudoMuse.exe
-mkdir ./bin/debug/linux/lib
-cp prebuilt/libfmod.so.6 ./bin/debug/linux/lib
+export CONFIG=debug
+if [[ $1 == release ]]; then CONFIG=release; fi
+mv bin/$CONFIG/linux/LudoMuse bin/debug/$CONFIG/LudoMuse.exe
+chrpath -r '$ORIGIN:$ORIGIN/../' bin/$CONFIG/linux/LudoMuse.exe
+mkdir ./bin/$CONFIG/linux/lib
+cp prebuilt/libfmod.so.6 ./bin/$CONFIG/linux/lib
