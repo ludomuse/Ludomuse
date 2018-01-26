@@ -86,11 +86,11 @@ script:
 
 
 before_deploy:
-  - mv app/build/outputs/apk/debug/LudoMuse-debug.apk app/build/outputs/apk/debug/LudoMuse.apk   
-  
+  - mv $TRAVIS_BUILD_DIR/proj.android-studio/app/build/outputs/apk/debug/LudoMuse-debug.apk $HOME/LudoMuse.apk
+
 deploy:
   - provider: script
-    script: $UPLOAD_TO_SERVER/LudoMuse-$TRAVIS_BUILD_NUMBER.apk
+    script: curl -u $UPLOAD_USER:$UPLOAD_PWD -T $HOME/LudoMuse.apk $UPLOAD_SERVER/LudoMuse-$TRAVIS_BUILD_NUMBER.apk
     skip_cleanup: true
     on:
       branch: master
@@ -98,7 +98,7 @@ deploy:
   - provider: releases
     api_key:
       secure: $GITHUB_TOKEN
-    file: "$TRAVIS_BUILD_DIR/proj.android-studio/app/build/outputs/apk/debug/LudoMuse.apk"
+    file: "$HOME/LudoMuse.apk"
     skip_cleanup: true
     on:
       tags: true
