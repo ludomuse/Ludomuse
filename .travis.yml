@@ -86,7 +86,7 @@ script:
 
 
 before_deploy:
-  - mv /home/travis/build/ludomuse/LudoMuse/proj.android-studio/app/build/outputs/apk/debug/LudoMuse-debug.apk $HOME/LudoMuse.apk
+  - mv $HOME/LudoMuse/proj.android-studio/app/build/outputs/apk/debug/LudoMuse-debug.apk $HOME/LudoMuse.apk
 
 deploy:
   - provider: script
