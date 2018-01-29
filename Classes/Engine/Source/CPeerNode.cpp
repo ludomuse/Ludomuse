@@ -15,7 +15,7 @@ CPeerNode::CPeerNode(CKernel* a_pKernel,
                      int a_iHeight,
                      int a_iXPosition,
                      int a_iYPosition) :
-    CGridNode(2, 3, a_eAnchor, a_iHeight, a_iWidth, a_iXPosition, a_iYPosition),
+    CGridNode(4, 4, a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition),
     m_pKernel(a_pKernel),
     m_rChildrenStyle(a_rJsonNode)
 {
