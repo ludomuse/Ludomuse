@@ -26,29 +26,34 @@ import org.cocos2dx.cpp.DebugManager;
 
 public class ConnexionStatus
 {
-	private AlertDialog alertC;
-	private AlertDialog alertD;
-	private AlertDialog alertW;
+	private AlertDialog _alertConnection;
+	private AlertDialog _alertDeconnection;
+	private AlertDialog _alertDiscoverPairs;
 	private boolean bEnabled = false;
 
 	public ConnexionStatus(Activity activity)
 	{
 
-		AlertDialog.Builder builderC = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusC);
-		AlertDialog.Builder builderD = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusD);
-		AlertDialog.Builder builderW = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusW);
-		alertC = MakeNewAlert("Connecte", builderC);
-		alertD= MakeNewAlert("Rapprochez-vous!", builderD);
-		alertW = MakeNewAlert("Je cherche...", builderW);
+		AlertDialog.Builder builderConnectionAlarmDialog = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusC);
+		AlertDialog.Builder builderDeconnectionAlarmDialog = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusD);
+		AlertDialog.Builder builderDiscoverPairs = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusW);
+		_alertConnection = MakeNewAlert("TABLETTES CONNECTEES !", builderConnectionAlarmDialog);
+		_alertDeconnection = MakeNewAlert("A T T E N T I O N : \n" +
+				"Vous avez perdu la connexion avec la tablette de votre partenaire. \n" +
+				"Rapprochez-vous de lui !", builderDeconnectionAlarmDialog);
+		_alertDiscoverPairs = MakeNewAlert("P A T I E N T E Z : \n" +
+				"Recherche de tablette et tentative de reconnexion ...\n" +
+				"\n" +
+				"Ne vous ELOIGNEZ PAS !", builderDiscoverPairs);
 	}
 
 	public void Enable(boolean a_bEnabled)
 	{
 		if(!a_bEnabled)
 		{
-			alertC.cancel();
-			alertD.cancel();
-			alertW.cancel();
+			_alertConnection.cancel();
+			_alertDeconnection.cancel();
+			_alertDiscoverPairs.cancel();
 		}
 		bEnabled = a_bEnabled;
 	}
@@ -81,9 +86,9 @@ public class ConnexionStatus
 		if(!bEnabled)
 			return;
 
-		alertC.cancel();
-		alertD.cancel();
-		alertW.show();
+		_alertConnection.cancel();
+		_alertDeconnection.cancel();
+		_alertDiscoverPairs.show();
 	}
 
 	public void SetConnected()
@@ -91,18 +96,18 @@ public class ConnexionStatus
 		if(!bEnabled)
 			return;
 
-		alertC.show();
-		alertD.cancel();
-		alertW.cancel();
+		_alertConnection.show();
+		_alertDeconnection.cancel();
+		_alertDiscoverPairs.cancel();
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable()
 		{
 			@Override
 			public void run()
 			{
-				alertC.cancel();
+				_alertConnection.cancel();
 			}
-		}, 5000);
+		}, 3000);
 	}
 
 	public void SetDisConnected()
@@ -110,9 +115,9 @@ public class ConnexionStatus
 		if(!bEnabled)
 			return;
 
-		alertC.cancel();
-		alertD.show();
-		alertW.cancel();
+		_alertConnection.cancel();
+		_alertDeconnection.show();
+		_alertDiscoverPairs.cancel();
 	}
 
 

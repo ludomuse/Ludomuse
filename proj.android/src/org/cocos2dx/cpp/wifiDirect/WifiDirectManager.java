@@ -446,18 +446,22 @@ public class WifiDirectManager
 				{
 					case 0:
 						text += "of internal error : Probably the socket of the other tablet is closed.";
+						_timeBeforeTryingNewConnection = 5000;
 						break;
 					case 1:
 						text += "P2P is unsupported on this device";
 						break;
 					case 2:
 						text += "the framework is busy and unable to service the request";
+						_timeBeforeTryingNewConnection = 30000;
 						break;
 					case 3:
 						text = "because no service resquests are added";
+						_timeBeforeTryingNewConnection = 2000;
 						break;
 					default:
 						text = "of unknow error";
+						_timeBeforeTryingNewConnection = 2000;
 						break;
 				}
 				DebugManager.print(text, DEBUGGER_CHANNEL);
@@ -465,7 +469,6 @@ public class WifiDirectManager
 				if(autoReconnect)
 				{
 					DebugManager.print("Try to reconnect to peer", DEBUGGER_CHANNEL);
-					_timeBeforeTryingNewConnection = 2000;
 					reconnectToPeer();
 				}
 			}
@@ -533,11 +536,13 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	public void connectToPeer(String a_strPeerName, CallBackMethod a_cmPeerConnected, boolean a_bJustCheckAdress)
 	{
-		if (!bForceConnectionRequest && (_bRequestForConnectionAlreadyLaunched || GetNetworkInfo().isConnected()))
+		if ( !bForceConnectionRequest && (_bRequestForConnectionAlreadyLaunched || GetNetworkInfo().isConnected() ))
 		{
 			DebugManager.print("WifiDirectManager::connectoToPeer ==> request for connection already launched. Please wait. RETURN", DEBUGGER_CHANNEL);
 			if(GetNetworkInfo().isConnected())
+			{
 				_connexionStatus.SetConnected();
+			}
 			return;
 		}
 		else
@@ -547,9 +552,9 @@ public class WifiDirectManager
 		}
 
 
-		String devAddress = _mapAddressNameAllDevices.get(a_strPeerName);
+		String devAddress = _mapAddressNameAllDevices.get( a_strPeerName );
 
-		if (devAddress == null || lastPeerName.equals(""))
+		if (devAddress == null || lastPeerName.equals("") )
 		{
 			// The name isn't mapped with any address in the Address - Name Map.
 			// This could mean the names haven't been properly transfered from
@@ -1136,14 +1141,14 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	//
 	//------------------------------------------------------------------------------------------------------------------
-	public void discoverAndConnect(boolean a_bJustDiscover)
+	public void discoverAndConnect( boolean a_bJustDiscover )
 	{
-		if (socket.isDettachedFromRemoteHost())
+		if ( socket.isDettachedFromRemoteHost() )
 		{
 			DebugManager.print("Discover and connect: isDettachedFromRemoteHost condition", WifiDirectManager.DEBUGGER_CHANNEL);
 			if (_allDeviceList == null || _allDeviceList.size() == 0)
 			{
-				DebugManager.print("Peers are not discovered yet. EMPTY device list. Do AGAIN discoverAndConnect ... until something in device list", WifiDirectManager.DEBUGGER_CHANNEL);
+				DebugManager.print("Peers are not discovered yet meaning EMPTY device list. Do AGAIN discoverAndConnect ... until something in device list", WifiDirectManager.DEBUGGER_CHANNEL);
 
 				this.launchServicePeersDiscovering(new CallBackMethod()
 				{
@@ -1160,16 +1165,31 @@ public class WifiDirectManager
 				try
 				{
 					_connexionStatus.SetPending();
-
-				}catch(Exception e)
+				}
+				catch(Exception e)
 				{
-					DebugManager.print("error " + e, DEBUGGER_CHANNEL);
+					DebugManager.print("WifiDirectManager::discoverAndConnect: Error while trying to show discovering popup window " + e, DEBUGGER_CHANNEL);
 				}
 
 				DebugManager.print("Device list not empy. Launching connectToPeer:" + lastPeerName, WifiDirectManager.DEBUGGER_CHANNEL);
 				//todo : post delay there
 
-				connectToPeer(lastPeerName.equals("") ? _deviceList.get(0) : lastPeerName, null, a_bJustDiscover);
+				connectToPeer( lastPeerName.equals("") ? _deviceList.get(0) : lastPeerName, null, a_bJustDiscover);  //TODO: potential bug here. We might try to connect to somebody else if other tablet is our discovering
+
+				if ( lastPeerName.equals("") )
+				{
+					DebugManager.print("WifiDirectManager::DiscoverAndConnect: lastPeerName is empty string..(device list as well).", WifiDirectManager.DEBUGGER_CHANNEL);
+					// Do something...
+
+					if ( a_bJustDiscover) DebugManager.print("WifiDirectManager::DiscoverAndConnect: but only doing discover", WifiDirectManager.DEBUGGER_CHANNEL);
+					if ( a_bJustDiscover == false) DebugManager.print("WifiDirectManager::DiscoverAndConnect: and doing both proccess", WifiDirectManager.DEBUGGER_CHANNEL);
+
+				}
+			//	else
+			//	{
+			//		connectToPeer( lastPeerName, null, a_bJustDiscover);
+			//	}
+
 
 			}
 		}
