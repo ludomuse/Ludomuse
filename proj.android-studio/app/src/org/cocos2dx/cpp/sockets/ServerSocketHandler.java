@@ -591,7 +591,7 @@ class Communication implements Runnable {
 		DebugManager.print(ServerSocketHandler.getTag() + "We received a packet of type " + type  + ". was already received ? " + msgAlreadyReceived, WifiDirectManager.DEBUGGER_CHANNEL);
 
 		// We want to ignore all messages received more than 1 time
-		if (!msgAlreadyReceived)
+		if (!msgAlreadyReceived || type == PACKET_TYPE.IP) //HACK because we don't know why sometimes, IP is ignored
 		{
 			switch (type)
 			{

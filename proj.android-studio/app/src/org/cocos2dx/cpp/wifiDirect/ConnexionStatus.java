@@ -2,6 +2,7 @@ package org.cocos2dx.cpp.wifiDirect;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.os.Debug;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
@@ -30,27 +31,34 @@ public class ConnexionStatus {
     private AlertDialog _alertDeconnection;
     private AlertDialog _alertDiscoverPairs;
     private boolean bEnabled = false;
+    private long _timeStart = -1;
+    private Activity _activity;
+    private static final long DELAYED_START = 5000;
 
     public ConnexionStatus(Activity activity) {
 
-        AlertDialog.Builder builderConnectionAlarmDialog = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusC);
-        AlertDialog.Builder builderDeconnectionAlarmDialog = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusD);
-        AlertDialog.Builder builderDiscoverPairs = new AlertDialog.Builder(activity, com.IHMTEK.LudoMuse.R.style.StatusW);
+        _activity = activity;
+        _timeStart = System.currentTimeMillis();
+        AlertDialog.Builder builderConnectionAlarmDialog = new AlertDialog.Builder(_activity, com.IHMTEK.LudoMuse.R.style.StatusC);
+        AlertDialog.Builder builderDeconnectionAlarmDialog = new AlertDialog.Builder(_activity, com.IHMTEK.LudoMuse.R.style.StatusD);
+        AlertDialog.Builder builderDiscoverPairs = new AlertDialog.Builder(_activity, com.IHMTEK.LudoMuse.R.style.StatusW);
         _alertConnection = MakeNewAlert("TABLETTES CONNECTEES !", builderConnectionAlarmDialog);
         _alertDeconnection = MakeNewAlert("A T T E N T I O N : \n" +
                 "Vous avez perdu la connexion avec la tablette de votre partenaire. \n" +
                 "Rapprochez-vous de lui !", builderDeconnectionAlarmDialog);
         _alertDiscoverPairs = MakeNewAlert("P A T I E N T E Z : \n" +
                 "Recherche de tablette et tentative de reconnexion ...\n" +
+                "Cela peut prendre 2 petites minutes...\n" +
                 "\n" +
                 "Ne vous ELOIGNEZ PAS !", builderDiscoverPairs);
     }
 
     public void Enable(boolean a_bEnabled) {
+        if(System.currentTimeMillis() - _timeStart < DELAYED_START)
+            return;
+
         if (!a_bEnabled) {
-            _alertConnection.cancel();
-            _alertDeconnection.cancel();
-            _alertDiscoverPairs.cancel();
+            CancelAll();
         }
         bEnabled = a_bEnabled;
     }
@@ -77,53 +85,62 @@ public class ConnexionStatus {
         return alert;
     }
 
-    public void SetPending() {
+    private void CancelAll()
+    {
+        _activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    _alertConnection.cancel();
+                    _alertDeconnection.cancel();
+                    _alertDiscoverPairs.cancel();
+                }
+                catch(Exception e)
+                {
+                    DebugManager.print("Error while hidding messagebox", WifiDirectManager.DEBUGGER_CHANNEL);
+                }
+            }
+        });
+    }
+
+    private void Show(final AlertDialog a_alertDialog)
+    {
+
         if (!bEnabled)
             return;
 
-        try {
-            _alertConnection.cancel();
-            _alertDeconnection.cancel();
-            _alertDiscoverPairs.show();
-        } catch (Exception e) {
-            DebugManager.print("Error while displaying connexion status PENDING " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
-        }
+        CancelAll();
+
+        _activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    a_alertDialog.show();
+                }
+                catch(Exception e)
+                {
+                    DebugManager.print("Error while showing messagebox", WifiDirectManager.DEBUGGER_CHANNEL);
+                }
+            }
+        });
+    }
+
+    public void SetPending() {
+        Show(_alertDiscoverPairs);
     }
 
     public void SetConnected() {
-        if (!bEnabled)
-            return;
-        try {
-
-            _alertConnection.show();
-            _alertDeconnection.cancel();
-            _alertDiscoverPairs.cancel();
-            AppActivity.postDelay(new Runnable() {
-                @Override
-                public void run() {
-                    _alertConnection.cancel();
-                }
-            }, 3000);
-
-        } catch (Exception e) {
-            DebugManager.print("Error while displaying connexion status CONNECTED " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
-        }
+        Show(_alertConnection);
+        AppActivity.postDelay(new Runnable() {
+            @Override
+            public void run() {
+                CancelAll();
+            }
+        }, 3000);
     }
 
     public void SetDisConnected() {
-        if (!bEnabled)
-            return;
-
-        try
-        {
-        _alertConnection.cancel();
-        _alertDeconnection.show();
-        _alertDiscoverPairs.cancel();
-        }
-        catch(Exception e)
-        {
-            DebugManager.print("Error while displaying connexion status DISCONNECTED " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
-        }
+        Show(_alertDeconnection);
     }
 
 
