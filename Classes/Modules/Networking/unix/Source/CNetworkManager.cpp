@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <pthread.h>
 
 #include "../Include/CNetworkManager.h"
