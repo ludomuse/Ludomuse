@@ -54,7 +54,7 @@ public class ConnexionStatus {
     }
 
     public void Enable(boolean a_bEnabled) {
-        if(System.currentTimeMillis() - _timeStart < DELAYED_START)
+        if (System.currentTimeMillis() - _timeStart < DELAYED_START)
             return;
 
         if (!a_bEnabled) {
@@ -85,44 +85,46 @@ public class ConnexionStatus {
         return alert;
     }
 
-    private void CancelAll()
-    {
-        _activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    _alertConnection.cancel();
-                    _alertDeconnection.cancel();
-                    _alertDiscoverPairs.cancel();
+    private void CancelAll() {
+        try {
+            _activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        _alertConnection.cancel();
+                        _alertDeconnection.cancel();
+                        _alertDiscoverPairs.cancel();
+                    } catch (Exception e) {
+                        DebugManager.print("Error while hidding messagebox " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
+                    }
                 }
-                catch(Exception e)
-                {
-                    DebugManager.print("Error while hidding messagebox", WifiDirectManager.DEBUGGER_CHANNEL);
-                }
-            }
-        });
+            });
+        } catch (Exception e) {
+            DebugManager.print("Error while hidding messagebox " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
+        }
     }
 
-    private void Show(final AlertDialog a_alertDialog)
-    {
+    private void Show(final AlertDialog a_alertDialog) {
 
         if (!bEnabled)
             return;
 
         CancelAll();
 
-        _activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    a_alertDialog.show();
+        try {
+            _activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        a_alertDialog.show();
+                    } catch (Exception e) {
+                        DebugManager.print("Error while showing messagebox ", WifiDirectManager.DEBUGGER_CHANNEL);
+                    }
                 }
-                catch(Exception e)
-                {
-                    DebugManager.print("Error while showing messagebox", WifiDirectManager.DEBUGGER_CHANNEL);
-                }
-            }
-        });
+            });
+        } catch (Exception e) {
+            DebugManager.print("Error while showing messagebox " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
+        }
     }
 
     public void SetPending() {
@@ -131,12 +133,19 @@ public class ConnexionStatus {
 
     public void SetConnected() {
         Show(_alertConnection);
-        AppActivity.postDelay(new Runnable() {
-            @Override
-            public void run() {
-                CancelAll();
-            }
-        }, 3000);
+        try {
+            AppActivity.postDelay(new Runnable() {
+                @Override
+                public void run() {
+
+                    CancelAll();
+                }
+            }, 3000);
+        }
+        catch(Exception e)
+        {
+            DebugManager.print("Error while showing messagebox " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
+        }
     }
 
     public void SetDisConnected() {
