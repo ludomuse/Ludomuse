@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 
 import android.os.SystemClock;
 
+import org.cocos2dx.cpp.AppActivity;
 import org.cocos2dx.cpp.DebugManager;
 import org.cocos2dx.cpp.sockets.CallBackMethod;
 import org.cocos2dx.cpp.sockets.SocketHandler;
@@ -18,6 +19,7 @@ import org.cocos2dx.cpp.sockets.SocketHandler;
 import java.lang.Object;
 
 import android.opengl.Matrix;
+import android.net.wifi.p2p.*;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -54,7 +56,9 @@ import android.net.NetworkInfo;
 
 public class WifiDirectManager
 {
-
+	private static final int LONG_DELAY = 30000;
+	private static final int SHORT_DELAY = 2000;
+	private static final int MEDIUM_DELAY = 5000;
 	private Activity _activity;
 	private WifiP2pManager _manager;
 	private WifiManager.WifiLock _lock;
@@ -67,6 +71,8 @@ public class WifiDirectManager
 	private static final String TXTRECORD_PROP_AVAILABLE = "available";
 	private static final String SERVICE_INSTANCE = "_LudoMuse";
 	private static final String SERVICE_REG_TYPE = "_presence._tcp";
+
+	private int _timeBeforeTryingNewConnection = SHORT_DELAY;
 
 	private Map<String, String> _mapAddressNameDevices = new HashMap<String, String>();
 	private List<String> _deviceList = new ArrayList<String>();
@@ -143,6 +149,8 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	public void pause()
 	{
+
+		DebugManager.print("********** APP PAUSE **********", DEBUGGER_CHANNEL);
 		_activity.unregisterReceiver(_receiver);
 	}
 
@@ -151,6 +159,8 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	public void resume()
 	{
+
+		DebugManager.print("********** APP RESUME **********", DEBUGGER_CHANNEL);
 		_activity.registerReceiver(_receiver, _intentFilter);
 	}
 
@@ -432,7 +442,7 @@ public class WifiDirectManager
 				if(autoReconnect)
 				{
 					DebugManager.print("Waiting 30s to check if connexion status has changed", DEBUGGER_CHANNEL);
-					_timeBeforeTryingNewConnection = 30000;
+					_timeBeforeTryingNewConnection = LONG_DELAY;
 					reconnectToPeer();
 				}
 			}
@@ -446,26 +456,30 @@ public class WifiDirectManager
 				{
 					case 0:
 						text += "of internal error : Probably the socket of the other tablet is closed.";
+						//_timeBeforeTryingNewConnection = MEDIUM_DELAY;
 						break;
 					case 1:
 						text += "P2P is unsupported on this device";
 						break;
 					case 2:
 						text += "the framework is busy and unable to service the request";
+						//_timeBeforeTryingNewConnection = LONG_DELAY;
 						break;
 					case 3:
 						text = "because no service resquests are added";
+						//_timeBeforeTryingNewConnection = SHORT_DELAY;
 						break;
 					default:
 						text = "of unknow error";
+						//_timeBeforeTryingNewConnection = SHORT_DELAY;
 						break;
 				}
 				DebugManager.print(text, DEBUGGER_CHANNEL);
 				requestForServicePeersDiscoveringAlreadyLaunched = false;
 				if(autoReconnect)
 				{
+					_timeBeforeTryingNewConnection = SHORT_DELAY;
 					DebugManager.print("Try to reconnect to peer", DEBUGGER_CHANNEL);
-					_timeBeforeTryingNewConnection = 2000;
 					reconnectToPeer();
 				}
 			}
@@ -473,7 +487,7 @@ public class WifiDirectManager
 	}
 
 
-	private int _timeBeforeTryingNewConnection = 2000;
+
 
 	//------------------------------------------------------------------------------------------------------------------
 	//
@@ -533,11 +547,18 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	public void connectToPeer(String a_strPeerName, CallBackMethod a_cmPeerConnected, boolean a_bJustCheckAdress)
 	{
-		if (!bForceConnectionRequest && (_bRequestForConnectionAlreadyLaunched || GetNetworkInfo().isConnected()))
+		if ( !bForceConnectionRequest && (_bRequestForConnectionAlreadyLaunched || GetNetworkInfo().isConnected() ))
 		{
-			DebugManager.print("WifiDirectManager::connectoToPeer ==> request for connection already launched. Please wait. RETURN", DEBUGGER_CHANNEL);
+
 			if(GetNetworkInfo().isConnected())
+			{
+				DebugManager.print("WifiDirectManager::connectoToPeer ==> Network is already connected. Have you received appropriate message from broadcast received? RETURN", DEBUGGER_CHANNEL);
 				_connexionStatus.SetConnected();
+			}
+			else
+			{
+				DebugManager.print("WifiDirectManager::connectoToPeer ==> request for connection already launched. Please wait. RETURN", DEBUGGER_CHANNEL);
+			}
 			return;
 		}
 		else
@@ -547,9 +568,9 @@ public class WifiDirectManager
 		}
 
 
-		String devAddress = _mapAddressNameAllDevices.get(a_strPeerName);
+		String devAddress = _mapAddressNameAllDevices.get( a_strPeerName );
 
-		if (devAddress == null || lastPeerName.equals(""))
+		if (devAddress == null || lastPeerName.equals("") )
 		{
 			// The name isn't mapped with any address in the Address - Name Map.
 			// This could mean the names haven't been properly transfered from
@@ -590,7 +611,7 @@ public class WifiDirectManager
 				DebugManager.print("WifiDirectMannager::connectToPeer: sucess on connection request. Broadcast receiver must receive a connection message", DEBUGGER_CHANNEL);
 
 				_bRequestForConnectionAlreadyLaunched = false;
-				_timeBeforeTryingNewConnection = 30000;
+				_timeBeforeTryingNewConnection = LONG_DELAY;
 				if (autoReconnect)
 				{
 					reconnectToPeer();
@@ -607,7 +628,7 @@ public class WifiDirectManager
 			{
 				String text = "WifiDirectManager::connectToPeer: Fail to connect because ";
 				_bRequestForConnectionAlreadyLaunched = false;
-				_timeBeforeTryingNewConnection = 2000;
+				_timeBeforeTryingNewConnection = SHORT_DELAY;
 				switch (reason)
 				{
 					case 0:
@@ -999,6 +1020,20 @@ public class WifiDirectManager
 	}
 
 
+	private String getPeerName()
+	{
+		WifiP2pGroup group = _lastIntent.getParcelableExtra( WifiP2pManager.EXTRA_WIFI_P2P_GROUP );
+		if(group != null)
+		{
+			Object[] clients = group.getClientList().toArray();
+			if(clients.length > 0)
+			{
+				return (String) clients[0];
+			}
+		}
+		return "";
+	}
+
 	//------------------------------------------------------------------------------------------------------------------
 	//
 	//------------------------------------------------------------------------------------------------------------------
@@ -1079,6 +1114,8 @@ public class WifiDirectManager
 	}
 
 
+
+	private boolean _bWasConnected = false;
 	//------------------------------------------------------------------------------------------------------------------
 	//
 	//------------------------------------------------------------------------------------------------------------------
@@ -1093,17 +1130,21 @@ public class WifiDirectManager
 			return;
 		}
 
+
 		NetworkInfo networkInfo = GetNetworkInfo();
 
-		if (networkInfo.isConnected())
+
+		if (networkInfo.isConnected()  && !_bWasConnected )
 		{
+			_bWasConnected = true;
 			DebugManager.print("*********************************************************", DEBUGGER_CHANNEL);
 			DebugManager.print("************* C O N N E C T I O N ***********************", DEBUGGER_CHANNEL);
 			DebugManager.print("*********************************************************", DEBUGGER_CHANNEL);
 			onConnect();
 		}
-		else
+		else if(_bWasConnected)
 		{
+			_bWasConnected = false;
 			DebugManager.print("*********************************************************", DEBUGGER_CHANNEL);
 			DebugManager.print("***  D E V I C E S        D I S C O N N E C T E D    ****", DEBUGGER_CHANNEL);
 			DebugManager.print("*********************************************************", DEBUGGER_CHANNEL);
@@ -1136,14 +1177,14 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	//
 	//------------------------------------------------------------------------------------------------------------------
-	public void discoverAndConnect(boolean a_bJustDiscover)
+	public void discoverAndConnect( boolean a_bJustDiscover )
 	{
-		if (socket.isDettachedFromRemoteHost())
+		if ( socket.isDettachedFromRemoteHost() )
 		{
 			DebugManager.print("Discover and connect: isDettachedFromRemoteHost condition", WifiDirectManager.DEBUGGER_CHANNEL);
 			if (_allDeviceList == null || _allDeviceList.size() == 0)
 			{
-				DebugManager.print("Peers are not discovered yet. EMPTY device list. Do AGAIN discoverAndConnect ... until something in device list", WifiDirectManager.DEBUGGER_CHANNEL);
+				DebugManager.print("Peers are not discovered yet meaning EMPTY device list. Do AGAIN discoverAndConnect ... until something in device list", WifiDirectManager.DEBUGGER_CHANNEL);
 
 				this.launchServicePeersDiscovering(new CallBackMethod()
 				{
@@ -1157,19 +1198,29 @@ public class WifiDirectManager
 			}
 			else
 			{
-				try
-				{
-					_connexionStatus.SetPending();
 
-				}catch(Exception e)
-				{
-					DebugManager.print("error " + e, DEBUGGER_CHANNEL);
-				}
+				_connexionStatus.SetPending();
+
 
 				DebugManager.print("Device list not empy. Launching connectToPeer:" + lastPeerName, WifiDirectManager.DEBUGGER_CHANNEL);
 				//todo : post delay there
 
-				connectToPeer(lastPeerName.equals("") ? _deviceList.get(0) : lastPeerName, null, a_bJustDiscover);
+				connectToPeer( lastPeerName.equals("") ? _deviceList.get(0) : lastPeerName, null, a_bJustDiscover);  //TODO: potential bug here. We might try to connect to somebody else if other tablet is our discovering
+
+				if ( lastPeerName.equals("") )
+				{
+					DebugManager.print("WifiDirectManager::DiscoverAndConnect: lastPeerName is empty string..(device list as well).", WifiDirectManager.DEBUGGER_CHANNEL);
+					// Do something...
+
+					if ( a_bJustDiscover) DebugManager.print("WifiDirectManager::DiscoverAndConnect: but only doing discover", WifiDirectManager.DEBUGGER_CHANNEL);
+					if ( a_bJustDiscover == false) DebugManager.print("WifiDirectManager::DiscoverAndConnect: and doing both proccess", WifiDirectManager.DEBUGGER_CHANNEL);
+
+				}
+			//	else
+			//	{
+			//		connectToPeer( lastPeerName, null, a_bJustDiscover);
+			//	}
+
 
 			}
 		}
@@ -1318,13 +1369,17 @@ public class WifiDirectManager
 			@Override
 			public void onConnectionInfoAvailable(WifiP2pInfo info)
 			{
+				//get peer name there
+				//DebugManager.print("get peer name = " + getPeerName() + " " , DEBUGGER_CHANNEL);
 				String ownerAddress = "";
+
 				if (info.groupOwnerAddress != null)
 				{
 					ownerAddress = info.groupOwnerAddress.getHostAddress();
 				}
 
 				DebugManager.print("owner address is = " + ownerAddress, WifiDirectManager.DEBUGGER_CHANNEL);
+
 				DebugManager.print("<font color='red'>owner sdk ? </font>" + info.isGroupOwner, DEBUGGER_CHANNEL);
 
 				SocketHandler.printAllNetworkInterfaceName();
@@ -1340,6 +1395,7 @@ public class WifiDirectManager
 					DebugManager.print("I am not the group owner", DEBUGGER_CHANNEL);
 					//SocketHandler.getAnIpAddresForThisDevice();
 					DebugManager.print("My IP Address is " + myLocalAddress, DEBUGGER_CHANNEL);
+					//DebugManager.print("GroupOwner host name is " + info.groupOwnerAddress.getHostName(), DEBUGGER_CHANNEL);
 					//create local server
 					socket.listen(LISTENNING_PORT, myLocalAddress);
 					//connect to owner to give your server's ip
@@ -1350,6 +1406,7 @@ public class WifiDirectManager
 				{
 					DebugManager.print("I am the group owner", DEBUGGER_CHANNEL);
 					DebugManager.print("My IP Address is " + myLocalAddress, DEBUGGER_CHANNEL);
+					//DebugManager.print("get peer name " + getPeerName() , DEBUGGER_CHANNEL);
 					//create local server
 					socket.listen(LISTENNING_PORT, myLocalAddress);
 					//and wait for receiving pair'ip address
@@ -1417,7 +1474,18 @@ public class WifiDirectManager
 
 		if (a_rNetworkInfo.isConnectedOrConnecting())
 		{
-			DebugManager.print("NETWORK  in proccess of being connected", DEBUGGER_CHANNEL);
+			DebugManager.print("*********************************************************", DEBUGGER_CHANNEL);
+			DebugManager.print("************* ON CONNECTING  ***********************", DEBUGGER_CHANNEL);
+			DebugManager.print("*********************************************************", DEBUGGER_CHANNEL);
+			DebugManager.print("Network connecting. onConnectionChanged is post-delayed in order to wait the connection finish to be set.", DEBUGGER_CHANNEL);
+			AppActivity.postDelay(new Runnable() {
+				@Override
+				public void run() {
+					onConnectionChanged(_lastIntent);
+				}
+			}, SHORT_DELAY);
+			return;
+
 		}
 		else
 		{
@@ -1451,7 +1519,7 @@ public class WifiDirectManager
 
 		if (autoReconnect)
 		{
-			_timeBeforeTryingNewConnection = 2000;
+			_timeBeforeTryingNewConnection = SHORT_DELAY;
 			reconnectToPeer();
 		}
 

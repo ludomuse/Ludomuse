@@ -10,6 +10,7 @@ import org.cocos2dx.cpp.jniFacade.JniCppFacade;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 
 import java.io.File;
@@ -157,7 +158,13 @@ public class AppActivity extends Cocos2dxActivity
 		mCurrentPhotoPath = image.getAbsolutePath();
 		return image;
 	}
-	
+
+	public static void postDelay(Runnable a_runnable, long a_lDelayMillis)
+	{
+		Handler handler = new Handler();
+		handler.postDelayed(a_runnable, 3000);
+	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		

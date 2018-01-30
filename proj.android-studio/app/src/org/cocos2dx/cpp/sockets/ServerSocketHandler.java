@@ -791,7 +791,7 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 			}
 
 			serverSocket = new ServerSocket();
-			System.setProperty("sun.net.useExclusiveBind","false");
+			System.setProperty("sun.net.useExclusiveBind", "false");
 			serverSocket.setReuseAddress(true);
 			SocketAddress socketAddress = new InetSocketAddress(InetAddress.getByName(address), port);
 			serverSocket.bind(socketAddress);
@@ -833,11 +833,18 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 		try
 		{
 			//set serversocket timeout
-			serverSocket.setSoTimeout(ACCEPT_TIMEOUT);
 
-			DebugManager.print(ServerSocketHandler.getTag()  + " 1.4 ServerSocketHandler::waitForClient: listen socket server", WifiDirectManager.DEBUGGER_CHANNEL);
-			client = serverSocket.accept();
-			DebugManager.print(ServerSocketHandler.getTag()  + " 1.5 ServerSocketHandler::waitForClient: read of socket", WifiDirectManager.DEBUGGER_CHANNEL);
+			if ( serverSocket != null & !serverSocket.isClosed()   )
+			{
+				serverSocket.setSoTimeout(ACCEPT_TIMEOUT);
+				DebugManager.print(ServerSocketHandler.getTag()  + " 1.4 ServerSocketHandler::waitForClient: listen socket server.", WifiDirectManager.DEBUGGER_CHANNEL);
+				client = serverSocket.accept();
+				DebugManager.print(ServerSocketHandler.getTag()  + " 1.5 ServerSocketHandler::waitForClient: read of socket", WifiDirectManager.DEBUGGER_CHANNEL);
+			}
+			else
+			{
+				DebugManager.print(ServerSocketHandler.getTag()  + " 1.4 : ServerSocketHandler::waitForClient: serverSocket closed or null", WifiDirectManager.DEBUGGER_CHANNEL);
+			}
 
 		}
 		catch(SocketException se)
