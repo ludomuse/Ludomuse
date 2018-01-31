@@ -57,11 +57,16 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver
 				// _wifiDirectManager.turnOnWifi();
 			}
 		}
-		else if ( action.equals( WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION ) )
+		else if ( action.equals( WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION ) )  // indicates if the peer list has changed
 		{
 			// Request available peers from the wifi p2p manager. This is an asynchronous call and the calling activity
-			// is notified with a callback on PeerListListener.onPeersAvailable()
-			_wifiDirectManager.launchServiceRequestPeers();
+			// is notified with a callback on PeerListListener.onPeersAvailable() :
+
+			// Only launch request peers if we are not connecting or connecting
+		//	if ( _wifiDirectManager.IsConnectedOrConnecting( ) == false )
+		//	{
+				_wifiDirectManager.launchServiceRequestPeers();
+		//	}
 			// _wifiDirectManager.onConnectionChanged(intent);
 		}
 		else if ( action.equals( WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION ) )

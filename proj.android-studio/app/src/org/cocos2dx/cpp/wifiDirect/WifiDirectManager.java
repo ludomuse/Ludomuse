@@ -150,7 +150,6 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	public void pause()
 	{
-
 		debugTrace("********** APP PAUSE **********");
 		_activity.unregisterReceiver(_receiver);
 	}
@@ -1116,31 +1115,35 @@ public class WifiDirectManager
 		return (NetworkInfo) _lastIntent.getParcelableExtra( WifiP2pManager.EXTRA_NETWORK_INFO );
 	}
 
+	public boolean IsConnectedOrConnecting( )
+	{
+		return GetNetworkInfo().isConnectedOrConnecting();
+	}
+
 	private void debugTrace(String a_strMsg)
 	{
 		DebugManager.print(a_strMsg, DEBUGGER_CHANNEL);
 	}
 
-	private boolean _bWasConnected = false;
+
 	//------------------------------------------------------------------------------------------------------------------
 	//
 	//------------------------------------------------------------------------------------------------------------------
+	private boolean _bWasConnected = false;
 	void onConnectionChanged(Intent intent)
 	{
 		_lastIntent = intent;
 		_bRequestForConnectionAlreadyLaunched = false;
 
 		// Respond to new connection or disconnections
-		if (_manager == null)
+		if ( _manager == null)
 		{
 			return;
 		}
 
-
 		NetworkInfo networkInfo = GetNetworkInfo();
 
-
-		if (networkInfo.isConnected()  && !_bWasConnected )
+		if ( networkInfo.isConnected()  && !_bWasConnected )
 		{
 			_bWasConnected = true;
 			debugTrace("*********************************************************");
@@ -1148,7 +1151,14 @@ public class WifiDirectManager
 			debugTrace("*********************************************************");
 			onConnect();
 		}
-		else /*if(_bWasConnected)*/
+		else if ( networkInfo.isConnectedOrConnecting() )
+		{
+			debugTrace("*********************************************************");
+			debugTrace("****  D E V I C E S  I N  C O N N E C T I O N ***********");
+			debugTrace("*********************************************************");
+			OnConnectedOrConnecting( );
+		}
+		else
 		{
 			_bWasConnected = false;
 			debugTrace("*********************************************************");
@@ -1157,10 +1167,6 @@ public class WifiDirectManager
 
 			onDisconnect(networkInfo);
 		}
-		/*else
-		{
-			debugTrace("No action were done in onConnectionChanged. Network is connected = " + networkInfo.isConnected() + ". Network was connected = " + _bWasConnected);
-		}*/
 
 	}
 
@@ -1373,14 +1379,12 @@ public class WifiDirectManager
 		if(_connexionStatus != null)
 			_connexionStatus.Enable(true);
 
-		_connexionStatus.SetConnected();
+
 		_manager.requestConnectionInfo(_channel, new ConnectionInfoListener()
 		{
 			@Override
 			public void onConnectionInfoAvailable(WifiP2pInfo info)
 			{
-				//get peer name there
-				//debugTrace();("get peer name = " + getPeerName() + " " );
 				String ownerAddress = "";
 
 				if (info.groupOwnerAddress != null)
@@ -1389,10 +1393,7 @@ public class WifiDirectManager
 				}
 
 				debugTrace("owner address is = " + ownerAddress);
-
-				debugTrace("<font color='red'>owner sdk ? </font>" + info.isGroupOwner);
-
-				SocketHandler.printAllNetworkInterfaceName();
+				//SocketHandler.printAllNetworkInterfaceName();
 				String myLocalAddress = SocketHandler.getIPAddress(true);
 
 				if (myLocalAddress.equals(""))
@@ -1409,7 +1410,16 @@ public class WifiDirectManager
 					//create local server
 					socket.listen(LISTENNING_PORT, myLocalAddress);
 					//connect to owner to give your server's ip
-					socket.connectTo(ownerAddress);
+
+					try
+					{
+						socket.connectTo(ownerAddress);
+						_connexionStatus.SetConnected();
+					}
+					catch(Exception e)
+					{
+						debugTrace("WifiDirectManager::OnConnect => Couldn't connect because: " + e);
+					}
 
 				}
 				else if (info.groupFormed)
@@ -1420,7 +1430,6 @@ public class WifiDirectManager
 					//create local server
 					socket.listen(LISTENNING_PORT, myLocalAddress);
 					//and wait for receiving pair'ip address
-					debugTrace("I am the group owner");
 				}
 
 				_cmPeerConnected = null;
@@ -1445,11 +1454,26 @@ public class WifiDirectManager
 	}
 
 	//------------------------------------------------------------------------------------------------------------------
+	//
+	//------------------------------------------------------------------------------------------------------------------
+	private void OnConnectedOrConnecting( )
+	{
+		debugTrace("Network connecting. onConnectionChanged is post-delayed in order to wait the connection finish to be set.");
+		AppActivity.postDelay(new Runnable() {
+			@Override
+			public void run() {
+				onConnectionChanged( _lastIntent );
+			}
+		}, SHORT_DELAY);
+		return;
+	}
+
+	//------------------------------------------------------------------------------------------------------------------
 	//																								onConnect callback
 	//------------------------------------------------------------------------------------------------------------------
 	private void onDisconnect(NetworkInfo a_rNetworkInfo)
 	{
-		//printMessage("Rapprochez vous de votre partenair pour rétablir la connexion !");
+
 		_connexionStatus.SetDisConnected();
 
 		socket.notifyIsDisconnectedFromNetwork();
@@ -1461,7 +1485,7 @@ public class WifiDirectManager
 		debugTrace("*** EXTRA INFOS due to non connection: ");
 
 
-		if (a_rNetworkInfo.isAvailable())
+		if ( a_rNetworkInfo.isAvailable() )
 		{
 			debugTrace("NETWORK AVAILABLE on disconnection ==> Network connectivity might be possible");
 		}
@@ -1485,7 +1509,7 @@ public class WifiDirectManager
 		if (a_rNetworkInfo.isConnectedOrConnecting())
 		{
 			debugTrace("*********************************************************");
-			debugTrace("************* ON CONNECTING  ***********************");
+			debugTrace("************* ON CONNECTING  AGAIN***********************");
 			debugTrace("*********************************************************");
 			debugTrace("Network connecting. onConnectionChanged is post-delayed in order to wait the connection finish to be set.");
 			AppActivity.postDelay(new Runnable() {
