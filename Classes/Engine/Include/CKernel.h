@@ -50,12 +50,8 @@ private:
 
     CEditorFindEntityTouchVisitor* m_oVisitor;
 
-
-
     std::map<int, std::vector<std::string> > m_mScenesID;
     std::vector<chapterStruct> mChapters;
-    //std::map<std::string,std::vector<std::string> > mChapters;
-
 
     std::map<std::string, std::string> m_mSceneSynced;
 
@@ -117,6 +113,8 @@ public:
     void AddChapter(std::string chapterName,int playerId, std::string sceneName);
     int ChapterExist(std::string chapterName);
     void SeeChapters();
+    std::string getChapterName(int index);
+    int getChapterNumber();
     /******************************************************************************************************************************************/
 
 
@@ -125,16 +123,16 @@ public:
     /// just does nothing if id doesn't exist in the list
     /// \param a_rPreviousID must be in a_iplayerID scene ids
     /// \param a_bInsertEmptyID if true, insert an empty id at the same
-    void AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID);
+    void AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID, int chapterNumber);
 
-    void AddSceneIDAtBegin(int a_iPlayer, const std::string& a_sNewID);
+    void AddSceneIDAtBegin(int a_iPlayer, const std::string& a_sNewID, int chapterNumber);
 
     /// \brief Add a whole new scene to the BehaviorTree
     /// \param previousID can be empty, if it's just add the new scene at the end of timeline
     void AddNewScene(const std::string& a_sTemplatePath, const std::string& previousID,const std::string& a_sNewID,
                      int a_iPlayerNumber, int a_iTemplateNumber = 0, const std::string& a_sScreenMateID = "");
     void AddScene(CSceneNode* newScene, const std::string& previousID,const std::string& a_sNewID,
-                     int a_iPlayerNumber);
+                     int a_iPlayerNumber, int chapterNumber);
     void AddNewSharedScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID1, const std::string& a_sPreviousID2,
                            const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate);
     void AddSyncID(const std::string& a_sID1, const std::string& a_sID2);

@@ -80,7 +80,7 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 /*CHAPTERSPROTOTYPE************************************************************************************************************************/
       assert(m_oDocument["app"].HasMember("chapters"));
       RefJsonNode rChapters =  m_oDocument["app"]["chapters"];
-      qDebug() << "CHAPTERS JSON" << rChapters.Size();
+      //qDebug() << "CHAPTERS JSON" << rChapters.Size();
       for (int i=0; i < rChapters.Size();++i){
           RefJsonNode rScenesID = rChapters[i]["scenes"];
                 for (int k = 0; k < rScenesID.Size(); ++k)

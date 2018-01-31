@@ -113,18 +113,27 @@ CJsonParser* CKernel::GetJsonParser()
 
 const std::vector<std::string> CKernel::GetSceneIDPlayer(int a_iPlayerID)
 {
+    int playerid;
     if(a_iPlayerID == 0)
     {
-        return this->m_mScenesID[0];
+        //return this->m_mScenesID[0];
+        playerid = 0;
     }
     else if(a_iPlayerID == 1)
     {
-        return this->m_mScenesID[1];
+        //return this->m_mScenesID[1];
+        playerid = 1;
     }
     else
     {
-        return this->m_mScenesID[0];
+        //return this->m_mScenesID[0];
+        playerid = 0;
     }
+    std::vector<std::string> playerScenes;
+    for (int i=0; i < static_cast<int>(mChapters.size());++i){
+        playerScenes.insert(playerScenes.end(), mChapters[i].mScenes[playerid].begin(),mChapters[i].mScenes[playerid].end());
+    }
+    return playerScenes;
 }
 
 std::string CKernel::ToJson(){
@@ -259,14 +268,17 @@ void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 }
 
 /*CHAPTERSPROTOTYPE************************************************************************************************************************/
+//Verify existence of chapter with its name.
 int CKernel::ChapterExist(std::string chapterName){
     int j =0;
     while (j<mChapters.size() && mChapters[j].mName != chapterName){
-        qDebug() << "HELLO CHAPTER EXIST";
+        //qDebug() << "HELLO CHAPTER EXIST";
         j++;
     }
     return j;
 }
+
+//Add a chapter to the chapter list.
 void CKernel::AddChapter(std::string chapterName, int playerId,std::string sceneName){
     //Need to check if chapter not already present
     int res = 0;
@@ -281,44 +293,50 @@ void CKernel::AddChapter(std::string chapterName, int playerId,std::string scene
     } else {
         mChapters[res].mScenes[playerId].push_back(sceneName);
     }
-
-    //mChapters[chapterName].push_back(sceneName);
 }
 
+//Allow to see the chapter conained in the chapters list.
 void CKernel::SeeChapters(){
-    qDebug() << "KERNEL CHAPTERS MAP CONTAINS " << mChapters.size();
+    qDebug() << "---PRINTING CHAPTERS DETAILS---";
     for (int i=0;i< mChapters.size();++i){
-        std::cout << "CHAPITRE NAME: " << mChapters[i].mName << '\n';
+        qDebug() << "CHAPITRE NAME: " << QString::fromStdString(mChapters[i].mName) << '\n';
+        for(const auto &p : mChapters[i].mScenes )
+        {
+            std::cout << p.first << '\t' << std::endl;
+            for (int j=0; j < p.second.size(); ++j) {
+                std::cout << p.second[j] << std::endl;
+            }
+
+        }
     }
-    //std::map<std::string,std::vector<std::string> >::iterator it;
-    /*for (it = mChapters.begin(); it != mChapters.end();it++  )
-    {
-        qDebug() << it-> << "CONTIENT ";
-    }*/
-    /*for(const auto& sm_pair : mChapters)
-    {
-        std::cout <<"FIRST: " << sm_pair.first << '\n';
-    }*/
+}
+
+std::string CKernel::getChapterName(int index){
+    return mChapters[index].mName;
+}
+
+int CKernel::getChapterNumber(){
+    return mChapters.size();
 }
 /******************************************************************************************************************************************/
 
-void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID)
+void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID, int chapterNumber)
 {
-    for(std::string currentString : m_mScenesID[a_iPlayerID])
+    for(std::string currentString : mChapters[chapterNumber].mScenes[a_iPlayerID])
     {
         if(currentString == a_rPreviousID)
         {
-            int pos = find(m_mScenesID[a_iPlayerID].begin(), m_mScenesID[a_iPlayerID].end(), currentString) - m_mScenesID[a_iPlayerID].begin();
-            //            qDebug()<<"Found id at index :"<<pos;
-            m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin() + pos + 1, a_rSceneID);
+            int pos = find(mChapters[chapterNumber].mScenes[a_iPlayerID].begin(), mChapters[chapterNumber].mScenes[a_iPlayerID].end(), currentString) - mChapters[chapterNumber].mScenes[a_iPlayerID].begin();
+            //qDebug()<<"Found id at index :"<<pos;
+            mChapters[chapterNumber].mScenes[a_iPlayerID].insert(mChapters[chapterNumber].mScenes[a_iPlayerID].begin() + pos + 1, a_rSceneID);
             break;
         }
     }
 }
 
-void CKernel::AddSceneIDAtBegin(int a_iPlayerID, const std::string &a_sNewID)
+void CKernel::AddSceneIDAtBegin(int a_iPlayerID, const std::string &a_sNewID, int chapterNumber)
 {
-    m_mScenesID[a_iPlayerID].insert(m_mScenesID[a_iPlayerID].begin(), a_sNewID);
+   mChapters[chapterNumber].mScenes[a_iPlayerID].insert(mChapters[chapterNumber].mScenes[a_iPlayerID].begin(), a_sNewID);
 }
 
 void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID, const std::string& a_sNewID,
@@ -615,13 +633,28 @@ bool CKernel::PlayerHasScene(const std::string& a_rSceneID)
 bool CKernel::PlayerHasScene(const std::string& a_rSceneID, int a_iPlayerID)
 {
     std::vector<std::string>::iterator itSceneID;
-    for (itSceneID = m_mScenesID[a_iPlayerID].begin();
+    /*for (itSceneID = m_mScenesID[a_iPlayerID].begin();
          itSceneID != m_mScenesID[a_iPlayerID].end();
          ++itSceneID)
     {
         if (*itSceneID == a_rSceneID)
         {
             return true;
+        }
+    }
+    return false;
+*/
+
+    std::vector<std::string>::iterator itSceneChapter;
+    for (int i=0; i < mChapters.size();++i){
+        for (itSceneChapter = mChapters[i].mScenes[a_iPlayerID].begin();
+             itSceneChapter != mChapters[i].mScenes[a_iPlayerID].end();
+             ++itSceneChapter)
+        {
+            if (*itSceneChapter == a_rSceneID)
+            {
+                return true;
+            }
         }
     }
     return false;
@@ -691,7 +724,6 @@ void CKernel::Init(const std::string& a_sPath)
     //M_STATS->PushStats("test");
     //CSerializableStats oSStats(M_STATS->GetStats());
     //WriteStats(&oSStats);
-
 }
 
 
