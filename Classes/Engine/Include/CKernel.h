@@ -130,11 +130,11 @@ public:
     /// \brief Add a whole new scene to the BehaviorTree
     /// \param previousID can be empty, if it's just add the new scene at the end of timeline
     void AddNewScene(const std::string& a_sTemplatePath, const std::string& previousID,const std::string& a_sNewID,
-                     int a_iPlayerNumber, int a_iTemplateNumber = 0, const std::string& a_sScreenMateID = "");
+                     int a_iPlayerNumber, int chapterNumber, int a_iTemplateNumber = 0, const std::string& a_sScreenMateID = "");
     void AddScene(CSceneNode* newScene, const std::string& previousID,const std::string& a_sNewID,
                      int a_iPlayerNumber, int chapterNumber);
     void AddNewSharedScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID1, const std::string& a_sPreviousID2,
-                           const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate);
+                           const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate, int chapterNumber);
     void AddSyncID(const std::string& a_sID1, const std::string& a_sID2);
 
     /// \brief Delete scene matching id in arg

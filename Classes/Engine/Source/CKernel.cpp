@@ -340,17 +340,17 @@ void CKernel::AddSceneIDAtBegin(int a_iPlayerID, const std::string &a_sNewID, in
 }
 
 void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID, const std::string& a_sNewID,
-                          int a_iPlayerNumber, int a_iTemplateNumber, const std::string& a_sScreenMate)
+                          int a_iPlayerNumber, int chapterNumber, int a_iTemplateNumber, const std::string& a_sScreenMate)
 {
     CSceneNode* newScene = new CSceneNode(a_sNewID, this);
     qDebug("ckernel add new scene");
     m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath, a_iTemplateNumber, a_sScreenMate);
 
-    AddScene(newScene, a_sPreviousID, a_sNewID, a_iPlayerNumber);
+    AddScene(newScene, a_sPreviousID, a_sNewID, a_iPlayerNumber, chapterNumber);
 }
 
 void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
-                       const std::string& a_sNewID, int a_iPlayerNumber)
+                       const std::string& a_sNewID, int a_iPlayerNumber, int chapterNumber)
 {
     // Adding id in the map
     // can add at   after an existing id of the player number
@@ -358,23 +358,23 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
     switch(a_iPlayerNumber)
     {
     case 0: // Player 1 only
-        if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID) != m_mScenesID[0].end())
+        if(std::find(mChapters[chapterNumber].mScenes[0].begin(), mChapters[chapterNumber].mScenes[0].end(), a_sPreviousID) != mChapters[chapterNumber].mScenes[0].end())
         {
-            this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID);
+            this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID, chapterNumber);
         }
         else if(a_sPreviousID.empty())
         {
-            this->AddSceneIDAtBegin(0, a_sNewID);
+            this->AddSceneIDAtBegin(0, a_sNewID, chapterNumber);
         }
         break;
     case 1: // Player 2 only
-        if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID) != m_mScenesID[1].end())
+        if(std::find(mChapters[chapterNumber].mScenes[1].begin(), mChapters[chapterNumber].mScenes[1].end(), a_sPreviousID) != mChapters[chapterNumber].mScenes[1].end())
         {
-            this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID);
+            this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID, chapterNumber);
         }
         else if(a_sPreviousID.empty())
         {
-            this->AddSceneIDAtBegin(1,a_sNewID); // Add blank id at the other player timeline end
+            this->AddSceneIDAtBegin(1,a_sNewID, chapterNumber); // Add blank id at the other player timeline end
         }
         break;
     }
@@ -397,7 +397,7 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
 }
 
 void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID1, const std::string& a_sPreviousID2,
-                                const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate)
+                                const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate, int chapterNumber)
 {
     CSceneNode* newScene = new CSceneNode(a_sNewID, this);
     qDebug("ckernel add new scene");
@@ -407,19 +407,19 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
     //              at the end of only one player (the player number)
     if(a_sPreviousID1.empty())
     {
-        this->AddSceneIDAtBegin(0, a_sNewID);
+        this->AddSceneIDAtBegin(0, a_sNewID,chapterNumber);
     }
     else if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID1) != m_mScenesID[0].end())
     {
-        this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID1);
+        this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID1,chapterNumber);
     }
     if(a_sPreviousID2.empty())
     {
-        this->AddSceneIDAtBegin(1, a_sNewID);
+        this->AddSceneIDAtBegin(1, a_sNewID,chapterNumber);
     }
     else if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID2) != m_mScenesID[1].end())
     {
-        this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID2); // Add blank id at the other player timeline end
+        this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID2,chapterNumber); // Add blank id at the other player timeline end
     }
 
     // Adding the new scene at the right place in the behavior tree
