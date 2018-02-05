@@ -24,7 +24,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance,
 	LPWSTR *szArgList;
 	int argCount;
 
-	szArgList = CommandLineToArgvW(GetCommandLine(), &argCount);
+	szArgList = CommandLineToArgvW(GetCommandLineW(), &argCount);
 
 	if (argCount >= 2)
 	{

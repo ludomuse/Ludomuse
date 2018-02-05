@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05269FFA2020BDF400BD0BCE /* CNetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05269FF92020BDF400BD0BCE /* CNetworkManager.cpp */; };
+		05269FFB2020BDF800BD0BCE /* CNetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05269FF92020BDF400BD0BCE /* CNetworkManager.cpp */; };
 		056506B8200FA9EE00D3D990 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056506B7200FA9EE00D3D990 /* AppDelegate.cpp */; };
 		056506B9200FA9F000D3D990 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056506B7200FA9EE00D3D990 /* AppDelegate.cpp */; };
 		056506DF200FAA0A00D3D990 /* CVideoNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056506BA200FAA0200D3D990 /* CVideoNode.cpp */; };
@@ -85,8 +87,6 @@
 		05650728200FAA1B00D3D990 /* CVisitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 056506C4200FAA0300D3D990 /* CVisitor.cpp */; };
 		0565072B200FAA9600D3D990 /* CStats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05650729200FAA9600D3D990 /* CStats.cpp */; };
 		0565072C200FAA9600D3D990 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0565072A200FAA9600D3D990 /* Util.cpp */; };
-		0565072E200FAAA900D3D990 /* CNetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0565072D200FAAA800D3D990 /* CNetworkManager.cpp */; };
-		0565072F200FAAE800D3D990 /* CNetworkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0565072D200FAAA800D3D990 /* CNetworkManager.cpp */; };
 		05650730200FAAE800D3D990 /* CStats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05650729200FAA9600D3D990 /* CStats.cpp */; };
 		05650731200FAAE800D3D990 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0565072A200FAA9600D3D990 /* Util.cpp */; };
 		05B1B475200FC3DE009DAE5F /* ui in Resources */ = {isa = PBXBuildFile; fileRef = 05B1B474200FC3DE009DAE5F /* ui */; };
@@ -184,6 +184,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05269FF92020BDF400BD0BCE /* CNetworkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CNetworkManager.cpp; path = Modules/Networking/unix/Source/CNetworkManager.cpp; sourceTree = "<group>"; };
 		056506B7200FA9EE00D3D990 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		056506BA200FAA0200D3D990 /* CVideoNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CVideoNode.cpp; path = Engine/Source/CVideoNode.cpp; sourceTree = "<group>"; };
 		056506BB200FAA0200D3D990 /* CTeamNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CTeamNode.cpp; path = Engine/Source/CTeamNode.cpp; sourceTree = "<group>"; };
@@ -224,7 +225,6 @@
 		056506DE200FAA0900D3D990 /* CValidator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CValidator.cpp; path = Engine/Source/CValidator.cpp; sourceTree = "<group>"; };
 		05650729200FAA9600D3D990 /* CStats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CStats.cpp; path = Modules/Util/Source/CStats.cpp; sourceTree = "<group>"; };
 		0565072A200FAA9600D3D990 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Util.cpp; path = Modules/Util/Source/Util.cpp; sourceTree = "<group>"; };
-		0565072D200FAAA800D3D990 /* CNetworkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CNetworkManager.cpp; path = Modules/Networking/linux/Source/CNetworkManager.cpp; sourceTree = "<group>"; };
 		05B1B474200FC3DE009DAE5F /* ui */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ui; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 		503AE10417EB98FF00D1A890 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = mac/Prefix.pch; sourceTree = "<group>"; };
 		503AE11117EB99EE00D1A890 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		503AE11A17EB9C5A00D1A890 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		5087E76F17EB910900C73F5D /* LudoMuse-desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LudoMuse-desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5087E76F17EB910900C73F5D /* LudoMuse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LudoMuse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5087E77217EB970100C73F5D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5087E77317EB970100C73F5D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5087E77417EB970100C73F5D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -345,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* LudoMuse-mobile.app */,
-				5087E76F17EB910900C73F5D /* LudoMuse-desktop.app */,
+				5087E76F17EB910900C73F5D /* LudoMuse.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -415,7 +415,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0565072D200FAAA800D3D990 /* CNetworkManager.cpp */,
+				05269FF92020BDF400BD0BCE /* CNetworkManager.cpp */,
 				05650729200FAA9600D3D990 /* CStats.cpp */,
 				0565072A200FAA9600D3D990 /* Util.cpp */,
 				056506C9200FAA0400D3D990 /* CAnimationNode.cpp */,
@@ -544,7 +544,7 @@
 			);
 			name = "LudoMuse-desktop";
 			productName = iphone;
-			productReference = 5087E76F17EB910900C73F5D /* LudoMuse-desktop.app */;
+			productReference = 5087E76F17EB910900C73F5D /* LudoMuse.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -679,7 +679,7 @@
 				056506B8200FA9EE00D3D990 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				0565072E200FAAA900D3D990 /* CNetworkManager.cpp in Sources */,
+				05269FFA2020BDF400BD0BCE /* CNetworkManager.cpp in Sources */,
 				056506E5200FAA0A00D3D990 /* CParallelNode.cpp in Sources */,
 				056506F9200FAA0A00D3D990 /* CSpriteNode.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -730,6 +730,7 @@
 				05650705200FAA1A00D3D990 /* CCallback.cpp in Sources */,
 				05650716200FAA1A00D3D990 /* CLabelNode.cpp in Sources */,
 				05650731200FAAE800D3D990 /* Util.cpp in Sources */,
+				05269FFB2020BDF800BD0BCE /* CNetworkManager.cpp in Sources */,
 				05650717200FAA1A00D3D990 /* CMacroManager.cpp in Sources */,
 				05650718200FAA1A00D3D990 /* CMenuNode.cpp in Sources */,
 				0565070C200FAA1A00D3D990 /* CFindEntityTouchVisitor.cpp in Sources */,
@@ -740,7 +741,6 @@
 				0565071C200FAA1B00D3D990 /* CSceneNode.cpp in Sources */,
 				05650710200FAA1A00D3D990 /* CGotoSceneVisitor.cpp in Sources */,
 				05650724200FAA1B00D3D990 /* CTransitionVisitor.cpp in Sources */,
-				0565072F200FAAE800D3D990 /* CNetworkManager.cpp in Sources */,
 				05650725200FAA1B00D3D990 /* CValidateSceneVisitor.cpp in Sources */,
 				05650720200FAA1B00D3D990 /* CSoundManager.cpp in Sources */,
 				0565070B200FAA1A00D3D990 /* CFindEntityFromIDVisitor.cpp in Sources */,
@@ -861,6 +861,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_NAME = LudoMuse;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
 			name = Debug;
@@ -891,6 +892,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_NAME = LudoMuse;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
 			name = Release;
