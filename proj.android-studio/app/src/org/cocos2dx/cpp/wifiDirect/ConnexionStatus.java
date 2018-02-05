@@ -26,6 +26,8 @@ import org.cocos2dx.cpp.AppActivity;
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 import org.cocos2dx.cpp.DebugManager;
 
+import java.util.Set;
+
 public class ConnexionStatus {
     private AlertDialog _alertConnection;
     private AlertDialog _alertDeconnection;
@@ -34,6 +36,7 @@ public class ConnexionStatus {
     private long _timeStart = -1;
     private Activity _activity;
     private static final long DELAYED_START = 5000;
+
 
     public ConnexionStatus(Activity activity) {
 
@@ -86,14 +89,17 @@ public class ConnexionStatus {
     }
 
     private void CancelAll() {
+
         try {
             _activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     try {
+
                         _alertConnection.cancel();
                         _alertDeconnection.cancel();
                         _alertDiscoverPairs.cancel();
+
                     } catch (Exception e) {
                         DebugManager.print("Error while hidding messagebox " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
                     }
@@ -103,6 +109,10 @@ public class ConnexionStatus {
             DebugManager.print("Error while hidding messagebox " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
         }
     }
+
+
+
+
 
     private void Show(final AlertDialog a_alertDialog) {
 
@@ -127,25 +137,20 @@ public class ConnexionStatus {
         }
     }
 
-    public void SetPending() {
+    public void SetPending(final WifiDirectManager _wifiDirect) {
         Show(_alertDiscoverPairs);
     }
 
     public void SetConnected() {
         Show(_alertConnection);
-        try {
-            AppActivity.postDelay(new Runnable() {
-                @Override
-                public void run() {
+        AppActivity.postDelay(new Runnable() {
+            @Override
+            public void run() {
 
-                    CancelAll();
-                }
-            }, 3000);
-        }
-        catch(Exception e)
-        {
-            DebugManager.print("Error while showing messagebox " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
-        }
+                CancelAll();
+            }
+        }, 3000);
+
     }
 
     public void SetDisConnected() {

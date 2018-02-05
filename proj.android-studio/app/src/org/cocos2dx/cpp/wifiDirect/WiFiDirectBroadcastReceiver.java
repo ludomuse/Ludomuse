@@ -65,7 +65,7 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver
 			// Only launch request peers if we are not connecting or connecting
 		//	if ( _wifiDirectManager.IsConnectedOrConnecting( ) == false )
 		//	{
-				_wifiDirectManager.launchServiceRequestPeers();
+				_wifiDirectManager.launchServiceRequestPeers(); // it works fine like this, so we leave like this.
 		//	}
 			// _wifiDirectManager.onConnectionChanged(intent);
 		}

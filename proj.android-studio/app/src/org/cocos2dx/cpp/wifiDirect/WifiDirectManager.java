@@ -776,6 +776,11 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	public void launchServiceRequestPeers()
 	{
+		/*if(IsConnectedOrConnecting()) {
+			debugTrace("device is already connected. We ignore request for peers.");
+			return;
+		}*/
+
 		debugTrace("lastPeerName = " + lastPeerName + " in launchServiceRequestPeers");
 
 		if (requestForServiceRequestPeersAlreadyLaunched)
@@ -1112,12 +1117,25 @@ public class WifiDirectManager
 
 	private NetworkInfo GetNetworkInfo()
 	{
+		if(_lastIntent == null)
+			return null;
 		return (NetworkInfo) _lastIntent.getParcelableExtra( WifiP2pManager.EXTRA_NETWORK_INFO );
+	}
+
+	public boolean IsConnected( )
+	{
+		NetworkInfo networkInfo = GetNetworkInfo();
+		if(networkInfo == null)
+			return false;
+		return networkInfo.isConnected();
 	}
 
 	public boolean IsConnectedOrConnecting( )
 	{
-		return GetNetworkInfo().isConnectedOrConnecting();
+		NetworkInfo networkInfo = GetNetworkInfo();
+		if(networkInfo == null)
+			return false;
+		return networkInfo.isConnectedOrConnecting();
 	}
 
 	private void debugTrace(String a_strMsg)
@@ -1132,7 +1150,9 @@ public class WifiDirectManager
 	private boolean _bWasConnected = false;
 	void onConnectionChanged(Intent intent)
 	{
-		_lastIntent = intent;
+		if(intent != null)
+			_lastIntent = intent;
+
 		_bRequestForConnectionAlreadyLaunched = false;
 
 		// Respond to new connection or disconnections
@@ -1214,8 +1234,8 @@ public class WifiDirectManager
 			}
 			else
 			{
-
-				_connexionStatus.SetPending();
+				if(!IsConnectedOrConnecting())
+					_connexionStatus.SetPending(this);
 
 
 				debugTrace("Device list not empy. Launching connectToPeer:" + lastPeerName);
@@ -1430,6 +1450,7 @@ public class WifiDirectManager
 					//create local server
 					socket.listen(LISTENNING_PORT, myLocalAddress);
 					//and wait for receiving pair'ip address
+					_connexionStatus.SetConnected();
 				}
 
 				_cmPeerConnected = null;
@@ -1462,7 +1483,7 @@ public class WifiDirectManager
 		AppActivity.postDelay(new Runnable() {
 			@Override
 			public void run() {
-				onConnectionChanged( _lastIntent );
+				onConnectionChanged( null );
 			}
 		}, SHORT_DELAY);
 		return;

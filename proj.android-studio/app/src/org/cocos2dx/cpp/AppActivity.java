@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 
 import org.cocos2dx.cpp.jniFacade.WifiDirectFacade;
 import org.cocos2dx.cpp.jniFacade.JniCppFacade;
+import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 import org.cocos2dx.lib.Cocos2dxActivity;
 
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class AppActivity extends Cocos2dxActivity
 
 	private static AppActivity instance;
 	private WifiDirectFacade _wifiFacade;
-
+	private static Handler _handler;
 	//------------------------------------------------------------------------------------------------------------------
 	//
 	//------------------------------------------------------------------------------------------------------------------
@@ -51,6 +52,8 @@ public class AppActivity extends Cocos2dxActivity
 	{
 		// DebugManager.printInfo();
 		instance = this;
+		_handler = new Handler();
+
 		super.onCreate(savedInstanceState);
 
 		// redirects logcat to filesystem
@@ -161,8 +164,13 @@ public class AppActivity extends Cocos2dxActivity
 
 	public static void postDelay(Runnable a_runnable, long a_lDelayMillis)
 	{
-		Handler handler = new Handler();
-		handler.postDelayed(a_runnable, 3000);
+		try {
+
+			_handler.postDelayed(a_runnable, 3000);
+		}catch(Exception e)
+		{
+			DebugManager.print("an error occured with post delay: " + e.getLocalizedMessage(), WifiDirectManager.DEBUGGER_CHANNEL);
+		}
 	}
 
 	@Override
