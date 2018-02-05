@@ -1163,7 +1163,8 @@ public class WifiDirectManager
 
 		NetworkInfo networkInfo = GetNetworkInfo();
 
-		if ( networkInfo.isConnected()  && !_bWasConnected )
+		if ( IsConnected()  && !_bWasConnected ) /*if me removed _bWasConneted, another client/server will be created each time the WifiReceiver will receive a ON_CONNEXION_CHANGED
+		(that may happens when adbswitching display on/off)*/
 		{
 			_bWasConnected = true;
 			debugTrace("*********************************************************");
@@ -1173,10 +1174,12 @@ public class WifiDirectManager
 		}
 		else if ( networkInfo.isConnectedOrConnecting() )
 		{
-			debugTrace("*********************************************************");
-			debugTrace("****  D E V I C E S  I N  C O N N E C T I O N ***********");
-			debugTrace("*********************************************************");
-			OnConnectedOrConnecting( );
+			if(!IsConnected()) {
+				debugTrace("*********************************************************");
+				debugTrace("****  D E V I C E S  I N  C O N N E C T I O N ***********");
+				debugTrace("*********************************************************");
+				OnConnectedOrConnecting();
+			}
 		}
 		else
 		{
