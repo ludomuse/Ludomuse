@@ -87,7 +87,7 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
                 {
                     for (int j = 0; j < rScenesID[i].Size(); ++j)
                     {
-                        m_pKernel->AddChapter(rChapters[i]["name"].GetString(),k,rScenesID[k][j].GetString());
+                        m_pKernel->AddChapterScene(rChapters[i]["name"].GetString(),k,rScenesID[k][j].GetString());
                     }
                 }
       }

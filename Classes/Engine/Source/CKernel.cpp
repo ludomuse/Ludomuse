@@ -181,7 +181,7 @@ std::string CKernel::ToJson(){
 
     document.Accept(writer);
     //    qDebug()<<s.GetString();
-    qDebug()<<"Fin de la traduction ----- Resultat";
+    //qDebug()<<"Fin de la traduction ----- Resultat";
     return s.GetString();
 }
 
@@ -272,14 +272,13 @@ void CKernel::AddSceneID(int a_iPlayerID, const std::string& a_rSceneID)
 int CKernel::ChapterExist(std::string chapterName){
     int j =0;
     while (j<mChapters.size() && mChapters[j].mName != chapterName){
-        //qDebug() << "HELLO CHAPTER EXIST";
         j++;
     }
     return j;
 }
 
 //Add a chapter to the chapter list.
-void CKernel::AddChapter(std::string chapterName, int playerId,std::string sceneName){
+void CKernel::AddChapterScene(std::string chapterName, int playerId, std::string sceneName){
     //Need to check if chapter not already present
     int res = 0;
     if (!mChapters.empty()){
@@ -293,6 +292,12 @@ void CKernel::AddChapter(std::string chapterName, int playerId,std::string scene
     } else {
         mChapters[res].mScenes[playerId].push_back(sceneName);
     }
+}
+
+void CKernel::AddChapter(std::string chapterName, int chapterPosition){
+    chapterStruct newChapter;
+    newChapter.mName = chapterName;
+    mChapters.insert(mChapters.begin()+chapterPosition,newChapter);
 }
 
 //Allow to see the chapter conained in the chapters list.
@@ -311,17 +316,38 @@ void CKernel::SeeChapters(){
     }
 }
 
-std::string CKernel::getChapterName(int index){
+std::string CKernel::GetChapterName(int index){
     return mChapters[index].mName;
 }
 
-int CKernel::getChapterNumber(){
+int CKernel::GetChapterNumber(){
     return mChapters.size();
+}
+
+int CKernel::GetNumberOfScene(int chapterNumber, int playerID){
+    if (playerID == 2)
+        return mChapters[chapterNumber].mScenes[0].size();
+    else
+        return mChapters[chapterNumber].mScenes[playerID].size();
+}
+
+int CKernel::GetSceneNumberCalculated(int chapterNumber){
+    int number = 0;
+    for (int i = 0; i < mChapters[chapterNumber].mScenes[0].size(); ++i){
+        if (mChapters[chapterNumber].mScenes[0][i] == mChapters[chapterNumber].mScenes[1][i]){
+            number++;
+        }
+        else {
+            number += 2;
+        }
+    }
+    return number;
 }
 /******************************************************************************************************************************************/
 
 void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID, int chapterNumber)
 {
+    qDebug() << "ADDING AFTER ID";
     for(std::string currentString : mChapters[chapterNumber].mScenes[a_iPlayerID])
     {
         if(currentString == a_rPreviousID)
@@ -391,6 +417,7 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
         this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
         //        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
     }
+
     emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
                              QString::fromStdString(a_sNewID),
                              a_iPlayerNumber));
@@ -399,6 +426,7 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
 void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID1, const std::string& a_sPreviousID2,
                                 const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate, int chapterNumber)
 {
+   //SeeChapters();
     CSceneNode* newScene = new CSceneNode(a_sNewID, this);
     qDebug("ckernel add new scene");
     m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath, a_iTemplateNumber, a_sScreenMate);
@@ -409,7 +437,7 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
     {
         this->AddSceneIDAtBegin(0, a_sNewID,chapterNumber);
     }
-    else if(std::find(m_mScenesID[0].begin(), m_mScenesID[0].end(), a_sPreviousID1) != m_mScenesID[0].end())
+    else if(std::find(mChapters[chapterNumber].mScenes[0].begin(), mChapters[chapterNumber].mScenes[0].end(), a_sPreviousID1) != mChapters[chapterNumber].mScenes[0].end())
     {
         this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID1,chapterNumber);
     }
@@ -417,11 +445,10 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
     {
         this->AddSceneIDAtBegin(1, a_sNewID,chapterNumber);
     }
-    else if(std::find(m_mScenesID[1].begin(), m_mScenesID[1].end(), a_sPreviousID2) != m_mScenesID[1].end())
+    else if(std::find(mChapters[chapterNumber].mScenes[1].begin(), mChapters[chapterNumber].mScenes[1].end(), a_sPreviousID2) != mChapters[chapterNumber].mScenes[1].end())
     {
         this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID2,chapterNumber); // Add blank id at the other player timeline end
     }
-
     // Adding the new scene at the right place in the behavior tree
     if(a_sPreviousID1.empty() && a_sPreviousID2.empty()) // Adding scene at the beginning
     {
@@ -500,6 +527,7 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
 //    emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
 //                             QString::fromStdString(a_sNewID),
 //                             a_iPlayerNumber));
+
     emit(addingSharedSceneFinished(QString::fromStdString(a_sPreviousID1),
                              QString::fromStdString(a_sPreviousID2),
                              QString::fromStdString(a_sNewID)));

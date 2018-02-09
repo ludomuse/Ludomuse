@@ -110,11 +110,14 @@ public:
     void AddSceneID(int a_iPlayerID, const std::string& m_sSceneID);
 
     /*CHAPTERSPROTOTYPE************************************************************************************************************************/
-    void AddChapter(std::string chapterName,int playerId, std::string sceneName);
+    void AddChapterScene(std::string chapterName,int playerId, std::string sceneName);
+    void AddChapter(std::string chapterName, int chapterPosition);
     int ChapterExist(std::string chapterName);
     void SeeChapters();
-    std::string getChapterName(int index);
-    int getChapterNumber();
+    std::string GetChapterName(int index);
+    int GetChapterNumber();
+    int GetNumberOfScene(int chapterNumber, int playerID);
+    int GetSceneNumberCalculated(int chapterNumber);
     /******************************************************************************************************************************************/
 
 
