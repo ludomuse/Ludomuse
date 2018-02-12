@@ -1,4 +1,4 @@
-#include "functional"
+﻿#include "functional"
 
 #include "../Include/CKernel.h"
 #include "../Include/CSequenceNode.h"
@@ -850,7 +850,7 @@ void CKernel::NavPrevious(Ref* pSender, CEntityNode* a_pTarget)
 }
 
 
-bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
+bool CKernel::OnTouchBegan(Touch* const& a_pTouch, Event* const& a_pEvent)
 {
     M_STATS_SCREEN.nbInteractions++;
     //    CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);

@@ -1,4 +1,4 @@
-#ifndef _CKERNEL_H_
+﻿#ifndef _CKERNEL_H_
 #define _CKERNEL_H_
 
 
@@ -173,7 +173,7 @@ public:
     /// \returns true on success, false otherwise
     /// \param[in] a_pTouch the touch event
     /// \param[in] a_pEvent the cocos Event corresponding to this touch
-    bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
+    bool OnTouchBegan(cocos2d::Touch* const& a_pTouch, cocos2d::Event* const& a_pEvent);
     bool OnTouchEnd(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
     bool OnTouchMove(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent);
 
