@@ -357,12 +357,19 @@ int CKernel::GetSceneNumberCalculated(int chapterNumber){
 
 bool CKernel::ChapterHasScene(int chapterNumber, std::string sceneName){
     bool player1 = false;
+    bool player2 = false;
+
     for(int i = 0; i < mChapters[chapterNumber].mScenes[0].size(); ++i){
         if(mChapters[chapterNumber].mScenes[0][i] == sceneName){
             player1 = true;
         }
     }
-    return player1;
+    for(int i = 0; i < mChapters[chapterNumber].mScenes[1].size(); ++i){
+        if(mChapters[chapterNumber].mScenes[1][i] == sceneName){
+            player2 = true;
+        }
+    }
+    return player1 || player2;
 }
 
 void CKernel::reorganizeChapters(int from, int to){
