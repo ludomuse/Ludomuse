@@ -118,6 +118,8 @@ public:
     int GetChapterNumber();
     int GetNumberOfScene(int chapterNumber, int playerID);
     int GetSceneNumberCalculated(int chapterNumber);
+    bool ChapterHasScene(int chapterNumber, std::string sceneName);
+    void reorganizeChapters(int from , int to);
     /******************************************************************************************************************************************/
 
 
@@ -249,7 +251,8 @@ public:
 private:
     void AnchorEntity(CEntityNode* a_pAnchorEntity, CEntityNode* a_pAnchoredEntity);
     void ProcessMessage(const std::string& a_rMessage);
-    void ScenesToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+    void ScenesToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator,int chapterNumber);
+    void ChaptersToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
     void ScreensToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
     bool RemoveIDFromPlayer(const std::string& a_sSceneID, int a_iPlayerID = 0);
     void FullfillSyncedScenes();

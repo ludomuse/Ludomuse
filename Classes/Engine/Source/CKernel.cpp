@@ -46,22 +46,13 @@
 #include <unistd.h>
 #endif
 
-
-
-
 #define M_USER_EVENT '0'
 #define M_STATS_EVENT '1'
-
-
 
 using namespace cocos2d;
 
 namespace LM
 {
-
-
-
-
 CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
     m_pJsonParser(new CJsonParser(this)),
     m_bIsServer(a_bIsServer),
@@ -162,9 +153,14 @@ std::string CKernel::ToJson(){
     rapidjson::Value macros(rapidjson::kObjectType);
     CMacroManager::Instance()->ToJson(macros, allocator);
     app.AddMember("macros", macros, allocator);
-    rapidjson::Value scenes(rapidjson::kArrayType);
+    /*CHAPTERSPROTOTYPE************************************************************************************************************************/
+    rapidjson::Value chapters(rapidjson::kArrayType);
+    this->ChaptersToJson(chapters,allocator);
+    app.AddMember("chapters",chapters,allocator);
+    /*rapidjson::Value scenes(rapidjson::kArrayType);
     this->ScenesToJson(scenes, allocator);
-    app.AddMember("scenes", scenes, allocator);
+    app.AddMember("scenes", scenes, allocator);*/
+    /******************************************************************************************************************************************/
     rapidjson::Value screens(rapidjson::kArrayType);
     if(m_pDashboard != nullptr)
     {
@@ -185,9 +181,21 @@ std::string CKernel::ToJson(){
     return s.GetString();
 }
 
+void CKernel::ChaptersToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    for (int i=0; i< mChapters.size(); ++i){
+        rapidjson::Value chapter(rapidjson::kObjectType);
+        rapidjson::Value chapterName;
+        chapterName.SetString(mChapters[i].mName.c_str(),mChapters[i].mName.length(),a_rAllocator);
+        chapter.AddMember("name",chapterName,a_rAllocator);
+        rapidjson::Value scenes(rapidjson::kArrayType);
+        this->ScenesToJson(scenes, a_rAllocator,i);
+        chapter.AddMember("scenes",scenes,a_rAllocator);
+        a_rParent.PushBack(chapter,a_rAllocator);
+    }
+}
 
-
-void CKernel::ScenesToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+void CKernel::ScenesToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator, int chapterNumber)
 {
     std::vector<std::string>::iterator itSceneIDP1;
     std::vector<std::string>::iterator itSceneIDP2;
@@ -195,15 +203,18 @@ void CKernel::ScenesToJson(rapidjson::Value& a_rParent, rapidjson::Document::All
     rapidjson::Value player1IDs(rapidjson::kArrayType);
     rapidjson::Value player2IDs(rapidjson::kArrayType);
 
-    for (itSceneIDP1 = m_mScenesID[0].begin(); itSceneIDP1 != m_mScenesID[0].end(); ++itSceneIDP1)
+    for (itSceneIDP1 = mChapters[chapterNumber].mScenes[0].begin(); itSceneIDP1 != mChapters[chapterNumber].mScenes[0].end(); ++itSceneIDP1)
     {
-        if(itSceneIDP1->compare(""))
+        if(itSceneIDP1->compare("")){
             player1IDs.PushBack(rapidjson::Value(itSceneIDP1->c_str(), itSceneIDP1->length()), a_rAllocator);
+        }
     }
-    for (itSceneIDP2 = m_mScenesID[1].begin(); itSceneIDP2 != m_mScenesID[1].end(); ++itSceneIDP2)
+    for (itSceneIDP2 = mChapters[chapterNumber].mScenes[1].begin(); itSceneIDP2 != mChapters[chapterNumber].mScenes[1].end(); ++itSceneIDP2)
     {
-        if(itSceneIDP2->compare(""))
+        if(itSceneIDP2->compare("")){
+
             player2IDs.PushBack(rapidjson::Value(itSceneIDP2->c_str(), itSceneIDP2->length()), a_rAllocator);
+        }
     }
     a_rParent.PushBack(player1IDs, a_rAllocator);
     a_rParent.PushBack(player2IDs, a_rAllocator);
@@ -302,18 +313,18 @@ void CKernel::AddChapter(std::string chapterName, int chapterPosition){
 
 //Allow to see the chapter conained in the chapters list.
 void CKernel::SeeChapters(){
-    qDebug() << "---PRINTING CHAPTERS DETAILS---";
+    std::cout << "---PRINTING CHAPTERS DETAILS---";
     for (int i=0;i< mChapters.size();++i){
-        qDebug() << "CHAPITRE NAME: " << QString::fromStdString(mChapters[i].mName) << '\n';
+        std::cout << "CHAPTER NAME: " << mChapters[i].mName << '\n';
         for(const auto &p : mChapters[i].mScenes )
         {
             std::cout << p.first << '\t' << std::endl;
             for (int j=0; j < p.second.size(); ++j) {
                 std::cout << p.second[j] << std::endl;
             }
-
         }
     }
+    std::cout.flush();
 }
 
 std::string CKernel::GetChapterName(int index){
@@ -343,11 +354,29 @@ int CKernel::GetSceneNumberCalculated(int chapterNumber){
     }
     return number;
 }
+
+bool CKernel::ChapterHasScene(int chapterNumber, std::string sceneName){
+    bool player1 = false;
+    for(int i = 0; i < mChapters[chapterNumber].mScenes[0].size(); ++i){
+        if(mChapters[chapterNumber].mScenes[0][i] == sceneName){
+            player1 = true;
+        }
+    }
+    return player1;
+}
+
+void CKernel::reorganizeChapters(int from, int to){
+    std::cout << "####### REORGANIZING " << from << " to " << to << "######";
+    std::cout.flush();
+    chapterStruct saveChapter = mChapters[from];
+    mChapters.erase(mChapters.begin()+from);
+    mChapters.insert(mChapters.begin()+to,saveChapter);
+}
 /******************************************************************************************************************************************/
 
 void CKernel::AddSceneIDAfter(int a_iPlayerID, const std::string& a_rSceneID, const std::string& a_rPreviousID, int chapterNumber)
 {
-    qDebug() << "ADDING AFTER ID";
+    std::cout << "ADDING AFTER ID " << chapterNumber << std::endl;
     for(std::string currentString : mChapters[chapterNumber].mScenes[a_iPlayerID])
     {
         if(currentString == a_rPreviousID)
@@ -406,7 +435,7 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
     }
 
     // Adding the new scene at the right place
-    if(a_sPreviousID.empty()) // Adding scene at the beginning
+    if(a_sPreviousID.empty() && (chapterNumber == 0)) // Adding scene at the beginning
     {
         this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
         //        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
@@ -414,7 +443,12 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
     }
     else// Adding scene after an existing
     {
-        this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
+        if (a_sPreviousID.empty()){
+            std::string falsePreviousId = mChapters[chapterNumber-1].mScenes[a_iPlayerNumber].back();
+            this->m_pBehaviorTree->AddChildNodeAt(newScene, falsePreviousId);
+        } else {
+            this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
+        }
         //        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
     }
 
@@ -452,7 +486,12 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
     // Adding the new scene at the right place in the behavior tree
     if(a_sPreviousID1.empty() && a_sPreviousID2.empty()) // Adding scene at the beginning
     {
-        this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
+        if (chapterNumber == 0){
+            this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
+        } else {
+            std::string falsePreviousId = mChapters[chapterNumber-1].mScenes[0].back();
+            this->m_pBehaviorTree->AddChildNodeAt(newScene, falsePreviousId);
+        }
     }
     else if (a_sPreviousID1.empty())// Adding scene after an existing
     {
@@ -527,7 +566,8 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
 //    emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
 //                             QString::fromStdString(a_sNewID),
 //                             a_iPlayerNumber));
-
+    std::cout << "########## ENDING CHAPTER NUMBER : " << chapterNumber;
+    std::cout.flush();
     emit(addingSharedSceneFinished(QString::fromStdString(a_sPreviousID1),
                              QString::fromStdString(a_sPreviousID2),
                              QString::fromStdString(a_sNewID)));
