@@ -11,9 +11,9 @@ namespace LM
 
 CGotoSceneVisitor::CGotoSceneVisitor(const std::string& a_rSceneID, CKernel* a_pKernel) :
     m_sSceneID(a_rSceneID),
-	m_pKernel(a_pKernel)
+    m_pKernel(a_pKernel)
 {
-  
+
 }
 
 
@@ -24,13 +24,22 @@ Result CGotoSceneVisitor::ProcessNodeTopDown(CNode* a_pNode)
   {
     if (pSceneNode->GetSceneID() == m_sSceneID)
     {
-		CSequenceNode* pSequence = dynamic_cast<CSequenceNode*>(pSceneNode->GetParent());
-		pSequence->SetCurrentNode(pSceneNode);
+        CSequenceNode* pSequence = dynamic_cast<CSequenceNode*>(pSceneNode->GetParent());
+        pSequence->SetCurrentNode(pSceneNode);
       Scene* pNewScene = pSceneNode->CreateScene();
       pSceneNode->init();
 
+      #ifdef LUDOMUSE_EDITOR
+      //Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+      Director::getInstance()->replaceScene(pNewScene);
+      #else
       Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
-	  m_pKernel->m_pCurrentScene = pSceneNode;
+      #endif
+	  CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
+      m_pKernel->m_pCurrentScene = pSceneNode;
+      if (pOldScene != nullptr) {
+        pOldScene->UnInit(false);
+      }
       return RESULT_PRUNE;
     }
   }

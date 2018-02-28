@@ -1,6 +1,8 @@
 #include "../Include/CGroupNode.h"
 
-
+#ifdef LUDOMUSE_EDITOR
+#include <CProjectManager.h>
+#endif
 using namespace cocos2d;
 
 namespace LM
@@ -32,7 +34,7 @@ void CGroupNode::Init()
 	}
   PopulateParent(false);
 
-  Size oVisibleSize = GetParentVisibleSize();
+  cocos2d::Size oVisibleSize = GetParentVisibleSize();
 
   float fNewWidth = oVisibleSize.width * ((float)m_iWidth / 100.0f);
   float fNewHeight = oVisibleSize.height * ((float)m_iHeight / 100.0f);
@@ -52,11 +54,67 @@ void CGroupNode::Init()
   }
   else
   {
-	  m_pCocosEntity->setContentSize(Size(fNewWidth, fNewHeight));
+      m_pCocosEntity->setContentSize(cocos2d::Size(fNewWidth, fNewHeight));
   }
 
   CNode::Init();
 }
+#ifdef LUDOMUSE_EDITOR
+void CGroupNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator)
+{
+    rapidjson::Value groupNode(rapidjson::kObjectType);
+    groupNode.AddMember("type", "Group", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        groupNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
+    rapidjson::Value params(rapidjson::kObjectType);
+    if(!m_sBackgroundSource.empty())
+    {
+        std::string temp = m_sBackgroundSource;
+        std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+        int index = temp.find(projectPath);
+        if(index != std::string::npos)
+        {
+            temp.erase(index, projectPath.length());
+        }
+        else
+        {
+            std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/templates/";
+            int index2 = temp.find(templatePath);
+            if(index2 != std::string::npos)
+            {
+                temp.erase(index2, templatePath.length());
+            }
+        }
+        std::string* string = CProjectManager::Instance()->PushBackSource(temp);
+        params.AddMember("source", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
+    }
+    params.AddMember("anchor", m_eAnchor, a_rAllocator);
+    params.AddMember("width", m_iWidth, a_rAllocator);
+    params.AddMember("height", m_iHeight, a_rAllocator);
+    params.AddMember("x", m_iXPosition, a_rAllocator);
+    params.AddMember("y", m_iYPosition, a_rAllocator);
 
+    if(!this->m_mListeners.empty())
+    {
+        rapidjson::Value listeners(rapidjson::kArrayType);
+        CEntityNode::ToJsonListener(listeners, a_rAllocator);
+        params.AddMember("listeners", listeners, a_rAllocator);
+    }
+    if(!this->m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    groupNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(groupNode, a_rAllocator);
+}
+#endif
 
 } // namespace LM

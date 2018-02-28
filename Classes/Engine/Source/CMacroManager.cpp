@@ -1,5 +1,8 @@
 #include "../Include/CMacroManager.h"
-
+#ifdef LUDOMUSE_EDITOR
+#include "ETypes.h"
+#include "CProjectManager.h"
+#endif
 #include "../../cocos2d/external/json/rapidjson.h"
 #include "../../cocos2d/external/json/document.h"
 
@@ -78,4 +81,42 @@ namespace LM
 		}
 		return a_sFileName;
 	}
+#ifdef LUDOMUSE_EDITOR
+    void CMacroManager::GetIterator(std::map<std::string, std::string>::const_iterator* a_itBegin,
+                                    std::map<std::string, std::string>::const_iterator* a_itEnd)
+    {
+        *a_itBegin = m_mMacros.cbegin();
+        *a_itEnd = m_mMacros.cend();
+    }
+
+    void CMacroManager::ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator)
+    {
+        std::map<std::string,std::string>::iterator itr;
+        for (itr = m_mMacros.begin(); itr != m_mMacros.end(); itr ++)
+        {
+//            parent.AddMember(rapidjson::Value((*itr).first.c_str(), (*itr).first.length()),
+//                             rapidjson::Value((*itr).second.c_str(), (*itr).second.length()),
+//                             allocator);
+            std::string temp = (*itr).second;
+            std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+            int index = temp.find(projectPath);
+            if(index != std::string::npos)
+            {
+                temp.erase(index, projectPath.length());
+            }
+            else
+            {
+                std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/templates/";
+                int index2 = temp.find(templatePath);
+                if(index2 != std::string::npos)
+                {
+                    temp.erase(index2, templatePath.length());
+                }
+            }
+            std::string* string = CProjectManager::Instance()->PushBackSource(temp);
+            parent.AddMember(rapidjson::Value((*itr).first.c_str(), (*itr).first.length()),
+                             rapidjson::Value(string->c_str(), string->length()) , allocator);
+        }
+    }
+#endif
 }

@@ -1,4 +1,4 @@
-#ifndef _CVIDEONODE_H_
+﻿#ifndef _CVIDEONODE_H_
 #define _CVIDEONODE_H_
 
 #include <string>
@@ -22,6 +22,9 @@ class CVideoNode : public CEntityNode
 
   virtual void Init();
   
+#ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
+#endif
 };
 
 } // namespace LM

@@ -38,8 +38,28 @@ class CLabelNode : public CEntityNode
   virtual void Init();
 
   virtual void SetText(const std::string& a_rText);
-  virtual std::string GetText() const;
 
+  virtual const std::string& GetText() const;
+#ifdef LUDOMUSE_EDITOR
+    virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
+#endif
+    virtual void Copy(CEntityNode* a_pLabel, bool a_bRecCopy = true) override;
+
+    virtual int GetFontSize();
+
+    virtual void SetFontSize(int a_iFontSize);
+
+    virtual const std::string& GetFont() const;
+
+    virtual void SetFont(const std::string& a_rFontName);
+
+    virtual void SetColor(const std::string& a_rFontColor);
+
+    virtual const std::string& GetColor() const;
+
+    virtual cocos2d::Color4B ParseColor(const std::string& a_rFontColor) const;
+
+    virtual bool UseFile(const std::string &a_sFilename) override;
 };
 
 } // namespace LM

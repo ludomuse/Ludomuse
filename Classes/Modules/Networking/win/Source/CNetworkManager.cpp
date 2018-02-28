@@ -5,7 +5,11 @@
 
 
 #define DEFAULT_BUFLEN 512
+#ifdef LUDOMUSE_EDITOR
+#define DEFAULT_PORT "8080"
+#else
 #define DEFAULT_PORT "6666"
+#endif
 
 
 namespace LM

@@ -16,9 +16,14 @@ namespace LM
 		void AddDefinition(const std::string& a_sMacroName, const std::string& a_sMacroDefinition);
 		void RemoveDefinition(const std::string& a_sMacroName);
 		std::string GetDefinition(const std::string& a_sMacroName);
-		bool HasDefinition(const std::string& a_sMacroName);
+        bool HasDefinition(const std::string& a_sMacroName);
 		void ParseJSON(RefJsonNode a_rJNode, const std::string& a_sBasePath);
+#ifdef LUDOMUSE_EDITOR
+        void GetIterator(std::map<std::string, std::string>::const_iterator *a_itBegin,
+                         std::map<std::string, std::string>::const_iterator *a_itEnd);
 
+        void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+#endif
 	private:
 		CMacroManager();
 		static CMacroManager* s_pInstance;

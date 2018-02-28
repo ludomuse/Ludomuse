@@ -26,7 +26,9 @@ class CPeerNode : public CGridNode
   virtual void ClearChildren();
 
   virtual void AddPeers(const std::vector<std::string>& a_vPeers);
-
+#ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
+#endif
 
  private: // methods
   bool ReplaceLabelValue(CNode* a_pNode, const std::string& a_sPeerName);

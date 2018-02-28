@@ -1,5 +1,8 @@
 ﻿#include "../Include/CAnimationNode.h"
 #include "../../Modules/Util/Include/Util.h"
+#ifdef LUDOMUSE_EDITOR
+#include "CProjectManager.h"
+#endif
 
 
 using namespace cocos2d;
@@ -67,6 +70,86 @@ void CAnimationNode::Init()
 
     CNode::Init();
 }
+
+#ifdef LUDOMUSE_EDITOR
+void CAnimationNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator)
+{
+    rapidjson::Value animation(rapidjson::kObjectType);
+    animation.AddMember("type", "Animation", a_rAllocator);
+
+    if (!m_sID.empty())
+    {
+        animation.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
+
+    rapidjson::Value params(rapidjson::kObjectType);
+
+    std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+
+    std::string temp = m_sFrameFile;
+    int index = temp.find(projectPath);
+    if(index != std::string::npos)
+    {
+        temp.erase(index, projectPath.length());
+    }
+    else
+    {
+        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/templates/";
+        int index2 = temp.find(templatePath);
+        if(index2 != std::string::npos)
+        {
+            temp.erase(index2, templatePath.length());
+        }
+    }
+    std::string* string = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("animation", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
+
+    temp = m_sSpriteSheet;
+    index = temp.find(projectPath);
+    if(index != std::string::npos)
+    {
+        temp.erase(index, projectPath.length());
+    }
+    else
+    {
+        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/templates/";
+        int index2 = temp.find(templatePath);
+        if(index2 != std::string::npos)
+        {
+            temp.erase(index2, templatePath.length());
+        }
+    }
+    string = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("sheet", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
+
+
+    params.AddMember("anchor", m_eAnchor, a_rAllocator);
+    params.AddMember("width", m_iWidth, a_rAllocator);
+    params.AddMember("height", m_iHeight, a_rAllocator);
+    params.AddMember("x", m_iXPosition, a_rAllocator);
+    params.AddMember("y", m_iYPosition, a_rAllocator);
+
+    if (!m_mListeners.empty())
+    {
+        rapidjson::Value listeners(rapidjson::kArrayType);
+        CEntityNode::ToJsonListener(listeners, a_rAllocator);
+        params.AddMember("listeners", listeners, a_rAllocator);
+    }
+
+    if (!m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    animation.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(animation, a_rAllocator);
+}
+#endif
 
 
 

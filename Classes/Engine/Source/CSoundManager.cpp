@@ -1,6 +1,6 @@
 #include <pthread.h>
 
-#if !defined _WIN32 & !defined _WIN64
+#if !(defined _WIN32 | defined _WIN64)
 #include <unistd.h>
 #endif
 
@@ -48,18 +48,17 @@ namespace LM
 	{
         CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 		//m_oPlayingSoundMutex.lock();
-		//m_sPlayingSoundURL = a_rSoundURL;
+//        m_sPlayingSoundURL = a_rSoundURL;
 		//m_sPlayingSoundURL = CMacroManager::Instance()->CheckDefinition(a_rSoundURL);
-		std::string fullSoundPath;
-		if (CMacroManager::Instance()->HasDefinition(a_rSoundURL))
-		{
-			fullSoundPath = CMacroManager::Instance()->GetDefinition(a_rSoundURL);
-		}
-		else
-		{
-			fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
-		}
-
+        std::string fullSoundPath;
+        if (CMacroManager::Instance()->HasDefinition(a_rSoundURL))
+        {
+            fullSoundPath = CMacroManager::Instance()->GetDefinition(a_rSoundURL);
+        }
+        else
+        {
+            fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
+        }
 		//SSoundEndedObject* pSound = new SSoundEndedObject;
 		//pSound->sSoundURL = m_sPlayingSoundURL;
 		//pSound->pSoundManager = this;
@@ -70,7 +69,7 @@ namespace LM
 //#else // !__ANDROID__
 //		std::string fullSoundPath = a_rSoundURL;
 //#endif
-		//std::string fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
+//		std::string fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
 
 		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(fullSoundPath.c_str(), false);
 		//pthread_t thread;

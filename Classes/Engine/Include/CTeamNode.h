@@ -1,4 +1,4 @@
-#ifndef _CTEAMNODE_H_
+﻿#ifndef _CTEAMNODE_H_
 #define _CTEAMNODE_H_
 
 #include "CGroupNode.h"
@@ -45,7 +45,14 @@ class CTeamNode : public CGroupNode
   void UpdateTask(const std::string& a_rNextTask);
   void UpdateActions(const std::array<std::string, M_NB_TASK / 2>& a_rActions);
   void TasksFinished();
+#ifdef LUDOMUSE_EDITOR
+  TTasksArray GetTasks();
+  void SetTasks(TTasksArray a_oTasks);
+  void SetTask(int a_iIndex, const std::string& a_rTask);
+  void SetAction(int a_iIndex, const std::string& a_rAction);
 
+  virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
+#endif
 private:
 	void SendTask(const std::string& a_rNextTask);
 

@@ -40,7 +40,11 @@ Result CTransitionVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
 void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 {
+#ifdef LUDOMUSE_EDITOR
+	if (m_pKernel->m_pCurrentScene->m_bDashboardTrigger && m_bTransitionNext)
+#else
 	if (m_pKernel->m_pCurrentScene->m_bDashboardTrigger && m_bTransitionNext && !m_pKernel->m_pLocalPlayer->m_bWaiting)
+#endif
 	{
 		// init dashboard
 		InitScene(m_pKernel->m_pDashboard);
@@ -76,7 +80,6 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 
 			if (m_pKernel->m_pDistantPlayer->m_bWaiting)
 			{
-				CCLOG("distant player waiting : set to not waiting");
 				SEvent oMessage;
 				oMessage.m_sStringValue = "kernel:waiting";
 				m_pKernel->SendNetworkMessage(oMessage, nullptr);
@@ -87,22 +90,28 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 			}
 			else if (m_pKernel->m_pLocalPlayer->m_bWaiting)
 			{
-				CCLOG("local player waiting : set to not waiting");
-
 				m_pKernel->m_pLocalPlayer->m_bWaiting = false;
 				a_pSequence->OffsetCurrentNode(m_bTransitionNext);
+				#ifdef LUDOMUSE_EDITOR
+				InitScene(pNewSceneNode);
+				#else
 				//InitScene(pNewSceneNode);
 				LoadInitScene();
+				#endif
 			}
 			else
 			{
 				SEvent oMessage;
 				oMessage.m_sStringValue = "kernel:waiting";
 				m_pKernel->SendNetworkMessage(oMessage, nullptr);
-				CCLOG("set local player to waiting");
+
 				// init waiting scene
 				m_pKernel->m_pLocalPlayer->m_bWaiting = true;
+				#ifdef LUDOMUSE_EDITOR
+				InitScene(m_pKernel->m_pWaitingScene);
+				#else
 				InitScene(pNewSceneNode, true);
+				#endif
 				m_pKernel->m_oSyncTransitionStart = std::chrono::system_clock::now();
 			}
 
@@ -117,11 +126,15 @@ void CTransitionVisitor::GotoScene(CSequenceNode* a_pSequence)
 	}
 
 }
-
+#ifdef LUDOMUSE_EDITOR
+void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode)
+#else
 void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
+#endif
 {
 	Scene* pNewScene = a_pSceneNode->CreateScene();
 	a_pSceneNode->init();
+	#ifndef LUDOMUSE_EDITOR
 	pNewScene->retain();
 	if (a_bWaitScene)
 	{
@@ -145,6 +158,15 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 		{
 			Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
 		}
+	#endif
+	if (m_bTransitionNext)
+	{
+		Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
+	}
+	else
+	{
+		Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
+	}
 	}
 
 	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
@@ -161,7 +183,7 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 	m_pKernel->m_pCurrentScene->runAction(oSequence);*/
 	M_STATS->StartStats();
 }
-
+#ifndef LUDOMUSE_EDITOR
 void CTransitionVisitor::LoadInitScene() {
 	//if (m_bTransitionNext)
 	//{
@@ -184,5 +206,6 @@ void CTransitionVisitor::LoadInitScene() {
 	}
 	m_pKernel->m_pWaitingScene->UnInit(false);
 }
+#endif
 
 } // namespace LM

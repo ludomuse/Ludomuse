@@ -1,6 +1,10 @@
 #include "../Include/CLabelNode.h"
+//#include "../Include/CSpriteNode.h"//MEGAMERGE
 #include "../Include/CMacroManager.h"
-
+#ifdef LUDOMUSE_EDITOR
+#include <QDebug>
+#include <CProjectManager.h>
+#endif
 using namespace cocos2d;
 
 namespace LM
@@ -11,7 +15,7 @@ CLabelNode::CLabelNode(const std::string& a_rText,
                        const std::string& a_rFontName,
                        int a_iFontSize,
 					   const std::string& a_sTextAlign,
-					   const std::string& a_sFontColor,
+                       const std::string& a_sFontColor,
 					   EAnchor a_eAnchor,
 					   int a_iWidth,
 					   int a_iHeight,
@@ -34,8 +38,8 @@ void CLabelNode::Init()
 
   PopulateParent(false);
   
-  // Size oVisiblesSize = Director::getInstance()->getVisibleSize();
-  Size oVisibleSize = GetParentVisibleSize();
+  // Size oVisibleSize = Director::getInstance()->getVisibleSize();
+  cocos2d::Size oVisibleSize = GetParentVisibleSize();
 
   if (m_sTextAlign == "left")
   {
@@ -52,7 +56,18 @@ void CLabelNode::Init()
 
   pLabel->setMaxLineWidth(oVisibleSize.width * (float)m_iWidth / 100.0f);
 
-
+//  try
+//  {
+    pLabel->setTextColor(ParseColor(m_sFontColor));
+//  }
+//  catch (std::string e)
+//  {
+//    m_sFontColor("255,255,255,255");
+//  }
+//  std::vector<int> oRGBAValues;
+//  std::string sValue;
+//  std::istringstream oStream(m_sFontColor);
+#ifndef LUDOMUSE_EDITOR
   std::vector<int> oRGBAValues;
   std::string sValue;
   std::istringstream oStream(m_sFontColor);
@@ -62,11 +77,11 @@ void CLabelNode::Init()
 	  int iValue = atoi(sValue.c_str());
 	  oRGBAValues.push_back(iValue);
   }
-
   if (oRGBAValues.size() >= 4) // if color is not properly set, do nothing
   {
 	  pLabel->setTextColor(Color4B(oRGBAValues[0], oRGBAValues[1], oRGBAValues[2], oRGBAValues[3]));
   }
+#endif
   CNode::Init();
 }
 
@@ -81,9 +96,168 @@ void CLabelNode::SetText(const std::string& a_rText)
 	}
 }
 
-std::string CLabelNode::GetText() const
+const std::string& CLabelNode::GetText() const
 {
-	return m_sText;
+    return m_sText;
+}
+#ifdef LUDOMUSE_EDITOR
+void CLabelNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
+{
+    rapidjson::Value labelNode(rapidjson::kObjectType);
+    labelNode.AddMember("type","Text",a_rAllocator);
+    if(!m_sID.empty())
+    {
+        labelNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
+
+    rapidjson::Value params(rapidjson::kObjectType);
+    params.AddMember("content", rapidjson::Value(m_sText.c_str(), m_sText.length()),a_rAllocator);
+    std::string temp = m_sFontName;
+    std::string projectPath = CProjectManager::Instance()->GetProjectPath();
+    int index = temp.find(projectPath);
+    if(index != std::string::npos)
+    {
+        temp.erase(index, projectPath.length());
+    }
+    else
+    {
+        std::string templatePath = CProjectManager::Instance()->GetInstallPath() + "/templates/";
+        int index2 = temp.find(templatePath);
+        if(index2 != std::string::npos)
+        {
+            temp.erase(index2, templatePath.length());
+        }
+    }
+    std::string* string = CProjectManager::Instance()->PushBackSource(temp);
+    params.AddMember("source", rapidjson::Value(string->c_str(), string->length()) , a_rAllocator);
+    params.AddMember("fontSize", m_iFontSize, a_rAllocator);
+    params.AddMember("textAlign", rapidjson::Value(m_sTextAlign.c_str(), m_sTextAlign.length()),a_rAllocator);
+    params.AddMember("width", m_iWidth,a_rAllocator);
+    params.AddMember("height", m_iHeight,a_rAllocator);
+    params.AddMember("anchor", m_eAnchor,a_rAllocator);
+    params.AddMember("color", rapidjson::Value(m_sFontColor.c_str(), m_sFontColor.length()),a_rAllocator);
+    /* "type": "Text",
+     "params": {
+       "content": "SUIVANT",
+       "font": "fonts/Open_Sans/OpenSans-Bold.ttf",
+       "fontSize": 20,
+       "textAlign": "right",
+       "width": 80,
+       "height": 100,
+       "anchor": 0,
+       "color": ""
+     }*/
+
+    if(!this->m_mListeners.empty())
+    {
+        rapidjson::Value listeners(rapidjson::kArrayType);
+        CEntityNode::ToJsonListener(listeners, a_rAllocator);
+        params.AddMember("listeners", listeners, a_rAllocator);
+    }
+
+    if(!this->m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    labelNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(labelNode, a_rAllocator);
+}
+#endif
+void CLabelNode::Copy(CEntityNode* a_pLabel, bool a_bRecCopy)
+{
+    CLabelNode* pLabel = dynamic_cast<CLabelNode*>(a_pLabel);
+    if (pLabel)
+    {
+        m_sText = pLabel->m_sText;
+        m_sFontName = pLabel->m_sFontName;
+        m_iFontSize = pLabel->m_iFontSize;
+        m_sTextAlign = pLabel->m_sTextAlign;
+        m_sFontColor = pLabel->m_sFontColor;
+    }
+    CEntityNode::Copy(a_pLabel, a_bRecCopy);
+}
+
+int CLabelNode::GetFontSize()
+{
+    return m_iFontSize;
+}
+
+void CLabelNode::SetFontSize(int a_iFontSize)
+{
+    m_iFontSize = a_iFontSize;
+    Label* pLabel = dynamic_cast<Label*>(m_pCocosEntity);
+    if (pLabel)
+    {
+        TTFConfig font = pLabel->getTTFConfig();
+        font.fontSize = a_iFontSize;
+        pLabel->setTTFConfig(font);
+    }
+}
+
+const std::string& CLabelNode::GetFont() const
+{
+    return m_sFontName;
+}
+
+void CLabelNode::SetFont(const std::string& a_rFontName)
+{
+    m_sFontName = a_rFontName;
+    Label* pLabel = dynamic_cast<Label*>(m_pCocosEntity);
+    if (pLabel)
+    {
+        TTFConfig font = pLabel->getTTFConfig();
+        font.fontFilePath = CMacroManager::Instance()->CheckDefinition(m_sFontName);
+        pLabel->setTTFConfig(font);
+    }
+}
+
+void CLabelNode::SetColor(const std::string &a_rFontColor)
+{
+    m_sFontColor = a_rFontColor;
+    Label* pLabel = dynamic_cast<Label*>(m_pCocosEntity);
+    if (pLabel)
+    {
+        pLabel->setTextColor(ParseColor(m_sFontColor));
+    }
+}
+
+const std::string & CLabelNode::GetColor() const
+{
+    return m_sFontColor;
+}
+
+Color4B CLabelNode::ParseColor(const std::string& a_rFontColor) const
+{
+    std::vector<int> oRGBAValues;
+    std::string sValue;
+    std::istringstream oStream(a_rFontColor);
+
+    while (std::getline(oStream, sValue, ','))
+    {
+        int iValue = atoi(sValue.c_str());
+        oRGBAValues.push_back(iValue);
+    }
+
+    if (oRGBAValues.size() >= 4) // if color is not properly set, do nothing
+    {
+        return (Color4B(oRGBAValues[0], oRGBAValues[1], oRGBAValues[2], oRGBAValues[3]));
+    }
+    else
+    {
+//        throw "Incorrect color format " + a_rFontColor;
+        return Color4B(255,255,255,255);
+    }
+}
+
+bool CLabelNode::UseFile(const std::string &a_sFilename)
+{
+    return m_sFontName == a_sFilename || CEntityNode::UseFile(a_sFilename);
 }
 
 } // namespace LM

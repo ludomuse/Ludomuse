@@ -24,7 +24,7 @@ class CCameraGLView : public cocos2d::Sprite
                     const cocos2d::Mat4& a_rTransform,
                     uint32_t a_iFlags) override;
   
-	 static CCameraGLView* create();
+     static CCameraGLView* create();
 };
 
 
@@ -39,6 +39,11 @@ private:
 	 CCameraFeedNode(const std::string& a_rMaskPath, EAnchor a_eAnchor, int width, int height, int x, int y, bool a_bIsReceiver = false);
   virtual void Init() override;
   virtual void UnInit(bool removeChild = true) override;
+  #ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
+  #endif
+
+  virtual void SetPath(const std::string& a_sPath) override;
 
   void PictureTaken();
 

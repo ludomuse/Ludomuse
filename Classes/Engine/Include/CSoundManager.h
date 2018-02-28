@@ -1,9 +1,10 @@
 #ifndef _SOUNDMANAGER_H_
 #define _SOUNDMANAGER_H_
 
-
-//#include "cocos2d.h"
-#include "SimpleAudioEngine.h"
+#ifdef LUDOMUSE_EDITOR
+#include "cocos2d.h"
+#endif
+#include "audio/include/SimpleAudioEngine.h"
 #include "CKernel.h"
 
 namespace LM

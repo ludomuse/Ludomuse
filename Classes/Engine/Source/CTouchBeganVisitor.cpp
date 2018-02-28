@@ -1,4 +1,4 @@
-﻿#include "../Include/CTouchBeganVisitor.h"
+#include "../Include/CTouchBeganVisitor.h"
 
 #include "../Include/CSceneNode.h"
 #include "../Include/CMenuNode.h"
@@ -31,24 +31,27 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 
 	if (m_pEntityToFind.IsValid())
 	{
-		CCLOG("m_pEntityToFind is valid");
+
 		// must release the entity at the end of the sequence, after animations have ended
 		CEntityNode* pEntity = dynamic_cast<CEntityNode*>(m_pEntityToFind.Get());
 		if (!pEntity)
 			return false;
-
-
+#ifdef LUDOMUSE_EDITOR
+		auto fpReleaseEntity = CallFunc::create([pEntity]() {
+			CEntityNode::Release(pEntity);
+		});
+#endif
 		if (m_sListenEvent == "Touch")
 		{
 			Vec2 oTouchLocation = a_pTouch->getLocation();
 			if (pEntity->GetCocosEntity() != nullptr)
 			{
 				Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
-				if (oBoundingBox.containsPoint(oTouchLocation))
-				{
-					pEntity->Dispatch(m_sListenEvent);
-					M_STATS_SCREEN.nbValidTouches++;
-				}
+			if (oBoundingBox.containsPoint(oTouchLocation))
+			{
+				pEntity->Dispatch(m_sListenEvent);
+				M_STATS_SCREEN.nbValidTouches++;
+			}
 			}
 			TouchStop(pEntity);
 
@@ -122,7 +125,7 @@ bool CTouchBeganVisitor::OnTouchMove(Touch* a_pTouch, Event* a_pEvent)
 			// if listen to touch change the entity when leaving it
 			Vec2 oTouchLocation = a_pTouch->getLocation();
 
-			Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+            cocos2d::Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
 				TouchMoveIn(pEntity);
@@ -197,7 +200,6 @@ void CTouchBeganVisitor::TouchStop(CEntityNode* a_pEntity)
 {
 
 	auto fpReleaseEntity = CallFunc::create([a_pEntity]() {
-        CCLOG("Releasing entity : %s", a_pEntity->GetID().c_str());
 		CEntityNode::Release(a_pEntity);
 	});
 
@@ -256,13 +258,12 @@ Result CTouchBeganVisitor::ProcessNodeTopDown(CNode* a_pNode)
 
     // Check if the entity intersects the touch event
 	  Vec2 oTouchLocation = m_pTouch->getStartLocation();
-    Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+    cocos2d::Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
     if (oBoundingBox.containsPoint(oTouchLocation) && !pEntity->IsLocked() && pEntity->IsVisible())
     {
       CScratchNode* pScratch = dynamic_cast<CScratchNode*>(pEntity);
       if (pScratch)
 	{
-		CCLOG("Touched in CScratchNode entity");
 		if (pScratch->IsListeningTo("Touch"))
 		{
 			m_sListenEvent = "Touch";

@@ -25,7 +25,10 @@
 #include "CValidator.h"
 #include "CEditBoxNode.h"
 #include "CTeamNode.h"
-
+#ifdef LUDOMUSE_EDITOR
+#include "CInfoNode.h"
+#include <QDebug>
+#endif
 namespace LM
 {
 
@@ -45,6 +48,12 @@ private:
     /// \brief base path for all resources
     std::string m_sBasePath;
 
+    /// \brief id of the new scene use for parsing callback
+    std::string m_sNewSceneID;
+
+    /// \brief id of the screen synchro with the new one
+    std::string m_sScreenMateID;
+
  public:
 	 CJsonParser(CKernel* a_pKernel);
 
@@ -58,12 +67,17 @@ private:
 	 /// \params[in] a_sFilename the filename of the json file to build the tree from
   void BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a_sFilename);
 
+#ifdef LUDOMUSE_EDITOR
+  /// \brief Build a new Scene node from a template file 
+    void BuildSceneNodeFromFile(CNode* a_pNewScene, const std::string& a_sFileName, int a_iTemplateNumber = 0, const std::string& a_sScreenMate = "");
+#endif
 
 	/// \brief recursive Method to parse the json file
 	/// \params[in] a_rJsonNode the json node in the file corresponging to a_pNode in the tree
 	/// \prarams[in] a_pNode the subroot node to build the tree from
 	template <typename T>
-	void ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible = true);
+    void ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible = true, bool a_bNewScene = false);
+
 
 	/// returns true if the callback change the visibility of the node to hidden
 	bool ParseCallback(RefJsonNode a_rJsonNode, CEntityNode* a_pEntity);
@@ -74,6 +88,7 @@ private:
 
 // include template implementation and specializations
 #include "CJsonParser_impl.h"
+
 
 } // namespace LM
 

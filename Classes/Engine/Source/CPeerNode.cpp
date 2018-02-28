@@ -19,16 +19,21 @@ CPeerNode::CPeerNode(CKernel* a_pKernel,
     m_pKernel(a_pKernel),
     m_rChildrenStyle(a_rJsonNode)
 {
-  
-}
 
+}
 
 void CPeerNode::Init()
 {
-	ClearChildren();
-
+//	ClearChildren();
+    if (m_vChildren.size() == 0) {
+        m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
+    }
 	CGridNode::Init();
+#ifndef LUDOMUSE_EDITOR
 	m_pKernel->GetPeers();
+#else
+    ReplaceLabelValue(m_vChildren[0], "Pair");
+#endif
 }
 
 
@@ -91,6 +96,43 @@ bool CPeerNode::ReplaceLabelValue(CNode* a_pNode, const std::string& a_sPeerName
   }
   return false;
 }
+#ifdef LUDOMUSE_EDITOR
+void CPeerNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator)
+{
 
+    rapidjson::Value peerNode(rapidjson::kObjectType);
+    peerNode.AddMember("type", "Peers", a_rAllocator);
+    if(!m_sID.empty())
+    {
+        peerNode.AddMember("id", rapidjson::Value(m_sID.c_str(), m_sID.length()), a_rAllocator);
+    }
+    rapidjson::Value params(rapidjson::kObjectType);
+    params.AddMember("anchor", m_eAnchor, a_rAllocator);
+    params.AddMember("width", m_iWidth, a_rAllocator);
+    params.AddMember("height", m_iHeight, a_rAllocator);
+    params.AddMember("x", m_iXPosition, a_rAllocator);
+    params.AddMember("y", m_iYPosition, a_rAllocator);
+
+    if(!this->m_mListeners.empty())
+    {
+        rapidjson::Value listeners(rapidjson::kArrayType);
+        CEntityNode::ToJsonListener(listeners, a_rAllocator);
+        params.AddMember("listeners", listeners, a_rAllocator);
+    }
+
+    if(!this->m_vChildren.empty())
+    {
+        rapidjson::Value children(rapidjson::kArrayType);
+        for(CNode* currentNode : this->m_vChildren)
+        {
+            currentNode->ToJson(children, a_rAllocator);
+        }
+        params.AddMember("children", children, a_rAllocator);
+    }
+
+    peerNode.AddMember("params", params, a_rAllocator);
+    a_rParent.PushBack(peerNode, a_rAllocator);
+}
+#endif
 
 } // namespace LM

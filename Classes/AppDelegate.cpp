@@ -1,6 +1,11 @@
 #include "AppDelegate.h"
+#ifdef LUDOMUSE_EDITOR
+#include "HelloWorldScene.h"
+#include "LudoMuse_src/Classes/Engine/Include/CKernel.h"
+#include "CocosQtPort/CCQGLView.h"
 
-
+#include <QDebug>
+#endif
 USING_NS_CC;
 
 static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
@@ -9,6 +14,13 @@ static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 static cocos2d::Size standardResolutionSize = cocos2d::Size(960, 540);
 
+#ifdef LUDOMUSE_EDITOR
+AppDelegate::AppDelegate(int& argc, char *argv[]) :
+    cocos2d::CCQApplication(argc, argv),
+    m_oKernel(true)
+{
+    m_pWidget = Q_NULLPTR;
+#else
 AppDelegate::AppDelegate(bool a_bIsServer, const std::string& a_sPath) : m_oKernel(a_bIsServer), m_sPath(a_sPath){
   /*Create the wifi direct
     and set it in the jni facade (it's like doing a singleton -> all class can now access the wifi
@@ -17,6 +29,7 @@ AppDelegate::AppDelegate(bool a_bIsServer, const std::string& a_sPath) : m_oKern
   // TODO replace with NetworkManager
   // LmJniCppFacade::setWifiFacade(&m_oWifiFacade);
   CCLOG("before gamemanager");
+#endif
 }
 
 AppDelegate::~AppDelegate() 
@@ -43,34 +56,46 @@ static int register_all_packages()
 
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
+#ifndef LUDOMUSE_EDITOR
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
+
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-        glview = GLViewImpl::createWithRect("LudoMuse", Rect(0, 0, standardResolutionSize.width, standardResolutionSize.height));
+        glview = GLViewImpl::createWithRect("LudoMuse", cocos2d::Rect(0, 0, standardResolutionSize.width, standardResolutionSize.height));
 #else
         glview = GLViewImpl::create("LudoMuse");
 #endif
         director->setOpenGLView(glview);
     }
+#else
+    Director* director = Director::getInstance();
+    CCQGLView::Create(standardResolutionSize.width, standardResolutionSize.height, m_pWidget);
+    CCQGLView* glview = CCQGLView::getInstance();
+    Color4B color = Color4B(50, 50, 50, 255);
+    glview->setBgColor(color);
 
+    director->setOpenGLView(glview);
+#endif
     // turn on display FPS
     //director->setDisplayStats(true);
+    //MEGAMERGE
+    //m_oKernel.Init(m_sPath);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
     // Set the design resolution
     glview->setDesignResolutionSize(standardResolutionSize.width, standardResolutionSize.height, ResolutionPolicy::NO_BORDER);
-    Size frameSize = glview->getFrameSize();
+    cocos2d::Size frameSize = glview->getFrameSize();
     // if the frame's height is larger than the height of medium size.
     if (frameSize.height > mediumResolutionSize.height)
-    {        
+    {
         director->setContentScaleFactor(MIN(largeResolutionSize.height/designResolutionSize.height, largeResolutionSize.width/designResolutionSize.width));
     }
     // if the frame's height is larger than the height of small size.
     else if (frameSize.height > smallResolutionSize.height)
-    {        
+    {
         director->setContentScaleFactor(MIN(mediumResolutionSize.height/designResolutionSize.height, mediumResolutionSize.width/designResolutionSize.width));
     }
     // if the frame's height is smaller than the height of medium size.
@@ -86,6 +111,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     // director->runWithScene(scene);
+    //MEGAMERGE
     m_oKernel.Init(m_sPath);
 
     return true;
@@ -106,3 +132,20 @@ void AppDelegate::applicationWillEnterForeground() {
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
+
+LM::CKernel* AppDelegate::getKernel() {
+    return &this->m_oKernel;
+}
+
+void AppDelegate::setPath(const std::string& a_sPath)
+{
+    m_sPath = std::string(a_sPath);
+}
+
+#ifdef LUDOMUSE_EDITOR
+void AppDelegate::setParentWidget(QWidget *a_pWidget)
+{
+    m_pWidget = a_pWidget;
+}
+#endif
+

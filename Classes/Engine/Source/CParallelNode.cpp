@@ -41,5 +41,15 @@ void CParallelNode::Finish()
   }
 }
 
+#ifdef LUDOMUSE_EDITOR
+void CParallelNode::ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator)
+{
+
+}
+#endif
+bool CParallelNode::hasID(const std::string& a_rID)
+{
+    return false;
+}
 
 } // namespace LM

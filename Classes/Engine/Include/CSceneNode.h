@@ -5,6 +5,7 @@
 
 #include "CParallelNode.h"
 #include "ui/CocosGUI.h"
+#include "cocos2d.h"
 
 namespace LM
 {
@@ -29,14 +30,22 @@ class CSceneNode : public CParallelNode, public cocos2d::Layer
   cocos2d::ui::EditBox* m_pQuickBox;
   cocos2d::MenuItemImage* m_pQuickButton;
 
+  std::string m_sRewardID;
+  std::string m_sInitSound;
+  std::string m_sValidSound;
+
 public:
 	bool m_bDashboardTrigger;
-  
+
+
  public:
-  CSceneNode(std::string a_sID = "none", CKernel* a_pKernel = nullptr);
+  CSceneNode(const std::string& a_rID = "none", CKernel* a_pKernel = nullptr);
 
   /// \returns the corresponding cocos2d scene
   cocos2d::Scene* GetScene();
+
+  /// \returns the scene ID
+  std::string GetID();
   
   /// \brief initialize the scene of the game
   cocos2d::Scene* CreateScene();
@@ -50,9 +59,24 @@ public:
   bool IsSynced();
 
   void DisplayDebugInfo();
-
+#ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+  #endif
   void ToggleQuickBox();
 
+  bool hasID(const std::string &a_rID);
+
+  void SaveImage(std::function<void(cocos2d::RenderTexture*, const std::string&)> callback, float a_fScale = 1);
+
+  std::string GetRewardID();
+  void SetRewardID(std::string a_sRewardID);
+  std::string GetInitSound();
+  void SetInitSound(std::string a_sInitSound);
+  std::string GetValidSound();
+  void SetValidSound(std::string a_sValidSound);
+#ifdef LUDOMUSE_EDITOR
+  virtual bool UseFile(const std::string &a_sFilename) override;
+#endif
   CREATE_FUNC(CSceneNode);
 };
 

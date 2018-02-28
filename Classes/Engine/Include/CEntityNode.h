@@ -5,6 +5,7 @@
 #include "CNode.h"
 #include "CCallback.h"
 #include "cocos2d.h"
+#include "CSceneNode.h"
 
 #include <map>
 
@@ -13,16 +14,16 @@ namespace LM
 
 	enum EAnchor 
 	{
-		CENTER,
-		BOTTOM_LEFT,
-		LEFT, 
-		TOP_LEFT,
-		TOP,
-		TOP_RIGHT,
-		RIGHT,
-		BOTTOM_RIGHT,
-		BOTTOM,
-		FLOAT
+        CENTER = 0,
+        BOTTOM_LEFT = 7,
+        LEFT = 8,
+        TOP_LEFT = 1,
+        TOP = 2,
+        TOP_RIGHT = 3,
+        RIGHT = 4,
+        BOTTOM_RIGHT = 5,
+        BOTTOM = 6,
+        FLOAT = 9
 	};
 
 	/// \fn convert a_iIndex to its corresponding EAnchor entity
@@ -99,6 +100,9 @@ class CEntityNode : public CNode
 		 const std::string& a_sID = "");
 
 	 virtual void Init() override;
+  virtual bool hasID(const std::string& a_sID);
+
+
   /// \brief called when the scene is initialized
   //virtual void Init() = 0;
   virtual void UnInit(bool removeChild = true) override;
@@ -110,6 +114,9 @@ class CEntityNode : public CNode
 
   /// \brief subscribe the entity to a_rEvent
   void AddListener(const std::string& a_rEvent, const CEventCallback& a_rCallback);
+
+  std::pair<std::string,CEventCallback>* GetCallback(const std::string& a_sCallbackName);
+  void RemoveCallbacks(const std::string& a_sCallbackName);
 
   void DisableEvent(const std::string& a_rEvent);
 
@@ -131,6 +138,9 @@ class CEntityNode : public CNode
   virtual std::string GetID();
   virtual void SetID(const std::string& a_rID);
 
+  /// \brief return the first non blank ID in entity node upper hierarchy
+  virtual std::string GetHierarchyID();
+
   /// \change the visibility
   /// \param[in] a_bVisible true to show the item
   virtual void Show(bool a_bVisible = true);
@@ -148,11 +158,38 @@ class CEntityNode : public CNode
   virtual void Fade();
 
   virtual void FadeIn();
+  
+#ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
+
+  virtual void ToJsonListener(rapidjson::Value& a_rListeners, rapidjson::Document::AllocatorType& a_rAllocator);
+#endif
+  int GetWidth();
+
+  int GetHeight();
+
+  void SetWidth(int a_iWidth, bool a_bUpdate = true);
+
+  void SetHeight(int a_iHeight, bool a_bUpdate = true);
+
+  void ChangeAnchor(int a_anchor);
+
+  int GetAnchor();
+
+  bool IsMovable();
 
   ////////////////////////// Static methods
   static bool Lock(CEntityNode* a_pEntity);
 
   static void Release(CEntityNode* a_pEntity);
+
+  virtual CSceneNode* GetParentSceneNode();
+
+  virtual void Copy(CEntityNode *a_sNode, bool a_bRecCopy = true);
+  virtual bool UseFile(const std::string &a_sFilename);
+  virtual bool UseFileInCallbacks(const std::string &a_sFilename);
+
+  virtual std::string GetSceneID() override;
 
  protected: // methods
   /// \brief must be called at the end of the Init overloaded
@@ -170,6 +207,11 @@ class CEntityNode : public CNode
 
   virtual cocos2d::Vec2 GetOrigin();
 
+//  void ChangeWidth(int a_iWidth);
+
+//  void ChangeHeight(int a_iHeight);
+
+  virtual void Update();
 
 };
 

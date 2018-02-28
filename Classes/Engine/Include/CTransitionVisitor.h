@@ -26,8 +26,12 @@ private:
 
 private:
 	void GotoScene(CSequenceNode* a_pSequence);
+	#ifdef LUDOMUSE_EDITOR
+	void InitScene(CSceneNode* a_pScene);
+	#else
 	void InitScene(CSceneNode* a_pScene, bool a_bWaitScene = false);
 	void LoadInitScene();
+	#endif
 
 };
 

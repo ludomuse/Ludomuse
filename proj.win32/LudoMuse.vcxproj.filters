@@ -24,9 +24,6 @@
     <ClCompile Include="..\Classes\Engine\Source\CAnimationNode.cpp">
       <Filter>src\Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Engine\Source\CCallback.cpp">
-      <Filter>src\Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Engine\Source\CCameraFeedNode.cpp">
       <Filter>src\Classes</Filter>
     </ClCompile>
@@ -149,7 +146,6 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\Classes\Engine\Include\CAnimationNode.h">
       <Filter>src\Classes</Filter>
     </ClInclude>
@@ -276,19 +272,13 @@
     <ClInclude Include="..\Classes\Modules\Util\Include\Desc.h">
       <Filter>src\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Modules\Util\Include\FToString.h">
-      <Filter>src\Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Modules\Util\Include\Util.h">
       <Filter>src\Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Modules\Networking\INetworkManager.h">
-      <Filter>src\Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Modules\Networking\Networking.h">
-      <Filter>src\Classes</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Modules\Networking\win\Include\CNetworkManager.h">
+      <Filter>src\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Include\SChapter.h">
       <Filter>src\Classes</Filter>
     </ClInclude>
   </ItemGroup>

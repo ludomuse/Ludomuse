@@ -22,9 +22,12 @@ private:
                     int a_iYPosition = 0,
 	  const std::string& a_rBackgroundSource = "");
   virtual void Init() override;
-
+  #ifdef LUDOMUSE_EDITOR
+    virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
+    #endif
   
 };
+
 
 
 } // namespace LM

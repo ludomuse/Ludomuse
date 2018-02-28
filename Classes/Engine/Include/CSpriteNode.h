@@ -27,6 +27,25 @@ class CSpriteNode : public CEntityNode
 
   virtual void Init();
 
+  virtual const std::string& GetPath() const;
+
+  /// \brief update sprite image with new image path
+  virtual void SetPath(const std::string&);
+
+  /// \brief Update sprite with the new anchor
+//  void ChangeAnchor(int a_anchor);
+
+  /// \brief return current anchor
+//  int GetAnchor();
+#ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator);
+#endif
+  virtual void Copy(CEntityNode* a_pSprite, bool a_bRecCopy = true) override;
+
+  virtual bool UseFile(const std::string& a_sFilename);
+
+ private:
+  void DisplayNewImage();
 };
 
 } // namespace LM

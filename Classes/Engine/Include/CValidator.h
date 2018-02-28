@@ -22,7 +22,9 @@ class CValidator : public CNode
   void AddID(const std::string& a_sID);
 
   void Validate(const std::string& a_sID);
-  
+#ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value &parent, rapidjson::Document::AllocatorType &allocator);
+#endif
 };
 
 } // namespace LM

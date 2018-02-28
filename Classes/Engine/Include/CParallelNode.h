@@ -22,6 +22,10 @@ class CParallelNode : public CNode
   //virtual bool OnTouchBegan(cocos2d::Touch* a_pTouch, cocos2d::Event* a_pEvent) override;
   /// \details Finish when all the children nodes are finished
   virtual void Finish() override;
+#ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
+#endif
+  virtual bool hasID(const std::string &a_rID);
 };
 
 

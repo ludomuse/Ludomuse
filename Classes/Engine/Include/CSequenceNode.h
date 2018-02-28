@@ -24,6 +24,7 @@ class CSequenceNode : public CNode
   virtual void Finish() override;
 
 
+
 };
 
 } // namespace LM

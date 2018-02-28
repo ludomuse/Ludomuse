@@ -1,11 +1,9 @@
 ﻿//////////////////////////////// templates specializations 
 
-
 /// \brief the specialisation building entities in a scene or subentities
 template <typename T>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible)
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_bNodeVisible, bool a_bNewScene)
 {
-
 	assert(a_rJsonNode["type"].IsString());
 	// the object type
 	std::string sType = a_rJsonNode["type"].GetString();
@@ -27,7 +25,6 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	{
 		height = rParams["height"].GetInt();
 	}
-
 	CEntityNode* pEntity(nullptr);
 
 	if (sType == "Grid")
@@ -103,14 +100,15 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 		pEntity = new CMenuNode(
             m_sBasePath + rParams["normal"].GetString(),
             m_sBasePath + rParams["selected"].GetString(),
-			CCallback<CKernel, cocos2d::Ref*>(m_pKernel,
+            CCallback<CKernel, cocos2d::Ref*>("Nav", m_pKernel,
 				(std::string(rParams["action"].GetString()) == "next") ?
-				&CKernel::NavNext : &CKernel::NavPrevious),
+                &CKernel::NavNext : &CKernel::NavPrevious),
 			IntToAnchor(rParams["anchor"].GetInt()),
 			width,
 			height,
 			x,
-			y);
+            y,
+            rParams["action"].GetString());
 
 	}
 
@@ -310,20 +308,26 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 
 /// \brief the specialisation building a scene
 template <>
-inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible)
+inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool a_bNodeVisible, bool a_bNewScene)
 {
-	CSceneNode* pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel);
-	if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
+    CSceneNode* pSceneNode;
+    if(! a_bNewScene)
     {
-		m_pKernel->m_pDashboard = pSceneNode;
-    }
-    else if (a_rJsonNode["scene"].GetString() == std::string("WaitingScene"))
-    {
-        m_pKernel->m_pWaitingScene = pSceneNode;
+        pSceneNode = new CSceneNode(a_rJsonNode["scene"].GetString(), m_pKernel);
+        if (a_rJsonNode["scene"].GetString() == std::string("Dashboard"))
+            m_pKernel->m_pDashboard = pSceneNode;
+        else if(a_rJsonNode["scene"].GetString() == std::string("WaitingScene"))
+            m_pKernel->m_pWaitingScene = pSceneNode;
+        else
+            a_pNode->AddChildNode(pSceneNode);
     }
     else
     {
-		a_pNode->AddChildNode(pSceneNode);
+        pSceneNode = dynamic_cast<CSceneNode*>(a_pNode);
+        if(!pSceneNode){
+//            qDebug("Error - root node is not a scene Node when trying to edit behavior Tree");
+            return;
+        }
     }
     
 	if (a_rJsonNode.HasMember("sync"))
@@ -363,37 +367,40 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, CNode* a_pNode, bool
 	{
 		pSceneNode->m_bDashboardTrigger = a_rJsonNode["dashboardTrigger"].GetBool();
 	}
-	if (a_rJsonNode.HasMember("rewardID"))
-	{
+    if (a_rJsonNode.HasMember("rewardID"))
+    {
 		CEntityNode* pNodeEvent = new CEntityNode();
 		std::string sArg = "Dashboard:Unlock:";
 		sArg  += a_rJsonNode["rewardID"].GetString();
-		CEventCallback oCallback(m_pKernel, &CKernel::LocalMessage,
-			SEvent(pNodeEvent, sArg));
+		CEventCallback oCallback("rewardID", m_pKernel, &CKernel::LocalMessage,
+			SEvent(SEvent::STRING, pNodeEvent, sArg));
 		pNodeEvent->AddListener("Init", oCallback);
 		pSceneNode->AddChildNode(pNodeEvent);
-	}
-	if (a_rJsonNode.HasMember("initSound"))
-	{
+        pSceneNode->SetRewardID(a_rJsonNode["rewardID"].GetString());
+    }
+    if (a_rJsonNode.HasMember("initSound"))
+    {
 		CSpriteNode* pNodeEvent = new CSpriteNode(m_sBasePath + "ui/nav-1.png", LM::EAnchor::TOP_LEFT, 0, 13, 0, 0);
 		CSpriteNode* pNodeIcon = new CSpriteNode(m_sBasePath + "ui/replay.png", LM::EAnchor::CENTER, 0, 50);
 		pNodeEvent->AddChildNode(pNodeIcon);
 		std::string sArg = a_rJsonNode["initSound"].GetString();
-		CEventCallback oCallback(m_pKernel, &CKernel::PlaySoundCallback,
-			SEvent(pNodeEvent, sArg));
+		CEventCallback oCallback("initSound", m_pKernel, &CKernel::PlaySoundCallback,
+			SEvent(SEvent::STRING, pNodeEvent, sArg));
 		pNodeEvent->AddListener("Init", oCallback);
 		pNodeEvent->AddListener("Touch", oCallback);
 		pSceneNode->AddChildNode(pNodeEvent);
-	}
-	if (a_rJsonNode.HasMember("validSound"))
-	{
+        pSceneNode->SetInitSound(a_rJsonNode["initSound"].GetString());
+    }
+    if (a_rJsonNode.HasMember("validSound"))
+    {
 		CEntityNode* pNodeEvent = new CEntityNode();
 		std::string sArg = a_rJsonNode["validSound"].GetString();
-		CEventCallback oCallback(m_pKernel, &CKernel::PlaySoundCallback,
-			SEvent(pNodeEvent, sArg));
+		CEventCallback oCallback("validSound", m_pKernel, &CKernel::PlaySoundCallback,
+			SEvent(SEvent::STRING, pNodeEvent, sArg));
 		pNodeEvent->AddListener("Validate", oCallback);
 		pSceneNode->AddChildNode(pNodeEvent);
-	}
+        pSceneNode->SetValidSound(a_rJsonNode["validSound"].GetString());
+    }
 }
 
 

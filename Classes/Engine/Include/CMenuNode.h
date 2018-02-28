@@ -1,4 +1,4 @@
-﻿#ifndef _CMENUNODE_H_
+#ifndef _CMENUNODE_H_
 #define _CMENUNODE_H_
 
 #include "cocos2d.h"
@@ -25,6 +25,8 @@ class CMenuNode : public CEntityNode
   
   cocos2d::MenuItemImage* m_pMenuItemImage;
 
+  std::string m_sAction;
+
  public:
   CMenuNode(const std::string& a_rNormalImage,
             const std::string& a_rSelectedImage,
@@ -33,7 +35,8 @@ class CMenuNode : public CEntityNode
 			int a_iWidth = 0,
 			int a_iHeight = 0,
             int a_iXPosition = 0,
-            int a_iYPosition = 0);
+            int a_iYPosition = 0,
+            const std::string& a_rAction = "" );
   
   virtual void Init() override;
   
@@ -42,6 +45,24 @@ class CMenuNode : public CEntityNode
   virtual cocos2d::Vec2 GetOrigin() override;
 
   virtual cocos2d::Node* GetCocosEntity() override;
+
+  std::string GetAction();
+
+  std::string GetText();
+
+  virtual void Show(bool a_bVisible) override;
+#ifdef LUDOMUSE_EDITOR
+  virtual void ToJson(rapidjson::Value &parent, rapidjson::Document::AllocatorType &allocator);
+
+  void emitMenuNodeTouched(cocos2d::Ref* a_pRef, CEntityNode* a_pDummy);
+#endif
+  
+  /// \brief switch action based on argument
+  /// \param bool a_bIsNext : true -> action set at next
+  /// false -> action set at prev
+  void SetNavAction(bool a_bIsNext);
+
+  void SetText(std::string a_sText);
 
 };
 
