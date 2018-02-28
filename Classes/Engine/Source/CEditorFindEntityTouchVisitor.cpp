@@ -1,3 +1,5 @@
+#ifdef LUDOMUSE_EDITOR
+
 // Include LudoMuse
 #include "Classes/Engine/Include/CEditorFindEntityTouchVisitor.h"
 
@@ -105,3 +107,6 @@ bool CEditorFindEntityTouchVisitor::SetEvent(cocos2d::Event* a_pEvent)
 
 }
 
+
+
+#endif // LUDOMUSE_EDITOR

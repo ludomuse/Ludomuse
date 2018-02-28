@@ -1,3 +1,5 @@
+#ifdef LUDOMUSE_EDITOR
+
 #include "../Include/CInfoNode.h"
 #include <QDebug>
 #include <CProjectManager.h>
@@ -72,3 +74,7 @@ void CInfoNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::Allocat
 }
 
 } // end namespace LM
+
+
+
+#endif // LUDOMUSE_EDITOR
