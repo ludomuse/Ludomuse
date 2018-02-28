@@ -1,6 +1,5 @@
 #include "AppDelegate.h"
 #ifdef LUDOMUSE_EDITOR
-#include "HelloWorldScene.h"
 #include "LudoMuse_src/Classes/Engine/Include/CKernel.h"
 #include "CocosQtPort/CCQGLView.h"
 

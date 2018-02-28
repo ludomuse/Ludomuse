@@ -49,9 +49,8 @@ namespace LM
 	  if (pScene)
 	  {
 	      pScene->addChild(m_pRenderTexture, 0);
-	#endif
-  }
-  #ifndef LUDOMUSE_EDITOR
+      }
+
 	  m_pRenderTexture->beginWithClear(0.0f, 0.0f, 0.0f, 1.0f);
 	  m_pRenderTexture->end();
 
@@ -94,6 +93,8 @@ namespace LM
     //}
 #endif
   }
+
+
 #ifdef LUDOMUSE_EDITOR
   void CScratchNode::ToJson(rapidjson::Value& a_rParent, rapidjson::Document::AllocatorType& a_rAllocator)
   {
@@ -163,7 +164,9 @@ namespace LM
             },
             */
   }
-  #endif
+#endif
+
+
   void CScratchNode::DrawTouch(const Vec2& a_oTouchLocation)
   {
     //m_pDrawNode->drawDot(a_oTouchLocation - Vec2(100, 100), 200, Color4F(1.0f, 1.0f, 1.0f, 1.0f));

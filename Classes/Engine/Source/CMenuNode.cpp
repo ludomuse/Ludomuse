@@ -33,12 +33,17 @@ CMenuNode::CMenuNode(const std::string& a_rNormalImage,
 void CMenuNode::Init()
 {
 #ifdef LUDOMUSE_EDITOR
-    m_fpClickedCallback = CCallback<CMenuNode, cocos2d::Ref*> ("dummyNav", this, &CMenuNode::emitMenuNodeTouched);
-#endif
+    CCallback<CMenuNode, cocos2d::Ref*> callback("dummyNav", this, &CMenuNode::emitMenuNodeTouched);
+    m_pMenuItemImage = MenuItemImage::create(
+        m_sNormalImage,
+        m_sSelectedImage,
+        callback);
+#else
   m_pMenuItemImage = MenuItemImage::create(
       m_sNormalImage,
       m_sSelectedImage,
       m_fpClickedCallback);
+#endif
 
   m_pMenuItemImage->setPosition(Vec2::ZERO);
 

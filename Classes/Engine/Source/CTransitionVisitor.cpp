@@ -134,7 +134,7 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 {
 	Scene* pNewScene = a_pSceneNode->CreateScene();
 	a_pSceneNode->init();
-	#ifndef LUDOMUSE_EDITOR
+#ifndef LUDOMUSE_EDITOR
 	pNewScene->retain();
 	if (a_bWaitScene)
 	{
@@ -158,7 +158,8 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 		{
 			Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
 		}
-	#endif
+    }
+#endif
 	if (m_bTransitionNext)
 	{
 		Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
@@ -166,7 +167,6 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 	else
 	{
 		Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
-	}
 	}
 
 	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
