@@ -104,7 +104,7 @@ public class CameraActivity extends Activity implements OnClickListener {
                 }
                 catch (RuntimeException e)
                 {
-                    Log.w("LudoMusePicture", "Exception occured while trying to take picture : " );
+                    Log.w("LudoMusePicture", "Exception occured while trying to take picture. Maybe camera is not yet initialized ? : " );
                     e.printStackTrace();
                 }
 //				finish();
