@@ -126,7 +126,8 @@ std::string CMenuNode::GetText()
 
 void CMenuNode::Show(bool a_bVisible)
 {
-	m_pCocosEntity->setVisible(true);
+    if (m_pCocosEntity)
+	    m_pCocosEntity->setVisible(true);
 	CEntityNode::Show();
 }
 #ifdef LUDOMUSE_EDITOR
