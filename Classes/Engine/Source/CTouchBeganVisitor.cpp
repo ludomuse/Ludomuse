@@ -46,7 +46,7 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 			Vec2 oTouchLocation = a_pTouch->getLocation();
 			if (pEntity->GetCocosEntity() != nullptr)
 			{
-				Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
+				cocos2d::Rect oBoundingBox = pEntity->GetCocosEntity()->getBoundingBox();
 			if (oBoundingBox.containsPoint(oTouchLocation))
 			{
 				pEntity->Dispatch(m_sListenEvent);
@@ -206,7 +206,9 @@ void CTouchBeganVisitor::TouchStop(CEntityNode* a_pEntity)
 	auto oTintTo = TintTo::create(0.0f, 255.0f, 255.0f, 255.0f);
 	auto oSequence = Sequence::create(oTintTo, fpReleaseEntity, nullptr);
 
-	a_pEntity->GetCocosEntity()->runAction(oSequence);
+	cocos2d::Node *pCocosEntity = a_pEntity->GetCocosEntity();
+	if (pCocosEntity)
+		pCocosEntity->runAction(oSequence);
 
 	for (CNode* itNode : *a_pEntity)
 	{

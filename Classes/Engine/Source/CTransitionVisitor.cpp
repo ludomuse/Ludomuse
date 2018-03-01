@@ -159,7 +159,7 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 			Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
 		}
     }
-#endif
+#else
 	if (m_bTransitionNext)
 	{
 		Director::getInstance()->replaceScene(TransitionSlideInR::create(0.5f, pNewScene));
@@ -168,6 +168,7 @@ void CTransitionVisitor::InitScene(CSceneNode* a_pSceneNode, bool a_bWaitScene)
 	{
 		Director::getInstance()->replaceScene(TransitionSlideInL::create(0.5f, pNewScene));
 	}
+#endif
 
 	CSceneNode* pOldScene = m_pKernel->m_pCurrentScene;
 	m_pKernel->m_pCurrentScene = a_pSceneNode;
