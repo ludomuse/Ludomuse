@@ -90,10 +90,12 @@ before_deploy:
 
 deploy:
   - provider: script
-    script: curl -u $UPLOAD_USER:$UPLOAD_PWD -T $HOME/LudoMuse.apk $UPLOAD_SERVER/LudoMuse/LudoMuse-$TRAVIS_BUILD_NUMBER.apk
+    script: curl -u $UPLOAD_USER:$UPLOAD_PWD -T $HOME/LudoMuse.apk $UPLOAD_SERVER/LudoMuse/$TRAVIS_BRANCH/LudoMuse-$TRAVIS_BUILD_NUMBER.apk
     skip_cleanup: true
     on:
-      branch: master
+      branch:
+        - master
+        - dev
 
   - provider: releases
     api_key:
