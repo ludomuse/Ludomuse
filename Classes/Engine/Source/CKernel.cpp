@@ -323,9 +323,28 @@ void CKernel::AddChapter(std::string chapterName, int chapterPosition){
     mChapters.insert(mChapters.begin()+chapterPosition,newChapter);
 }
 
+void CKernel::DeleteChapter(std::string chapterName){
+    int i = 0;
+    while (i < mChapters.size() && mChapters[i].mName != chapterName){
+        i++;
+    }
+    std::cout << "LOOP WHILE 1 FINISHED" << std::endl;
+    for (int j =0; j < mChapters[i].mScenes[0].size(); j++){
+        this->DeleteScene(mChapters[i].mScenes[0][j]);
+    }
+    std::cout << "LOOP FOR 1 FINISHED" << std::endl;
+    std::cout << "SCENES[1].SIZE : " << mChapters[i].mScenes[1].size() << std::endl;
+    for (int j =0; j < mChapters[i].mScenes[1].size(); j++){
+        std::cout << "HELLO : " << j << std::endl;
+        this->DeleteScene(mChapters[i].mScenes[1][j]);
+    }
+    std::cout << "LOOP FOR 2 FINISHED" << std::endl;
+    mChapters.erase(mChapters.begin() + i);
+}
+
 //Allow to see the chapter conained in the chapters list.
 void CKernel::SeeChapters(){
-    std::cout << "---PRINTING CHAPTERS DETAILS---";
+    std::cout << "---PRINTING CHAPTERS DETAILS---"<<std::endl;
     for (int i=0;i< mChapters.size();++i){
         std::cout << "CHAPTER NAME: " << mChapters[i].mName << '\n';
         for(const auto &p : mChapters[i].mScenes )
@@ -425,37 +444,42 @@ void CKernel::AddNewScene(const std::string& a_sTemplatePath, const std::string&
 }
 
 void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
-                       const std::string& a_sNewID, int a_iPlayerNumber, int chapterNumber)
+                       const std::string& a_sNewID, int a_iPlayerNumber, int a_iChapterNumber)
 {
+    std::cout << "### AddScene ###" << std::endl;
+    std::cout << "PLAYER NUMBER : " << a_iPlayerNumber << " CHAPTER NUMBER : " << a_iChapterNumber << std::endl;
+    std::cout << "NEW ID : " << a_sNewID << " PREVIOUS ID : " << a_sPreviousID << std::endl;
     // Adding id in the map
     // can add at   after an existing id of the player number
     //              at the end of only one player (the player number)
     switch(a_iPlayerNumber)
     {
     case 0: // Player 1 only
-        if(std::find(mChapters[chapterNumber].mScenes[0].begin(), mChapters[chapterNumber].mScenes[0].end(), a_sPreviousID) != mChapters[chapterNumber].mScenes[0].end())
+        std::cout << "### CASE 0 ###" << std::endl;
+        if(std::find(mChapters[a_iChapterNumber].mScenes[0].begin(), mChapters[a_iChapterNumber].mScenes[0].end(), a_sPreviousID) != mChapters[a_iChapterNumber].mScenes[0].end())
         {
-            this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID, chapterNumber);
+            this->AddSceneIDAfter(0, a_sNewID, a_sPreviousID, a_iChapterNumber);
         }
         else if(a_sPreviousID.empty())
         {
-            this->AddSceneIDAtBegin(0, a_sNewID, chapterNumber);
+            this->AddSceneIDAtBegin(0, a_sNewID, a_iChapterNumber);
         }
         break;
     case 1: // Player 2 only
-        if(std::find(mChapters[chapterNumber].mScenes[1].begin(), mChapters[chapterNumber].mScenes[1].end(), a_sPreviousID) != mChapters[chapterNumber].mScenes[1].end())
+        std::cout << "### CASE 1 ###" << std::endl;
+        if(std::find(mChapters[a_iChapterNumber].mScenes[1].begin(), mChapters[a_iChapterNumber].mScenes[1].end(), a_sPreviousID) != mChapters[a_iChapterNumber].mScenes[1].end())
         {
-            this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID, chapterNumber);
+            this->AddSceneIDAfter(1, a_sNewID, a_sPreviousID, a_iChapterNumber);
         }
         else if(a_sPreviousID.empty())
         {
-            this->AddSceneIDAtBegin(1,a_sNewID, chapterNumber); // Add blank id at the other player timeline end
+            this->AddSceneIDAtBegin(1,a_sNewID, a_iChapterNumber); // Add blank id at the other player timeline end
         }
         break;
     }
 
     // Adding the new scene at the right place
-    if(a_sPreviousID.empty() && (chapterNumber == 0)) // Adding scene at the beginning
+    if(a_sPreviousID.empty() && (a_iChapterNumber == 0)) // Adding scene at the beginning
     {
         this->m_pBehaviorTree->AddChildNodeAtBegin(newScene);
         //        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
@@ -464,7 +488,7 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
     else// Adding scene after an existing
     {
         if (a_sPreviousID.empty()){
-            std::string falsePreviousId = mChapters[chapterNumber-1].mScenes[a_iPlayerNumber].back();
+            std::string falsePreviousId = mChapters[a_iChapterNumber-1].mScenes[a_iPlayerNumber].back();
             this->m_pBehaviorTree->AddChildNodeAt(newScene, falsePreviousId);
         } else {
             this->m_pBehaviorTree->AddChildNodeAt(newScene, a_sPreviousID);
@@ -474,14 +498,13 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
 	emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
 		QString::fromStdString(a_sNewID),
 		a_iPlayerNumber));
-
-
 }
 
 void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::string& a_sPreviousID1, const std::string& a_sPreviousID2,
                                 const std::string& a_sNewID, int a_iTemplateNumber, const std::string& a_sScreenMate, int chapterNumber)
 {
    //SeeChapters();
+    std::cout << "### AddNewSharedScene ###" << std::endl;
     CSceneNode* newScene = new CSceneNode(a_sNewID, this);
     //qDebug("ckernel add new scene");
     m_pJsonParser->BuildSceneNodeFromFile(newScene, a_sTemplatePath, a_iTemplateNumber, a_sScreenMate);
@@ -563,6 +586,9 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
         }
         std::vector<CNode*>::iterator iFirst = iBegin + 1;
         std::vector<CNode*>::iterator iLast = iFirst + 1;
+        std::cout << "###### DEBUG SHAREDSCENE #####" << std::endl;
+        std::cout << "iBegin : " << (*iBegin)->GetSceneID() << " iEnd : " << (*iEnd)->GetSceneID() << std::endl;
+        std::cout << "iFirst : " << (*iFirst)->GetSceneID() << " iLast : " << (*iLast)->GetSceneID() << std::endl;
         while ((*iFirst)->GetSceneID() != sLastScene)
         {
             if (PlayerHasScene((*iFirst)->GetSceneID(), iPullPlayer))
@@ -580,6 +606,7 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
                 iLast++;
             }
         }
+        std::cout << "AFTER SWAP CHELOU " << " iFirst : " << (*iFirst)->GetSceneID() << " iLast : " << (*iLast)->GetSceneID() << " (insert pos) iFirst+1 : " << (*(iFirst+1))->GetSceneID() << std::endl;
         newScene->SetParent(m_pBehaviorTree);
         vChildren.insert(iFirst+1, newScene);
         m_pBehaviorTree->SetChildren(vChildren);
@@ -587,9 +614,6 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
 //    emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
 //                             QString::fromStdString(a_sNewID),
 //                             a_iPlayerNumber));
-    std::cout << "########## ENDING CHAPTER NUMBER : " << chapterNumber;
-    std::cout.flush();
-
 	emit(addingSharedSceneFinished(QString::fromStdString(a_sPreviousID1),
 		QString::fromStdString(a_sPreviousID2),
 		QString::fromStdString(a_sNewID)));
@@ -627,7 +651,8 @@ void CKernel::DeleteScene(const std::string &a_sSceneID)
     if (m_pCurrentScene != nullptr && a_sSceneID == m_pCurrentScene->GetSceneID()) {
         m_pCurrentScene = nullptr;
     }
-    this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
+    if (this->m_pBehaviorTree->FindChildByID(a_sSceneID) != nullptr)
+        this->m_pBehaviorTree->DeleteChildByID(a_sSceneID);
     //     Clear id from vector for both player
     //        this->RemoveIDFromPlayer(a_sSceneID, 0);
     //        this->RemoveIDFromPlayer(a_sSceneID, 1);

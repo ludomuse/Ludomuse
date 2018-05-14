@@ -59,6 +59,8 @@ public:
   bool IsSynced();
 
   void DisplayDebugInfo();
+
+  std::string GetSceneID() override;
 #ifdef LUDOMUSE_EDITOR
   virtual void ToJson(rapidjson::Value& parent, rapidjson::Document::AllocatorType& allocator);
   #endif

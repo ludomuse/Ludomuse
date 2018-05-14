@@ -183,7 +183,7 @@ void CTeamNode::UpdateActions(const std::array<std::string, M_NB_TASK / 2>& a_rA
 	{
 		Desc<CNode> oFoundEntity;
 		CFindTeamNodeIDVisitor oVisitor(oFoundEntity, std::string("TeamNode:Action") + std::to_string(i + 1));
-		oVisitor.Traverse(m_pKernel->m_pBehaviorTree);
+        oVisitor.Traverse(m_pKernel->m_pCurrentScene);
 		if (oFoundEntity.IsValid())
 		{
 			CLabelNode* pLabelNode = static_cast<CLabelNode*>(oFoundEntity.Get());
