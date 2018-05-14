@@ -1074,12 +1074,12 @@ bool CKernel::OnTouchBegan(Touch* a_pTouch, Event* a_pEvent)
 		m_mTouchBeganVisitors.erase(a_pTouch->getID());
 	}
 	M_STATS_SCREEN.nbInteractions++;
-	CTouchBeganVisitor oVisistor(a_pTouch, a_pEvent, this);
-	oVisistor.Traverse(m_pCurrentScene);
+	CTouchBeganVisitor oVisitor(a_pTouch, a_pEvent, this);
+	oVisitor.Traverse(m_pCurrentScene);
 
-	m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
+	m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisitor));
 #else
-    //    m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisistor));
+    //    m_mTouchBeganVisitors.insert(std::pair<int, CTouchBeganVisitor>(a_pTouch->getID(), oVisitor));
     qDebug("OnTouchBegan");
     //    this->m_oVisitor->SetEvent(a_pEvent);
     //    this->m_oVisitor->SetTouch(a_pTouch);

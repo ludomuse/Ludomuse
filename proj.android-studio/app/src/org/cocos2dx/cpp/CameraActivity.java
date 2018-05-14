@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.os.Debug;
 import android.util.FloatMath;
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
@@ -97,7 +98,15 @@ public class CameraActivity extends Activity implements OnClickListener {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 //				finishActivity(1);
-				camera.takePicture(null, null, photoCallback);
+                try
+                {
+                    camera.takePicture(null, null, photoCallback);
+                }
+                catch (RuntimeException e)
+                {
+                    Log.w("LudoMusePicture", "Exception occured while trying to take picture. Maybe camera is not yet initialized ? : " );
+                    e.printStackTrace();
+                }
 //				finish();
 			}
 		});
@@ -168,7 +177,7 @@ public class CameraActivity extends Activity implements OnClickListener {
             try {
                 camera.setPreviewDisplay(previewHolder);
             } catch (Throwable t) {
-                Log.e("PreviewDemo-surfaceCallback",
+                Log.e("LudoMusePicture",
                     "Exception in setPreviewDisplay()", t);
                 Toast.makeText(CameraActivity.this, t.getMessage(), Toast.LENGTH_LONG)
                     .show();
@@ -231,7 +240,7 @@ public class CameraActivity extends Activity implements OnClickListener {
             File folder = new File(Environment.getExternalStorageDirectory(), "Cern");
             if (!folder.exists()) {
                 if(!folder.mkdirs()){
-                    Log.d("MyCameraApp", "failed to create directory");
+                    Log.d("LudoMusePicture", "failed to create directory");
                 }
             }
             try {
@@ -239,7 +248,7 @@ public class CameraActivity extends Activity implements OnClickListener {
                 fos.write(jpeg[0]);
                 fos.close();
             } catch (java.io.IOException e) {
-                Log.e("PictureDemo", "Exception in photoCallback", e);
+                Log.e("LudoMusePicture", "Exception in photoCallback", e);
             }
             return (null);
         }
