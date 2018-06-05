@@ -1477,7 +1477,12 @@ void CKernel::ProcessMessage(const std::string& a_rMessage)
 						oActions[i] = vSplittedMessage[i + 3];
 					}
 					//std::iota(oActions.begin(), oActions.end(), vSplittedMessage.begin() + 3);
-
+                    if(pTeamNode->UseImages()){
+                        for (int i = 0; i < M_NB_TASK / 2; ++i)
+                        {
+                            std::replace( oActions[i].begin(), oActions[i].end(), ';', ':');
+                        }
+                    }
 					pTeamNode->UpdateActions(oActions);
 
 				}
@@ -1877,27 +1882,42 @@ void CKernel::ValidateTeamTask(SEvent a_rEvent, CEntityNode* a_pTarget)
 	std::vector<CNode*> oSenderChildren = a_rEvent.m_pSender->GetChildren();
 	if (oSenderChildren.size() > 0)
 	{
-		CLabelNode* pLabel = dynamic_cast<CLabelNode*>(oSenderChildren[0]);
-		if (pLabel)
-		{
-			std::string sAction = pLabel->GetText();
-			if (m_pLocalPlayer->m_iPlayerID == 0)
-			{
-				Desc<CNode> oTeamNode;
-				CFindTeamNodeVisitor oVisitor(oTeamNode);
-				oVisitor.Traverse(m_pBehaviorTree);
+        Desc<CNode> oTeamNode;
+        CFindTeamNodeVisitor oVisitor(oTeamNode);
+        oVisitor.Traverse(m_pBehaviorTree);
+        if (oTeamNode.IsValid())
+        {
+            CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
 
-				if (oTeamNode.IsValid())
-				{
-					CTeamNode* pTeamNode = static_cast<CTeamNode*>(oTeamNode.Get());
-					bool bSuccess = pTeamNode->ValidateTask(sAction);
-				}
-			}
-			else
-			{
-				SendNetworkMessage(std::string("kernel:TeamNode:ValidateTeamTask:") + sAction);
-			}
-		}
+
+            std::string sAction = "";
+
+            if (pTeamNode->UseImages()){
+                CSpriteNode* pSprite = dynamic_cast<CSpriteNode*>(a_rEvent.m_pSender);
+                if (pSprite)
+                {
+                    sAction = pSprite->GetPath();
+                }
+            } else {
+                CLabelNode* pLabel = dynamic_cast<CLabelNode*>(oSenderChildren[0]);
+                if (pLabel)
+                {
+                    sAction = pLabel->GetText();
+                }
+            }
+
+            if (sAction != ""){
+                if (m_pLocalPlayer->m_iPlayerID == 0)
+                {
+                    pTeamNode->ValidateTask(sAction);
+                }
+                else
+                {
+                    std::replace( sAction.begin(), sAction.end(), ':', ';');
+                    SendNetworkMessage(std::string("kernel:TeamNode:ValidateTeamTask:") + sAction);
+                }
+            }
+        }
 	}
 }
 
