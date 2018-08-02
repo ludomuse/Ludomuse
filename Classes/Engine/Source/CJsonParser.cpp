@@ -72,7 +72,7 @@ void CJsonParser::BuildBehaviorTreeFromFile(CNode* a_pRoot, const std::string& a
 			RefJsonNode rMacros = m_oDocument["app"]["macros"];
 			CMacroManager::Instance()->ParseJSON(rMacros, m_sBasePath);
 		}
-#ifdef LUDOMUSE_EDITOR
+#ifndef LUDOMUSE_EDITOR
 	  //ParseJsonRoot(m_oDocument["app"], a_pRoot);
 	  if (m_oDocument["app"].HasMember("debug"))
 	  {

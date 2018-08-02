@@ -125,6 +125,7 @@ public:
     /*CHAPTERSPROTOTYPE************************************************************************************************************************/
     void AddChapterScene(std::string chapterName,int playerId, std::string sceneName);
     void AddChapter(std::string chapterName, int chapterPosition);
+    void DeleteChapter(std::string chapterName);
     int ChapterExist(std::string chapterName);
     void SeeChapters();
     std::string GetChapterName(int index);

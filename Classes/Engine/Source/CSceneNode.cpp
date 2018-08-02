@@ -156,6 +156,10 @@ void CSceneNode::DisplayDebugInfo()
 }
 
 
+std::string CSceneNode::GetSceneID(){
+   return this->m_sID;
+}
+
 void CSceneNode::ToggleQuickBox()
 {
     m_pQuickBox->setVisible(!m_pQuickBox->isVisible());

@@ -30,6 +30,8 @@ class CTeamNode : public CGroupNode
   int m_iPlayer1CurrentTask;
   int m_iPlayer2CurrentTask;
 
+  bool bUseImages;
+
  public:
   CTeamNode(TTasksArray a_oTasksArray,
 			CKernel* a_pKernel,
@@ -37,14 +39,17 @@ class CTeamNode : public CGroupNode
             int a_iWidth,
             int a_iHeight,
             int a_iXPosition,
-            int a_iYPosition);
+            int a_iYPosition,
+            bool a_bUseImages=false);
 
   void Init() override;
 
+  void RandomizeTasksActions();
   bool ValidateTask(const std::string& a_rAction);
   void UpdateTask(const std::string& a_rNextTask);
   void UpdateActions(const std::array<std::string, M_NB_TASK / 2>& a_rActions);
   void TasksFinished();
+  bool UseImages();
 #ifdef LUDOMUSE_EDITOR
   TTasksArray GetTasks();
   void SetTasks(TTasksArray a_oTasks);
@@ -52,6 +57,8 @@ class CTeamNode : public CGroupNode
   void SetAction(int a_iIndex, const std::string& a_rAction);
 
   virtual void ToJson(rapidjson::Value &a_rParent, rapidjson::Document::AllocatorType &a_rAllocator);
+  void SetUseImages(bool useImages);
+  void EditorUpdate();
 #endif
 private:
 	void SendTask(const std::string& a_rNextTask);

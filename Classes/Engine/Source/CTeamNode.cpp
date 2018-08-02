@@ -1,8 +1,13 @@
 ﻿#include <numeric>
 #include "../Include/CTeamNode.h"
 #include "../Include/CLabelNode.h"
+#include "../Include/CSpriteNode.h"
 #include "../Include/CFindTeamNodeIDVisitor.h"
 #include <cocos2d.h>
+#include <iostream>
+#ifdef LUDOMUSE_EDITOR
+#include <CProjectManager.h>
+#endif
 
 #ifdef __ANDROID__
 #include "../../Modules/Util/Include/FToString.h"
@@ -16,17 +21,18 @@ CTeamNode::CTeamNode(TTasksArray a_oTasksArray,
                      int a_iWidth,
                      int a_iHeight,
                      int a_iXPosition,
-                     int a_iYPosition) :
+                     int a_iYPosition,
+                     bool a_bUseImages) :
     CGroupNode(a_eAnchor, a_iWidth, a_iHeight, a_iXPosition, a_iYPosition),
     m_oTasksArray(a_oTasksArray),
 	m_pKernel(a_pKernel),
 	m_iPlayer1CurrentTask(0),
-	m_iPlayer2CurrentTask(0)
+    m_iPlayer2CurrentTask(0),
+    bUseImages(a_bUseImages)
 {
 
 
 }
-
 
 
 void CTeamNode::Init()
@@ -38,73 +44,77 @@ void CTeamNode::Init()
 	{
 
 		// do only following for "master" player 
-
-		std::vector<int> oTaskIndexes(M_NB_TASK);
-		std::iota(oTaskIndexes.begin(), oTaskIndexes.end(), 0); // populate vector with increasing int
-
-		std::vector<int> oActionsIndexes(oTaskIndexes);
-
-		// initialize random seed
-		std::srand(time(NULL));
-
-
-		int iPlayer1Index = 0, iPlayer2Index = 0;
-		for (int count = M_NB_TASK; count > 0; --count)
-		{
-			int iTaskRand = std::rand() % count;
-			int iActionRand = std::rand() % count;
-
-			if (count > M_NB_TASK / 2) // player 1 tasks and actions
-			{
-				m_oPlayer1Tasks[iPlayer1Index] = m_oTasksArray[oTaskIndexes[iTaskRand]][0];
-				oTaskIndexes.erase(oTaskIndexes.begin() + iTaskRand);
-
-				m_oPlayer1Actions[iPlayer1Index++] = m_oTasksArray[oActionsIndexes[iActionRand]][1];
-				oActionsIndexes.erase(oActionsIndexes.begin() + iActionRand);
-			}
-			else // player 2 tasks and actions
-			{
-				m_oPlayer2Tasks[iPlayer2Index] = m_oTasksArray[oTaskIndexes[iTaskRand]][0];
-				oTaskIndexes.erase(oTaskIndexes.begin() + iTaskRand);
-
-				m_oPlayer2Actions[iPlayer2Index++] = m_oTasksArray[oActionsIndexes[iActionRand]][1];
-				oActionsIndexes.erase(oActionsIndexes.begin() + iActionRand);
-			}
-		}
-
+        RandomizeTasksActions();
 
 		// send player 2 actions
 		std::string sMessage = "kernel:TeamNode:Actions";
+        std::string sAction = "";
 		for (int i = 0; i < M_NB_TASK / 2; ++i)
 		{
-			sMessage += std::string(":") + m_oPlayer2Actions[i];
+            sAction = m_oPlayer2Actions[i];
+            if (bUseImages){
+                std::replace( sAction.begin(), sAction.end(), ':', ';');
+            }
+            sMessage += std::string(":") + sAction;
 		}
 		m_pKernel->SendNetworkMessage(sMessage);
 
 		// send player 2 current Task
 		SendTask(m_oPlayer2Tasks[m_iPlayer2CurrentTask]);
 
-
 		// update player 1 current task
 		UpdateTask(m_oPlayer1Tasks[m_iPlayer1CurrentTask]);
 
 		// update player 1 actions
 		UpdateActions(m_oPlayer1Actions);
-
-
 	}
-
-
 }
 
+void CTeamNode::RandomizeTasksActions(){
+
+    std::vector<int> oTaskIndexes(M_NB_TASK);
+    std::iota(oTaskIndexes.begin(), oTaskIndexes.end(), 0); // populate vector with increasing int
+
+    std::vector<int> oActionsIndexes(oTaskIndexes);
+
+    // initialize random seed
+    std::srand(time(NULL));
+
+
+    int iPlayer1Index = 0, iPlayer2Index = 0;
+    for (int count = M_NB_TASK; count > 0; --count)
+    {
+        int iTaskRand = std::rand() % count;
+        int iActionRand = std::rand() % count;
+
+        if (count > M_NB_TASK / 2) // player 1 tasks and actions
+        {
+            m_oPlayer1Tasks[iPlayer1Index] = m_oTasksArray[oTaskIndexes[iTaskRand]][0];
+            oTaskIndexes.erase(oTaskIndexes.begin() + iTaskRand);
+
+            m_oPlayer1Actions[iPlayer1Index++] = m_oTasksArray[oActionsIndexes[iActionRand]][1];
+            oActionsIndexes.erase(oActionsIndexes.begin() + iActionRand);
+        }
+        else // player 2 tasks and actions
+        {
+            m_oPlayer2Tasks[iPlayer2Index] = m_oTasksArray[oTaskIndexes[iTaskRand]][0];
+            oTaskIndexes.erase(oTaskIndexes.begin() + iTaskRand);
+
+            m_oPlayer2Actions[iPlayer2Index++] = m_oTasksArray[oActionsIndexes[iActionRand]][1];
+            oActionsIndexes.erase(oActionsIndexes.begin() + iActionRand);
+        }
+    }
+}
 
 bool CTeamNode::ValidateTask(const std::string& a_rAction)
 {
-	// find matching task in task/action table
+    std::string sAction = a_rAction;
+    std::replace( sAction.begin(), sAction.end(), ';', ':');
+    //find matching task in task/action table
 	std::string sMatchingTask = "";
 	for (int i = 0; i < M_NB_TASK; ++i)
 	{
-		if (m_oTasksArray[i][1] == a_rAction)
+        if (m_oTasksArray[i][1] == sAction)
 		{
 			sMatchingTask = m_oTasksArray[i][0];
 			break;
@@ -170,9 +180,9 @@ void CTeamNode::UpdateTask(const std::string& a_rNextTask)
 	CFindTeamNodeIDVisitor oVisitor(oFoundEntity, "TeamNode:Task");
 	oVisitor.Traverse(m_pKernel->m_pBehaviorTree);
 	if (oFoundEntity.IsValid())
-	{
-		CLabelNode* pLabelNode = static_cast<CLabelNode*>(oFoundEntity.Get());
-		pLabelNode->SetText(a_rNextTask);
+    {
+        CLabelNode* pLabelNode = static_cast<CLabelNode*>(oFoundEntity.Get());
+        pLabelNode->SetText(a_rNextTask);
 	}
 }
 
@@ -183,11 +193,17 @@ void CTeamNode::UpdateActions(const std::array<std::string, M_NB_TASK / 2>& a_rA
 	{
 		Desc<CNode> oFoundEntity;
 		CFindTeamNodeIDVisitor oVisitor(oFoundEntity, std::string("TeamNode:Action") + std::to_string(i + 1));
-		oVisitor.Traverse(m_pKernel->m_pBehaviorTree);
+        oVisitor.Traverse(m_pKernel->m_pBehaviorTree);
 		if (oFoundEntity.IsValid())
 		{
-			CLabelNode* pLabelNode = static_cast<CLabelNode*>(oFoundEntity.Get());
-			pLabelNode->SetText(a_rActions[i]);
+            CSpriteNode* pSpriteNode = static_cast<CSpriteNode*>(oFoundEntity.Get());
+            if (bUseImages){
+                pSpriteNode->SetPath(a_rActions[i]);
+                ((CLabelNode*)pSpriteNode->GetChildren()[0])->SetText("");
+            } else {
+                pSpriteNode->SetPath("C:/Users/Antoine/Work/SCENARTEST/TestAntoine/ui/cache-noir-70.png");
+                ((CLabelNode*)pSpriteNode->GetChildren()[0])->SetText(a_rActions[i]);
+            }
 		}
 	}
 }
@@ -227,7 +243,15 @@ void CTeamNode::SetAction(int a_iIndex, const std::string &a_rAction)
     m_oTasksArray[a_iIndex][1] = a_rAction;
 }
 
+void CTeamNode::SetUseImages(bool useImages){
+    bUseImages = useImages;
+}
+
 #endif
+
+bool CTeamNode::UseImages(){
+    return bUseImages;
+}
 // send new task to remote player 
 void CTeamNode::SendTask(const std::string& a_rNextTask)
 {
@@ -252,13 +276,19 @@ void CTeamNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::Allocat
     params.AddMember("height", m_iHeight, a_rAllocator);
     params.AddMember("x", m_iXPosition, a_rAllocator);
     params.AddMember("y", m_iYPosition, a_rAllocator);
+    params.AddMember("useImages",bUseImages,a_rAllocator);
 
     rapidjson::Value tasks(rapidjson::kArrayType);
     for (int i = 0; i < M_NB_TASK; ++i)
     {
         rapidjson::Value taskAction(rapidjson::kArrayType);
         taskAction.PushBack(rapidjson::Value(m_oTasksArray[i][0].c_str(), m_oTasksArray[i][0].length()), a_rAllocator); // task string
-        taskAction.PushBack(rapidjson::Value(m_oTasksArray[i][1].c_str(), m_oTasksArray[i][1].length()), a_rAllocator); // action string
+        std::string relativePath = m_oTasksArray[i][1];
+        if (bUseImages){
+            relativePath = CProjectManager::Instance()->GetRelativePathForFile(relativePath);
+        }
+        std::string* pSource = CProjectManager::Instance()->PushBackSource(relativePath);
+        taskAction.PushBack(rapidjson::Value(pSource->c_str(), pSource->length()), a_rAllocator); // action string
 
         tasks.PushBack(taskAction, a_rAllocator);
     }
@@ -284,6 +314,11 @@ void CTeamNode::ToJson(rapidjson::Value &a_rParent, rapidjson::Document::Allocat
 
     teamNode.AddMember("params", params, a_rAllocator);
     a_rParent.PushBack(teamNode, a_rAllocator);
+}
+
+void CTeamNode::EditorUpdate(){
+    RandomizeTasksActions();
+    this->UpdateActions(m_oPlayer1Actions);
 }
 #endif
 

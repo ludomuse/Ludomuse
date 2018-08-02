@@ -30,6 +30,7 @@ CSpriteNode::CSpriteNode(const std::string& a_rFilename,
 
 void CSpriteNode::Init()
 {
+  std::cout << "FileName: " << m_sSpriteFilename << std::endl;
   Sprite* pSprite = Sprite::create(CMacroManager::Instance()->CheckDefinition(m_sSpriteFilename));
   //m_pCocosEntity->setPosition(Vec2(m_iXPosition, m_iYPosition));
 
@@ -65,10 +66,24 @@ void CSpriteNode::SetPath(const std::string &a_sPath)
 {
     //this->m_pCocosEntity = Sprite::create(a_sPath);
     //CCameraFeedNode::DisplayPicture, this, LmJniCppFacade::getCurrentPicturePath()
-    m_sSpriteFilename = a_sPath;
-    ON_CC_THREAD(CSpriteNode::Update, this);
+    auto callback = [this, a_sPath](){
+        this->m_sSpriteFilename = a_sPath;
+        this->Update();
+    };
+    cocos2d::Director::getInstance()->getScheduler()->performFunctionInCocosThread(callback);
+    //ON_CC_THREAD(Sprite::setTexture,(Sprite*)m_pCocosEntity,a_sPath);
+   //((Sprite*)m_pCocosEntity)->setTexture(a_sPath);
+   //ON_CC_THREAD(, this);
 }
 
+void CSpriteNode::Update(){
+    if (m_pCocosEntity)
+        ((Sprite*)m_pCocosEntity)->setTexture(m_sSpriteFilename);
+    /*else {
+        this->UnInit();
+        this->Init();
+    }*/
+}
 //void CSpriteNode::DisplayNewImage()
 //{
 //    CSceneNode* pSceneNode = GetParentSceneNode();

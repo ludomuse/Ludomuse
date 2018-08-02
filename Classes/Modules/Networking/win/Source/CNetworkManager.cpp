@@ -35,11 +35,11 @@ namespace LM
 		int buffIndex = 0;
 		while (buffIndex < iResult)
 		{
-			int messageSize;
-			messageSize = recvbuf[buffIndex];
+            uint16_t messageSize;
+            messageSize = *((uint16_t*)(recvbuf + buffIndex));
 			char* message = new char[messageSize];
-			memcpy(message, recvbuf + buffIndex + 1, messageSize);
-			buffIndex += messageSize + 1;
+            memcpy(message, recvbuf + buffIndex + 2, messageSize);
+            buffIndex += messageSize + 2;
 			std::cout << "Message size : " << messageSize << std::endl;
 			std::cout << "Message read : " << std::string(message, messageSize) << std::endl;
 			nm->m_pKernel->OnReceivingMessage(std::string(message, messageSize));
@@ -262,15 +262,15 @@ void CNetworkManager::Send(const char* buff, size_t size)
 {
 	std::cout << "send message " << buff << std::endl;
 	//m_pKernel->OnReceivingMessage(s);
-	char* sendBuff = new char[size + 1];
-	*sendBuff = size;
-	memcpy(sendBuff + 1, buff, size);
+    char* sendBuff = new char[size + 2];
+    *((uint16_t*)sendBuff) = size;
+    memcpy(sendBuff + 2, buff, size);
 
 	if (m_bIsServer) // Server : use ClientSocket
 	{
 
 		// Echo the buffer back to the sender
-		int iSendResult = send(ClientSocket, sendBuff, size+1, 0);
+        int iSendResult = send(ClientSocket, sendBuff, size+2, 0);
 		if (iSendResult == SOCKET_ERROR) {
 			printf("send failed: %d\n", WSAGetLastError());
 			closesocket(ClientSocket);
@@ -286,7 +286,7 @@ void CNetworkManager::Send(const char* buff, size_t size)
 		int iResult;
 
 		// Send an initial buffer
-		iResult = send(ConnectSocket, sendBuff, size+1, 0);
+        iResult = send(ConnectSocket, sendBuff, size+2, 0);
 		if (iResult == SOCKET_ERROR) {
 			printf("send failed: %d\n", WSAGetLastError());
 			closesocket(ConnectSocket);

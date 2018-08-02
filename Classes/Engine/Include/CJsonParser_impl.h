@@ -10,7 +10,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
 	// the object parameters
 	RefJsonNode rParams = a_rJsonNode["params"];
 
-	int x = 0, y = 0, width = 0, height = 0;
+    int x = 0, y = 0, width = 0, height = 0;
 	std::string id;
 	if (rParams.HasMember("x") && rParams.HasMember("y")) 
 	{
@@ -225,6 +225,11 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
         {
 
           RefJsonNode rTasks = rParams["tasks"];
+          bool useImages = false;
+          if (rParams.HasMember("useImages"))
+          {
+              useImages = rParams["useImages"].GetBool();
+          }
 
           TTasksArray oTasksArray;
 
@@ -235,7 +240,11 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
             RefJsonNode rTask = rTasks[i];
             std::array<std::string, 2> oTaskArray;
             oTaskArray[0] = rTask[0].GetString();
-            oTaskArray[1] = rTask[1].GetString();
+            if(useImages){
+                oTaskArray[1] = NormalizePath(rTask[1].GetString());
+            } else {
+                oTaskArray[1] = rTask[1].GetString();
+            }
 
             oTasksArray[i] = oTaskArray;
             
@@ -244,7 +253,7 @@ inline void CJsonParser::ParseJson(RefJsonNode a_rJsonNode, T* a_pNode, bool a_b
           pEntity = new CTeamNode(oTasksArray,
 								  m_pKernel,
                                   IntToAnchor(rParams["anchor"].GetInt()),
-                                  width, height, x, y);
+                                  width, height, x, y,useImages);
           
         }
 
