@@ -1,0 +1,7 @@
+PROJECT_NAME     = LudoMuse
+OUTPUT_DIRECTORY = C:/Users/Antoine/Work/Documentation
+WARNINGS         = YES
+INPUT            = ../Classes
+FILE_PATTERNS    = *.cpp *.h
+SEARCHENGINE     = YES
+RECURSIVE        = YES

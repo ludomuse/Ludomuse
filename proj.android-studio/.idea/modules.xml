@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/LudoMuse.iml" filepath="$PROJECT_DIR$/app/LudoMuse.iml" />
       <module fileurl="file://$PROJECT_DIR$/../cocos2d/cocos/platform/android/libcocos2dx/libcocos2dx.iml" filepath="$PROJECT_DIR$/../cocos2d/cocos/platform/android/libcocos2dx/libcocos2dx.iml" />
+      <module fileurl="file://C:\Users\Antoine\Work\LudoMuse\cocos2d\cocos\platform\android\libcocos2dx\libcocos2dx.iml" filepath="C:\Users\Antoine\Work\LudoMuse\cocos2d\cocos\platform\android\libcocos2dx\libcocos2dx.iml" />
       <module fileurl="file://$PROJECT_DIR$/proj.android-studio.iml" filepath="$PROJECT_DIR$/proj.android-studio.iml" />
     </modules>
   </component>

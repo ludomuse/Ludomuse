@@ -1,5 +1,12 @@
 package org.cocos2dx.cpp;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map.Entry;
 
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
@@ -38,6 +45,13 @@ public class DebugManager {
 
 	public static Activity activity;
 
+	/*************************FILE LOG*****************************/
+
+	private static File logFile;
+	private static InputStream fileInputStream = null;
+	private static FileOutputStream fileOutputStream = null;
+
+	/*************************FILE LOG*****************************/
 	// View
 
 	private static View layout;
@@ -158,6 +172,37 @@ public class DebugManager {
 			alert.show();
 		}
 
+		/*********************FILE LOG*******************************/
+		logFile = new File("sdcard/log.file");
+		if (!logFile.exists())
+		{
+			try
+			{
+				logFile.createNewFile();
+			}
+			catch (IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		/*********************FILE LOG*******************************/
+	}
+
+	private static void PrintIntoFile(String log){
+		try
+		{
+			//BufferedWriter for performance, true to set append to file flag
+			BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
+			buf.append(log);
+			buf.newLine();
+			buf.close();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@SuppressWarnings("unused")
@@ -229,6 +274,8 @@ public class DebugManager {
 			messageStr = append ? messageStr + formatedMessage
 					: formatedMessage;
 			Log.d(tag, formatedMessage);
+			//printintofile
+			PrintIntoFile(formatedMessage);
 		}
 		else
 		{
