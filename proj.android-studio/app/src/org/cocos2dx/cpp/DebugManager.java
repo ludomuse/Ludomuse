@@ -7,13 +7,20 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Map.Entry;
+
+//import java.util.GregorianCalendar;
 
 import org.cocos2dx.cpp.wifiDirect.WifiDirectManager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.os.Environment;
 import android.os.Handler;
+import android.text.format.DateFormat;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -171,31 +178,49 @@ public class DebugManager {
 
 			alert.show();
 		}
-
-		/*********************FILE LOG*******************************/
-		logFile = new File("sdcard/log.file");
-		if (!logFile.exists())
-		{
-			try
-			{
-				logFile.createNewFile();
-			}
-			catch (IOException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		/*********************FILE LOG*******************************/
 	}
 
+	private static void InitLogFile(){
+
+	    if (logFile == null) {
+            /*********************FILE LOG*******************************/
+		/*String extStorage = Environment.getExternalStorageState();
+		String path = extStorage+"/Android/data/com.mydomain.myapp/";*/
+            logFile = new File("/sdcard/LudoMuse/wifi_direct.log");
+            if (!logFile.exists()) {
+                try {
+                    logFile.createNewFile();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            try
+            {
+                BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
+				SimpleDateFormat date = new SimpleDateFormat("dd MMM yyyy, HH:mm");
+                buf.append("============================ NEW SESSION STARTED : " + date.format(Calendar.getInstance().getTime()) + "============================");
+				buf.newLine();
+				buf.close();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+
+        }
+        /*********************FILE LOG*******************************/
+    }
+
 	private static void PrintIntoFile(String log){
+        InitLogFile();
 		try
 		{
 			//BufferedWriter for performance, true to set append to file flag
 			BufferedWriter buf = new BufferedWriter(new FileWriter(logFile, true));
 			buf.append(log);
-			buf.newLine();
+            buf.newLine();
+			//buf.append("\n\r");
 			buf.close();
 		}
 		catch (IOException e)

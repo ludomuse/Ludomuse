@@ -4,7 +4,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.IHMTEK.LudoMuse"
         minSdkVersion 22
@@ -90,6 +90,6 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':libcocos2dx')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':libcocos2dx')
 }
