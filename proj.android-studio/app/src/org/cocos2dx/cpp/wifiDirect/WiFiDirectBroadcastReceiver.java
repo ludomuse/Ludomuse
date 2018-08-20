@@ -140,6 +140,11 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver
 			_wifiDirectManager.SetUserRequestToDiscoverPeers(false);
 			_wifiDirectManager.launchPeerDiscoveringForPendingUserRequest();
 		}
+		else
+		{
+			DebugManager.print( "WifiDirectManager::LaunchDiscoverPeersIfRequiredByUser ==> NOT LAUNCHED request since no pending user request to discover peers exists", WifiDirectManager.DEBUGGER_CHANNEL);
+		}
+
 	}
 
 

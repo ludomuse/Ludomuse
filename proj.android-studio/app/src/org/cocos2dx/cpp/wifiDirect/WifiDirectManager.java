@@ -1132,7 +1132,7 @@ public class WifiDirectManager
 		String strPeerInfo = getPeerInfo();
 
 		//Early out
-		if ( strPeerInfo == "")
+		if ( strPeerInfo.equals("") )
 		{
 			debugTrace("WifiDirectManager::getPeerName ==> Not peer information, so could not find peer name");
 			return "";
@@ -1361,14 +1361,14 @@ public class WifiDirectManager
 	//------------------------------------------------------------------------------------------------------------------
 	public void setPeerName(String a_strName)
 	{
-		if ( a_strName == "Pair" || a_strName == "PAIR")
+		if (  a_strName.equals("Pair") )
 		{
 			debugTrace("WifiDirectManager::Setting Tries to assign " + a_strName + " so, do not assign and return");
 			return;
 		}
 
 		debugTrace("WifiDirectManager::Setting peer name only if not done before with name:"  + a_strName);
-		if ( lastPeerName == "" || lastPeerName == null  )
+		if ( lastPeerName.equals("") || lastPeerName == null  )
 		{
 			lastPeerName = a_strName;
 		}
@@ -1682,8 +1682,8 @@ public class WifiDirectManager
 
 				String strPeerInfo = getPeerInfo();
 				String strPeerName = getPeerName();
-				debugTrace("WifiDirectManager::OnConnect ==> Try to recover info of the peer. Result : " + strPeerInfo );
-				debugTrace("WifiDirectManager::OnConnect ==> Try to recover name of the peer. Result : " + strPeerName +"***********" );
+				debugTrace("WifiDirectManager::OnConnect ==> Try to recover info of the peer. The info recovered is : " + strPeerInfo );
+				debugTrace("WifiDirectManager::OnConnect ==> Try to recover name of the peer. The name recovered is : " + strPeerName +"***********" );
 				debugTrace("WifiDirectManager::OnConnect ==> owner address is = " + ownerAddress);
 				//SocketHandler.printAllNetworkInterfaceName();
 
@@ -1695,9 +1695,9 @@ public class WifiDirectManager
 				}
 
 				///Assign peer name
-				if (  lastPeerName == "" )
+				if (  lastPeerName.equals("") )
 				{
-					if ( strPeerName != "")
+					if ( !strPeerName.equals("") )
 					{
 						lastPeerName = strPeerName;
 						debugTrace("WifiDirectManager::OnConnect ==> ASSIGN NAME TO PEER");
@@ -1713,7 +1713,7 @@ public class WifiDirectManager
 				}
 				else
 				{
-					debugTrace("WifiDirectManager::OnConnect ==> NO NEED TO ASSIGN NAME TO PEER, it is already done -probably because this tablet send the invitation to the other tablet");
+					debugTrace("WifiDirectManager::OnConnect ==> NO NEED TO ASSIGN NAME TO PEER, it is already done -probably because this tablet send the invitation to the other tablet. Name was :" + lastPeerName );
 				}
 
 
@@ -1870,7 +1870,7 @@ public class WifiDirectManager
 		}
 
 
-		if (lastPeerName == "")
+		if (lastPeerName.equals("") )
 		{
 			debugTrace("WifiDirectManager::OnDisconnect => lastPeer is not assigned ..."); // Indicates whether the device is currently roaming on this network.
 			//return;
