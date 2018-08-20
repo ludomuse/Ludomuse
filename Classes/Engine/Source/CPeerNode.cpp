@@ -24,6 +24,8 @@ CPeerNode::CPeerNode(CKernel* a_pKernel,
 
 void CPeerNode::Init()
 {
+    CCLOG("CPeerNode::Init");
+
 //	ClearChildren();
     if (m_vChildren.size() == 0) {
         m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
@@ -49,7 +51,9 @@ void CPeerNode::ClearChildren()
 
 void CPeerNode::AddPeers(const std::vector<std::string>& a_vPeers)
 {
-  // UnInit all children from scene
+    CCLOG("ADD PEERS called m_vChildren : %d, a_vPeers : %d", m_vChildren.size(), a_vPeers.size());
+
+    // UnInit all children from scene
 	for (CNode* itNode : m_vChildren)
 	{
 		itNode->UnInit();

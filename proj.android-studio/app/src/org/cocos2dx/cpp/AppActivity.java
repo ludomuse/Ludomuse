@@ -84,18 +84,19 @@ public class AppActivity extends Cocos2dxActivity
 
 	}
 
-	//private boolean stopAllowed = true;
-	//@Override
-	/*protected void onStop()
-	{
-		if(stopAllowed)
-		{
-			DebugManager.print("[FINISHING] on stop",
-					WifiDirectManager.DEBUGGER_CHANNEL);
-			//_wifiFacade.clear(); // TODO totest
-			super.onStop();
-		}
-	}*/
+//	private boolean stopAllowed = true;
+//	@Override
+//	protected void onStop()
+//	{
+//		if(stopAllowed)
+//		{
+//			DebugManager.print("AppActivity::onStop",
+//					WifiDirectManager.DEBUGGER_CHANNEL);
+//			_wifiFacade.clear(); // TODO totest
+//			_wifiFacade.clearRequestsAndLocalServices( );
+//			super.onStop();
+//		}
+//	}
 
 
 

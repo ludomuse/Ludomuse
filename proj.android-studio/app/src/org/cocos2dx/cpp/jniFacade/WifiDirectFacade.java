@@ -128,11 +128,11 @@ public class WifiDirectFacade {
 
 		//should be done in the exit method of the application
 		_wifiDirectManager.clear();
+		_wifiDirectManager.clearRequestsAndLocalServices();
 
-//		LudoMuseThread.stopAllLudoMuseThread();
+		//LudoMuseThread.stopAllLudoMuseThread();
 		
 		DebugManager.print("WifiDirectFacade is created !",  WifiDirectManager.DEBUGGER_CHANNEL);
-		DebugManager.print("tablet name is",  WifiDirectManager.DEBUGGER_CHANNEL);
 
 	}
 
@@ -244,16 +244,38 @@ public class WifiDirectFacade {
 	//------------------------------------------------------------------------------------------------------------------
 	public void discoverPeers()
 	{
-		_wifiDirectManager.launchServicePeersDiscovering(_cmOnGettingsPeers);
+		DebugManager.print("WifiDirectFacade::discoverPeers", WifiDirectManager.DEBUGGER_CHANNEL);
+
+		_wifiDirectManager.SetCallbackForDiscoverPeers( _cmOnGettingsPeers );
+
+		//DiscoverPeers only if wifi direct is activated activated.
+		if (_wifiDirectManager.IsWifiDirectEnabled() )
+		{
+			_wifiDirectManager.SetUserRequestToDiscoverPeers( false );
+			DebugManager.print("WifiDirectFaçade::discoverPeers ==> launch discovering", WifiDirectManager.DEBUGGER_CHANNEL);
+			_wifiDirectManager.launchServicePeersDiscovering(_cmOnGettingsPeers);
+		}
+		else
+		{
+			DebugManager.print( "WifiDirectFacade::discoverPeers ==> Tried to discoverPeers when WifiDirect is not enabled, so discovering not launched", WifiDirectManager.DEBUGGER_CHANNEL);
+			_wifiDirectManager.SetUserRequestToDiscoverPeers( true );
+		}
 	}
 
 	//------------------------------------------------------------------------------------------------------------------
 	//
 	//------------------------------------------------------------------------------------------------------------------
-	public void connectTo(String deviceName)
+	public void connectTo(String a_strDeviceName )
 	{
-		DebugManager.print("peer is: " + deviceName, WifiDirectManager.DEBUGGER_CHANNEL);
-		_wifiDirectManager.setPeerName(deviceName);
+		if ( a_strDeviceName.equals("Pair") )
+        {
+            DebugManager.print( "WifiDirectFacade::ConnectTo ==> return and do nothing since name is Pair the default value.",  WifiDirectManager.DEBUGGER_CHANNEL);
+            return;
+        }
+
+        DebugManager.print( "WifiDirectFacade::ConnectTo ==> Only set name of peer (user has selected it). Name is: *" + a_strDeviceName + "*",  WifiDirectManager.DEBUGGER_CHANNEL);
+
+        _wifiDirectManager.setPeerName(a_strDeviceName);
 	}
 
 	//------------------------------------------------------------------------------------------------------------------
@@ -358,6 +380,11 @@ public class WifiDirectFacade {
 	public void clear()
 	{
 		_wifiDirectManager.clear();
+	}
+
+	public void clearRequestsAndLocalServices( )
+	{
+		_wifiDirectManager.clearRequestsAndLocalServices( );
 	}
 
 	//------------------------------------------------------------------------------------------------------------------

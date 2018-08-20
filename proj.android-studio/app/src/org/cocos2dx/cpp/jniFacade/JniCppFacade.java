@@ -22,7 +22,7 @@ public class JniCppFacade
 	//------------------------------------------------------------------------------------------------------------------
 	public static void onGettingPeers(List<String> peers)
 	{
-		DebugManager.print("Jni cpp facade has got peers !", WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("JniCppFacade::OnGettingPeers ==> found peers", WifiDirectManager.DEBUGGER_CHANNEL);
 		String devices = concat(peers);
 		DebugManager.print("Devices are: " + devices, WifiDirectManager.DEBUGGER_CHANNEL);
 		onGettingPeers(devices);

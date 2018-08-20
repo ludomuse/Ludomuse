@@ -30,8 +30,8 @@
     <output url="file://$MODULE_DIR$/build/intermediates/classes/debug" />
     <output-test url="file://$MODULE_DIR$/build/intermediates/classes/test/debug" />
     <exclude-output />
-    <content url="file://C:/Android/android-ndk-r10e/sources/android/cpufeatures">
-      <sourceFolder url="file://C:/Android/android-ndk-r10e/sources/android/cpufeatures" isTestSource="false" />
+    <content url="file://D:/LIB/Android/android-ndk-r13b/sources/android/cpufeatures">
+      <sourceFolder url="file://D:/LIB/Android/android-ndk-r13b/sources/android/cpufeatures" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$/../../Classes">
       <sourceFolder url="file://$MODULE_DIR$/../../Classes" isTestSource="false" />

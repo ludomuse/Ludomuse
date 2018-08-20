@@ -128,7 +128,9 @@ public class JniJavaFacade
 	//------------------------------------------------------------------------------------------------------------------
 	public static void discoverPeers()
 	{
-		DebugManager.print("discover peers is called from c++", WifiDirectManager.DEBUGGER_CHANNEL);
+        DebugManager.print("**************************************************", WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("JniJavaFacade::discoverPeers ==>  called from c++", WifiDirectManager.DEBUGGER_CHANNEL);
+        DebugManager.print("**************************************************", WifiDirectManager.DEBUGGER_CHANNEL);
 		_wifiDirectFacade.discoverPeers();
 	}
 
@@ -137,7 +139,9 @@ public class JniJavaFacade
 	//------------------------------------------------------------------------------------------------------------------
 	public static void connectTo(String deviceName)
 	{
-		DebugManager.print("connectTo " + deviceName + " is called from c++ ", WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("************************************************* ", WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("JniJavaFacade::connectTo " + deviceName + " is called from c++ ==> IT ONLY SETS THE NAME OF PEER", WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("************************************************* ", WifiDirectManager.DEBUGGER_CHANNEL);
 		_wifiDirectFacade.connectTo(deviceName);
 	}
 

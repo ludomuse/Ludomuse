@@ -82,3 +82,12 @@ Example pour l'API 22 utilisée pour le développement de LudoMuse:
 ``
 $ cocos compile -p android --ap android-22
 ``
+
+
+Sur windows, avec la dernière version de Visual Studio (2017), mettre à niveau les projets vers vc141 et il est également possible qu'il faille
+changer dans les propriétés de projet:
+Target platform : Windows 10
+Windows SDK Version : 10.x
+Platform Toolset : Visual Studio 2017 (v141)
+
+sur les différents sous projets de la solution

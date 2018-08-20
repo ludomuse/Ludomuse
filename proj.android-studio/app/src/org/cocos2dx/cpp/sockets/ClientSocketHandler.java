@@ -166,9 +166,9 @@ public class ClientSocketHandler {
 
 	public void setRemoteHost(String ip, int port)
 	{
-		DebugManager.print(ClientSocketHandler.GetTag()
-						+ "setting RemoteHost with IP = " + ip + " port =" + port,
-				WifiDirectManager.DEBUGGER_CHANNEL);
+	//	DebugManager.print(ClientSocketHandler.GetTag()
+	//					+ "setting RemoteHost with IP = " + ip + " port =" + port,
+	//			WifiDirectManager.DEBUGGER_CHANNEL);
 
 
 		remoteIp = ip;
@@ -208,8 +208,8 @@ public class ClientSocketHandler {
 	
 	public boolean wasPreviouslyAttached()
 	{
-		DebugManager.print(ClientSocketHandler.GetTag() + " was previously attached to IP=" + remoteIp,
-				WifiDirectManager.DEBUGGER_CHANNEL);
+	//	DebugManager.print(ClientSocketHandler.GetTag() + " was previously attached to IP=" + remoteIp,
+	//			WifiDirectManager.DEBUGGER_CHANNEL);
 
 		return remoteIp != null;
 	}

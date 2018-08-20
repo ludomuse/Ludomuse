@@ -38,13 +38,17 @@ public class ConnexionStatus {
     private static final long DELAYED_START = 5000;
 
 
-    public ConnexionStatus(Activity activity) {
-
+    public ConnexionStatus(Activity activity)
+    {
         _activity = activity;
         _timeStart = System.currentTimeMillis();
+
+        // Create alerts with given style
         AlertDialog.Builder builderConnectionAlarmDialog = new AlertDialog.Builder(_activity, com.IHMTEK.LudoMuse.R.style.StatusC);
         AlertDialog.Builder builderDeconnectionAlarmDialog = new AlertDialog.Builder(_activity, com.IHMTEK.LudoMuse.R.style.StatusD);
         AlertDialog.Builder builderDiscoverPairs = new AlertDialog.Builder(_activity, com.IHMTEK.LudoMuse.R.style.StatusW);
+
+
         _alertConnection = MakeNewAlert("TABLETTES CONNECTEES !", builderConnectionAlarmDialog);
         _alertDeconnection = MakeNewAlert("A T T E N T I O N : \n" +
                 "Vous avez perdu la connexion avec la tablette de votre partenaire. \n" +
@@ -56,7 +60,8 @@ public class ConnexionStatus {
                 "Ne vous ELOIGNEZ PAS !", builderDiscoverPairs);
     }
 
-    public void Enable(boolean a_bEnabled) {
+    public void Enable(boolean a_bEnabled)
+    {
         if (System.currentTimeMillis() - _timeStart < DELAYED_START)
             return;
 
@@ -83,7 +88,7 @@ public class ConnexionStatus {
         alert.setMessage(text);
         //alert.show();
 
-        DebugManager.print("ConnexionStatus-Toast: " + text, WifiDirectManager.DEBUGGER_CHANNEL);
+       // DebugManager.print("ConnexionStatus-Toast: " + text, WifiDirectManager.DEBUGGER_CHANNEL);
 
         return alert;
     }

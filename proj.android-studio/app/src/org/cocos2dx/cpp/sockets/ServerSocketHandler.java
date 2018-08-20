@@ -588,7 +588,7 @@ class Communication implements Runnable {
 
 		boolean msgAlreadyReceived = isMessageAlreadyReceived(is);
 
-		DebugManager.print(ServerSocketHandler.getTag() + "We received a packet of type " + type  + ". was already received ? " + msgAlreadyReceived, WifiDirectManager.DEBUGGER_CHANNEL);
+		//DebugManager.print(ServerSocketHandler.getTag() + "We received a packet of type " + type  + ". was already received ? " + msgAlreadyReceived, WifiDirectManager.DEBUGGER_CHANNEL);
 
 		// We want to ignore all messages received more than 1 time
 		if (!msgAlreadyReceived || type == PACKET_TYPE.IP) //HACK because we don't know why sometimes, IP is ignored
@@ -756,7 +756,7 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 	//------------------------------------------------------------------------------------------------------------------
 	public void stop()
 	{
-		DebugManager.print(getTag() + "<font color='green'>stop async</font>", WifiDirectManager.DEBUGGER_CHANNEL);
+		DebugManager.print("ServerSocketHandler::Stop ==> " + getTag() + " stop async of socket", WifiDirectManager.DEBUGGER_CHANNEL);
 		this.cancel(true);
 	}
 
@@ -816,8 +816,8 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 
 		}
 
-		String debugText = "launching server on " + serverSocket.getLocalSocketAddress() + ":" + serverSocket.getLocalPort();
-		DebugManager.print(ServerSocketHandler.getTag() + debugText,  WifiDirectManager.DEBUGGER_CHANNEL);
+//		String debugText = "ServerSocketHandler::openServerSocket ==> launching server on " + serverSocket.getLocalSocketAddress() + ":" + serverSocket.getLocalPort();
+//		DebugManager.print(ServerSocketHandler.getTag() + debugText,  WifiDirectManager.DEBUGGER_CHANNEL);
 	}
 
 	/**
@@ -837,24 +837,24 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 			if ( serverSocket != null & !serverSocket.isClosed()   )
 			{
 				serverSocket.setSoTimeout(ACCEPT_TIMEOUT);
-				DebugManager.print(ServerSocketHandler.getTag()  + " 1.4 ServerSocketHandler::waitForClient: listen socket server.", WifiDirectManager.DEBUGGER_CHANNEL);
+			//	DebugManager.print(ServerSocketHandler.getTag()  + " 1.4 ServerSocketHandler::waitForClient: listen socket server.", WifiDirectManager.DEBUGGER_CHANNEL);
 				client = serverSocket.accept();
-				DebugManager.print(ServerSocketHandler.getTag()  + " 1.5 ServerSocketHandler::waitForClient: read of socket", WifiDirectManager.DEBUGGER_CHANNEL);
+			//	DebugManager.print(ServerSocketHandler.getTag()  + " 1.5 ServerSocketHandler::waitForClient: read of socket", WifiDirectManager.DEBUGGER_CHANNEL);
 			}
 			else
 			{
-				DebugManager.print(ServerSocketHandler.getTag()  + " 1.4 : ServerSocketHandler::waitForClient: serverSocket closed or null", WifiDirectManager.DEBUGGER_CHANNEL);
+			//	DebugManager.print(ServerSocketHandler.getTag()  + " 1.4 : ServerSocketHandler::waitForClient: serverSocket closed or null", WifiDirectManager.DEBUGGER_CHANNEL);
 			}
 
 		}
 		catch(SocketException se)
 		{
-			DebugManager.print( ServerSocketHandler.getTag() + " 1.5 ServerSocketHandler::waitForClient:serverSocket.accept() failed because  " + se, WifiDirectManager.DEBUGGER_CHANNEL);
+			//DebugManager.print( ServerSocketHandler.getTag() + " 1.5 ServerSocketHandler::waitForClient:serverSocket.accept() failed because  " + se, WifiDirectManager.DEBUGGER_CHANNEL);
 			//openServerSocket();
 		}
 		catch (IOException e1)
 		{
-			DebugManager.print(ServerSocketHandler.getTag() + " 1.5 ServerSocketHandler::waitForClient: serverSocket.accept() failed with error exception : " + e1, WifiDirectManager.DEBUGGER_CHANNEL);
+			//DebugManager.print(ServerSocketHandler.getTag() + " 1.5 ServerSocketHandler::waitForClient: serverSocket.accept() failed with error exception : " + e1, WifiDirectManager.DEBUGGER_CHANNEL);
 		}
 
 
@@ -868,12 +868,12 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 		try
 		{
 			serverSocket.close();
-			DebugManager.print(ServerSocketHandler.getTag() + " ServerSocketHandler::closeServerSocket ==> server is closed",  WifiDirectManager.DEBUGGER_CHANNEL);
+			//DebugManager.print(ServerSocketHandler.getTag() + " ServerSocketHandler::closeServerSocket ==> server is closed",  WifiDirectManager.DEBUGGER_CHANNEL);
 			bServerSocketClose = true;
 		}
 		catch (IOException e)
 		{
-			DebugManager.print(ServerSocketHandler.getTag() + " server.close() failed",  WifiDirectManager.DEBUGGER_CHANNEL);
+			//DebugManager.print(ServerSocketHandler.getTag() + " server.close() failed",  WifiDirectManager.DEBUGGER_CHANNEL);
 			bServerSocketClose = false;
 		}
 
@@ -891,7 +891,7 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 
 		while ( !isCancelled() )
 		{
-			DebugManager.print(ServerSocketHandler.getTag() + " 1. ServerSocketHandler::doInBackground: server is waiting for client...", WifiDirectManager.DEBUGGER_CHANNEL);
+			//DebugManager.print(ServerSocketHandler.getTag() + "1. ServerSocketHandler::doInBackground ==> server is waiting for client...", WifiDirectManager.DEBUGGER_CHANNEL);
 
 			// Wait for client...
 			Socket client = waitForClient();
@@ -899,20 +899,20 @@ public class ServerSocketHandler extends AsyncTask<Void, String, Void> {
 			// and then open another thread to communicate with him
 			// Treating communication in new thread allow to wait for other client
 			// - and then answer to other communication in the same time
-			if(client != null)
+			if( client != null )
 			{
-				DebugManager.print(ServerSocketHandler.getTag() + " 2. ServerSocketHandler::doInBackground: Create a new communication object using the same client and master",  WifiDirectManager.DEBUGGER_CHANNEL);
+			//	DebugManager.print(ServerSocketHandler.getTag() + " 2. ServerSocketHandler::doInBackground ==> Create a new communication object using the same client and master",  WifiDirectManager.DEBUGGER_CHANNEL);
 
 				if ( master == null)
 				{
-					DebugManager.print("... but master is null", WifiDirectManager.DEBUGGER_CHANNEL);
+			//		DebugManager.print("... but master is null", WifiDirectManager.DEBUGGER_CHANNEL);
 				}
 
 				new Thread(new Communication(client, master)).start();
 			}
 			else
 			{
-				DebugManager.print(ServerSocketHandler.getTag() + " 2. ServerSocketHandler::doInBackground: Client is NULL, (socketserver.accept did not work)",  WifiDirectManager.DEBUGGER_CHANNEL);
+			//	DebugManager.print(ServerSocketHandler.getTag() + " 2. ServerSocketHandler::doInBackground: Client is NULL, (socketserver.accept did not work)",  WifiDirectManager.DEBUGGER_CHANNEL);
 			}
 		}
 
