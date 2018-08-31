@@ -201,7 +201,7 @@ void CTeamNode::UpdateActions(const std::array<std::string, M_NB_TASK / 2>& a_rA
                 pSpriteNode->SetPath(a_rActions[i]);
                 ((CLabelNode*)pSpriteNode->GetChildren()[0])->SetText("");
             } else {
-                pSpriteNode->SetPath("C:/Users/Antoine/Work/SCENARTEST/TestAntoine/ui/cache-noir-70.png");
+                pSpriteNode->SetPath("ui/cache-noir-70.png");
                 ((CLabelNode*)pSpriteNode->GetChildren()[0])->SetText(a_rActions[i]);
             }
 		}
