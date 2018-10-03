@@ -109,7 +109,7 @@ CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
 // 		EAnchor::CENTER, 100, 100, 0, 0);
 
 // 	m_pWaitingScene->AddChildNode(pBackgroundSprite);
-		g_pChrono->m_pKernel = this;
+        g_pChrono->m_pKernel = this;
 }
 
 
@@ -126,27 +126,37 @@ CJsonParser* CKernel::GetJsonParser()
 
 const std::vector<std::string> CKernel::GetSceneIDPlayer(int a_iPlayerID)
 {
-    int playerid;
+    //int playerid;
+    if(!m_bFirstUse)
+    {
+        for (int i=0; i < static_cast<int>(mChapters.size());++i){
+            m_mScenesID[0].insert(m_mScenesID[0].end(), mChapters[i].mScenes[0].begin(),mChapters[i].mScenes[0].end());
+            m_mScenesID[1].insert(m_mScenesID[1].end(), mChapters[i].mScenes[1].begin(),mChapters[i].mScenes[1].end());
+        }
+        m_bFirstUse = true;
+    }
+
     if(a_iPlayerID == 0)
     {
-        //return this->m_mScenesID[0];
-        playerid = 0;
+        return this->m_mScenesID[0];
+        //playerid = 0;
     }
     else if(a_iPlayerID == 1)
     {
-        //return this->m_mScenesID[1];
-        playerid = 1;
+        return this->m_mScenesID[1];
+        //playerid = 1;
     }
     else
     {
-        //return this->m_mScenesID[0];
-        playerid = 0;
+        return this->m_mScenesID[0];
+        //playerid = 0;
     }
-    std::vector<std::string> playerScenes;
+    /*std::vector<std::string> playerScenes;
     for (int i=0; i < static_cast<int>(mChapters.size());++i){
         playerScenes.insert(playerScenes.end(), mChapters[i].mScenes[playerid].begin(),mChapters[i].mScenes[playerid].end());
     }
-    return playerScenes;
+    std::cout << "PLAYERSCENNE ADDWIZARD : " << playerScenes.size();*/
+    //return playerScenes;
 }
 #ifdef LUDOMUSE_EDITOR
 std::string CKernel::ToJson(){
@@ -495,6 +505,7 @@ void CKernel::AddScene(CSceneNode* newScene, const std::string& a_sPreviousID,
         }
         //        emit(addingSceneFinished(a_sNewID, a_iPlayerNumber));
     }
+    this->AddSceneID(a_iPlayerNumber,a_sNewID);
 	emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
 		QString::fromStdString(a_sNewID),
 		a_iPlayerNumber));
@@ -586,9 +597,9 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
         }
         std::vector<CNode*>::iterator iFirst = iBegin + 1;
         std::vector<CNode*>::iterator iLast = iFirst + 1;
-        std::cout << "###### DEBUG SHAREDSCENE #####" << std::endl;
-        std::cout << "iBegin : " << (*iBegin)->GetSceneID() << " iEnd : " << (*iEnd)->GetSceneID() << std::endl;
-        std::cout << "iFirst : " << (*iFirst)->GetSceneID() << " iLast : " << (*iLast)->GetSceneID() << std::endl;
+ //       std::cout << "###### DEBUG SHAREDSCENE #####" << std::endl;
+ //       std::cout << "iBegin : " << (*iBegin)->GetSceneID() << " iEnd : " << (*iEnd)->GetSceneID() << std::endl;
+//        std::cout << "iFirst : " << (*iFirst)->GetSceneID() << " iLast : " << (*iLast)->GetSceneID() << std::endl;
         while ((*iFirst)->GetSceneID() != sLastScene)
         {
             if (PlayerHasScene((*iFirst)->GetSceneID(), iPullPlayer))
@@ -606,7 +617,7 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
                 iLast++;
             }
         }
-        std::cout << "AFTER SWAP CHELOU " << " iFirst : " << (*iFirst)->GetSceneID() << " iLast : " << (*iLast)->GetSceneID() << " (insert pos) iFirst+1 : " << (*(iFirst+1))->GetSceneID() << std::endl;
+//        std::cout << "AFTER SWAP CHELOU " << " iFirst : " << (*iFirst)->GetSceneID() << " iLast : " << (*iLast)->GetSceneID() << " (insert pos) iFirst+1 : " << (*(iFirst+1))->GetSceneID() << std::endl;
         newScene->SetParent(m_pBehaviorTree);
         vChildren.insert(iFirst+1, newScene);
         m_pBehaviorTree->SetChildren(vChildren);
@@ -614,6 +625,8 @@ void CKernel::AddNewSharedScene(const std::string& a_sTemplatePath, const std::s
 //    emit(addingSceneFinished(QString::fromStdString(a_sPreviousID),
 //                             QString::fromStdString(a_sNewID),
 //                             a_iPlayerNumber));
+    this->AddSceneID(0,a_sNewID);
+    this->AddSceneID(1,a_sNewID);
 	emit(addingSharedSceneFinished(QString::fromStdString(a_sPreviousID1),
 		QString::fromStdString(a_sPreviousID2),
 		QString::fromStdString(a_sNewID)));

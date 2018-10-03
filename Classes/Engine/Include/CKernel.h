@@ -74,6 +74,7 @@ private:
 
   std::mutex m_oCountdownMutex;
 
+  bool m_bFirstUse = false;
 
 public:
 	/// \brief a reference to the dashboard with the timeline of the game
