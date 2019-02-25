@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <pthread.h>
 
 #include "../Include/CNetworkManager.h"
@@ -10,6 +10,7 @@
 #else
 #define DEFAULT_PORT "6666"
 #endif
+#define HEADER_SIZE 2
 
 
 namespace LM
@@ -23,11 +24,11 @@ namespace LM
 		printf("Bytes received: %d\n", iResult);
 		if (iResult > M_BYTES.size())
 		{
-			std::string sMessageStart(recvbuf + 1, M_BYTES.size());
+                        std::string sMessageStart(recvbuf + HEADER_SIZE, M_BYTES.size());
 			if (sMessageStart == M_BYTES)
 			{
-				byte oEvent = recvbuf[M_BYTES.size() + 1];
-				bytes message(recvbuf + M_BYTES.size() + 2, iResult - M_BYTES.size() - 2);
+                                byte oEvent = recvbuf[M_BYTES.size() + HEADER_SIZE];
+                                bytes message(recvbuf + M_BYTES.size() + HEADER_SIZE + 1, iResult - M_BYTES.size() - HEADER_SIZE - 1);
 				nm->m_pKernel->OnReceiving(message, oEvent);
 				return;
 			}
@@ -38,8 +39,8 @@ namespace LM
             uint16_t messageSize;
             messageSize = *((uint16_t*)(recvbuf + buffIndex));
 			char* message = new char[messageSize];
-            memcpy(message, recvbuf + buffIndex + 2, messageSize);
-            buffIndex += messageSize + 2;
+            memcpy(message, recvbuf + buffIndex + HEADER_SIZE, messageSize);
+            buffIndex += messageSize + HEADER_SIZE;
 			std::cout << "Message size : " << messageSize << std::endl;
 			std::cout << "Message read : " << std::string(message, messageSize) << std::endl;
 			nm->m_pKernel->OnReceivingMessage(std::string(message, messageSize));
