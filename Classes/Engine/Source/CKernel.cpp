@@ -1671,6 +1671,7 @@ void CKernel::AnchorEntityCallback(SEvent a_rEvent, CEntityNode* a_pAnchoredEnti
         {
             AnchorEntity(pAnchorEntity, a_pAnchoredEntity);
             a_pAnchoredEntity->Dispatch("Anchored");
+            pAnchorEntity->DisableEvent("Drop");
         }
         else {
             // put entity back
