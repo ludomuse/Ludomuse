@@ -1681,7 +1681,7 @@ void CKernel::AnchorEntityCallback(SEvent a_rEvent, CEntityNode* a_pAnchoredEnti
             });
 
             auto revert = CallFunc::create([a_pAnchoredEntity]() {
-                a_pAnchoredEntity->Revert();
+                a_pAnchoredEntity->Revert(!a_pAnchoredEntity->IsListeningTo("Show"));
             });
 
             auto oSequence = Sequence::create(dispatchMessage, revert, nullptr);
