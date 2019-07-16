@@ -69,6 +69,7 @@ private:
   std::map<int, CTouchBeganVisitor> m_mTouchBeganVisitors;
 
   bool m_bIsServer;
+  std::string m_sPeerFilter;
 
   CSerializableStats* m_pRemoteStats;
 

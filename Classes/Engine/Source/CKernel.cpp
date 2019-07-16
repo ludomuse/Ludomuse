@@ -97,7 +97,8 @@ CKernel::CKernel(bool a_bIsServer) : m_pInputManager(new CInputManager(this)),
     m_pDashboard(nullptr),
     m_pCurrentScene(nullptr),
     m_pWaitingScene(nullptr),
-    m_pRemoteStats(nullptr)
+    m_pRemoteStats(nullptr),
+    m_sPeerFilter("")
 {
     // the BehaviorTree member of the kernel
     // is a pointer to the root node of the tree
@@ -848,13 +849,28 @@ void CKernel::Init(const std::string& a_sPath)
     if(a_sPath.empty())
     {
         std::string sJsonPath = cocos2d::FileUtils::getInstance()->getStringFromFile("LudoMuse.conf");
-
         m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, sJsonPath);
     }
     else
     {
         m_pJsonParser->BuildBehaviorTreeFromFile(m_pBehaviorTree, a_sPath);
     }
+
+#ifdef __ANDROID__
+    {
+        std::ifstream ifs("/sdcard/LudoMuse/peer_filter.txt");
+        char filter[256];
+        if (ifs.good())
+        {
+            ifs.getline(filter, 256);
+            if (strlen(filter) > 0)
+            {
+                m_sPeerFilter = std::string(filter);
+            }
+        }
+    }
+#endif
+
 
     CSceneNode* pFirstScene = (dynamic_cast<CSceneNode*>((*m_pBehaviorTree)[0]));
     m_pCurrentScene = pFirstScene;
@@ -1576,10 +1592,20 @@ void CKernel::GetPeers()
 
 void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
 {
-    CCLOG("peers : ");
+    CCLOG("peers (filter is \"%s\"): ", m_sPeerFilter.c_str());
+    std::vector<std::string> vFilteredPeers;
     for (const std::string& itString : a_vPeers)
     {
         CCLOG("found peer : %s", itString.c_str());
+        if (m_sPeerFilter.length() > 0 && itString.find(m_sPeerFilter) == 0)
+        {
+          CCLOG("kept by the peer filter");
+          vFilteredPeers.push_back(itString);
+        }
+        else
+        {
+            CCLOG("discarded by the peer filter");
+        }
     }
     Desc<CNode> pEntity;
     CFindEntityVisitor oVisitor(pEntity, "Peers");
@@ -1589,7 +1615,14 @@ void CKernel::OnGettingPeers(const std::vector<std::string>& a_vPeers)
         CPeerNode* pPeerNode = static_cast<CPeerNode*>(pEntity.Get());
         if (pPeerNode)
         {
+          if (m_sPeerFilter.length() > 0)
+          {
+            ON_CC_THREAD(CPeerNode::AddPeers, pPeerNode, vFilteredPeers);
+          }
+          else
+          {
             ON_CC_THREAD(CPeerNode::AddPeers, pPeerNode, a_vPeers);
+          }
         }
     }
 }

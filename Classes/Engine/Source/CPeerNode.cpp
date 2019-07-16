@@ -26,14 +26,15 @@ void CPeerNode::Init()
 {
     CCLOG("CPeerNode::Init");
 
-//	ClearChildren();
-    if (m_vChildren.size() == 0) {
-        m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
-    }
-	CGridNode::Init();
+    ClearChildren();
+    CGridNode::Init();
+
 #ifndef LUDOMUSE_EDITOR
-	m_pKernel->GetPeers();
+    m_pKernel->GetPeers();
 #else
+    if (m_vChildren.size() == 0) {
+      m_pKernel->GetJsonParser()->ParseJson(m_rChildrenStyle, this);
+    }
     ReplaceLabelValue(m_vChildren[0], "Pair");
 #endif
 }
