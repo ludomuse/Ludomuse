@@ -71,6 +71,7 @@ namespace LM
 //#endif
 //		std::string fullSoundPath = m_pKernel->GetJsonParser()->GetBasePath() + "/" + a_rSoundURL;
 
+		CocosDenshion::SimpleAudioEngine::getInstance()->setBackgroundMusicVolume(1.0);
 		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(fullSoundPath.c_str(), false);
 		//pthread_t thread;
 		//pthread_create(&thread, NULL, &WaitSoundFinished, pSound);
