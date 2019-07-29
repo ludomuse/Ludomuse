@@ -36,7 +36,7 @@ import android.widget.Toast;
 
 public class DebugManager {
 
-	public static boolean mute = false;
+	public static boolean mute = true;
 
 	private static String tag = "LudoMuseDebug";
 	public static int currentDebugLevel = WifiDirectManager.DEBUGGER_CHANNEL;

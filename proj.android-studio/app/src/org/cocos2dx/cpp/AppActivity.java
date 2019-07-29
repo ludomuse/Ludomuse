@@ -56,21 +56,24 @@ public class AppActivity extends Cocos2dxActivity
 
 		super.onCreate(savedInstanceState);
 
-		// redirects logcat to filesystem
-		File filename = new File("/sdcard/LudoMuse/logcat.log");
+		if (!DebugManager.mute)
+		{
+			// redirects logcat to filesystem
+			File filename = new File("/sdcard/LudoMuse/logcat.log");
 
-		try // to create logcat redirection file
-		{
-			filename.createNewFile();
-			String cmd = "logcat -c";
-			Runtime.getRuntime().exec(cmd);
-			cmd = "logcat -f " + filename.getAbsolutePath();
-			Runtime.getRuntime().exec(cmd);
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-			Log.e("LudoMuse", "could not open logcat log file", e);
+			try // to create logcat redirection file
+			{
+				filename.createNewFile();
+				String cmd = "logcat -c";
+				Runtime.getRuntime().exec(cmd);
+				cmd = "logcat -f " + filename.getAbsolutePath();
+				Runtime.getRuntime().exec(cmd);
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+				Log.e("LudoMuse", "could not open logcat log file", e);
+			}
 		}
 
 		// Create WIFI direct
