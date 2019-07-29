@@ -76,6 +76,14 @@ bool CTouchBeganVisitor::OnTouchEnd(Touch* a_pTouch, Event* a_pEvent)
 					CEntityNode::Release(pEntity);
 				}
 				pEntity->GetCocosEntity()->setGlobalZOrder(0);
+                                for (CNode* itNode : *pEntity)
+                                {
+                                  CEntityNode* pEntity = dynamic_cast<CEntityNode*>(itNode);
+                                  if (pEntity)
+                                  {
+                                    pEntity->GetCocosEntity()->setGlobalZOrder(0);
+                                  }
+                                }
 			}
 			//else if (pDropEntity = m_pKernel->FindEntity(a_pTouch, "Anchor"))
 			//{
@@ -346,7 +354,7 @@ void CTouchBeganVisitor::StartMove(CEntityNode* a_pEntity)
 {
 	CEntityNode::Lock(a_pEntity);
     //a_pEntity->GetCocosEntity()->setZOrder(1);
-    a_pEntity->GetCocosEntity()->setGlobalZOrder(1);
+    a_pEntity->GetCocosEntity()->setGlobalZOrder(1000);
 	auto oScaleTo1 = ScaleTo::create(0.1f, 2 * a_pEntity->GetEntityStartScale());
 	auto oEaseOutBack1 = EaseBackOut::create(oScaleTo1);
 
